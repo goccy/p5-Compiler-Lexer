@@ -1,0 +1,6 @@
+Revision history for Perl extension Lexer.
+
+0.01  Wed Oct 31 14:00:38 2012
+	- original version; created by h2xs 1.23 with options
+		-A -n Lexer
+

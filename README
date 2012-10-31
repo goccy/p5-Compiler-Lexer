@@ -1,0 +1,65 @@
+This is Perl module Compiler::Lexer.
+
+NAME
+
+Compiler::Lexer - Lexical Analyzer for Perl5
+
+SYNOPSIS
+
+use Compiler::Lexer;
+use Data::Dumper;
+
+sub get_script {
+    my ($filename) = @_;
+    my $script = "";
+    open(FP, "<", $filename) or die("Error");
+    $script .= $_ foreach (<FP>);
+    close(FP);
+    return $script;
+}
+
+my $filename = $ARGV[0];
+print Dumper Lexer::deparse($filename, get_script($filename));
+print Dumper Lexer::get_stmt_codes($filename, get_script($filename));
+print Dumper Lexer::get_used_modules($filename, get_script($filename));
+
+
+INSTALLATION
+
+Install cpanm (App::cpanminus) and then run the following command to install
+Lexer:
+
+    $ cpanm Compiler::Lexer
+
+If you get the distribution, unpack it and build it as per the usual:
+
+    $ tar xzf Compiler-Lexer-{version}.tar.gz
+    $ cd Compiler-Lexer-{version}
+    $ perl Makefile.PL
+    $ make && make test
+
+Then install it:
+
+    $ make install
+
+If you want to install it from the repository, you must install authoring
+tools.
+
+    $ cpanm < author/requires.cpanm
+
+DOCUMENTATION
+
+Compiler::Lexer documentation is available as in POD. So you can do:
+
+    $ perldoc Compiler::Lexer
+
+to read the documentation online with your favorite pager.
+
+RESOURCE
+
+LICENSE AND COPYRIGHT
+
+Copyright (c) 2012, Masaaki, Goshima (goccy). All rights reserved.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.

@@ -1,0 +1,2138 @@
+[
+ {
+	 "type" : "Return",
+	 "kind" : "Return",
+	 "data" : "return",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Add",
+	 "kind" : "Operator",
+	 "data" : "+",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Sub",
+	 "kind" : "Operator",
+	 "data" : "-",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Mul",
+	 "kind" : "Operator",
+	 "data" : "*",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Div",
+	 "kind" : "Operator",
+	 "data" : "/",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Greater",
+	 "kind" : "Operator",
+	 "data" : ">",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Less",
+	 "kind" : "Operator",
+	 "data" : "<",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "StringAdd",
+	 "kind" : "Operator",
+	 "data" : ".",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Ref",
+	 "kind" : "Operator",
+	 "data" : "\\",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BitNot",
+	 "kind" : "Operator",
+	 "data" : "~",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BitOr",
+	 "kind" : "Operator",
+	 "data" : "|",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Or",
+	 "kind" : "Operator",
+	 "data" : "or",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BitAnd",
+	 "kind" : "Operator",
+	 "data" : "&",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "And",
+	 "kind" : "Operator",
+	 "data" : "and",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BitXOr",
+	 "kind" : "Operator",
+	 "data" : "^",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "XOr",
+	 "kind" : "Operator",
+	 "data" : "xor",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "StringMul",
+	 "kind" : "Operator",
+	 "data" : "x",
+	 "parse_func" : ""
+ },
+ {
+ 	 "type" : "AddEqual",
+	 "kind" : "Assign",
+	 "data" : "+=",
+	 "parse_func" : ""
+ },
+ {
+ 	 "type" : "SubEqual",
+	 "kind" : "Assign",
+	 "data" : "-=",
+	 "parse_func" : ""
+ },
+ {
+ 	 "type" : "MulEqual",
+	 "kind" : "Assign",
+	 "data" : "*=",
+	 "parse_func" : ""
+ },
+ {
+ 	 "type" : "DivEqual",
+	 "kind" : "Assign",
+	 "data" : "/=",
+	 "parse_func" : ""
+ },
+ {
+ 	 "type" : "StringAdd",
+	 "kind" : "Assign",
+	 "data" : ".=",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "GreaterEqual",
+	 "kind" : "Operator",
+	 "data" : ">=",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "LessEqual",
+	 "kind" : "Operator",
+	 "data" : "<=",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "EqualEqual",
+	 "kind" : "Operator",
+	 "data" : "==",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Diamond",
+	 "kind" : "Operator",
+	 "data" : "<>",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Compare",
+	 "kind" : "Operator",
+	 "data" : "<=>",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "RegOK",
+	 "kind" : "Operator",
+	 "data" : "=~",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "RegNot",
+	 "kind" : "Operator",
+	 "data" : "!~",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "NotEqual",
+	 "kind" : "Operator",
+	 "data" : "!=",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "ArraySize",
+	 "kind" : "Operator",
+	 "data" : "$#",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "StringLess",
+	 "kind" : "Operator",
+	 "data" : "lt",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "StringLessEqual",
+	 "kind" : "Operator",
+	 "data" : "le",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "StringGrater",
+	 "kind" : "Operator",
+	 "data" : "gt",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "StringGraterEqual",
+	 "kind" : "Operator",
+	 "data" : "ge",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "StringEqual",
+	 "kind" : "Operator",
+	 "data" : "eq",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "StringNotEqual",
+	 "kind" : "Operator",
+	 "data" : "ne",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "StringCompare",
+	 "kind" : "Operator",
+	 "data" : "cmp",
+	 "parse_func" : ""
+ },
+ {
+ 	 "type" : "Inc",
+	 "kind" : "Operator",
+	 "data" : "++",
+	 "parse_func" : ""
+ },
+ {
+ 	 "type" : "Dec",
+	 "kind" : "Operator",
+	 "data" : "--",
+	 "parse_func" : ""
+ },
+ {
+ 	 "type" : "Exp",
+	 "kind" : "Operator",
+	 "data" : "**",
+	 "parse_func" : ""
+ },
+ {
+ 	 "type" : "LeftShift",
+	 "kind" : "Operator",
+	 "data" : "<<",
+	 "parse_func" : ""
+ },
+ {
+ 	 "type" : "RightShift",
+	 "kind" : "Operator",
+	 "data" : ">>",
+	 "parse_func" : ""
+ },
+ {
+ 	 "type" : "And",
+	 "kind" : "Operator",
+	 "data" : "&&",
+	 "parse_func" : ""
+ },
+ {
+ 	 "type" : "Or",
+	 "kind" : "Operator",
+	 "data" : "||",
+	 "parse_func" : ""
+ },
+ {
+ 	 "type" : "Slice",
+	 "kind" : "Operator",
+	 "data" : "..",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "VarDecl",
+	 "kind" : "Decl",
+	 "data" : "my",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "FunctionDecl",
+	 "kind" : "Decl",
+	 "data" : "sub",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Assign",
+	 "kind" : "Assign",
+	 "data" : "=",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Is",
+	 "kind" : "SingleTerm",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "IsNot",
+	 "kind" : "SingleTerm",
+	 "data" : "!",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Not",
+	 "kind" : "SingleTerm",
+	 "data" : "not",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "chomp",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "chop",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "chr",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "crypt",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "index",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "lc",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "lcfirst",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "length",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "ord",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "pack",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "unpack",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "sort",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "reverse",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "rindex",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "sprintf",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "substr",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "uc",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "ucfirst",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "pos",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "quotemeta",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "split",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "study",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "pop",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "pop",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "push",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "splice",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "shift",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "unshift",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "grep",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "join",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "map",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "delete",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "each",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "exists",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "keys",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "values",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "binmode",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "close",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "closedir",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "dbmclose",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "dbmopen",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "die",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "eof",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "fileno",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "flock",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "format",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "getc",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "print",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "say",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "printf",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "read",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "readdir",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "rewinddir",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "seek",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "seekdir",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "select",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "syscall",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "sysread",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "sysseek",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "syswrite",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "tell",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "telldir",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "truncate",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "warn",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "write",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "syswrite",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "vec",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "chdir",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "chmod",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "chown",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "chroot",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "fcntl",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "glob",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "ioctl",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "link",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "lstat",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "mkdir",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "open",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "opendir",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "readlink",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "rename",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "rmdir",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "stat",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "symlink",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "umask",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "unlink",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "utime",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "caller",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "dump",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "eval",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "exit",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "wantarray",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "formline",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "reset",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "scalar",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "alarm",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "exec",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "fork",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "getpgrp",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "getppid",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "getpriority",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "kill",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "pipe",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "setpgrp",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "setpriority",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "sleep",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "system",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "times",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "wait",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "waitpid",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "no",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "tie",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "tied",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "untie",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "accept",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "bind",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "connect",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "getpeername",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "getsockname",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "getsockopt",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "listen",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "recv",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "send",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "setsockopt",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "shutdown",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "socket",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "socketpair",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "msgctl",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "msgget",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "msgrcv",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "msgsnd",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "semctl",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "semget",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "semop",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "shmctl",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "shmget",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "shmread",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "shmwrite",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "endgrent",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "endhostent",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "endnetent",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "endpwent",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "getgrent",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "getgrent",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "getgrgid",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "getgrnam",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "getlogin",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "getpwent",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "getpwnam",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "getpwuid",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "setgrent",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "setpwent",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "endprotoent",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "endservent",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "gethostbyaddr",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "gethostbyname",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "gethostent",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "getnetbyaddr",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "getnetbyname",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "getnetent",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "getprotobyname",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "getprotobynumber",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "getprotoent",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "getservbyname",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "getservbyport",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "getservent",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "sethostent",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "setnetent",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "setprotoent",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "setservent",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "gmtime",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "localtime",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "time",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "times",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "ref",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "bless",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "defined",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "abs",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "atan2",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "cos",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "exp",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "hex",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "int",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "log",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "oct",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "rand",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "sin",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "sqrt",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "BuiltinFunc",
+	 "kind" : "Function",
+	 "data" : "srand",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "RequireDecl",
+	 "kind" : "Decl",
+	 "data" : "require",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Import",
+	 "kind" : "Import",
+	 "data" : "import",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "SpecificKeyword",
+	 "kind" : "SpecificKeyword",
+	 "data" : "__PACKAGE__",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "SpecificKeyword",
+	 "kind" : "SpecificKeyword",
+	 "data" : "__FILE__",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "SpecificKeyword",
+	 "kind" : "SpecificKeyword",
+	 "data" : "__LINE__",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "SpecificKeyword",
+	 "kind" : "SpecificKeyword",
+	 "data" : "__SUB__",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "DataWord",
+	 "kind" : "DataWord",
+	 "data" : "__DATA__",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "DataWord",
+	 "kind" : "DataWord",
+	 "data" : "__END__",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "ModWord",
+	 "kind" : "ModWord",
+	 "data" : "BEGIN",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "ModWord",
+	 "kind" : "ModWord",
+	 "data" : "CHECK",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "ModWord",
+	 "kind" : "ModWord",
+	 "data" : "INIT",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "ModWord",
+	 "kind" : "ModWord",
+	 "data" : "END",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "ModWord",
+	 "kind" : "ModWord",
+	 "data" : "UNITCHECK",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "AUTOLOAD",
+	 "kind" : "AUTOLOAD",
+	 "data" : "AUTOLOAD",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "CORE",
+	 "kind" : "CORE",
+	 "data" : "CORE",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "DESTROY",
+	 "kind" : "DESTROY",
+	 "data" : "DESTROY",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Redo",
+	 "kind" : "Redo",
+	 "data" : "redo",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Next",
+	 "kind" : "Next",
+	 "data" : "next",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Last",
+	 "kind" : "Last",
+	 "data" : "last",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Goto",
+	 "kind" : "Goto",
+	 "data" : "goto",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Continue",
+	 "kind" : "Continue",
+	 "data" : "continue",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Do",
+	 "kind" : "Do",
+	 "data" : "do",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Break",
+	 "kind" : "Break",
+	 "data" : "break",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Handle",
+	 "kind" : "Handle",
+	 "data" : "-X",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "LocalDecl",
+	 "kind" : "Decl",
+	 "data" : "local",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "OurDecl",
+	 "kind" : "Decl",
+	 "data" : "our",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "StateDecl",
+	 "kind" : "Decl",
+	 "data" : "state",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "UseDecl",
+	 "kind" : "Decl",
+	 "data" : "use",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "IfStmt",
+	 "kind" : "Stmt",
+	 "data" : "if",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "ElseStmt",
+	 "kind" : "Stmt",
+	 "data" : "else",
+	 "parse_func" : ""
+ },
+ {
+ 	 "type" : "ElsifStmt",
+	 "kind" : "Stmt",
+	 "data" : "elsif",
+	 "parse_func" : ""
+ },
+ {
+ 	 "type" : "UnlessStmt",
+	 "kind" : "Stmt",
+	 "data" : "unless",
+	 "parse_func" : ""
+ },
+ {
+ 	 "type" : "UntilStmt",
+	 "kind" : "Stmt",
+	 "data" : "until",
+	 "parse_func" : ""
+ },
+ {
+ 	 "type" : "WhenStmt",
+	 "kind" : "Stmt",
+	 "data" : "when",
+	 "parse_func" : ""
+ },
+ {
+ 	 "type" : "GivenStmt",
+	 "kind" : "Stmt",
+	 "data" : "given",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "DefaultStmt",
+	 "kind" : "DefaultStmt",
+	 "data" : "default",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Comma",
+	 "kind" : "Comma",
+	 "data" : ",",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "SemiColon",
+	 "kind" : "StmtEnd",
+	 "data" : ";",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "LeftParenthesis",
+	 "kind" : "Symbol",
+	 "data" : "(",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "RightParenthesis",
+	 "kind" : "Symbol",
+	 "data" : ")",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "LeftBrace",
+	 "kind" : "Symbol",
+	 "data" : "{",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "RightBrace",
+	 "kind" : "Symbol",
+	 "data" : "}",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "LeftBracket",
+	 "kind" : "Symbol",
+	 "data" : "[",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "RightBracket",
+	 "kind" : "Symbol",
+	 "data" : "]",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "ArrayDereference",
+	 "kind" : "Modifier",
+	 "data" : "@{",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "HashDereference",
+	 "kind" : "Modifier",
+	 "data" : "%{",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Key",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Arrow",
+	 "kind" : "Operator",
+	 "data" : "=>",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Pointer",
+	 "kind" : "Operator",
+	 "data" : "->",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "NamespaceResolver",
+	 "kind" : "Operator",
+	 "data" : "::",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Namespace",
+	 "kind" : "Namespace",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Package",
+	 "kind" : "Stmt",
+	 "data" : "package",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Class",
+	 "kind" : "Stmt",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "CallDecl",
+	 "kind" : "Decl",
+	 "data" : "&",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "CodeRef",
+	 "kind" : "SingleTerm",
+	 "data" : "\\&",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "WhileStmt",
+	 "kind" : "Stmt",
+	 "data" : "while",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "ForStmt",
+	 "kind" : "Stmt",
+	 "data" : "for",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "ForeachStmt",
+	 "kind" : "Stmt",
+	 "data" : "foreach",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Annotation",
+	 "kind" : "Annotation",
+	 "data" : "#@",
+	 "parse_func" : ""
+ },
+ {
+	"type" : "ArgumentArray",
+	 "kind" : "Term",
+	 "data" : "@_",
+	 "parse_func" : ""
+ },
+ {
+	"type" : "SpecificValue",
+	 "kind" : "Term",
+	 "data" : "$_",
+	 "parse_func" : ""
+ },
+ {
+	"type" : "ProgramArgument",
+	 "kind" : "Term",
+	 "data" : "@ARGV",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "RegOpt",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "RegQuote",
+	 "kind" : "Term",
+	 "data" : "q",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "RegDoubleQuote",
+	 "kind" : "Term",
+	 "data" : "qq",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "RegList",
+	 "kind" : "Term",
+	 "data" : "qw",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "RegExec",
+	 "kind" : "Term",
+	 "data" : "qx",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "RegDecl",
+	 "kind" : "Term",
+	 "data" : "qr",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "RegMatch",
+	 "kind" : "Term",
+	 "data" : "m",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "RegDelim",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "RegMiddleDelim",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "RegAllReplace",
+	 "kind" : "Term",
+	 "data" : "tr",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "RegAllReplace",
+	 "kind" : "Term",
+	 "data" : "y",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "RegReplace",
+	 "kind" : "Term",
+	 "data" : "s",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "RegReplaceFrom",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "RegReplaceTo",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "FieldDecl",
+	 "kind" : "Decl",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "TypeRef",
+	 "kind" : "Ref",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "LabelRef",
+	 "kind" : "Ref",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "LocalVarDecl",
+	 "kind" : "Decl",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "GlobalVarDecl",
+	 "kind" : "Decl",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "MultiLocalVarDecl",
+	 "kind" : "Decl",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "MultiGlobalVarDecl",
+	 "kind" : "Decl",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Var",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "CodeVar",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "ArrayVar",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "HashVar",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Int",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Double",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "String",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "RawString",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "ExecString",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Object",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "RegExp",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Array",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Hash",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Operator",
+	 "kind" : "Operator",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "LocalVar",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "LocalArrayVar",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "LocalHashVar",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "GlobalVar",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "GlobalArrayVar",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "GlobalHashVar",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "ArrayRef",
+	 "kind" : "Ref",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "HashRef",
+	 "kind" : "Ref",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "ArrayAt",
+	 "kind" : "Get",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "HashAt",
+	 "kind" : "Get",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "ArraySet",
+	 "kind" : "Set",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "HashSet",
+	 "kind" : "Set",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Function",
+	 "kind" : "Decl",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Call",
+	 "kind" : "Function",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Argument",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "List",
+	 "kind" : "Term",
+	 "data" : "",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Default",
+	 "kind" : "Term",
+	 "data" : "undef",
+	 "parse_func" : ""
+ },
+ {
+	 "type" : "Undefined",
+	 "kind" : "Undefined",
+	 "data" : "",
+	 "parse_func" : ""
+ }
+]
