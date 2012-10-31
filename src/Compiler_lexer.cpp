@@ -176,9 +176,10 @@ Token *Lexer::scanPrevSymbol(LexContext *ctx, char symbol)
 			break;
 		}
 		isRegexStarted = true;
-	} else if (prev_token == "s"  ||
-			   prev_token == "y"  ||
-			   prev_token == "tr") {
+	} else if (symbol != '}' &&
+			   (prev_token == "s"  ||
+				prev_token == "y"  ||
+				prev_token == "tr")) {
 		//ReplaceRegexPrefix
 		ret = new Token(string(token), finfo);
 		ret->info = getTokenInfo(cstr(prev_token));
