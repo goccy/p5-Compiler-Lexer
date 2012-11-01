@@ -391,6 +391,7 @@ bool Lexer::isSkip(LexContext *ctx, char *script, size_t idx)
 			ctx->progress = 4;
 			commentFlag = false;
 			ret = false;
+			finfo.start_line_num++;
 		} else {
 			DBG_PL("commentFlag => ON");
 			commentFlag = true;
@@ -479,12 +480,15 @@ Tokens *Lexer::tokenize(char *script)
 			}
 			break;
 		case '#':
+#ifdef ENABLE_ANNOTATION
 			if (CHECK_CH(i+1, '@')) {
 				tokens->push_back(new Token(string("#@"), finfo));
 				i++;
 				break;
 			}
+#endif
 			while (script[i] != '\n' && i < script_size) {i++;}
+			finfo.start_line_num++;
 			break;
 		case '-':
 			if (scanNegativeNumber(&ctx, script[i + 1])) {
@@ -665,7 +669,7 @@ void Lexer::annotateTokens(Tokens *tokens)
 			pkgdecl_list.push_back(t->data);
 		} else if (search(pkgdecl_list, t->data)) {
 			t->info = getTokenInfo(Class);
-		} else if (next_token && next_token->data == "::") {
+		} else if (it+1 != tokens->end() && next_token->data == "::") {
 			t->info = getTokenInfo(Namespace);
 			cur_type = Namespace;
 		} else if (cur_type == NamespaceResolver) {
