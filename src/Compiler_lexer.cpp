@@ -91,7 +91,7 @@ const char *Token::deparse(void)
 }
 
 Lexer::Lexer(const char *filename) :
-	isStringStarted(false), isRegexStarted(false), commentFlag(false)
+	isStringStarted(false), isRegexStarted(false), commentFlag(false), hearDocumentFlag(false)
 {
 	finfo.start_line_num = 1;
 	finfo.filename = filename;
@@ -128,6 +128,12 @@ Token *Lexer::scanQuote(LexContext *ctx, char quote)
 			break;
 		}
 		clearToken(ctx, ctx->token);
+		Token *prev_tk = (ctx->tokens->size() > 0) ? ctx->tokens->back() : NULL;
+		if (prev_tk && prev_tk->data == "<<") {
+			/* String is HearDocument */
+			hear_document_tag = ret->data;
+			hearDocumentFlag = true;
+		}
 		isStringStarted = false;
 	} else {
 		start_string_ch = quote;
@@ -155,9 +161,13 @@ Token *Lexer::scanPrevSymbol(LexContext *ctx, char symbol)
 	Token *ret = NULL;
 	char *token = ctx->token;
 	string prev_token = string(token);
-	if (prev_token == "q"  || prev_token == "qq" ||
-		prev_token == "qw" || prev_token == "qx" ||
-		prev_token == "qr" || prev_token == "m") {
+	Token *prev_before_tk = (ctx->tokens->size() > 0) ? ctx->tokens->back() : NULL;
+	TokenType::Type prev_before_tk_type = TokenType::Undefined;
+	if (prev_before_tk) prev_before_tk_type = prev_before_tk->info.type;
+	if (symbol != '}' && prev_before_tk_type != TokenType::RegDelim &&
+		(prev_token == "q"  || prev_token == "qq" ||
+		 prev_token == "qw" || prev_token == "qx" ||
+		 prev_token == "qr" || prev_token == "m")) {
 		//RegexPrefix
 		ret = new Token(string(token), finfo);
 		ret->info = getTokenInfo(cstr(prev_token));
@@ -176,7 +186,7 @@ Token *Lexer::scanPrevSymbol(LexContext *ctx, char symbol)
 			break;
 		}
 		isRegexStarted = true;
-	} else if (symbol != '}' &&
+	} else if (symbol != '}' && prev_before_tk_type != TokenType::RegDelim &&
 			   (prev_token == "s"  ||
 				prev_token == "y"  ||
 				prev_token == "tr")) {
@@ -184,8 +194,28 @@ Token *Lexer::scanPrevSymbol(LexContext *ctx, char symbol)
 		ret = new Token(string(token), finfo);
 		ret->info = getTokenInfo(cstr(prev_token));
 		clearToken(ctx, token);
-		regex_middle_delim = symbol;
-		regex_delim = symbol;
+		switch (symbol) {
+		case '{':
+			regex_delim = '}';
+			regex_middle_delim = '}';
+			break;
+		case '(':
+			regex_delim = ')';
+			regex_middle_delim = ')';
+			break;
+		case '<':
+			regex_delim = '>';
+			regex_middle_delim = '>';
+			break;
+		case '[':
+			regex_delim = ']';
+			regex_middle_delim = ']';
+			break;
+		default:
+			regex_delim = symbol;
+			regex_middle_delim = symbol;
+			break;
+		}
 		isRegexStarted = true;
 	} else {
 		ret = new Token(string(token), finfo);
@@ -202,13 +232,16 @@ Token *Lexer::scanCurSymbol(LexContext *ctx, char symbol)
 	tmp[0] = symbol;
 	Token *prev_tk = (ctx->tokens->size() > 0) ? ctx->tokens->back() : NULL;
 	const char *prev_data = (prev_tk) ? cstr(prev_tk->data) : "";
-	if (symbol == '/' &&
-		(prev_data[0] == '=' || prev_data[0] == ';')) {
+	if (symbol == '/' && strtod(prev_data, NULL) == 0 && string(prev_data) != "0" &&
+		prev_data[0] != '}' && prev_data[0] != ']' && prev_data[0] != ')' && prev_data[0] != '$') {
 		ret = new Token(string(tmp), finfo);
 		ret->info = getTokenInfo(TokenType::RegDelim);
 		clearToken(ctx, token);
 		regex_delim = '/';
-		isRegexStarted = true;
+		if (prev_tk->info.type != TokenType::RegExp &&
+			prev_tk->info.type != TokenType::RegReplaceTo) {
+			isRegexStarted = true;
+		}
 	} else if (isRegexStarted ||
 			   (prev_tk && prev_tk->info.type == TokenType::RegExp) ||
 			   (prev_tk && prev_tk->info.type == TokenType::RegReplaceTo)) {
@@ -255,7 +288,6 @@ Token *Lexer::scanDoubleCharacterOperator(LexContext *ctx, char symbol, char nex
 		(symbol == '+' && next_ch == '=') ||
 		(symbol == '-' && next_ch == '=') ||
 		(symbol == '*' && next_ch == '=') ||
-		(symbol == '/' && next_ch == '=') ||
 		(symbol == '%' && next_ch == '=') ||
 		(symbol == '<' && next_ch == '<') ||
 		(symbol == '>' && next_ch == '>') ||
@@ -299,6 +331,18 @@ Token *Lexer::scanDoubleCharacterOperator(LexContext *ctx, char symbol, char nex
 		ret = new Token(string(tmp), finfo);
 		ret->info = getTokenInfo(TokenType::Handle);
 		ctx->progress = 1;
+	} else if (symbol == '/' && next_ch == '=') {
+		Token *prev_tk = (ctx->tokens->size() > 0) ? ctx->tokens->back() : NULL;
+		const char *prev_data = cstr(prev_tk->data);
+		/* '/=' is RegDelim + RegExp or DivEqual */
+		if (strtod(prev_data, NULL) != 0 || string(prev_data) == "0" ||
+			prev_data[0] == '}' || prev_data[0] == ']' ||
+			prev_data[0] == ')' || prev_data[0] == '$') {
+			tmp[0] = symbol;
+			tmp[1] = next_ch;
+			ret = new Token(string(tmp), finfo);
+			ctx->progress = 1;
+		}
 	}
 	return ret;
 }
@@ -398,19 +442,42 @@ bool Lexer::isSkip(LexContext *ctx, char *script, size_t idx)
 			ret = true;
 		}
 	} else if (isRegexStarted) {
-		if (script[idx] != regex_delim) {
+		if ((0 < idx && script[idx - 1] == '\\') ||
+			(script[idx] != regex_delim && script[idx] != regex_middle_delim)) {
 			writeChar(ctx, ctx->token, script[idx]);
 			ret = true;
 		} else if (script[idx] == regex_middle_delim) {
-			Token *tk = new Token(string(ctx->token), finfo);
-			tk->info = getTokenInfo(RegReplaceFrom);
-			clearToken(ctx, ctx->token);
-			ctx->tokens->push_back(tk);
+			Token *tk = NULL;
+			if (regex_middle_delim != '{' &&
+				regex_middle_delim != '(' &&
+				regex_middle_delim != '<' &&
+				regex_middle_delim != '[') {
+				tk = new Token(string(ctx->token), finfo);
+				tk->info = getTokenInfo(RegReplaceFrom);
+				clearToken(ctx, ctx->token);
+				ctx->tokens->push_back(tk);
+			}
 			char tmp[] = {regex_middle_delim};
 			tk = new Token(string(tmp), finfo);
 			tk->info = getTokenInfo(RegMiddleDelim);
 			ctx->tokens->push_back(tk);
-			regex_middle_delim = '\0';
+			switch (regex_middle_delim) {
+			case '}':
+				regex_middle_delim = '{';
+				break;
+			case ')':
+				regex_middle_delim = '(';
+				break;
+			case '>':
+				regex_middle_delim = '<';
+				break;
+			case ']':
+				regex_middle_delim = '[';
+				break;
+			default:
+				regex_middle_delim = '\0';
+				break;
+			}
 			ret = true;
 		} else {
 			Token *tk = new Token(string(ctx->token), finfo);
@@ -429,11 +496,38 @@ bool Lexer::isSkip(LexContext *ctx, char *script, size_t idx)
 			writeChar(ctx, ctx->token, script[idx]);
 			ret = true;
 		}
+	} else if (hearDocumentFlag) {
+		size_t len = hear_document_tag.size();
+		if (0 < idx && script[idx - 1] == '\n' &&
+			idx + len < ctx->max_token_size) {
+			size_t i;
+			for (i = 0; i < len && script[idx + i] == hear_document_tag.at(i); i++) {}
+			if (i == len) {
+				ctx->progress = len;
+				Token *tk = new Token(string(ctx->token), finfo);
+				tk->info = getTokenInfo(TokenType::String);
+				clearToken(ctx, ctx->token);
+				ctx->tokens->push_back(tk);
+				tk = new Token(hear_document_tag, finfo);
+				tk->info = getTokenInfo(TokenType::SemiColon);
+				ctx->tokens->push_back(tk);
+				finfo.start_line_num++;
+				hear_document_tag = "";
+				hearDocumentFlag = false;
+				ret = false;
+			} else {
+				writeChar(ctx, ctx->token, script[idx]);
+				ret = true;
+			}
+		} else {
+			writeChar(ctx, ctx->token, script[idx]);
+			ret = true;
+		}
 	}
 	return ret;
 }
 
-#define CHECK_CH(i, ch) i < script_size && script[i] == ch
+#define CHECK_CH(i, ch) (i < script_size && script[i] == ch)
 Tokens *Lexer::tokenize(char *script)
 {
 	using namespace Enum::Lexer::Char;
@@ -479,7 +573,7 @@ Tokens *Lexer::tokenize(char *script)
 				i++;
 			}
 			break;
-		case '#':
+		case '#': {
 #ifdef ENABLE_ANNOTATION
 			if (CHECK_CH(i+1, '@')) {
 				tokens->push_back(new Token(string("#@"), finfo));
@@ -487,9 +581,25 @@ Tokens *Lexer::tokenize(char *script)
 				break;
 			}
 #endif
+			if (token[0] != EOL) {
+				Token *tk = scanPrevSymbol(&ctx, '#');
+				tokens->push_back(tk);
+			}
+			Token *prev_tk = (tokens->size() > 0) ? tokens->back() : NULL;
+			if (isRegexStarted ||
+				(prev_tk && prev_tk->info.type == TokenType::RegExp) ||
+				(prev_tk && prev_tk->info.type == TokenType::RegReplaceTo)) {
+				char tmp[2] = {'#'};
+				Token *tk = new Token(string(tmp), finfo);
+				tk->info = getTokenInfo(TokenType::RegDelim);
+				clearToken(&ctx, token);
+				tokens->push_back(tk);
+				break;
+			}
 			while (script[i] != '\n' && i < script_size) {i++;}
 			finfo.start_line_num++;
 			break;
+		}
 		case '-':
 			if (scanNegativeNumber(&ctx, script[i + 1])) {
 				break;

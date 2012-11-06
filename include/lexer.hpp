@@ -75,12 +75,14 @@ public:
 	bool isStringStarted;
 	bool isRegexStarted;
 	bool commentFlag;
+	bool hearDocumentFlag;
 	TokenPos start_pos;
 	TokenPos pos;
 	FileInfo finfo;
 	char start_string_ch;
 	char regex_delim;
 	char regex_middle_delim;
+	std::string hear_document_tag;
 
 	Lexer(const char *filename);
 	Tokens *tokenize(char *script);

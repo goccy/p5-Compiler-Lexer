@@ -8,6 +8,7 @@
 #include <map>
 #include <new>
 #include <unistd.h>
+#include <algorithm>
 
 #define EOL '\0'
 #define MAX_TOKEN_SIZE 4096
