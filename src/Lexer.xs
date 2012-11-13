@@ -32,9 +32,11 @@ CODE:
 	Lexer lexer(filename);
 	Tokens *tokens = lexer.tokenize((char *)script);
 	lexer.annotateTokens(tokens);
+	//lexer.dump(tokens);
 	lexer.grouping(tokens);
 	lexer.prepare(tokens);
 	Token *root = lexer.parseSyntax(NULL, tokens);
+	//lexer.dumpSyntax(root, NULL);
 	Tokens *stmts = lexer.getTokensBySyntaxLevel(root, Enum::Lexer::Syntax::Stmt);
     AV* ret  = new_Array();
 	for (size_t i = 0; i < stmts->size(); i++) {
@@ -82,6 +84,7 @@ CODE:
 	Lexer lexer(filename);
 	Tokens *tokens = lexer.tokenize((char *)script);
 	lexer.annotateTokens(tokens);
+	lexer.dump(tokens);
 	lexer.grouping(tokens);
 	lexer.prepare(tokens);
 	Token *root = lexer.parseSyntax(NULL, tokens);

@@ -75,16 +75,20 @@ public:
 	bool isStringStarted;
 	bool isRegexStarted;
 	bool commentFlag;
-	bool hearDocumentFlag;
+	bool hereDocumentFlag;
 	TokenPos start_pos;
 	TokenPos pos;
 	FileInfo finfo;
 	char start_string_ch;
 	char regex_delim;
 	char regex_middle_delim;
-	std::string hear_document_tag;
+    int brace_count_inner_regex;
+    int bracket_count_inner_regex;
+    int cury_brace_count_inner_regex;
+	std::string here_document_tag;
 
 	Lexer(const char *filename);
+	bool isRegexDelim(Token *prev_token, char symbol);
 	Tokens *tokenize(char *script);
 	void annotateTokens(Tokens *tokens);
 	void grouping(Tokens *tokens); /* for Namespace::Namespace */
