@@ -46,6 +46,7 @@ CODE:
         size_t len = strlen(src) + 1;
 		HV *hash = (HV*)new_Hash();
 		hv_stores(hash, "src", set(new_String(src, len)));
+		hv_stores(hash, "token_num", set(new_Int(stmt->total_token_num)));
 		hv_stores(hash, "indent", set(new_Int(stmt->finfo.indent)));
 		hv_stores(hash, "start_line", set(new_Int(stmt->finfo.start_line_num)));
 		hv_stores(hash, "end_line", set(new_Int(stmt->finfo.end_line_num)));
