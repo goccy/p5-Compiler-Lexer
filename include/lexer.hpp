@@ -29,6 +29,7 @@ class FileInfo {
 public:
 	size_t start_line_num;
 	size_t end_line_num;
+	size_t indent;
 	const char *filename;
 };
 
@@ -49,7 +50,6 @@ public:
 	Token **tks;
 	std::string data;
 	int idx;
-	int indent;
 	size_t token_num;
 	size_t total_token_num;
 	std::string deparsed_data;
@@ -94,6 +94,7 @@ public:
 	void grouping(Tokens *tokens); /* for Namespace::Namespace */
 	void prepare(Tokens *tokens);
 	Token *parseSyntax(Token *start_token, Tokens *tokens);
+	void setIndent(Token *tk, int indent);
 	void dump(Tokens *tokens);
 	void dumpSyntax(Token *tk, int indent);
 	Tokens *getTokensBySyntaxLevel(Token *root, Enum::Lexer::Syntax::Type type);

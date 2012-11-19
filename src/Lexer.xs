@@ -37,6 +37,7 @@ CODE:
 	lexer.prepare(tokens);
 	Token *root = lexer.parseSyntax(NULL, tokens);
 	//lexer.dumpSyntax(root, NULL);
+	lexer.setIndent(root, NULL);
 	Tokens *stmts = lexer.getTokensBySyntaxLevel(root, Enum::Lexer::Syntax::Stmt);
     AV* ret  = new_Array();
 	for (size_t i = 0; i < stmts->size(); i++) {
@@ -45,6 +46,7 @@ CODE:
         size_t len = strlen(src) + 1;
 		HV *hash = (HV*)new_Hash();
 		hv_stores(hash, "src", set(new_String(src, len)));
+		hv_stores(hash, "indent", set(new_Int(stmt->finfo.indent)));
 		hv_stores(hash, "start_line", set(new_Int(stmt->finfo.start_line_num)));
 		hv_stores(hash, "end_line", set(new_Int(stmt->finfo.end_line_num)));
 		av_push(ret, set(new_Ref(hash)));
@@ -84,7 +86,7 @@ CODE:
 	Lexer lexer(filename);
 	Tokens *tokens = lexer.tokenize((char *)script);
 	lexer.annotateTokens(tokens);
-	lexer.dump(tokens);
+	//lexer.dump(tokens);
 	lexer.grouping(tokens);
 	lexer.prepare(tokens);
 	Token *root = lexer.parseSyntax(NULL, tokens);

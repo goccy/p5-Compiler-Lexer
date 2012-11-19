@@ -8,7 +8,7 @@ namespace SyntaxType = Enum::Lexer::Syntax;
 namespace TokenKind = Enum::Lexer;
 
 Token::Token(string data_, FileInfo finfo_) :
-	data(data_), indent(0), token_num(0), total_token_num(0),
+	data(data_), token_num(0), total_token_num(0),
 	deparsed_data(""), isDeparsed(false)
 {
 	type = TokenType::Undefined;
@@ -18,6 +18,7 @@ Token::Token(string data_, FileInfo finfo_) :
 	finfo.start_line_num = finfo_.start_line_num;
 	finfo.end_line_num = finfo_.start_line_num;
 	finfo.filename = finfo_.filename;
+	finfo.indent = 0;
 }
 
 Token::Token(Tokens *tokens) :
@@ -34,6 +35,7 @@ Token::Token(Tokens *tokens) :
 	token_num = size;
 	size_t i = 0;
 	size_t end_line_num = 0;
+	finfo.indent = 0;
 	for (; i < size; i++) {
 		Token *t = (Token *)*pos;
 		tks[i] = t;
@@ -1093,7 +1095,7 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 			prev_syntax = syntax;
 			break;
 		}
-		case RightBracket: case RightBrace: case RightParenthesis:
+		case RightBrace: case RightBracket: case RightParenthesis:
 			new_tokens->push_back(t);
 			return new Token(new_tokens);
 			break;
@@ -1130,6 +1132,33 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 		pos++;
 	}
 	return new Token(new_tokens);
+}
+
+void Lexer::setIndent(Token *syntax, int indent)
+{
+	using namespace SyntaxType;
+	size_t tk_n = syntax->token_num;
+	for (size_t i = 0; i < tk_n; i++) {
+		Token *tk = syntax->tks[i];
+		switch (tk->stype) {
+		case BlockStmt:
+			tk->finfo.indent = ++indent;
+			setIndent(tk, indent);
+			if (indent == 0) {
+				fprintf(stderr, "ERROR!!: syntax error near %s:%d\n", tk->finfo.filename, tk->finfo.start_line_num);
+				exit(EXIT_FAILURE);
+			}
+			indent--;
+			break;
+		case Expr: case Stmt:
+			tk->finfo.indent = indent;
+			setIndent(tk, indent);
+			break;
+		default:
+			syntax->tks[i]->finfo.indent = indent;
+			break;
+		}
+	}
 }
 
 void Lexer::dumpSyntax(Token *syntax, int indent)
