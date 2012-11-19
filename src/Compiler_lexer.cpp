@@ -782,7 +782,19 @@ Tokens *Lexer::tokenize(char *script)
 		}
 		case '\n':
 			if (ctx.token_idx > 0) {
+				Token *prev_tk = (tokens->size() > 0) ? tokens->back() : NULL;
+				string prev_tk_data = "";
+				const char *prev_data = NULL;
 				tokens->push_back(new Token(token, finfo));
+				if (prev_tk) {
+					prev_tk_data = prev_tk->data;
+					prev_data = cstr(prev_tk_data);
+				}
+				if (prev_tk_data == "<<" &&
+					strtod(token, NULL) == 0 && string(token) != "0" && isupper(token[0])) {
+					/* Key is HereDocument */
+					here_document_tag = token;
+				}
 				clearToken(&ctx, ctx.token);
 			}
 			if (here_document_tag != "") hereDocumentFlag = true;
@@ -867,7 +879,10 @@ void Lexer::annotateTokens(Tokens *tokens)
 		//fprintf(stdout, "TOKEN = [%s]\n", cstr(data));
 		if (t->info.type != Undefined) {
 			cur_type = t->info.type;
-		} else if (isReservedKeyword(data)) {
+		} else if (isReservedKeyword(data) && cur_type != FunctionDecl) {
+			t->info = getTokenInfo(cstr(data));
+			cur_type = t->info.type;
+		} else if (cur_type == FunctionDecl && data == "{") {
 			t->info = getTokenInfo(cstr(data));
 			cur_type = t->info.type;
 		} else if (cur_type == VarDecl && t->data.find("$") != string::npos) {
@@ -942,6 +957,9 @@ void Lexer::annotateTokens(Tokens *tokens)
 		} else if (cur_type == RegDelim) {
 			t->info = getTokenInfo(RegOpt);
 			cur_type = RegOpt;
+		} else if (data == "\n") {
+			tokens->erase(it);
+			it--;
 		} else {
 			t->info = getTokenInfo(Key);
 			cur_type = Key;
@@ -1010,6 +1028,15 @@ void Lexer::prepare(Tokens *tokens)
 {
 	pos = tokens->begin();
 	start_pos = pos;
+	TokenPos it = tokens->begin();
+	while (it != tokens->end()) {
+		Token *t = ITER_CAST(Token *, it);
+		if (t->info.type == TokenType::HereDocument) {
+			tokens->erase(it);
+			continue;
+		}
+		it++;
+	}
 }
 
 Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
@@ -1093,9 +1120,6 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 			prev_syntax = stmt_;
 			break;
 		}
-		case HereDocument:
-			prev_syntax = NULL;
-			break;
 		default:
 			new_tokens->push_back(t);
 			prev_syntax = NULL;
