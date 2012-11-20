@@ -38,6 +38,8 @@ CODE:
 	Token *root = lexer.parseSyntax(NULL, tokens);
 	//lexer.dumpSyntax(root, NULL);
 	lexer.setIndent(root, NULL);
+	size_t block_id = 0;
+	lexer.setBlockIDWithDepthFirst(root, &block_id);
 	Tokens *stmts = lexer.getTokensBySyntaxLevel(root, Enum::Lexer::Syntax::Stmt);
     AV* ret  = new_Array();
 	for (size_t i = 0; i < stmts->size(); i++) {
@@ -48,6 +50,7 @@ CODE:
 		hv_stores(hash, "src", set(new_String(src, len)));
 		hv_stores(hash, "token_num", set(new_Int(stmt->total_token_num)));
 		hv_stores(hash, "indent", set(new_Int(stmt->finfo.indent)));
+		hv_stores(hash, "block_id", set(new_Int(stmt->finfo.block_id)));
 		hv_stores(hash, "start_line", set(new_Int(stmt->finfo.start_line_num)));
 		hv_stores(hash, "end_line", set(new_Int(stmt->finfo.end_line_num)));
 		av_push(ret, set(new_Ref(hash)));

@@ -340,70 +340,38 @@ Token *Lexer::scanDoubleCharacterOperator(LexContext *ctx, char symbol, char nex
 {
 	Token *ret = NULL;
 	char tmp[3] = {0};
-	if ((symbol == '<' && next_ch == '=') ||
-		(symbol == '>' && next_ch == '=') ||
-		(symbol == '.' && next_ch == '=') ||
-		(symbol == '!' && next_ch == '=') ||
-		(symbol == '=' && next_ch == '=') ||
-		(symbol == '+' && next_ch == '=') ||
-		(symbol == '-' && next_ch == '=') ||
-		(symbol == '*' && next_ch == '=') ||
-		(symbol == '%' && next_ch == '=') ||
-		(symbol == '<' && next_ch == '<') ||
-		(symbol == '>' && next_ch == '>') ||
-		(symbol == '+' && next_ch == '+') ||
-		(symbol == '=' && next_ch == '>') ||
-		(symbol == '=' && next_ch == '~') ||
-		(symbol == '@' && next_ch == '{') ||
-		(symbol == '%' && next_ch == '{') ||
-		(symbol == '$' && next_ch == '#') ||
-		(symbol == '-' && next_ch == '-') ||
-		(symbol == '*' && next_ch == '*') ||
-		(symbol == '-' && next_ch == '>') ||
-		(symbol == '<' && next_ch == '>') ||
-		(symbol == '&' && next_ch == '&') ||
-		(symbol == '|' && next_ch == '|') ||
-		(symbol == ':' && next_ch == ':') ||
-		(symbol == '.' && next_ch == '.') ||
-		(symbol == '!' && next_ch == '~') ||
-		(symbol == '~' && next_ch == '~') ||
-		(symbol == '$' && next_ch == '0') ||
-		(symbol == '$' && next_ch == '1') ||
-		(symbol == '$' && next_ch == '2') ||
-		(symbol == '$' && next_ch == '3') ||
-		(symbol == '$' && next_ch == '4') ||
-		(symbol == '$' && next_ch == '5') ||
-		(symbol == '$' && next_ch == '6') ||
-		(symbol == '$' && next_ch == '7') ||
-		(symbol == '$' && next_ch == '8') ||
-		(symbol == '$' && next_ch == '9') ||
-		(symbol == '$' && next_ch == '&') ||
-		(symbol == '$' && next_ch == '`') ||
-		(symbol == '$' && next_ch == '\'') ||
-		(symbol == '$' && next_ch == '+') ||
-		(symbol == '$' && next_ch == '.') ||
-		(symbol == '$' && next_ch == '/') ||
-		(symbol == '$' && next_ch == '|') ||
-		(symbol == '$' && next_ch == ',') ||
-		(symbol == '$' && next_ch == '\\') ||
-		(symbol == '$' && next_ch == '"') ||
-		(symbol == '$' && next_ch == '%') ||
-		(symbol == '$' && next_ch == '=') ||
-		(symbol == '$' && next_ch == '-') ||
-		(symbol == '$' && next_ch == '~') ||
-		(symbol == '$' && next_ch == '^') ||
-		(symbol == '$' && next_ch == '*') ||
-		(symbol == '$' && next_ch == ':') ||
-		(symbol == '$' && next_ch == ';') ||
-		(symbol == '$' && next_ch == '?') ||
-		(symbol == '$' && next_ch == '!') ||
-		(symbol == '$' && next_ch == '@') ||
-		(symbol == '$' && next_ch == '$') ||
-		(symbol == '$' && next_ch == '<') ||
-		(symbol == '$' && next_ch == '>') ||
-		(symbol == '$' && next_ch == '(') ||
-		(symbol == '$' && next_ch == ')') ||
-		(symbol == '$' && next_ch == '[') ||
+	if ((symbol == '<' && next_ch == '=') || (symbol == '>' && next_ch == '=') ||
+		(symbol == '.' && next_ch == '=') || (symbol == '!' && next_ch == '=') ||
+		(symbol == '=' && next_ch == '=') || (symbol == '+' && next_ch == '=') ||
+		(symbol == '-' && next_ch == '=') || (symbol == '*' && next_ch == '=') ||
+		(symbol == '%' && next_ch == '=') || (symbol == '<' && next_ch == '<') ||
+		(symbol == '>' && next_ch == '>') || (symbol == '+' && next_ch == '+') ||
+		(symbol == '=' && next_ch == '>') || (symbol == '=' && next_ch == '~') ||
+		(symbol == '@' && next_ch == '{') || (symbol == '%' && next_ch == '{') ||
+		(symbol == '$' && next_ch == '#') || (symbol == '-' && next_ch == '-') ||
+		(symbol == '*' && next_ch == '*') || (symbol == '-' && next_ch == '>') ||
+		(symbol == '<' && next_ch == '>') || (symbol == '&' && next_ch == '&') ||
+		(symbol == '|' && next_ch == '|') || (symbol == ':' && next_ch == ':') ||
+		(symbol == '.' && next_ch == '.') || (symbol == '!' && next_ch == '~') ||
+		(symbol == '~' && next_ch == '~') || (symbol == '$' && next_ch == '0') ||
+		(symbol == '$' && next_ch == '1') || (symbol == '$' && next_ch == '2') ||
+		(symbol == '$' && next_ch == '3') || (symbol == '$' && next_ch == '4') ||
+		(symbol == '$' && next_ch == '5') || (symbol == '$' && next_ch == '6') ||
+		(symbol == '$' && next_ch == '7') || (symbol == '$' && next_ch == '8') ||
+		(symbol == '$' && next_ch == '9') || (symbol == '$' && next_ch == '&') ||
+		(symbol == '$' && next_ch == '`') || (symbol == '$' && next_ch == '\'') ||
+		(symbol == '$' && next_ch == '+') || (symbol == '$' && next_ch == '.') ||
+		(symbol == '$' && next_ch == '/') || (symbol == '$' && next_ch == '|') ||
+		(symbol == '$' && next_ch == ',') || (symbol == '$' && next_ch == '\\') ||
+		(symbol == '$' && next_ch == '"') || (symbol == '$' && next_ch == '%') ||
+		(symbol == '$' && next_ch == '=') || (symbol == '$' && next_ch == '-') ||
+		(symbol == '$' && next_ch == '~') || (symbol == '$' && next_ch == '^') ||
+		(symbol == '$' && next_ch == '*') || (symbol == '$' && next_ch == ':') ||
+		(symbol == '$' && next_ch == ';') || (symbol == '$' && next_ch == '?') ||
+		(symbol == '$' && next_ch == '!') || (symbol == '$' && next_ch == '@') ||
+		(symbol == '$' && next_ch == '$') || (symbol == '$' && next_ch == '<') ||
+		(symbol == '$' && next_ch == '>') || (symbol == '$' && next_ch == '(') ||
+		(symbol == '$' && next_ch == ')') || (symbol == '$' && next_ch == '[') ||
 		(symbol == '$' && next_ch == ']')) {
 		tmp[0] = symbol;
 		tmp[1] = next_ch;
@@ -1156,6 +1124,58 @@ void Lexer::setIndent(Token *syntax, int indent)
 			break;
 		default:
 			syntax->tks[i]->finfo.indent = indent;
+			break;
+		}
+	}
+}
+
+void Lexer::setBlockIDWithBreadthFirst(Token *syntax, size_t base_id)
+{
+	using namespace SyntaxType;
+	size_t tk_n = syntax->token_num;
+	size_t block_num = 0;
+	for (size_t i = 0; i < tk_n; i++) {
+		Token *tk = syntax->tks[i];
+		if (tk->stype == BlockStmt) block_num++;
+	}
+	size_t total_block_num = block_num;
+	block_num = 0;
+	for (size_t i = 0; i < tk_n; i++) {
+		Token *tk = syntax->tks[i];
+		switch (tk->stype) {
+		case BlockStmt:
+			setBlockIDWithBreadthFirst(tk, base_id + total_block_num + 1);
+			block_num++;
+			break;
+		case Expr: case Stmt:
+			setBlockIDWithBreadthFirst(tk, base_id + block_num);
+			break;
+		default:
+			syntax->tks[i]->finfo.block_id = base_id + block_num;
+			break;
+		}
+	}
+}
+
+void Lexer::setBlockIDWithDepthFirst(Token *syntax, size_t *block_id)
+{
+	using namespace SyntaxType;
+	size_t tk_n = syntax->token_num;
+	size_t base_id = *block_id;
+	for (size_t i = 0; i < tk_n; i++) {
+		Token *tk = syntax->tks[i];
+		switch (tk->stype) {
+		case BlockStmt:
+			*block_id += 1;
+			syntax->tks[i]->finfo.block_id = *block_id;
+			setBlockIDWithDepthFirst(tk, block_id);
+			break;
+		case Expr: case Stmt:
+			syntax->tks[i]->finfo.block_id = base_id;
+			setBlockIDWithDepthFirst(tk, block_id);
+			break;
+		default:
+			syntax->tks[i]->finfo.block_id = base_id;
 			break;
 		}
 	}

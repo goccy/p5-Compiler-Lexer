@@ -30,6 +30,7 @@ public:
 	size_t start_line_num;
 	size_t end_line_num;
 	size_t indent;
+	size_t block_id;
 	const char *filename;
 };
 
@@ -95,6 +96,8 @@ public:
 	void prepare(Tokens *tokens);
 	Token *parseSyntax(Token *start_token, Tokens *tokens);
 	void setIndent(Token *tk, int indent);
+	void setBlockIDWithBreadthFirst(Token *tk, size_t base_id);
+	void setBlockIDWithDepthFirst(Token *tk, size_t *block_id);
 	void dump(Tokens *tokens);
 	void dumpSyntax(Token *tk, int indent);
 	Tokens *getTokensBySyntaxLevel(Token *root, Enum::Lexer::Syntax::Type type);
