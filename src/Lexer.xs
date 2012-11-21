@@ -90,7 +90,7 @@ CODE:
 	Lexer lexer(filename);
 	Tokens *tokens = lexer.tokenize((char *)script);
 	lexer.annotateTokens(tokens);
-	//lexer.dump(tokens);
+	lexer.dump(tokens);
 	lexer.grouping(tokens);
 	lexer.prepare(tokens);
 	Token *root = lexer.parseSyntax(NULL, tokens);

@@ -517,8 +517,17 @@ bool Lexer::isSkip(LexContext *ctx, char *script, size_t idx)
 			commentFlag = true;
 			ret = true;
 		}
+	} else if (0 < idx && script[idx - 1] == '\n' && idx + 6 < ctx->max_token_size &&
+			   script[idx] == '_' && script[idx+1] == '_' &&
+			   script[idx+2] == 'E' && script[idx+3] == 'N' && script[idx+4] == 'D' &&
+			   script[idx+5] == '_' && script[idx+6] == '_') {
+		/* __END__ */
+		int progress_to_end = ctx->max_token_size - idx - 1;
+		ctx->progress = progress_to_end;
+		ret = false;
 	} else if (isRegexStarted) {
-		if (0 < idx && script[idx - 1] != '\\') {
+		if ((0 < idx && script[idx - 1] != '\\') ||
+			((0 < idx && script[idx - 1] == '\\') && (1 < idx && script[idx - 2] == '\\'))) {
 			switch (script[idx]) {
 			case '{': brace_count_inner_regex++;
 				break;
@@ -675,10 +684,8 @@ Tokens *Lexer::tokenize(char *script)
 				tk = new Token(string(token), finfo);
 				Token *prev_tk = (tokens->size() > 0) ? tokens->back() : NULL;
 				string prev_tk_data = "";
-				const char *prev_data = NULL;
 				if (prev_tk) {
 					prev_tk_data = prev_tk->data;
-					prev_data = cstr(prev_tk_data);
 				}
 				if (prev_tk_data == "<<" &&
 					strtod(token, NULL) == 0 && string(token) != "0" && isupper(token[0])) {
@@ -754,11 +761,9 @@ Tokens *Lexer::tokenize(char *script)
 			if (ctx.token_idx > 0) {
 				Token *prev_tk = (tokens->size() > 0) ? tokens->back() : NULL;
 				string prev_tk_data = "";
-				const char *prev_data = NULL;
 				tokens->push_back(new Token(token, finfo));
 				if (prev_tk) {
 					prev_tk_data = prev_tk->data;
-					prev_data = cstr(prev_tk_data);
 				}
 				if (prev_tk_data == "<<" &&
 					strtod(token, NULL) == 0 && string(token) != "0" && isupper(token[0])) {
@@ -1113,7 +1118,7 @@ void Lexer::setIndent(Token *syntax, int indent)
 			tk->finfo.indent = ++indent;
 			setIndent(tk, indent);
 			if (indent == 0) {
-				fprintf(stderr, "ERROR!!: syntax error near %s:%d\n", tk->finfo.filename, tk->finfo.start_line_num);
+				fprintf(stderr, "ERROR!!: syntax error near %s:%lu\n", tk->finfo.filename, tk->finfo.start_line_num);
 				exit(EXIT_FAILURE);
 			}
 			indent--;
