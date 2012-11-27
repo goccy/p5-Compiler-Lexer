@@ -525,7 +525,15 @@ bool Lexer::isSkip(LexContext *ctx, char *script, size_t idx)
 		int progress_to_end = ctx->max_token_size - idx - 1;
 		ctx->progress = progress_to_end;
 		ret = false;
-	} else if (isRegexStarted) {
+	} else if (0 < idx && script[idx-1] == '\n' && idx + 7 < ctx->max_token_size &&
+			   script[idx] == '_' && script[idx+1] == '_' &&
+			   script[idx+2] == 'D' && script[idx+3] == 'A' && script[idx+4] == 'T' && script[idx+5] == 'A' &&
+			   script[idx+6] == '_' && script[idx+7] == '_') {
+		/* __DATA__ */
+		int progress_to_end = ctx->max_token_size - idx - 1;
+		ctx->progress = progress_to_end;
+		ret = false;
+    } else if (isRegexStarted) {
 		if ((0 < idx && script[idx - 1] != '\\') ||
 			((0 < idx && script[idx - 1] == '\\') && (1 < idx && script[idx - 2] == '\\'))) {
 			switch (script[idx]) {
@@ -953,7 +961,7 @@ void Lexer::grouping(Tokens *tokens)
 		Token *tk = ITER_CAST(Token *, pos);
 		if (!tk) break;
 		switch (tk->info.type) {
-		case GlobalVar: case Namespace: case Class: {
+		case Var: case GlobalVar: case Namespace: case Class: {
 			Token *ns_token = tk;
 			TokenPos start_pos = pos+1;
 			size_t move_count = 0;
