@@ -55,9 +55,11 @@ public:
 	size_t total_token_num;
 	std::string deparsed_data;
 	bool isDeparsed;
+	bool isDeleted;
 
 	Token(std::string data_, FileInfo finfo);
 	Token(Tokens *tokens);
+	//~Token(void);
 	const char *deparse(void);
 };
 
@@ -89,6 +91,7 @@ public:
 	std::string here_document_tag;
 
 	Lexer(const char *filename);
+	//~Lexer(void);
 	bool isRegexDelim(Token *prev_token, char symbol);
 	Tokens *tokenize(char *script);
 	void annotateTokens(Tokens *tokens);

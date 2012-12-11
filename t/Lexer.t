@@ -1,18 +1,15 @@
-# Before `make install' is performed this script should be runnable with
-# `make test'. After `make install' it should work as `perl Lexer.t'
-
-#########################
-
-# change 'tests => 1' to 'tests => last_test_to_print';
-
 use strict;
 use warnings;
-
+use Data::Dumper;
 use Test::More tests => 1;
-BEGIN { use_ok('Lexer') };
+BEGIN { use_ok('Compiler::Lexer') };
 
-#########################
-
-# Insert your test code below, the Test::More module is use()ed here so read
-# its man page ( perldoc Test::More ) for help writing this test script.
-
+my $name = $0;
+#use modules tests
+print Dumper Lexer::get_used_modules($name, <<'SCRIPT');
+use Test::Module;
+my $hash = { use => "value" };
+$hash->{use};
+my $a = Test::Module->new();
+$a->use(\@args);
+SCRIPT

@@ -9,7 +9,7 @@ namespace TokenKind = Enum::Lexer;
 
 Token::Token(string data_, FileInfo finfo_) :
 	data(data_), token_num(0), total_token_num(0),
-	deparsed_data(""), isDeparsed(false)
+	deparsed_data(""), isDeparsed(false), isDeleted(false)
 {
 	type = TokenType::Undefined;
 	stype = SyntaxType::Value;
@@ -22,7 +22,7 @@ Token::Token(string data_, FileInfo finfo_) :
 }
 
 Token::Token(Tokens *tokens) :
-	data(""), isDeparsed(false)
+	data(""), isDeparsed(false), isDeleted(false)
 {
 	total_token_num = 0;
 	stype = SyntaxType::Value;
@@ -59,6 +59,23 @@ Token::Token(Tokens *tokens) :
 	finfo.end_line_num = end_line_num;
 }
 
+/*
+
+Token::~Token(void)
+{
+	for (size_t i = 0; i < this->token_num; i++) {
+		Token **tks = this->tks;
+		if (!tks[i]->isDeleted) {
+			delete tks[i];
+			tks[i] = NULL;
+		}
+	}
+	this->token_num = 0;
+	isDeleted = true;
+	//safe_free(tks, PTR_SIZE * this->token_num);
+}
+*/
+
 const char *Token::deparse(void)
 {
 	using namespace TokenType;
@@ -94,12 +111,18 @@ const char *Token::deparse(void)
 
 Lexer::Lexer(const char *filename) :
 	isStringStarted(false), isRegexStarted(false), commentFlag(false), hereDocumentFlag(false),
-    brace_count_inner_regex(0), bracket_count_inner_regex(0), cury_brace_count_inner_regex(0)
+    brace_count_inner_regex(0), bracket_count_inner_regex(0), cury_brace_count_inner_regex(0),
+	regex_delim(0), regex_middle_delim(0)
 {
 	finfo.start_line_num = 1;
 	finfo.filename = filename;
 }
 
+/*
+Lexer::~Lexer(void)
+{
+}
+*/
 void Lexer::writeChar(LexContext *ctx, char *token, char ch)
 {
 	token[ctx->token_idx] = ch;
@@ -257,7 +280,7 @@ bool Lexer::isRegexDelim(Token *prev_token, char symbol)
 		prev_data[0] != '}' && prev_data[0] != ']' && prev_data[0] != ')' &&
 		prev_data[0] != '$' && prev_data[0] != '@' && prev_data[0] != '%') {
 		if (isalpha(prev_data[0]) && string(prev_data) != "split" &&
-            string(prev_data) != "if" && string(prev_data) != "unless") return false;
+			string(prev_data) != "if" && string(prev_data) != "unless") return false;
 		return true;
 	}
 	if (string(prev_data) == "split") return true;
@@ -378,20 +401,20 @@ Token *Lexer::scanDoubleCharacterOperator(LexContext *ctx, char symbol, char nex
 		ret = new Token(string(tmp), finfo);
 		ctx->progress = 1;
 	} else if (symbol == '-' &&
-			   (next_ch == 'r' || next_ch == 'w' ||
-				next_ch == 'x' || next_ch == 'o' ||
-				next_ch == 'R' || next_ch == 'W' ||
-				next_ch == 'X' || next_ch == 'O' ||
-				next_ch == 'e' || next_ch == 'z' ||
-				next_ch == 's' || next_ch == 'f' ||
-				next_ch == 'd' || next_ch == 'l' ||
-				next_ch == 'p' || next_ch == 'S' ||
-				next_ch == 'b' || next_ch == 'c' ||
-				next_ch == 't' || next_ch == 'u' ||
-				next_ch == 'g' || next_ch == 'k' ||
-				next_ch == 'T' || next_ch == 'B' ||
-				next_ch == 'M' || next_ch == 'A' ||
-				next_ch == 'C')) {
+			(next_ch == 'r' || next_ch == 'w' ||
+			next_ch == 'x'  || next_ch == 'o' ||
+			next_ch == 'R'  || next_ch == 'W' ||
+			next_ch == 'X'  || next_ch == 'O' ||
+			next_ch == 'e'  || next_ch == 'z' ||
+			next_ch == 's'  || next_ch == 'f' ||
+			next_ch == 'd'  || next_ch == 'l' ||
+			next_ch == 'p'  || next_ch == 'S' ||
+			next_ch == 'b'  || next_ch == 'c' ||
+			next_ch == 't'  || next_ch == 'u' ||
+			next_ch == 'g'  || next_ch == 'k' ||
+			next_ch == 'T'  || next_ch == 'B' ||
+			next_ch == 'M'  || next_ch == 'A' ||
+			next_ch == 'C')) {
 		tmp[0] = symbol;
 		tmp[1] = next_ch;
 		ret = new Token(string(tmp), finfo);
@@ -421,10 +444,10 @@ Token *Lexer::scanSymbol(LexContext *ctx, char symbol, char next_ch, char after_
 		Token *tk = scanPrevSymbol(ctx, symbol);
 		ctx->tokens->push_back(tk);
 	}
-    if (!isRegexStarted) {
-        ret = scanTripleCharacterOperator(ctx, symbol, next_ch, after_next_ch);
-        if (!ret) ret = scanDoubleCharacterOperator(ctx, symbol, next_ch);
-    }
+	if (!isRegexStarted) {
+		ret = scanTripleCharacterOperator(ctx, symbol, next_ch, after_next_ch);
+		if (!ret) ret = scanDoubleCharacterOperator(ctx, symbol, next_ch);
+	}
 	if (!ret) ret = scanCurSymbol(ctx, symbol);
 	return ret;
 }
@@ -437,9 +460,9 @@ Token *Lexer::scanSymbol(LexContext *ctx, char symbol, char next_ch)
 		Token *tk = scanPrevSymbol(ctx, symbol);
 		ctx->tokens->push_back(tk);
 	}
-    if (!isRegexStarted) {
-        ret = scanDoubleCharacterOperator(ctx, symbol, next_ch);
-    }
+	if (!isRegexStarted) {
+		ret = scanDoubleCharacterOperator(ctx, symbol, next_ch);
+	}
 	if (!ret) ret = scanCurSymbol(ctx, symbol);
 	return ret;
 }
@@ -517,7 +540,8 @@ bool Lexer::isSkip(LexContext *ctx, char *script, size_t idx)
 			commentFlag = true;
 			ret = true;
 		}
-	} else if (0 < idx && script[idx - 1] == '\n' && idx + 6 < ctx->max_token_size &&
+	} else if (here_document_tag != "__END__" &&
+			   0 < idx && script[idx - 1] == '\n' && idx + 6 < ctx->max_token_size &&
 			   script[idx] == '_' && script[idx+1] == '_' &&
 			   script[idx+2] == 'E' && script[idx+3] == 'N' && script[idx+4] == 'D' &&
 			   script[idx+5] == '_' && script[idx+6] == '_') {
@@ -525,7 +549,8 @@ bool Lexer::isSkip(LexContext *ctx, char *script, size_t idx)
 		int progress_to_end = ctx->max_token_size - idx - 1;
 		ctx->progress = progress_to_end;
 		ret = false;
-	} else if (0 < idx && script[idx-1] == '\n' && idx + 7 < ctx->max_token_size &&
+	} else if (here_document_tag != "__DATA__" &&
+			   0 < idx && script[idx-1] == '\n' && idx + 7 < ctx->max_token_size &&
 			   script[idx] == '_' && script[idx+1] == '_' &&
 			   script[idx+2] == 'D' && script[idx+3] == 'A' && script[idx+4] == 'T' && script[idx+5] == 'A' &&
 			   script[idx+6] == '_' && script[idx+7] == '_') {
@@ -613,6 +638,9 @@ bool Lexer::isSkip(LexContext *ctx, char *script, size_t idx)
 				ctx->tokens->push_back(tk);
 				ret = false;
 				isRegexStarted = false;
+				brace_count_inner_regex = 0;
+				cury_brace_count_inner_regex = 0;
+				bracket_count_inner_regex = 0;
 			}
 		}
 	} else if (isStringStarted) {
@@ -696,7 +724,8 @@ Tokens *Lexer::tokenize(char *script)
 					prev_tk_data = prev_tk->data;
 				}
 				if (prev_tk_data == "<<" &&
-					strtod(token, NULL) == 0 && string(token) != "0" && isupper(token[0])) {
+					strtod(token, NULL) == 0 && string(token) != "0" &&
+					(isupper(token[0]) || token[0] == '_')) {
 					/* Key is HereDocument */
 					here_document_tag = token;
 				}
@@ -774,7 +803,8 @@ Tokens *Lexer::tokenize(char *script)
 					prev_tk_data = prev_tk->data;
 				}
 				if (prev_tk_data == "<<" &&
-					strtod(token, NULL) == 0 && string(token) != "0" && isupper(token[0])) {
+					strtod(token, NULL) == 0 && string(token) != "0" &&
+					(isupper(token[0]) || token[0] == '_')) {
 					/* Key is HereDocument */
 					here_document_tag = token;
 				}
@@ -797,6 +827,7 @@ Tokens *Lexer::tokenize(char *script)
 		}
 		i++;
 	}
+	//safe_free(token, max_token_size);
 	return tokens;
 }
 
@@ -961,7 +992,8 @@ void Lexer::grouping(Tokens *tokens)
 		Token *tk = ITER_CAST(Token *, pos);
 		if (!tk) break;
 		switch (tk->info.type) {
-		case Var: case GlobalVar: case Namespace: case Class: {
+		case Var: case GlobalVar: case GlobalHashVar:
+		case Namespace: case Class: {
 			Token *ns_token = tk;
 			TokenPos start_pos = pos+1;
 			size_t move_count = 0;
@@ -972,7 +1004,9 @@ void Lexer::grouping(Tokens *tokens)
 				pos++;
 				move_count++;
 				next_tk = ITER_CAST(Token *, pos);
-			} while (tk->info.type == NamespaceResolver ||
+			} while ((tk->info.type == NamespaceResolver &&
+					 (next_tk && next_tk->info.kind != TokenKind::Symbol &&
+					  next_tk->info.kind != TokenKind::StmtEnd)) ||
 					 (next_tk && next_tk->info.type == NamespaceResolver));
 			TokenPos end_pos = pos;
 			pos -= move_count;

@@ -13,6 +13,6 @@ sub get_script {
 }
 
 my $filename = $ARGV[0];
-print Dumper Lexer::deparse($filename, get_script($filename));
+#print Dumper Lexer::deparse($filename, get_script($filename));
 print Dumper Lexer::get_stmt_codes($filename, get_script($filename));
 print Dumper Lexer::get_used_modules($filename, get_script($filename));

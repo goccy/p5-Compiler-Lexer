@@ -32,7 +32,7 @@ CODE:
 	Lexer lexer(filename);
 	Tokens *tokens = lexer.tokenize((char *)script);
 	lexer.annotateTokens(tokens);
-	//lexer.dump(tokens);
+lexer.dump(tokens);
 	lexer.grouping(tokens);
 	lexer.prepare(tokens);
 	Token *root = lexer.parseSyntax(NULL, tokens);
@@ -75,8 +75,8 @@ CODE:
 	for (size_t i = 0; i < modules->size(); i++) {
 		Token *module = modules->at(i);
 		const char *module_name = cstr(module->data);
-        size_t len = strlen(module_name) + 1;
-		av_push(ret, newSVpv(module_name, len));
+        size_t len = strlen(module_name);
+		av_push(ret, set(new_String(module_name, len)));
 	}
     RETVAL = ret;
 OUTPUT:
@@ -94,8 +94,12 @@ CODE:
 	lexer.grouping(tokens);
 	lexer.prepare(tokens);
 	Token *root = lexer.parseSyntax(NULL, tokens);
-    const char *src = root->deparse();
-    size_t len = strlen(src) + 1;
+	const char *src = root->deparse();
+	size_t len = strlen(src) + 1;
+	size_t token_size = tokens->size();
+//	delete root;
+//    lexer.deleteTokens(tokens);
+//    lexer.deleteToken(root);
     RETVAL = newSVpv(src, len);
 OUTPUT:
     RETVAL
