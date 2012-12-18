@@ -14,5 +14,7 @@ sub get_script {
 
 my $filename = $ARGV[0];
 #print Dumper Lexer::deparse($filename, get_script($filename));
-print Dumper Lexer::get_stmt_codes($filename, get_script($filename));
-print Dumper Lexer::get_used_modules($filename, get_script($filename));
+my $lexer = Compiler::Lexer->new($filename);
+my $tokens = $lexer->tokenize(get_script($filename));
+print Dumper $lexer->get_groups_by_syntax_level($$tokens, Compiler::Lexer::SyntaxType::T_Stmt);
+print Dumper $lexer->get_used_modules(get_script($filename));

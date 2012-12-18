@@ -132,3 +132,4 @@ private:
 #define isSKIP() commentFlag
 extern void *safe_malloc(size_t size);
 extern void safe_free(void *ptr, size_t size);
+

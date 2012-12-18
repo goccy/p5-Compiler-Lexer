@@ -51,3 +51,49 @@ foreach my $elem (@array) {
 }
 print ous "};\n";
 print ous "\n";
+
+open(ous, ">", "lib/Compiler/Lexer/Constants.pm");
+my $token_type_enums = "";
+my $count = 0;
+foreach my $tk (@token_enum) {
+    $token_type_enums .= " " x 4 . "T_$tk => $count,\n";
+    $count++;
+}
+
+my $kind_enums = "";
+$count = 0;
+foreach my $kind (@kind_enum) {
+    $kind_enums .= " " x 4 . "T_$kind => $count,\n";
+    $count++;
+}
+
+print ous <<CODE;
+package Compiler::Lexer::TokenType;
+use strict;
+use warnings;
+use constant {
+$token_type_enums
+};
+1;
+
+package Compiler::Lexer::SyntaxType;
+use strict;
+use warnings;
+use constant {
+    T_Value     => 0,
+    T_Term      => 1,
+    T_Expr      => 2,
+    T_Stmt      => 3,
+    T_BlockStmt => 4
+};
+1;
+
+package Compiler::Lexer::Kind;
+use strict;
+use warnings;
+use constant {
+$kind_enums
+};
+1;
+CODE
+close(ous);
