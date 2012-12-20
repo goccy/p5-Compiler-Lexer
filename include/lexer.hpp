@@ -98,6 +98,7 @@ public:
 	void grouping(Tokens *tokens); /* for Namespace::Namespace */
 	void prepare(Tokens *tokens);
 	Token *parseSyntax(Token *start_token, Tokens *tokens);
+	void parseSpecificStmt(Token *root);
 	void setIndent(Token *tk, int indent);
 	void setBlockIDWithBreadthFirst(Token *tk, size_t base_id);
 	void setBlockIDWithDepthFirst(Token *tk, size_t *block_id);
@@ -107,6 +108,8 @@ public:
 	Tokens *getUsedModules(Token *root);
 private:
 	bool isSkip(LexContext *ctx, char *script, size_t idx);
+	bool isExpr(Token *tk, Token *prev_tk, Enum::Lexer::Token::Type type, Enum::Lexer::Kind kind);
+	void insertStmt(Token *tk, int idx, size_t grouping_num);
 	void writeChar(LexContext *ctx, char *token, char ch);
 	void clearToken(LexContext *ctx, char *token);
 	Token *scanQuote(LexContext *ctx, char quote);

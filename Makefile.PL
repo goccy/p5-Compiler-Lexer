@@ -2,7 +2,7 @@ use strict;
 use warnings;
 use inc::Module::Install;
 use Module::Install::XSUtil; # for co-developpers
-use constant DEBUG => 0;
+use constant DEBUG => 1;
 
 use_ppport 3.19;
 all_from 'lib/Compiler/Lexer.pm';

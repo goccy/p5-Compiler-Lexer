@@ -111,8 +111,8 @@ const char *Token::deparse(void)
 
 Lexer::Lexer(const char *filename) :
 	isStringStarted(false), isRegexStarted(false), commentFlag(false), hereDocumentFlag(false),
-    brace_count_inner_regex(0), bracket_count_inner_regex(0), cury_brace_count_inner_regex(0),
-	regex_delim(0), regex_middle_delim(0)
+	regex_delim(0), regex_middle_delim(0),
+    brace_count_inner_regex(0), bracket_count_inner_regex(0), cury_brace_count_inner_regex(0)
 {
 	finfo.start_line_num = 1;
 	finfo.filename = filename;
@@ -1056,6 +1056,23 @@ void Lexer::prepare(Tokens *tokens)
 	}
 }
 
+bool Lexer::isExpr(Token *tk, Token *prev_tk, Enum::Lexer::Token::Type type, Enum::Lexer::Kind kind)
+{
+	using namespace TokenType;
+	assert(tk->tks[0]->info.type == LeftBrace);
+	if (tk->token_num > 3 &&
+		(tk->tks[1]->info.type == Key   || tk->tks[1]->info.type == String) &&
+		(tk->tks[2]->info.type == Arrow || tk->tks[2]->info.type == Comma)) {
+		/* { [key|"key"] [,|=>] value ... */
+		return true;
+	} else if (type == Pointer || kind == TokenKind::Term || kind == TokenKind::Function ||
+			((prev_tk && prev_tk->stype == SyntaxType::Expr) && (type == RightBrace || type == RightBracket))) {
+		/* ->{ or $hash{ or map { or {key}{ or [idx]{ */
+		return true;
+	}
+	return false;
+}
+
 Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 {
 	using namespace TokenType;
@@ -1088,17 +1105,10 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 			if (prev) prev_type = prev->info.type;
 			pos++;
 			Token *syntax = parseSyntax(t, tokens);
-			if (syntax->token_num > 3 &&
-				(syntax->tks[1]->info.type == Key || syntax->tks[1]->info.type == String) &&
-				(syntax->tks[2]->info.type == Arrow || syntax->tks[2]->info.type == Comma)) {
-				//Nameless Hash
+			if (isExpr(syntax, prev_syntax, prev_type, prev_kind)) {
 				syntax->stype = SyntaxType::Expr;
-			} else if (prev_type == Pointer ||
-					   (prev_syntax && prev_syntax->stype == SyntaxType::Expr &&
-						(prev_type == RightBrace || prev_type == RightBracket)) ||
-					   prev_kind == TokenKind::Term ||
-					   prev_kind == TokenKind::Function) {
-				syntax->stype = SyntaxType::Expr;
+			} else if (prev_kind == TokenKind::Do) {
+				syntax->stype = SyntaxType::BlockStmt;
 			} else {
 				syntax->stype = SyntaxType::BlockStmt;
 				Token *next_tk = ITER_CAST(Token *, pos+1);
@@ -1113,23 +1123,18 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 		case RightBrace: case RightBracket: case RightParenthesis:
 			new_tokens->push_back(t);
 			return new Token(new_tokens);
-			break;
+			break; /* not reached this stmt */
 		case SemiColon: {
 			size_t k = pos - intermediate_pos;
 			if (start_pos == intermediate_pos) k++;
-			//fprintf(stdout, "stmt_token_num = [%lu]\n", k);
-			//fprintf(stdout, "pos = [%s], intermediate_pos = [%s]\n", (*pos)->info.name, (*intermediate_pos)->info.name);
-			//fprintf(stdout, "new_tokens_num = [%d]\n", new_tokens->size());
 			Tokens *stmt = new Tokens();
 			for (size_t j = 0; j < k - 1; j++) {
 				Token *tk = new_tokens->back();
-				//fprintf(stdout, "stype = [%d], total_token_num = [%d], name = [%s]\n", tk->stype, tk->total_token_num, cstr(tk->data));
 				j += (tk->total_token_num > 0) ? tk->total_token_num - 1 : 0;
 				stmt->insert(stmt->begin(), tk);
 				new_tokens->pop_back();
 			}
 			stmt->push_back(t);
-			//fprintf(stdout, "last_token = [%s]\n", new_tokens->back()->info.name);
 			Token *stmt_ = new Token(stmt);
 			stmt_->stype = SyntaxType::Stmt;
 			new_tokens->push_back(stmt_);
@@ -1147,6 +1152,114 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 		pos++;
 	}
 	return new Token(new_tokens);
+}
+
+
+void Lexer::insertStmt(Token *syntax, int idx, size_t grouping_num)
+{
+	size_t tk_n = syntax->token_num;
+	Token **tks = syntax->tks;
+	Token *tk = tks[idx];
+	Tokens *stmt = new Tokens();
+	stmt->push_back(tk);
+	for (size_t i = 1; i < grouping_num; i++) {
+		stmt->push_back(tks[idx+i]);
+	}
+	Token *stmt_ = new Token(stmt);
+	stmt_->stype = SyntaxType::Stmt;
+	tks[idx] = stmt_;
+	if (tk_n == idx+grouping_num) {
+		for (size_t i = 1; i < grouping_num; i++) {
+			syntax->tks[idx+i] = NULL;
+		}
+	} else {
+		memmove(syntax->tks+idx+1, syntax->tks+idx+grouping_num,
+				sizeof(Token *) * (tk_n - (idx+grouping_num)));
+		for (size_t i = 1; i < grouping_num; i++) {
+			syntax->tks[tk_n-i] = NULL;
+		}
+	}
+	syntax->token_num -= (grouping_num - 1);
+}
+
+void Lexer::parseSpecificStmt(Token *syntax)
+{
+	using namespace TokenType;
+	size_t tk_n = syntax->token_num;
+	for (size_t i = 0; i < tk_n; i++) {
+		Token **tks = syntax->tks;
+		Token *tk = tks[i];
+		switch (tk->info.type) {
+		case IfStmt:    case ElsifStmt: case ForeachStmt:
+		case ForStmt:   case WhileStmt: case UnlessStmt:
+		case GivenStmt: case UntilStmt: case WhenStmt: {
+			if (tk_n > i+2 &&
+				tks[i+1]->stype == SyntaxType::Expr &&
+				tks[i+2]->stype == SyntaxType::BlockStmt) {
+				/* if Expr BlockStmt */
+				insertStmt(syntax, i, 3);
+				tk_n -= 2;
+			} else if ((tk->info.type == ForStmt || tk->info.type == ForeachStmt) &&
+					   tk_n > i+3 && tks[i+1]->stype != SyntaxType::Expr) {
+				/* for(each) [decl] Term Expr BlockStmt */
+				if (tk_n > i+3 &&
+					tks[i+1]->info.kind == TokenKind::Term &&
+					tks[i+2]->stype == SyntaxType::Expr &&
+					tks[i+3]->stype == SyntaxType::BlockStmt) {
+					insertStmt(syntax, i, 4);
+					tk_n -= 3;
+				} else if (tk_n > i+4 &&
+					tks[i+1]->info.kind == TokenKind::Decl &&
+					tks[i+2]->info.kind == TokenKind::Term &&
+					tks[i+3]->stype == SyntaxType::Expr &&
+					tks[i+4]->stype == SyntaxType::BlockStmt) {
+					insertStmt(syntax, i, 5);
+					tk_n -= 4;
+				} else {
+					//fprintf(stderr, "Syntax Error!: near by line[%lu]\n", tk->finfo.start_line_num);
+					//exit(EXIT_FAILURE);
+				}
+			}
+			break;
+		}
+		case ElseStmt: case Do: case Continue: case DefaultStmt:
+			if (tk_n > i+1 && tks[i+1]->stype == SyntaxType::BlockStmt) {
+				/* else BlockStmt */
+				insertStmt(syntax, i, 2);
+				tk_n -= 1;
+			}
+			break;
+		case FunctionDecl:
+			if (tk_n > i+2 &&
+				tks[i+1]->info.type == Function &&
+				tks[i+2]->stype == SyntaxType::BlockStmt) {
+				/* sub func BlockStmt */
+				insertStmt(syntax, i, 3);
+				tk_n -= 2;
+			} else if (tk_n > i+3 &&
+				tks[i+1]->info.type == Function &&
+				tks[i+2]->stype == SyntaxType::Expr &&
+				tks[i+3]->stype == SyntaxType::BlockStmt) {
+				/* sub func Expr BlockStmt */
+				insertStmt(syntax, i, 4);
+				tk_n -= 3;
+			}
+			break;
+		default:
+			if (tk->stype == SyntaxType::BlockStmt) {
+				if (i > 0 &&
+					(tks[i-1]->stype == SyntaxType::Stmt ||
+					tks[i-1]->stype == SyntaxType::BlockStmt)) {
+					/* nameless block */
+					insertStmt(syntax, i, 1);
+				}
+				parseSpecificStmt(tk);
+			} else if (tk->stype == SyntaxType::Stmt) {
+				parseSpecificStmt(tk);
+			}
+			break;
+		}
+	}
 }
 
 void Lexer::setIndent(Token *syntax, int indent)
