@@ -52,8 +52,8 @@ CODE:
 		hv_stores(hash, "type", set(new_Int(token->info.type)));
 		hv_stores(hash, "kind", set(new_Int(token->info.kind)));
 		hv_stores(hash, "line", set(new_Int(token->finfo.start_line_num)));
-		hv_stores(hash, "name", set(new_String(token->info.name, strlen(token->info.name) + 1)));
-		hv_stores(hash, "data", set(new_String(token->data.c_str(), strlen(token->data.c_str()) + 1)));
+		hv_stores(hash, "name", set(new_String(token->info.name, strlen(token->info.name))));
+		hv_stores(hash, "data", set(new_String(token->data.c_str(), strlen(token->data.c_str()))));
 		HV *stash = (HV *)gv_stashpv("Compiler::Lexer::Token", sizeof("Compiler::Lexer::Token") + 1);
 		av_push(ret, set(sv_bless(new_Ref(hash), stash)));
 	}
@@ -106,7 +106,7 @@ CODE:
 	for (size_t i = 0; i < stmts->size(); i++) {
 		Token *stmt = stmts->at(i);
 		const char *src = stmt->deparse();
-		size_t len = strlen(src) + 1;
+		size_t len = strlen(src);
 		HV *hash = (HV*)new_Hash();
 		hv_stores(hash, "src", set(new_String(src, len)));
 		hv_stores(hash, "token_num", set(new_Int(stmt->total_token_num)));
