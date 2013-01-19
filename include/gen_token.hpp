@@ -145,6 +145,7 @@ typedef enum {
 	ExecString,
 	RawHereDocument,
 	HereDocument,
+	HereDocumentEnd,
 	Object,
 	RegExp,
 	Array,

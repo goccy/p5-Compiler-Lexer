@@ -101,6 +101,12 @@ const char *Token::deparse(void)
 		case RegExp:         case RegOpt:
 			deparsed_data += this->data;
 			break;
+		case HereDocument:
+			deparsed_data += "\n" + this->data;
+			break;
+		case HereDocumentEnd:
+			deparsed_data += this->data + "\n";
+			break;
 		default:
 			deparsed_data += " " + this->data;
 			break;
@@ -158,6 +164,9 @@ Token *Lexer::scanQuote(LexContext *ctx, char quote)
 		if (prev_tk && prev_tk->data == "<<") {
 			/* String is HereDocument */
 			here_document_tag = ret->data;
+			if (here_document_tag == "") {
+				here_document_tag = "\n";
+			}
 		}
 		isStringStarted = false;
 	} else {
@@ -367,7 +376,8 @@ Token *Lexer::scanDoubleCharacterOperator(LexContext *ctx, char symbol, char nex
 		(symbol == '.' && next_ch == '=') || (symbol == '!' && next_ch == '=') ||
 		(symbol == '=' && next_ch == '=') || (symbol == '+' && next_ch == '=') ||
 		(symbol == '-' && next_ch == '=') || (symbol == '*' && next_ch == '=') ||
-		(symbol == '%' && next_ch == '=') || (symbol == '<' && next_ch == '<') ||
+		(symbol == '%' && next_ch == '=') || (symbol == '|' && next_ch == '=') ||
+		(symbol == '&' && next_ch == '=') || (symbol == '<' && next_ch == '<') ||
 		(symbol == '>' && next_ch == '>') || (symbol == '+' && next_ch == '+') ||
 		(symbol == '=' && next_ch == '>') || (symbol == '=' && next_ch == '~') ||
 		(symbol == '@' && next_ch == '{') || (symbol == '%' && next_ch == '{') ||
@@ -481,6 +491,7 @@ Token *Lexer::scanSymbol(LexContext *ctx, char symbol)
 
 #define NEXT() (*(src + i++))
 #define PREDICT() (*(src + i))
+#define NCHAR() (*(src+i+1))
 Token *Lexer::scanNumber(LexContext *, char *src, size_t &i)
 {
 	char *begin = src + i;
@@ -664,6 +675,9 @@ bool Lexer::isSkip(LexContext *ctx, char *script, size_t idx)
 				tk->info = getTokenInfo(TokenType::HereDocument);
 				clearToken(ctx, ctx->token);
 				ctx->tokens->push_back(tk);
+				tk = new Token(here_document_tag, finfo);
+				tk->info = getTokenInfo(TokenType::HereDocumentEnd);
+				ctx->tokens->push_back(tk);
 				//tk = new Token(here_document_tag, finfo);
 				//tk->info = getTokenInfo(TokenType::SemiColon);
 				//ctx->tokens->push_back(tk);
@@ -772,10 +786,20 @@ Tokens *Lexer::tokenize(char *script)
 				break;
 			}
 			//fall through
+		case '.':
+			if (ctx.token_idx == 0 && i + 1 < script_size &&
+				'0' <= script[i+1] && script[i+1] <= '9') {
+				// .01234
+				tk = scanNumber(&ctx, script, i);
+				tokens->push_back(tk);
+				clearToken(&ctx, ctx.token);
+				continue;
+			}
+			//fall through
 		case '=': case '^': case '~': case '@':
 		case ',': case ':': case ';': case '+':
 		case '<': case '>': case '&': case '|':
-		case '.': case '!': case '*': case '/':
+		case '!': case '*': case '/':
 		case '(': case ')': case '{': case '}':
 		case '[': case ']': case '?': case '$': {
 			if (i + 2 < script_size) {
@@ -1045,15 +1069,17 @@ void Lexer::prepare(Tokens *tokens)
 {
 	pos = tokens->begin();
 	start_pos = pos;
+/*
 	TokenPos it = tokens->begin();
 	while (it != tokens->end()) {
 		Token *t = ITER_CAST(Token *, it);
 		if (t->info.type == TokenType::HereDocument) {
-			tokens->erase(it);
-			continue;
+			//tokens->erase(it);
+			//continue;
 		}
 		it++;
 	}
+*/
 }
 
 bool Lexer::isExpr(Token *tk, Token *prev_tk, Enum::Lexer::Token::Type type, Enum::Lexer::Kind kind)

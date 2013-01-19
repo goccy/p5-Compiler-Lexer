@@ -2376,6 +2376,12 @@
 	"parse_func" : ""
  },
  {
+	"type" : "HereDocumentEnd",
+	"kind" : "Term",
+	"data" : "",
+	"parse_func" : ""
+ },
+ {
 	"type" : "Object",
 	"kind" : "Term",
 	"data" : "",
