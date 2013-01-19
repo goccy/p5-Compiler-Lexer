@@ -394,6 +394,8 @@ TokenInfo decl_tokens[] = {
 	{Enum::Lexer::Token::String, Enum::Lexer::Term, "String", ""},
 	{Enum::Lexer::Token::RawString, Enum::Lexer::Term, "RawString", ""},
 	{Enum::Lexer::Token::ExecString, Enum::Lexer::Term, "ExecString", ""},
+	{Enum::Lexer::Token::HereDocumentTag, Enum::Lexer::Term, "HereDocumentTag", ""},
+	{Enum::Lexer::Token::HereDocumentRawTag, Enum::Lexer::Term, "HereDocumentRawTag", ""},
 	{Enum::Lexer::Token::RawHereDocument, Enum::Lexer::Term, "RawHereDocument", ""},
 	{Enum::Lexer::Token::HereDocument, Enum::Lexer::Term, "HereDocument", ""},
 	{Enum::Lexer::Token::HereDocumentEnd, Enum::Lexer::Term, "HereDocumentEnd", ""},

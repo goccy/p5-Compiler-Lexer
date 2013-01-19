@@ -112,6 +112,7 @@ private:
 	void insertStmt(Token *tk, int idx, size_t grouping_num);
 	void writeChar(LexContext *ctx, char *token, char ch);
 	void clearToken(LexContext *ctx, char *token);
+	void escapeQuotation(std::string *from, char quote);
 	Token *scanQuote(LexContext *ctx, char quote);
 	//Token *scanEscapeChar(LexContext *ctx, char ch);
 	Token *scanNewLineKeyword(LexContext *ctx);

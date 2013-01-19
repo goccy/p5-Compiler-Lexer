@@ -167,6 +167,16 @@ Token *Lexer::scanQuote(LexContext *ctx, char quote)
 			if (here_document_tag == "") {
 				here_document_tag = "\n";
 			}
+			switch (quote) {
+			case '\'':
+				ret->info = getTokenInfo(TokenType::HereDocumentRawTag);
+				break;
+			case '"':
+				ret->info = getTokenInfo(TokenType::HereDocumentTag);
+				break;
+			default:
+				break;
+			}
 		}
 		isStringStarted = false;
 	} else {
@@ -271,6 +281,7 @@ Token *Lexer::scanPrevSymbol(LexContext *ctx, char symbol)
 		if (prev_before_tk_data == "<<" && (isupper(token[0]) || token[0] == '_')) {
 			/* Key is HereDocument */
 			here_document_tag = token;
+			ret->info = getTokenInfo(TokenType::HereDocumentRawTag);
 		}
 		clearToken(ctx, token);
 	}
@@ -742,6 +753,7 @@ Tokens *Lexer::tokenize(char *script)
 					(isupper(token[0]) || token[0] == '_')) {
 					/* Key is HereDocument */
 					here_document_tag = token;
+					tk->info = getTokenInfo(TokenType::HereDocumentRawTag);
 				}
 				clearToken(&ctx, token);
 				if (tk) tokens->push_back(tk);
@@ -830,6 +842,7 @@ Tokens *Lexer::tokenize(char *script)
 					strtod(token, NULL) == 0 && string(token) != "0" &&
 					(isupper(token[0]) || token[0] == '_')) {
 					/* Key is HereDocument */
+					tk->info = getTokenInfo(TokenType::HereDocumentRawTag);
 					here_document_tag = token;
 				}
 				clearToken(&ctx, ctx.token);
@@ -978,6 +991,9 @@ void Lexer::annotateTokens(Tokens *tokens)
 			t->info = getTokenInfo(Function);
 			cur_type = Function;
 			funcdecl_list.push_back(t->data);
+		} else if (cur_type == RegDelim) {
+			t->info = getTokenInfo(RegOpt);
+			cur_type = RegOpt;
 		} else if (search(funcdecl_list, t->data)) {
 			t->info = getTokenInfo(Call);
 			cur_type = Call;
@@ -992,9 +1008,6 @@ void Lexer::annotateTokens(Tokens *tokens)
 		} else if (cur_type == NamespaceResolver) {
 			t->info = getTokenInfo(Namespace);
 			cur_type = Namespace;
-		} else if (cur_type == RegDelim) {
-			t->info = getTokenInfo(RegOpt);
-			cur_type = RegOpt;
 		} else if (data == "\n") {
 			tokens->erase(it);
 			it--;
@@ -1065,21 +1078,64 @@ bool Lexer::search(vector<string> list, string target)
 	return ret;
 }
 
+void Lexer::escapeQuotation(string *from, char quote)
+{
+	size_t len = from->length();
+	for (size_t i = 0; i < len; i++) {
+		if ((*from)[i] == quote) {
+			from->insert(i, 1, '\\');
+			i++;
+		}
+	}
+}
+
 void Lexer::prepare(Tokens *tokens)
 {
 	pos = tokens->begin();
 	start_pos = pos;
-/*
 	TokenPos it = tokens->begin();
+	TokenPos tag_pos = start_pos;
 	while (it != tokens->end()) {
 		Token *t = ITER_CAST(Token *, it);
-		if (t->info.type == TokenType::HereDocument) {
-			//tokens->erase(it);
-			//continue;
+		switch (t->info.type) {
+		case TokenType::HereDocumentTag: case TokenType::HereDocumentRawTag:
+			tag_pos = it;
+			break;
+		case TokenType::HereDocument:
+			if (tag_pos == start_pos) {
+				fprintf(stderr, "ERROR!: nothing use HereDocumentTag\n");
+				exit(EXIT_FAILURE);
+			} else {
+				Token *tag = ITER_CAST(Token *, tag_pos);
+				switch (tag->info.type) {
+				case TokenType::HereDocumentTag:
+					tag->info = getTokenInfo(TokenType::String);
+					escapeQuotation(&t->data, '"');
+					break;
+				case TokenType::HereDocumentRawTag:
+					tag->info = getTokenInfo(TokenType::RawString);
+					escapeQuotation(&t->data, '\'');
+					break;
+				default:
+					break;
+				}
+				tag->data = t->data;
+				Token *prev_token = ITER_CAST(Token *, tag_pos-1);
+				tokens->erase(tag_pos-1);
+				tokens->erase(it-1);
+				it--;
+				continue;
+			}
+			break;
+		case TokenType::HereDocumentEnd:
+			tokens->erase(it);
+			continue;
+			break;
+		default:
+			break;
 		}
 		it++;
 	}
-*/
 }
 
 bool Lexer::isExpr(Token *tk, Token *prev_tk, Enum::Lexer::Token::Type type, Enum::Lexer::Kind kind)

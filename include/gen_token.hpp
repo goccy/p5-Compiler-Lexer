@@ -143,6 +143,8 @@ typedef enum {
 	String,
 	RawString,
 	ExecString,
+	HereDocumentTag,
+	HereDocumentRawTag,
 	RawHereDocument,
 	HereDocument,
 	HereDocumentEnd,

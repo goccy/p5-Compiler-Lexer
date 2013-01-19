@@ -2364,6 +2364,18 @@
 	"parse_func" : ""
  },
  {
+	"type" : "HereDocumentTag",
+	"kind" : "Term",
+	"data" : "",
+	"parse_func" : ""
+ },
+ {
+	"type" : "HereDocumentRawTag",
+	"kind" : "Term",
+	"data" : "",
+	"parse_func" : ""
+ },
+ {
 	"type" : "RawHereDocument",
 	"kind" : "Term",
 	"data" : "",
