@@ -73,6 +73,12 @@ public:
 	int progress;
 };
 
+class Module {
+public:
+	char *name;
+	char **args;
+};
+
 class Lexer {
 public:
 	bool isStringStarted;

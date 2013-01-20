@@ -352,6 +352,7 @@ Token *Lexer::scanTripleCharacterOperator(LexContext *ctx, char symbol, char nex
 	char tmp[4] = {0};
 	if ((symbol == '<' && next_ch == '=' && after_next_ch == '>') ||
 		(symbol == '*' && next_ch == '*' && after_next_ch == '=') ||
+		(symbol == '/' && next_ch == '/' && after_next_ch == '=') ||
 		(symbol == '|' && next_ch == '|' && after_next_ch == '=') ||
 		(symbol == '&' && next_ch == '&' && after_next_ch == '=') ||
 		(symbol == '.' && next_ch == '.' && after_next_ch == '.') ||
@@ -388,8 +389,9 @@ Token *Lexer::scanDoubleCharacterOperator(LexContext *ctx, char symbol, char nex
 		(symbol == '=' && next_ch == '=') || (symbol == '+' && next_ch == '=') ||
 		(symbol == '-' && next_ch == '=') || (symbol == '*' && next_ch == '=') ||
 		(symbol == '%' && next_ch == '=') || (symbol == '|' && next_ch == '=') ||
-		(symbol == '&' && next_ch == '=') || (symbol == '<' && next_ch == '<') ||
-		(symbol == '>' && next_ch == '>') || (symbol == '+' && next_ch == '+') ||
+		(symbol == '&' && next_ch == '=') || (symbol == '^' && next_ch == '=') ||
+		(symbol == '<' && next_ch == '<') || (symbol == '>' && next_ch == '>') ||
+		(symbol == '+' && next_ch == '+') || (symbol == '/' && next_ch == '/') ||
 		(symbol == '=' && next_ch == '>') || (symbol == '=' && next_ch == '~') ||
 		(symbol == '@' && next_ch == '{') || (symbol == '%' && next_ch == '{') ||
 		(symbol == '$' && next_ch == '#') || (symbol == '-' && next_ch == '-') ||
@@ -1030,7 +1032,7 @@ void Lexer::grouping(Tokens *tokens)
 		if (!tk) break;
 		switch (tk->info.type) {
 		case Var: case GlobalVar: case GlobalHashVar:
-		case Namespace: case Class: {
+		case Namespace: case Class: case CORE: {
 			Token *ns_token = tk;
 			TokenPos start_pos = pos+1;
 			size_t move_count = 0;
@@ -1120,7 +1122,6 @@ void Lexer::prepare(Tokens *tokens)
 					break;
 				}
 				tag->data = t->data;
-				Token *prev_token = ITER_CAST(Token *, tag_pos-1);
 				tokens->erase(tag_pos-1);
 				tokens->erase(it-1);
 				it--;
@@ -1147,7 +1148,7 @@ bool Lexer::isExpr(Token *tk, Token *prev_tk, Enum::Lexer::Token::Type type, Enu
 		(tk->tks[2]->info.type == Arrow || tk->tks[2]->info.type == Comma)) {
 		/* { [key|"key"] [,|=>] value ... */
 		return true;
-	} else if (type == Pointer || kind == TokenKind::Term || kind == TokenKind::Function ||
+	} else if (type == Pointer || kind == TokenKind::Term || kind == TokenKind::Function || type == FunctionDecl ||
 			((prev_tk && prev_tk->stype == SyntaxType::Expr) && (type == RightBrace || type == RightBracket))) {
 		/* ->{ or $hash{ or map { or {key}{ or [idx]{ */
 		return true;
