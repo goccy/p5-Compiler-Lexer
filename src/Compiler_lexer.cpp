@@ -1263,7 +1263,7 @@ void Lexer::insertStmt(Token *syntax, int idx, size_t grouping_num)
 			syntax->tks[idx+i] = NULL;
 		}
 	} else {
-		memmove(syntax->tks+idx+1, syntax->tks+idx+grouping_num,
+		memmove(syntax->tks+(idx+1), syntax->tks+(idx+grouping_num),
 				sizeof(Token *) * (tk_n - (idx+grouping_num)));
 		for (size_t i = 1; i < grouping_num; i++) {
 			syntax->tks[tk_n-i] = NULL;
@@ -1289,6 +1289,8 @@ void Lexer::parseSpecificStmt(Token *syntax)
 				/* if Expr BlockStmt */
 				insertStmt(syntax, i, 3);
 				tk_n -= 2;
+				parseSpecificStmt(tks[i]->tks[2]);
+				//i += 2;
 			} else if ((tk->info.type == ForStmt || tk->info.type == ForeachStmt) &&
 					   tk_n > i+3 && tks[i+1]->stype != SyntaxType::Expr) {
 				/* for(each) [decl] Term Expr BlockStmt */
@@ -1298,6 +1300,8 @@ void Lexer::parseSpecificStmt(Token *syntax)
 					tks[i+3]->stype == SyntaxType::BlockStmt) {
 					insertStmt(syntax, i, 4);
 					tk_n -= 3;
+					parseSpecificStmt(tks[i]->tks[3]);
+					//i += 3;
 				} else if (tk_n > i+4 &&
 					tks[i+1]->info.kind == TokenKind::Decl &&
 					tks[i+2]->info.kind == TokenKind::Term &&
@@ -1305,6 +1309,8 @@ void Lexer::parseSpecificStmt(Token *syntax)
 					tks[i+4]->stype == SyntaxType::BlockStmt) {
 					insertStmt(syntax, i, 5);
 					tk_n -= 4;
+					parseSpecificStmt(tks[i]->tks[4]);
+					//i += 4;
 				} else {
 					//fprintf(stderr, "Syntax Error!: near by line[%lu]\n", tk->finfo.start_line_num);
 					//exit(EXIT_FAILURE);
@@ -1317,15 +1323,23 @@ void Lexer::parseSpecificStmt(Token *syntax)
 				/* else BlockStmt */
 				insertStmt(syntax, i, 2);
 				tk_n -= 1;
+				//i += 1;
 			}
 			break;
 		case FunctionDecl:
-			if (tk_n > i+2 &&
+			if (tk_n > i+1 &&
+				tks[i+1]->info.type == SyntaxType::BlockStmt) {
+				/* sub BlockStmt */
+				insertStmt(syntax, i, 2);
+				tk_n -= 1;
+				parseSpecificStmt(tks[i]->tks[1]);
+			} else if (tk_n > i+2 &&
 				tks[i+1]->info.type == Function &&
 				tks[i+2]->stype == SyntaxType::BlockStmt) {
 				/* sub func BlockStmt */
 				insertStmt(syntax, i, 3);
 				tk_n -= 2;
+				parseSpecificStmt(tks[i]->tks[2]);
 			} else if (tk_n > i+3 &&
 				tks[i+1]->info.type == Function &&
 				tks[i+2]->stype == SyntaxType::Expr &&
@@ -1333,6 +1347,7 @@ void Lexer::parseSpecificStmt(Token *syntax)
 				/* sub func Expr BlockStmt */
 				insertStmt(syntax, i, 4);
 				tk_n -= 3;
+				parseSpecificStmt(tks[i]->tks[3]);
 			}
 			break;
 		default:
@@ -1344,7 +1359,7 @@ void Lexer::parseSpecificStmt(Token *syntax)
 					insertStmt(syntax, i, 1);
 				}
 				parseSpecificStmt(tk);
-			} else if (tk->stype == SyntaxType::Stmt) {
+			} else if (tk->stype == SyntaxType::Stmt || tk->stype == SyntaxType::Expr) {
 				parseSpecificStmt(tk);
 			}
 			break;

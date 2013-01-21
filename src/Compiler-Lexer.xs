@@ -99,6 +99,7 @@ CODE:
 	//self->dump(&tks);
 	Token *root = self->parseSyntax(NULL, &tks);
 	self->parseSpecificStmt(root);
+	self->dumpSyntax(root, 0);
 	self->setIndent(root, NULL);
 	size_t block_id = 0;
 	self->setBlockIDWithDepthFirst(root, &block_id);
