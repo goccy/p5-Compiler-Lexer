@@ -1118,17 +1118,18 @@ void Lexer::prepare(Tokens *tokens)
 				Token *tag = ITER_CAST(Token *, tag_pos);
 				switch (tag->info.type) {
 				case TokenType::HereDocumentTag:
-					tag->info = getTokenInfo(TokenType::String);
-					escapeQuotation(&t->data, '"');
+					tag->info = getTokenInfo(TokenType::RegDoubleQuote);
+					tag->data = "qq{" + t->data + "}";
+					//escapeQuotation(&t->data, '"');
 					break;
 				case TokenType::HereDocumentRawTag:
-					tag->info = getTokenInfo(TokenType::RawString);
-					escapeQuotation(&t->data, '\'');
+					tag->info = getTokenInfo(TokenType::RegQuote);//RawString);
+					//escapeQuotation(&t->data, '\'');
+					tag->data = "q{" + t->data + "}";
 					break;
 				default:
 					break;
 				}
-				tag->data = t->data;
 				tokens->erase(tag_pos-1);
 				tokens->erase(it-1);
 				it--;
@@ -1506,7 +1507,14 @@ Modules *Lexer::getUsedModules(Token *root)
 			if (string(module_name) == "overload") continue;
 			if (i + 2 >= root->token_num) continue;
 			if (tks[i+2]->stype == SyntaxType::Expr) {
-				//Token **_tks = tks[i+2]->tks;
+				i += 2;
+				string *_args = new string(tks[i]->data);
+				for (i++; tks[i]->info.type != SemiColon; i++) {
+					if (tks[i]->info.type == RawString || tks[i]->info.type == String) {
+						*_args += " " + tks[i]->data;
+					}
+				}
+				args = _args->c_str();
 			} else if (tks[i+2]->info.type == RegList ||
 					   tks[i+2]->info.type == RegQuote ||
 					   tks[i+2]->info.type == RegDoubleQuote) {
@@ -1523,7 +1531,14 @@ Modules *Lexer::getUsedModules(Token *root)
 				args = cstr(tks[i+4]->data);
 				//fprintf(stderr, "%s qw(%s)\n", module_name, args);
 			} else if (tks[i+2]->info.type == RawString || tks[i+2]->info.type == String) {
-				args = cstr(tks[i+2]->data);
+				i += 2;
+				string *_args = new string(tks[i]->data);
+				for (i++; tks[i]->info.type != SemiColon; i++) {
+					if (tks[i]->info.type == RawString || tks[i]->info.type == String) {
+						*_args += " " + tks[i]->data;
+					}
+				}
+				args = _args->c_str();
 				//fprintf(stderr, "%s qw(%s)\n", module_name, args);
 			}
 			ret->push_back(new Module(module_name, args));
