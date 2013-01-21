@@ -32,5 +32,7 @@
 
 class TokenInfo;
 class Token;
+class Module;
 typedef std::vector<Token *> Tokens;
+typedef std::vector<Module *> Modules;
 typedef std::vector<Token *>::iterator TokenPos;

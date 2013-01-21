@@ -75,8 +75,9 @@ public:
 
 class Module {
 public:
-	char *name;
-	char **args;
+	const char *name;
+	const char *args;
+	Module(const char *name, const char *args);
 };
 
 class Lexer {
@@ -111,7 +112,7 @@ public:
 	void dump(Tokens *tokens);
 	void dumpSyntax(Token *tk, int indent);
 	Tokens *getTokensBySyntaxLevel(Token *root, Enum::Lexer::Syntax::Type type);
-	Tokens *getUsedModules(Token *root);
+	Modules *getUsedModules(Token *root);
 private:
 	bool isSkip(LexContext *ctx, char *script, size_t idx);
 	bool isExpr(Token *tk, Token *prev_tk, Enum::Lexer::Token::Type type, Enum::Lexer::Kind kind);

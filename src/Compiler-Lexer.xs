@@ -95,7 +95,7 @@ CODE:
 	}
 	self->grouping(&tks);
 	self->prepare(&tks);
-    //self->dump(root, 0);
+	//self->dump(root, 0);
 	//self->dump(&tks);
 	Token *root = self->parseSyntax(NULL, &tks);
 	self->parseSpecificStmt(root);
@@ -133,13 +133,18 @@ CODE:
 	self->grouping(tokens);
 	self->prepare(tokens);
 	Token *root = self->parseSyntax(NULL, tokens);
-	Tokens *modules = self->getUsedModules(root);
+	Modules *modules = self->getUsedModules(root);
 	AV* ret = new_Array();
 	for (size_t i = 0; i < modules->size(); i++) {
-		Token *module = modules->at(i);
-		const char *module_name = cstr(module->data);
-		size_t len = strlen(module_name);
-		av_push(ret, set(new_String(module_name, len)));
+		Module *module = modules->at(i);
+		const char *module_name = module->name;
+		const char *module_args = module->args;
+		size_t module_name_len = strlen(module_name);
+		size_t module_args_len = (module_args) ? strlen(module_args) : 0;
+		HV *hash = (HV*)new_Hash();
+		hv_stores(hash, "name", set(new_String(module_name, module_name_len)));
+		hv_stores(hash, "args", set(new_String(module_args, module_args_len)));
+		av_push(ret, set(new_Ref(hash)));
 	}
 	RETVAL = ret;
 }

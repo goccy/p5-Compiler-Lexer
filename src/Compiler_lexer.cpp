@@ -59,6 +59,9 @@ Token::Token(Tokens *tokens) :
 	finfo.end_line_num = end_line_num;
 }
 
+Module::Module(const char *name_, const char *args_)
+	: name(name_), args(args_) {}
+
 /*
 
 Token::~Token(void)
@@ -932,6 +935,10 @@ void Lexer::annotateTokens(Tokens *tokens)
 		//fprintf(stdout, "TOKEN = [%s]\n", cstr(data));
 		if (t->info.type != Undefined) {
 			cur_type = t->info.type;
+		} else if (cur_type == RegDelim &&
+				   (data == "g" || data == "m" || data == "s" || data == "x")) {
+			t->info = getTokenInfo(RegOpt);
+			cur_type = RegOpt;
 		} else if (isReservedKeyword(data) && cur_type != FunctionDecl) {
 			t->info = getTokenInfo(cstr(data));
 			cur_type = t->info.type;
@@ -1148,7 +1155,7 @@ bool Lexer::isExpr(Token *tk, Token *prev_tk, Enum::Lexer::Token::Type type, Enu
 		(tk->tks[2]->info.type == Arrow || tk->tks[2]->info.type == Comma)) {
 		/* { [key|"key"] [,|=>] value ... */
 		return true;
-	} else if (type == Pointer || kind == TokenKind::Term || kind == TokenKind::Function || type == FunctionDecl ||
+	} else if (type == Pointer || kind == TokenKind::Term || kind == TokenKind::Function ||/* type == FunctionDecl ||*/
 			((prev_tk && prev_tk->stype == SyntaxType::Expr) && (type == RightBrace || type == RightBracket))) {
 		/* ->{ or $hash{ or map { or {key}{ or [idx]{ */
 		return true;
@@ -1472,17 +1479,43 @@ Tokens *Lexer::getTokensBySyntaxLevel(Token *root, SyntaxType::Type type)
 	return ret;
 }
 
-Tokens *Lexer::getUsedModules(Token *root)
+Modules *Lexer::getUsedModules(Token *root)
 {
-	Tokens *ret = new Tokens();
+	using namespace TokenType;
+	Modules *ret = new Modules();
 	for (size_t i = 0; i < root->token_num; i++) {
 		Token **tks = root->tks;
-		if (tks[i]->info.type == TokenType::UseDecl && i + 1 < root->token_num) {
-			ret->push_back(tks[i+1]);
+		if (tks[i]->info.type == UseDecl && i + 1 < root->token_num) {
+			const char *module_name = cstr(tks[i+1]->data);
+			const char *args = NULL;
+			if (string(module_name) == "overload") continue;
+			if (i + 2 >= root->token_num) continue;
+			if (tks[i+2]->stype == SyntaxType::Expr) {
+				//Token **_tks = tks[i+2]->tks;
+			} else if (tks[i+2]->info.type == RegList ||
+					   tks[i+2]->info.type == RegQuote ||
+					   tks[i+2]->info.type == RegDoubleQuote) {
+				if (i + 3 >= root->token_num || tks[i+3]->info.type != RegDelim) {
+					fprintf(stderr, "ERROR!!: please define delimiter near by qw. at [%lu]\n", tks[i+3]->finfo.start_line_num);
+					exit(EXIT_FAILURE);
+				} else if (i + 4 >= root->token_num || tks[i+4]->info.type != RegExp) {
+					fprintf(stderr, "ERROR!!: near by qw. at [%lu]\n", tks[i+3]->finfo.start_line_num);
+					exit(EXIT_FAILURE);
+				} else if (i + 5 >= root->token_num || tks[i+5]->info.type != RegDelim) {
+					fprintf(stderr, "ERROR!!: please define delimiter near by qw. at [%lu]\n", tks[i+5]->finfo.start_line_num);
+					exit(EXIT_FAILURE);
+				}
+				args = cstr(tks[i+4]->data);
+				//fprintf(stderr, "%s qw(%s)\n", module_name, args);
+			} else if (tks[i+2]->info.type == RawString || tks[i+2]->info.type == String) {
+				args = cstr(tks[i+2]->data);
+				//fprintf(stderr, "%s qw(%s)\n", module_name, args);
+			}
+			ret->push_back(new Module(module_name, args));
 		}
 		if (tks[i]->token_num > 0) {
-			Tokens *new_tks = getUsedModules(tks[i]);
-			ret->insert(ret->end(), new_tks->begin(), new_tks->end());
+			Modules *new_mds = getUsedModules(tks[i]);
+			ret->insert(ret->end(), new_mds->begin(), new_mds->end());
 		}
 	}
 	return ret;
