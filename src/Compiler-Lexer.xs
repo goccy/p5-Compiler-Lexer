@@ -95,9 +95,9 @@ CODE:
 	}
 	self->grouping(&tks);
 	self->prepare(&tks);
-	//self->dump(root, 0);
 	//self->dump(&tks);
 	Token *root = self->parseSyntax(NULL, &tks);
+	//self->dumpSyntax(root, 0);
 	self->parseSpecificStmt(root);
 	//self->dumpSyntax(root, 0);
 	self->setIndent(root, NULL);

@@ -30,6 +30,12 @@
 	"parse_func" : ""
  },
  {
+	"type" : "Mod",
+	"kind" : "Operator",
+	"data" : "%",
+	"parse_func" : ""
+ },
+ {
 	"type" : "Greater",
 	"kind" : "Operator",
 	"data" : ">",
@@ -39,7 +45,7 @@
 	"type" : "Less",
 	"kind" : "Operator",
 	"data" : "<",
-	"parse_func" : ""
+	"parsefunc" : ""
  },
  {
 	"type" : "StringAdd",
@@ -123,6 +129,12 @@
  	"type" : "DivEqual",
 	"kind" : "Assign",
 	"data" : "/=",
+	"parse_func" : ""
+ },
+ {
+	"type" : "ModEqual",
+	"kind" : "Assign",
+	"data" : "%=",
 	"parse_func" : ""
  },
  {
@@ -246,6 +258,18 @@
 	"parse_func" : ""
  },
  {
+	"type" : "PowerEqual",
+	"kind" : "Assign",
+	"data" : "**=",
+	"parse_func" : ""
+ },
+ {
+	"type" : "DefaultEqual",
+	"kind" : "Assign",
+	"data" : "//=",
+	"parse_func" : ""
+ },
+ {
  	"type" : "LeftShift",
 	"kind" : "Operator",
 	"data" : "<<",
@@ -270,9 +294,51 @@
 	"parse_func" : ""
  },
  {
+ 	"type" : "AndBitEqual",
+	"kind" : "Assign",
+	"data" : "&=",
+	"parse_func" : ""
+ },
+ {
+ 	"type" : "OrBitEqual",
+	"kind" : "Assign",
+	"data" : "|=",
+	"parse_func" : ""
+ },
+ {
+ 	"type" : "NotBitEqual",
+	"kind" : "Assign",
+	"data" : "^=",
+	"parse_func" : ""
+ },
+ {
+ 	"type" : "OrEqual",
+	"kind" : "Assign",
+	"data" : "||=",
+	"parse_func" : ""
+ },
+ {
+ 	"type" : "AndEqual",
+	"kind" : "Assign",
+	"data" : "&&=",
+	"parse_func" : ""
+ },
+ {
  	"type" : "Slice",
 	"kind" : "Operator",
 	"data" : "..",
+	"parse_func" : ""
+ },
+ {
+ 	"type" : "DefaultOperator",
+	"kind" : "Operator",
+	"data" : "//",
+	"parse_func" : ""
+ },
+ {
+ 	"type" : "ToDo",
+	"kind" : "Operator",
+	"data" : "...",
 	"parse_func" : ""
  },
  {
@@ -1686,6 +1752,12 @@
 	"parse_func" : ""
  },
  {
+	"type" : "Colon",
+	"kind" : "Colon",
+	"data" : ":",
+	"parse_func" : ""
+ },
+ {
 	"type" : "SemiColon",
 	"kind" : "StmtEnd",
 	"data" : ";",
@@ -1737,6 +1809,12 @@
 	"type" : "HashDereference",
 	"kind" : "Modifier",
 	"data" : "%{",
+	"parse_func" : ""
+ },
+ {
+	"type" : "ArraySizeDereference",
+	"kind" : "Modifier",
+	"data" : "$#{",
 	"parse_func" : ""
  },
  {

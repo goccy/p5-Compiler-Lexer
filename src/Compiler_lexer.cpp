@@ -99,9 +99,10 @@ const char *Token::deparse(void)
 		case ExecString:
 			deparsed_data += " `" + this->data + "`";
 			break;
+		case RegExp:
 		case RegReplaceFrom: case RegReplaceTo:
 		case RegMiddleDelim: case RegDelim:
-		case RegExp:         case RegOpt:
+		case RegOpt:
 			deparsed_data += this->data;
 			break;
 		case HereDocument:
@@ -359,6 +360,7 @@ Token *Lexer::scanTripleCharacterOperator(LexContext *ctx, char symbol, char nex
 		(symbol == '|' && next_ch == '|' && after_next_ch == '=') ||
 		(symbol == '&' && next_ch == '&' && after_next_ch == '=') ||
 		(symbol == '.' && next_ch == '.' && after_next_ch == '.') ||
+		(symbol == '$' && next_ch == '#' && after_next_ch == '{') ||
 		(symbol == '$' && next_ch == '^' && after_next_ch == 'A') ||
 		(symbol == '$' && next_ch == '^' && after_next_ch == 'D') ||
 		(symbol == '$' && next_ch == '^' && after_next_ch == 'E') ||
@@ -628,7 +630,7 @@ bool Lexer::isSkip(LexContext *ctx, char *script, size_t idx)
 					clearToken(ctx, ctx->token);
 					ctx->tokens->push_back(tk);
 				}
-				char tmp[] = {regex_middle_delim};
+				char tmp[2] = {regex_middle_delim, 0};
 				tk = new Token(string(tmp), finfo);
 				tk->info = getTokenInfo(RegMiddleDelim);
 				ctx->tokens->push_back(tk);
@@ -939,6 +941,13 @@ void Lexer::annotateTokens(Tokens *tokens)
 				   (data == "g" || data == "m" || data == "s" || data == "x")) {
 			t->info = getTokenInfo(RegOpt);
 			cur_type = RegOpt;
+		} else if (it+1 != tokens->end() && next_token->data == "::" &&
+				   next_token->info.type != String && next_token->info.type != RawString) {
+			t->info = getTokenInfo(Namespace);
+			cur_type = Namespace;
+		} else if (cur_type == NamespaceResolver) {
+			t->info = getTokenInfo(Namespace);
+			cur_type = Namespace;
 		} else if (isReservedKeyword(data) && cur_type != FunctionDecl) {
 			t->info = getTokenInfo(cstr(data));
 			cur_type = t->info.type;
@@ -1011,12 +1020,6 @@ void Lexer::annotateTokens(Tokens *tokens)
 			pkgdecl_list.push_back(t->data);
 		} else if (search(pkgdecl_list, t->data)) {
 			t->info = getTokenInfo(Class);
-		} else if (it+1 != tokens->end() && next_token->data == "::") {
-			t->info = getTokenInfo(Namespace);
-			cur_type = Namespace;
-		} else if (cur_type == NamespaceResolver) {
-			t->info = getTokenInfo(Namespace);
-			cur_type = Namespace;
 		} else if (data == "\n") {
 			tokens->erase(it);
 			it--;
@@ -1064,7 +1067,8 @@ void Lexer::grouping(Tokens *tokens)
 		case ArraySize: {
 			Token *as_token = tk;
 			Token *next_tk = ITER_CAST(Token *, pos+1);
-			if (next_tk->info.type == Key) {
+			TokenType::Type type = next_tk->info.type;
+			if (type == Key || type == Var || type == GlobalVar) {
 				as_token->data += next_tk->data;
 				tokens->erase(pos+1);
 			}
@@ -1183,7 +1187,8 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 		TokenKind::Kind kind = t->info.kind;
 		switch (type) {
 		case LeftBracket: case LeftParenthesis:
-		case ArrayDereference: case HashDereference: {
+		case ArrayDereference: case HashDereference:
+		case ArraySizeDereference: {
 			pos++;
 			Token *syntax = parseSyntax(t, tokens);
 			syntax->stype = SyntaxType::Expr;
