@@ -60,6 +60,12 @@
 	"parse_func" : ""
  },
  {
+	"type" : "Glob",
+	"kind" : "Operator",
+	"data" : "*",
+	"parse_func" : ""
+ },
+ {
 	"type" : "BitNot",
 	"kind" : "Operator",
 	"data" : "~",

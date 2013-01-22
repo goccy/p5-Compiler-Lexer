@@ -517,10 +517,17 @@ Token *Lexer::scanNumber(LexContext *, char *src, size_t &i)
 	Token *token = NULL;
 	assert((c == '.' || ('0' <= c && c <= '9')) && "It do not seem as Number");
 	bool isFloat = false;
-	if (c == '0') {
-		c = NEXT();
-	} else if ('1' <= c && c <= '9') {
-		for (; '0' <= c && c <= '9' && c != EOL; c = NEXT()) {}
+//	if (c == '0') {
+//		c = NEXT();
+//	} else if ('1' <= c && c <= '9') {
+	if ('0' <= c && c <= '9') {
+		/* first char */
+		if ('0' <= c && c <= '9' && c != EOL) c = NEXT();
+		/* second char is includes 'b' or 'x' */
+		if ((('0' <= c && c <= '9') || c == 'b' || c == 'x') && c != EOL) c = NEXT();
+		for (;(('0' <= c && c <= '9') ||
+			   ('a' <= c && c <= 'f') ||
+			   ('A' <= c && c <= 'F')) && c != EOL; c = NEXT()) {}
 	}
 	if (c != '.' && c != 'e' && c != 'E') {
 		goto L_emit;
@@ -937,8 +944,8 @@ void Lexer::annotateTokens(Tokens *tokens)
 		//fprintf(stdout, "TOKEN = [%s]\n", cstr(data));
 		if (t->info.type != Undefined) {
 			cur_type = t->info.type;
-		} else if (cur_type == RegDelim &&
-				   (data == "g" || data == "m" || data == "s" || data == "x")) {
+		} else if (cur_type == RegDelim && isalpha(data[0])) {
+			//(data == "g" || data == "m" || data == "s" || data == "x")) {
 			t->info = getTokenInfo(RegOpt);
 			cur_type = RegOpt;
 		} else if (it+1 != tokens->end() && next_token->data == "::" &&
@@ -1074,6 +1081,17 @@ void Lexer::grouping(Tokens *tokens)
 			}
 			break;
 		}
+		case SpecificValue: {
+			Token *next_tk = ITER_CAST(Token *, pos+1);
+			if (!next_tk) break;
+			TokenType::Type type = next_tk->info.type;
+			if (tk->data == "$$" && type == Key) {
+				Token *sp_token = tk;
+				sp_token->data += next_tk->data;
+				tokens->erase(pos+1);
+			}
+			break;
+		}
 		default:
 			break;
 		}
@@ -1160,7 +1178,7 @@ bool Lexer::isExpr(Token *tk, Token *prev_tk, Enum::Lexer::Token::Type type, Enu
 		(tk->tks[2]->info.type == Arrow || tk->tks[2]->info.type == Comma)) {
 		/* { [key|"key"] [,|=>] value ... */
 		return true;
-	} else if (type == Pointer || kind == TokenKind::Term || kind == TokenKind::Function ||/* type == FunctionDecl ||*/
+	} else if (type == Pointer || type == Mul || kind == TokenKind::Term || kind == TokenKind::Function ||/* type == FunctionDecl ||*/
 			((prev_tk && prev_tk->stype == SyntaxType::Expr) && (type == RightBrace || type == RightBracket))) {
 		/* ->{ or $hash{ or map { or {key}{ or [idx]{ */
 		return true;
