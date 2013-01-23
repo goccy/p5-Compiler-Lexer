@@ -509,7 +509,6 @@ Token *Lexer::scanSymbol(LexContext *ctx, char symbol)
 
 #define NEXT() (*(src + i++))
 #define PREDICT() (*(src + i))
-#define NCHAR() (*(src+i+1))
 Token *Lexer::scanNumber(LexContext *, char *src, size_t &i)
 {
 	char *begin = src + i;
@@ -1221,6 +1220,9 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 			Token *syntax = parseSyntax(t, tokens);
 			if (isExpr(syntax, prev_syntax, prev_type, prev_kind)) {
 				syntax->stype = SyntaxType::Expr;
+			} else if (prev_type == FunctionDecl) {
+				/* LeftBrace is Expr but assign stype of BlockStmt */
+				syntax->stype = SyntaxType::BlockStmt;
 			} else if (prev_kind == TokenKind::Do) {
 				syntax->stype = SyntaxType::BlockStmt;
 			} else {
@@ -1378,7 +1380,7 @@ void Lexer::parseSpecificStmt(Token *syntax)
 			if (tk->stype == SyntaxType::BlockStmt) {
 				if (i > 0 &&
 					(tks[i-1]->stype == SyntaxType::Stmt ||
-					tks[i-1]->stype == SyntaxType::BlockStmt)) {
+					 tks[i-1]->stype == SyntaxType::BlockStmt)) {
 					/* nameless block */
 					insertStmt(syntax, i, 1);
 				}
@@ -1526,45 +1528,11 @@ Modules *Lexer::getUsedModules(Token *root)
 		Token **tks = root->tks;
 		if (tks[i]->info.type == UseDecl && i + 1 < root->token_num) {
 			const char *module_name = cstr(tks[i+1]->data);
-			const char *args = NULL;
-			if (string(module_name) == "overload") continue;
-			if (i + 2 >= root->token_num) continue;
-			if (tks[i+2]->stype == SyntaxType::Expr) {
-				i += 2;
-				string *_args = new string(tks[i]->data);
-				for (i++; tks[i]->info.type != SemiColon; i++) {
-					if (tks[i]->info.type == RawString || tks[i]->info.type == String) {
-						*_args += " " + tks[i]->data;
-					}
-				}
-				args = _args->c_str();
-			} else if (tks[i+2]->info.type == RegList ||
-					   tks[i+2]->info.type == RegQuote ||
-					   tks[i+2]->info.type == RegDoubleQuote) {
-				if (i + 3 >= root->token_num || tks[i+3]->info.type != RegDelim) {
-					fprintf(stderr, "ERROR!!: please define delimiter near by qw. at [%lu]\n", tks[i+3]->finfo.start_line_num);
-					exit(EXIT_FAILURE);
-				} else if (i + 4 >= root->token_num || tks[i+4]->info.type != RegExp) {
-					fprintf(stderr, "ERROR!!: near by qw. at [%lu]\n", tks[i+3]->finfo.start_line_num);
-					exit(EXIT_FAILURE);
-				} else if (i + 5 >= root->token_num || tks[i+5]->info.type != RegDelim) {
-					fprintf(stderr, "ERROR!!: please define delimiter near by qw. at [%lu]\n", tks[i+5]->finfo.start_line_num);
-					exit(EXIT_FAILURE);
-				}
-				args = cstr(tks[i+4]->data);
-				//fprintf(stderr, "%s qw(%s)\n", module_name, args);
-			} else if (tks[i+2]->info.type == RawString || tks[i+2]->info.type == String) {
-				i += 2;
-				string *_args = new string(tks[i]->data);
-				for (i++; tks[i]->info.type != SemiColon; i++) {
-					if (tks[i]->info.type == RawString || tks[i]->info.type == String) {
-						*_args += " " + tks[i]->data;
-					}
-				}
-				args = _args->c_str();
-				//fprintf(stderr, "%s qw(%s)\n", module_name, args);
+			string args;
+			for (i += 2; tks[i]->info.type != SemiColon; i++) {
+				args += " " + string(tks[i]->deparse());
 			}
-			ret->push_back(new Module(module_name, args));
+			ret->push_back(new Module(module_name, (new string(args))->c_str()));
 		}
 		if (tks[i]->token_num > 0) {
 			Modules *new_mds = getUsedModules(tks[i]);
