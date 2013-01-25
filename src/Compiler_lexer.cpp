@@ -809,6 +809,9 @@ Tokens *Lexer::tokenize(char *script)
 		case '-':
 			if (scanNegativeNumber(&ctx, script[i + 1])) {
 				break;
+			} else if (i + 1 < script_size && isalpha(script[i+1])) {
+				writeChar(&ctx, ctx.token, script[i]);
+				break;
 			}
 			//fall through
 		case '.':
@@ -943,7 +946,9 @@ void Lexer::annotateTokens(Tokens *tokens)
 		//fprintf(stdout, "TOKEN = [%s]\n", cstr(data));
 		if (t->info.type != Undefined) {
 			cur_type = t->info.type;
-		} else if (cur_type == RegDelim && isalpha(data[0])) {
+		} else if (cur_type == RegDelim && isalpha(data[0]) &&
+				   data != "if"      && data != "while" &&
+				   data != "foreach" && data != "for") {
 			//(data == "g" || data == "m" || data == "s" || data == "x")) {
 			t->info = getTokenInfo(RegOpt);
 			cur_type = RegOpt;
