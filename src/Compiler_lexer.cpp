@@ -99,7 +99,7 @@ const char *Token::deparse(void)
 		case ExecString:
 			deparsed_data += " `" + this->data + "`";
 			break;
-		case RegExp:
+		case RegExp: case Pointer:
 		case RegReplaceFrom: case RegReplaceTo:
 		case RegMiddleDelim: case RegDelim:
 		case RegOpt:
@@ -1034,7 +1034,10 @@ void Lexer::annotateTokens(Tokens *tokens)
 		} else if (data == "\n") {
 			tokens->erase(it);
 			it--;
+		} else if (cur_type == Pointer && isalpha(data[0])) {
+			t->info = getTokenInfo(Method);
 		} else {
+			//cout << "key = " << t->data << endl;
 			t->info = getTokenInfo(Key);
 			cur_type = Key;
 		}

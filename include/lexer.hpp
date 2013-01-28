@@ -92,9 +92,9 @@ public:
 	char start_string_ch;
 	char regex_delim;
 	char regex_middle_delim;
-    int brace_count_inner_regex;
-    int bracket_count_inner_regex;
-    int cury_brace_count_inner_regex;
+	int brace_count_inner_regex;
+	int bracket_count_inner_regex;
+	int cury_brace_count_inner_regex;
 	std::string here_document_tag;
 
 	Lexer(const char *filename);

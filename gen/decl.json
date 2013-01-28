@@ -36,6 +36,12 @@
 	"parse_func" : ""
  },
  {
+	"type" : "ThreeTermOperator",
+	"kind" : "Operator",
+	"data" : "?",
+	"parse_func" : ""
+ },
+ {
 	"type" : "Greater",
 	"kind" : "Operator",
 	"data" : ">",
@@ -357,6 +363,12 @@
 	"type" : "FunctionDecl",
 	"kind" : "Decl",
 	"data" : "sub",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Method",
+	"kind" : "Function",
+	"data" : "",
 	"parse_func" : ""
  },
  {
@@ -1671,6 +1683,162 @@
 	"type" : "Break",
 	"kind" : "Break",
 	"data" : "break",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-b",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-c",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-d",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-e",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-f",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-g",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-k",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-l",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-o",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-p",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-r",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-s",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-t",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-u",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-w",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-x",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-z",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-A",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-B",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-C",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-M",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-O",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-R",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-S",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-T",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Handle",
+	"kind" : "Handle",
+	"data" : "-W",
 	"parse_func" : ""
  },
  {
