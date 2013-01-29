@@ -1043,6 +1043,7 @@ void Lexer::annotateTokens(Tokens *tokens)
 			t->info = getTokenInfo(Method);
 		} else if (cur_type == UseDecl) {
 			t->info = getTokenInfo(UsedName);
+			cur_type = UsedName;
 		} else if (cur_type == LeftBrace && it+1 != tokens->end() &&
 				   next_token->data == "}") {
 			t->info = getTokenInfo(Key);
@@ -1051,9 +1052,9 @@ void Lexer::annotateTokens(Tokens *tokens)
 			t->info = getTokenInfo(Key);
 			cur_type = Key;
 		} else {
-			t->info = getTokenInfo(BareWord);
+			t->info = getTokenInfo(Key);//BareWord);
 			t->info.has_warnings = true;
-			cur_type = BareWord;
+			cur_type = Key;//BareWord;
 		}
 		it++;
 	}
@@ -1367,16 +1368,18 @@ void Lexer::parseSpecificStmt(Token *syntax)
 			break;
 		}
 		case ElseStmt: case Do: case Continue: case DefaultStmt:
-			if (tk_n > i+1 && tks[i+1]->stype == SyntaxType::BlockStmt) {
+			if (tk_n > i+1 &&
+				tks[i+1]->stype == SyntaxType::BlockStmt) {
 				/* else BlockStmt */
 				insertStmt(syntax, i, 2);
 				tk_n -= 1;
+				parseSpecificStmt(tks[i]->tks[1]);
 				//i += 1;
 			}
 			break;
 		case FunctionDecl:
 			if (tk_n > i+1 &&
-				tks[i+1]->stype == SyntaxType::BlockStmt) {
+				tks[i+1]->info.type == SyntaxType::BlockStmt) {
 				/* sub BlockStmt */
 				insertStmt(syntax, i, 2);
 				tk_n -= 1;
