@@ -62,7 +62,7 @@
  {
 	"type" : "Ref",
 	"kind" : "Operator",
-	"data" : "\\",
+	"data" : "\\\\",
 	"parse_func" : ""
  },
  {
@@ -1872,6 +1872,12 @@
 	"parse_func" : ""
  },
  {
+	"type" : "UsedName",
+	"kind" : "Term",
+	"data" : "",
+	"parse_func" : ""
+ },
+ {
 	"type" : "IfStmt",
 	"kind" : "Stmt",
 	"data" : "if",
@@ -2048,7 +2054,7 @@
  {
 	"type" : "CodeRef",
 	"kind" : "SingleTerm",
-	"data" : "\\&",
+	"data" : "\\\\&",
 	"parse_func" : ""
  },
  {
@@ -2204,13 +2210,13 @@
  {
 	"type" : "SpecificValue",
 	"kind" : "Term",
-	"data" : "$\\",
+	"data" : "$\\\\",
 	"parse_func" : ""
  },
  {
 	"type" : "SpecificValue",
 	"kind" : "Term",
-	"data" : "$\"",
+	"data" : "$\\\"",
 	"parse_func" : ""
  },
  {

@@ -312,6 +312,7 @@ TokenInfo decl_tokens[] = {
 	{Enum::Lexer::Token::OurDecl, Enum::Lexer::Decl, "OurDecl", "our"},
 	{Enum::Lexer::Token::StateDecl, Enum::Lexer::Decl, "StateDecl", "state"},
 	{Enum::Lexer::Token::UseDecl, Enum::Lexer::Decl, "UseDecl", "use"},
+	{Enum::Lexer::Token::UsedName, Enum::Lexer::Term, "UsedName", ""},
 	{Enum::Lexer::Token::IfStmt, Enum::Lexer::Stmt, "IfStmt", "if"},
 	{Enum::Lexer::Token::ElseStmt, Enum::Lexer::Stmt, "ElseStmt", "else"},
 	{Enum::Lexer::Token::ElsifStmt, Enum::Lexer::Stmt, "ElsifStmt", "elsif"},

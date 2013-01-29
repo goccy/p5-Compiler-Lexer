@@ -103,7 +103,7 @@ CODE:
 	//self->dumpSyntax(root, 0);
 	self->parseSpecificStmt(root);
 	//self->dumpSyntax(root, 0);
-	self->setIndent(root, NULL);
+	self->setIndent(root, 0);
 	size_t block_id = 0;
 	self->setBlockIDWithDepthFirst(root, &block_id);
 	Tokens *stmts = self->getTokensBySyntaxLevel(root, (Enum::Lexer::Syntax::Type)syntax_level);

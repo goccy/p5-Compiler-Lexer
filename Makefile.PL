@@ -13,6 +13,8 @@ cc_include_paths qw(include);
 cc_define qw();
 makemaker_args->{CC} = 'g++';
 makemaker_args->{LD} = 'g++';
+my @ignore_warnings_options = qw(missing-field-initializers unused-variable);
+makemaker_args->{CCFLAGS} .= join('', map { ' -Wno-' . $_ } @ignore_warnings_options);
 if (DEBUG) {
     makemaker_args->{OPTIMIZE} = '-O0';
     makemaker_args->{CCFLAGS} = '-g3 ' . makemaker_args->{CCFLAGS};
