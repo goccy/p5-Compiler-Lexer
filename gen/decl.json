@@ -1998,6 +1998,12 @@
 	"parse_func" : ""
  },
  {
+	"type" : "BareWord",
+	"kind" : "Term",
+	"data" : "",
+	"parse_func" : ""
+ },
+ {
 	"type" : "Arrow",
 	"kind" : "Operator",
 	"data" : "=>",

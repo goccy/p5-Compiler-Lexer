@@ -110,6 +110,7 @@ typedef enum {
 	HashDereference,
 	ArraySizeDereference,
 	Key,
+	BareWord,
 	Arrow,
 	Pointer,
 	NamespaceResolver,

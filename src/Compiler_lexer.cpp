@@ -15,6 +15,7 @@ Token::Token(string data_, FileInfo finfo_) :
 	stype = SyntaxType::Value;
 	info.type = TokenType::Undefined;
 	info.kind = TokenKind::Undefined;
+	info.has_warnings = false;
 	finfo.start_line_num = finfo_.start_line_num;
 	finfo.end_line_num = finfo_.start_line_num;
 	finfo.filename = finfo_.filename;
@@ -29,6 +30,7 @@ Token::Token(Tokens *tokens) :
 	type =  TokenType::Undefined;
 	info.type = TokenType::Undefined;
 	info.kind = TokenKind::Undefined;
+	info.has_warnings = false;
 	size_t size = tokens->size();
 	TokenPos pos = tokens->begin();
 	tks = (Token **)safe_malloc(size * PTR_SIZE);
@@ -39,6 +41,9 @@ Token::Token(Tokens *tokens) :
 	for (; i < size; i++) {
 		Token *t = (Token *)*pos;
 		tks[i] = t;
+		if (t->info.has_warnings) {
+			info.has_warnings = true;
+		}
 		if (i == 0) {
 			finfo.start_line_num = tks[i]->finfo.start_line_num;
 			finfo.filename = tks[i]->finfo.filename;
@@ -1039,6 +1044,7 @@ void Lexer::annotateTokens(Tokens *tokens)
 		} else {
 			//cout << "key = " << t->data << endl;
 			t->info = getTokenInfo(Key);
+			t->info.has_warnings = true;
 			cur_type = Key;
 		}
 		it++;

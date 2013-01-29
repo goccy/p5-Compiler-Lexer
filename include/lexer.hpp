@@ -40,6 +40,7 @@ public:
 	Enum::Lexer::Kind kind;
 	const char *name;
 	const char *data;
+	bool has_warnings;
 };
 
 class Token {

@@ -52,6 +52,7 @@ CODE:
 		hv_stores(hash, "type", set(new_Int(token->info.type)));
 		hv_stores(hash, "kind", set(new_Int(token->info.kind)));
 		hv_stores(hash, "line", set(new_Int(token->finfo.start_line_num)));
+		hv_stores(hash, "has_warnings", set(new_Int(token->info.has_warnings)));
 		hv_stores(hash, "name", set(new_String(token->info.name, strlen(token->info.name))));
 		hv_stores(hash, "data", set(new_String(token->data.c_str(), strlen(token->data.c_str()))));
 		HV *stash = (HV *)gv_stashpv("Compiler::Lexer::Token", sizeof("Compiler::Lexer::Token") + 1);
@@ -77,6 +78,7 @@ CODE:
 		const char *name = SvPVX(get_value(token, "name"));
 		const char *data = SvPVX(get_value(token, "data"));
 		int line = SvIVX(get_value(token, "line"));
+		int has_warnings = SvIVX(get_value(token, "has_warnings"));
 		Enum::Lexer::Token::Type type = (Enum::Lexer::Token::Type)SvIVX(get_value(token, "type"));
 		Enum::Lexer::Kind kind = (Enum::Lexer::Kind)SvIVX(get_value(token, "kind"));
 		FileInfo finfo;
@@ -88,6 +90,7 @@ CODE:
 		info.kind = kind;
 		info.name = name;
 		info.data = data;
+		info.has_warnings = has_warnings;
 		Token *tk = new Token(std::string(data), finfo);
 		tk->info = info;
 		tk->type = type;
@@ -116,6 +119,7 @@ CODE:
 		hv_stores(hash, "block_id", set(new_Int(stmt->finfo.block_id)));
 		hv_stores(hash, "start_line", set(new_Int(stmt->finfo.start_line_num)));
 		hv_stores(hash, "end_line", set(new_Int(stmt->finfo.end_line_num)));
+		hv_stores(hash, "has_warnings", set(new_Int(stmt->info.has_warnings)));
 		av_push(ret, set(new_Ref(hash)));
 	}
 	RETVAL = (AV *)new_Ref(ret);
