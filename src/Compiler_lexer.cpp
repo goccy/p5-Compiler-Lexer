@@ -964,6 +964,15 @@ void Lexer::annotateTokens(Tokens *tokens)
 		} else if (cur_type == NamespaceResolver) {
 			t->info = getTokenInfo(Namespace);
 			cur_type = Namespace;
+		} else if (cur_type == Pointer && isalpha(data[0])) {
+			t->info = getTokenInfo(Method);
+		} else if (cur_type == LeftBrace && it+1 != tokens->end() &&
+				   isalpha(data[0]) && next_token->data == "}") {
+			t->info = getTokenInfo(Key);
+			cur_type = Key;
+		} else if (it+1 != tokens->end() && isalpha(data[0]) && next_token->data == "=>") {
+			t->info = getTokenInfo(Key);
+			cur_type = Key;
 		} else if (isReservedKeyword(data) && cur_type != FunctionDecl) {
 			t->info = getTokenInfo(cstr(data));
 			cur_type = t->info.type;
@@ -1039,18 +1048,9 @@ void Lexer::annotateTokens(Tokens *tokens)
 		} else if (data == "\n") {
 			tokens->erase(it);
 			it--;
-		} else if (cur_type == Pointer && isalpha(data[0])) {
-			t->info = getTokenInfo(Method);
 		} else if (cur_type == UseDecl) {
 			t->info = getTokenInfo(UsedName);
 			cur_type = UsedName;
-		} else if (cur_type == LeftBrace && it+1 != tokens->end() &&
-				   next_token->data == "}") {
-			t->info = getTokenInfo(Key);
-			cur_type = Key;
-		} else if (it+1 != tokens->end() && next_token->data == "=>") {
-			t->info = getTokenInfo(Key);
-			cur_type = Key;
 		} else {
 			t->info = getTokenInfo(Key);//BareWord);
 			t->info.has_warnings = true;
