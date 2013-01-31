@@ -342,7 +342,7 @@ Token *Lexer::scanCurSymbol(LexContext *ctx, char symbol)
 		ret = new Token(string(tmp), finfo);
 		ret->info = getTokenInfo(TokenType::RegDelim);
 		clearToken(ctx, token);
-	} else if (symbol == '@' || symbol == '$') {
+	} else if (symbol == '@' || symbol == '$' || symbol == '%') {
 		//for array value
 		writeChar(ctx, token, symbol);
 	} else if (symbol == ';') {
@@ -404,6 +404,8 @@ Token *Lexer::scanDoubleCharacterOperator(LexContext *ctx, char symbol, char nex
 		(symbol == '+' && next_ch == '+') || (symbol == '/' && next_ch == '/') ||
 		(symbol == '=' && next_ch == '>') || (symbol == '=' && next_ch == '~') ||
 		(symbol == '@' && next_ch == '{') || (symbol == '%' && next_ch == '{') ||
+		(symbol == '$' && next_ch == '{') || (symbol == '@' && next_ch == '$') ||
+		(symbol == '%' && next_ch == '$') || (symbol == '&' && next_ch == '$') ||
 		(symbol == '$' && next_ch == '#') || (symbol == '-' && next_ch == '-') ||
 		(symbol == '*' && next_ch == '*') || (symbol == '-' && next_ch == '>') ||
 		(symbol == '<' && next_ch == '>') || (symbol == '&' && next_ch == '&') ||
@@ -780,8 +782,8 @@ Tokens *Lexer::tokenize(char *script)
 		case '\\':
 			if (CHECK_CH(i+1, '$') || CHECK_CH(i+1, '@') ||
 				CHECK_CH(i+1, '%') || CHECK_CH(i+1, '&')) {
-				tokens->push_back(new Token(string("\\") + string(1, script[i+1]), finfo));
-				i++;
+				//tokens->push_back(new Token(string("\\") + string(1, script[i+1]), finfo));
+				tokens->push_back(new Token(string("\\"), finfo));
 			}
 			break;
 		case '#': {
@@ -832,7 +834,7 @@ Tokens *Lexer::tokenize(char *script)
 		case '=': case '^': case '~': case '@':
 		case ',': case ':': case ';': case '+':
 		case '<': case '>': case '&': case '|':
-		case '!': case '*': case '/':
+		case '!': case '*': case '/': case '%':
 		case '(': case ')': case '{': case '}':
 		case '[': case ']': case '?': case '$': {
 			if (i + 2 < script_size) {
@@ -1114,6 +1116,16 @@ void Lexer::grouping(Tokens *tokens)
 			}
 			break;
 		}
+		case ShortArrayDereference: case ShortHashDereference:
+		case ShortCodeDereference: {
+			Token *next_tk = ITER_CAST(Token *, pos+1);
+			if (!next_tk) break;
+			TokenType::Type type = next_tk->info.type;
+			Token *sp_token = tk;
+			sp_token->data += next_tk->data;
+			tokens->erase(pos+1);
+			break;
+		}
 		default:
 			break;
 		}
@@ -1227,7 +1239,7 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 		TokenKind::Kind kind = t->info.kind;
 		switch (type) {
 		case LeftBracket: case LeftParenthesis:
-		case ArrayDereference: case HashDereference:
+		case ArrayDereference: case HashDereference: case ScalarDereference:
 		case ArraySizeDereference: {
 			pos++;
 			Token *syntax = parseSyntax(t, tokens);

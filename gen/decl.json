@@ -1992,6 +1992,30 @@
 	"parse_func" : ""
  },
  {
+	"type" : "ScalarDereference",
+	"kind" : "Modifier",
+	"data" : "${",
+	"parse_func" : ""
+ },
+ {
+	"type" : "ShortArrayDereference",
+	"kind" : "Modifier",
+	"data" : "@$",
+	"parse_func" : ""
+ },
+ {
+	"type" : "ShortHashDereference",
+	"kind" : "Modifier",
+	"data" : "%$",
+	"parse_func" : ""
+ },
+ {
+	"type" : "ShortCodeDereference",
+	"kind" : "Modifier",
+	"data" : "&$",
+	"parse_func" : ""
+ },
+ {
 	"type" : "ArraySizeDereference",
 	"kind" : "Modifier",
 	"data" : "$#{",
