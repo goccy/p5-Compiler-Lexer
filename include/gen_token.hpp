@@ -110,6 +110,7 @@ typedef enum {
 	ArrayDereference,
 	HashDereference,
 	ScalarDereference,
+	ShortScalarDereference,
 	ShortArrayDereference,
 	ShortHashDereference,
 	ShortCodeDereference,

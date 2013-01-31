@@ -333,6 +333,7 @@ TokenInfo decl_tokens[] = {
 	{Enum::Lexer::Token::ArrayDereference, Enum::Lexer::Modifier, "ArrayDereference", "@{"},
 	{Enum::Lexer::Token::HashDereference, Enum::Lexer::Modifier, "HashDereference", "%{"},
 	{Enum::Lexer::Token::ScalarDereference, Enum::Lexer::Modifier, "ScalarDereference", "${"},
+	{Enum::Lexer::Token::ShortScalarDereference, Enum::Lexer::Modifier, "ShortScalarDereference", ""},
 	{Enum::Lexer::Token::ShortArrayDereference, Enum::Lexer::Modifier, "ShortArrayDereference", "@$"},
 	{Enum::Lexer::Token::ShortHashDereference, Enum::Lexer::Modifier, "ShortHashDereference", "%$"},
 	{Enum::Lexer::Token::ShortCodeDereference, Enum::Lexer::Modifier, "ShortCodeDereference", "&$"},

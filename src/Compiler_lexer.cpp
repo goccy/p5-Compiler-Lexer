@@ -969,12 +969,19 @@ void Lexer::annotateTokens(Tokens *tokens)
 		} else if (cur_type == Pointer && isalpha(data[0])) {
 			t->info = getTokenInfo(Method);
 		} else if (cur_type == LeftBrace && it+1 != tokens->end() &&
-				   isalpha(data[0]) && next_token->data == "}") {
+				   (isalpha(data[0]) || data[0] == '_') &&
+				   next_token->data == "}") {
 			t->info = getTokenInfo(Key);
 			cur_type = Key;
-		} else if (it+1 != tokens->end() && isalpha(data[0]) && next_token->data == "=>") {
+		} else if (it+1 != tokens->end() &&
+				   (isalpha(data[0]) || data[0] == '_') &&
+				   next_token->data == "=>") {
 			t->info = getTokenInfo(Key);
 			cur_type = Key;
+		} else if (it+1 != tokens->end() && data == "$$" &&
+				   (isalpha(next_token->data[0]) || next_token->data[0] == '_')) {
+			t->info = getTokenInfo(ShortScalarDereference);
+			cur_type = ShortScalarDereference;
 		} else if (isReservedKeyword(data) && cur_type != FunctionDecl) {
 			t->info = getTokenInfo(cstr(data));
 			cur_type = t->info.type;
@@ -1105,19 +1112,8 @@ void Lexer::grouping(Tokens *tokens)
 			}
 			break;
 		}
-		case SpecificValue: {
-			Token *next_tk = ITER_CAST(Token *, pos+1);
-			if (!next_tk) break;
-			TokenType::Type type = next_tk->info.type;
-			if (tk->data == "$$" && type == Key) {
-				Token *sp_token = tk;
-				sp_token->data += next_tk->data;
-				tokens->erase(pos+1);
-			}
-			break;
-		}
-		case ShortArrayDereference: case ShortHashDereference:
-		case ShortCodeDereference: {
+		case ShortScalarDereference: case ShortArrayDereference:
+		case ShortHashDereference:   case ShortCodeDereference: {
 			Token *next_tk = ITER_CAST(Token *, pos+1);
 			if (!next_tk) break;
 			TokenType::Type type = next_tk->info.type;

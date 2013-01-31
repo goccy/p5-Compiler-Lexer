@@ -1998,6 +1998,12 @@
 	"parse_func" : ""
  },
  {
+	"type" : "ShortScalarDereference",
+	"kind" : "Modifier",
+	"data" : "",
+	"parse_func" : ""
+ },
+ {
 	"type" : "ShortArrayDereference",
 	"kind" : "Modifier",
 	"data" : "@$",
