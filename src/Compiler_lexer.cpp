@@ -200,7 +200,7 @@ bool Lexer::scanNegativeNumber(LexContext *ctx, char number)
 	char num_buffer[2] = {0};
 	if (number != EOL && !isStringStarted) {
 		num_buffer[0] = number;
-		if (atoi(num_buffer) > 0) {
+		if (atoi(num_buffer) > 0 || number == '0') {
 			//negative number
 			writeChar(ctx, ctx->token, '-');
 			return true;
