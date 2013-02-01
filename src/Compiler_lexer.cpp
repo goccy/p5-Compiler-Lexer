@@ -1098,6 +1098,7 @@ void Lexer::grouping(Tokens *tokens)
 			TokenPos end_pos = pos;
 			pos -= move_count;
 			ns_token->data = ns;
+			ns_token->info.has_warnings = true;
 			ns = "";
 			tokens->erase(start_pos, end_pos);
 			break;
