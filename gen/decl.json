@@ -2610,6 +2610,12 @@
 	"parse_func" : ""
  },
  {
+	"type" : "Prototype",
+	"kind" : "Term",
+	"data" : "",
+	"parse_func" : ""
+ },
+ {
 	"type" : "Var",
 	"kind" : "Term",
 	"data" : "",

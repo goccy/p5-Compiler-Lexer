@@ -85,6 +85,7 @@ class Lexer {
 public:
 	bool isStringStarted;
 	bool isRegexStarted;
+	bool isPrototypeStarted;
 	bool commentFlag;
 	bool hereDocumentFlag;
 	TokenPos start_pos;

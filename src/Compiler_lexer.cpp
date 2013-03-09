@@ -125,7 +125,8 @@ const char *Token::deparse(void)
 }
 
 Lexer::Lexer(const char *filename) :
-	isStringStarted(false), isRegexStarted(false), commentFlag(false), hereDocumentFlag(false),
+	isStringStarted(false), isRegexStarted(false),
+	isPrototypeStarted(false), commentFlag(false), hereDocumentFlag(false),
 	regex_delim(0), regex_middle_delim(0),
     brace_count_inner_regex(0), bracket_count_inner_regex(0), cury_brace_count_inner_regex(0)
 {
@@ -285,6 +286,13 @@ Token *Lexer::scanPrevSymbol(LexContext *ctx, char symbol)
 			break;
 		}
 		isRegexStarted = true;
+	} else if (symbol == '(' &&
+			(prev_before_tk_data == "sub" ||
+			(ctx->tokens->size() > 1 &&
+			 ctx->tokens->at(ctx->tokens->size() - 2)->data == "sub"))) {
+		ret = new Token(string(token), finfo);
+		clearToken(ctx, token);
+		isPrototypeStarted = true;
 	} else {
 		ret = new Token(string(token), finfo);
 		if (prev_before_tk_data == "<<" && (isupper(token[0]) || token[0] == '_')) {
@@ -348,6 +356,13 @@ Token *Lexer::scanCurSymbol(LexContext *ctx, char symbol)
 	} else if (symbol == ';') {
 		ret = new Token(string(tmp), finfo);
 		clearToken(ctx, token);
+	} else if (symbol == '(' &&
+			(prev_tk->data == "sub" ||
+			(ctx->tokens->size() > 1 &&
+			 ctx->tokens->at(ctx->tokens->size() - 2)->data == "sub"))) {
+		ret = new Token(string(tmp), finfo);
+		clearToken(ctx, token);
+		isPrototypeStarted = true;
 	} else {
 		ret = new Token(string(tmp), finfo);
 		clearToken(ctx, token);
@@ -429,7 +444,7 @@ Token *Lexer::scanDoubleCharacterOperator(LexContext *ctx, char symbol, char nex
 		(symbol == '$' && next_ch == '!') || (symbol == '$' && next_ch == '@') ||
 		(symbol == '$' && next_ch == '$') || (symbol == '$' && next_ch == '<') ||
 		(symbol == '$' && next_ch == '>') || (symbol == '$' && next_ch == '(') ||
-		/*(symbol == '$' && next_ch == ')') ||*/ (symbol == '$' && next_ch == '[') ||
+		(symbol == '$' && next_ch == ')') || (symbol == '$' && next_ch == '[') ||
 		(symbol == '$' && next_ch == ']')) {
 		tmp[0] = symbol;
 		tmp[1] = next_ch;
@@ -684,6 +699,18 @@ bool Lexer::isSkip(LexContext *ctx, char *script, size_t idx)
 				cury_brace_count_inner_regex = 0;
 				bracket_count_inner_regex = 0;
 			}
+		}
+	} else if (isPrototypeStarted) {
+		if (script[idx] == ')') {
+			Token *tk = new Token(string(ctx->token), finfo);
+			tk->info = getTokenInfo(Prototype);
+			clearToken(ctx, ctx->token);
+			ctx->tokens->push_back(tk);
+			isPrototypeStarted = false;
+			ret = false;
+		} else {
+			writeChar(ctx, ctx->token, script[idx]);
+			ret = true;
 		}
 	} else if (isStringStarted) {
 		if (script[idx] == start_string_ch &&
