@@ -429,7 +429,7 @@ Token *Lexer::scanDoubleCharacterOperator(LexContext *ctx, char symbol, char nex
 		(symbol == '$' && next_ch == '!') || (symbol == '$' && next_ch == '@') ||
 		(symbol == '$' && next_ch == '$') || (symbol == '$' && next_ch == '<') ||
 		(symbol == '$' && next_ch == '>') || (symbol == '$' && next_ch == '(') ||
-		(symbol == '$' && next_ch == ')') || (symbol == '$' && next_ch == '[') ||
+		/*(symbol == '$' && next_ch == ')') ||*/ (symbol == '$' && next_ch == '[') ||
 		(symbol == '$' && next_ch == ']')) {
 		tmp[0] = symbol;
 		tmp[1] = next_ch;
@@ -1259,9 +1259,11 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 				syntax->stype = SyntaxType::BlockStmt;
 			} else {
 				syntax->stype = SyntaxType::BlockStmt;
-				Token *next_tk = ITER_CAST(Token *, pos+1);
-				if (next_tk && next_tk->info.type != SemiColon) {
-					intermediate_pos = pos;
+				if (pos+1 != tokens->end()) {
+					Token *next_tk = ITER_CAST(Token *, pos+1);
+					if (next_tk && next_tk->info.type != SemiColon) {
+						intermediate_pos = pos;
+					}
 				}
 			}
 			new_tokens->push_back(syntax);

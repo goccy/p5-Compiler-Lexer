@@ -186,6 +186,12 @@
 	"parse_func" : ""
  },
  {
+	"type" : "PolymorphicCompare",
+	"kind" : "Operator",
+	"data" : "~~",
+	"parse_func" : ""
+ },
+ {
 	"type" : "RegOK",
 	"kind" : "Operator",
 	"data" : "=~",
@@ -222,13 +228,13 @@
 	"parse_func" : ""
  },
  {
-	"type" : "StringGrater",
+	"type" : "StringGreater",
 	"kind" : "Operator",
 	"data" : "gt",
 	"parse_func" : ""
  },
  {
-	"type" : "StringGraterEqual",
+ 	"type" : "StringGreaterEqual",
 	"kind" : "Operator",
 	"data" : "ge",
 	"parse_func" : ""
