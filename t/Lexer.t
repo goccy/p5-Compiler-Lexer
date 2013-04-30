@@ -6,7 +6,7 @@ BEGIN { use_ok('Compiler::Lexer') };
 
 my $name = $0;
 #use modules tests
-print Dumper Lexer::get_used_modules($name, <<'SCRIPT');
+print Dumper(Compiler::Lexer->new($name)->get_used_modules(<<'SCRIPT'));
 use Test::Module;
 my $hash = { use => "value" };
 $hash->{use};
