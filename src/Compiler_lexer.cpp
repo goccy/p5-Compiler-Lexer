@@ -224,7 +224,8 @@ Token *Lexer::scanPrevSymbol(LexContext *ctx, char symbol)
 	}
 	/* exclude { m } or { m => ... } or { m, ... } or *m or //m */
 	if (symbol != '}' && symbol != ',' && symbol != '=' &&
-		prev_before_tk_data != "*" &&
+		prev_before_tk_data != "*" && prev_before_tk_data != "&" &&
+		prev_before_tk_data != "::" &&
 		prev_before_tk_type != TokenType::RegDelim &&
 		(prev_token == "q"  || prev_token == "qq" ||
 		 prev_token == "qw" || prev_token == "qx" ||
@@ -251,7 +252,8 @@ Token *Lexer::scanPrevSymbol(LexContext *ctx, char symbol)
 		}
 		isRegexStarted = true;
 	} else if (symbol != '}' && symbol != ',' && symbol != '=' &&
-			   prev_before_tk_data != "*" &&
+			   prev_before_tk_data != "*" && prev_before_tk_data != "::" &&
+			   prev_before_tk_data != "&" &&
 			   prev_before_tk_type != TokenType::RegDelim &&
 			   (prev_token == "s"  ||
 				prev_token == "y"  ||
@@ -309,6 +311,14 @@ bool Lexer::isRegexDelim(Token *prev_token, char symbol)
 {
 	const char *prev_data = (prev_token) ? cstr(prev_token->data) : "";
 	/* [^0-9] && !"0" && !CONST && !{hash} && ![array] && !func() && !$var */
+	string prev_tk = string(prev_data);
+	if (regex_delim == 0 && prev_token && prev_token->info.type == TokenType::Undefined &&
+		(symbol != '-' && symbol != '=' && symbol != ',') &&
+		(prev_tk == "q"  || prev_tk == "qq" || prev_tk == "qw" ||
+		 prev_tk == "qx" || prev_tk == "qr" || prev_tk == "m")) {
+		return true;
+	}
+	if (symbol == '/' && (prev_tk == "xor" || prev_tk == "and")) return true;
 	if (symbol != '/') return false;
 	if (!prev_token) return true;
 	if (strtod(prev_data, NULL)) return false;
@@ -333,15 +343,31 @@ Token *Lexer::scanCurSymbol(LexContext *ctx, char symbol)
 	tmp[0] = symbol;
 	Token *prev_tk = (ctx->tokens->size() > 0) ? ctx->tokens->back() : NULL;
 	//const char *prev_data = (prev_tk) ? cstr(prev_tk->data) : "";
-	if (isRegexDelim(prev_tk, symbol)/* &&
+	string prev_before = (ctx->tokens->size() > 2) ? ctx->tokens->at(ctx->tokens->size() - 2)->data : "";
+	if (prev_before != "sub" && isRegexDelim(prev_tk, symbol)/* &&
 		strtod(prev_data, NULL) == 0 && string(prev_data) != "0" && !isupper(prev_data[0]) &&
 		prev_data[0] != '}' && prev_data[0] != ']' && prev_data[0] != ')' && prev_data[0] != '$'*/) {
 		ret = new Token(string(tmp), finfo);
 		ret->info = getTokenInfo(TokenType::RegDelim);
 		clearToken(ctx, token);
-		regex_delim = '/';
 		if (prev_tk->info.type != TokenType::RegExp &&
 			prev_tk->info.type != TokenType::RegReplaceTo) {
+			switch (symbol) {
+			case '{': regex_delim = '}';
+				brace_count_inner_regex++;
+				break;
+			case '(': regex_delim = ')';
+				cury_brace_count_inner_regex++;
+				break;
+			case '<': regex_delim = '>';
+				break;
+			case '[': regex_delim = ']';
+				bracket_count_inner_regex++;
+				break;
+			default:
+				regex_delim = symbol;
+				break;
+			}
 			isRegexStarted = true;
 		}
 	} else if (isRegexStarted ||
@@ -695,6 +721,7 @@ bool Lexer::isSkip(LexContext *ctx, char *script, size_t idx)
 				ctx->tokens->push_back(tk);
 				ret = false;
 				isRegexStarted = false;
+				regex_delim = 0;
 				brace_count_inner_regex = 0;
 				cury_brace_count_inner_regex = 0;
 				bracket_count_inner_regex = 0;
