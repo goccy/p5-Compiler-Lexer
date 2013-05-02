@@ -239,6 +239,22 @@ subtest 'tokenize' => sub {
                    'data' => ';',
                    'type' => 99,
                    'line' => 8
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => 21,
+                   'has_warnings' => 0,
+                   'stype' => 0,
+                   'name' => 'GlobalArrayVar',
+                   'data' => '#!./perl -anF[~#QQ\\\\xq\']
+
+BEGIN {
+    *ARGV = *DATA;
+}
+print "@F";
+
+',
+                   'type' => 180,
+                   'line' => 16
                  }, 'Compiler::Lexer::Token' )
         ]
 , 'Compiler::Lexer::tokenize');

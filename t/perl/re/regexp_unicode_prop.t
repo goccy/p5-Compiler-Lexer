@@ -15485,6 +15485,15 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 2
           },
           {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 172,
+            'src' => ' $i += 2',
+            'start_line' => 172,
+            'indent' => 0,
+            'block_id' => 2
+          },
+          {
             'token_num' => 14,
             'has_warnings' => 1,
             'end_line' => 173,

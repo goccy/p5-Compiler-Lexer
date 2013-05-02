@@ -70,6 +70,7 @@ public:
 	char *token;
 	size_t max_token_size;
 	int token_idx;
+	FileInfo finfo;
 	Tokens *tokens;
 	Tokens *tks;
 	int progress;
@@ -100,7 +101,6 @@ public:
 	bool isPrototypeStarted;
 	bool commentFlag;
 	bool hereDocumentFlag;
-	FileInfo finfo;
 	char start_string_ch;
 	char regex_delim;
 	char regex_middle_delim;

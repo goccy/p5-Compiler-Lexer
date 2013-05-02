@@ -13,6 +13,8 @@ Token::Token(string data_, FileInfo finfo_) :
 	stype = SyntaxType::Value;
 	info.type = TokenType::Undefined;
 	info.kind = TokenKind::Undefined;
+	info.name = "";
+	info.data = NULL;
 	info.has_warnings = false;
 	finfo.start_line_num = finfo_.start_line_num;
 	finfo.end_line_num = finfo_.start_line_num;
@@ -28,6 +30,8 @@ Token::Token(Tokens *tokens) :
 	type =  TokenType::Undefined;
 	info.type = TokenType::Undefined;
 	info.kind = TokenKind::Undefined;
+	info.name = "";
+	info.data = NULL;
 	info.has_warnings = false;
 	size_t size = tokens->size();
 	TokenPos pos = tokens->begin();
@@ -69,13 +73,13 @@ const char *Token::deparse(void)
 	isDeparsed = true;
 	if (this->token_num > 0) {
 		if (stype == SyntaxType::Expr) {
-			deparsed_data += "(";
+			//deparsed_data += "(";
 		}
 		for (size_t i = 0; i < this->token_num; i++) {
 			deparsed_data += string(this->tks[i]->deparse());
 		}
 		if (stype == SyntaxType::Expr) {
-			deparsed_data += ")";
+			//deparsed_data += ")";
 		}
 	} else {
 		switch (info.type) {

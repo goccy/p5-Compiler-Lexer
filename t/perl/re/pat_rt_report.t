@@ -54795,6 +54795,15 @@ $t =~ s/([^a])//ge;
             'block_id' => 72
           },
           {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 632,
+            'src' => ' $ i ++',
+            'start_line' => 632,
+            'indent' => 2,
+            'block_id' => 72
+          },
+          {
             'token_num' => 8,
             'has_warnings' => 1,
             'end_line' => 633,

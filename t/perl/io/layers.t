@@ -11605,6 +11605,15 @@ print ref *PerlIO::Layer::NoWarnings{CODE};
             'block_id' => 14
           },
           {
+            'token_num' => 2,
+            'has_warnings' => 1,
+            'end_line' => 99,
+            'src' => ' $i ++',
+            'start_line' => 99,
+            'indent' => 2,
+            'block_id' => 14
+          },
+          {
             'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 100,

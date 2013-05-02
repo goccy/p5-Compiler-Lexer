@@ -18440,12 +18440,12 @@ subtest 'tokenize' => sub {
                    'line' => 436
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => 4,
+                   'kind' => 1,
                    'has_warnings' => 0,
                    'stype' => 0,
-                   'name' => 'Method',
+                   'name' => 'StringEqual',
                    'data' => 'eq',
-                   'type' => 59,
+                   'type' => 39,
                    'line' => 436
                  }, 'Compiler::Lexer::Token' ),
           bless( {

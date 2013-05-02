@@ -33433,6 +33433,15 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
+            'token_num' => 2,
+            'has_warnings' => 1,
+            'end_line' => 5,
+            'src' => ' $i ++',
+            'start_line' => 5,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
             'token_num' => 7,
             'has_warnings' => 1,
             'end_line' => 6,

@@ -26095,12 +26095,12 @@ Usage: $0 [ --regen | --cpan | --show_all | FILE ... | --add_link MODULE ... ]\\
                    'line' => 986
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => 4,
+                   'kind' => 1,
                    'has_warnings' => 0,
                    'stype' => 0,
-                   'name' => 'Method',
+                   'name' => 'StringEqual',
                    'data' => 'eq',
-                   'type' => 59,
+                   'type' => 39,
                    'line' => 986
                  }, 'Compiler::Lexer::Token' ),
           bless( {

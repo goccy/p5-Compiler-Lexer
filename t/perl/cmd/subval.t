@@ -8083,6 +8083,15 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 39
           },
           {
+            'token_num' => 2,
+            'has_warnings' => 1,
+            'end_line' => 69,
+            'src' => ' $i ++',
+            'start_line' => 69,
+            'indent' => 0,
+            'block_id' => 39
+          },
+          {
             'token_num' => 6,
             'has_warnings' => 1,
             'end_line' => 70,

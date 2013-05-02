@@ -18,6 +18,7 @@ void Annotator::setAnnotateMethods(AnnotateMethods *methods)
 {
 	/* annotate order is important */
 	methods->add(&Annotator::annotateRegOpt);
+	methods->add(&Annotator::annotateNamespace);
 	methods->add(&Annotator::annotateMethod);
 	methods->add(&Annotator::annotateKey);
 	methods->add(&Annotator::annotateShortScalarDereference);

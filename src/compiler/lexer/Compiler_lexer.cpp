@@ -30,9 +30,11 @@ void LexContext::writeChar(char *token, char ch)
 	token_idx++;
 }
 Token *LexContext::tk(void) { return ITER_CAST(Token *, itr); }
-Token *LexContext::nextToken(void) { return ITER_CAST(Token *, itr+1); }
+Token *LexContext::nextToken(void) {
+	return ITER_CAST(Token *, itr+1);
+}
 void LexContext::next(void) { ++itr; }
-bool LexContext::end(void) { return itr == tks->end(); }
+bool LexContext::end(void) { return itr + 1 == tks->end(); }
 
 /*************** Lexer ***************/
 
@@ -58,10 +60,11 @@ Tokens *Lexer::tokenize(char *script)
 	ctx.max_token_size = max_token_size;
 	ctx.token_idx = 0;
 	ctx.progress = 0;
+	ctx.finfo = finfo;
 	char ch;
 	Token *tk = NULL;
 	while ((ch = script[i]) != EOL) {
-		if (ch == '\n') finfo.start_line_num++;
+		if (ch == '\n') ctx.finfo.start_line_num++;
 		if (scanner->isSkip(&ctx, script, i)) {
 			i++;
 			continue;
@@ -77,7 +80,7 @@ Tokens *Lexer::tokenize(char *script)
 			break;
 		case ' ': case '\t':
 			if (token[0] != EOL) {
-				tk = new Token(string(token), finfo);
+				tk = new Token(string(token), ctx.finfo);
 				Token *prev_tk = (tokens->size() > 0) ? tokens->back() : NULL;
 				string prev_tk_data = "";
 				if (prev_tk) {
@@ -98,13 +101,13 @@ Tokens *Lexer::tokenize(char *script)
 			if (CHECK_CH(i+1, '$') || CHECK_CH(i+1, '@') ||
 				CHECK_CH(i+1, '%') || CHECK_CH(i+1, '&')) {
 				//tokens->push_back(new Token(string("\\") + string(1, script[i+1]), finfo));
-				tokens->push_back(new Token(string("\\"), finfo));
+				tokens->push_back(new Token(string("\\"), ctx.finfo));
 			}
 			break;
 		case '#': {
 #ifdef ENABLE_ANNOTATION
 			if (CHECK_CH(i+1, '@')) {
-				tokens->push_back(new Token(string("#@"), finfo));
+				tokens->push_back(new Token(string("#@"), ctx.finfo));
 				i++;
 				break;
 			}
@@ -118,14 +121,14 @@ Tokens *Lexer::tokenize(char *script)
 				(prev_tk && prev_tk->info.type == TokenType::RegExp) ||
 				(prev_tk && prev_tk->info.type == TokenType::RegReplaceTo)) {
 				char tmp[2] = {'#'};
-				Token *tk = new Token(string(tmp), finfo);
+				Token *tk = new Token(string(tmp), ctx.finfo);
 				tk->info = scanner->getTokenInfo(TokenType::RegDelim);
 				ctx.clearToken(token);
 				tokens->push_back(tk);
 				break;
 			}
 			while (script[i] != '\n' && i < script_size) {i++;}
-			finfo.start_line_num++;
+			ctx.finfo.start_line_num++;
 			break;
 		}
 		case '-':
@@ -172,7 +175,7 @@ Tokens *Lexer::tokenize(char *script)
 			if (ctx.token_idx > 0) {
 				Token *prev_tk = (tokens->size() > 0) ? tokens->back() : NULL;
 				string prev_tk_data = "";
-				tokens->push_back(new Token(token, finfo));
+				tokens->push_back(new Token(token, ctx.finfo));
 				if (prev_tk) {
 					prev_tk_data = prev_tk->data;
 				}
@@ -202,6 +205,11 @@ Tokens *Lexer::tokenize(char *script)
 		}
 		i++;
 	}
+	if (ctx.token[0] != EOL) {
+		Token *tk = new Token(string(token), ctx.finfo);
+		tokens->push_back(tk);
+		ctx.clearToken(token);
+	}
 	//safe_free(token, max_token_size);
 	return tokens;
 }
@@ -220,8 +228,13 @@ void Lexer::annotateTokens(Tokens *tokens)
 {
 	LexContext *ctx = new LexContext(tokens);
 	Annotator *annotator = new Annotator();
-	for (; !ctx->end(); ctx->next()) {
+	for (; ctx->itr != ctx->tks->end(); ctx->next()) {
 		Token *tk = ctx->tk();
+		if (tk->data == "\n") {
+			ctx->tks->erase(ctx->itr);
+			ctx->itr--;
+			continue;
+		}
 		annotator->annotate(ctx, tk);
 	}
 }

@@ -24899,6 +24899,15 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 9
           },
           {
+            'token_num' => 2,
+            'has_warnings' => 1,
+            'end_line' => 164,
+            'src' => ' $i ++',
+            'start_line' => 164,
+            'indent' => 2,
+            'block_id' => 9
+          },
+          {
             'token_num' => 12,
             'has_warnings' => 1,
             'end_line' => 165,
@@ -24980,6 +24989,15 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 12
           },
           {
+            'token_num' => 2,
+            'has_warnings' => 1,
+            'end_line' => 185,
+            'src' => ' $i ++',
+            'start_line' => 185,
+            'indent' => 2,
+            'block_id' => 12
+          },
+          {
             'token_num' => 3,
             'has_warnings' => 0,
             'end_line' => 186,
@@ -25011,6 +25029,15 @@ subtest 'get_groups_by_syntax_level' => sub {
             'has_warnings' => 1,
             'end_line' => 189,
             'src' => ' $j < $to_chars ;',
+            'start_line' => 189,
+            'indent' => 3,
+            'block_id' => 13
+          },
+          {
+            'token_num' => 2,
+            'has_warnings' => 1,
+            'end_line' => 189,
+            'src' => ' $j ++',
             'start_line' => 189,
             'indent' => 3,
             'block_id' => 13
