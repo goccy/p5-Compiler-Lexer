@@ -9,6 +9,7 @@
 #include <new>
 #include <unistd.h>
 #include <algorithm>
+#include <assert.h>
 
 #define EOL '\0'
 #define MAX_TOKEN_SIZE 4096
@@ -33,6 +34,9 @@
 class TokenInfo;
 class Token;
 class Module;
+class Annotator;
+class AnnotateMethods;
+class AnnotateMethodIterator;
 typedef std::vector<Token *> Tokens;
 typedef std::vector<Module *> Modules;
 typedef std::vector<Token *>::iterator TokenPos;

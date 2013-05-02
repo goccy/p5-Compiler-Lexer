@@ -71,7 +71,19 @@ public:
 	size_t max_token_size;
 	int token_idx;
 	Tokens *tokens;
+	Tokens *tks;
 	int progress;
+	TokenPos itr;
+
+	Enum::Lexer::Token::Type prev_type;
+	LexContext(void);
+	LexContext(Tokens *tokens);
+	Token *tk(void);
+	Token *nextToken(void);
+	void clearToken(char *token);
+	void writeChar(char *token, char ch);
+	void next(void);
+	bool end(void);
 };
 
 class Module {
@@ -81,15 +93,13 @@ public:
 	Module(const char *name, const char *args);
 };
 
-class Lexer {
+class Scanner {
 public:
 	bool isStringStarted;
 	bool isRegexStarted;
 	bool isPrototypeStarted;
 	bool commentFlag;
 	bool hereDocumentFlag;
-	TokenPos start_pos;
-	TokenPos pos;
 	FileInfo finfo;
 	char start_string_ch;
 	char regex_delim;
@@ -99,31 +109,10 @@ public:
 	int cury_brace_count_inner_regex;
 	std::string here_document_tag;
 
-	Lexer(const char *filename);
-	//~Lexer(void);
+	Scanner(void);
 	bool isRegexDelim(Token *prev_token, char symbol);
-	Tokens *tokenize(char *script);
-	void annotateTokens(Tokens *tokens);
-	void grouping(Tokens *tokens); /* for Namespace::Namespace */
-	void prepare(Tokens *tokens);
-	Token *parseSyntax(Token *start_token, Tokens *tokens);
-	void parseSpecificStmt(Token *root);
-	void setIndent(Token *tk, int indent);
-	void setBlockIDWithBreadthFirst(Token *tk, size_t base_id);
-	void setBlockIDWithDepthFirst(Token *tk, size_t *block_id);
-	void dump(Tokens *tokens);
-	void dumpSyntax(Token *tk, int indent);
-	Tokens *getTokensBySyntaxLevel(Token *root, Enum::Lexer::Syntax::Type type);
-	Modules *getUsedModules(Token *root);
-private:
 	bool isSkip(LexContext *ctx, char *script, size_t idx);
-	bool isExpr(Token *tk, Token *prev_tk, Enum::Lexer::Token::Type type, Enum::Lexer::Kind kind);
-	void insertStmt(Token *tk, int idx, size_t grouping_num);
-	void writeChar(LexContext *ctx, char *token, char ch);
-	void clearToken(LexContext *ctx, char *token);
-	void escapeQuotation(std::string *from, char quote);
 	Token *scanQuote(LexContext *ctx, char quote);
-	//Token *scanEscapeChar(LexContext *ctx, char ch);
 	Token *scanNewLineKeyword(LexContext *ctx);
 	Token *scanTabKeyword(LexContext *ctx);
 	Token *scanPrevSymbol(LexContext *ctx, char symbol);
@@ -137,9 +126,75 @@ private:
 	bool scanNegativeNumber(LexContext *ctx, char num);
 	TokenInfo getTokenInfo(Enum::Lexer::Token::Type type);
 	TokenInfo getTokenInfo(const char *data);
-	bool search(std::vector<std::string> list, std::string str);
+};
+
+class Lexer {
+public:
+	TokenPos start_pos;
+	TokenPos pos;
+	FileInfo finfo;
+	Scanner *scanner;
+
+	Lexer(const char *filename);
+	Tokens *tokenize(char *script);
+	void annotateTokens(Tokens *tokens);
+	void grouping(Tokens *tokens);
+	void prepare(Tokens *tokens);
+	Token *parseSyntax(Token *start_token, Tokens *tokens);
+	void parseSpecificStmt(Token *root);
+	void setIndent(Token *tk, int indent);
+	void setBlockIDWithBreadthFirst(Token *tk, size_t base_id);
+	void setBlockIDWithDepthFirst(Token *tk, size_t *block_id);
+	void dump(Tokens *tokens);
+	void dumpSyntax(Token *tk, int indent);
+	Tokens *getTokensBySyntaxLevel(Token *root, Enum::Lexer::Syntax::Type type);
+	Modules *getUsedModules(Token *root);
+private:
+	bool isExpr(Token *tk, Token *prev_tk, Enum::Lexer::Token::Type type, Enum::Lexer::Kind kind);
+	void insertStmt(Token *tk, int idx, size_t grouping_num);
 	void insertParenthesis(Tokens *tokens);
+};
+
+class Annotator {
+public:
+	AnnotateMethods *methods;
+	std::vector<std::string> vardecl_list;
+	std::vector<std::string> funcdecl_list;
+	std::vector<std::string> pkgdecl_list;
+	Annotator(void);
+	void annotate(LexContext *ctx, Token *tk);
+private:
+	TokenInfo getTokenInfo(Enum::Lexer::Token::Type type);
+	TokenInfo getTokenInfo(const char *data);
+	bool search(std::vector<std::string> list, std::string target);
+	void setAnnotateMethods(AnnotateMethods *methods);
 	bool isReservedKeyword(std::string word);
+	TokenInfo annotateRegOpt(LexContext *ctx, Token *tk);
+	TokenInfo annotateNamespace(LexContext *ctx, Token *tk);
+	TokenInfo annotateMethod(LexContext *ctx, Token *tk);
+	TokenInfo annotateKey(LexContext *ctx, Token *tk);
+	TokenInfo annotateShortScalarDereference(LexContext *ctx, Token *tk);
+	TokenInfo annotateReservedKeyword(LexContext *ctx, Token *tk);
+	TokenInfo annotateNamelessFunction(LexContext *ctx, Token *tk);
+	TokenInfo annotateLocalVariable(LexContext *ctx, Token *tk);
+	TokenInfo annotateVariable(LexContext *ctx, Token *tk);
+	TokenInfo annotateGlobalVariable(LexContext *ctx, Token *tk);
+	TokenInfo annotateFunction(LexContext *ctx, Token *tk);
+	TokenInfo annotateCall(LexContext *ctx, Token *tk);
+	TokenInfo annotateClass(LexContext *ctx, Token *tk);
+	TokenInfo annotateUsedName(LexContext *ctx, Token *tk);
+	TokenInfo annotateBareWord(LexContext *ctx, Token *tk);
+};
+
+typedef TokenInfo (Annotator::*AnnotateMethod)(LexContext *ctx, Token *tk);
+class AnnotateMethods : public std::vector<AnnotateMethod> {
+public:
+	Annotator *executor;
+
+	AnnotateMethods(void);
+	void add(AnnotateMethod method);
+	void setAnnotator(Annotator *executor);
+	std::vector<AnnotateMethod>::iterator iterator(void);
 };
 
 #define isSKIP() commentFlag
