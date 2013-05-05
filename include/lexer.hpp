@@ -158,12 +158,16 @@ public:
 	int bracket_count_inner_regex;
 	int cury_brace_count_inner_regex;
 	std::string here_document_tag;
+	StringMap regex_prefix_map;
+	StringMap regex_replace_map;
 
 	Scanner(void);
 	bool isRegexStartDelim(LexContext *ctx, const StringMap &list);
 	bool isRegexDelim(Token *prev_token, char symbol);
 	bool isHereDocument(LexContext *ctx, Token *prev_token);
 	bool isSkip(LexContext *ctx);
+	bool isPrototype(LexContext *ctx);
+	char getRegexDelim(LexContext *ctx);
 	Token *scanQuote(LexContext *ctx, char quote);
 	Token *scanNewLineKeyword(LexContext *ctx);
 	Token *scanTabKeyword(LexContext *ctx);

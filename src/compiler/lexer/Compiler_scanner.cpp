@@ -9,6 +9,16 @@ Scanner::Scanner() :
 	regex_delim(0), regex_middle_delim(0),
     brace_count_inner_regex(0), bracket_count_inner_regex(0), cury_brace_count_inner_regex(0)
 {
+	regex_prefix_map.insert(StringMap::value_type("q", ""));
+	regex_prefix_map.insert(StringMap::value_type("qq", ""));
+	regex_prefix_map.insert(StringMap::value_type("qw", ""));
+	regex_prefix_map.insert(StringMap::value_type("qx", ""));
+	regex_prefix_map.insert(StringMap::value_type("qr", ""));
+	regex_prefix_map.insert(StringMap::value_type("m", ""));
+
+	regex_replace_map.insert(StringMap::value_type("s", ""));
+	regex_replace_map.insert(StringMap::value_type("y", ""));
+	regex_replace_map.insert(StringMap::value_type("tr", ""));
 }
 
 Token *Scanner::scanQuote(LexContext *ctx, char quote)
@@ -73,6 +83,7 @@ bool Scanner::scanNegativeNumber(LexContext *ctx, char number)
 
 bool Scanner::isRegexStartDelim(LexContext *ctx, const StringMap &map)
 {
+	/* exclude { m } or { m => ... } or { m, ... } or *m or //m */
 	Token *before_prev_token = ctx->tmgr->tokens->lastToken();
 	string before_prev_data = (before_prev_token) ? before_prev_token->data : "";
 	TokenType::Type before_prev_type = (before_prev_token) ?
@@ -89,102 +100,44 @@ bool Scanner::isRegexStartDelim(LexContext *ctx, const StringMap &map)
 	return false;
 }
 
-Token *Scanner::scanPrevSymbol(LexContext *ctx, char symbol)
+char Scanner::getRegexDelim(LexContext *ctx)
 {
-	Token *ret = NULL;
-	char *token = ctx->buffer();
-	string prev_token = string(token);
-	Token *prev_before_tk = ctx->tmgr->tokens->lastToken();
-	TokenType::Type prev_before_tk_type = TokenType::Undefined;
-	string prev_before_tk_data = "";
-	if (prev_before_tk) {
-		prev_before_tk_type = prev_before_tk->info.type;
-		prev_before_tk_data = prev_before_tk->data;
-	}
-	/* exclude { m } or { m => ... } or { m, ... } or *m or //m */
-	StringMap regex_prefix_map;
-	regex_prefix_map.insert(StringMap::value_type("q", ""));
-	regex_prefix_map.insert(StringMap::value_type("qq", ""));
-	regex_prefix_map.insert(StringMap::value_type("qw", ""));
-	regex_prefix_map.insert(StringMap::value_type("qx", ""));
-	regex_prefix_map.insert(StringMap::value_type("qr", ""));
-	regex_prefix_map.insert(StringMap::value_type("m", ""));
-	if (isRegexStartDelim(ctx, regex_prefix_map)) {
-		//RegexPrefix
-		ret = new Token(string(token), ctx->finfo);
-		ret->info = getTokenInfo(cstr(prev_token));
-		ctx->clearBuffer();
-		switch (symbol) {
-		case '{': regex_delim = '}';
-			brace_count_inner_regex++;
-			break;
-		case '(': regex_delim = ')';
-			cury_brace_count_inner_regex++;
-			break;
-		case '<': regex_delim = '>';
-			break;
-		case '[': regex_delim = ']';
-			bracket_count_inner_regex++;
-			break;
-		default:
-			regex_delim = symbol;
-			break;
-		}
-		isRegexStarted = true;
-	} else if (symbol != '}' && symbol != ',' && symbol != '=' &&
-			   prev_before_tk_data != "*" && prev_before_tk_data != "::" &&
-			   prev_before_tk_data != "&" &&
-			   prev_before_tk_type != TokenType::RegDelim &&
-			   (prev_token == "s"  ||
-				prev_token == "y"  ||
-				prev_token == "tr")) {
-		//ReplaceRegexPrefix
-		ret = new Token(string(token), ctx->finfo);
-		ret->info = getTokenInfo(cstr(prev_token));
-		ctx->clearBuffer();
-		switch (symbol) {
-		case '{':
-			regex_delim = '}';
-			regex_middle_delim = '}';
-			brace_count_inner_regex++;
-			break;
-		case '(':
-			regex_delim = ')';
-			regex_middle_delim = ')';
-			cury_brace_count_inner_regex++;
-			break;
-		case '<':
-			regex_delim = '>';
-			regex_middle_delim = '>';
-			break;
-		case '[':
-			regex_delim = ']';
-			regex_middle_delim = ']';
-			bracket_count_inner_regex++;
-			break;
-		default:
-			regex_delim = symbol;
-			regex_middle_delim = symbol;
-			break;
-		}
-		isRegexStarted = true;
-	} else if (symbol == '(' &&
-			   (prev_before_tk_data == "sub" ||
-				(ctx->tmgr->tokens->size() > 1 &&
-				 ctx->tmgr->tokens->at(ctx->tmgr->tokens->size() - 2)->data == "sub"))) {
-		ret = new Token(string(token), ctx->finfo);
-		ctx->clearBuffer();
-		isPrototypeStarted = true;
-	} else {
-		ret = new Token(string(token), ctx->finfo);
-		if (prev_before_tk_data == "<<" && (isupper(token[0]) || token[0] == '_')) {
-			/* Key is HereDocument */
-			here_document_tag = token;
-			ret->info = getTokenInfo(TokenType::HereDocumentRawTag);
-		}
-		ctx->clearBuffer();
+	char ret = EOL;
+	char symbol = ctx->smgr->currentChar();
+	switch (symbol) {
+	case '{':
+		ret = '}';
+		brace_count_inner_regex++;
+		break;
+	case '(':
+		ret = ')';
+		cury_brace_count_inner_regex++;
+		break;
+	case '[':
+		ret = ']';
+		bracket_count_inner_regex++;
+		break;
+	case '<':
+		ret = '>';
+		break;
+	default:
+		ret = symbol;
+		break;
 	}
 	return ret;
+}
+
+bool Scanner::isPrototype(LexContext *ctx)
+{
+	Token *prev_token = ctx->tmgr->tokens->lastToken();
+	string prev_data = (prev_token) ? prev_token->data : "";
+	int idx = ctx->tmgr->tokens->size() - 2;
+	string before_prev_data = (idx >= 0) ? ctx->tmgr->tokens->at(idx)->data : "";
+	char symbol = ctx->smgr->currentChar();
+	if (symbol != '(') return false;
+	if (prev_data == "sub") return true;
+	if (before_prev_data == "sub") return true;
+	return false;
 }
 
 bool Scanner::isRegexDelim(Token *prev_token, char symbol)
@@ -212,6 +165,36 @@ bool Scanner::isRegexDelim(Token *prev_token, char symbol)
 	}
 	if (string(prev_data) == "split") return true;
 	return false;
+}
+
+Token *Scanner::scanPrevSymbol(LexContext *ctx, char symbol)
+{
+	char *token = ctx->buffer();
+	Token *ret = new Token(string(token), ctx->finfo);
+	if (isRegexStartDelim(ctx, regex_prefix_map)) {
+		//RegexPrefix
+		ret->info = getTokenInfo(token);
+		regex_delim = getRegexDelim(ctx);
+		isRegexStarted = true;
+	} else if (isRegexStartDelim(ctx, regex_replace_map)) {
+		//ReplaceRegexPrefix
+		ret->info = getTokenInfo(token);
+		char delim = getRegexDelim(ctx);
+		regex_delim = delim;
+		regex_middle_delim = delim;
+		isRegexStarted = true;
+	} else if (isPrototype(ctx)) {
+		isPrototypeStarted = true;
+	} else {
+		Token *prev_before_tk = ctx->tmgr->tokens->lastToken();
+		if (isHereDocument(ctx, prev_before_tk)) {
+			/* Key is HereDocument */
+			here_document_tag = token;
+			ret->info = getTokenInfo(TokenType::HereDocumentRawTag);
+		}
+	}
+	ctx->clearBuffer();
+	return ret;
 }
 
 Token *Scanner::scanCurSymbol(LexContext *ctx, char symbol)
