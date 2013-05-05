@@ -1,5 +1,4 @@
 #include <lexer.hpp>
-#include <cassert>
 
 /* Declare Namespace */
 using namespace std;
@@ -13,22 +12,45 @@ Module::Module(const char *name_, const char *args_)
 
 /************ LexContext *************/
 
-LexContext::LexContext(void) {}
+LexContext::LexContext(const char *filename, char *script)
+	: progress(0), buffer_idx(0)
+{
+	script_size = strlen(script) + 1;
+	token_buffer = (char *)safe_malloc(script_size);
+	smgr = new ScriptManager(script);
+	tmgr = new TokenManager();
+	finfo.start_line_num = 1;
+	finfo.filename = filename;
+}
+
 LexContext::LexContext(Tokens *tks)
 {
 	this->tks = tks;
 	this->itr = tks->begin();
 }
-void LexContext::clearToken(char *token)
+
+char *LexContext::buffer(void)
 {
-	memset(token, 0, max_token_size);
-	token_idx = 0;
+	return token_buffer;
 }
-void LexContext::writeChar(char *token, char ch)
+
+void LexContext::clearBuffer(void)
 {
-	token[token_idx] = ch;
-	token_idx++;
+	memset(token_buffer, 0, script_size);
+	buffer_idx = 0;
 }
+
+void LexContext::writeBuffer(char ch)
+{
+	token_buffer[buffer_idx] = ch;
+	buffer_idx++;
+}
+
+bool LexContext::existsBuffer(void)
+{
+	return token_buffer[0] != EOL;
+}
+
 Token *LexContext::tk(void) { return ITER_CAST(Token *, itr); }
 Token *LexContext::nextToken(void) {
 	return ITER_CAST(Token *, itr+1);
@@ -40,112 +62,90 @@ bool LexContext::end(void) { return itr + 1 == tks->end(); }
 
 Lexer::Lexer(const char *filename)
 {
-	finfo.start_line_num = 1;
-	finfo.filename = filename;
+	filename = filename;
 	scanner = new Scanner();
 }
 
-#define CHECK_CH(i, ch) (i < script_size && script[i] == ch)
 Tokens *Lexer::tokenize(char *script)
 {
 	using namespace Enum::Lexer::Char;
-	size_t i = 0;
-	LexContext ctx;
-	size_t script_size = strlen(script) + 1;
-	size_t max_token_size = script_size;
+	LexContext ctx(filename, script);
 	Tokens *tokens = new Tokens();
-	char *token = (char *)safe_malloc(max_token_size);
-	ctx.token = token;
 	ctx.tokens = tokens;
-	ctx.max_token_size = max_token_size;
-	ctx.token_idx = 0;
-	ctx.progress = 0;
-	ctx.finfo = finfo;
-	char ch;
 	Token *tk = NULL;
-	while ((ch = script[i]) != EOL) {
+	ScriptManager *smgr = ctx.smgr;
+	for (; !smgr->end(); smgr->next()) {
+		char ch = smgr->currentChar();
 		if (ch == '\n') ctx.finfo.start_line_num++;
-		if (scanner->isSkip(&ctx, script, i)) {
-			i++;
+		if (scanner->isSkip(&ctx)) {
 			continue;
 		} else {
-			i += ctx.progress;
+			smgr->forward(ctx.progress);
 			ctx.progress = 0;
-			if (script[i] == EOL) break;
+			if (smgr->end()) break;
 		}
 		switch (ch) {
 		case '"': case '\'': case '`':
-			tk = scanner->scanQuote(&ctx, ch);
-			if (tk) tokens->push_back(tk);
+			tokens->add(scanner->scanQuote(&ctx, ch));
 			break;
 		case ' ': case '\t':
-			if (token[0] != EOL) {
+			if (ctx.existsBuffer()) {
+				char *token = ctx.buffer();
 				tk = new Token(string(token), ctx.finfo);
-				Token *prev_tk = (tokens->size() > 0) ? tokens->back() : NULL;
-				string prev_tk_data = "";
-				if (prev_tk) {
-					prev_tk_data = prev_tk->data;
-				}
-				if (prev_tk_data == "<<" &&
-					strtod(token, NULL) == 0 && string(token) != "0" &&
-					(isupper(token[0]) || token[0] == '_')) {
+				if (scanner->isHereDocument(&ctx, tokens->lastToken())) {
 					/* Key is HereDocument */
 					scanner->here_document_tag = token;
 					tk->info = scanner->getTokenInfo(TokenType::HereDocumentRawTag);
 				}
-				ctx.clearToken(token);
-				if (tk) tokens->push_back(tk);
+				ctx.clearBuffer();
+				tokens->add(tk);
 			}
 			break;
 		case '\\':
-			if (CHECK_CH(i+1, '$') || CHECK_CH(i+1, '@') ||
-				CHECK_CH(i+1, '%') || CHECK_CH(i+1, '&')) {
-				//tokens->push_back(new Token(string("\\") + string(1, script[i+1]), finfo));
-				tokens->push_back(new Token(string("\\"), ctx.finfo));
+			if (smgr->nextChar() == '$' || smgr->nextChar() == '@' ||
+				smgr->nextChar() == '%' || smgr->nextChar() == '&') {
+				tokens->add(new Token(string("\\"), ctx.finfo));
 			}
 			break;
 		case '#': {
 #ifdef ENABLE_ANNOTATION
-			if (CHECK_CH(i+1, '@')) {
-				tokens->push_back(new Token(string("#@"), ctx.finfo));
-				i++;
+			if (smgr->nextChar() == '@') {
+				tokens->add(new Token(string("#@"), ctx.finfo));
 				break;
 			}
 #endif
-			if (token[0] != EOL) {
-				Token *tk = scanner->scanPrevSymbol(&ctx, '#');
-				tokens->push_back(tk);
+			if (ctx.existsBuffer()) {
+				tokens->add(scanner->scanPrevSymbol(&ctx, '#'));
 			}
-			Token *prev_tk = (tokens->size() > 0) ? tokens->back() : NULL;
+			Token *prev_tk = tokens->lastToken();
 			if (scanner->isRegexStarted ||
 				(prev_tk && prev_tk->info.type == TokenType::RegExp) ||
 				(prev_tk && prev_tk->info.type == TokenType::RegReplaceTo)) {
 				char tmp[2] = {'#'};
 				Token *tk = new Token(string(tmp), ctx.finfo);
 				tk->info = scanner->getTokenInfo(TokenType::RegDelim);
-				ctx.clearToken(token);
-				tokens->push_back(tk);
+				tokens->add(tk);
+				ctx.clearBuffer();
 				break;
 			}
-			while (script[i] != '\n' && i < script_size) {i++;}
+			for (; smgr->currentChar() != '\n' && !smgr->end(); smgr->next()) {}
 			ctx.finfo.start_line_num++;
 			break;
 		}
 		case '-':
-			if (scanner->scanNegativeNumber(&ctx, script[i + 1])) {
+			if (scanner->scanNegativeNumber(&ctx, smgr->nextChar())) {
 				break;
-			} else if (i + 1 < script_size && isalpha(script[i+1])) {
-				ctx.writeChar(ctx.token, script[i]);
+			} else if (isalpha(smgr->nextChar())) {
+				ctx.writeBuffer(smgr->currentChar());
 				break;
 			}
 			//fall through
 		case '.':
-			if (ctx.token_idx == 0 && i + 1 < script_size &&
-				'0' <= script[i+1] && script[i+1] <= '9') {
+			if (!ctx.existsBuffer() &&
+				'0' <= smgr->nextChar() && smgr->nextChar() <= '9') {
 				// .01234
-				tk = scanner->scanNumber(&ctx, script, i);
-				tokens->push_back(tk);
-				ctx.clearToken(ctx.token);
+				tokens->add(scanner->scanNumber(&ctx));
+				ctx.clearBuffer();
 				continue;
 			}
 			//fall through
@@ -155,62 +155,47 @@ Tokens *Lexer::tokenize(char *script)
 		case '!': case '*': case '/': case '%':
 		case '(': case ')': case '{': case '}':
 		case '[': case ']': case '?': case '$': {
-			if (i + 2 < script_size) {
-				tk = scanner->scanSymbol(&ctx, script[i], script[i + 1], script[i + 2]);
-				i += ctx.progress;
-				ctx.progress = 0;
-				if (tk) tokens->push_back(tk);
-			} else if (i + 1 < script_size) {
-				tk = scanner->scanSymbol(&ctx, script[i], script[i + 1]);
-				i += ctx.progress;
-				ctx.progress = 0;
-				if (tk) tokens->push_back(tk);
-			} else {
-				tk = scanner->scanSymbol(&ctx, script[i]);
-				if (tk) tokens->push_back(tk);
-			}
+			tokens->add(scanner->scanSymbol(&ctx, smgr->currentChar(),
+						smgr->nextChar(), smgr->afterNextChar()));
+			smgr->forward(ctx.progress);
+			ctx.progress = 0;
 			break;
 		}
 		case '\n':
-			if (ctx.token_idx > 0) {
-				Token *prev_tk = (tokens->size() > 0) ? tokens->back() : NULL;
-				string prev_tk_data = "";
-				tokens->push_back(new Token(token, ctx.finfo));
-				if (prev_tk) {
-					prev_tk_data = prev_tk->data;
-				}
-				if (prev_tk_data == "<<" &&
-					strtod(token, NULL) == 0 && string(token) != "0" &&
-					(isupper(token[0]) || token[0] == '_')) {
+			if (ctx.existsBuffer()) {
+				char *token = ctx.buffer();
+				if (scanner->isHereDocument(&ctx, tokens->lastToken())) {
 					/* Key is HereDocument */
+					char *token = ctx.buffer();
 					tk->info = scanner->getTokenInfo(TokenType::HereDocumentRawTag);
 					scanner->here_document_tag = token;
 				}
-				ctx.clearToken(ctx.token);
+				tokens->add(new Token(token, ctx.finfo));
+				ctx.clearBuffer();
 			}
 			if (scanner->here_document_tag != "") scanner->hereDocumentFlag = true;
 			break;
 		case '0': case '1': case '2': case '3': case '4':
 		case '5': case '6': case '7': case '8': case '9':
-			if (ctx.token_idx == 0 || (ctx.token_idx == 1 && token[0] == '-')) {
-				tk = scanner->scanNumber(&ctx, script, i);
+			if (!ctx.existsBuffer() ||
+				(ctx.buffer_idx == 1 && ctx.buffer()[0] == '-')) {
+				char *token = ctx.buffer();
+				tk = scanner->scanNumber(&ctx);
 				if (token[0] == '-') tk->data = "-" + tk->data;
-				tokens->push_back(tk);
-				ctx.clearToken(ctx.token);
+				tokens->add(tk);
+				ctx.clearBuffer();
 				continue;
 			}
 		default:
-			ctx.writeChar(ctx.token, script[i]);
+			ctx.writeBuffer(smgr->currentChar());
 			break;
 		}
-		i++;
 	}
-	if (ctx.token[0] != EOL) {
-		Token *tk = new Token(string(token), ctx.finfo);
-		tokens->push_back(tk);
-		ctx.clearToken(token);
+	if (ctx.existsBuffer()) {
+		Token *tk = new Token(string(ctx.buffer()), ctx.finfo);
+		tokens->add(tk);
+		ctx.clearBuffer();
 	}
-	//safe_free(token, max_token_size);
 	return tokens;
 }
 

@@ -64,25 +64,75 @@ public:
 	const char *deparse(void);
 };
 
+class Tokens : public std::vector<Token *> {
+public:
+	Tokens(void);
+	void add(Token *token);
+	void remove(size_t idx);
+	Token *lastToken(void);
+};
+
+class TokenManager {
+public:
+	Tokens *tokens;
+	size_t max_token_size;
+	size_t idx;
+
+	TokenManager(void);
+	Token *getTokenByBase(Token *base, int offset);
+	Token *getTokenByIdx(size_t idx);
+	Token *beforePreviousToken(void);
+	Token *previousToken(void);
+	Token *currentToken(void);
+	Token *nextToken(void);
+	Token *afterNextToken(void);
+	Token *next(void);
+	Token *back(void);
+};
+
+class ScriptManager {
+public:
+	char *_script;
+	char *raw_script;
+	size_t script_size;
+	size_t idx;
+
+	ScriptManager(char *script);
+	char getCharByOffset(int offset);
+	char beforePreviousChar(void);
+	char previousChar(void);
+	char currentChar(void);
+	char nextChar(void);
+	char afterNextChar(void);
+	char next(void);
+	char back(void);
+	bool end(void);
+	char forward(size_t progress);
+};
+
 extern TokenInfo decl_tokens[];
 class LexContext {
 public:
-	char *token;
-	size_t max_token_size;
-	int token_idx;
+	ScriptManager *smgr;
+	TokenManager  *tmgr;
 	FileInfo finfo;
 	Tokens *tokens;
 	Tokens *tks;
 	int progress;
+	char *token_buffer;
+	size_t buffer_idx;
+	size_t script_size;
 	TokenPos itr;
-
 	Enum::Lexer::Token::Type prev_type;
-	LexContext(void);
+
+	LexContext(const char *filename, char *script);
 	LexContext(Tokens *tokens);
 	Token *tk(void);
 	Token *nextToken(void);
-	void clearToken(char *token);
-	void writeChar(char *token, char ch);
+	char *buffer(void);
+	void clearBuffer(void);
+	void writeBuffer(char ch);
+	bool existsBuffer(void);
 	void next(void);
 	bool end(void);
 };
@@ -110,8 +160,10 @@ public:
 	std::string here_document_tag;
 
 	Scanner(void);
+	bool isRegexStartDelim(LexContext *ctx, const StringMap &list);
 	bool isRegexDelim(Token *prev_token, char symbol);
-	bool isSkip(LexContext *ctx, char *script, size_t idx);
+	bool isHereDocument(LexContext *ctx, Token *prev_token);
+	bool isSkip(LexContext *ctx);
 	Token *scanQuote(LexContext *ctx, char quote);
 	Token *scanNewLineKeyword(LexContext *ctx);
 	Token *scanTabKeyword(LexContext *ctx);
@@ -122,7 +174,7 @@ public:
 	Token *scanSymbol(LexContext *ctx, char symbol);
 	Token *scanSymbol(LexContext *ctx, char symbol, char next_ch);
 	Token *scanSymbol(LexContext *ctx, char symbol, char next_ch, char after_next_ch);
-	Token *scanNumber(LexContext *ctx, char *src, size_t &i);
+	Token *scanNumber(LexContext *ctx);
 	bool scanNegativeNumber(LexContext *ctx, char num);
 	TokenInfo getTokenInfo(Enum::Lexer::Token::Type type);
 	TokenInfo getTokenInfo(const char *data);
@@ -134,6 +186,7 @@ public:
 	TokenPos pos;
 	FileInfo finfo;
 	Scanner *scanner;
+	const char *filename;
 
 	Lexer(const char *filename);
 	Tokens *tokenize(char *script);

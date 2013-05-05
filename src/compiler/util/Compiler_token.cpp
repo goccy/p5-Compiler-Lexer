@@ -111,3 +111,21 @@ const char *Token::deparse(void)
 	}
 	return cstr(deparsed_data);
 }
+
+Tokens::Tokens(void) {}
+
+void Tokens::add(Token *token)
+{
+	if (token) this->push_back(token);
+}
+
+void Tokens::remove(size_t idx)
+{
+	//this->erase(idx);
+}
+
+Token *Tokens::lastToken(void)
+{
+	size_t size = this->size();
+	return (size > 0) ? this->back() : NULL;
+}

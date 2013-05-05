@@ -33,10 +33,11 @@
 
 class TokenInfo;
 class Token;
+class Tokens;
 class Module;
 class Annotator;
 class AnnotateMethods;
 class AnnotateMethodIterator;
-typedef std::vector<Token *> Tokens;
 typedef std::vector<Module *> Modules;
+typedef std::map<std::string, std::string> StringMap;
 typedef std::vector<Token *>::iterator TokenPos;
