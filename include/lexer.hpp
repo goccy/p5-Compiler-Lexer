@@ -116,7 +116,7 @@ public:
 	ScriptManager *smgr;
 	TokenManager  *tmgr;
 	FileInfo finfo;
-	Tokens *tokens;
+	//Tokens *tokens;
 	Tokens *tks;
 	int progress;
 	char *token_buffer;

@@ -47,6 +47,8 @@ SCRIPT
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
+use Data::Dumper;
+print Dumper $$tokens->[0];
     is_deeply($$tokens, [
           bless( {
                    'kind' => 3,

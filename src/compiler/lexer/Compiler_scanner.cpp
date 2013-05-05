@@ -31,7 +31,7 @@ Token *Scanner::scanQuote(LexContext *ctx, char quote)
 			break;
 		}
 		ctx->clearBuffer();
-		Token *prev_tk = ctx->tokens->lastToken();
+		Token *prev_tk = ctx->tmgr->tokens->lastToken();
 		if (prev_tk && prev_tk->data == "<<") {
 			/* String is HereDocument */
 			here_document_tag = ret->data;
@@ -73,13 +73,12 @@ bool Scanner::scanNegativeNumber(LexContext *ctx, char number)
 
 bool Scanner::isRegexStartDelim(LexContext *ctx, const StringMap &map)
 {
-	Token *before_prev_token = ctx->tmgr->beforePreviousToken();
-	Token *prev_token = ctx->tmgr->previousToken();
-	char symbol = ctx->smgr->currentChar();
+	Token *before_prev_token = ctx->tmgr->tokens->lastToken();
 	string before_prev_data = (before_prev_token) ? before_prev_token->data : "";
 	TokenType::Type before_prev_type = (before_prev_token) ?
 		before_prev_token->info.type : TokenType::Undefined;
-	string prev_data = (prev_token) ? prev_token->data : "";
+	string prev_data = string(ctx->buffer());
+	char symbol = ctx->smgr->currentChar();
 	//... [before_prev_token] [prev_token] [symbol] ...
 	if (before_prev_type == TokenType::RegDelim) return false; /* regex option */
 	if (before_prev_data == "*") return false;  /* glob */
@@ -95,7 +94,7 @@ Token *Scanner::scanPrevSymbol(LexContext *ctx, char symbol)
 	Token *ret = NULL;
 	char *token = ctx->buffer();
 	string prev_token = string(token);
-	Token *prev_before_tk = ctx->tokens->lastToken();
+	Token *prev_before_tk = ctx->tmgr->tokens->lastToken();
 	TokenType::Type prev_before_tk_type = TokenType::Undefined;
 	string prev_before_tk_data = "";
 	if (prev_before_tk) {
@@ -103,7 +102,6 @@ Token *Scanner::scanPrevSymbol(LexContext *ctx, char symbol)
 		prev_before_tk_data = prev_before_tk->data;
 	}
 	/* exclude { m } or { m => ... } or { m, ... } or *m or //m */
-/*
 	StringMap regex_prefix_map;
 	regex_prefix_map.insert(StringMap::value_type("q", ""));
 	regex_prefix_map.insert(StringMap::value_type("qq", ""));
@@ -112,14 +110,6 @@ Token *Scanner::scanPrevSymbol(LexContext *ctx, char symbol)
 	regex_prefix_map.insert(StringMap::value_type("qr", ""));
 	regex_prefix_map.insert(StringMap::value_type("m", ""));
 	if (isRegexStartDelim(ctx, regex_prefix_map)) {
-*/
-	if (symbol != '}' && symbol != ',' && symbol != '=' &&
-		prev_before_tk_data != "*" && prev_before_tk_data != "&" &&
-		prev_before_tk_data != "::" &&
-		prev_before_tk_type != TokenType::RegDelim &&
-		(prev_token == "q"  || prev_token == "qq" ||
-		 prev_token == "qw" || prev_token == "qx" ||
-		 prev_token == "qr" || prev_token == "m")) {
 		//RegexPrefix
 		ret = new Token(string(token), ctx->finfo);
 		ret->info = getTokenInfo(cstr(prev_token));
@@ -180,8 +170,8 @@ Token *Scanner::scanPrevSymbol(LexContext *ctx, char symbol)
 		isRegexStarted = true;
 	} else if (symbol == '(' &&
 			   (prev_before_tk_data == "sub" ||
-				(ctx->tokens->size() > 1 &&
-				 ctx->tokens->at(ctx->tokens->size() - 2)->data == "sub"))) {
+				(ctx->tmgr->tokens->size() > 1 &&
+				 ctx->tmgr->tokens->at(ctx->tmgr->tokens->size() - 2)->data == "sub"))) {
 		ret = new Token(string(token), ctx->finfo);
 		ctx->clearBuffer();
 		isPrototypeStarted = true;
@@ -230,8 +220,8 @@ Token *Scanner::scanCurSymbol(LexContext *ctx, char symbol)
 	char *token = ctx->buffer();
 	char tmp[2] = {0};
 	tmp[0] = symbol;
-	Token *prev_tk = (ctx->tokens->size() > 0) ? ctx->tokens->back() : NULL;
-	string prev_before = (ctx->tokens->size() > 2) ? ctx->tokens->at(ctx->tokens->size() - 2)->data : "";
+	Token *prev_tk = (ctx->tmgr->tokens->size() > 0) ? ctx->tmgr->tokens->back() : NULL;
+	string prev_before = (ctx->tmgr->tokens->size() > 2) ? ctx->tmgr->tokens->at(ctx->tmgr->tokens->size() - 2)->data : "";
 	if (prev_before != "sub" && isRegexDelim(prev_tk, symbol)) {
 		ret = new Token(string(tmp), ctx->finfo);
 		ret->info = getTokenInfo(TokenType::RegDelim);
@@ -271,8 +261,8 @@ Token *Scanner::scanCurSymbol(LexContext *ctx, char symbol)
 		ctx->clearBuffer();
 	} else if (symbol == '(' &&
 			(prev_tk->data == "sub" ||
-			(ctx->tokens->size() > 1 &&
-			 ctx->tokens->at(ctx->tokens->size() - 2)->data == "sub"))) {
+			(ctx->tmgr->tokens->size() > 1 &&
+			 ctx->tmgr->tokens->at(ctx->tmgr->tokens->size() - 2)->data == "sub"))) {
 		ret = new Token(string(tmp), ctx->finfo);
 		ctx->clearBuffer();
 		isPrototypeStarted = true;
@@ -384,7 +374,7 @@ Token *Scanner::scanDoubleCharacterOperator(LexContext *ctx, char symbol, char n
 		ret->info = getTokenInfo(TokenType::Handle);
 		ctx->progress = 1;
 	} else if (symbol == '/' && next_ch == '=') {
-		Token *prev_tk = (ctx->tokens->size() > 0) ? ctx->tokens->back() : NULL;
+		Token *prev_tk = (ctx->tmgr->tokens->size() > 0) ? ctx->tmgr->tokens->back() : NULL;
 		const char *prev_data = cstr(prev_tk->data);
 		/* '/=' is RegDelim + RegExp or DivEqual */
 		if (strtod(prev_data, NULL) != 0 || string(prev_data) == "0" || isupper(prev_data[0]) ||
@@ -402,7 +392,7 @@ Token *Scanner::scanDoubleCharacterOperator(LexContext *ctx, char symbol, char n
 Token *Scanner::scanSymbol(LexContext *ctx, char symbol, char next_ch, char after_next_ch)
 {
 	Token *ret = NULL;
-	if (ctx->existsBuffer()) ctx->tokens->push_back(scanPrevSymbol(ctx, symbol));
+	if (ctx->existsBuffer()) ctx->tmgr->tokens->push_back(scanPrevSymbol(ctx, symbol));
 	if (!isRegexStarted) {
 		ret = scanTripleCharacterOperator(ctx, symbol, next_ch, after_next_ch);
 		if (!ret) ret = scanDoubleCharacterOperator(ctx, symbol, next_ch);
@@ -540,12 +530,12 @@ bool Scanner::isSkip(LexContext *ctx)
 					tk = new Token(string(ctx->buffer()), ctx->finfo);
 					tk->info = getTokenInfo(RegReplaceFrom);
 					ctx->clearBuffer();
-					ctx->tokens->push_back(tk);
+					ctx->tmgr->tokens->push_back(tk);
 				}
 				char tmp[2] = {regex_middle_delim, 0};
 				tk = new Token(string(tmp), ctx->finfo);
 				tk->info = getTokenInfo(RegMiddleDelim);
-				ctx->tokens->push_back(tk);
+				ctx->tmgr->tokens->push_back(tk);
 				switch (regex_middle_delim) {
 				case '}':
 					regex_middle_delim = '{';
@@ -573,10 +563,10 @@ bool Scanner::isSkip(LexContext *ctx)
 				ret = true;
 			} else {
 				Token *tk = new Token(string(ctx->buffer()), ctx->finfo);
-				Token *prev_tk = ctx->tokens->back();
+				Token *prev_tk = ctx->tmgr->tokens->back();
 				tk->info = (prev_tk->info.type == RegMiddleDelim) ? getTokenInfo(RegReplaceTo) : getTokenInfo(RegExp);
 				ctx->clearBuffer();
-				ctx->tokens->push_back(tk);
+				ctx->tmgr->tokens->push_back(tk);
 				ret = false;
 				isRegexStarted = false;
 				regex_delim = 0;
@@ -590,7 +580,7 @@ bool Scanner::isSkip(LexContext *ctx)
 			Token *tk = new Token(string(ctx->buffer()), ctx->finfo);
 			tk->info = getTokenInfo(Prototype);
 			ctx->clearBuffer();
-			ctx->tokens->push_back(tk);
+			ctx->tmgr->tokens->push_back(tk);
 			isPrototypeStarted = false;
 			ret = false;
 		} else {
@@ -617,10 +607,10 @@ bool Scanner::isSkip(LexContext *ctx)
 				Token *tk = new Token(string(ctx->buffer()), ctx->finfo);
 				tk->info = getTokenInfo(TokenType::HereDocument);
 				ctx->clearBuffer();
-				ctx->tokens->push_back(tk);
+				ctx->tmgr->tokens->push_back(tk);
 				tk = new Token(here_document_tag, ctx->finfo);
 				tk->info = getTokenInfo(TokenType::HereDocumentEnd);
-				ctx->tokens->push_back(tk);
+				ctx->tmgr->tokens->push_back(tk);
 				ctx->finfo.start_line_num++;
 				here_document_tag = "";
 				hereDocumentFlag = false;

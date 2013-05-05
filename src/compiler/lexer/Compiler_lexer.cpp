@@ -70,9 +70,10 @@ Tokens *Lexer::tokenize(char *script)
 {
 	using namespace Enum::Lexer::Char;
 	LexContext ctx(filename, script);
-	Tokens *tokens = new Tokens();
-	ctx.tokens = tokens;
+	//Tokens *tokens = new Tokens();
+	//ctx.tokens = tokens;
 	Token *tk = NULL;
+	TokenManager *tmgr = ctx.tmgr;
 	ScriptManager *smgr = ctx.smgr;
 	for (; !smgr->end(); smgr->next()) {
 		char ch = smgr->currentChar();
@@ -86,45 +87,45 @@ Tokens *Lexer::tokenize(char *script)
 		}
 		switch (ch) {
 		case '"': case '\'': case '`':
-			tokens->add(scanner->scanQuote(&ctx, ch));
+			tmgr->tokens->add(scanner->scanQuote(&ctx, ch));
 			break;
 		case ' ': case '\t':
 			if (ctx.existsBuffer()) {
 				char *token = ctx.buffer();
 				tk = new Token(string(token), ctx.finfo);
-				if (scanner->isHereDocument(&ctx, tokens->lastToken())) {
+				if (scanner->isHereDocument(&ctx, tmgr->tokens->lastToken())) {
 					/* Key is HereDocument */
 					scanner->here_document_tag = token;
 					tk->info = scanner->getTokenInfo(TokenType::HereDocumentRawTag);
 				}
 				ctx.clearBuffer();
-				tokens->add(tk);
+				tmgr->tokens->add(tk);
 			}
 			break;
 		case '\\':
 			if (smgr->nextChar() == '$' || smgr->nextChar() == '@' ||
 				smgr->nextChar() == '%' || smgr->nextChar() == '&') {
-				tokens->add(new Token(string("\\"), ctx.finfo));
+				tmgr->tokens->add(new Token(string("\\"), ctx.finfo));
 			}
 			break;
 		case '#': {
 #ifdef ENABLE_ANNOTATION
 			if (smgr->nextChar() == '@') {
-				tokens->add(new Token(string("#@"), ctx.finfo));
+				tmgr->tokens->add(new Token(string("#@"), ctx.finfo));
 				break;
 			}
 #endif
 			if (ctx.existsBuffer()) {
-				tokens->add(scanner->scanPrevSymbol(&ctx, '#'));
+				tmgr->tokens->add(scanner->scanPrevSymbol(&ctx, '#'));
 			}
-			Token *prev_tk = tokens->lastToken();
+			Token *prev_tk = tmgr->tokens->lastToken();
 			if (scanner->isRegexStarted ||
 				(prev_tk && prev_tk->info.type == TokenType::RegExp) ||
 				(prev_tk && prev_tk->info.type == TokenType::RegReplaceTo)) {
 				char tmp[2] = {'#'};
 				Token *tk = new Token(string(tmp), ctx.finfo);
 				tk->info = scanner->getTokenInfo(TokenType::RegDelim);
-				tokens->add(tk);
+				tmgr->tokens->add(tk);
 				ctx.clearBuffer();
 				break;
 			}
@@ -144,7 +145,7 @@ Tokens *Lexer::tokenize(char *script)
 			if (!ctx.existsBuffer() &&
 				'0' <= smgr->nextChar() && smgr->nextChar() <= '9') {
 				// .01234
-				tokens->add(scanner->scanNumber(&ctx));
+				tmgr->tokens->add(scanner->scanNumber(&ctx));
 				ctx.clearBuffer();
 				continue;
 			}
@@ -155,7 +156,7 @@ Tokens *Lexer::tokenize(char *script)
 		case '!': case '*': case '/': case '%':
 		case '(': case ')': case '{': case '}':
 		case '[': case ']': case '?': case '$': {
-			tokens->add(scanner->scanSymbol(&ctx, smgr->currentChar(),
+			tmgr->tokens->add(scanner->scanSymbol(&ctx, smgr->currentChar(),
 						smgr->nextChar(), smgr->afterNextChar()));
 			smgr->forward(ctx.progress);
 			ctx.progress = 0;
@@ -164,13 +165,13 @@ Tokens *Lexer::tokenize(char *script)
 		case '\n':
 			if (ctx.existsBuffer()) {
 				char *token = ctx.buffer();
-				if (scanner->isHereDocument(&ctx, tokens->lastToken())) {
+				if (scanner->isHereDocument(&ctx, tmgr->tokens->lastToken())) {
 					/* Key is HereDocument */
 					char *token = ctx.buffer();
 					tk->info = scanner->getTokenInfo(TokenType::HereDocumentRawTag);
 					scanner->here_document_tag = token;
 				}
-				tokens->add(new Token(token, ctx.finfo));
+				tmgr->tokens->add(new Token(token, ctx.finfo));
 				ctx.clearBuffer();
 			}
 			if (scanner->here_document_tag != "") scanner->hereDocumentFlag = true;
@@ -182,7 +183,7 @@ Tokens *Lexer::tokenize(char *script)
 				char *token = ctx.buffer();
 				tk = scanner->scanNumber(&ctx);
 				if (token[0] == '-') tk->data = "-" + tk->data;
-				tokens->add(tk);
+				tmgr->tokens->add(tk);
 				ctx.clearBuffer();
 				continue;
 			}
@@ -193,10 +194,10 @@ Tokens *Lexer::tokenize(char *script)
 	}
 	if (ctx.existsBuffer()) {
 		Token *tk = new Token(string(ctx.buffer()), ctx.finfo);
-		tokens->add(tk);
+		tmgr->tokens->add(tk);
 		ctx.clearBuffer();
 	}
-	return tokens;
+	return tmgr->tokens;
 }
 
 void Lexer::dump(Tokens *tokens)
