@@ -32869,21 +32869,12 @@ subtest 'tokenize' => sub {
                    'line' => 676
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => 1,
+                   'kind' => 21,
                    'has_warnings' => 0,
                    'stype' => 0,
-                   'name' => 'Mod',
-                   'data' => '%',
-                   'type' => 5,
-                   'line' => 676
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => 1,
-                   'has_warnings' => 0,
-                   'stype' => 0,
-                   'name' => 'Add',
-                   'data' => '+',
-                   'type' => 1,
+                   'name' => 'GlobalHashVar',
+                   'data' => '%+',
+                   'type' => 181,
                    'line' => 676
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -32995,21 +32986,12 @@ subtest 'tokenize' => sub {
                    'line' => 679
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => 1,
+                   'kind' => 21,
                    'has_warnings' => 0,
                    'stype' => 0,
-                   'name' => 'Mod',
-                   'data' => '%',
-                   'type' => 5,
-                   'line' => 679
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => 1,
-                   'has_warnings' => 0,
-                   'stype' => 0,
-                   'name' => 'Add',
-                   'data' => '+',
-                   'type' => 1,
+                   'name' => 'HashVar',
+                   'data' => '%+',
+                   'type' => 160,
                    'line' => 679
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -33076,21 +33058,12 @@ subtest 'tokenize' => sub {
                    'line' => 680
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => 1,
+                   'kind' => 21,
                    'has_warnings' => 0,
                    'stype' => 0,
-                   'name' => 'Mod',
-                   'data' => '%',
-                   'type' => 5,
-                   'line' => 680
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => 1,
-                   'has_warnings' => 0,
-                   'stype' => 0,
-                   'name' => 'Add',
-                   'data' => '+',
-                   'type' => 1,
+                   'name' => 'HashVar',
+                   'data' => '%+',
+                   'type' => 160,
                    'line' => 680
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -34789,21 +34762,12 @@ subtest 'tokenize' => sub {
                    'line' => 717
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => 1,
+                   'kind' => 21,
                    'has_warnings' => 0,
                    'stype' => 0,
-                   'name' => 'Mod',
-                   'data' => '%',
-                   'type' => 5,
-                   'line' => 717
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => 1,
-                   'has_warnings' => 0,
-                   'stype' => 0,
-                   'name' => 'Add',
-                   'data' => '+',
-                   'type' => 1,
+                   'name' => 'HashVar',
+                   'data' => '%+',
+                   'type' => 160,
                    'line' => 717
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -34915,21 +34879,12 @@ subtest 'tokenize' => sub {
                    'line' => 720
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => 1,
+                   'kind' => 21,
                    'has_warnings' => 0,
                    'stype' => 0,
-                   'name' => 'Mod',
-                   'data' => '%',
-                   'type' => 5,
-                   'line' => 720
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => 1,
-                   'has_warnings' => 0,
-                   'stype' => 0,
-                   'name' => 'Add',
-                   'data' => '+',
-                   'type' => 1,
+                   'name' => 'HashVar',
+                   'data' => '%+',
+                   'type' => 160,
                    'line' => 720
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -34996,21 +34951,12 @@ subtest 'tokenize' => sub {
                    'line' => 721
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => 1,
+                   'kind' => 21,
                    'has_warnings' => 0,
                    'stype' => 0,
-                   'name' => 'Mod',
-                   'data' => '%',
-                   'type' => 5,
-                   'line' => 721
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => 1,
-                   'has_warnings' => 0,
-                   'stype' => 0,
-                   'name' => 'Add',
-                   'data' => '+',
-                   'type' => 1,
+                   'name' => 'HashVar',
+                   'data' => '%+',
+                   'type' => 160,
                    'line' => 721
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -51320,7 +51266,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 5478,
+            'token_num' => 5472,
             'has_warnings' => 1,
             'end_line' => 1138,
             'src' => ' sub run_tests { like ( "A \\x{263a} B z C" , qr/A . B (??{ "z" }) C/ , "Match UTF-8 char in presence of (??{ }); Bug 20000731.001" ) ; { no warnings \'uninitialized\' ; ok ( undef =~/^([^\\/]*)(.*)$/ , "Used to cause a SEGV; Bug 20001021.005" ) ; } { my $message = \'bug id 20001008.001\' ; my @x = ( "stra\\337e 138" , "stra\\337e 138" ) ; for ( @x ) { ok ( s/(\\d+)\\s*([\\w\\-]+)/$1 . uc $2/e , $message ) ; ok ( my ( $latin ) =/^(.+)(?:\\s+\\d)/ , $message ) ; is ( $latin , "stra\\337e" , $message ) ; ok ( $latin =~ s/stra\\337e/straße/ , $message ) ; } } { my $message = \'HEBREW ACCENT QADMA matched by .*; Bug 20001028.003\' ; my $X = chr ( 1448 ) ; ok ( my ( $Y ) = $X =~/(.*)/ , $message ) ; is ( $Y , v1448 , $message ) ; is ( length $Y , 1 , $message ) ; $message = \'HEBREW ACCENT QADMA in replacement; Bug 20001028.003\' ; $X = \'\' ; $X =~ s/^/chr(1488)/e ; is ( length $X , 1 , $message ) ; is ( ord $X , 1488 , $message ) ; } { my $message = \'Repeated s///; Bug 20001108.001\' ; my $X = "Szab\\x{f3},Bal\\x{e1}zs" ; my $Y = $X ; $Y =~ s/(B)/$1/ for 0 .. 3 ; is ( $Y , $X , $message ) ; is ( $X , "Szab\\x{f3},Bal\\x{e1}zs" , $message ) ; } { my $message = \'s/// on UTF-8 string; Bug 20000517.001\' ; my $x = "\\x{100}A" ; $x =~ s/A/B/ ; is ( $x , "\\x{100}B" , $message ) ; is ( length $x , 2 , $message ) ; } { my $message = \'\\C and É; Bug 20001230.002\' ; ok ( "École" =~/^\\C\\C(.)/ && $1 eq \'c\' , $message ) ; like ( "École" , qr/^\\C\\C(c)/ , $message ) ; } { my $message = "Don\'t dump core; Bug 20010306.008" ; my $a = "a\\x{1234}" ; like ( $a , qr/\\w/ , $message ) ; } { my $message = \'/g in scalar context; Bug 20010410.006\' ; for my $rx ( \'/(.*?)\\{(.*?)\\}/csg\' , \'/(.*?)\\{(.*?)\\}/cg\' , \'/(.*?)\\{(.*?)\\}/sg\' , \'/(.*?)\\{(.*?)\\}/g\' , \'/(.+?)\\{(.+?)\\}/csg\' , ) { my $i = 0 ; my $input = "a{b}c{d}" ; eval qq{                while (eval \\$input =~ $rx) {
@@ -51333,10 +51279,10 @@ subtest 'get_groups_by_syntax_level' => sub {
     }
 
     {
-        $_    = "abcdef\\n";my @x = m/./g ; is ( "abcde" , $` , \'Global match sets $`; Bug 19049\' ) ; } { my $Mess = \'regrepeat() handles UTF-8 EXACT case right\' ; my $message = "$Mess; Bug 23769" ; my $s = "\\x{a0}\\x{a0}\\x{a0}\\x{100}" ; chop $s ; like ( $s , qr/\\x{a0}/ , $message ) ; like ( $s , qr/\\x{a0}+/ , $message ) ; like ( $s , qr/\\x{a0}\\x{a0}/ , $message ) ; $message = "$Mess (easy variant); Bug 23769" ; ok ( "aaa\\x{100}" =~/(a+)/ , $message ) ; is ( $1 , "aaa" , $message ) ; $message = "$Mess (easy invariant); Bug 23769" ; ok ( "aaa\\x{100}     " =~/(a+?)/ , $message ) ; is ( $1 , "a" , $message ) ; $message = "$Mess (regrepeat variant); Bug 23769" ; ok ( "\\xa0\\xa0\\xa0\\x{100}    " =~/(\\xa0+?)/ , $message ) ; is ( $1 , "\\xa0" , $message ) ; $message = "$Mess (regrepeat invariant); Bug 23769" ; ok ( "\\xa0\\xa0\\xa0\\x{100}" =~/(\\xa0+)/ , $message ) ; is ( $1 , "\\xa0\\xa0\\xa0" , $message ) ; $message = "$Mess (hard variant); Bug 23769" ; ok ( "\\xa0\\xa1\\xa0\\xa1\\xa0\\xa1\\x{100}" =~/((?:\\xa0\\xa1)+?)/ , $message ) ; is ( $1 , "\\xa0\\xa1" , $message ) ; $message = "$Mess (hard invariant); Bug 23769" ; ok ( "ababab\\x{100}  " =~/((?:ab)+)/ , $message ) ; is ( $1 , \'ababab\' , $message ) ; ok ( "\\xa0\\xa1\\xa0\\xa1\\xa0\\xa1\\x{100}" =~/((?:\\xa0\\xa1)+)/ , $message ) ; is ( $1 , "\\xa0\\xa1\\xa0\\xa1\\xa0\\xa1" , $message ) ; ok ( "ababab\\x{100}  " =~/((?:ab)+?)/ , $message ) ; is ( $1 , "ab" , $message ) ; $message = "Don\'t match first byte of UTF-8 representation; Bug 23769" ; unlike ( "\\xc4\\xc4\\xc4" , qr/(\\x{100}+)/ , $message ) ; unlike ( "\\xc4\\xc4\\xc4" , qr/(\\x{100}+?)/ , $message ) ; unlike ( "\\xc4\\xc4\\xc4" , qr/(\\x{100}++)/ , $message ) ; } { is ( eval { my ( $x , $y ) = "bca" =~/^(?=.*(a)).*(bc)/ ; "$x-$y" } , "a-bc" , \'Captures can move backwards in string; Bug 25269\' ) ; } { like ( "a\\cAb" , qr/\\cA/ , \'\\cA in pattern; Bug 27940\' ) ; like ( "a\\cAb" , qr/[\\cA]/ , \'\\cA in character class; Bug 27940\' ) ; like ( "a\\cAb" , qr/[\\cA-\\cB]/ , \'\\cA in character class range; Bug 27940\' ) ; like ( "abc" , qr/[^\\cA-\\cB]/ , \'\\cA in negated character class range; Bug 27940\' ) ; like ( "a\\cBb" , qr/[\\cA-\\cC]/ , \'\\cB in character class range; Bug 27940\' ) ; like ( "a\\cCbc" , qr/[^\\cA-\\cB]/ , \'\\cC in negated character class range; Bug 27940\' ) ; like ( "a\\cAb" , qr/(??{"\\cA"})/ , \'\\cA in ??{} pattern; Bug 27940\' ) ; unlike ( "ab" , qr/a\\cIb/x , \'\\cI in pattern; Bug 27940\' ) ; } { ok ( "abc" =~/^abc(\\z)?/ && defined ( $1 ) , \'Optional zero-width match at end of string; Bug 28532\' ) ; ok ( "abc" =~/^abc(\\z)??/ && ! defined ( $1 ) , \'Optional zero-width match at end of string; Bug 28532\' ) ; } { my $utf8 = "\\xe9\\x{100}" ; chop $utf8 ; my $latin1 = "\\xe9" ; like ( $utf8 , qr/\\xe9/i , "utf8/latin; Bug 36207" ) ; like ( $utf8 , qr/$latin1/i , "utf8/latin runtime; Bug 36207" ) ; like ( $utf8 , qr/(abc|\\xe9)/i , "utf8/latin trie; Bug 36207" ) ; like ( $utf8 , qr/(abc|$latin1)/i , "utf8/latin trie runtime; Bug 36207" ) ; like ( "\\xe9" , qr/$utf8/i , "latin/utf8; Bug 36207" ) ; like ( "\\xe9" , qr/(abc|$utf8)/i , "latin/utf8 trie; Bug 36207" ) ; like ( $latin1 , qr/$utf8/i , "latin/utf8 runtime; Bug 36207" ) ; like ( $latin1 , qr/(abc|$utf8)/i , "latin/utf8 trie runtime; Bug 36207" ) ; } { my $s = "abcd" ; $s =~/(..)(..)/g ; $s = $1 ; $s = $2 ; is ( $2 , \'cd\' , "Assigning to original string does not corrupt match vars; Bug 37038" ) ; } { { package wooosh ; sub gloople { "!" } } my $aeek = bless { } => \'wooosh\' ; is ( do { $aeek-> gloople ( ) =~/(.)/g } , 1 , "//g match against return value of sub [change e26a497577f3ce7b]" ) ; sub gloople { "!" } is ( do { gloople ( ) =~/(.)/g } , 1 , "change e26a497577f3ce7b didn\'t affect sub calls for some reason" ) ; } { { package lv ; our $var = "abc" ; sub variable : lvalue { $var } } my $o = bless [ ] => \'lv\' ; my $f = "" ; my $r = eval { for ( 1 .. 2 ) { $f .= $1 if $o-> variable =~/(.)/g ; } 1 ; } ; if ( $r ) { is ( $f , "ab" , "pos() retained between calls" ) ; } else { ok 0 , "Code failed: $@" ; } our $var = "abc" ; sub variable : lvalue { $var } my $g = "" ; my $s = eval { for ( 1 .. 2 ) { $g .= $1 if variable =~/(.)/g ; } 1 ; } ; if ( $s ) { is ( $g , "ab" , "pos() retained between calls" ) ; } else { ok 0 , "Code failed: $@" ; } } SKIP : { skip "In EBCDIC" if $: : IS_EBCDIC ; no warnings \'utf8\' ; $_ = pack \'U0C2\' , 0xa2 , 0xf8 ; my $ret = 0 ; is ( do { ! ( $ret = s/[\\0]+//g ) } , 1 , "Ill-formed UTF-8 doesn\'t match NUL in class; Bug 37836" ) ; } { no warnings \'utf8\' ; my ( $c , $r , $s ) ; $c = chr 0xffff ; $c =~ s/$c//g ; is ( $c , "" , "U+FFFF, parsed as atom; Bug 38293" ) ; $c = chr 0xffff ; $r = "\\\\$c" ; $c =~ s/$r//g ; is ( $c , "" , "U+FFFF backslashed, parsed as atom; Bug 38293" ) ; $c = chr 0xffff ; $c =~ s/[$c]//g ; is ( $c , "" , "U+FFFF, parsed in class; Bug 38293" ) ; $c = chr 0xffff ; $r = "[\\\\$c]" ; $c =~ s/$r//g ; is ( $c , "" , "U+FFFF backslashed, parsed in class; Bug 38293" ) ; $s = "A\\x{ffff}B" ; $s =~ s/\\x{ffff}//i ; is ( $s , "AB" , "U+FFFF, EXACTF; Bug 38293" ) ; $s = "\\x{ffff}A" ; $s =~ s/\\bA// ; is ( $s , "\\x{ffff}" , "U+FFFF, BOUND; Bug 38293" ) ; $s = "\\x{ffff}!" ; $s =~ s/\\B!// ; is ( $s , "\\x{ffff}" , "U+FFFF, NBOUND; Bug 38293" ) ; } { my @chars = ( "A" .. "Z" ) ; my $delim = "," ; my $size = 32771 - 4 ; my $str = \'\' ; for ( my $i = 0 ; $i < $size ; $ i ++ ) { $str .= $chars [ rand @chars ] ; } $str .= ( $delim x 4 ) ; my $res ; my $matched ; ok ( $str =~ s/^(.*?)${delim}{4}//s , "Pattern matches; Bug 39583" ) ; is ( $str , "" , "Empty string; Bug 39583" ) ; ok ( defined $1 && length ( $1 ) == $size , \'$1 is correct size; Bug 39583\' ) ; } { like ( "\\0-A" , qr/\\c@-A/ , \'@- should not be interpolated in a pattern; Bug 27940\' ) ; like ( "\\0\\0A" , qr/\\c@+A/ , \'@+ should not be interpolated in a pattern; Bug 27940\' ) ; like ( "X\\@-A" , qr/X@-A/ , \'@- should not be interpolated in a pattern; Bug 27940\' ) ; like ( "X\\@\\@A" , qr/X@+A/ , \'@+ should not be interpolated in a pattern; Bug 27940\' ) ; like ( "X\\0A" , qr/X\\c@?A/ , \'\\c@?; Bug 27940\' ) ; like ( "X\\0A" , qr/X\\c@*A/ , \'\\c@*; Bug 27940\' ) ; like ( "X\\0A" , qr/X\\c@(A)/ , \'\\c@(; Bug 27940\' ) ; like ( "X\\0A" , qr/X(\\c@)A/ , \'\\c@); Bug 27940\' ) ; like ( "X\\0A" , qr/X\\c@|ZA/ , \'\\c@|; Bug 27940\' ) ; like ( "X\\@A" , qr/X@?A/ , \'@?; Bug 27940\' ) ; like ( "X\\@A" , qr/X@*A/ , \'@*; Bug 27940\' ) ; like ( "X\\@A" , qr/X@(A)/ , \'@(; Bug 27940\' ) ; like ( "X\\@A" , qr/X(@)A/ , \'@); Bug 27940\' ) ; like ( "X\\@A" , qr/X@|ZA/ , \'@|; Bug 27940\' ) ; local $" = \',\' ; like ( \'abc\' , qr/(.)(.)(.)/ , \'The last successful match is bogus; Bug 27940\' ) ; like ( "A@+B" , qr/A@{+}B/ , \'Interpolation of @+ in /@{+}/; Bug 27940\' ) ; like ( "A@-B" , qr/A@{-}B/ , \'Interpolation of @- in /@{-}/; Bug 27940\' ) ; like ( "A@+B" , qr/A@{+}B/x , \'Interpolation of @+ in /@{+}/x; Bug 27940\' ) ; like ( "A@-B" , qr/A@{-}B/x , \'Interpolation of @- in /@{-}/x; Bug 27940\' ) ; } { my $s = \'foo bar baz\' ; my ( @k , @v , @fetch , $res ) ; my $count = 0 ; my @names = qw($+{A} $+{B} $+{C}) ; if ( $s =~/(?<A>foo)\\s+(?<B>bar)?\\s+(?<C>baz)/ ) { while ( my ( $k , $v ) = each ( % + ) ) { $count ++ ; } @k = sort keys ( % + ) ; @v = sort values ( % + ) ; $res = 1 ; push @fetch , [ "$+{A}" , "$1" ] , [ "$+{B}" , "$2" ] , [ "$+{C}" , "$3" ] , ; } foreach ( 0 .. 2 ) { if ( $fetch [ $_ ] ) { is ( $fetch [ $_ ] [ 0 ] , $fetch [ $_ ] [ 1 ] , "$names[$_]; Bug 50496" ) ; } else { ok 0 , $names [ $_ ] ; } } is ( $res , 1 , "\'$s\' =~ /(?<A>foo)\\\\s+(?<B>bar)?\\\\s+(?<C>baz)/; Bug 50496" ) ; is ( $count , 3 , "Got 3 keys in %+ via each; Bug 50496" ) ; is ( 0 + @k , 3 , "Got 3 keys in %+ via keys; Bug 50496" ) ; is ( "@k" , "A B C" , "Got expected keys; Bug 50496" ) ; is ( "@v" , "bar baz foo" , "Got expected values; Bug 50496" ) ; eval \'
+        $_    = "abcdef\\n";my @x = m/./g ; is ( "abcde" , $` , \'Global match sets $`; Bug 19049\' ) ; } { my $Mess = \'regrepeat() handles UTF-8 EXACT case right\' ; my $message = "$Mess; Bug 23769" ; my $s = "\\x{a0}\\x{a0}\\x{a0}\\x{100}" ; chop $s ; like ( $s , qr/\\x{a0}/ , $message ) ; like ( $s , qr/\\x{a0}+/ , $message ) ; like ( $s , qr/\\x{a0}\\x{a0}/ , $message ) ; $message = "$Mess (easy variant); Bug 23769" ; ok ( "aaa\\x{100}" =~/(a+)/ , $message ) ; is ( $1 , "aaa" , $message ) ; $message = "$Mess (easy invariant); Bug 23769" ; ok ( "aaa\\x{100}     " =~/(a+?)/ , $message ) ; is ( $1 , "a" , $message ) ; $message = "$Mess (regrepeat variant); Bug 23769" ; ok ( "\\xa0\\xa0\\xa0\\x{100}    " =~/(\\xa0+?)/ , $message ) ; is ( $1 , "\\xa0" , $message ) ; $message = "$Mess (regrepeat invariant); Bug 23769" ; ok ( "\\xa0\\xa0\\xa0\\x{100}" =~/(\\xa0+)/ , $message ) ; is ( $1 , "\\xa0\\xa0\\xa0" , $message ) ; $message = "$Mess (hard variant); Bug 23769" ; ok ( "\\xa0\\xa1\\xa0\\xa1\\xa0\\xa1\\x{100}" =~/((?:\\xa0\\xa1)+?)/ , $message ) ; is ( $1 , "\\xa0\\xa1" , $message ) ; $message = "$Mess (hard invariant); Bug 23769" ; ok ( "ababab\\x{100}  " =~/((?:ab)+)/ , $message ) ; is ( $1 , \'ababab\' , $message ) ; ok ( "\\xa0\\xa1\\xa0\\xa1\\xa0\\xa1\\x{100}" =~/((?:\\xa0\\xa1)+)/ , $message ) ; is ( $1 , "\\xa0\\xa1\\xa0\\xa1\\xa0\\xa1" , $message ) ; ok ( "ababab\\x{100}  " =~/((?:ab)+?)/ , $message ) ; is ( $1 , "ab" , $message ) ; $message = "Don\'t match first byte of UTF-8 representation; Bug 23769" ; unlike ( "\\xc4\\xc4\\xc4" , qr/(\\x{100}+)/ , $message ) ; unlike ( "\\xc4\\xc4\\xc4" , qr/(\\x{100}+?)/ , $message ) ; unlike ( "\\xc4\\xc4\\xc4" , qr/(\\x{100}++)/ , $message ) ; } { is ( eval { my ( $x , $y ) = "bca" =~/^(?=.*(a)).*(bc)/ ; "$x-$y" } , "a-bc" , \'Captures can move backwards in string; Bug 25269\' ) ; } { like ( "a\\cAb" , qr/\\cA/ , \'\\cA in pattern; Bug 27940\' ) ; like ( "a\\cAb" , qr/[\\cA]/ , \'\\cA in character class; Bug 27940\' ) ; like ( "a\\cAb" , qr/[\\cA-\\cB]/ , \'\\cA in character class range; Bug 27940\' ) ; like ( "abc" , qr/[^\\cA-\\cB]/ , \'\\cA in negated character class range; Bug 27940\' ) ; like ( "a\\cBb" , qr/[\\cA-\\cC]/ , \'\\cB in character class range; Bug 27940\' ) ; like ( "a\\cCbc" , qr/[^\\cA-\\cB]/ , \'\\cC in negated character class range; Bug 27940\' ) ; like ( "a\\cAb" , qr/(??{"\\cA"})/ , \'\\cA in ??{} pattern; Bug 27940\' ) ; unlike ( "ab" , qr/a\\cIb/x , \'\\cI in pattern; Bug 27940\' ) ; } { ok ( "abc" =~/^abc(\\z)?/ && defined ( $1 ) , \'Optional zero-width match at end of string; Bug 28532\' ) ; ok ( "abc" =~/^abc(\\z)??/ && ! defined ( $1 ) , \'Optional zero-width match at end of string; Bug 28532\' ) ; } { my $utf8 = "\\xe9\\x{100}" ; chop $utf8 ; my $latin1 = "\\xe9" ; like ( $utf8 , qr/\\xe9/i , "utf8/latin; Bug 36207" ) ; like ( $utf8 , qr/$latin1/i , "utf8/latin runtime; Bug 36207" ) ; like ( $utf8 , qr/(abc|\\xe9)/i , "utf8/latin trie; Bug 36207" ) ; like ( $utf8 , qr/(abc|$latin1)/i , "utf8/latin trie runtime; Bug 36207" ) ; like ( "\\xe9" , qr/$utf8/i , "latin/utf8; Bug 36207" ) ; like ( "\\xe9" , qr/(abc|$utf8)/i , "latin/utf8 trie; Bug 36207" ) ; like ( $latin1 , qr/$utf8/i , "latin/utf8 runtime; Bug 36207" ) ; like ( $latin1 , qr/(abc|$utf8)/i , "latin/utf8 trie runtime; Bug 36207" ) ; } { my $s = "abcd" ; $s =~/(..)(..)/g ; $s = $1 ; $s = $2 ; is ( $2 , \'cd\' , "Assigning to original string does not corrupt match vars; Bug 37038" ) ; } { { package wooosh ; sub gloople { "!" } } my $aeek = bless { } => \'wooosh\' ; is ( do { $aeek-> gloople ( ) =~/(.)/g } , 1 , "//g match against return value of sub [change e26a497577f3ce7b]" ) ; sub gloople { "!" } is ( do { gloople ( ) =~/(.)/g } , 1 , "change e26a497577f3ce7b didn\'t affect sub calls for some reason" ) ; } { { package lv ; our $var = "abc" ; sub variable : lvalue { $var } } my $o = bless [ ] => \'lv\' ; my $f = "" ; my $r = eval { for ( 1 .. 2 ) { $f .= $1 if $o-> variable =~/(.)/g ; } 1 ; } ; if ( $r ) { is ( $f , "ab" , "pos() retained between calls" ) ; } else { ok 0 , "Code failed: $@" ; } our $var = "abc" ; sub variable : lvalue { $var } my $g = "" ; my $s = eval { for ( 1 .. 2 ) { $g .= $1 if variable =~/(.)/g ; } 1 ; } ; if ( $s ) { is ( $g , "ab" , "pos() retained between calls" ) ; } else { ok 0 , "Code failed: $@" ; } } SKIP : { skip "In EBCDIC" if $: : IS_EBCDIC ; no warnings \'utf8\' ; $_ = pack \'U0C2\' , 0xa2 , 0xf8 ; my $ret = 0 ; is ( do { ! ( $ret = s/[\\0]+//g ) } , 1 , "Ill-formed UTF-8 doesn\'t match NUL in class; Bug 37836" ) ; } { no warnings \'utf8\' ; my ( $c , $r , $s ) ; $c = chr 0xffff ; $c =~ s/$c//g ; is ( $c , "" , "U+FFFF, parsed as atom; Bug 38293" ) ; $c = chr 0xffff ; $r = "\\\\$c" ; $c =~ s/$r//g ; is ( $c , "" , "U+FFFF backslashed, parsed as atom; Bug 38293" ) ; $c = chr 0xffff ; $c =~ s/[$c]//g ; is ( $c , "" , "U+FFFF, parsed in class; Bug 38293" ) ; $c = chr 0xffff ; $r = "[\\\\$c]" ; $c =~ s/$r//g ; is ( $c , "" , "U+FFFF backslashed, parsed in class; Bug 38293" ) ; $s = "A\\x{ffff}B" ; $s =~ s/\\x{ffff}//i ; is ( $s , "AB" , "U+FFFF, EXACTF; Bug 38293" ) ; $s = "\\x{ffff}A" ; $s =~ s/\\bA// ; is ( $s , "\\x{ffff}" , "U+FFFF, BOUND; Bug 38293" ) ; $s = "\\x{ffff}!" ; $s =~ s/\\B!// ; is ( $s , "\\x{ffff}" , "U+FFFF, NBOUND; Bug 38293" ) ; } { my @chars = ( "A" .. "Z" ) ; my $delim = "," ; my $size = 32771 - 4 ; my $str = \'\' ; for ( my $i = 0 ; $i < $size ; $ i ++ ) { $str .= $chars [ rand @chars ] ; } $str .= ( $delim x 4 ) ; my $res ; my $matched ; ok ( $str =~ s/^(.*?)${delim}{4}//s , "Pattern matches; Bug 39583" ) ; is ( $str , "" , "Empty string; Bug 39583" ) ; ok ( defined $1 && length ( $1 ) == $size , \'$1 is correct size; Bug 39583\' ) ; } { like ( "\\0-A" , qr/\\c@-A/ , \'@- should not be interpolated in a pattern; Bug 27940\' ) ; like ( "\\0\\0A" , qr/\\c@+A/ , \'@+ should not be interpolated in a pattern; Bug 27940\' ) ; like ( "X\\@-A" , qr/X@-A/ , \'@- should not be interpolated in a pattern; Bug 27940\' ) ; like ( "X\\@\\@A" , qr/X@+A/ , \'@+ should not be interpolated in a pattern; Bug 27940\' ) ; like ( "X\\0A" , qr/X\\c@?A/ , \'\\c@?; Bug 27940\' ) ; like ( "X\\0A" , qr/X\\c@*A/ , \'\\c@*; Bug 27940\' ) ; like ( "X\\0A" , qr/X\\c@(A)/ , \'\\c@(; Bug 27940\' ) ; like ( "X\\0A" , qr/X(\\c@)A/ , \'\\c@); Bug 27940\' ) ; like ( "X\\0A" , qr/X\\c@|ZA/ , \'\\c@|; Bug 27940\' ) ; like ( "X\\@A" , qr/X@?A/ , \'@?; Bug 27940\' ) ; like ( "X\\@A" , qr/X@*A/ , \'@*; Bug 27940\' ) ; like ( "X\\@A" , qr/X@(A)/ , \'@(; Bug 27940\' ) ; like ( "X\\@A" , qr/X(@)A/ , \'@); Bug 27940\' ) ; like ( "X\\@A" , qr/X@|ZA/ , \'@|; Bug 27940\' ) ; local $" = \',\' ; like ( \'abc\' , qr/(.)(.)(.)/ , \'The last successful match is bogus; Bug 27940\' ) ; like ( "A@+B" , qr/A@{+}B/ , \'Interpolation of @+ in /@{+}/; Bug 27940\' ) ; like ( "A@-B" , qr/A@{-}B/ , \'Interpolation of @- in /@{-}/; Bug 27940\' ) ; like ( "A@+B" , qr/A@{+}B/x , \'Interpolation of @+ in /@{+}/x; Bug 27940\' ) ; like ( "A@-B" , qr/A@{-}B/x , \'Interpolation of @- in /@{-}/x; Bug 27940\' ) ; } { my $s = \'foo bar baz\' ; my ( @k , @v , @fetch , $res ) ; my $count = 0 ; my @names = qw($+{A} $+{B} $+{C}) ; if ( $s =~/(?<A>foo)\\s+(?<B>bar)?\\s+(?<C>baz)/ ) { while ( my ( $k , $v ) = each ( %+ ) ) { $count ++ ; } @k = sort keys ( %+ ) ; @v = sort values ( %+ ) ; $res = 1 ; push @fetch , [ "$+{A}" , "$1" ] , [ "$+{B}" , "$2" ] , [ "$+{C}" , "$3" ] , ; } foreach ( 0 .. 2 ) { if ( $fetch [ $_ ] ) { is ( $fetch [ $_ ] [ 0 ] , $fetch [ $_ ] [ 1 ] , "$names[$_]; Bug 50496" ) ; } else { ok 0 , $names [ $_ ] ; } } is ( $res , 1 , "\'$s\' =~ /(?<A>foo)\\\\s+(?<B>bar)?\\\\s+(?<C>baz)/; Bug 50496" ) ; is ( $count , 3 , "Got 3 keys in %+ via each; Bug 50496" ) ; is ( 0 + @k , 3 , "Got 3 keys in %+ via keys; Bug 50496" ) ; is ( "@k" , "A B C" , "Got expected keys; Bug 50496" ) ; is ( "@v" , "bar baz foo" , "Got expected values; Bug 50496" ) ; eval \'
             no warnings "uninitialized";
             print for $+ {this_key_doesnt_exist};
-        \' ; is ( $@ , \'\' , \'lvalue $+ {...} should not throw an exception; Bug 50496\' ) ; } { my $s = \'foo bar baz\' ; my ( @k , @v , @fetch , $res ) ; my $count = 0 ; my @names = qw($+{A} $+{B} $+{C} $+{D}) ; if ( $s =~/(?<D>(?<A>foo)\\s+(?<B>bar)?\\s+(?<C>baz))/ ) { while ( my ( $k , $v ) = each ( % + ) ) { $count ++ ; } @k = sort keys ( % + ) ; @v = sort values ( % + ) ; $res = 1 ; push @fetch , [ "$+{A}" , "$2" ] , [ "$+{B}" , "$3" ] , [ "$+{C}" , "$4" ] , [ "$+{D}" , "$1" ] , ; } foreach ( 0 .. 3 ) { if ( $fetch [ $_ ] ) { is ( $fetch [ $_ ] [ 0 ] , $fetch [ $_ ] [ 1 ] , "$names[$_]; Bug 50496" ) ; } else { ok 0 , $names [ $_ ] ; } } is ( $res , 1 , "\'$s\' =~ /(?<D>(?<A>foo)\\\\s+(?<B>bar)?\\\\s+(?<C>baz))/; Bug 50496" ) ; is ( $count , 4 , "Got 4 keys in %+ via each; Bug 50496" ) ; is ( @k , 4 , "Got 4 keys in %+ via keys; Bug 50496" ) ; is ( "@k" , "A B C D" , "Got expected keys; Bug 50496" ) ; is ( "@v" , "bar baz foo foo bar baz" , "Got expected values; Bug 50496" ) ; eval \'
+        \' ; is ( $@ , \'\' , \'lvalue $+ {...} should not throw an exception; Bug 50496\' ) ; } { my $s = \'foo bar baz\' ; my ( @k , @v , @fetch , $res ) ; my $count = 0 ; my @names = qw($+{A} $+{B} $+{C} $+{D}) ; if ( $s =~/(?<D>(?<A>foo)\\s+(?<B>bar)?\\s+(?<C>baz))/ ) { while ( my ( $k , $v ) = each ( %+ ) ) { $count ++ ; } @k = sort keys ( %+ ) ; @v = sort values ( %+ ) ; $res = 1 ; push @fetch , [ "$+{A}" , "$2" ] , [ "$+{B}" , "$3" ] , [ "$+{C}" , "$4" ] , [ "$+{D}" , "$1" ] , ; } foreach ( 0 .. 3 ) { if ( $fetch [ $_ ] ) { is ( $fetch [ $_ ] [ 0 ] , $fetch [ $_ ] [ 1 ] , "$names[$_]; Bug 50496" ) ; } else { ok 0 , $names [ $_ ] ; } } is ( $res , 1 , "\'$s\' =~ /(?<D>(?<A>foo)\\\\s+(?<B>bar)?\\\\s+(?<C>baz))/; Bug 50496" ) ; is ( $count , 4 , "Got 4 keys in %+ via each; Bug 50496" ) ; is ( @k , 4 , "Got 4 keys in %+ via keys; Bug 50496" ) ; is ( "@k" , "A B C D" , "Got expected keys; Bug 50496" ) ; is ( "@v" , "bar baz foo foo bar baz" , "Got expected values; Bug 50496" ) ; eval \'
             no warnings "uninitialized";
             print for $+ {this_key_doesnt_exist};
         \' ; is ( $@ , \'\' , \'lvalue $+ {...} should not throw an exception; Bug 50496\' ) ; } { my $str = \'abc\' ; my $count = 0 ; my $mval = 0 ; my $pval = 0 ; while ( $str =~/b/g ) { $mval = $# - ; $pval = $# + ; $count ++ } is ( $mval , 0 , \'@- should be empty; Bug 36046\' ) ; is ( $pval , 0 , \'@+ should be empty; Bug 36046\' ) ; is ( $count , 1 , \'Should have matched once only; Bug 36046\' ) ; } { my $message = \'/m in precompiled regexp; Bug 40684\' ; my $s = "abc\\ndef" ; my $rex = \'qr^abc$\' m;
@@ -55056,10 +55002,10 @@ $t =~ s/([^a])//ge;
             'block_id' => 74
           },
           {
-            'token_num' => 213,
+            'token_num' => 210,
             'has_warnings' => 1,
             'end_line' => 705,
-            'src' => ' { my $s = \'foo bar baz\' ; my ( @k , @v , @fetch , $res ) ; my $count = 0 ; my @names = qw($+{A} $+{B} $+{C}) ; if ( $s =~/(?<A>foo)\\s+(?<B>bar)?\\s+(?<C>baz)/ ) { while ( my ( $k , $v ) = each ( % + ) ) { $count ++ ; } @k = sort keys ( % + ) ; @v = sort values ( % + ) ; $res = 1 ; push @fetch , [ "$+{A}" , "$1" ] , [ "$+{B}" , "$2" ] , [ "$+{C}" , "$3" ] , ; } foreach ( 0 .. 2 ) { if ( $fetch [ $_ ] ) { is ( $fetch [ $_ ] [ 0 ] , $fetch [ $_ ] [ 1 ] , "$names[$_]; Bug 50496" ) ; } else { ok 0 , $names [ $_ ] ; } } is ( $res , 1 , "\'$s\' =~ /(?<A>foo)\\\\s+(?<B>bar)?\\\\s+(?<C>baz)/; Bug 50496" ) ; is ( $count , 3 , "Got 3 keys in %+ via each; Bug 50496" ) ; is ( 0 + @k , 3 , "Got 3 keys in %+ via keys; Bug 50496" ) ; is ( "@k" , "A B C" , "Got expected keys; Bug 50496" ) ; is ( "@v" , "bar baz foo" , "Got expected values; Bug 50496" ) ; eval \'
+            'src' => ' { my $s = \'foo bar baz\' ; my ( @k , @v , @fetch , $res ) ; my $count = 0 ; my @names = qw($+{A} $+{B} $+{C}) ; if ( $s =~/(?<A>foo)\\s+(?<B>bar)?\\s+(?<C>baz)/ ) { while ( my ( $k , $v ) = each ( %+ ) ) { $count ++ ; } @k = sort keys ( %+ ) ; @v = sort values ( %+ ) ; $res = 1 ; push @fetch , [ "$+{A}" , "$1" ] , [ "$+{B}" , "$2" ] , [ "$+{C}" , "$3" ] , ; } foreach ( 0 .. 2 ) { if ( $fetch [ $_ ] ) { is ( $fetch [ $_ ] [ 0 ] , $fetch [ $_ ] [ 1 ] , "$names[$_]; Bug 50496" ) ; } else { ok 0 , $names [ $_ ] ; } } is ( $res , 1 , "\'$s\' =~ /(?<A>foo)\\\\s+(?<B>bar)?\\\\s+(?<C>baz)/; Bug 50496" ) ; is ( $count , 3 , "Got 3 keys in %+ via each; Bug 50496" ) ; is ( 0 + @k , 3 , "Got 3 keys in %+ via keys; Bug 50496" ) ; is ( "@k" , "A B C" , "Got expected keys; Bug 50496" ) ; is ( "@v" , "bar baz foo" , "Got expected values; Bug 50496" ) ; eval \'
             no warnings "uninitialized";
             print for $+ {this_key_doesnt_exist};
         \' ; is ( $@ , \'\' , \'lvalue $+ {...} should not throw an exception; Bug 50496\' ) ; }',
@@ -55104,19 +55050,19 @@ $t =~ s/([^a])//ge;
             'block_id' => 75
           },
           {
-            'token_num' => 74,
+            'token_num' => 71,
             'has_warnings' => 1,
             'end_line' => 687,
-            'src' => ' if ( $s =~/(?<A>foo)\\s+(?<B>bar)?\\s+(?<C>baz)/ ) { while ( my ( $k , $v ) = each ( % + ) ) { $count ++ ; } @k = sort keys ( % + ) ; @v = sort values ( % + ) ; $res = 1 ; push @fetch , [ "$+{A}" , "$1" ] , [ "$+{B}" , "$2" ] , [ "$+{C}" , "$3" ] , ; }',
+            'src' => ' if ( $s =~/(?<A>foo)\\s+(?<B>bar)?\\s+(?<C>baz)/ ) { while ( my ( $k , $v ) = each ( %+ ) ) { $count ++ ; } @k = sort keys ( %+ ) ; @v = sort values ( %+ ) ; $res = 1 ; push @fetch , [ "$+{A}" , "$1" ] , [ "$+{B}" , "$2" ] , [ "$+{C}" , "$3" ] , ; }',
             'start_line' => 675,
             'indent' => 2,
             'block_id' => 75
           },
           {
-            'token_num' => 20,
+            'token_num' => 19,
             'has_warnings' => 1,
             'end_line' => 678,
-            'src' => ' while ( my ( $k , $v ) = each ( % + ) ) { $count ++ ; }',
+            'src' => ' while ( my ( $k , $v ) = each ( %+ ) ) { $count ++ ; }',
             'start_line' => 676,
             'indent' => 3,
             'block_id' => 76
@@ -55131,19 +55077,19 @@ $t =~ s/([^a])//ge;
             'block_id' => 77
           },
           {
-            'token_num' => 9,
+            'token_num' => 8,
             'has_warnings' => 0,
             'end_line' => 679,
-            'src' => ' @k = sort keys ( % + ) ;',
+            'src' => ' @k = sort keys ( %+ ) ;',
             'start_line' => 679,
             'indent' => 3,
             'block_id' => 76
           },
           {
-            'token_num' => 9,
+            'token_num' => 8,
             'has_warnings' => 0,
             'end_line' => 680,
-            'src' => ' @v = sort values ( % + ) ;',
+            'src' => ' @v = sort values ( %+ ) ;',
             'start_line' => 680,
             'indent' => 3,
             'block_id' => 76
@@ -55278,10 +55224,10 @@ $t =~ s/([^a])//ge;
             'block_id' => 75
           },
           {
-            'token_num' => 217,
+            'token_num' => 214,
             'has_warnings' => 1,
             'end_line' => 747,
-            'src' => ' { my $s = \'foo bar baz\' ; my ( @k , @v , @fetch , $res ) ; my $count = 0 ; my @names = qw($+{A} $+{B} $+{C} $+{D}) ; if ( $s =~/(?<D>(?<A>foo)\\s+(?<B>bar)?\\s+(?<C>baz))/ ) { while ( my ( $k , $v ) = each ( % + ) ) { $count ++ ; } @k = sort keys ( % + ) ; @v = sort values ( % + ) ; $res = 1 ; push @fetch , [ "$+{A}" , "$2" ] , [ "$+{B}" , "$3" ] , [ "$+{C}" , "$4" ] , [ "$+{D}" , "$1" ] , ; } foreach ( 0 .. 3 ) { if ( $fetch [ $_ ] ) { is ( $fetch [ $_ ] [ 0 ] , $fetch [ $_ ] [ 1 ] , "$names[$_]; Bug 50496" ) ; } else { ok 0 , $names [ $_ ] ; } } is ( $res , 1 , "\'$s\' =~ /(?<D>(?<A>foo)\\\\s+(?<B>bar)?\\\\s+(?<C>baz))/; Bug 50496" ) ; is ( $count , 4 , "Got 4 keys in %+ via each; Bug 50496" ) ; is ( @k , 4 , "Got 4 keys in %+ via keys; Bug 50496" ) ; is ( "@k" , "A B C D" , "Got expected keys; Bug 50496" ) ; is ( "@v" , "bar baz foo foo bar baz" , "Got expected values; Bug 50496" ) ; eval \'
+            'src' => ' { my $s = \'foo bar baz\' ; my ( @k , @v , @fetch , $res ) ; my $count = 0 ; my @names = qw($+{A} $+{B} $+{C} $+{D}) ; if ( $s =~/(?<D>(?<A>foo)\\s+(?<B>bar)?\\s+(?<C>baz))/ ) { while ( my ( $k , $v ) = each ( %+ ) ) { $count ++ ; } @k = sort keys ( %+ ) ; @v = sort values ( %+ ) ; $res = 1 ; push @fetch , [ "$+{A}" , "$2" ] , [ "$+{B}" , "$3" ] , [ "$+{C}" , "$4" ] , [ "$+{D}" , "$1" ] , ; } foreach ( 0 .. 3 ) { if ( $fetch [ $_ ] ) { is ( $fetch [ $_ ] [ 0 ] , $fetch [ $_ ] [ 1 ] , "$names[$_]; Bug 50496" ) ; } else { ok 0 , $names [ $_ ] ; } } is ( $res , 1 , "\'$s\' =~ /(?<D>(?<A>foo)\\\\s+(?<B>bar)?\\\\s+(?<C>baz))/; Bug 50496" ) ; is ( $count , 4 , "Got 4 keys in %+ via each; Bug 50496" ) ; is ( @k , 4 , "Got 4 keys in %+ via keys; Bug 50496" ) ; is ( "@k" , "A B C D" , "Got expected keys; Bug 50496" ) ; is ( "@v" , "bar baz foo foo bar baz" , "Got expected values; Bug 50496" ) ; eval \'
             no warnings "uninitialized";
             print for $+ {this_key_doesnt_exist};
         \' ; is ( $@ , \'\' , \'lvalue $+ {...} should not throw an exception; Bug 50496\' ) ; }',
@@ -55326,19 +55272,19 @@ $t =~ s/([^a])//ge;
             'block_id' => 81
           },
           {
-            'token_num' => 80,
+            'token_num' => 77,
             'has_warnings' => 1,
             'end_line' => 729,
-            'src' => ' if ( $s =~/(?<D>(?<A>foo)\\s+(?<B>bar)?\\s+(?<C>baz))/ ) { while ( my ( $k , $v ) = each ( % + ) ) { $count ++ ; } @k = sort keys ( % + ) ; @v = sort values ( % + ) ; $res = 1 ; push @fetch , [ "$+{A}" , "$2" ] , [ "$+{B}" , "$3" ] , [ "$+{C}" , "$4" ] , [ "$+{D}" , "$1" ] , ; }',
+            'src' => ' if ( $s =~/(?<D>(?<A>foo)\\s+(?<B>bar)?\\s+(?<C>baz))/ ) { while ( my ( $k , $v ) = each ( %+ ) ) { $count ++ ; } @k = sort keys ( %+ ) ; @v = sort values ( %+ ) ; $res = 1 ; push @fetch , [ "$+{A}" , "$2" ] , [ "$+{B}" , "$3" ] , [ "$+{C}" , "$4" ] , [ "$+{D}" , "$1" ] , ; }',
             'start_line' => 716,
             'indent' => 2,
             'block_id' => 81
           },
           {
-            'token_num' => 20,
+            'token_num' => 19,
             'has_warnings' => 1,
             'end_line' => 719,
-            'src' => ' while ( my ( $k , $v ) = each ( % + ) ) { $count ++ ; }',
+            'src' => ' while ( my ( $k , $v ) = each ( %+ ) ) { $count ++ ; }',
             'start_line' => 717,
             'indent' => 3,
             'block_id' => 82
@@ -55353,19 +55299,19 @@ $t =~ s/([^a])//ge;
             'block_id' => 83
           },
           {
-            'token_num' => 9,
+            'token_num' => 8,
             'has_warnings' => 0,
             'end_line' => 720,
-            'src' => ' @k = sort keys ( % + ) ;',
+            'src' => ' @k = sort keys ( %+ ) ;',
             'start_line' => 720,
             'indent' => 3,
             'block_id' => 82
           },
           {
-            'token_num' => 9,
+            'token_num' => 8,
             'has_warnings' => 0,
             'end_line' => 721,
-            'src' => ' @v = sort values ( % + ) ;',
+            'src' => ' @v = sort values ( %+ ) ;',
             'start_line' => 721,
             'indent' => 3,
             'block_id' => 82

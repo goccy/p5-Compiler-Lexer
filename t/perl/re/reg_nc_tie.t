@@ -431,21 +431,12 @@ subtest 'tokenize' => sub {
                    'line' => 16
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => 1,
+                   'kind' => 21,
                    'has_warnings' => 0,
                    'stype' => 0,
-                   'name' => 'Mod',
-                   'data' => '%',
-                   'type' => 5,
-                   'line' => 16
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => 1,
-                   'has_warnings' => 0,
-                   'stype' => 0,
-                   'name' => 'Add',
-                   'data' => '+',
-                   'type' => 1,
+                   'name' => 'GlobalHashVar',
+                   'data' => '%+',
+                   'type' => 181,
                    'line' => 16
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1463,21 +1454,12 @@ subtest 'tokenize' => sub {
                    'line' => 42
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => 1,
+                   'kind' => 21,
                    'has_warnings' => 0,
                    'stype' => 0,
-                   'name' => 'Mod',
-                   'data' => '%',
-                   'type' => 5,
-                   'line' => 42
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => 1,
-                   'has_warnings' => 0,
-                   'stype' => 0,
-                   'name' => 'Add',
-                   'data' => '+',
-                   'type' => 1,
+                   'name' => 'HashVar',
+                   'data' => '%+',
+                   'type' => 160,
                    'line' => 42
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1913,21 +1895,12 @@ subtest 'tokenize' => sub {
                    'line' => 50
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => 1,
+                   'kind' => 21,
                    'has_warnings' => 0,
                    'stype' => 0,
-                   'name' => 'Mod',
-                   'data' => '%',
-                   'type' => 5,
-                   'line' => 50
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => 1,
-                   'has_warnings' => 0,
-                   'stype' => 0,
-                   'name' => 'Add',
-                   'data' => '+',
-                   'type' => 1,
+                   'name' => 'HashVar',
+                   'data' => '%+',
+                   'type' => 160,
                    'line' => 50
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2030,21 +2003,12 @@ subtest 'tokenize' => sub {
                    'line' => 53
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => 1,
+                   'kind' => 21,
                    'has_warnings' => 0,
                    'stype' => 0,
-                   'name' => 'Mod',
-                   'data' => '%',
-                   'type' => 5,
-                   'line' => 53
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => 1,
-                   'has_warnings' => 0,
-                   'stype' => 0,
-                   'name' => 'Add',
-                   'data' => '+',
-                   'type' => 1,
+                   'name' => 'HashVar',
+                   'data' => '%+',
+                   'type' => 160,
                    'line' => 53
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2147,21 +2111,12 @@ subtest 'tokenize' => sub {
                    'line' => 54
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => 1,
+                   'kind' => 21,
                    'has_warnings' => 0,
                    'stype' => 0,
-                   'name' => 'Mod',
-                   'data' => '%',
-                   'type' => 5,
-                   'line' => 54
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => 1,
-                   'has_warnings' => 0,
-                   'stype' => 0,
-                   'name' => 'Sub',
-                   'data' => '-',
-                   'type' => 2,
+                   'name' => 'GlobalHashVar',
+                   'data' => '%-',
+                   'type' => 181,
                    'line' => 54
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3893,21 +3848,12 @@ subtest 'tokenize' => sub {
                    'line' => 71
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => 1,
+                   'kind' => 21,
                    'has_warnings' => 0,
                    'stype' => 0,
-                   'name' => 'Mod',
-                   'data' => '%',
-                   'type' => 5,
-                   'line' => 71
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => 1,
-                   'has_warnings' => 0,
-                   'stype' => 0,
-                   'name' => 'Add',
-                   'data' => '+',
-                   'type' => 1,
+                   'name' => 'HashVar',
+                   'data' => '%+',
+                   'type' => 160,
                    'line' => 71
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4847,10 +4793,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 6,
-            'has_warnings' => 0,
+            'token_num' => 5,
+            'has_warnings' => 1,
             'end_line' => 16,
-            'src' => ' ( ) = % + ;',
+            'src' => ' ( ) = %+ ;',
             'start_line' => 16,
             'indent' => 0,
             'block_id' => 0
@@ -4952,10 +4898,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 9,
+            'token_num' => 8,
             'has_warnings' => 0,
             'end_line' => 42,
-            'src' => ' eval { % + = ( ) } ;',
+            'src' => ' eval { %+ = ( ) } ;',
             'start_line' => 42,
             'indent' => 0,
             'block_id' => 0
@@ -4988,28 +4934,28 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 17,
+            'token_num' => 16,
             'has_warnings' => 1,
             'end_line' => 50,
-            'src' => ' is ( join ( \'|\' , sort keys % + ) , "a|b|e" , "FIRSTKEY/NEXTKEY" ) ;',
+            'src' => ' is ( join ( \'|\' , sort keys %+ ) , "a|b|e" , "FIRSTKEY/NEXTKEY" ) ;',
             'start_line' => 50,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 13,
+            'token_num' => 12,
             'has_warnings' => 1,
             'end_line' => 53,
-            'src' => ' is ( scalar ( % + ) , 3 , "SCALAR" ) ;',
+            'src' => ' is ( scalar ( %+ ) , 3 , "SCALAR" ) ;',
             'start_line' => 53,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 13,
+            'token_num' => 12,
             'has_warnings' => 1,
             'end_line' => 54,
-            'src' => ' is ( scalar ( % - ) , 3 , "SCALAR" ) ;',
+            'src' => ' is ( scalar ( %- ) , 3 , "SCALAR" ) ;',
             'start_line' => 54,
             'indent' => 0,
             'block_id' => 0
@@ -5114,10 +5060,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 7,
+            'token_num' => 6,
             'has_warnings' => 0,
             'end_line' => 71,
-            'src' => ' my $obj = tied % + ;',
+            'src' => ' my $obj = tied %+ ;',
             'start_line' => 71,
             'indent' => 0,
             'block_id' => 0
