@@ -2746,17 +2746,8 @@ krunch.pm krunch.pmc whap.pm whap.pmc',
                    'has_warnings' => 0,
                    'stype' => 0,
                    'name' => 'Double',
-                   'data' => '5.005',
+                   'data' => '5.005_63',
                    'type' => 162,
-                   'line' => 65
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => 21,
-                   'has_warnings' => 1,
-                   'stype' => 0,
-                   'name' => 'Key',
-                   'data' => '_63',
-                   'type' => 114,
                    'line' => 65
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3223,17 +3214,8 @@ krunch.pm krunch.pmc whap.pm whap.pmc',
                    'has_warnings' => 0,
                    'stype' => 0,
                    'name' => 'Double',
-                   'data' => '10.000',
+                   'data' => '10.000_02',
                    'type' => 162,
-                   'line' => 76
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => 21,
-                   'has_warnings' => 1,
-                   'stype' => 0,
-                   'name' => 'Key',
-                   'data' => '_02',
-                   'type' => 114,
                    'line' => 76
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -14747,10 +14729,10 @@ krunch.pm krunch.pmc whap.pm whap.pmc) ;',
             'block_id' => 0
           },
           {
-            'token_num' => 6,
-            'has_warnings' => 1,
+            'token_num' => 5,
+            'has_warnings' => 0,
             'end_line' => 65,
-            'src' => ' my $ver = 5.005 _63 ;',
+            'src' => ' my $ver = 5.005_63 ;',
             'start_line' => 65,
             'indent' => 0,
             'block_id' => 0
@@ -14837,10 +14819,10 @@ krunch.pm krunch.pmc whap.pm whap.pmc) ;',
             'block_id' => 0
           },
           {
-            'token_num' => 5,
+            'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 76,
-            'src' => ' $ver = 10.000 _02 ;',
+            'src' => ' $ver = 10.000_02 ;',
             'start_line' => 76,
             'indent' => 0,
             'block_id' => 0

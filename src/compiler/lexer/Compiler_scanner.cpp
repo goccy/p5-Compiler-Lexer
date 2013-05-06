@@ -423,10 +423,10 @@ Token *Scanner::scanNumber(LexContext *ctx)
 		/* first char */
 		if ('0' <= c && c <= '9' && c != EOL) c = NEXT();
 		/* second char is includes 'b' or 'x' */
-		if ((('0' <= c && c <= '9') || c == 'b' || c == 'x') && c != EOL) c = NEXT();
+		if ((('0' <= c && c <= '9') || c == 'b' || c == 'x' || c == '_') && c != EOL) c = NEXT();
 		for (;(('0' <= c && c <= '9') ||
 			   ('a' <= c && c <= 'f') ||
-			   ('A' <= c && c <= 'F')) && c != EOL; c = NEXT()) {}
+			   ('A' <= c && c <= 'F') || c == '_') && c != EOL; c = NEXT()) {}
 	}
 	if (c != '.' && c != 'e' && c != 'E') {
 		goto L_emit;
@@ -437,7 +437,7 @@ Token *Scanner::scanNumber(LexContext *ctx)
 			goto L_emit; /* Number .. */
 		}
 		isFloat = true;
-		for (; '0' <= c && c <= '9' && c != EOL; c = NEXT()) {}
+		for (; (('0' <= c && c <= '9') || c == '_') && c != EOL; c = NEXT()) {}
 	}
 	if (c == 'e' || c == 'E') {
 		isFloat = true;
@@ -445,7 +445,7 @@ Token *Scanner::scanNumber(LexContext *ctx)
 		if (c == '+' || c == '-') {
 			c = NEXT();
 		}
-		for (; '0' <= c && c <= '9' && c != EOL; c = NEXT()) {}
+		for (; (('0' <= c && c <= '9') || c == '_') && c != EOL; c = NEXT()) {}
 	}
 	L_emit:;
 	i -= 1;

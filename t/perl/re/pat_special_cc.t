@@ -550,17 +550,8 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 0,
                    'stype' => 0,
                    'name' => 'Int',
-                   'data' => '10',
+                   'data' => '10_000',
                    'type' => 161,
-                   'line' => 32
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => 21,
-                   'has_warnings' => 1,
-                   'stype' => 0,
-                   'name' => 'Key',
-                   'data' => '_000',
-                   'type' => 114,
                    'line' => 32
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2256,19 +2247,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 183,
+            'token_num' => 182,
             'has_warnings' => 1,
             'end_line' => 55,
-            'src' => ' sub run_tests { my $upper_bound = 10 _000 ; for my $special ( qw(\\s \\w \\d) ) { my $upper = uc ( $special ) ; my @cc_plain_failed ; my @cc_complement_failed ; my @plain_complement_failed ; for my $ord ( 0 .. $upper_bound ) { my $ch = chr $ord ; my $ord = sprintf "U+%04X" , $ord ; my $plain = $ch =~/$special/ ? 1 : 0 ; my $plain_u = $ch =~/$upper/ ? 1 : 0 ; push @plain_complement_failed , "$ord-$plain-$plain_u" if $plain == $plain_u ; my $cc = $ch =~/[$special]/ ? 1 : 0 ; my $cc_u = $ch =~/[$upper]/ ? 1 : 0 ; push @cc_complement_failed , "$ord-$cc-$cc_u" if $cc == $cc_u ; push @cc_plain_failed , "$ord-$plain-$cc" if $plain != $cc ; } is ( join ( " | " , @cc_plain_failed ) , "" , "Check that /$special/ and /[$special]/ match same things (ord-plain-cc)" ) ; is ( join ( " | " , @plain_complement_failed ) , "" , "Check that /$special/ and /$upper/ are complements (ord-plain-plain_u)" ) ; is ( join ( " | " , @cc_complement_failed ) , "" , "Check that /[$special]/ and /[$upper]/ are complements (ord-cc-cc_u)" ) ; } }',
+            'src' => ' sub run_tests { my $upper_bound = 10_000 ; for my $special ( qw(\\s \\w \\d) ) { my $upper = uc ( $special ) ; my @cc_plain_failed ; my @cc_complement_failed ; my @plain_complement_failed ; for my $ord ( 0 .. $upper_bound ) { my $ch = chr $ord ; my $ord = sprintf "U+%04X" , $ord ; my $plain = $ch =~/$special/ ? 1 : 0 ; my $plain_u = $ch =~/$upper/ ? 1 : 0 ; push @plain_complement_failed , "$ord-$plain-$plain_u" if $plain == $plain_u ; my $cc = $ch =~/[$special]/ ? 1 : 0 ; my $cc_u = $ch =~/[$upper]/ ? 1 : 0 ; push @cc_complement_failed , "$ord-$cc-$cc_u" if $cc == $cc_u ; push @cc_plain_failed , "$ord-$plain-$cc" if $plain != $cc ; } is ( join ( " | " , @cc_plain_failed ) , "" , "Check that /$special/ and /[$special]/ match same things (ord-plain-cc)" ) ; is ( join ( " | " , @plain_complement_failed ) , "" , "Check that /$special/ and /$upper/ are complements (ord-plain-plain_u)" ) ; is ( join ( " | " , @cc_complement_failed ) , "" , "Check that /[$special]/ and /[$upper]/ are complements (ord-cc-cc_u)" ) ; } }',
             'start_line' => 31,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 6,
-            'has_warnings' => 1,
+            'token_num' => 5,
+            'has_warnings' => 0,
             'end_line' => 32,
-            'src' => ' my $upper_bound = 10 _000 ;',
+            'src' => ' my $upper_bound = 10_000 ;',
             'start_line' => 32,
             'indent' => 1,
             'block_id' => 2

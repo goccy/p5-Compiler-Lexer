@@ -3363,17 +3363,8 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 0,
                    'stype' => 0,
                    'name' => 'Int',
-                   'data' => '1',
+                   'data' => '1_000_000',
                    'type' => 161,
-                   'line' => 100
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => 21,
-                   'has_warnings' => 1,
-                   'stype' => 0,
-                   'name' => 'Key',
-                   'data' => '_000_000',
-                   'type' => 114,
                    'line' => 100
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4038,17 +4029,8 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 0,
                    'stype' => 0,
                    'name' => 'Int',
-                   'data' => '1',
+                   'data' => '1_000_000',
                    'type' => 161,
-                   'line' => 113
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => 21,
-                   'has_warnings' => 1,
-                   'stype' => 0,
-                   'name' => 'Key',
-                   'data' => '_000_000',
-                   'type' => 114,
                    'line' => 113
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5618,10 +5600,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 9,
+            'token_num' => 8,
             'has_warnings' => 1,
             'end_line' => 100,
-            'src' => ' $buf = "a" x 1 _000_000 . "\\n" ;',
+            'src' => ' $buf = "a" x 1_000_000 . "\\n" ;',
             'start_line' => 100,
             'indent' => 0,
             'block_id' => 0
@@ -5726,10 +5708,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 9,
+            'token_num' => 8,
             'has_warnings' => 1,
             'end_line' => 113,
-            'src' => ' $buf = "a" x 1 _000_000 . "\\n" ;',
+            'src' => ' $buf = "a" x 1_000_000 . "\\n" ;',
             'start_line' => 113,
             'indent' => 0,
             'block_id' => 0
