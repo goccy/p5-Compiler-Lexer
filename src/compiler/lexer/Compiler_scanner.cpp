@@ -72,6 +72,10 @@ Scanner::Scanner() :
 	operator_map.insert(StringMap::value_type("${", ""));
 	operator_map.insert(StringMap::value_type("@$", ""));
 	operator_map.insert(StringMap::value_type("%$", ""));
+	operator_map.insert(StringMap::value_type("%-", ""));
+	operator_map.insert(StringMap::value_type("%+", ""));
+	operator_map.insert(StringMap::value_type("@-", ""));
+	operator_map.insert(StringMap::value_type("@+", ""));
 	operator_map.insert(StringMap::value_type("&$", ""));
 	operator_map.insert(StringMap::value_type("$#", ""));
 	operator_map.insert(StringMap::value_type("<>", ""));
