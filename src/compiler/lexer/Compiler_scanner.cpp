@@ -249,6 +249,18 @@ bool Scanner::isPrototype(LexContext *ctx)
 	return false;
 }
 
+bool Scanner::isHereDocument(LexContext *ctx, Token *tk)
+{
+	string tk_data = (tk) ? tk->data : "";
+	char *token = ctx->buffer();
+	if (tk_data == "<<" &&
+		strtod(token, NULL) == 0 && string(token) != "0" &&
+		(isupper(token[0]) || token[0] == '_')) {
+		return true;
+	}
+	return false;
+}
+
 bool Scanner::isRegexDelim(Token *prev_token, char symbol)
 {
 	const char *prev_data = (prev_token) ? cstr(prev_token->data) : "";
@@ -449,13 +461,12 @@ bool Scanner::isSkip(LexContext *ctx)
 {
 	using namespace Enum::Lexer::Token;
 	bool ret = commentFlag;
-	char *script = ctx->smgr->raw_script;
-	size_t idx = ctx->smgr->idx;
-	if (script[idx] == '=' && idx + 1 < ctx->script_size &&
-		0 < idx && script[idx - 1] == '\n' && isalnum(script[idx + 1])) {
-		//multi-line comment flag
-		if (idx + 3 < ctx->script_size &&
-			script[idx + 1] == 'c' && script[idx + 2] == 'u' && script[idx + 3] == 't')  {
+	ScriptManager *smgr = ctx->smgr;
+	char *script = smgr->raw_script;
+	size_t idx = smgr->idx;
+	if (smgr->previousChar() == '\n' && smgr->currentChar() == '=' &&
+		isalnum(smgr->nextChar())) {
+		if (smgr->compare(1, 3, "cut")) {
 			DBG_PL("commentFlag => OFF");
 			ctx->progress = 4;
 			commentFlag = false;
@@ -466,27 +477,19 @@ bool Scanner::isSkip(LexContext *ctx)
 			commentFlag = true;
 			ret = true;
 		}
-	} else if (here_document_tag != "__END__" &&
-			   0 < idx && script[idx - 1] == '\n' && idx + 6 < ctx->script_size &&
-			   script[idx] == '_' && script[idx+1] == '_' &&
-			   script[idx+2] == 'E' && script[idx+3] == 'N' && script[idx+4] == 'D' &&
-			   script[idx+5] == '_' && script[idx+6] == '_') {
-		/* __END__ */
+	} else if (here_document_tag != "__END__" && smgr->previousChar() == '\n' &&
+			   smgr->compare(0, 7, "__END__")) {
 		int progress_to_end = ctx->script_size - idx - 1;
 		ctx->progress = progress_to_end;
 		ret = false;
-	} else if (here_document_tag != "__DATA__" &&
-			   0 < idx && script[idx-1] == '\n' && idx + 7 < ctx->script_size &&
-			   script[idx] == '_' && script[idx+1] == '_' &&
-			   script[idx+2] == 'D' && script[idx+3] == 'A' && script[idx+4] == 'T' && script[idx+5] == 'A' &&
-			   script[idx+6] == '_' && script[idx+7] == '_') {
-		/* __DATA__ */
+	} else if (here_document_tag != "__DATA__" && smgr->previousChar() == '\n' &&
+			   smgr->compare(0, 8, "__DATA__")) {
 		int progress_to_end = ctx->script_size - idx - 1;
 		ctx->progress = progress_to_end;
 		ret = false;
     } else if (isRegexStarted) {
-		if ((0 < idx && script[idx - 1] != '\\') ||
-			((0 < idx && script[idx - 1] == '\\') && (1 < idx && script[idx - 2] == '\\'))) {
+		if (smgr->previousChar() != '\\' ||
+			(smgr->previousChar() == '\\' && smgr->beforePreviousChar() == '\\')) {
 			switch (script[idx]) {
 			case '{': brace_count_inner_regex++;
 				break;
@@ -504,7 +507,7 @@ bool Scanner::isSkip(LexContext *ctx)
 				break;
 			}
 		}
-		if ((0 < idx && script[idx - 1] == '\\') && (1 < idx && script[idx - 2] != '\\')) {
+		if (smgr->previousChar() == '\\' && smgr->beforePreviousChar() != '\\') {
 			ctx->writeBuffer(script[idx]);
 			ret = true;
 		} else if (script[idx] != regex_delim && script[idx] != regex_middle_delim) {
@@ -584,8 +587,8 @@ bool Scanner::isSkip(LexContext *ctx)
 		}
 	} else if (isStringStarted) {
 		if (script[idx] == start_string_ch &&
-			(((0 < idx && script[idx - 1] == '\\') && (1 < idx && script[idx - 2] == '\\')) ||
-			 (0 < idx && script[idx-1] != '\\'))) {
+			((smgr->previousChar() == '\\' && smgr->beforePreviousChar() == '\\') ||
+			 smgr->previousChar() != '\\')) {
 			ret = false;
 		} else {
 			ctx->writeBuffer(script[idx]);
@@ -593,8 +596,7 @@ bool Scanner::isSkip(LexContext *ctx)
 		}
 	} else if (hereDocumentFlag) {
 		size_t len = here_document_tag.size();
-		if (0 < idx && script[idx - 1] == '\n' &&
-			idx + len < ctx->script_size) {
+		if (smgr->previousChar() == '\n' && idx + len < ctx->script_size) {
 			size_t i;
 			for (i = 0; i < len && script[idx + i] == here_document_tag.at(i); i++) {}
 			if (i == len) {
@@ -620,18 +622,6 @@ bool Scanner::isSkip(LexContext *ctx)
 		}
 	}
 	return ret;
-}
-
-bool Scanner::isHereDocument(LexContext *ctx, Token *tk)
-{
-	string tk_data = (tk) ? tk->data : "";
-	char *token = ctx->buffer();
-	if (tk_data == "<<" &&
-		strtod(token, NULL) == 0 && string(token) != "0" &&
-		(isupper(token[0]) || token[0] == '_')) {
-		return true;
-	}
-	return false;
 }
 
 TokenInfo Scanner::getTokenInfo(TokenType::Type type)

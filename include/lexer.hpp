@@ -98,6 +98,7 @@ public:
 	size_t idx;
 
 	ScriptManager(char *script);
+	bool compare(int start, int end, std::string target);
 	char getCharByOffset(int offset);
 	char beforePreviousChar(void);
 	char previousChar(void);

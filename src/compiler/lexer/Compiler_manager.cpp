@@ -86,6 +86,20 @@ ScriptManager::ScriptManager(char *script) :
 	script_size = strlen(script) + 1;
 }
 
+bool ScriptManager::compare(int start, int len, std::string target)
+{
+	size_t current_idx = this->idx;
+	int s = current_idx + start;
+	int e = s + len;
+	if (0 <= s && (size_t)e < script_size) {
+		char buffer[len + 1];
+		memset(buffer, 0, len + 1);
+		memcpy(buffer, raw_script + s, len);
+		return std::string(buffer) == target;
+	}
+	return false;
+}
+
 char ScriptManager::getCharByOffset(int offset)
 {
 	size_t current_idx = this->idx;
