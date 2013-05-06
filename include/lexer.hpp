@@ -160,9 +160,11 @@ public:
 	std::string here_document_tag;
 	StringMap regex_prefix_map;
 	StringMap regex_replace_map;
+	StringMap operator_map;
 
 	Scanner(void);
 	bool isRegexStartDelim(LexContext *ctx, const StringMap &list);
+	bool isRegexEndDelim(LexContext *ctx);
 	bool isRegexDelim(Token *prev_token, char symbol);
 	bool isHereDocument(LexContext *ctx, Token *prev_token);
 	bool isSkip(LexContext *ctx);

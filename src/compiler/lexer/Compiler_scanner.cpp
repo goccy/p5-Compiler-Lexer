@@ -19,6 +19,105 @@ Scanner::Scanner() :
 	regex_replace_map.insert(StringMap::value_type("s", ""));
 	regex_replace_map.insert(StringMap::value_type("y", ""));
 	regex_replace_map.insert(StringMap::value_type("tr", ""));
+
+	operator_map.insert(StringMap::value_type("<=>", ""));
+	operator_map.insert(StringMap::value_type("**=", ""));
+	operator_map.insert(StringMap::value_type("//=", ""));
+	operator_map.insert(StringMap::value_type("||=", ""));
+	operator_map.insert(StringMap::value_type("&&=", ""));
+	operator_map.insert(StringMap::value_type("...", ""));
+	operator_map.insert(StringMap::value_type("$#{", ""));
+	operator_map.insert(StringMap::value_type("$^A", ""));
+	operator_map.insert(StringMap::value_type("$^D", ""));
+	operator_map.insert(StringMap::value_type("$^E", ""));
+	operator_map.insert(StringMap::value_type("$^F", ""));
+	operator_map.insert(StringMap::value_type("$^G", ""));
+	operator_map.insert(StringMap::value_type("$^H", ""));
+	operator_map.insert(StringMap::value_type("$^I", ""));
+	operator_map.insert(StringMap::value_type("$^L", ""));
+	operator_map.insert(StringMap::value_type("$^M", ""));
+	operator_map.insert(StringMap::value_type("$^O", ""));
+	operator_map.insert(StringMap::value_type("$^P", ""));
+	operator_map.insert(StringMap::value_type("$^R", ""));
+	operator_map.insert(StringMap::value_type("$^T", ""));
+	operator_map.insert(StringMap::value_type("$^W", ""));
+	operator_map.insert(StringMap::value_type("$^X", ""));
+
+	operator_map.insert(StringMap::value_type("<=", ""));
+	operator_map.insert(StringMap::value_type(">=", ""));
+	operator_map.insert(StringMap::value_type(".=", ""));
+	operator_map.insert(StringMap::value_type("!=", ""));
+	operator_map.insert(StringMap::value_type("==", ""));
+	operator_map.insert(StringMap::value_type("+=", ""));
+	operator_map.insert(StringMap::value_type("-=", ""));
+	operator_map.insert(StringMap::value_type("*=", ""));
+	operator_map.insert(StringMap::value_type("%=", ""));
+	operator_map.insert(StringMap::value_type("|=", ""));
+	operator_map.insert(StringMap::value_type("&=", ""));
+	operator_map.insert(StringMap::value_type("^=", ""));
+	operator_map.insert(StringMap::value_type("<<", ""));
+	operator_map.insert(StringMap::value_type(">>", ""));
+	operator_map.insert(StringMap::value_type("++", ""));
+	operator_map.insert(StringMap::value_type("--", ""));
+	operator_map.insert(StringMap::value_type("**", ""));
+	operator_map.insert(StringMap::value_type("//", ""));
+	operator_map.insert(StringMap::value_type("&&", ""));
+	operator_map.insert(StringMap::value_type("||", ""));
+	operator_map.insert(StringMap::value_type("::", ""));
+	operator_map.insert(StringMap::value_type("..", ""));
+	operator_map.insert(StringMap::value_type("=>", ""));
+	operator_map.insert(StringMap::value_type("->", ""));
+	operator_map.insert(StringMap::value_type("@{", ""));
+	operator_map.insert(StringMap::value_type("%{", ""));
+	operator_map.insert(StringMap::value_type("${", ""));
+	operator_map.insert(StringMap::value_type("@$", ""));
+	operator_map.insert(StringMap::value_type("%$", ""));
+	operator_map.insert(StringMap::value_type("&$", ""));
+	operator_map.insert(StringMap::value_type("$#", ""));
+	operator_map.insert(StringMap::value_type("<>", ""));
+	operator_map.insert(StringMap::value_type("!~", ""));
+	operator_map.insert(StringMap::value_type("~~", ""));
+	operator_map.insert(StringMap::value_type("=~", ""));
+
+	operator_map.insert(StringMap::value_type("$0", ""));
+	operator_map.insert(StringMap::value_type("$1", ""));
+	operator_map.insert(StringMap::value_type("$2", ""));
+	operator_map.insert(StringMap::value_type("$3", ""));
+	operator_map.insert(StringMap::value_type("$4", ""));
+	operator_map.insert(StringMap::value_type("$5", ""));
+	operator_map.insert(StringMap::value_type("$6", ""));
+	operator_map.insert(StringMap::value_type("$7", ""));
+	operator_map.insert(StringMap::value_type("$8", ""));
+	operator_map.insert(StringMap::value_type("$9", ""));
+
+	operator_map.insert(StringMap::value_type("$&", ""));
+	operator_map.insert(StringMap::value_type("$`", ""));
+	operator_map.insert(StringMap::value_type("$'", ""));
+	operator_map.insert(StringMap::value_type("$+", ""));
+	operator_map.insert(StringMap::value_type("$.", ""));
+	operator_map.insert(StringMap::value_type("$/", ""));
+	operator_map.insert(StringMap::value_type("$|", ""));
+	operator_map.insert(StringMap::value_type("$,", ""));
+	operator_map.insert(StringMap::value_type("$\\", ""));
+	operator_map.insert(StringMap::value_type("$\"", ""));
+	operator_map.insert(StringMap::value_type("$%", ""));
+	operator_map.insert(StringMap::value_type("$=", ""));
+	operator_map.insert(StringMap::value_type("$-", ""));
+	operator_map.insert(StringMap::value_type("$~", ""));
+	operator_map.insert(StringMap::value_type("$^", ""));
+	operator_map.insert(StringMap::value_type("$*", ""));
+	operator_map.insert(StringMap::value_type("$:", ""));
+	operator_map.insert(StringMap::value_type("$;", ""));
+	operator_map.insert(StringMap::value_type("$?", ""));
+	operator_map.insert(StringMap::value_type("$!", ""));
+	operator_map.insert(StringMap::value_type("$@", ""));
+	operator_map.insert(StringMap::value_type("$$", ""));
+	operator_map.insert(StringMap::value_type("$<", ""));
+	operator_map.insert(StringMap::value_type("$>", ""));
+	operator_map.insert(StringMap::value_type("$(", ""));
+	operator_map.insert(StringMap::value_type("$)", ""));
+	operator_map.insert(StringMap::value_type("$[", ""));
+	operator_map.insert(StringMap::value_type("$]", ""));
 }
 
 Token *Scanner::scanQuote(LexContext *ctx, char quote)
@@ -97,6 +196,16 @@ bool Scanner::isRegexStartDelim(LexContext *ctx, const StringMap &map)
 	if (before_prev_data == "::") return false; /* method call */
 	if (symbol == '}' || symbol == ',' || symbol == '=') return false;
 	if (map.find(prev_data) != map.end()) return true;
+	return false;
+}
+
+bool Scanner::isRegexEndDelim(LexContext *ctx)
+{
+	Token *token = ctx->tmgr->tokens->lastToken();
+	TokenType::Type type = (token) ? token->info.type : TokenType::Undefined;
+	if (isRegexStarted) return true;
+	if (type == TokenType::RegExp) return true;
+	if (type == TokenType::RegReplaceTo) return true;
 	return false;
 }
 
@@ -203,37 +312,20 @@ Token *Scanner::scanCurSymbol(LexContext *ctx, char symbol)
 	char *token = ctx->buffer();
 	char tmp[2] = {0};
 	tmp[0] = symbol;
-	Token *prev_tk = (ctx->tmgr->tokens->size() > 0) ? ctx->tmgr->tokens->back() : NULL;
-	string prev_before = (ctx->tmgr->tokens->size() > 2) ? ctx->tmgr->tokens->at(ctx->tmgr->tokens->size() - 2)->data : "";
+	Token *prev_tk = ctx->tmgr->tokens->lastToken();
+	int idx = ctx->tmgr->tokens->size() - 2;
+	string prev_before = (idx >= 0) ? ctx->tmgr->tokens->at(idx)->data : "";
 	if (prev_before != "sub" && isRegexDelim(prev_tk, symbol)) {
 		ret = new Token(string(tmp), ctx->finfo);
 		ret->info = getTokenInfo(TokenType::RegDelim);
 		ctx->clearBuffer();
-		if (prev_tk->info.type != TokenType::RegExp &&
-			prev_tk->info.type != TokenType::RegReplaceTo) {
-			switch (symbol) {
-			case '{': regex_delim = '}';
-				brace_count_inner_regex++;
-				break;
-			case '(': regex_delim = ')';
-				cury_brace_count_inner_regex++;
-				break;
-			case '<': regex_delim = '>';
-				break;
-			case '[': regex_delim = ']';
-				bracket_count_inner_regex++;
-				break;
-			default:
-				regex_delim = symbol;
-				break;
-			}
+		if (!isRegexEndDelim(ctx)) {
+			regex_delim = getRegexDelim(ctx);
 			isRegexStarted = true;
 		} else {
 			regex_delim = 0;
 		}
-	} else if (isRegexStarted ||
-			   (prev_tk && prev_tk->info.type == TokenType::RegExp) ||
-			   (prev_tk && prev_tk->info.type == TokenType::RegReplaceTo)) {
+	} else if (isRegexEndDelim(ctx)) {
 		ret = new Token(string(tmp), ctx->finfo);
 		ret->info = getTokenInfo(TokenType::RegDelim);
 		ctx->clearBuffer();
@@ -242,10 +334,7 @@ Token *Scanner::scanCurSymbol(LexContext *ctx, char symbol)
 	} else if (symbol == ';') {
 		ret = new Token(string(tmp), ctx->finfo);
 		ctx->clearBuffer();
-	} else if (symbol == '(' &&
-			(prev_tk->data == "sub" ||
-			(ctx->tmgr->tokens->size() > 1 &&
-			 ctx->tmgr->tokens->at(ctx->tmgr->tokens->size() - 2)->data == "sub"))) {
+	} else if (isPrototype(ctx)) {
 		ret = new Token(string(tmp), ctx->finfo);
 		ctx->clearBuffer();
 		isPrototypeStarted = true;
@@ -260,31 +349,10 @@ Token *Scanner::scanTripleCharacterOperator(LexContext *ctx, char symbol, char n
 {
 	Token *ret = NULL;
 	char tmp[4] = {0};
-	if ((symbol == '<' && next_ch == '=' && after_next_ch == '>') ||
-		(symbol == '*' && next_ch == '*' && after_next_ch == '=') ||
-		(symbol == '/' && next_ch == '/' && after_next_ch == '=') ||
-		(symbol == '|' && next_ch == '|' && after_next_ch == '=') ||
-		(symbol == '&' && next_ch == '&' && after_next_ch == '=') ||
-		(symbol == '.' && next_ch == '.' && after_next_ch == '.') ||
-		(symbol == '$' && next_ch == '#' && after_next_ch == '{') ||
-		(symbol == '$' && next_ch == '^' && after_next_ch == 'A') ||
-		(symbol == '$' && next_ch == '^' && after_next_ch == 'D') ||
-		(symbol == '$' && next_ch == '^' && after_next_ch == 'E') ||
-		(symbol == '$' && next_ch == '^' && after_next_ch == 'F') ||
-		(symbol == '$' && next_ch == '^' && after_next_ch == 'G') ||
-		(symbol == '$' && next_ch == '^' && after_next_ch == 'H') ||
-		(symbol == '$' && next_ch == '^' && after_next_ch == 'I') ||
-		(symbol == '$' && next_ch == '^' && after_next_ch == 'L') ||
-		(symbol == '$' && next_ch == '^' && after_next_ch == 'M') ||
-		(symbol == '$' && next_ch == '^' && after_next_ch == 'O') ||
-		(symbol == '$' && next_ch == '^' && after_next_ch == 'P') ||
-		(symbol == '$' && next_ch == '^' && after_next_ch == 'R') ||
-		(symbol == '$' && next_ch == '^' && after_next_ch == 'T') ||
-		(symbol == '$' && next_ch == '^' && after_next_ch == 'W') ||
-		(symbol == '$' && next_ch == '^' && after_next_ch == 'X')) {
-		tmp[0] = symbol;
-		tmp[1] = next_ch;
-		tmp[2] = after_next_ch;
+	tmp[0] = symbol;
+	tmp[1] = next_ch;
+	tmp[2] = after_next_ch;
+	if (operator_map.find(string(tmp)) != operator_map.end()) {
 		ret = new Token(string(tmp), ctx->finfo);
 		ctx->progress = 2;
 	}
@@ -295,69 +363,13 @@ Token *Scanner::scanDoubleCharacterOperator(LexContext *ctx, char symbol, char n
 {
 	Token *ret = NULL;
 	char tmp[3] = {0};
-	if ((symbol == '<' && next_ch == '=') || (symbol == '>' && next_ch == '=') ||
-		(symbol == '.' && next_ch == '=') || (symbol == '!' && next_ch == '=') ||
-		(symbol == '=' && next_ch == '=') || (symbol == '+' && next_ch == '=') ||
-		(symbol == '-' && next_ch == '=') || (symbol == '*' && next_ch == '=') ||
-		(symbol == '%' && next_ch == '=') || (symbol == '|' && next_ch == '=') ||
-		(symbol == '&' && next_ch == '=') || (symbol == '^' && next_ch == '=') ||
-		(symbol == '<' && next_ch == '<') || (symbol == '>' && next_ch == '>') ||
-		(symbol == '+' && next_ch == '+') || (symbol == '/' && next_ch == '/') ||
-		(symbol == '=' && next_ch == '>') || (symbol == '=' && next_ch == '~') ||
-		(symbol == '@' && next_ch == '{') || (symbol == '%' && next_ch == '{') ||
-		(symbol == '$' && next_ch == '{') || (symbol == '@' && next_ch == '$') ||
-		(symbol == '%' && next_ch == '$') || (symbol == '&' && next_ch == '$') ||
-		(symbol == '$' && next_ch == '#') || (symbol == '-' && next_ch == '-') ||
-		(symbol == '*' && next_ch == '*') || (symbol == '-' && next_ch == '>') ||
-		(symbol == '<' && next_ch == '>') || (symbol == '&' && next_ch == '&') ||
-		(symbol == '|' && next_ch == '|') || (symbol == ':' && next_ch == ':') ||
-		(symbol == '.' && next_ch == '.') || (symbol == '!' && next_ch == '~') ||
-		(symbol == '~' && next_ch == '~') || (symbol == '$' && next_ch == '0') ||
-		(symbol == '$' && next_ch == '1') || (symbol == '$' && next_ch == '2') ||
-		(symbol == '$' && next_ch == '3') || (symbol == '$' && next_ch == '4') ||
-		(symbol == '$' && next_ch == '5') || (symbol == '$' && next_ch == '6') ||
-		(symbol == '$' && next_ch == '7') || (symbol == '$' && next_ch == '8') ||
-		(symbol == '$' && next_ch == '9') || (symbol == '$' && next_ch == '&') ||
-		(symbol == '$' && next_ch == '`') || (symbol == '$' && next_ch == '\'') ||
-		(symbol == '$' && next_ch == '+') || (symbol == '$' && next_ch == '.') ||
-		(symbol == '$' && next_ch == '/') || (symbol == '$' && next_ch == '|') ||
-		(symbol == '$' && next_ch == ',') || (symbol == '$' && next_ch == '\\') ||
-		(symbol == '$' && next_ch == '"') || (symbol == '$' && next_ch == '%') ||
-		(symbol == '$' && next_ch == '=') || (symbol == '$' && next_ch == '-') ||
-		(symbol == '$' && next_ch == '~') || (symbol == '$' && next_ch == '^') ||
-		(symbol == '$' && next_ch == '*') || (symbol == '$' && next_ch == ':') ||
-		(symbol == '$' && next_ch == ';') || (symbol == '$' && next_ch == '?') ||
-		(symbol == '$' && next_ch == '!') || (symbol == '$' && next_ch == '@') ||
-		(symbol == '$' && next_ch == '$') || (symbol == '$' && next_ch == '<') ||
-		(symbol == '$' && next_ch == '>') || (symbol == '$' && next_ch == '(') ||
-		(symbol == '$' && next_ch == ')') || (symbol == '$' && next_ch == '[') ||
-		(symbol == '$' && next_ch == ']')) {
-		tmp[0] = symbol;
-		tmp[1] = next_ch;
+	tmp[0] = symbol;
+	tmp[1] = next_ch;
+	if (operator_map.find(string(tmp)) != operator_map.end()) {
 		ret = new Token(string(tmp), ctx->finfo);
-		ctx->progress = 1;
-	} else if (symbol == '-' &&
-			(next_ch == 'r' || next_ch == 'w' ||
-			next_ch == 'x'  || next_ch == 'o' ||
-			next_ch == 'R'  || next_ch == 'W' ||
-			next_ch == 'X'  || next_ch == 'O' ||
-			next_ch == 'e'  || next_ch == 'z' ||
-			next_ch == 's'  || next_ch == 'f' ||
-			next_ch == 'd'  || next_ch == 'l' ||
-			next_ch == 'p'  || next_ch == 'S' ||
-			next_ch == 'b'  || next_ch == 'c' ||
-			next_ch == 't'  || next_ch == 'u' ||
-			next_ch == 'g'  || next_ch == 'k' ||
-			next_ch == 'T'  || next_ch == 'B' ||
-			next_ch == 'M'  || next_ch == 'A' ||
-			next_ch == 'C')) {
-		tmp[0] = symbol;
-		tmp[1] = next_ch;
-		ret = new Token(string(tmp), ctx->finfo);
-		ret->info = getTokenInfo(TokenType::Handle);
 		ctx->progress = 1;
 	} else if (symbol == '/' && next_ch == '=') {
-		Token *prev_tk = (ctx->tmgr->tokens->size() > 0) ? ctx->tmgr->tokens->back() : NULL;
+		Token *prev_tk = ctx->tmgr->tokens->lastToken();
 		const char *prev_data = cstr(prev_tk->data);
 		/* '/=' is RegDelim + RegExp or DivEqual */
 		if (strtod(prev_data, NULL) != 0 || string(prev_data) == "0" || isupper(prev_data[0]) ||
