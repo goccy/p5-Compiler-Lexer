@@ -25,40 +25,31 @@ Compiler::Lexer - Lexical Analyzer for Perl5
 
 =head1 VERSION
 
-This document describes Compiler::Lexer version 1.0000.
+This document describes Compiler::Lexer version 0.01.
 
 =head1 SYNOPSIS
 
 use Compiler::Lexer;
 use Data::Dumper;
 
-sub get_script {
-
-    my ($filename) = @_;
-    my $script = "";
-    open(FP, "<", $filename) or die("Error");
-    $script .= $_ foreach (<FP>);
-    close(FP);
-    return $script;
-
-}
-
 my $filename = $ARGV[0];
+open my $fh, '<', $filename;
+my $script = do { local $/; <$fh> };
 
-print Dumper Lexer::deparse($filename, get_script($filename));
+my $lexer = Compiler::Lexer->new($filename);
+my $tokens = $lexer->tokenize($script);
+print Dumper $$tokens;
 
-print Dumper Lexer::get_stmt_codes($filename, get_script($filename));
-
-print Dumper Lexer::get_used_modules($filename, get_script($filename));
-
+my $modules = $lexer->get_used_modules($script);
+print Dumper $$modules;
 
 =head1 AUTHOR
 
-Masaaki, Goshima (goccy) E<lt>goccy54(at)cpan.orgE<gt>
+Masaaki Goshima (goccy) E<lt>goccy54(at)cpan.orgE<gt>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright (c) 2012, Masaaki, Goshima (goccy). All rights reserved.
+Copyright (c) 2013, Masaaki Goshima (goccy). All rights reserved.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
