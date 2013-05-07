@@ -4,17 +4,17 @@ Compiler::Lexer - Lexical Analyzer for Perl5
 
 # SYNOPSIS
 
-use Compiler::Lexer;
-use Data::Dumper;
+  use Compiler::Lexer;
+  use Data::Dumper;
 
-my $filename = $ARGV[0];
-open(my $fh, "<", $filename) or die("$filename is not found.");
-my $script = do { local $/; <$fh> };
-my $lexer = Compiler::Lexer->new($filename);
-my $tokens = $lexer->tokenize($script);
-print Dumper $tokens;
-print Dumper $lexer->get_groups_by_syntax_level($$tokens, Compiler::Lexer::SyntaxType::T_Stmt);
-print Dumper $lexer->get_used_modules($script);
+  my $filename = $ARGV[0];
+  open(my $fh, "<", $filename) or die("$filename is not found.");
+  my $script = do { local $/; <$fh> };
+  my $lexer = Compiler::Lexer->new($filename);
+  my $tokens = $lexer->tokenize($script);
+  print Dumper $tokens;
+  print Dumper $lexer->get_groups_by_syntax_level($$tokens, Compiler::Lexer::SyntaxType::T_Stmt);
+  print Dumper $lexer->get_used_modules($script);
 
 # DESCRIPTION
 
