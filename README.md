@@ -4,6 +4,7 @@ Compiler::Lexer - Lexical Analyzer for Perl5
 
 # SYNOPSIS
 
+`
   use Compiler::Lexer;
   use Data::Dumper;
 
@@ -15,6 +16,7 @@ Compiler::Lexer - Lexical Analyzer for Perl5
   print Dumper $tokens;
   print Dumper $lexer->get_groups_by_syntax_level($$tokens, Compiler::Lexer::SyntaxType::T_Stmt);
   print Dumper $lexer->get_used_modules($script);
+`
 
 # DESCRIPTION
 
