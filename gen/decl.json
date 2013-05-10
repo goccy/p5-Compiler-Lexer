@@ -2071,13 +2071,13 @@
  },
  {
 	"type" : "Package",
-	"kind" : "Stmt",
+	"kind" : "Package",
 	"data" : "package",
 	"parse_func" : ""
  },
  {
 	"type" : "Class",
-	"kind" : "Stmt",
+	"kind" : "Class",
 	"data" : "",
 	"parse_func" : ""
  },
@@ -2485,43 +2485,43 @@
  },
  {
 	"type" : "RegOpt",
-	"kind" : "Term",
+	"kind" : "RegOpt",
 	"data" : "",
 	"parse_func" : ""
  },
  {
 	"type" : "RegQuote",
-	"kind" : "Term",
+	"kind" : "RegPrefix",
 	"data" : "q",
 	"parse_func" : ""
  },
  {
 	"type" : "RegDoubleQuote",
-	"kind" : "Term",
+	"kind" : "RegPrefix",
 	"data" : "qq",
 	"parse_func" : ""
  },
  {
 	"type" : "RegList",
-	"kind" : "Term",
+	"kind" : "RegPrefix",
 	"data" : "qw",
 	"parse_func" : ""
  },
  {
 	"type" : "RegExec",
-	"kind" : "Term",
+	"kind" : "RegPrefix",
 	"data" : "qx",
 	"parse_func" : ""
  },
  {
 	"type" : "RegDecl",
-	"kind" : "Term",
+	"kind" : "RegPrefix",
 	"data" : "qr",
 	"parse_func" : ""
  },
  {
 	"type" : "RegMatch",
-	"kind" : "Term",
+	"kind" : "RegPrefix",
 	"data" : "m",
 	"parse_func" : ""
  },
@@ -2539,19 +2539,19 @@
  },
  {
 	"type" : "RegAllReplace",
-	"kind" : "Term",
+	"kind" : "RegReplacePrefix",
 	"data" : "tr",
 	"parse_func" : ""
  },
  {
 	"type" : "RegAllReplace",
-	"kind" : "Term",
+	"kind" : "RegReplacePrefix",
 	"data" : "y",
 	"parse_func" : ""
  },
  {
 	"type" : "RegReplace",
-	"kind" : "Term",
+	"kind" : "RegReplacePrefix",
 	"data" : "s",
 	"parse_func" : ""
  },

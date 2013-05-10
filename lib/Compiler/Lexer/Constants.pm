@@ -246,11 +246,16 @@ use constant {
     T_Symbol => 27,
     T_Modifier => 28,
     T_Namespace => 29,
-    T_Annotation => 30,
-    T_Ref => 31,
-    T_Get => 32,
-    T_Set => 33,
-    T_Undefined => 34,
+    T_Package => 30,
+    T_Class => 31,
+    T_Annotation => 32,
+    T_RegOpt => 33,
+    T_RegPrefix => 34,
+    T_RegReplacePrefix => 35,
+    T_Ref => 36,
+    T_Get => 37,
+    T_Set => 38,
+    T_Undefined => 39,
 
 };
 1;
