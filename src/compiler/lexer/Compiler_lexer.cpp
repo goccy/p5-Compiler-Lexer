@@ -2,9 +2,9 @@
 
 /* Declare Namespace */
 using namespace std;
-namespace TokenType = Enum::Lexer::Token;
-namespace SyntaxType = Enum::Lexer::Syntax;
-namespace TokenKind = Enum::Lexer;
+namespace TokenType = Enum::Token::Type;
+namespace SyntaxType = Enum::Parser::Syntax;
+namespace TokenKind = Enum::Token::Kind;
 #define ITER_CAST(T, it) (T)*(it)
 
 Module::Module(const char *name_, const char *args_)
@@ -68,7 +68,6 @@ Lexer::Lexer(const char *filename)
 
 Tokens *Lexer::tokenize(char *script)
 {
-	using namespace Enum::Lexer::Char;
 	LexContext ctx(filename, script);
 	//Tokens *tokens = new Tokens();
 	//ctx.tokens = tokens;
@@ -97,6 +96,9 @@ Tokens *Lexer::tokenize(char *script)
 					/* Key is HereDocument */
 					scanner->here_document_tag = token;
 					tk->info = scanner->getTokenInfo(TokenType::HereDocumentRawTag);
+				} else if (scanner->isFormat(&ctx, tk)) {
+					scanner->isFormatDeclared = true;
+					tk->info = scanner->getTokenInfo(TokenType::FormatDecl);
 				}
 				ctx.clearBuffer();
 				tmgr->tokens->add(tk);
@@ -165,16 +167,25 @@ Tokens *Lexer::tokenize(char *script)
 		case '\n':
 			if (ctx.existsBuffer()) {
 				char *token = ctx.buffer();
+				tk = new Token(token, ctx.finfo);
 				if (scanner->isHereDocument(&ctx, tmgr->tokens->lastToken())) {
 					/* Key is HereDocument */
 					char *token = ctx.buffer();
 					tk->info = scanner->getTokenInfo(TokenType::HereDocumentRawTag);
 					scanner->here_document_tag = token;
+				} else if (scanner->isFormat(&ctx, tk)) {
+					scanner->isFormatDeclared = true;
+					tk->info = scanner->getTokenInfo(TokenType::FormatDecl);
 				}
-				tmgr->tokens->add(new Token(token, ctx.finfo));
+				tmgr->tokens->add(tk);
 				ctx.clearBuffer();
 			}
-			if (scanner->here_document_tag != "") scanner->hereDocumentFlag = true;
+			if (scanner->isFormatDeclared && tmgr->tokens->lastToken()->data == "=") {
+				scanner->isFormatDeclared = false;
+				scanner->isFormatStarted = true;
+			} else if (scanner->here_document_tag != "") {
+				scanner->hereDocumentFlag = true;
+			}
 			break;
 		case '0': case '1': case '2': case '3': case '4':
 		case '5': case '6': case '7': case '8': case '9':
@@ -332,7 +343,7 @@ void Lexer::prepare(Tokens *tokens)
 	}
 }
 
-bool Lexer::isExpr(Token *tk, Token *prev_tk, Enum::Lexer::Token::Type type, Enum::Lexer::Kind kind)
+bool Lexer::isExpr(Token *tk, Token *prev_tk, TokenType::Type type, TokenKind::Kind kind)
 {
 	using namespace TokenType;
 	assert(tk->tks[0]->info.type == LeftBrace);

@@ -3943,9 +3943,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'Key',
                    'data' => 'PERL5OPT',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 97
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4085,11 +4085,11 @@ subtest 'tokenize' => sub {
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'HereDocumentRawTag',
                    'data' => 'ERROR',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
                    'line' => 100
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4161,9 +4161,9 @@ Use of uninitialized value \\$x in print at -e line 1.
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'Key',
                    'data' => 'PERL5OPT',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 106
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4303,11 +4303,11 @@ Use of uninitialized value \\$x in print at -e line 1.
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'HereDocumentRawTag',
                    'data' => 'ERROR',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
                    'line' => 109
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5819,9 +5819,9 @@ Use of uninitialized value \\$x in print at -e line 1.
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'Key',
                    'data' => 'PERL5OPT',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 153
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5961,11 +5961,11 @@ Use of uninitialized value \\$x in print at -e line 1.
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'HereDocumentRawTag',
                    'data' => 'ERROR',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
                    'line' => 157
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9911,6 +9911,309 @@ subtest 'get_groups_by_syntax_level' => sub {
             'start_line' => 92,
             'indent' => 0,
             'block_id' => 0
+          },
+          {
+            'token_num' => 21,
+            'has_warnings' => 0,
+            'end_line' => 103,
+            'src' => ' try ( { PERL5OPT => \'-w -Mstrict\' } , [ \'-I../lib\' , \'-e\' , \'print $::x\' ] , "" , q{Name "main::x" used only once: possible typo at -e line 1.
+Use of uninitialized value \\$x in print at -e line 1.
+} ) ;',
+            'start_line' => 97,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 21,
+            'has_warnings' => 0,
+            'end_line' => 112,
+            'src' => ' try ( { PERL5OPT => \'-w -Mstrict\' } , [ \'-I../lib\' , \'-e\' , \'print $::x\' ] , "" , q{Name "main::x" used only once: possible typo at -e line 1.
+Use of uninitialized value \\$x in print at -e line 1.
+} ) ;',
+            'start_line' => 106,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 19,
+            'has_warnings' => 0,
+            'end_line' => 116,
+            'src' => ' try ( { PERL5OPT => \'-MExporter\' } , [ \'-I../lib\' , \'-e0\' ] , "" , "" ) ;',
+            'start_line' => 114,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 19,
+            'has_warnings' => 0,
+            'end_line' => 121,
+            'src' => ' try ( { PERL5OPT => \'-MExporter -MExporter\' } , [ \'-I../lib\' , \'-e0\' ] , "" , "" ) ;',
+            'start_line' => 119,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 21,
+            'has_warnings' => 0,
+            'end_line' => 126,
+            'src' => ' try ( { PERL5OPT => \'-Mstrict -Mwarnings\' } , [ \'-I../lib\' , \'-e\' , \'print "ok" if $INC{"strict.pm"} and $INC{"warnings.pm"}\' ] , "ok" , "" ) ;',
+            'start_line' => 123,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 0,
+            'end_line' => 128,
+            'src' => ' open my $fh , ">" , "Oooof.pm" or die "Can\'t write Oooof.pm: $!" ;',
+            'start_line' => 128,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 129,
+            'src' => ' print $fh "package Oooof; 1;\\n" ;',
+            'start_line' => 129,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 130,
+            'src' => ' close $fh ;',
+            'start_line' => 130,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 19,
+            'has_warnings' => 0,
+            'end_line' => 136,
+            'src' => ' try ( { PERL5OPT => \'-I. -MOooof\' } , [ \'-e\' , \'print "ok" if $INC{"Oooof.pm"} eq "Oooof.pm"\' ] , "ok" , "" ) ;',
+            'start_line' => 133,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 19,
+            'has_warnings' => 0,
+            'end_line' => 141,
+            'src' => ' try ( { PERL5OPT => \'-I./ -MOooof\' } , [ \'-e\' , \'print "ok" if $INC{"Oooof.pm"} eq "Oooof.pm"\' ] , "ok" , "" ) ;',
+            'start_line' => 138,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 19,
+            'has_warnings' => 0,
+            'end_line' => 146,
+            'src' => ' try ( { PERL5OPT => \'-w -w\' } , [ \'-e\' , \'print $ENV{PERL5OPT}\' ] , \'-w -w\' , \'\' ) ;',
+            'start_line' => 143,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 19,
+            'has_warnings' => 0,
+            'end_line' => 151,
+            'src' => ' try ( { PERL5OPT => \'-t\' } , [ \'-e\' , \'print ${^TAINT}\' ] , \'-1\' , \'\' ) ;',
+            'start_line' => 148,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 21,
+            'has_warnings' => 0,
+            'end_line' => 160,
+            'src' => ' try ( { PERL5OPT => \'-W\' } , [ \'-I../lib\' , \'-e\' , \'local $^W = 0;  no warnings;  print $x\' ] , \'\' , q{Name "main::x" used only once: possible typo at -e line 1.
+Use of uninitialized value \\$x in print at -e line 1.
+} ) ;',
+            'start_line' => 153,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 19,
+            'has_warnings' => 0,
+            'end_line' => 165,
+            'src' => ' try ( { PERLLIB => "foobar$Config{path_sep}42" } , [ \'-e\' , \'print grep { $_ eq "foobar" } @INC\' ] , \'foobar\' , \'\' ) ;',
+            'start_line' => 162,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 19,
+            'has_warnings' => 0,
+            'end_line' => 170,
+            'src' => ' try ( { PERLLIB => "foobar$Config{path_sep}42" } , [ \'-e\' , \'print grep { $_ eq "42" } @INC\' ] , \'42\' , \'\' ) ;',
+            'start_line' => 167,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 19,
+            'has_warnings' => 0,
+            'end_line' => 175,
+            'src' => ' try ( { PERL5LIB => "foobar$Config{path_sep}42" } , [ \'-e\' , \'print grep { $_ eq "foobar" } @INC\' ] , \'foobar\' , \'\' ) ;',
+            'start_line' => 172,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 19,
+            'has_warnings' => 0,
+            'end_line' => 180,
+            'src' => ' try ( { PERL5LIB => "foobar$Config{path_sep}42" } , [ \'-e\' , \'print grep { $_ eq "42" } @INC\' ] , \'42\' , \'\' ) ;',
+            'start_line' => 177,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 23,
+            'has_warnings' => 0,
+            'end_line' => 186,
+            'src' => ' try ( { PERL5LIB => "foo" , PERLLIB => "bar" } , [ \'-e\' , \'print grep { $_ eq "foo" } @INC\' ] , \'foo\' , \'\' ) ;',
+            'start_line' => 182,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 23,
+            'has_warnings' => 0,
+            'end_line' => 192,
+            'src' => ' try ( { PERL5LIB => "foo" , PERLLIB => "bar" } , [ \'-e\' , \'print grep { $_ eq "bar" } @INC\' ] , \'\' , \'\' ) ;',
+            'start_line' => 188,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 0,
+            'end_line' => 196,
+            'src' => ' my @dump_inc = ( \'-e\' , \'print "$_\\n" foreach @INC\' ) ;',
+            'start_line' => 196,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 17,
+            'has_warnings' => 1,
+            'end_line' => 198,
+            'src' => ' my ( $out , $err ) = runperl_and_capture ( { } , [ @dump_inc ] ) ;',
+            'start_line' => 198,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 200,
+            'src' => ' is ( $err , \'\' , \'No errors when determining @INC\' ) ;',
+            'start_line' => 200,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 202,
+            'src' => ' my @default_inc = split/\\n/ , $out ;',
+            'start_line' => 202,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 204,
+            'src' => ' is ( $default_inc [ -1 ] , \'.\' , \'. is last in @INC\' ) ;',
+            'start_line' => 204,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 206,
+            'src' => ' my $sep = $Config { path_sep } ;',
+            'start_line' => 206,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 197,
+            'has_warnings' => 1,
+            'end_line' => 236,
+            'src' => ' foreach ( [ \'nothing\' , \'\' ] , [ \'something\' , \'zwapp\' , \'zwapp\' ] , [ \'two things\' , "zwapp${sep}bam" , \'zwapp\' , \'bam\' ] , [ \'two things, ::\' , "zwapp${sep}${sep}bam" , \'zwapp\' , \'bam\' ] , [ \': at start\' , "${sep}zwapp" , \'zwapp\' ] , [ \': at end\' , "zwapp${sep}" , \'zwapp\' ] , [ \':: sandwich ::\' , "${sep}${sep}zwapp${sep}${sep}" , \'zwapp\' ] , [ \':\' , "${sep}" ] , [ \'::\' , "${sep}${sep}" ] , [ \':::\' , "${sep}${sep}${sep}" ] , [ \'two things and :\' , "zwapp${sep}bam${sep}" , \'zwapp\' , \'bam\' ] , [ \': and two things\' , "${sep}zwapp${sep}bam" , \'zwapp\' , \'bam\' ] , [ \': two things :\' , "${sep}zwapp${sep}bam${sep}" , \'zwapp\' , \'bam\' ] , [ \'three things\' , "zwapp${sep}bam${sep}${sep}owww" , \'zwapp\' , \'bam\' , \'owww\' ] , ) { my ( $name , $lib , @expect ) = @$_ ; push @expect , @default_inc ; ( $out , $err ) = runperl_and_capture ( { PERL5LIB => $lib } , [ @dump_inc ] ) ; is ( $err , \'\' , "No errors when determining \\@INC for $name" ) ; my @inc = split/\\n/ , $out ; is ( scalar @inc , scalar @expect , "expected number of elements in \\@INC for $name" ) ; is ( "@inc" , "@expect" , "expected elements in \\@INC for $name" ) ; }',
+            'start_line' => 207,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 223,
+            'src' => ' my ( $name , $lib , @expect ) = @$_ ;',
+            'start_line' => 223,
+            'indent' => 1,
+            'block_id' => 10
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 224,
+            'src' => ' push @expect , @default_inc ;',
+            'start_line' => 224,
+            'indent' => 1,
+            'block_id' => 10
+          },
+          {
+            'token_num' => 19,
+            'has_warnings' => 1,
+            'end_line' => 226,
+            'src' => ' ( $out , $err ) = runperl_and_capture ( { PERL5LIB => $lib } , [ @dump_inc ] ) ;',
+            'start_line' => 226,
+            'indent' => 1,
+            'block_id' => 10
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 228,
+            'src' => ' is ( $err , \'\' , "No errors when determining \\@INC for $name" ) ;',
+            'start_line' => 228,
+            'indent' => 1,
+            'block_id' => 10
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 230,
+            'src' => ' my @inc = split/\\n/ , $out ;',
+            'start_line' => 230,
+            'indent' => 1,
+            'block_id' => 10
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 233,
+            'src' => ' is ( scalar @inc , scalar @expect , "expected number of elements in \\@INC for $name" ) ;',
+            'start_line' => 232,
+            'indent' => 1,
+            'block_id' => 10
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 235,
+            'src' => ' is ( "@inc" , "@expect" , "expected elements in \\@INC for $name" ) ;',
+            'start_line' => 235,
+            'indent' => 1,
+            'block_id' => 10
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

@@ -1,6 +1,6 @@
 #include <lexer.hpp>
 
-namespace TokenType = Enum::Lexer::Token;
+namespace TokenType = Enum::Token::Type;
 using namespace TokenType;
 using namespace std;
 

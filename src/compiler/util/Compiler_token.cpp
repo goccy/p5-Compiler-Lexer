@@ -1,9 +1,9 @@
 #include <lexer.hpp>
 
 using namespace std;
-namespace TokenType = Enum::Lexer::Token;
-namespace SyntaxType = Enum::Lexer::Syntax;
-namespace TokenKind = Enum::Lexer;
+namespace TokenType = Enum::Token::Type;
+namespace SyntaxType = Enum::Parser::Syntax;
+namespace TokenKind = Enum::Token::Kind;
 
 Token::Token(string data_, FileInfo finfo_) :
 	data(data_), token_num(0), total_token_num(0),

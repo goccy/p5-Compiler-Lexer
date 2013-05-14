@@ -33347,9 +33347,9 @@ Now you must teach $0 that this was fixed.
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'Var',
                    'data' => '$return',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_Var,
                    'line' => 1210
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -33372,11 +33372,11 @@ Now you must teach $0 that this was fixed.
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'HereDocumentRawTag',
                    'data' => 'EOF',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
                    'line' => 1211
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -52597,12 +52597,12 @@ $how_to
                    'line' => 1836
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Stmt,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'ElsifStmt',
                    'data' => 'elsif',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_ElsifStmt,
                    'line' => 1836
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -52670,11 +52670,11 @@ $how_to
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'HereDocumentRawTag',
                    'data' => 'EOF',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
                    'line' => 1838
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -56786,18 +56786,18 @@ Usage: $0 [ --regen | --cpan | --show_all | FILE ... | --add_link MODULE ... ]\\
             'block_id' => 93
           },
           {
-            'token_num' => 119,
+            'token_num' => 120,
             'has_warnings' => 1,
-            'end_line' => 1217,
+            'end_line' => 1218,
             'src' => ' { my $first_time = 1 ; sub output_thanks ( $$$$ ) { my $filename = shift ; my $original_count = shift ; my $current_count = shift ; my $message = shift ; $files_with_fixes { $filename } = 1 ; my $return ; my $fixed_count = $original_count - $current_count ; my $a_problem = ( $fixed_count == 1 ) ? "a problem" : "multiple problems" ; my $another_problem = ( $fixed_count == 1 ) ? "another problem" : "another set of problems" ; my $diff ; if ( $message ) { $diff = q{There were $original_count occurrences (now $current_count) in this pod of type
 "$message",
 } ; } else { $diff = q{There are no longer any problems found in this pod!
 } ; } if ( $first_time ) { $first_time = 0 ; $return = q{Thanks for fixing $a_problem!
 $diff
 Now you must teach $0 that this was fixed.
-} ; } else q{Thanks for fixing $another_problem.
+} ; } else { $return = q{Thanks for fixing $another_problem.
 $diff
-} = << EOF } return $return ; }',
+} } return $return ; } }',
             'start_line' => 1175,
             'indent' => 0,
             'block_id' => 0
@@ -56812,18 +56812,18 @@ $diff
             'block_id' => 94
           },
           {
-            'token_num' => 109,
+            'token_num' => 113,
             'has_warnings' => 1,
-            'end_line' => 1214,
+            'end_line' => 1217,
             'src' => ' sub output_thanks ( $$$$ ) { my $filename = shift ; my $original_count = shift ; my $current_count = shift ; my $message = shift ; $files_with_fixes { $filename } = 1 ; my $return ; my $fixed_count = $original_count - $current_count ; my $a_problem = ( $fixed_count == 1 ) ? "a problem" : "multiple problems" ; my $another_problem = ( $fixed_count == 1 ) ? "another problem" : "another set of problems" ; my $diff ; if ( $message ) { $diff = q{There were $original_count occurrences (now $current_count) in this pod of type
 "$message",
 } ; } else { $diff = q{There are no longer any problems found in this pod!
 } ; } if ( $first_time ) { $first_time = 0 ; $return = q{Thanks for fixing $a_problem!
 $diff
 Now you must teach $0 that this was fixed.
-} ; } else q{Thanks for fixing $another_problem.
+} ; } else { $return = q{Thanks for fixing $another_problem.
 $diff
-} = << EOF }',
+} } return $return ; }',
             'start_line' => 1178,
             'indent' => 1,
             'block_id' => 94
@@ -56994,13 +56994,2411 @@ Now you must teach $0 that this was fixed.
             'block_id' => 98
           },
           {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 1214,
+            'src' => ' else { $return = q{Thanks for fixing $another_problem.
+$diff
+} }',
+            'start_line' => 1209,
+            'indent' => 2,
+            'block_id' => 95
+          },
+          {
             'token_num' => 3,
             'has_warnings' => 1,
             'end_line' => 1216,
             'src' => ' return $return ;',
             'start_line' => 1216,
+            'indent' => 2,
+            'block_id' => 95
+          },
+          {
+            'token_num' => 35,
+            'has_warnings' => 1,
+            'end_line' => 1228,
+            'src' => ' sub my_safer_print { my ( $fh , @lines ) = @_ ; if ( ! print $fh @lines ) { my $save_error = $! ; close ( $fh ) ; die "Write failure: $save_error" ; } }',
+            'start_line' => 1220,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 1221,
+            'src' => ' my ( $fh , @lines ) = @_ ;',
+            'start_line' => 1221,
             'indent' => 1,
-            'block_id' => 94
+            'block_id' => 100
+          },
+          {
+            'token_num' => 22,
+            'has_warnings' => 1,
+            'end_line' => 1227,
+            'src' => ' if ( ! print $fh @lines ) { my $save_error = $! ; close ( $fh ) ; die "Write failure: $save_error" ; }',
+            'start_line' => 1223,
+            'indent' => 1,
+            'block_id' => 100
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 1224,
+            'src' => ' my $save_error = $! ;',
+            'start_line' => 1224,
+            'indent' => 2,
+            'block_id' => 101
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 1225,
+            'src' => ' close ( $fh ) ;',
+            'start_line' => 1225,
+            'indent' => 2,
+            'block_id' => 101
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 1226,
+            'src' => ' die "Write failure: $save_error" ;',
+            'start_line' => 1226,
+            'indent' => 2,
+            'block_id' => 101
+          },
+          {
+            'token_num' => 59,
+            'has_warnings' => 1,
+            'end_line' => 1251,
+            'src' => ' sub extract_pod { my $filename = shift ; my @pod ; tie * ALREADY_FH , \'Tie_Array_to_FH\' , \\ @pod ; open my $in_fh , \'<:bytes\' , $filename or die "Can\'t open \'$filename\': $!\\n" ; my $parser = Pod::Parser-> new ( ) ; $parser-> parse_from_filehandle ( $in_fh , * ALREADY_FH ) ; close $in_fh ; return join "" , @pod }',
+            'start_line' => 1230,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 1231,
+            'src' => ' my $filename = shift ;',
+            'start_line' => 1231,
+            'indent' => 1,
+            'block_id' => 102
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 1233,
+            'src' => ' my @pod ;',
+            'start_line' => 1233,
+            'indent' => 1,
+            'block_id' => 102
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 1237,
+            'src' => ' tie * ALREADY_FH , \'Tie_Array_to_FH\' , \\ @pod ;',
+            'start_line' => 1237,
+            'indent' => 1,
+            'block_id' => 102
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 1244,
+            'src' => ' open my $in_fh , \'<:bytes\' , $filename or die "Can\'t open \'$filename\': $!\\n" ;',
+            'start_line' => 1238,
+            'indent' => 1,
+            'block_id' => 102
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 1246,
+            'src' => ' my $parser = Pod::Parser-> new ( ) ;',
+            'start_line' => 1246,
+            'indent' => 1,
+            'block_id' => 102
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 1247,
+            'src' => ' $parser-> parse_from_filehandle ( $in_fh , * ALREADY_FH ) ;',
+            'start_line' => 1247,
+            'indent' => 1,
+            'block_id' => 102
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 1248,
+            'src' => ' close $in_fh ;',
+            'start_line' => 1248,
+            'indent' => 1,
+            'block_id' => 102
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 1253,
+            'src' => ' my $digest = Digest-> new ( $digest_type ) ;',
+            'start_line' => 1253,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 287,
+            'has_warnings' => 1,
+            'end_line' => 1369,
+            'src' => ' sub is_pod_file { if ( -d ) { if ( $_ eq \'t\' || $_ =~/^\\../ ) { $File::Find::prune = 1 ; } return ; } return unless -r && -s ; return unless -f || -l ; if ( $_ =~/^\\./ || $_ =~ $non_pods ) { note ( "Not considering $_" ) if DEBUG ; return ; } my $filename = $File::Find::name ; $filename =~ s/^\\..// ; return if $excluded_files { canonicalize ( $filename ) } ; my $contents = do { local $/ ; my $candidate ; if ( ! open $candidate , \'<:bytes\' , $_ ) { ok ( 0 , "Can\'t open \'$filename\': $!" ) if -r $filename && ! -l $filename ; return ; } < $candidate > ; } ; if ( $filename =~/\\.(?:pm|pod)/ ) { return unless $contents =~/^=/m;
+    } else {
+        return unless $contents =~ /^=head1 +NAME/m; } push @files , $filename ; my $checker = My::Pod::Checker-> new ( $filename ) ; $filename_to_checker { $filename } = $checker ; if ( $filename =~/ (?: ^(cpan|lib|ext|dist)\\/ )
+                        | $only_for_interior_links_re
+                    /x ) { $digest-> add ( $contents ) ; $digests { $filename } = $digest-> digest ; if ( $filename =~ m{ (?: ^ (?: cpan | lib ) / )
+                            | $only_for_interior_links_re
+                            }x ) { if ( $contents =~/^=head1 +NAME.*/mg ) { if ( $contents =~/\\G    # continue from the line after =head1
+                                  \\s*   # ignore any empty lines
+                                  ^ \\s* ( \\S+?) \\s* (?: [,-] | $ )/mx ) { my $name = $1 ; $checker-> name ( $name ) ; $id_to_checker { $name } = $checker if $filename =~ m{^cpan/} ; } } elsif ( $filename =~ m{^cpan/} ) { $id_to_checker { $digests { $filename } } = $checker ; } } } return ; }',
+            'start_line' => 1255,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 26,
+            'has_warnings' => 1,
+            'end_line' => 1265,
+            'src' => ' if ( -d ) { if ( $_ eq \'t\' || $_ =~/^\\../ ) { $File::Find::prune = 1 ; } return ; }',
+            'start_line' => 1258,
+            'indent' => 1,
+            'block_id' => 103
+          },
+          {
+            'token_num' => 18,
+            'has_warnings' => 1,
+            'end_line' => 1263,
+            'src' => ' if ( $_ eq \'t\' || $_ =~/^\\../ ) { $File::Find::prune = 1 ; }',
+            'start_line' => 1261,
+            'indent' => 2,
+            'block_id' => 104
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 1262,
+            'src' => ' $File::Find::prune = 1 ;',
+            'start_line' => 1262,
+            'indent' => 3,
+            'block_id' => 105
+          },
+          {
+            'token_num' => 2,
+            'has_warnings' => 0,
+            'end_line' => 1264,
+            'src' => ' return ;',
+            'start_line' => 1264,
+            'indent' => 2,
+            'block_id' => 104
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 1267,
+            'src' => ' return unless -r && -s ;',
+            'start_line' => 1267,
+            'indent' => 1,
+            'block_id' => 103
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 1269,
+            'src' => ' return unless -f || -l ;',
+            'start_line' => 1269,
+            'indent' => 1,
+            'block_id' => 103
+          },
+          {
+            'token_num' => 23,
+            'has_warnings' => 1,
+            'end_line' => 1275,
+            'src' => ' if ( $_ =~/^\\./ || $_ =~ $non_pods ) { note ( "Not considering $_" ) if DEBUG ; return ; }',
+            'start_line' => 1271,
+            'indent' => 1,
+            'block_id' => 103
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 1273,
+            'src' => ' note ( "Not considering $_" ) if DEBUG ;',
+            'start_line' => 1273,
+            'indent' => 2,
+            'block_id' => 106
+          },
+          {
+            'token_num' => 2,
+            'has_warnings' => 0,
+            'end_line' => 1274,
+            'src' => ' return ;',
+            'start_line' => 1274,
+            'indent' => 2,
+            'block_id' => 106
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 1277,
+            'src' => ' my $filename = $File::Find::name ;',
+            'start_line' => 1277,
+            'indent' => 1,
+            'block_id' => 103
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 1281,
+            'src' => ' $filename =~ s/^\\..// ;',
+            'start_line' => 1281,
+            'indent' => 1,
+            'block_id' => 103
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 1283,
+            'src' => ' return if $excluded_files { canonicalize ( $filename ) } ;',
+            'start_line' => 1283,
+            'indent' => 1,
+            'block_id' => 103
+          },
+          {
+            'token_num' => 45,
+            'has_warnings' => 1,
+            'end_line' => 1301,
+            'src' => ' my $contents = do { local $/ ; my $candidate ; if ( ! open $candidate , \'<:bytes\' , $_ ) { ok ( 0 , "Can\'t open \'$filename\': $!" ) if -r $filename && ! -l $filename ; return ; } < $candidate > ; } ;',
+            'start_line' => 1285,
+            'indent' => 1,
+            'block_id' => 103
+          },
+          {
+            'token_num' => 41,
+            'has_warnings' => 1,
+            'end_line' => 1301,
+            'src' => ' do { local $/ ; my $candidate ; if ( ! open $candidate , \'<:bytes\' , $_ ) { ok ( 0 , "Can\'t open \'$filename\': $!" ) if -r $filename && ! -l $filename ; return ; } < $candidate > ; }',
+            'start_line' => 1285,
+            'indent' => 1,
+            'block_id' => 106
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 1286,
+            'src' => ' local $/ ;',
+            'start_line' => 1286,
+            'indent' => 2,
+            'block_id' => 107
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 1287,
+            'src' => ' my $candidate ;',
+            'start_line' => 1287,
+            'indent' => 2,
+            'block_id' => 107
+          },
+          {
+            'token_num' => 28,
+            'has_warnings' => 1,
+            'end_line' => 1299,
+            'src' => ' if ( ! open $candidate , \'<:bytes\' , $_ ) { ok ( 0 , "Can\'t open \'$filename\': $!" ) if -r $filename && ! -l $filename ; return ; }',
+            'start_line' => 1288,
+            'indent' => 2,
+            'block_id' => 107
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 1297,
+            'src' => ' ok ( 0 , "Can\'t open \'$filename\': $!" ) if -r $filename && ! -l $filename ;',
+            'start_line' => 1296,
+            'indent' => 3,
+            'block_id' => 108
+          },
+          {
+            'token_num' => 2,
+            'has_warnings' => 0,
+            'end_line' => 1298,
+            'src' => ' return ;',
+            'start_line' => 1298,
+            'indent' => 3,
+            'block_id' => 108
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 1300,
+            'src' => ' < $candidate > ;',
+            'start_line' => 1300,
+            'indent' => 2,
+            'block_id' => 107
+          },
+          {
+            'token_num' => 21,
+            'has_warnings' => 1,
+            'end_line' => 1310,
+            'src' => ' if ( $filename =~/\\.(?:pm|pod)/ ) { return unless $contents =~/^=/m;
+    } else {
+        return unless $contents =~ /^=head1 +NAME/m; }',
+            'start_line' => 1306,
+            'indent' => 1,
+            'block_id' => 103
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 1315,
+            'src' => ' push @files , $filename ;',
+            'start_line' => 1315,
+            'indent' => 1,
+            'block_id' => 103
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 1316,
+            'src' => ' my $checker = My::Pod::Checker-> new ( $filename ) ;',
+            'start_line' => 1316,
+            'indent' => 1,
+            'block_id' => 103
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1317,
+            'src' => ' $filename_to_checker { $filename } = $checker ;',
+            'start_line' => 1317,
+            'indent' => 1,
+            'block_id' => 103
+          },
+          {
+            'token_num' => 108,
+            'has_warnings' => 1,
+            'end_line' => 1366,
+            'src' => ' if ( $filename =~/ (?: ^(cpan|lib|ext|dist)\\/ )
+                        | $only_for_interior_links_re
+                    /x ) { $digest-> add ( $contents ) ; $digests { $filename } = $digest-> digest ; if ( $filename =~ m{ (?: ^ (?: cpan | lib ) / )
+                            | $only_for_interior_links_re
+                            }x ) { if ( $contents =~/^=head1 +NAME.*/mg ) { if ( $contents =~/\\G    # continue from the line after =head1
+                                  \\s*   # ignore any empty lines
+                                  ^ \\s* ( \\S+?) \\s* (?: [,-] | $ )/mx ) { my $name = $1 ; $checker-> name ( $name ) ; $id_to_checker { $name } = $checker if $filename =~ m{^cpan/} ; } } elsif ( $filename =~ m{^cpan/} ) { $id_to_checker { $digests { $filename } } = $checker ; } } }',
+            'start_line' => 1328,
+            'indent' => 1,
+            'block_id' => 103
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1331,
+            'src' => ' $digest-> add ( $contents ) ;',
+            'start_line' => 1331,
+            'indent' => 2,
+            'block_id' => 110
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 1332,
+            'src' => ' $digests { $filename } = $digest-> digest ;',
+            'start_line' => 1332,
+            'indent' => 2,
+            'block_id' => 110
+          },
+          {
+            'token_num' => 81,
+            'has_warnings' => 1,
+            'end_line' => 1365,
+            'src' => ' if ( $filename =~ m{ (?: ^ (?: cpan | lib ) / )
+                            | $only_for_interior_links_re
+                            }x ) { if ( $contents =~/^=head1 +NAME.*/mg ) { if ( $contents =~/\\G    # continue from the line after =head1
+                                  \\s*   # ignore any empty lines
+                                  ^ \\s* ( \\S+?) \\s* (?: [,-] | $ )/mx ) { my $name = $1 ; $checker-> name ( $name ) ; $id_to_checker { $name } = $checker if $filename =~ m{^cpan/} ; } } elsif ( $filename =~ m{^cpan/} ) { $id_to_checker { $digests { $filename } } = $checker ; } }',
+            'start_line' => 1343,
+            'indent' => 2,
+            'block_id' => 110
+          },
+          {
+            'token_num' => 48,
+            'has_warnings' => 1,
+            'end_line' => 1361,
+            'src' => ' if ( $contents =~/^=head1 +NAME.*/mg ) { if ( $contents =~/\\G    # continue from the line after =head1
+                                  \\s*   # ignore any empty lines
+                                  ^ \\s* ( \\S+?) \\s* (?: [,-] | $ )/mx ) { my $name = $1 ; $checker-> name ( $name ) ; $id_to_checker { $name } = $checker if $filename =~ m{^cpan/} ; } }',
+            'start_line' => 1346,
+            'indent' => 3,
+            'block_id' => 111
+          },
+          {
+            'token_num' => 37,
+            'has_warnings' => 1,
+            'end_line' => 1360,
+            'src' => ' if ( $contents =~/\\G    # continue from the line after =head1
+                                  \\s*   # ignore any empty lines
+                                  ^ \\s* ( \\S+?) \\s* (?: [,-] | $ )/mx ) { my $name = $1 ; $checker-> name ( $name ) ; $id_to_checker { $name } = $checker if $filename =~ m{^cpan/} ; }',
+            'start_line' => 1353,
+            'indent' => 4,
+            'block_id' => 112
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 1356,
+            'src' => ' my $name = $1 ;',
+            'start_line' => 1356,
+            'indent' => 5,
+            'block_id' => 113
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1357,
+            'src' => ' $checker-> name ( $name ) ;',
+            'start_line' => 1357,
+            'indent' => 5,
+            'block_id' => 113
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 1359,
+            'src' => ' $id_to_checker { $name } = $checker if $filename =~ m{^cpan/} ;',
+            'start_line' => 1358,
+            'indent' => 5,
+            'block_id' => 113
+          },
+          {
+            'token_num' => 21,
+            'has_warnings' => 1,
+            'end_line' => 1364,
+            'src' => ' elsif ( $filename =~ m{^cpan/} ) { $id_to_checker { $digests { $filename } } = $checker ; }',
+            'start_line' => 1362,
+            'indent' => 3,
+            'block_id' => 111
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 1363,
+            'src' => ' $id_to_checker { $digests { $filename } } = $checker ;',
+            'start_line' => 1363,
+            'indent' => 4,
+            'block_id' => 114
+          },
+          {
+            'token_num' => 2,
+            'has_warnings' => 0,
+            'end_line' => 1368,
+            'src' => ' return ;',
+            'start_line' => 1368,
+            'indent' => 1,
+            'block_id' => 103
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 1382,
+            'src' => ' if ( $has_input_files ) { undef %known_problems ; $do_upstream_cpan = $do_deltas = 1 ; }',
+            'start_line' => 1378,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 1379,
+            'src' => ' undef %known_problems ;',
+            'start_line' => 1379,
+            'indent' => 1,
+            'block_id' => 115
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 1380,
+            'src' => ' $do_upstream_cpan = $do_deltas = 1 ;',
+            'start_line' => 1380,
+            'indent' => 1,
+            'block_id' => 115
+          },
+          {
+            'token_num' => 54,
+            'has_warnings' => 1,
+            'end_line' => 1400,
+            'src' => ' else { if ( $regen ) { $copy_fh = open_new ( $known_issues ) ; note ( "Regenerating $known_issues, please be patient..." ) ; print $copy_fh $HEADER ; } s{^\\.\\./lib$}{lib} for @INC ; chdir File::Spec-> updir ; find ( \\ & is_pod_file , \'.\' ) ; push @files , "t/porting/podcheck.t" ; }',
+            'start_line' => 1383,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 22,
+            'has_warnings' => 1,
+            'end_line' => 1388,
+            'src' => ' if ( $regen ) { $copy_fh = open_new ( $known_issues ) ; note ( "Regenerating $known_issues, please be patient..." ) ; print $copy_fh $HEADER ; }',
+            'start_line' => 1384,
+            'indent' => 1,
+            'block_id' => 116
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1385,
+            'src' => ' $copy_fh = open_new ( $known_issues ) ;',
+            'start_line' => 1385,
+            'indent' => 2,
+            'block_id' => 117
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 1386,
+            'src' => ' note ( "Regenerating $known_issues, please be patient..." ) ;',
+            'start_line' => 1386,
+            'indent' => 2,
+            'block_id' => 117
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 1387,
+            'src' => ' print $copy_fh $HEADER ;',
+            'start_line' => 1387,
+            'indent' => 2,
+            'block_id' => 117
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 0,
+            'end_line' => 1392,
+            'src' => ' s{^\\.\\./lib$}{lib} for @INC ;',
+            'start_line' => 1392,
+            'indent' => 1,
+            'block_id' => 116
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 1393,
+            'src' => ' chdir File::Spec-> updir ;',
+            'start_line' => 1393,
+            'indent' => 1,
+            'block_id' => 116
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 1396,
+            'src' => ' find ( \\ & is_pod_file , \'.\' ) ;',
+            'start_line' => 1396,
+            'indent' => 1,
+            'block_id' => 116
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 1399,
+            'src' => ' push @files , "t/porting/podcheck.t" ;',
+            'start_line' => 1399,
+            'indent' => 1,
+            'block_id' => 116
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 1403,
+            'src' => ' plan ( tests => scalar @files ) if ! $regen ;',
+            'start_line' => 1403,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 176,
+            'has_warnings' => 1,
+            'end_line' => 1448,
+            'src' => ' @files = sort { if ( $a =~/^cpan/ ) { return 1 if $b !~/^cpan/ ; return lc $a cmp lc $b ; } elsif ( $b =~/^cpan/ ) { return -1 ; } elsif ( $a =~/$only_for_interior_links_re/ ) { return 1 if $b !~/$only_for_interior_links_re/ ; return lc $a cmp lc $b ; } elsif ( $b =~/$only_for_interior_links_re/ ) { return -1 ; } elsif ( $a =~/^lib/ ) { return 1 if $b !~/^lib/ ; return lc $a cmp lc $b ; } elsif ( $b =~/^lib/ ) { return -1 ; } elsif ( $a =~/\\breadme\\b/i ) { return 1 if $b !~/\\breadme\\b/i ; return lc $a cmp lc $b ; } elsif ( $b =~/\\breadme\\b/i ) { return -1 ; } else { return lc $a cmp lc $b ; } } @files ;',
+            'start_line' => 1417,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 26,
+            'has_warnings' => 1,
+            'end_line' => 1420,
+            'src' => ' if ( $a =~/^cpan/ ) { return 1 if $b !~/^cpan/ ; return lc $a cmp lc $b ; }',
+            'start_line' => 1417,
+            'indent' => 0,
+            'block_id' => 117
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 1418,
+            'src' => ' return 1 if $b !~/^cpan/ ;',
+            'start_line' => 1418,
+            'indent' => 1,
+            'block_id' => 118
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1419,
+            'src' => ' return lc $a cmp lc $b ;',
+            'start_line' => 1419,
+            'indent' => 1,
+            'block_id' => 118
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 1423,
+            'src' => ' elsif ( $b =~/^cpan/ ) { return -1 ; }',
+            'start_line' => 1421,
+            'indent' => 0,
+            'block_id' => 117
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 1422,
+            'src' => ' return -1 ;',
+            'start_line' => 1422,
+            'indent' => 1,
+            'block_id' => 119
+          },
+          {
+            'token_num' => 26,
+            'has_warnings' => 1,
+            'end_line' => 1427,
+            'src' => ' elsif ( $a =~/$only_for_interior_links_re/ ) { return 1 if $b !~/$only_for_interior_links_re/ ; return lc $a cmp lc $b ; }',
+            'start_line' => 1424,
+            'indent' => 0,
+            'block_id' => 117
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 1425,
+            'src' => ' return 1 if $b !~/$only_for_interior_links_re/ ;',
+            'start_line' => 1425,
+            'indent' => 1,
+            'block_id' => 120
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1426,
+            'src' => ' return lc $a cmp lc $b ;',
+            'start_line' => 1426,
+            'indent' => 1,
+            'block_id' => 120
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 1430,
+            'src' => ' elsif ( $b =~/$only_for_interior_links_re/ ) { return -1 ; }',
+            'start_line' => 1428,
+            'indent' => 0,
+            'block_id' => 117
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 1429,
+            'src' => ' return -1 ;',
+            'start_line' => 1429,
+            'indent' => 1,
+            'block_id' => 121
+          },
+          {
+            'token_num' => 26,
+            'has_warnings' => 1,
+            'end_line' => 1434,
+            'src' => ' elsif ( $a =~/^lib/ ) { return 1 if $b !~/^lib/ ; return lc $a cmp lc $b ; }',
+            'start_line' => 1431,
+            'indent' => 0,
+            'block_id' => 117
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 1432,
+            'src' => ' return 1 if $b !~/^lib/ ;',
+            'start_line' => 1432,
+            'indent' => 1,
+            'block_id' => 122
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1433,
+            'src' => ' return lc $a cmp lc $b ;',
+            'start_line' => 1433,
+            'indent' => 1,
+            'block_id' => 122
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 1437,
+            'src' => ' elsif ( $b =~/^lib/ ) { return -1 ; }',
+            'start_line' => 1435,
+            'indent' => 0,
+            'block_id' => 117
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 1436,
+            'src' => ' return -1 ;',
+            'start_line' => 1436,
+            'indent' => 1,
+            'block_id' => 123
+          },
+          {
+            'token_num' => 28,
+            'has_warnings' => 1,
+            'end_line' => 1440,
+            'src' => ' elsif ( $a =~/\\breadme\\b/i ) { return 1 if $b !~/\\breadme\\b/i ; return lc $a cmp lc $b ; }',
+            'start_line' => 1437,
+            'indent' => 0,
+            'block_id' => 117
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 1438,
+            'src' => ' return 1 if $b !~/\\breadme\\b/i ;',
+            'start_line' => 1438,
+            'indent' => 1,
+            'block_id' => 124
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1439,
+            'src' => ' return lc $a cmp lc $b ;',
+            'start_line' => 1439,
+            'indent' => 1,
+            'block_id' => 124
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 1443,
+            'src' => ' elsif ( $b =~/\\breadme\\b/i ) { return -1 ; }',
+            'start_line' => 1441,
+            'indent' => 0,
+            'block_id' => 117
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 1442,
+            'src' => ' return -1 ;',
+            'start_line' => 1442,
+            'indent' => 1,
+            'block_id' => 125
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 1446,
+            'src' => ' else { return lc $a cmp lc $b ; }',
+            'start_line' => 1444,
+            'indent' => 0,
+            'block_id' => 117
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1445,
+            'src' => ' return lc $a cmp lc $b ;',
+            'start_line' => 1445,
+            'indent' => 1,
+            'block_id' => 126
+          },
+          {
+            'token_num' => 631,
+            'has_warnings' => 1,
+            'end_line' => 1617,
+            'src' => ' foreach my $filename ( @files ) { my $parsed = 0 ; note ( "parsing $filename" ) if DEBUG ; my $checker = $filename_to_checker { $filename } ; if ( ! $checker ) { $checker = My::Pod::Checker-> new ( $filename ) ; $filename_to_checker { $filename } = $checker ; } if ( ! $checker-> name ) { $parsed = 1 ; $checker-> parse_from_file ( $filename , undef ) ; } if ( $checker-> num_errors ( ) < 0 ) { $checker-> set_skip ( "$filename is not a pod" ) ; } else { my $name = $checker-> name ; my $id ; if ( $name ) { $id = $name ; } else { my $digest = Digest-> new ( $digest_type ) ; $digest-> add ( extract_pod ( $filename ) ) ; $id = $digest-> digest ; } my $prior_checker ; if ( defined ( $prior_checker = $id_to_checker { $id } ) && $prior_checker != $checker ) { my $prior_filename = $prior_checker-> get_filename ; my $same = ( ! $name || ( $digests { $prior_filename } && $digests { $filename } && $digests { $prior_filename } eq $digests { $filename } ) ) ; if ( ! $same && $name ) { $same = extract_pod ( $prior_filename ) eq extract_pod ( $filename ) ; } if ( $same ) { $checker-> set_skip ( "The pod of $filename is a duplicate of " . "the pod for $prior_filename" ) ; } elsif ( $prior_filename =~/\\breadme\\b/i ) { $checker-> set_skip ( "$prior_filename is a README apparently for $filename" ) ; } elsif ( $filename =~/\\breadme\\b/i ) { $checker-> set_skip ( "$filename is a README apparently for $prior_filename" ) ; } elsif ( ! $do_upstream_cpan && $filename =~/^cpan/ && $prior_filename =~/^cpan/ ) { $checker-> set_skip ( "CPAN is upstream for $filename" ) ; } else { $prior_checker-> poderror ( { -msg => $duplicate_name , -line => "???" , parameter => "\'$filename\' also has NAME \'$name\'" } ) ; $checker-> poderror ( { -msg => $duplicate_name , -line => "???" , parameter => "\'$prior_filename\' also has NAME \'$name\'" } ) ; $prior_checker-> name ( "$name version arbitrarily numbered 1" ) ; $checker-> name ( "$name version arbitrarily numbered 2" ) ; } next ; } $id_to_checker { $id } = $checker ; my $parsed_for_links = ", but parsed for its interior links" ; if ( ( ! $do_upstream_cpan && $filename =~/^cpan/ ) || $filename =~ $only_for_interior_links_re ) { if ( $filename =~/^cpan/ ) { $checker-> set_skip ( "CPAN is upstream for $filename" ) ; } elsif ( $filename =~/perl\\d+delta/ && ! $do_deltas ) { $checker-> set_skip ( "$filename is a stable perldelta" ) ; } elsif ( $filename =~/perltoc/ ) { $checker-> set_skip ( "$filename dependent on component pods" ) ; } else { croak ( "Unexpected file \'$filename\' encountered that has parsing for interior-linking only" ) ; } if ( $name && $has_referred_to_node { $name } ) { $checker-> set_skip ( $checker-> get_skip ( ) . $parsed_for_links ) ; } } if ( ! defined $name ) { $checker-> poderror ( { -msg => $no_name , -line => \'???\' } ) ; next ; } my $skip ; if ( ( $skip = $checker-> get_skip ( ) ) && $skip !~/$parsed_for_links/ ) { $checker-> node ( $name ) if $name ; } else { $checker-> parse_from_file ( $filename , undef ) if ! $parsed ; } foreach my $node ( $checker-> linkable_nodes ) { next if ! $node ; if ( exists $nodes { $name } { $node } ) { $nodes { $name } { $node } ++ ; } else { $nodes { $name } { $node } = 1 ; } my $first_word = $node ; if ( $first_word =~ s/^(\\S+)\\s+\\S.*/$1/ ) { $nodes_first_word { $name } { $first_word } = $node ; } } $filename_to_pod { $filename } = $name ; } }',
+            'start_line' => 1451,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 1452,
+            'src' => ' my $parsed = 0 ;',
+            'start_line' => 1452,
+            'indent' => 1,
+            'block_id' => 127
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 1453,
+            'src' => ' note ( "parsing $filename" ) if DEBUG ;',
+            'start_line' => 1453,
+            'indent' => 1,
+            'block_id' => 127
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 1458,
+            'src' => ' my $checker = $filename_to_checker { $filename } ;',
+            'start_line' => 1458,
+            'indent' => 1,
+            'block_id' => 127
+          },
+          {
+            'token_num' => 23,
+            'has_warnings' => 1,
+            'end_line' => 1462,
+            'src' => ' if ( ! $checker ) { $checker = My::Pod::Checker-> new ( $filename ) ; $filename_to_checker { $filename } = $checker ; }',
+            'start_line' => 1459,
+            'indent' => 1,
+            'block_id' => 127
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 1460,
+            'src' => ' $checker = My::Pod::Checker-> new ( $filename ) ;',
+            'start_line' => 1460,
+            'indent' => 2,
+            'block_id' => 128
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1461,
+            'src' => ' $filename_to_checker { $filename } = $checker ;',
+            'start_line' => 1461,
+            'indent' => 2,
+            'block_id' => 128
+          },
+          {
+            'token_num' => 22,
+            'has_warnings' => 1,
+            'end_line' => 1469,
+            'src' => ' if ( ! $checker-> name ) { $parsed = 1 ; $checker-> parse_from_file ( $filename , undef ) ; }',
+            'start_line' => 1466,
+            'indent' => 1,
+            'block_id' => 127
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 1467,
+            'src' => ' $parsed = 1 ;',
+            'start_line' => 1467,
+            'indent' => 2,
+            'block_id' => 129
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 1468,
+            'src' => ' $checker-> parse_from_file ( $filename , undef ) ;',
+            'start_line' => 1468,
+            'indent' => 2,
+            'block_id' => 129
+          },
+          {
+            'token_num' => 19,
+            'has_warnings' => 1,
+            'end_line' => 1473,
+            'src' => ' if ( $checker-> num_errors ( ) < 0 ) { $checker-> set_skip ( "$filename is not a pod" ) ; }',
+            'start_line' => 1471,
+            'indent' => 1,
+            'block_id' => 127
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1472,
+            'src' => ' $checker-> set_skip ( "$filename is not a pod" ) ;',
+            'start_line' => 1472,
+            'indent' => 2,
+            'block_id' => 130
+          },
+          {
+            'token_num' => 539,
+            'has_warnings' => 1,
+            'end_line' => 1616,
+            'src' => ' else { my $name = $checker-> name ; my $id ; if ( $name ) { $id = $name ; } else { my $digest = Digest-> new ( $digest_type ) ; $digest-> add ( extract_pod ( $filename ) ) ; $id = $digest-> digest ; } my $prior_checker ; if ( defined ( $prior_checker = $id_to_checker { $id } ) && $prior_checker != $checker ) { my $prior_filename = $prior_checker-> get_filename ; my $same = ( ! $name || ( $digests { $prior_filename } && $digests { $filename } && $digests { $prior_filename } eq $digests { $filename } ) ) ; if ( ! $same && $name ) { $same = extract_pod ( $prior_filename ) eq extract_pod ( $filename ) ; } if ( $same ) { $checker-> set_skip ( "The pod of $filename is a duplicate of " . "the pod for $prior_filename" ) ; } elsif ( $prior_filename =~/\\breadme\\b/i ) { $checker-> set_skip ( "$prior_filename is a README apparently for $filename" ) ; } elsif ( $filename =~/\\breadme\\b/i ) { $checker-> set_skip ( "$filename is a README apparently for $prior_filename" ) ; } elsif ( ! $do_upstream_cpan && $filename =~/^cpan/ && $prior_filename =~/^cpan/ ) { $checker-> set_skip ( "CPAN is upstream for $filename" ) ; } else { $prior_checker-> poderror ( { -msg => $duplicate_name , -line => "???" , parameter => "\'$filename\' also has NAME \'$name\'" } ) ; $checker-> poderror ( { -msg => $duplicate_name , -line => "???" , parameter => "\'$prior_filename\' also has NAME \'$name\'" } ) ; $prior_checker-> name ( "$name version arbitrarily numbered 1" ) ; $checker-> name ( "$name version arbitrarily numbered 2" ) ; } next ; } $id_to_checker { $id } = $checker ; my $parsed_for_links = ", but parsed for its interior links" ; if ( ( ! $do_upstream_cpan && $filename =~/^cpan/ ) || $filename =~ $only_for_interior_links_re ) { if ( $filename =~/^cpan/ ) { $checker-> set_skip ( "CPAN is upstream for $filename" ) ; } elsif ( $filename =~/perl\\d+delta/ && ! $do_deltas ) { $checker-> set_skip ( "$filename is a stable perldelta" ) ; } elsif ( $filename =~/perltoc/ ) { $checker-> set_skip ( "$filename dependent on component pods" ) ; } else { croak ( "Unexpected file \'$filename\' encountered that has parsing for interior-linking only" ) ; } if ( $name && $has_referred_to_node { $name } ) { $checker-> set_skip ( $checker-> get_skip ( ) . $parsed_for_links ) ; } } if ( ! defined $name ) { $checker-> poderror ( { -msg => $no_name , -line => \'???\' } ) ; next ; } my $skip ; if ( ( $skip = $checker-> get_skip ( ) ) && $skip !~/$parsed_for_links/ ) { $checker-> node ( $name ) if $name ; } else { $checker-> parse_from_file ( $filename , undef ) if ! $parsed ; } foreach my $node ( $checker-> linkable_nodes ) { next if ! $node ; if ( exists $nodes { $name } { $node } ) { $nodes { $name } { $node } ++ ; } else { $nodes { $name } { $node } = 1 ; } my $first_word = $node ; if ( $first_word =~ s/^(\\S+)\\s+\\S.*/$1/ ) { $nodes_first_word { $name } { $first_word } = $node ; } } $filename_to_pod { $filename } = $name ; }',
+            'start_line' => 1474,
+            'indent' => 1,
+            'block_id' => 127
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1479,
+            'src' => ' my $name = $checker-> name ;',
+            'start_line' => 1479,
+            'indent' => 2,
+            'block_id' => 131
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 1480,
+            'src' => ' my $id ;',
+            'start_line' => 1480,
+            'indent' => 2,
+            'block_id' => 131
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 1484,
+            'src' => ' if ( $name ) { $id = $name ; }',
+            'start_line' => 1482,
+            'indent' => 2,
+            'block_id' => 131
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 1483,
+            'src' => ' $id = $name ;',
+            'start_line' => 1483,
+            'indent' => 3,
+            'block_id' => 132
+          },
+          {
+            'token_num' => 29,
+            'has_warnings' => 1,
+            'end_line' => 1489,
+            'src' => ' else { my $digest = Digest-> new ( $digest_type ) ; $digest-> add ( extract_pod ( $filename ) ) ; $id = $digest-> digest ; }',
+            'start_line' => 1485,
+            'indent' => 2,
+            'block_id' => 131
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 1486,
+            'src' => ' my $digest = Digest-> new ( $digest_type ) ;',
+            'start_line' => 1486,
+            'indent' => 3,
+            'block_id' => 133
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 1487,
+            'src' => ' $digest-> add ( extract_pod ( $filename ) ) ;',
+            'start_line' => 1487,
+            'indent' => 3,
+            'block_id' => 133
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 1488,
+            'src' => ' $id = $digest-> digest ;',
+            'start_line' => 1488,
+            'indent' => 3,
+            'block_id' => 133
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 1493,
+            'src' => ' my $prior_checker ;',
+            'start_line' => 1493,
+            'indent' => 2,
+            'block_id' => 131
+          },
+          {
+            'token_num' => 210,
+            'has_warnings' => 1,
+            'end_line' => 1548,
+            'src' => ' if ( defined ( $prior_checker = $id_to_checker { $id } ) && $prior_checker != $checker ) { my $prior_filename = $prior_checker-> get_filename ; my $same = ( ! $name || ( $digests { $prior_filename } && $digests { $filename } && $digests { $prior_filename } eq $digests { $filename } ) ) ; if ( ! $same && $name ) { $same = extract_pod ( $prior_filename ) eq extract_pod ( $filename ) ; } if ( $same ) { $checker-> set_skip ( "The pod of $filename is a duplicate of " . "the pod for $prior_filename" ) ; } elsif ( $prior_filename =~/\\breadme\\b/i ) { $checker-> set_skip ( "$prior_filename is a README apparently for $filename" ) ; } elsif ( $filename =~/\\breadme\\b/i ) { $checker-> set_skip ( "$filename is a README apparently for $prior_filename" ) ; } elsif ( ! $do_upstream_cpan && $filename =~/^cpan/ && $prior_filename =~/^cpan/ ) { $checker-> set_skip ( "CPAN is upstream for $filename" ) ; } else { $prior_checker-> poderror ( { -msg => $duplicate_name , -line => "???" , parameter => "\'$filename\' also has NAME \'$name\'" } ) ; $checker-> poderror ( { -msg => $duplicate_name , -line => "???" , parameter => "\'$prior_filename\' also has NAME \'$name\'" } ) ; $prior_checker-> name ( "$name version arbitrarily numbered 1" ) ; $checker-> name ( "$name version arbitrarily numbered 2" ) ; } next ; }',
+            'start_line' => 1494,
+            'indent' => 2,
+            'block_id' => 131
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1503,
+            'src' => ' my $prior_filename = $prior_checker-> get_filename ;',
+            'start_line' => 1503,
+            'indent' => 3,
+            'block_id' => 134
+          },
+          {
+            'token_num' => 30,
+            'has_warnings' => 1,
+            'end_line' => 1507,
+            'src' => ' my $same = ( ! $name || ( $digests { $prior_filename } && $digests { $filename } && $digests { $prior_filename } eq $digests { $filename } ) ) ;',
+            'start_line' => 1504,
+            'indent' => 3,
+            'block_id' => 134
+          },
+          {
+            'token_num' => 21,
+            'has_warnings' => 1,
+            'end_line' => 1514,
+            'src' => ' if ( ! $same && $name ) { $same = extract_pod ( $prior_filename ) eq extract_pod ( $filename ) ; }',
+            'start_line' => 1512,
+            'indent' => 3,
+            'block_id' => 134
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 1513,
+            'src' => ' $same = extract_pod ( $prior_filename ) eq extract_pod ( $filename ) ;',
+            'start_line' => 1513,
+            'indent' => 4,
+            'block_id' => 135
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 1519,
+            'src' => ' if ( $same ) { $checker-> set_skip ( "The pod of $filename is a duplicate of " . "the pod for $prior_filename" ) ; }',
+            'start_line' => 1516,
+            'indent' => 3,
+            'block_id' => 134
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 1518,
+            'src' => ' $checker-> set_skip ( "The pod of $filename is a duplicate of " . "the pod for $prior_filename" ) ;',
+            'start_line' => 1517,
+            'indent' => 4,
+            'block_id' => 136
+          },
+          {
+            'token_num' => 18,
+            'has_warnings' => 1,
+            'end_line' => 1521,
+            'src' => ' elsif ( $prior_filename =~/\\breadme\\b/i ) { $checker-> set_skip ( "$prior_filename is a README apparently for $filename" ) ; }',
+            'start_line' => 1519,
+            'indent' => 3,
+            'block_id' => 134
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1520,
+            'src' => ' $checker-> set_skip ( "$prior_filename is a README apparently for $filename" ) ;',
+            'start_line' => 1520,
+            'indent' => 4,
+            'block_id' => 137
+          },
+          {
+            'token_num' => 18,
+            'has_warnings' => 1,
+            'end_line' => 1523,
+            'src' => ' elsif ( $filename =~/\\breadme\\b/i ) { $checker-> set_skip ( "$filename is a README apparently for $prior_filename" ) ; }',
+            'start_line' => 1521,
+            'indent' => 3,
+            'block_id' => 134
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1522,
+            'src' => ' $checker-> set_skip ( "$filename is a README apparently for $prior_filename" ) ;',
+            'start_line' => 1522,
+            'indent' => 4,
+            'block_id' => 138
+          },
+          {
+            'token_num' => 26,
+            'has_warnings' => 1,
+            'end_line' => 1528,
+            'src' => ' elsif ( ! $do_upstream_cpan && $filename =~/^cpan/ && $prior_filename =~/^cpan/ ) { $checker-> set_skip ( "CPAN is upstream for $filename" ) ; }',
+            'start_line' => 1523,
+            'indent' => 3,
+            'block_id' => 134
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1527,
+            'src' => ' $checker-> set_skip ( "CPAN is upstream for $filename" ) ;',
+            'start_line' => 1527,
+            'indent' => 4,
+            'block_id' => 139
+          },
+          {
+            'token_num' => 55,
+            'has_warnings' => 1,
+            'end_line' => 1543,
+            'src' => ' else { $prior_checker-> poderror ( { -msg => $duplicate_name , -line => "???" , parameter => "\'$filename\' also has NAME \'$name\'" } ) ; $checker-> poderror ( { -msg => $duplicate_name , -line => "???" , parameter => "\'$prior_filename\' also has NAME \'$name\'" } ) ; $prior_checker-> name ( "$name version arbitrarily numbered 1" ) ; $checker-> name ( "$name version arbitrarily numbered 2" ) ; }',
+            'start_line' => 1528,
+            'indent' => 3,
+            'block_id' => 134
+          },
+          {
+            'token_num' => 19,
+            'has_warnings' => 1,
+            'end_line' => 1533,
+            'src' => ' $prior_checker-> poderror ( { -msg => $duplicate_name , -line => "???" , parameter => "\'$filename\' also has NAME \'$name\'" } ) ;',
+            'start_line' => 1529,
+            'indent' => 4,
+            'block_id' => 140
+          },
+          {
+            'token_num' => 19,
+            'has_warnings' => 1,
+            'end_line' => 1538,
+            'src' => ' $checker-> poderror ( { -msg => $duplicate_name , -line => "???" , parameter => "\'$prior_filename\' also has NAME \'$name\'" } ) ;',
+            'start_line' => 1534,
+            'indent' => 4,
+            'block_id' => 140
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1541,
+            'src' => ' $prior_checker-> name ( "$name version arbitrarily numbered 1" ) ;',
+            'start_line' => 1541,
+            'indent' => 4,
+            'block_id' => 140
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1542,
+            'src' => ' $checker-> name ( "$name version arbitrarily numbered 2" ) ;',
+            'start_line' => 1542,
+            'indent' => 4,
+            'block_id' => 140
+          },
+          {
+            'token_num' => 2,
+            'has_warnings' => 0,
+            'end_line' => 1547,
+            'src' => ' next ;',
+            'start_line' => 1547,
+            'indent' => 3,
+            'block_id' => 134
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1551,
+            'src' => ' $id_to_checker { $id } = $checker ;',
+            'start_line' => 1551,
+            'indent' => 2,
+            'block_id' => 131
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 1553,
+            'src' => ' my $parsed_for_links = ", but parsed for its interior links" ;',
+            'start_line' => 1553,
+            'indent' => 2,
+            'block_id' => 131
+          },
+          {
+            'token_num' => 105,
+            'has_warnings' => 1,
+            'end_line' => 1573,
+            'src' => ' if ( ( ! $do_upstream_cpan && $filename =~/^cpan/ ) || $filename =~ $only_for_interior_links_re ) { if ( $filename =~/^cpan/ ) { $checker-> set_skip ( "CPAN is upstream for $filename" ) ; } elsif ( $filename =~/perl\\d+delta/ && ! $do_deltas ) { $checker-> set_skip ( "$filename is a stable perldelta" ) ; } elsif ( $filename =~/perltoc/ ) { $checker-> set_skip ( "$filename dependent on component pods" ) ; } else { croak ( "Unexpected file \'$filename\' encountered that has parsing for interior-linking only" ) ; } if ( $name && $has_referred_to_node { $name } ) { $checker-> set_skip ( $checker-> get_skip ( ) . $parsed_for_links ) ; } }',
+            'start_line' => 1554,
+            'indent' => 2,
+            'block_id' => 131
+          },
+          {
+            'token_num' => 17,
+            'has_warnings' => 1,
+            'end_line' => 1559,
+            'src' => ' if ( $filename =~/^cpan/ ) { $checker-> set_skip ( "CPAN is upstream for $filename" ) ; }',
+            'start_line' => 1557,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1558,
+            'src' => ' $checker-> set_skip ( "CPAN is upstream for $filename" ) ;',
+            'start_line' => 1558,
+            'indent' => 4,
+            'block_id' => 142
+          },
+          {
+            'token_num' => 20,
+            'has_warnings' => 1,
+            'end_line' => 1562,
+            'src' => ' elsif ( $filename =~/perl\\d+delta/ && ! $do_deltas ) { $checker-> set_skip ( "$filename is a stable perldelta" ) ; }',
+            'start_line' => 1560,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1561,
+            'src' => ' $checker-> set_skip ( "$filename is a stable perldelta" ) ;',
+            'start_line' => 1561,
+            'indent' => 4,
+            'block_id' => 143
+          },
+          {
+            'token_num' => 17,
+            'has_warnings' => 1,
+            'end_line' => 1565,
+            'src' => ' elsif ( $filename =~/perltoc/ ) { $checker-> set_skip ( "$filename dependent on component pods" ) ; }',
+            'start_line' => 1563,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1564,
+            'src' => ' $checker-> set_skip ( "$filename dependent on component pods" ) ;',
+            'start_line' => 1564,
+            'indent' => 4,
+            'block_id' => 144
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 1568,
+            'src' => ' else { croak ( "Unexpected file \'$filename\' encountered that has parsing for interior-linking only" ) ; }',
+            'start_line' => 1566,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 1567,
+            'src' => ' croak ( "Unexpected file \'$filename\' encountered that has parsing for interior-linking only" ) ;',
+            'start_line' => 1567,
+            'indent' => 4,
+            'block_id' => 145
+          },
+          {
+            'token_num' => 24,
+            'has_warnings' => 1,
+            'end_line' => 1572,
+            'src' => ' if ( $name && $has_referred_to_node { $name } ) { $checker-> set_skip ( $checker-> get_skip ( ) . $parsed_for_links ) ; }',
+            'start_line' => 1570,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 1571,
+            'src' => ' $checker-> set_skip ( $checker-> get_skip ( ) . $parsed_for_links ) ;',
+            'start_line' => 1571,
+            'indent' => 4,
+            'block_id' => 146
+          },
+          {
+            'token_num' => 25,
+            'has_warnings' => 1,
+            'end_line' => 1582,
+            'src' => ' if ( ! defined $name ) { $checker-> poderror ( { -msg => $no_name , -line => \'???\' } ) ; next ; }',
+            'start_line' => 1577,
+            'indent' => 2,
+            'block_id' => 131
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 1580,
+            'src' => ' $checker-> poderror ( { -msg => $no_name , -line => \'???\' } ) ;',
+            'start_line' => 1578,
+            'indent' => 3,
+            'block_id' => 147
+          },
+          {
+            'token_num' => 2,
+            'has_warnings' => 0,
+            'end_line' => 1581,
+            'src' => ' next ;',
+            'start_line' => 1581,
+            'indent' => 3,
+            'block_id' => 147
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 1585,
+            'src' => ' my $skip ;',
+            'start_line' => 1585,
+            'indent' => 2,
+            'block_id' => 131
+          },
+          {
+            'token_num' => 29,
+            'has_warnings' => 1,
+            'end_line' => 1589,
+            'src' => ' if ( ( $skip = $checker-> get_skip ( ) ) && $skip !~/$parsed_for_links/ ) { $checker-> node ( $name ) if $name ; }',
+            'start_line' => 1586,
+            'indent' => 2,
+            'block_id' => 131
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 1588,
+            'src' => ' $checker-> node ( $name ) if $name ;',
+            'start_line' => 1588,
+            'indent' => 3,
+            'block_id' => 148
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 1592,
+            'src' => ' else { $checker-> parse_from_file ( $filename , undef ) if ! $parsed ; }',
+            'start_line' => 1590,
+            'indent' => 2,
+            'block_id' => 131
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 1591,
+            'src' => ' $checker-> parse_from_file ( $filename , undef ) if ! $parsed ;',
+            'start_line' => 1591,
+            'indent' => 3,
+            'block_id' => 149
+          },
+          {
+            'token_num' => 78,
+            'has_warnings' => 1,
+            'end_line' => 1614,
+            'src' => ' foreach my $node ( $checker-> linkable_nodes ) { next if ! $node ; if ( exists $nodes { $name } { $node } ) { $nodes { $name } { $node } ++ ; } else { $nodes { $name } { $node } = 1 ; } my $first_word = $node ; if ( $first_word =~ s/^(\\S+)\\s+\\S.*/$1/ ) { $nodes_first_word { $name } { $first_word } = $node ; } }',
+            'start_line' => 1596,
+            'indent' => 2,
+            'block_id' => 131
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 1597,
+            'src' => ' next if ! $node ;',
+            'start_line' => 1597,
+            'indent' => 3,
+            'block_id' => 150
+          },
+          {
+            'token_num' => 22,
+            'has_warnings' => 1,
+            'end_line' => 1600,
+            'src' => ' if ( exists $nodes { $name } { $node } ) { $nodes { $name } { $node } ++ ; }',
+            'start_line' => 1598,
+            'indent' => 3,
+            'block_id' => 150
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 1599,
+            'src' => ' $nodes { $name } { $node } ++ ;',
+            'start_line' => 1599,
+            'indent' => 4,
+            'block_id' => 151
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 1603,
+            'src' => ' else { $nodes { $name } { $node } = 1 ; }',
+            'start_line' => 1601,
+            'indent' => 3,
+            'block_id' => 150
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 1602,
+            'src' => ' $nodes { $name } { $node } = 1 ;',
+            'start_line' => 1602,
+            'indent' => 4,
+            'block_id' => 152
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 1610,
+            'src' => ' my $first_word = $node ;',
+            'start_line' => 1610,
+            'indent' => 3,
+            'block_id' => 150
+          },
+          {
+            'token_num' => 23,
+            'has_warnings' => 1,
+            'end_line' => 1613,
+            'src' => ' if ( $first_word =~ s/^(\\S+)\\s+\\S.*/$1/ ) { $nodes_first_word { $name } { $first_word } = $node ; }',
+            'start_line' => 1611,
+            'indent' => 3,
+            'block_id' => 150
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 1612,
+            'src' => ' $nodes_first_word { $name } { $first_word } = $node ;',
+            'start_line' => 1612,
+            'indent' => 4,
+            'block_id' => 153
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1615,
+            'src' => ' $filename_to_pod { $filename } = $name ;',
+            'start_line' => 1615,
+            'indent' => 2,
+            'block_id' => 131
+          },
+          {
+            'token_num' => 276,
+            'has_warnings' => 1,
+            'end_line' => 1687,
+            'src' => ' if ( ! $has_input_files ) { foreach my $filename ( @files ) { next if $filename_to_checker { $filename }-> get_skip ; my $checker = $filename_to_checker { $filename } ; foreach my $link ( $checker-> hyperlink ) { my $linked_to_page = $link-> [ 1 ]-> page ; next unless $linked_to_page ; my %problem = ( -msg => $broken_link , -line => $link-> [ 0 ] , parameter => "to \\"$linked_to_page\\"" , ) ; if ( exists $nodes { $linked_to_page } ) { my $node = $link-> [ 1 ]-> node ; next if ! $node ; $node =~ s , E < sol > ,/,g;
+                $node =~ s/E < verbar >/|/g ; if ( $nodes { $linked_to_page } { $node } ) { if ( $nodes { $linked_to_page } { $node } > 1 ) { $problem { -msg } = $multiple_targets ; $problem { parameter } = "in $linked_to_page that $node could be pointing to" ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! $nodes_first_word { $linked_to_page } { $node } ) { $problem { parameter } =~ s , "$,/$node" , ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! exists $valid_modules { $link-> [ 1 ]-> page } ) { my $NAME = $filename_to_pod { $filename } ; if ( ! defined $NAME ) { $checker-> poderror ( \\ %problem ) ; } else { if ( $nodes { $NAME } { $linked_to_page } ) { $problem { -msg } = $broken_internal_link ; } $checker-> poderror ( \\ %problem ) ; } } } } }',
+            'start_line' => 1621,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 269,
+            'has_warnings' => 1,
+            'end_line' => 1686,
+            'src' => ' foreach my $filename ( @files ) { next if $filename_to_checker { $filename }-> get_skip ; my $checker = $filename_to_checker { $filename } ; foreach my $link ( $checker-> hyperlink ) { my $linked_to_page = $link-> [ 1 ]-> page ; next unless $linked_to_page ; my %problem = ( -msg => $broken_link , -line => $link-> [ 0 ] , parameter => "to \\"$linked_to_page\\"" , ) ; if ( exists $nodes { $linked_to_page } ) { my $node = $link-> [ 1 ]-> node ; next if ! $node ; $node =~ s , E < sol > ,/,g;
+                $node =~ s/E < verbar >/|/g ; if ( $nodes { $linked_to_page } { $node } ) { if ( $nodes { $linked_to_page } { $node } > 1 ) { $problem { -msg } = $multiple_targets ; $problem { parameter } = "in $linked_to_page that $node could be pointing to" ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! $nodes_first_word { $linked_to_page } { $node } ) { $problem { parameter } =~ s , "$,/$node" , ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! exists $valid_modules { $link-> [ 1 ]-> page } ) { my $NAME = $filename_to_pod { $filename } ; if ( ! defined $NAME ) { $checker-> poderror ( \\ %problem ) ; } else { if ( $nodes { $NAME } { $linked_to_page } ) { $problem { -msg } = $broken_internal_link ; } $checker-> poderror ( \\ %problem ) ; } } } }',
+            'start_line' => 1622,
+            'indent' => 1,
+            'block_id' => 154
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 1623,
+            'src' => ' next if $filename_to_checker { $filename }-> get_skip ;',
+            'start_line' => 1623,
+            'indent' => 2,
+            'block_id' => 155
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 1624,
+            'src' => ' my $checker = $filename_to_checker { $filename } ;',
+            'start_line' => 1624,
+            'indent' => 2,
+            'block_id' => 155
+          },
+          {
+            'token_num' => 244,
+            'has_warnings' => 1,
+            'end_line' => 1685,
+            'src' => ' foreach my $link ( $checker-> hyperlink ) { my $linked_to_page = $link-> [ 1 ]-> page ; next unless $linked_to_page ; my %problem = ( -msg => $broken_link , -line => $link-> [ 0 ] , parameter => "to \\"$linked_to_page\\"" , ) ; if ( exists $nodes { $linked_to_page } ) { my $node = $link-> [ 1 ]-> node ; next if ! $node ; $node =~ s , E < sol > ,/,g;
+                $node =~ s/E < verbar >/|/g ; if ( $nodes { $linked_to_page } { $node } ) { if ( $nodes { $linked_to_page } { $node } > 1 ) { $problem { -msg } = $multiple_targets ; $problem { parameter } = "in $linked_to_page that $node could be pointing to" ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! $nodes_first_word { $linked_to_page } { $node } ) { $problem { parameter } =~ s , "$,/$node" , ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! exists $valid_modules { $link-> [ 1 ]-> page } ) { my $NAME = $filename_to_pod { $filename } ; if ( ! defined $NAME ) { $checker-> poderror ( \\ %problem ) ; } else { if ( $nodes { $NAME } { $linked_to_page } ) { $problem { -msg } = $broken_internal_link ; } $checker-> poderror ( \\ %problem ) ; } } }',
+            'start_line' => 1625,
+            'indent' => 2,
+            'block_id' => 155
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 1626,
+            'src' => ' my $linked_to_page = $link-> [ 1 ]-> page ;',
+            'start_line' => 1626,
+            'indent' => 3,
+            'block_id' => 156
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 1627,
+            'src' => ' next unless $linked_to_page ;',
+            'start_line' => 1627,
+            'indent' => 3,
+            'block_id' => 156
+          },
+          {
+            'token_num' => 22,
+            'has_warnings' => 1,
+            'end_line' => 1634,
+            'src' => ' my %problem = ( -msg => $broken_link , -line => $link-> [ 0 ] , parameter => "to \\"$linked_to_page\\"" , ) ;',
+            'start_line' => 1631,
+            'indent' => 3,
+            'block_id' => 156
+          },
+          {
+            'token_num' => 126,
+            'has_warnings' => 1,
+            'end_line' => 1665,
+            'src' => ' if ( exists $nodes { $linked_to_page } ) { my $node = $link-> [ 1 ]-> node ; next if ! $node ; $node =~ s , E < sol > ,/,g;
+                $node =~ s/E < verbar >/|/g ; if ( $nodes { $linked_to_page } { $node } ) { if ( $nodes { $linked_to_page } { $node } > 1 ) { $problem { -msg } = $multiple_targets ; $problem { parameter } = "in $linked_to_page that $node could be pointing to" ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! $nodes_first_word { $linked_to_page } { $node } ) { $problem { parameter } =~ s , "$,/$node" , ; $checker-> poderror ( \\ %problem ) ; } }',
+            'start_line' => 1637,
+            'indent' => 3,
+            'block_id' => 156
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 1638,
+            'src' => ' my $node = $link-> [ 1 ]-> node ;',
+            'start_line' => 1638,
+            'indent' => 4,
+            'block_id' => 157
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 1641,
+            'src' => ' next if ! $node ;',
+            'start_line' => 1641,
+            'indent' => 4,
+            'block_id' => 157
+          },
+          {
+            'token_num' => 21,
+            'has_warnings' => 1,
+            'end_line' => 1645,
+            'src' => ' $node =~ s , E < sol > ,/,g;
+                $node =~ s/E < verbar >/|/g ;',
+            'start_line' => 1644,
+            'indent' => 4,
+            'block_id' => 157
+          },
+          {
+            'token_num' => 48,
+            'has_warnings' => 1,
+            'end_line' => 1657,
+            'src' => ' if ( $nodes { $linked_to_page } { $node } ) { if ( $nodes { $linked_to_page } { $node } > 1 ) { $problem { -msg } = $multiple_targets ; $problem { parameter } = "in $linked_to_page that $node could be pointing to" ; $checker-> poderror ( \\ %problem ) ; } }',
+            'start_line' => 1648,
+            'indent' => 4,
+            'block_id' => 157
+          },
+          {
+            'token_num' => 36,
+            'has_warnings' => 1,
+            'end_line' => 1656,
+            'src' => ' if ( $nodes { $linked_to_page } { $node } > 1 ) { $problem { -msg } = $multiple_targets ; $problem { parameter } = "in $linked_to_page that $node could be pointing to" ; $checker-> poderror ( \\ %problem ) ; }',
+            'start_line' => 1652,
+            'indent' => 5,
+            'block_id' => 158
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1653,
+            'src' => ' $problem { -msg } = $multiple_targets ;',
+            'start_line' => 1653,
+            'indent' => 6,
+            'block_id' => 159
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1654,
+            'src' => ' $problem { parameter } = "in $linked_to_page that $node could be pointing to" ;',
+            'start_line' => 1654,
+            'indent' => 6,
+            'block_id' => 159
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 1655,
+            'src' => ' $checker-> poderror ( \\ %problem ) ;',
+            'start_line' => 1655,
+            'indent' => 6,
+            'block_id' => 159
+          },
+          {
+            'token_num' => 31,
+            'has_warnings' => 1,
+            'end_line' => 1663,
+            'src' => ' elsif ( ! $nodes_first_word { $linked_to_page } { $node } ) { $problem { parameter } =~ s , "$,/$node" , ; $checker-> poderror ( \\ %problem ) ; }',
+            'start_line' => 1657,
+            'indent' => 4,
+            'block_id' => 157
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 1661,
+            'src' => ' $problem { parameter } =~ s , "$,/$node" , ;',
+            'start_line' => 1661,
+            'indent' => 5,
+            'block_id' => 160
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 1662,
+            'src' => ' $checker-> poderror ( \\ %problem ) ;',
+            'start_line' => 1662,
+            'indent' => 5,
+            'block_id' => 160
+          },
+          {
+            'token_num' => 71,
+            'has_warnings' => 1,
+            'end_line' => 1684,
+            'src' => ' elsif ( ! exists $valid_modules { $link-> [ 1 ]-> page } ) { my $NAME = $filename_to_pod { $filename } ; if ( ! defined $NAME ) { $checker-> poderror ( \\ %problem ) ; } else { if ( $nodes { $NAME } { $linked_to_page } ) { $problem { -msg } = $broken_internal_link ; } $checker-> poderror ( \\ %problem ) ; } }',
+            'start_line' => 1666,
+            'indent' => 3,
+            'block_id' => 156
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 1674,
+            'src' => ' my $NAME = $filename_to_pod { $filename } ;',
+            'start_line' => 1674,
+            'indent' => 4,
+            'block_id' => 161
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 1677,
+            'src' => ' if ( ! defined $NAME ) { $checker-> poderror ( \\ %problem ) ; }',
+            'start_line' => 1675,
+            'indent' => 4,
+            'block_id' => 161
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 1676,
+            'src' => ' $checker-> poderror ( \\ %problem ) ;',
+            'start_line' => 1676,
+            'indent' => 5,
+            'block_id' => 162
+          },
+          {
+            'token_num' => 30,
+            'has_warnings' => 1,
+            'end_line' => 1683,
+            'src' => ' else { if ( $nodes { $NAME } { $linked_to_page } ) { $problem { -msg } = $broken_internal_link ; } $checker-> poderror ( \\ %problem ) ; }',
+            'start_line' => 1678,
+            'indent' => 4,
+            'block_id' => 161
+          },
+          {
+            'token_num' => 19,
+            'has_warnings' => 1,
+            'end_line' => 1681,
+            'src' => ' if ( $nodes { $NAME } { $linked_to_page } ) { $problem { -msg } = $broken_internal_link ; }',
+            'start_line' => 1679,
+            'indent' => 5,
+            'block_id' => 163
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1680,
+            'src' => ' $problem { -msg } = $broken_internal_link ;',
+            'start_line' => 1680,
+            'indent' => 6,
+            'block_id' => 164
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 1682,
+            'src' => ' $checker-> poderror ( \\ %problem ) ;',
+            'start_line' => 1682,
+            'indent' => 5,
+            'block_id' => 163
+          },
+          {
+            'token_num' => 30,
+            'has_warnings' => 1,
+            'end_line' => 1697,
+            'src' => ' if ( $regen ) { foreach ( sort { lc $a cmp lc $b } keys %valid_modules ) { my_safer_print ( $copy_fh , $_ , "\\n" ) ; } }',
+            'start_line' => 1693,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 24,
+            'has_warnings' => 1,
+            'end_line' => 1696,
+            'src' => ' foreach ( sort { lc $a cmp lc $b } keys %valid_modules ) { my_safer_print ( $copy_fh , $_ , "\\n" ) ; }',
+            'start_line' => 1694,
+            'indent' => 1,
+            'block_id' => 165
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 1695,
+            'src' => ' my_safer_print ( $copy_fh , $_ , "\\n" ) ;',
+            'start_line' => 1695,
+            'indent' => 2,
+            'block_id' => 166
+          },
+          {
+            'token_num' => 455,
+            'has_warnings' => 1,
+            'end_line' => 1780,
+            'src' => ' foreach my $filename ( @files ) { my $canonical = canonicalize ( $filename ) ; SKIP : { my $skip = $filename_to_checker { $filename }-> get_skip // "" ; if ( $regen ) { foreach my $message ( sort keys %{ $problems { $filename } } ) { my $count ; if ( $known_problems { $canonical } { $message } && $known_problems { $canonical } { $message } < 0 ) { $count = $known_problems { $canonical } { $message } ; } else { $count = @{ $problems { $filename } { $message } } ; } my_safer_print ( $copy_fh , $canonical . "\\t$message\\t$count\\n" ) ; } next ; } skip ( $skip , 1 ) if $skip ; my @diagnostics ; my $indent = \'  \' ; my $total_known = 0 ; foreach my $message ( sort keys %{ $problems { $filename } } ) { $known_problems { $canonical } { $message } = 0 if ! $known_problems { $canonical } { $message } ; my $diagnostic = "" ; my $problem_count = scalar @{ $problems { $filename } { $message } } ; $total_known += $problem_count ; next if $known_problems { $canonical } { $message } < 0 ; if ( $problem_count > $known_problems { $canonical } { $message } ) { $total_known -= $problem_count ; $diagnostic .= $indent . $message ; if ( $problem_count > 2 ) { $diagnostic .= "  ($problem_count occurrences)" ; } foreach my $problem ( @{ $problems { $filename } { $message } } ) { $diagnostic .= " " if $problem_count == 1 ; $diagnostic .= "\\n$indent$indent" ; $diagnostic .= "$problem->{parameter}" if $problem-> { parameter } ; $diagnostic .= " near line $problem->{-line}" ; $diagnostic .= " $problem->{comment}" if $problem-> { comment } ; } $diagnostic .= "\\n" ; $files_with_unknown_issues { $filename } = 1 ; } elsif ( $problem_count < $known_problems { $canonical } { $message } ) { $diagnostic = output_thanks ( $filename , $known_problems { $canonical } { $message } , $problem_count , $message ) ; } push @diagnostics , $diagnostic if $diagnostic ; } foreach my $message ( sort keys %{ $known_problems { $canonical } } ) { next if $problems { $filename } { $message } ; next if ! $known_problems { $canonical } { $message } ; next if $known_problems { $canonical } { $message } < 0 ; my $diagnostic = output_thanks ( $filename , $known_problems { $canonical } { $message } , 0 , $message ) ; push @diagnostics , $diagnostic if $diagnostic ; } my $output = "POD of $filename" ; $output .= ", excluding $total_known not shown known potential problems" if $total_known ; ok ( @diagnostics == 0 , $output ) ; if ( @diagnostics ) { note ( join "" , @diagnostics , "See end of this test output for your options on silencing this" ) ; } } }',
+            'start_line' => 1700,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 1701,
+            'src' => ' my $canonical = canonicalize ( $filename ) ;',
+            'start_line' => 1701,
+            'indent' => 1,
+            'block_id' => 167
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 1703,
+            'src' => ' my $skip = $filename_to_checker { $filename }-> get_skip // "" ;',
+            'start_line' => 1703,
+            'indent' => 2,
+            'block_id' => 168
+          },
+          {
+            'token_num' => 82,
+            'has_warnings' => 1,
+            'end_line' => 1721,
+            'src' => ' if ( $regen ) { foreach my $message ( sort keys %{ $problems { $filename } } ) { my $count ; if ( $known_problems { $canonical } { $message } && $known_problems { $canonical } { $message } < 0 ) { $count = $known_problems { $canonical } { $message } ; } else { $count = @{ $problems { $filename } { $message } } ; } my_safer_print ( $copy_fh , $canonical . "\\t$message\\t$count\\n" ) ; } next ; }',
+            'start_line' => 1705,
+            'indent' => 2,
+            'block_id' => 168
+          },
+          {
+            'token_num' => 74,
+            'has_warnings' => 1,
+            'end_line' => 1719,
+            'src' => ' foreach my $message ( sort keys %{ $problems { $filename } } ) { my $count ; if ( $known_problems { $canonical } { $message } && $known_problems { $canonical } { $message } < 0 ) { $count = $known_problems { $canonical } { $message } ; } else { $count = @{ $problems { $filename } { $message } } ; } my_safer_print ( $copy_fh , $canonical . "\\t$message\\t$count\\n" ) ; }',
+            'start_line' => 1706,
+            'indent' => 3,
+            'block_id' => 169
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 1707,
+            'src' => ' my $count ;',
+            'start_line' => 1707,
+            'indent' => 4,
+            'block_id' => 170
+          },
+          {
+            'token_num' => 32,
+            'has_warnings' => 1,
+            'end_line' => 1714,
+            'src' => ' if ( $known_problems { $canonical } { $message } && $known_problems { $canonical } { $message } < 0 ) { $count = $known_problems { $canonical } { $message } ; }',
+            'start_line' => 1710,
+            'indent' => 4,
+            'block_id' => 170
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 1713,
+            'src' => ' $count = $known_problems { $canonical } { $message } ;',
+            'start_line' => 1713,
+            'indent' => 5,
+            'block_id' => 171
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 1717,
+            'src' => ' else { $count = @{ $problems { $filename } { $message } } ; }',
+            'start_line' => 1715,
+            'indent' => 4,
+            'block_id' => 170
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 1716,
+            'src' => ' $count = @{ $problems { $filename } { $message } } ;',
+            'start_line' => 1716,
+            'indent' => 5,
+            'block_id' => 172
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 1718,
+            'src' => ' my_safer_print ( $copy_fh , $canonical . "\\t$message\\t$count\\n" ) ;',
+            'start_line' => 1718,
+            'indent' => 4,
+            'block_id' => 170
+          },
+          {
+            'token_num' => 2,
+            'has_warnings' => 0,
+            'end_line' => 1720,
+            'src' => ' next ;',
+            'start_line' => 1720,
+            'indent' => 3,
+            'block_id' => 169
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 1723,
+            'src' => ' skip ( $skip , 1 ) if $skip ;',
+            'start_line' => 1723,
+            'indent' => 2,
+            'block_id' => 168
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 1724,
+            'src' => ' my @diagnostics ;',
+            'start_line' => 1724,
+            'indent' => 2,
+            'block_id' => 168
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 1725,
+            'src' => ' my $indent = \'  \' ;',
+            'start_line' => 1725,
+            'indent' => 2,
+            'block_id' => 168
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 1727,
+            'src' => ' my $total_known = 0 ;',
+            'start_line' => 1727,
+            'indent' => 2,
+            'block_id' => 168
+          },
+          {
+            'token_num' => 208,
+            'has_warnings' => 1,
+            'end_line' => 1758,
+            'src' => ' foreach my $message ( sort keys %{ $problems { $filename } } ) { $known_problems { $canonical } { $message } = 0 if ! $known_problems { $canonical } { $message } ; my $diagnostic = "" ; my $problem_count = scalar @{ $problems { $filename } { $message } } ; $total_known += $problem_count ; next if $known_problems { $canonical } { $message } < 0 ; if ( $problem_count > $known_problems { $canonical } { $message } ) { $total_known -= $problem_count ; $diagnostic .= $indent . $message ; if ( $problem_count > 2 ) { $diagnostic .= "  ($problem_count occurrences)" ; } foreach my $problem ( @{ $problems { $filename } { $message } } ) { $diagnostic .= " " if $problem_count == 1 ; $diagnostic .= "\\n$indent$indent" ; $diagnostic .= "$problem->{parameter}" if $problem-> { parameter } ; $diagnostic .= " near line $problem->{-line}" ; $diagnostic .= " $problem->{comment}" if $problem-> { comment } ; } $diagnostic .= "\\n" ; $files_with_unknown_issues { $filename } = 1 ; } elsif ( $problem_count < $known_problems { $canonical } { $message } ) { $diagnostic = output_thanks ( $filename , $known_problems { $canonical } { $message } , $problem_count , $message ) ; } push @diagnostics , $diagnostic if $diagnostic ; }',
+            'start_line' => 1728,
+            'indent' => 2,
+            'block_id' => 168
+          },
+          {
+            'token_num' => 19,
+            'has_warnings' => 1,
+            'end_line' => 1730,
+            'src' => ' $known_problems { $canonical } { $message } = 0 if ! $known_problems { $canonical } { $message } ;',
+            'start_line' => 1729,
+            'indent' => 3,
+            'block_id' => 173
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 1731,
+            'src' => ' my $diagnostic = "" ;',
+            'start_line' => 1731,
+            'indent' => 3,
+            'block_id' => 173
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 1732,
+            'src' => ' my $problem_count = scalar @{ $problems { $filename } { $message } } ;',
+            'start_line' => 1732,
+            'indent' => 3,
+            'block_id' => 173
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 1733,
+            'src' => ' $total_known += $problem_count ;',
+            'start_line' => 1733,
+            'indent' => 3,
+            'block_id' => 173
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 1734,
+            'src' => ' next if $known_problems { $canonical } { $message } < 0 ;',
+            'start_line' => 1734,
+            'indent' => 3,
+            'block_id' => 173
+          },
+          {
+            'token_num' => 99,
+            'has_warnings' => 1,
+            'end_line' => 1754,
+            'src' => ' if ( $problem_count > $known_problems { $canonical } { $message } ) { $total_known -= $problem_count ; $diagnostic .= $indent . $message ; if ( $problem_count > 2 ) { $diagnostic .= "  ($problem_count occurrences)" ; } foreach my $problem ( @{ $problems { $filename } { $message } } ) { $diagnostic .= " " if $problem_count == 1 ; $diagnostic .= "\\n$indent$indent" ; $diagnostic .= "$problem->{parameter}" if $problem-> { parameter } ; $diagnostic .= " near line $problem->{-line}" ; $diagnostic .= " $problem->{comment}" if $problem-> { comment } ; } $diagnostic .= "\\n" ; $files_with_unknown_issues { $filename } = 1 ; }',
+            'start_line' => 1735,
+            'indent' => 3,
+            'block_id' => 173
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 1739,
+            'src' => ' $total_known -= $problem_count ;',
+            'start_line' => 1739,
+            'indent' => 4,
+            'block_id' => 174
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 1741,
+            'src' => ' $diagnostic .= $indent . $message ;',
+            'start_line' => 1741,
+            'indent' => 4,
+            'block_id' => 174
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 1744,
+            'src' => ' if ( $problem_count > 2 ) { $diagnostic .= "  ($problem_count occurrences)" ; }',
+            'start_line' => 1742,
+            'indent' => 4,
+            'block_id' => 174
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 1743,
+            'src' => ' $diagnostic .= "  ($problem_count occurrences)" ;',
+            'start_line' => 1743,
+            'indent' => 5,
+            'block_id' => 175
+          },
+          {
+            'token_num' => 52,
+            'has_warnings' => 1,
+            'end_line' => 1751,
+            'src' => ' foreach my $problem ( @{ $problems { $filename } { $message } } ) { $diagnostic .= " " if $problem_count == 1 ; $diagnostic .= "\\n$indent$indent" ; $diagnostic .= "$problem->{parameter}" if $problem-> { parameter } ; $diagnostic .= " near line $problem->{-line}" ; $diagnostic .= " $problem->{comment}" if $problem-> { comment } ; }',
+            'start_line' => 1745,
+            'indent' => 4,
+            'block_id' => 174
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 1746,
+            'src' => ' $diagnostic .= " " if $problem_count == 1 ;',
+            'start_line' => 1746,
+            'indent' => 5,
+            'block_id' => 176
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 1747,
+            'src' => ' $diagnostic .= "\\n$indent$indent" ;',
+            'start_line' => 1747,
+            'indent' => 5,
+            'block_id' => 176
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 1748,
+            'src' => ' $diagnostic .= "$problem->{parameter}" if $problem-> { parameter } ;',
+            'start_line' => 1748,
+            'indent' => 5,
+            'block_id' => 176
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 1749,
+            'src' => ' $diagnostic .= " near line $problem->{-line}" ;',
+            'start_line' => 1749,
+            'indent' => 5,
+            'block_id' => 176
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 1750,
+            'src' => ' $diagnostic .= " $problem->{comment}" if $problem-> { comment } ;',
+            'start_line' => 1750,
+            'indent' => 5,
+            'block_id' => 176
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 1752,
+            'src' => ' $diagnostic .= "\\n" ;',
+            'start_line' => 1752,
+            'indent' => 4,
+            'block_id' => 174
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1753,
+            'src' => ' $files_with_unknown_issues { $filename } = 1 ;',
+            'start_line' => 1753,
+            'indent' => 4,
+            'block_id' => 174
+          },
+          {
+            'token_num' => 33,
+            'has_warnings' => 1,
+            'end_line' => 1756,
+            'src' => ' elsif ( $problem_count < $known_problems { $canonical } { $message } ) { $diagnostic = output_thanks ( $filename , $known_problems { $canonical } { $message } , $problem_count , $message ) ; }',
+            'start_line' => 1754,
+            'indent' => 3,
+            'block_id' => 173
+          },
+          {
+            'token_num' => 19,
+            'has_warnings' => 1,
+            'end_line' => 1755,
+            'src' => ' $diagnostic = output_thanks ( $filename , $known_problems { $canonical } { $message } , $problem_count , $message ) ;',
+            'start_line' => 1755,
+            'indent' => 4,
+            'block_id' => 177
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1757,
+            'src' => ' push @diagnostics , $diagnostic if $diagnostic ;',
+            'start_line' => 1757,
+            'indent' => 3,
+            'block_id' => 173
+          },
+          {
+            'token_num' => 75,
+            'has_warnings' => 1,
+            'end_line' => 1769,
+            'src' => ' foreach my $message ( sort keys %{ $known_problems { $canonical } } ) { next if $problems { $filename } { $message } ; next if ! $known_problems { $canonical } { $message } ; next if $known_problems { $canonical } { $message } < 0 ; my $diagnostic = output_thanks ( $filename , $known_problems { $canonical } { $message } , 0 , $message ) ; push @diagnostics , $diagnostic if $diagnostic ; }',
+            'start_line' => 1763,
+            'indent' => 2,
+            'block_id' => 168
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 1764,
+            'src' => ' next if $problems { $filename } { $message } ;',
+            'start_line' => 1764,
+            'indent' => 3,
+            'block_id' => 178
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 1765,
+            'src' => ' next if ! $known_problems { $canonical } { $message } ;',
+            'start_line' => 1765,
+            'indent' => 3,
+            'block_id' => 178
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 1766,
+            'src' => ' next if $known_problems { $canonical } { $message } < 0 ;',
+            'start_line' => 1766,
+            'indent' => 3,
+            'block_id' => 178
+          },
+          {
+            'token_num' => 20,
+            'has_warnings' => 1,
+            'end_line' => 1767,
+            'src' => ' my $diagnostic = output_thanks ( $filename , $known_problems { $canonical } { $message } , 0 , $message ) ;',
+            'start_line' => 1767,
+            'indent' => 3,
+            'block_id' => 178
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 1768,
+            'src' => ' push @diagnostics , $diagnostic if $diagnostic ;',
+            'start_line' => 1768,
+            'indent' => 3,
+            'block_id' => 178
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 1771,
+            'src' => ' my $output = "POD of $filename" ;',
+            'start_line' => 1771,
+            'indent' => 2,
+            'block_id' => 168
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 1773,
+            'src' => ' $output .= ", excluding $total_known not shown known potential problems" if $total_known ;',
+            'start_line' => 1772,
+            'indent' => 2,
+            'block_id' => 168
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 1774,
+            'src' => ' ok ( @diagnostics == 0 , $output ) ;',
+            'start_line' => 1774,
+            'indent' => 2,
+            'block_id' => 168
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 0,
+            'end_line' => 1778,
+            'src' => ' if ( @diagnostics ) { note ( join "" , @diagnostics , "See end of this test output for your options on silencing this" ) ; }',
+            'start_line' => 1775,
+            'indent' => 2,
+            'block_id' => 168
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 0,
+            'end_line' => 1777,
+            'src' => ' note ( join "" , @diagnostics , "See end of this test output for your options on silencing this" ) ;',
+            'start_line' => 1776,
+            'indent' => 3,
+            'block_id' => 179
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 1782,
+            'src' => ' my $how_to = q{   run this test script by hand, using the following formula (on
+   Un*x-like machines):
+        cd t
+        ./perl -I../lib porting/podcheck.t --regen
+} ;',
+            'start_line' => 1782,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 49,
+            'has_warnings' => 1,
+            'end_line' => 1836,
+            'src' => ' if ( %files_with_unknown_issues ) { my $were_count_files = scalar keys %files_with_unknown_issues ; $were_count_files = ( $were_count_files == 1 ) ? "was $were_count_files file" : "were $were_count_files files" ; my $message = q{
+HOW TO GET THIS .t TO PASS
+
+There $were_count_files that had new potential problems identified.
+Some of them may be real, and some of them may be false positives because
+this program isn\'t as smart as it likes to think it is.  You can teach this
+program to ignore the issues it has identified, and hence pass, by doing the
+following:
+
+1) If a problem is about a link to an unknown module or man page that
+   you know exists, re-run the command something like:
+      ./perl -I../lib porting/podcheck.t --add_link MODULE man_page ...
+   (MODULEs should look like Foo::Bar, and man_pages should look like
+   bar(3c); don\'t do this for a module or man page that you aren\'t sure
+   about; instead treat as another type of issue and follow the
+   instructions below.)
+
+2) For other issues, decide if each should be fixed now or not.  Fix the
+   ones you decided to, and rerun this test to verify that the fixes
+   worked.
+
+3) If there remain false positive or problems that you don\'t plan to fix right
+   now,
+$how_to
+   That should cause all current potential problems to be accepted by
+   the program, so that the next time it runs, they won\'t be flagged.
+} ; if ( %files_with_fixes ) { $message .= "   This step will also take care of the files that have fixes in them\\n" ; } $message .= q{   For a few files, such as perltoc, certain issues will always be
+   expected, and more of the same will be added over time.  For those,
+   before you do the regen, you can edit
+   $known_issues
+   and find the entry for the module\'s file and specific error message,
+   and change the count of known potential problems to -1.
+} ; note ( $message ) ; }',
+            'start_line' => 1789,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 1790,
+            'src' => ' my $were_count_files = scalar keys %files_with_unknown_issues ;',
+            'start_line' => 1790,
+            'indent' => 1,
+            'block_id' => 180
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 1793,
+            'src' => ' $were_count_files = ( $were_count_files == 1 ) ? "was $were_count_files file" : "were $were_count_files files" ;',
+            'start_line' => 1791,
+            'indent' => 1,
+            'block_id' => 180
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 1794,
+            'src' => ' my $message = q{
+HOW TO GET THIS .t TO PASS
+
+There $were_count_files that had new potential problems identified.
+Some of them may be real, and some of them may be false positives because
+this program isn\'t as smart as it likes to think it is.  You can teach this
+program to ignore the issues it has identified, and hence pass, by doing the
+following:
+
+1) If a problem is about a link to an unknown module or man page that
+   you know exists, re-run the command something like:
+      ./perl -I../lib porting/podcheck.t --add_link MODULE man_page ...
+   (MODULEs should look like Foo::Bar, and man_pages should look like
+   bar(3c); don\'t do this for a module or man page that you aren\'t sure
+   about; instead treat as another type of issue and follow the
+   instructions below.)
+
+2) For other issues, decide if each should be fixed now or not.  Fix the
+   ones you decided to, and rerun this test to verify that the fixes
+   worked.
+
+3) If there remain false positive or problems that you don\'t plan to fix right
+   now,
+$how_to
+   That should cause all current potential problems to be accepted by
+   the program, so that the next time it runs, they won\'t be flagged.
+} ;',
+            'start_line' => 1794,
+            'indent' => 1,
+            'block_id' => 180
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 1824,
+            'src' => ' if ( %files_with_fixes ) { $message .= "   This step will also take care of the files that have fixes in them\\n" ; }',
+            'start_line' => 1822,
+            'indent' => 1,
+            'block_id' => 180
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 1823,
+            'src' => ' $message .= "   This step will also take care of the files that have fixes in them\\n" ;',
+            'start_line' => 1823,
+            'indent' => 2,
+            'block_id' => 181
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 1826,
+            'src' => ' $message .= q{   For a few files, such as perltoc, certain issues will always be
+   expected, and more of the same will be added over time.  For those,
+   before you do the regen, you can edit
+   $known_issues
+   and find the entry for the module\'s file and specific error message,
+   and change the count of known potential problems to -1.
+} ;',
+            'start_line' => 1826,
+            'indent' => 1,
+            'block_id' => 180
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 1835,
+            'src' => ' note ( $message ) ;',
+            'start_line' => 1835,
+            'indent' => 1,
+            'block_id' => 180
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 0,
+            'end_line' => 1842,
+            'src' => ' elsif ( %files_with_fixes ) { note ( q{To teach this test script that the potential problems have been fixed,
+$how_to
+} ) ; }',
+            'start_line' => 1836,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 1841,
+            'src' => ' note ( q{To teach this test script that the potential problems have been fixed,
+$how_to
+} ) ;',
+            'start_line' => 1837,
+            'indent' => 1,
+            'block_id' => 182
+          },
+          {
+            'token_num' => 17,
+            'has_warnings' => 1,
+            'end_line' => 1847,
+            'src' => ' if ( $regen ) { chdir $original_dir || die "Can\'t change directories to $original_dir" ; close_and_rename ( $copy_fh ) ; }',
+            'start_line' => 1844,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 1845,
+            'src' => ' chdir $original_dir || die "Can\'t change directories to $original_dir" ;',
+            'start_line' => 1845,
+            'indent' => 1,
+            'block_id' => 183
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 1846,
+            'src' => ' close_and_rename ( $copy_fh ) ;',
+            'start_line' => 1846,
+            'indent' => 1,
+            'block_id' => 183
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

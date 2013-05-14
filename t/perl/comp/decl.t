@@ -136,12 +136,12 @@ subtest 'tokenize' => sub {
                    'line' => 7
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BuiltinFunc',
+                   'name' => 'FormatDecl',
                    'data' => 'format',
-                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
+                   'type' => Compiler::Lexer::TokenType::T_FormatDecl,
                    'line' => 8
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -164,29 +164,21 @@ subtest 'tokenize' => sub {
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'ok',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 9
+                   'name' => 'Format',
+                   'data' => 'ok 6
+',
+                   'type' => Compiler::Lexer::TokenType::T_Format,
+                   'line' => 10
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Int',
-                   'data' => '6',
-                   'type' => Compiler::Lexer::TokenType::T_Int,
-                   'line' => 9
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringAdd',
+                   'name' => 'FormatEnd',
                    'data' => '.',
-                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
+                   'type' => Compiler::Lexer::TokenType::T_FormatEnd,
                    'line' => 10
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -196,7 +188,7 @@ subtest 'tokenize' => sub {
                    'name' => 'BuiltinFunc',
                    'data' => 'print',
                    'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
-                   'line' => 12
+                   'line' => 11
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -205,7 +197,7 @@ subtest 'tokenize' => sub {
                    'name' => 'String',
                    'data' => '1..9\\n',
                    'type' => Compiler::Lexer::TokenType::T_String,
-                   'line' => 12
+                   'line' => 11
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_StmtEnd,
@@ -214,7 +206,7 @@ subtest 'tokenize' => sub {
                    'name' => 'SemiColon',
                    'data' => ';',
                    'type' => Compiler::Lexer::TokenType::T_SemiColon,
-                   'line' => 12
+                   'line' => 11
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Function,
@@ -223,7 +215,7 @@ subtest 'tokenize' => sub {
                    'name' => 'Call',
                    'data' => 'one',
                    'type' => Compiler::Lexer::TokenType::T_Call,
-                   'line' => 14
+                   'line' => 13
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
@@ -232,7 +224,7 @@ subtest 'tokenize' => sub {
                    'name' => 'LeftParenthesis',
                    'data' => '(',
                    'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
-                   'line' => 14
+                   'line' => 13
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
@@ -241,7 +233,7 @@ subtest 'tokenize' => sub {
                    'name' => 'RightParenthesis',
                    'data' => ')',
                    'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
-                   'line' => 14
+                   'line' => 13
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_StmtEnd,
@@ -250,7 +242,7 @@ subtest 'tokenize' => sub {
                    'name' => 'SemiColon',
                    'data' => ';',
                    'type' => Compiler::Lexer::TokenType::T_SemiColon,
-                   'line' => 14
+                   'line' => 13
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -259,7 +251,7 @@ subtest 'tokenize' => sub {
                    'name' => 'Key',
                    'data' => 'two',
                    'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 15
+                   'line' => 14
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
@@ -268,7 +260,7 @@ subtest 'tokenize' => sub {
                    'name' => 'LeftParenthesis',
                    'data' => '(',
                    'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
-                   'line' => 15
+                   'line' => 14
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
@@ -277,7 +269,7 @@ subtest 'tokenize' => sub {
                    'name' => 'RightParenthesis',
                    'data' => ')',
                    'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
-                   'line' => 15
+                   'line' => 14
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_StmtEnd,
@@ -286,7 +278,7 @@ subtest 'tokenize' => sub {
                    'name' => 'SemiColon',
                    'data' => ';',
                    'type' => Compiler::Lexer::TokenType::T_SemiColon,
-                   'line' => 15
+                   'line' => 14
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Decl,
@@ -295,7 +287,7 @@ subtest 'tokenize' => sub {
                    'name' => 'FunctionDecl',
                    'data' => 'sub',
                    'type' => Compiler::Lexer::TokenType::T_FunctionDecl,
-                   'line' => 17
+                   'line' => 16
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Decl,
@@ -304,7 +296,7 @@ subtest 'tokenize' => sub {
                    'name' => 'Function',
                    'data' => 'two',
                    'type' => Compiler::Lexer::TokenType::T_Function,
-                   'line' => 17
+                   'line' => 16
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
@@ -313,7 +305,7 @@ subtest 'tokenize' => sub {
                    'name' => 'LeftBrace',
                    'data' => '{',
                    'type' => Compiler::Lexer::TokenType::T_LeftBrace,
-                   'line' => 17
+                   'line' => 16
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Function,
@@ -322,7 +314,7 @@ subtest 'tokenize' => sub {
                    'name' => 'BuiltinFunc',
                    'data' => 'print',
                    'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
-                   'line' => 18
+                   'line' => 17
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -331,7 +323,7 @@ subtest 'tokenize' => sub {
                    'name' => 'String',
                    'data' => 'ok 2\\n',
                    'type' => Compiler::Lexer::TokenType::T_String,
-                   'line' => 18
+                   'line' => 17
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_StmtEnd,
@@ -340,7 +332,7 @@ subtest 'tokenize' => sub {
                    'name' => 'SemiColon',
                    'data' => ';',
                    'type' => Compiler::Lexer::TokenType::T_SemiColon,
-                   'line' => 18
+                   'line' => 17
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
@@ -349,16 +341,16 @@ subtest 'tokenize' => sub {
                    'name' => 'RightBrace',
                    'data' => '}',
                    'type' => Compiler::Lexer::TokenType::T_RightBrace,
-                   'line' => 19
+                   'line' => 18
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BuiltinFunc',
+                   'name' => 'FormatDecl',
                    'data' => 'format',
-                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
-                   'line' => 20
+                   'type' => Compiler::Lexer::TokenType::T_FormatDecl,
+                   'line' => 19
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Function,
@@ -367,7 +359,7 @@ subtest 'tokenize' => sub {
                    'name' => 'Call',
                    'data' => 'two',
                    'type' => Compiler::Lexer::TokenType::T_Call,
-                   'line' => 20
+                   'line' => 19
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Assign,
@@ -376,52 +368,27 @@ subtest 'tokenize' => sub {
                    'name' => 'Assign',
                    'data' => '=',
                    'type' => Compiler::Lexer::TokenType::T_Assign,
-                   'line' => 20
+                   'line' => 19
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'GlobalArrayVar',
-                   'data' => '@',
-                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
-                   'line' => 21
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftShift',
-                   'data' => '<<',
-                   'type' => Compiler::Lexer::TokenType::T_LeftShift,
-                   'line' => 21
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Less',
-                   'data' => '<',
-                   'type' => Compiler::Lexer::TokenType::T_Less,
-                   'line' => 21
+                   'name' => 'Format',
+                   'data' => '@<<<
+$foo
+',
+                   'type' => Compiler::Lexer::TokenType::T_Format,
+                   'line' => 22
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'GlobalVar',
-                   'data' => '$foo',
-                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
-                   'line' => 23
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringAdd',
+                   'name' => 'FormatEnd',
                    'data' => '.',
-                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
-                   'line' => 23
+                   'type' => Compiler::Lexer::TokenType::T_FormatEnd,
+                   'line' => 22
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Stmt,
@@ -430,7 +397,7 @@ subtest 'tokenize' => sub {
                    'name' => 'IfStmt',
                    'data' => 'if',
                    'type' => Compiler::Lexer::TokenType::T_IfStmt,
-                   'line' => 25
+                   'line' => 23
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
@@ -439,7 +406,7 @@ subtest 'tokenize' => sub {
                    'name' => 'LeftParenthesis',
                    'data' => '(',
                    'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
-                   'line' => 25
+                   'line' => 23
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -448,7 +415,7 @@ subtest 'tokenize' => sub {
                    'name' => 'GlobalVar',
                    'data' => '$x',
                    'type' => Compiler::Lexer::TokenType::T_GlobalVar,
-                   'line' => 25
+                   'line' => 23
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
@@ -457,7 +424,7 @@ subtest 'tokenize' => sub {
                    'name' => 'StringEqual',
                    'data' => 'eq',
                    'type' => Compiler::Lexer::TokenType::T_StringEqual,
-                   'line' => 25
+                   'line' => 23
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -466,7 +433,7 @@ subtest 'tokenize' => sub {
                    'name' => 'Var',
                    'data' => '$x',
                    'type' => Compiler::Lexer::TokenType::T_Var,
-                   'line' => 25
+                   'line' => 23
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
@@ -475,7 +442,7 @@ subtest 'tokenize' => sub {
                    'name' => 'RightParenthesis',
                    'data' => ')',
                    'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
-                   'line' => 25
+                   'line' => 23
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
@@ -484,7 +451,7 @@ subtest 'tokenize' => sub {
                    'name' => 'LeftBrace',
                    'data' => '{',
                    'type' => Compiler::Lexer::TokenType::T_LeftBrace,
-                   'line' => 25
+                   'line' => 23
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Decl,
@@ -493,7 +460,7 @@ subtest 'tokenize' => sub {
                    'name' => 'FunctionDecl',
                    'data' => 'sub',
                    'type' => Compiler::Lexer::TokenType::T_FunctionDecl,
-                   'line' => 26
+                   'line' => 24
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Decl,
@@ -502,7 +469,7 @@ subtest 'tokenize' => sub {
                    'name' => 'Function',
                    'data' => 'three',
                    'type' => Compiler::Lexer::TokenType::T_Function,
-                   'line' => 26
+                   'line' => 24
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
@@ -511,7 +478,7 @@ subtest 'tokenize' => sub {
                    'name' => 'LeftBrace',
                    'data' => '{',
                    'type' => Compiler::Lexer::TokenType::T_LeftBrace,
-                   'line' => 26
+                   'line' => 24
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Function,
@@ -520,7 +487,7 @@ subtest 'tokenize' => sub {
                    'name' => 'BuiltinFunc',
                    'data' => 'print',
                    'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
-                   'line' => 27
+                   'line' => 25
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -529,6 +496,51 @@ subtest 'tokenize' => sub {
                    'name' => 'String',
                    'data' => 'ok 3\\n',
                    'type' => Compiler::Lexer::TokenType::T_String,
+                   'line' => 25
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 25
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightBrace',
+                   'data' => '}',
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
+                   'line' => 26
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Call',
+                   'data' => 'three',
+                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'line' => 27
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 27
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightParenthesis',
+                   'data' => ')',
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
                    'line' => 27
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -550,58 +562,13 @@ subtest 'tokenize' => sub {
                    'line' => 28
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Function,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Call',
-                   'data' => 'three',
-                   'type' => Compiler::Lexer::TokenType::T_Call,
-                   'line' => 29
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftParenthesis',
-                   'data' => '(',
-                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
-                   'line' => 29
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RightParenthesis',
-                   'data' => ')',
-                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
-                   'line' => 29
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'SemiColon',
-                   'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
-                   'line' => 29
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RightBrace',
-                   'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
-                   'line' => 30
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 1,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Key',
                    'data' => 'four',
                    'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 32
+                   'line' => 30
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
@@ -610,7 +577,7 @@ subtest 'tokenize' => sub {
                    'name' => 'LeftParenthesis',
                    'data' => '(',
                    'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
-                   'line' => 32
+                   'line' => 30
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
@@ -619,7 +586,7 @@ subtest 'tokenize' => sub {
                    'name' => 'RightParenthesis',
                    'data' => ')',
                    'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
-                   'line' => 32
+                   'line' => 30
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_StmtEnd,
@@ -628,7 +595,7 @@ subtest 'tokenize' => sub {
                    'name' => 'SemiColon',
                    'data' => ';',
                    'type' => Compiler::Lexer::TokenType::T_SemiColon,
-                   'line' => 32
+                   'line' => 30
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -637,7 +604,7 @@ subtest 'tokenize' => sub {
                    'name' => 'Key',
                    'data' => 'five',
                    'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 33
+                   'line' => 31
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
@@ -646,7 +613,7 @@ subtest 'tokenize' => sub {
                    'name' => 'LeftParenthesis',
                    'data' => '(',
                    'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
-                   'line' => 33
+                   'line' => 31
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
@@ -655,7 +622,7 @@ subtest 'tokenize' => sub {
                    'name' => 'RightParenthesis',
                    'data' => ')',
                    'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
-                   'line' => 33
+                   'line' => 31
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_StmtEnd,
@@ -664,7 +631,7 @@ subtest 'tokenize' => sub {
                    'name' => 'SemiColon',
                    'data' => ';',
                    'type' => Compiler::Lexer::TokenType::T_SemiColon,
-                   'line' => 33
+                   'line' => 31
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -673,7 +640,7 @@ subtest 'tokenize' => sub {
                    'name' => 'SpecificValue',
                    'data' => '$~',
                    'type' => Compiler::Lexer::TokenType::T_SpecificValue,
-                   'line' => 34
+                   'line' => 32
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Assign,
@@ -682,7 +649,7 @@ subtest 'tokenize' => sub {
                    'name' => 'Assign',
                    'data' => '=',
                    'type' => Compiler::Lexer::TokenType::T_Assign,
-                   'line' => 34
+                   'line' => 32
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -691,7 +658,7 @@ subtest 'tokenize' => sub {
                    'name' => 'RawString',
                    'data' => 'one',
                    'type' => Compiler::Lexer::TokenType::T_RawString,
-                   'line' => 34
+                   'line' => 32
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_StmtEnd,
@@ -700,7 +667,7 @@ subtest 'tokenize' => sub {
                    'name' => 'SemiColon',
                    'data' => ';',
                    'type' => Compiler::Lexer::TokenType::T_SemiColon,
-                   'line' => 34
+                   'line' => 32
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Function,
@@ -709,7 +676,7 @@ subtest 'tokenize' => sub {
                    'name' => 'BuiltinFunc',
                    'data' => 'write',
                    'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
-                   'line' => 35
+                   'line' => 33
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_StmtEnd,
@@ -718,7 +685,7 @@ subtest 'tokenize' => sub {
                    'name' => 'SemiColon',
                    'data' => ';',
                    'type' => Compiler::Lexer::TokenType::T_SemiColon,
-                   'line' => 35
+                   'line' => 33
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -727,7 +694,7 @@ subtest 'tokenize' => sub {
                    'name' => 'SpecificValue',
                    'data' => '$~',
                    'type' => Compiler::Lexer::TokenType::T_SpecificValue,
-                   'line' => 36
+                   'line' => 34
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Assign,
@@ -736,7 +703,7 @@ subtest 'tokenize' => sub {
                    'name' => 'Assign',
                    'data' => '=',
                    'type' => Compiler::Lexer::TokenType::T_Assign,
-                   'line' => 36
+                   'line' => 34
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -745,7 +712,7 @@ subtest 'tokenize' => sub {
                    'name' => 'RawString',
                    'data' => 'two',
                    'type' => Compiler::Lexer::TokenType::T_RawString,
-                   'line' => 36
+                   'line' => 34
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_StmtEnd,
@@ -754,16 +721,16 @@ subtest 'tokenize' => sub {
                    'name' => 'SemiColon',
                    'data' => ';',
                    'type' => Compiler::Lexer::TokenType::T_SemiColon,
-                   'line' => 36
+                   'line' => 34
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Var',
+                   'name' => 'GlobalVar',
                    'data' => '$foo',
-                   'type' => Compiler::Lexer::TokenType::T_Var,
-                   'line' => 37
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
+                   'line' => 35
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Assign,
@@ -772,7 +739,7 @@ subtest 'tokenize' => sub {
                    'name' => 'Assign',
                    'data' => '=',
                    'type' => Compiler::Lexer::TokenType::T_Assign,
-                   'line' => 37
+                   'line' => 35
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -781,7 +748,7 @@ subtest 'tokenize' => sub {
                    'name' => 'String',
                    'data' => 'ok 7',
                    'type' => Compiler::Lexer::TokenType::T_String,
-                   'line' => 37
+                   'line' => 35
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_StmtEnd,
@@ -790,7 +757,7 @@ subtest 'tokenize' => sub {
                    'name' => 'SemiColon',
                    'data' => ';',
                    'type' => Compiler::Lexer::TokenType::T_SemiColon,
-                   'line' => 37
+                   'line' => 35
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Function,
@@ -799,7 +766,7 @@ subtest 'tokenize' => sub {
                    'name' => 'BuiltinFunc',
                    'data' => 'write',
                    'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
-                   'line' => 38
+                   'line' => 36
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_StmtEnd,
@@ -808,7 +775,7 @@ subtest 'tokenize' => sub {
                    'name' => 'SemiColon',
                    'data' => ';',
                    'type' => Compiler::Lexer::TokenType::T_SemiColon,
-                   'line' => 38
+                   'line' => 36
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -817,7 +784,7 @@ subtest 'tokenize' => sub {
                    'name' => 'SpecificValue',
                    'data' => '$~',
                    'type' => Compiler::Lexer::TokenType::T_SpecificValue,
-                   'line' => 39
+                   'line' => 37
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Assign,
@@ -826,7 +793,7 @@ subtest 'tokenize' => sub {
                    'name' => 'Assign',
                    'data' => '=',
                    'type' => Compiler::Lexer::TokenType::T_Assign,
-                   'line' => 39
+                   'line' => 37
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -835,7 +802,7 @@ subtest 'tokenize' => sub {
                    'name' => 'RawString',
                    'data' => 'three',
                    'type' => Compiler::Lexer::TokenType::T_RawString,
-                   'line' => 39
+                   'line' => 37
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_StmtEnd,
@@ -844,7 +811,7 @@ subtest 'tokenize' => sub {
                    'name' => 'SemiColon',
                    'data' => ';',
                    'type' => Compiler::Lexer::TokenType::T_SemiColon,
-                   'line' => 39
+                   'line' => 37
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Function,
@@ -853,7 +820,7 @@ subtest 'tokenize' => sub {
                    'name' => 'BuiltinFunc',
                    'data' => 'write',
                    'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
-                   'line' => 40
+                   'line' => 38
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_StmtEnd,
@@ -862,16 +829,16 @@ subtest 'tokenize' => sub {
                    'name' => 'SemiColon',
                    'data' => ';',
                    'type' => Compiler::Lexer::TokenType::T_SemiColon,
-                   'line' => 40
+                   'line' => 38
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BuiltinFunc',
+                   'name' => 'FormatDecl',
                    'data' => 'format',
-                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
-                   'line' => 42
+                   'type' => Compiler::Lexer::TokenType::T_FormatDecl,
+                   'line' => 40
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Function,
@@ -880,7 +847,7 @@ subtest 'tokenize' => sub {
                    'name' => 'Call',
                    'data' => 'three',
                    'type' => Compiler::Lexer::TokenType::T_Call,
-                   'line' => 42
+                   'line' => 40
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Assign,
@@ -889,34 +856,26 @@ subtest 'tokenize' => sub {
                    'name' => 'Assign',
                    'data' => '=',
                    'type' => Compiler::Lexer::TokenType::T_Assign,
+                   'line' => 40
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Format',
+                   'data' => 'ok 8
+',
+                   'type' => Compiler::Lexer::TokenType::T_Format,
                    'line' => 42
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'ok',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 43
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Int',
-                   'data' => '8',
-                   'type' => Compiler::Lexer::TokenType::T_Int,
-                   'line' => 43
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringAdd',
+                   'name' => 'FormatEnd',
                    'data' => '.',
-                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
-                   'line' => 44
+                   'type' => Compiler::Lexer::TokenType::T_FormatEnd,
+                   'line' => 42
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Stmt,
@@ -925,7 +884,7 @@ subtest 'tokenize' => sub {
                    'name' => 'IfStmt',
                    'data' => 'if',
                    'type' => Compiler::Lexer::TokenType::T_IfStmt,
-                   'line' => 46
+                   'line' => 43
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
@@ -934,7 +893,7 @@ subtest 'tokenize' => sub {
                    'name' => 'LeftParenthesis',
                    'data' => '(',
                    'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
-                   'line' => 46
+                   'line' => 43
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -943,7 +902,7 @@ subtest 'tokenize' => sub {
                    'name' => 'Var',
                    'data' => '$x',
                    'type' => Compiler::Lexer::TokenType::T_Var,
-                   'line' => 46
+                   'line' => 43
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
@@ -952,7 +911,7 @@ subtest 'tokenize' => sub {
                    'name' => 'StringEqual',
                    'data' => 'eq',
                    'type' => Compiler::Lexer::TokenType::T_StringEqual,
-                   'line' => 46
+                   'line' => 43
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -961,7 +920,7 @@ subtest 'tokenize' => sub {
                    'name' => 'Var',
                    'data' => '$x',
                    'type' => Compiler::Lexer::TokenType::T_Var,
-                   'line' => 46
+                   'line' => 43
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
@@ -970,7 +929,7 @@ subtest 'tokenize' => sub {
                    'name' => 'RightParenthesis',
                    'data' => ')',
                    'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
-                   'line' => 46
+                   'line' => 43
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
@@ -979,7 +938,7 @@ subtest 'tokenize' => sub {
                    'name' => 'LeftBrace',
                    'data' => '{',
                    'type' => Compiler::Lexer::TokenType::T_LeftBrace,
-                   'line' => 46
+                   'line' => 43
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Goto,
@@ -988,7 +947,7 @@ subtest 'tokenize' => sub {
                    'name' => 'Goto',
                    'data' => 'goto',
                    'type' => Compiler::Lexer::TokenType::T_Goto,
-                   'line' => 47
+                   'line' => 44
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -997,7 +956,7 @@ subtest 'tokenize' => sub {
                    'name' => 'Key',
                    'data' => 'quux',
                    'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 47
+                   'line' => 44
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_StmtEnd,
@@ -1006,7 +965,7 @@ subtest 'tokenize' => sub {
                    'name' => 'SemiColon',
                    'data' => ';',
                    'type' => Compiler::Lexer::TokenType::T_SemiColon,
-                   'line' => 47
+                   'line' => 44
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
@@ -1015,7 +974,7 @@ subtest 'tokenize' => sub {
                    'name' => 'RightBrace',
                    'data' => '}',
                    'type' => Compiler::Lexer::TokenType::T_RightBrace,
-                   'line' => 48
+                   'line' => 45
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Function,
@@ -1024,7 +983,7 @@ subtest 'tokenize' => sub {
                    'name' => 'BuiltinFunc',
                    'data' => 'print',
                    'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
-                   'line' => 50
+                   'line' => 47
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -1033,7 +992,7 @@ subtest 'tokenize' => sub {
                    'name' => 'String',
                    'data' => 'not ok 9\\n',
                    'type' => Compiler::Lexer::TokenType::T_String,
-                   'line' => 50
+                   'line' => 47
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_StmtEnd,
@@ -1042,7 +1001,7 @@ subtest 'tokenize' => sub {
                    'name' => 'SemiColon',
                    'data' => ';',
                    'type' => Compiler::Lexer::TokenType::T_SemiColon,
-                   'line' => 50
+                   'line' => 47
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Function,
@@ -1051,7 +1010,7 @@ subtest 'tokenize' => sub {
                    'name' => 'BuiltinFunc',
                    'data' => 'exit',
                    'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
-                   'line' => 51
+                   'line' => 48
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -1060,7 +1019,7 @@ subtest 'tokenize' => sub {
                    'name' => 'Int',
                    'data' => '1',
                    'type' => Compiler::Lexer::TokenType::T_Int,
-                   'line' => 51
+                   'line' => 48
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_StmtEnd,
@@ -1069,7 +1028,7 @@ subtest 'tokenize' => sub {
                    'name' => 'SemiColon',
                    'data' => ';',
                    'type' => Compiler::Lexer::TokenType::T_SemiColon,
-                   'line' => 51
+                   'line' => 48
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Decl,
@@ -1078,7 +1037,7 @@ subtest 'tokenize' => sub {
                    'name' => 'FunctionDecl',
                    'data' => 'sub',
                    'type' => Compiler::Lexer::TokenType::T_FunctionDecl,
-                   'line' => 53
+                   'line' => 50
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Decl,
@@ -1087,7 +1046,7 @@ subtest 'tokenize' => sub {
                    'name' => 'Function',
                    'data' => 'four',
                    'type' => Compiler::Lexer::TokenType::T_Function,
-                   'line' => 53
+                   'line' => 50
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
@@ -1096,7 +1055,7 @@ subtest 'tokenize' => sub {
                    'name' => 'LeftBrace',
                    'data' => '{',
                    'type' => Compiler::Lexer::TokenType::T_LeftBrace,
-                   'line' => 53
+                   'line' => 50
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Function,
@@ -1105,7 +1064,7 @@ subtest 'tokenize' => sub {
                    'name' => 'BuiltinFunc',
                    'data' => 'print',
                    'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
-                   'line' => 54
+                   'line' => 51
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -1114,7 +1073,7 @@ subtest 'tokenize' => sub {
                    'name' => 'String',
                    'data' => 'ok 4\\n',
                    'type' => Compiler::Lexer::TokenType::T_String,
-                   'line' => 54
+                   'line' => 51
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_StmtEnd,
@@ -1123,7 +1082,7 @@ subtest 'tokenize' => sub {
                    'name' => 'SemiColon',
                    'data' => ';',
                    'type' => Compiler::Lexer::TokenType::T_SemiColon,
-                   'line' => 54
+                   'line' => 51
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
@@ -1132,7 +1091,7 @@ subtest 'tokenize' => sub {
                    'name' => 'RightBrace',
                    'data' => '}',
                    'type' => Compiler::Lexer::TokenType::T_RightBrace,
-                   'line' => 55
+                   'line' => 52
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -1141,7 +1100,7 @@ subtest 'tokenize' => sub {
                    'name' => 'Key',
                    'data' => 'quux',
                    'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 57
+                   'line' => 54
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Colon,
@@ -1150,7 +1109,7 @@ subtest 'tokenize' => sub {
                    'name' => 'Colon',
                    'data' => ':',
                    'type' => Compiler::Lexer::TokenType::T_Colon,
-                   'line' => 57
+                   'line' => 54
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Decl,
@@ -1159,7 +1118,7 @@ subtest 'tokenize' => sub {
                    'name' => 'FunctionDecl',
                    'data' => 'sub',
                    'type' => Compiler::Lexer::TokenType::T_FunctionDecl,
-                   'line' => 58
+                   'line' => 55
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Decl,
@@ -1168,7 +1127,7 @@ subtest 'tokenize' => sub {
                    'name' => 'Function',
                    'data' => 'five',
                    'type' => Compiler::Lexer::TokenType::T_Function,
-                   'line' => 58
+                   'line' => 55
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
@@ -1177,7 +1136,7 @@ subtest 'tokenize' => sub {
                    'name' => 'LeftBrace',
                    'data' => '{',
                    'type' => Compiler::Lexer::TokenType::T_LeftBrace,
-                   'line' => 58
+                   'line' => 55
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Function,
@@ -1186,7 +1145,7 @@ subtest 'tokenize' => sub {
                    'name' => 'BuiltinFunc',
                    'data' => 'print',
                    'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
-                   'line' => 59
+                   'line' => 56
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -1195,7 +1154,7 @@ subtest 'tokenize' => sub {
                    'name' => 'String',
                    'data' => 'ok 5\\n',
                    'type' => Compiler::Lexer::TokenType::T_String,
-                   'line' => 59
+                   'line' => 56
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_StmtEnd,
@@ -1204,7 +1163,7 @@ subtest 'tokenize' => sub {
                    'name' => 'SemiColon',
                    'data' => ';',
                    'type' => Compiler::Lexer::TokenType::T_SemiColon,
-                   'line' => 59
+                   'line' => 56
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
@@ -1213,7 +1172,7 @@ subtest 'tokenize' => sub {
                    'name' => 'RightBrace',
                    'data' => '}',
                    'type' => Compiler::Lexer::TokenType::T_RightBrace,
-                   'line' => 60
+                   'line' => 57
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Function,
@@ -1222,7 +1181,7 @@ subtest 'tokenize' => sub {
                    'name' => 'BuiltinFunc',
                    'data' => 'print',
                    'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
-                   'line' => 61
+                   'line' => 58
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -1231,7 +1190,7 @@ subtest 'tokenize' => sub {
                    'name' => 'String',
                    'data' => 'ok 9\\n',
                    'type' => Compiler::Lexer::TokenType::T_String,
-                   'line' => 61
+                   'line' => 58
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_StmtEnd,
@@ -1240,7 +1199,7 @@ subtest 'tokenize' => sub {
                    'name' => 'SemiColon',
                    'data' => ';',
                    'type' => Compiler::Lexer::TokenType::T_SemiColon,
-                   'line' => 61
+                   'line' => 58
                  }, 'Compiler::Lexer::Token' )
         ]
 , 'Compiler::Lexer::tokenize');
@@ -1270,10 +1229,11 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 1
           },
           {
-            'token_num' => 9,
-            'has_warnings' => 1,
-            'end_line' => 12,
-            'src' => ' format one = ok 6 . print "1..9\\n" ;',
+            'token_num' => 8,
+            'has_warnings' => 0,
+            'end_line' => 11,
+            'src' => ' format one = ok 6
+ . print "1..9\\n" ;',
             'start_line' => 8,
             'indent' => 0,
             'block_id' => 0
@@ -1281,89 +1241,107 @@ subtest 'get_groups_by_syntax_level' => sub {
           {
             'token_num' => 4,
             'has_warnings' => 0,
-            'end_line' => 14,
+            'end_line' => 13,
             'src' => ' one ( ) ;',
-            'start_line' => 14,
+            'start_line' => 13,
             'indent' => 0,
             'block_id' => 0
           },
           {
             'token_num' => 4,
             'has_warnings' => 1,
-            'end_line' => 15,
+            'end_line' => 14,
             'src' => ' two ( ) ;',
-            'start_line' => 15,
+            'start_line' => 14,
             'indent' => 0,
             'block_id' => 0
           },
           {
             'token_num' => 7,
             'has_warnings' => 0,
-            'end_line' => 19,
+            'end_line' => 18,
             'src' => ' sub two { print "ok 2\\n" ; }',
-            'start_line' => 17,
+            'start_line' => 16,
             'indent' => 0,
             'block_id' => 0
           },
           {
             'token_num' => 3,
             'has_warnings' => 0,
-            'end_line' => 18,
+            'end_line' => 17,
             'src' => ' print "ok 2\\n" ;',
-            'start_line' => 18,
+            'start_line' => 17,
             'indent' => 1,
             'block_id' => 2
           },
           {
             'token_num' => 19,
             'has_warnings' => 1,
-            'end_line' => 30,
+            'end_line' => 28,
             'src' => ' if ( $x eq $x ) { sub three { print "ok 3\\n" ; } three ( ) ; }',
-            'start_line' => 25,
+            'start_line' => 23,
             'indent' => 0,
             'block_id' => 0
           },
           {
             'token_num' => 7,
             'has_warnings' => 0,
-            'end_line' => 28,
+            'end_line' => 26,
             'src' => ' sub three { print "ok 3\\n" ; }',
-            'start_line' => 26,
+            'start_line' => 24,
             'indent' => 1,
             'block_id' => 3
           },
           {
             'token_num' => 3,
             'has_warnings' => 0,
-            'end_line' => 27,
+            'end_line' => 25,
             'src' => ' print "ok 3\\n" ;',
-            'start_line' => 27,
+            'start_line' => 25,
             'indent' => 2,
             'block_id' => 4
           },
           {
             'token_num' => 4,
             'has_warnings' => 0,
-            'end_line' => 29,
+            'end_line' => 27,
             'src' => ' three ( ) ;',
-            'start_line' => 29,
+            'start_line' => 27,
             'indent' => 1,
             'block_id' => 3
           },
           {
             'token_num' => 4,
             'has_warnings' => 1,
-            'end_line' => 32,
+            'end_line' => 30,
             'src' => ' four ( ) ;',
-            'start_line' => 32,
+            'start_line' => 30,
             'indent' => 0,
             'block_id' => 0
           },
           {
             'token_num' => 4,
             'has_warnings' => 1,
-            'end_line' => 33,
+            'end_line' => 31,
             'src' => ' five ( ) ;',
+            'start_line' => 31,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 32,
+            'src' => ' $~ = \'one\' ;',
+            'start_line' => 32,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 2,
+            'has_warnings' => 0,
+            'end_line' => 33,
+            'src' => ' write ;',
             'start_line' => 33,
             'indent' => 0,
             'block_id' => 0
@@ -1372,34 +1350,34 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 4,
             'has_warnings' => 0,
             'end_line' => 34,
-            'src' => ' $~ = \'one\' ;',
-            'start_line' => 34,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 2,
-            'has_warnings' => 0,
-            'end_line' => 35,
-            'src' => ' write ;',
-            'start_line' => 35,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 0,
-            'end_line' => 36,
             'src' => ' $~ = \'two\' ;',
-            'start_line' => 36,
+            'start_line' => 34,
             'indent' => 0,
             'block_id' => 0
           },
           {
             'token_num' => 4,
             'has_warnings' => 1,
-            'end_line' => 37,
+            'end_line' => 35,
             'src' => ' $foo = "ok 7" ;',
+            'start_line' => 35,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 2,
+            'has_warnings' => 0,
+            'end_line' => 36,
+            'src' => ' write ;',
+            'start_line' => 36,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 37,
+            'src' => ' $~ = \'three\' ;',
             'start_line' => 37,
             'indent' => 0,
             'block_id' => 0
@@ -1414,46 +1392,46 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 4,
-            'has_warnings' => 0,
-            'end_line' => 39,
-            'src' => ' $~ = \'three\' ;',
-            'start_line' => 39,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 2,
-            'has_warnings' => 0,
-            'end_line' => 40,
-            'src' => ' write ;',
-            'start_line' => 40,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
             'token_num' => 11,
             'has_warnings' => 1,
-            'end_line' => 48,
+            'end_line' => 45,
             'src' => ' if ( $x eq $x ) { goto quux ; }',
-            'start_line' => 46,
+            'start_line' => 43,
             'indent' => 0,
             'block_id' => 0
           },
           {
             'token_num' => 3,
             'has_warnings' => 1,
-            'end_line' => 47,
+            'end_line' => 44,
             'src' => ' goto quux ;',
-            'start_line' => 47,
+            'start_line' => 44,
             'indent' => 1,
             'block_id' => 5
           },
           {
             'token_num' => 3,
             'has_warnings' => 0,
-            'end_line' => 50,
+            'end_line' => 47,
             'src' => ' print "not ok 9\\n" ;',
+            'start_line' => 47,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 48,
+            'src' => ' exit 1 ;',
+            'start_line' => 48,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 52,
+            'src' => ' sub four { print "ok 4\\n" ; }',
             'start_line' => 50,
             'indent' => 0,
             'block_id' => 0
@@ -1462,53 +1440,35 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 3,
             'has_warnings' => 0,
             'end_line' => 51,
-            'src' => ' exit 1 ;',
-            'start_line' => 51,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 0,
-            'end_line' => 55,
-            'src' => ' sub four { print "ok 4\\n" ; }',
-            'start_line' => 53,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 54,
             'src' => ' print "ok 4\\n" ;',
-            'start_line' => 54,
+            'start_line' => 51,
             'indent' => 1,
             'block_id' => 6
           },
           {
             'token_num' => 7,
             'has_warnings' => 0,
-            'end_line' => 60,
+            'end_line' => 57,
             'src' => ' sub five { print "ok 5\\n" ; }',
-            'start_line' => 58,
+            'start_line' => 55,
             'indent' => 0,
             'block_id' => 0
           },
           {
             'token_num' => 3,
             'has_warnings' => 0,
-            'end_line' => 59,
+            'end_line' => 56,
             'src' => ' print "ok 5\\n" ;',
-            'start_line' => 59,
+            'start_line' => 56,
             'indent' => 1,
             'block_id' => 7
           },
           {
             'token_num' => 3,
             'has_warnings' => 0,
-            'end_line' => 61,
+            'end_line' => 58,
             'src' => ' print "ok 9\\n" ;',
-            'start_line' => 61,
+            'start_line' => 58,
             'indent' => 0,
             'block_id' => 0
           }

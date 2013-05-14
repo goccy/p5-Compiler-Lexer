@@ -1,6 +1,6 @@
 namespace Enum {
-namespace Lexer {
 namespace Token {
+namespace Type {
 typedef enum {
 	Return,
 	Add,
@@ -173,6 +173,9 @@ typedef enum {
 	RawHereDocument,
 	HereDocument,
 	HereDocumentEnd,
+	FormatDecl,
+	Format,
+	FormatEnd,
 	Object,
 	RegExp,
 	Array,
@@ -199,6 +202,7 @@ typedef enum {
 } Type;
 }
 
+namespace Kind {
 typedef enum {
 	Return,
 	Operator,
@@ -241,5 +245,6 @@ typedef enum {
 	Set,
 	Undefined,
 } Kind;
+}
 }
 }

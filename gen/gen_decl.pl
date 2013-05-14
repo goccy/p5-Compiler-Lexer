@@ -22,8 +22,8 @@ foreach my $elem (@array) {
 }
 
 print ous "namespace Enum {\n";
-print ous "namespace Lexer {\n";
 print ous "namespace Token {\n";
+print ous "namespace Type {\n";
 print ous "typedef enum {\n";
 foreach (@token_enum) {
 	print ous "\t$_,\n";
@@ -32,22 +32,25 @@ print ous "} Type;\n";
 print ous "}\n";
 print ous "\n";
 
+print ous "namespace Kind {\n";
 print ous "typedef enum {\n";
 foreach (@kind_enum) {
 	print ous "\t$_,\n";
 }
 print ous "} Kind;\n";
 print ous "}\n";
+
+print ous "}\n";
 print ous "}\n";
 
 open(ous, ">", "gen_token_decl.cpp");
-print ous "#include <lexer.hpp>\n";
+print ous "#include <common.hpp>\n";
 print ous "TokenInfo decl_tokens[] = {\n";
 foreach my $elem (@array) {
-	my $type = $elem->{type};
+    my $type = $elem->{type};
     my $kind = $elem->{kind};
     my $data = $elem->{data};
-	print ous "\t{Enum::Lexer::Token::${type}, Enum::Lexer::${kind}, \"${type}\", \"${data}\"},\n";
+    print ous "\t{Enum::Token::Type::${type}, Enum::Token::Kind::${kind}, \"${type}\", \"${data}\"},\n";
 }
 print ous "};\n";
 print ous "\n";

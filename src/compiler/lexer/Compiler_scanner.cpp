@@ -1,127 +1,48 @@
 #include <lexer.hpp>
 using namespace std;
-namespace TokenType = Enum::Lexer::Token;
-namespace SyntaxType = Enum::Lexer::Syntax;
-namespace TokenKind = Enum::Lexer;
+namespace TokenType = Enum::Token::Type;
+namespace SyntaxType = Enum::Parser::Syntax;
+namespace TokenKind = Enum::Token::Kind;
 
 Scanner::Scanner() :
-	isStringStarted(false), isRegexStarted(false), isPrototypeStarted(false), commentFlag(false), hereDocumentFlag(false),
+	isStringStarted(false), isRegexStarted(false), isPrototypeStarted(false), isFormatStarted(false),
+	isFormatDeclared(false), commentFlag(false), hereDocumentFlag(false),
 	regex_delim(0), regex_middle_delim(0),
     brace_count_inner_regex(0), bracket_count_inner_regex(0), cury_brace_count_inner_regex(0)
 {
-	regex_prefix_map.insert(StringMap::value_type("q", ""));
-	regex_prefix_map.insert(StringMap::value_type("qq", ""));
-	regex_prefix_map.insert(StringMap::value_type("qw", ""));
-	regex_prefix_map.insert(StringMap::value_type("qx", ""));
-	regex_prefix_map.insert(StringMap::value_type("qr", ""));
-	regex_prefix_map.insert(StringMap::value_type("m", ""));
-
-	regex_replace_map.insert(StringMap::value_type("s", ""));
-	regex_replace_map.insert(StringMap::value_type("y", ""));
-	regex_replace_map.insert(StringMap::value_type("tr", ""));
-
-	operator_map.insert(StringMap::value_type("<=>", ""));
-	operator_map.insert(StringMap::value_type("**=", ""));
-	operator_map.insert(StringMap::value_type("//=", ""));
-	operator_map.insert(StringMap::value_type("||=", ""));
-	operator_map.insert(StringMap::value_type("&&=", ""));
-	operator_map.insert(StringMap::value_type("...", ""));
-	operator_map.insert(StringMap::value_type("$#{", ""));
-	operator_map.insert(StringMap::value_type("$^A", ""));
-	operator_map.insert(StringMap::value_type("$^D", ""));
-	operator_map.insert(StringMap::value_type("$^E", ""));
-	operator_map.insert(StringMap::value_type("$^F", ""));
-	operator_map.insert(StringMap::value_type("$^G", ""));
-	operator_map.insert(StringMap::value_type("$^H", ""));
-	operator_map.insert(StringMap::value_type("$^I", ""));
-	operator_map.insert(StringMap::value_type("$^L", ""));
-	operator_map.insert(StringMap::value_type("$^M", ""));
-	operator_map.insert(StringMap::value_type("$^O", ""));
-	operator_map.insert(StringMap::value_type("$^P", ""));
-	operator_map.insert(StringMap::value_type("$^R", ""));
-	operator_map.insert(StringMap::value_type("$^T", ""));
-	operator_map.insert(StringMap::value_type("$^W", ""));
-	operator_map.insert(StringMap::value_type("$^X", ""));
-
-	operator_map.insert(StringMap::value_type("<=", ""));
-	operator_map.insert(StringMap::value_type(">=", ""));
-	operator_map.insert(StringMap::value_type(".=", ""));
-	operator_map.insert(StringMap::value_type("!=", ""));
-	operator_map.insert(StringMap::value_type("==", ""));
-	operator_map.insert(StringMap::value_type("+=", ""));
-	operator_map.insert(StringMap::value_type("-=", ""));
-	operator_map.insert(StringMap::value_type("*=", ""));
-	operator_map.insert(StringMap::value_type("%=", ""));
-	operator_map.insert(StringMap::value_type("|=", ""));
-	operator_map.insert(StringMap::value_type("&=", ""));
-	operator_map.insert(StringMap::value_type("^=", ""));
-	operator_map.insert(StringMap::value_type("<<", ""));
-	operator_map.insert(StringMap::value_type(">>", ""));
-	operator_map.insert(StringMap::value_type("++", ""));
-	operator_map.insert(StringMap::value_type("--", ""));
-	operator_map.insert(StringMap::value_type("**", ""));
-	operator_map.insert(StringMap::value_type("//", ""));
-	operator_map.insert(StringMap::value_type("&&", ""));
-	operator_map.insert(StringMap::value_type("||", ""));
-	operator_map.insert(StringMap::value_type("::", ""));
-	operator_map.insert(StringMap::value_type("..", ""));
-	operator_map.insert(StringMap::value_type("=>", ""));
-	operator_map.insert(StringMap::value_type("->", ""));
-	operator_map.insert(StringMap::value_type("@{", ""));
-	operator_map.insert(StringMap::value_type("%{", ""));
-	operator_map.insert(StringMap::value_type("${", ""));
-	operator_map.insert(StringMap::value_type("@$", ""));
-	operator_map.insert(StringMap::value_type("%$", ""));
-	operator_map.insert(StringMap::value_type("%-", ""));
-	operator_map.insert(StringMap::value_type("%+", ""));
-	operator_map.insert(StringMap::value_type("@-", ""));
-	operator_map.insert(StringMap::value_type("@+", ""));
-	operator_map.insert(StringMap::value_type("&$", ""));
-	operator_map.insert(StringMap::value_type("$#", ""));
-	operator_map.insert(StringMap::value_type("<>", ""));
-	operator_map.insert(StringMap::value_type("!~", ""));
-	operator_map.insert(StringMap::value_type("~~", ""));
-	operator_map.insert(StringMap::value_type("=~", ""));
-
-	operator_map.insert(StringMap::value_type("$0", ""));
-	operator_map.insert(StringMap::value_type("$1", ""));
-	operator_map.insert(StringMap::value_type("$2", ""));
-	operator_map.insert(StringMap::value_type("$3", ""));
-	operator_map.insert(StringMap::value_type("$4", ""));
-	operator_map.insert(StringMap::value_type("$5", ""));
-	operator_map.insert(StringMap::value_type("$6", ""));
-	operator_map.insert(StringMap::value_type("$7", ""));
-	operator_map.insert(StringMap::value_type("$8", ""));
-	operator_map.insert(StringMap::value_type("$9", ""));
-
-	operator_map.insert(StringMap::value_type("$&", ""));
-	operator_map.insert(StringMap::value_type("$`", ""));
-	operator_map.insert(StringMap::value_type("$'", ""));
-	operator_map.insert(StringMap::value_type("$+", ""));
-	operator_map.insert(StringMap::value_type("$.", ""));
-	operator_map.insert(StringMap::value_type("$/", ""));
-	operator_map.insert(StringMap::value_type("$|", ""));
-	operator_map.insert(StringMap::value_type("$,", ""));
-	operator_map.insert(StringMap::value_type("$\\", ""));
-	operator_map.insert(StringMap::value_type("$\"", ""));
-	operator_map.insert(StringMap::value_type("$%", ""));
-	operator_map.insert(StringMap::value_type("$=", ""));
-	operator_map.insert(StringMap::value_type("$-", ""));
-	operator_map.insert(StringMap::value_type("$~", ""));
-	operator_map.insert(StringMap::value_type("$^", ""));
-	operator_map.insert(StringMap::value_type("$*", ""));
-	operator_map.insert(StringMap::value_type("$:", ""));
-	operator_map.insert(StringMap::value_type("$;", ""));
-	operator_map.insert(StringMap::value_type("$?", ""));
-	operator_map.insert(StringMap::value_type("$!", ""));
-	operator_map.insert(StringMap::value_type("$@", ""));
-	operator_map.insert(StringMap::value_type("$$", ""));
-	operator_map.insert(StringMap::value_type("$<", ""));
-	operator_map.insert(StringMap::value_type("$>", ""));
-	operator_map.insert(StringMap::value_type("$(", ""));
-	operator_map.insert(StringMap::value_type("$)", ""));
-	operator_map.insert(StringMap::value_type("$[", ""));
-	operator_map.insert(StringMap::value_type("$]", ""));
+	const char *regex_prefixes[] = {
+		"q", "qq", "qw", "qx", "qr", "m", NULL
+	};
+	const char *regex_replaces[] = {
+		"s", "y", "tr", NULL
+	};
+	const char *operators[] = {
+		"<=>", "**=", "//=", "||=", "&&=", "...", "$#{",
+		"$^A", "$^D", "$^E", "$^F", "$^G", "$^H", "$^I",
+		"$^L", "$^M", "$^O", "$^P", "$^R", "$^T", "$^W", "$^X",
+		"<=",  ">=",  ".=",  "!=",  "==",  "+=",  "-=",
+		"*=",  "%=",  "|=",  "&=",  "^=",  "<<",  ">>",
+		"++",  "--",  "**",  "//",  "&&",  "||",  "::",
+		"..",  "=>",  "->",  "@{",  "%{",  "${",  "@$",
+		"%$",  "%-",  "%+",  "@-",  "@+",  "&$",  "$#",
+		"<>",  "!~",  "~~",  "=~",
+		"$0",  "$1",  "$2",  "$3",  "$4",  "$5",  "$6",
+		"$7",  "$8",  "$9",
+		"$&",  "$`",  "$'",  "$+",  "$.",  "$/",  "$|",
+		"$,",  "$\\", "$\"", "$%",  "$=",  "$-",  "$~",
+		"$^",  "$*",  "$:",  "$;",  "$?",  "$!",  "$@",
+		"$$",  "$<",  "$>",  "$(",  "$)",  "$[",  "$]",
+		NULL
+	};
+	for (size_t i = 0; regex_prefixes[i] != NULL; i++) {
+		regex_prefix_map.insert(StringMap::value_type(regex_prefixes[i], ""));
+	}
+	for (size_t i = 0; regex_replaces[i] != NULL; i++) {
+		regex_replace_map.insert(StringMap::value_type(regex_replaces[i], ""));
+	}
+	for (size_t i = 0; operators[i] != NULL; i++) {
+		operator_map.insert(StringMap::value_type(operators[i], ""));
+	}
 }
 
 Token *Scanner::scanQuote(LexContext *ctx, char quote)
@@ -263,6 +184,11 @@ bool Scanner::isHereDocument(LexContext *ctx, Token *tk)
 		return true;
 	}
 	return false;
+}
+
+bool Scanner::isFormat(LexContext *ctx, Token *tk)
+{
+	return (tk->data == "format") ? true : false;
 }
 
 bool Scanner::isRegexDelim(Token *prev_token, char symbol)
@@ -414,6 +340,10 @@ Token *Scanner::scanSymbol(LexContext *ctx, char symbol, char next_ch, char afte
 
 #define NEXT() (*(src + i++))
 #define PREDICT() (*(src + i))
+#define is_number(ch) ('0' <= ch && ch <= '9')
+#define is_number_literal(ch) ((is_number(ch) || ch == '_') && ch != EOL)
+#define is_hexchar(ch) (('a' <= ch && ch <= 'f') || ('A' <= ch && ch <= 'F'))
+
 Token *Scanner::scanNumber(LexContext *ctx)
 {
 	char *src = ctx->smgr->raw_script;
@@ -421,35 +351,29 @@ Token *Scanner::scanNumber(LexContext *ctx)
 	char *begin = src + i;
 	int c = NEXT();
 	Token *token = NULL;
-	assert((c == '.' || ('0' <= c && c <= '9')) && "It do not seem as Number");
+	assert((c == '.' || is_number(c)) && "It do not seem as Number");
 	bool isFloat = false;
-	if ('0' <= c && c <= '9') {
+	if (is_number(c)) {
 		/* first char */
-		if ('0' <= c && c <= '9' && c != EOL) c = NEXT();
+		if (is_number_literal(c)) c = NEXT();
 		/* second char is includes 'b' or 'x' */
-		if ((('0' <= c && c <= '9') || c == 'b' || c == 'x' || c == '_') && c != EOL) c = NEXT();
-		for (;(('0' <= c && c <= '9') ||
-			   ('a' <= c && c <= 'f') ||
-			   ('A' <= c && c <= 'F') || c == '_') && c != EOL; c = NEXT()) {}
+		if ((is_number(c) || c == 'b' || c == 'x' || c == '_') && c != EOL) c = NEXT();
+		for (;(is_number(c) || is_hexchar(c) || c == '_') && c != EOL; c = NEXT()) {}
 	}
-	if (c != '.' && c != 'e' && c != 'E') {
-		goto L_emit;
-	}
+	if (c != '.' && c != 'e' && c != 'E') goto L_emit;
 	if (c == '.') {
 		c = PREDICT();
 		if (c == '.') {
 			goto L_emit; /* Number .. */
 		}
 		isFloat = true;
-		for (; (('0' <= c && c <= '9') || c == '_') && c != EOL; c = NEXT()) {}
+		for (; is_number_literal(c); c = NEXT()) {}
 	}
 	if (c == 'e' || c == 'E') {
 		isFloat = true;
 		c = NEXT();
-		if (c == '+' || c == '-') {
-			c = NEXT();
-		}
-		for (; (('0' <= c && c <= '9') || c == '_') && c != EOL; c = NEXT()) {}
+		if (c == '+' || c == '-') c = NEXT();
+		for (; is_number_literal(c); c = NEXT()) {}
 	}
 	L_emit:;
 	i -= 1;
@@ -463,7 +387,7 @@ Token *Scanner::scanNumber(LexContext *ctx)
 
 bool Scanner::isSkip(LexContext *ctx)
 {
-	using namespace Enum::Lexer::Token;
+	using namespace TokenType;
 	bool ret = commentFlag;
 	ScriptManager *smgr = ctx->smgr;
 	char *script = smgr->raw_script;
@@ -491,6 +415,24 @@ bool Scanner::isSkip(LexContext *ctx)
 		int progress_to_end = ctx->script_size - idx - 1;
 		ctx->progress = progress_to_end;
 		ret = false;
+	} else if (isFormatStarted) {
+		if (smgr->previousChar() == '\n' && smgr->currentChar() == '.') {
+			Token *tk = new Token(string(ctx->buffer()), ctx->finfo);
+			tk->info = getTokenInfo(Format);
+			ctx->clearBuffer();
+			ctx->tmgr->tokens->push_back(tk);
+
+			tk = new Token(".", ctx->finfo);
+			tk->info = getTokenInfo(TokenType::FormatEnd);
+			ctx->tmgr->tokens->push_back(tk);
+
+			ctx->progress = 1;
+			isFormatStarted = false;
+			ret = false;
+		} else {
+			ctx->writeBuffer(script[idx]);
+			ret = true;
+		}
     } else if (isRegexStarted) {
 		if (smgr->previousChar() != '\\' ||
 			(smgr->previousChar() == '\\' && smgr->beforePreviousChar() == '\\')) {

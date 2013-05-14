@@ -2700,6 +2700,24 @@
 	"parse_func" : ""
  },
  {
+	"type" : "FormatDecl",
+	"kind" : "Decl",
+	"data" : "",
+	"parse_func" : ""
+ },
+ {
+	"type" : "Format",
+	"kind" : "Term",
+	"data" : "",
+	"parse_func" : ""
+ },
+ {
+	"type" : "FormatEnd",
+	"kind" : "Term",
+	"data" : "",
+	"parse_func" : ""
+ },
+ {
 	"type" : "Object",
 	"kind" : "Term",
 	"data" : "",

@@ -79,8 +79,8 @@ CODE:
 		const char *data = SvPVX(get_value(token, "data"));
 		int line = SvIVX(get_value(token, "line"));
 		int has_warnings = SvIVX(get_value(token, "has_warnings"));
-		Enum::Lexer::Token::Type type = (Enum::Lexer::Token::Type)SvIVX(get_value(token, "type"));
-		Enum::Lexer::Kind kind = (Enum::Lexer::Kind)SvIVX(get_value(token, "kind"));
+		Enum::Token::Type::Type type = (Enum::Token::Type::Type)SvIVX(get_value(token, "type"));
+		Enum::Token::Kind::Kind kind = (Enum::Token::Kind::Kind)SvIVX(get_value(token, "kind"));
 		FileInfo finfo;
 		finfo.start_line_num = line;
 		finfo.end_line_num = line;
@@ -106,7 +106,7 @@ CODE:
 	self->setIndent(root, 0);
 	size_t block_id = 0;
 	self->setBlockIDWithDepthFirst(root, &block_id);
-	Tokens *stmts = self->getTokensBySyntaxLevel(root, (Enum::Lexer::Syntax::Type)syntax_level);
+	Tokens *stmts = self->getTokensBySyntaxLevel(root, (Enum::Parser::Syntax::Type)syntax_level);
 	AV* ret  = new_Array();
 	for (size_t i = 0; i < stmts->size(); i++) {
 		Token *stmt = stmts->at(i);

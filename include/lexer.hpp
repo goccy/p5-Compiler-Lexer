@@ -1,76 +1,4 @@
-#include "common.hpp"
-#include "gen_token.hpp"
-
-namespace Enum {
-	namespace Lexer {
-		namespace Char {
-			typedef enum {
-				DoubleQuote = '"',
-				Hash        = '#',
-				Space       = ' ',
-				Tab         = '\t',
-				BackSlash   = '\\',
-				Amp         = '&',
-			} Type;
-		}
-		namespace Syntax {
-			typedef enum {
-				Value,
-				Term,
-				Expr,
-				Stmt,
-				BlockStmt
-			} Type;
-		}
-	}
-}
-
-class FileInfo {
-public:
-	size_t start_line_num;
-	size_t end_line_num;
-	size_t indent;
-	size_t block_id;
-	const char *filename;
-};
-
-class TokenInfo {
-public:
-	Enum::Lexer::Token::Type type;
-	Enum::Lexer::Kind kind;
-	const char *name;
-	const char *data;
-	bool has_warnings;
-};
-
-class Token {
-public:
-	Enum::Lexer::Syntax::Type stype;
-	Enum::Lexer::Token::Type type;
-	TokenInfo info;
-	FileInfo finfo;
-	Token **tks;
-	std::string data;
-	int idx;
-	size_t token_num;
-	size_t total_token_num;
-	std::string deparsed_data;
-	bool isDeparsed;
-	bool isDeleted;
-
-	Token(std::string data_, FileInfo finfo);
-	Token(Tokens *tokens);
-	//~Token(void);
-	const char *deparse(void);
-};
-
-class Tokens : public std::vector<Token *> {
-public:
-	Tokens(void);
-	void add(Token *token);
-	void remove(size_t idx);
-	Token *lastToken(void);
-};
+#include <common.hpp>
 
 class TokenManager {
 public:
@@ -111,20 +39,18 @@ public:
 	char forward(size_t progress);
 };
 
-extern TokenInfo decl_tokens[];
 class LexContext {
 public:
 	ScriptManager *smgr;
 	TokenManager  *tmgr;
 	FileInfo finfo;
-	//Tokens *tokens;
 	Tokens *tks;
 	int progress;
 	char *token_buffer;
 	size_t buffer_idx;
 	size_t script_size;
 	TokenPos itr;
-	Enum::Lexer::Token::Type prev_type;
+	Enum::Token::Type::Type prev_type;
 
 	LexContext(const char *filename, char *script);
 	LexContext(Tokens *tokens);
@@ -150,6 +76,8 @@ public:
 	bool isStringStarted;
 	bool isRegexStarted;
 	bool isPrototypeStarted;
+	bool isFormatStarted;
+	bool isFormatDeclared;
 	bool commentFlag;
 	bool hereDocumentFlag;
 	char start_string_ch;
@@ -168,6 +96,7 @@ public:
 	bool isRegexEndDelim(LexContext *ctx);
 	bool isRegexDelim(Token *prev_token, char symbol);
 	bool isHereDocument(LexContext *ctx, Token *prev_token);
+	bool isFormat(LexContext *ctx, Token *tk);
 	bool isSkip(LexContext *ctx);
 	bool isPrototype(LexContext *ctx);
 	char getRegexDelim(LexContext *ctx);
@@ -183,7 +112,7 @@ public:
 	Token *scanSymbol(LexContext *ctx, char symbol, char next_ch, char after_next_ch);
 	Token *scanNumber(LexContext *ctx);
 	bool scanNegativeNumber(LexContext *ctx, char num);
-	TokenInfo getTokenInfo(Enum::Lexer::Token::Type type);
+	TokenInfo getTokenInfo(Enum::Token::Type::Type type);
 	TokenInfo getTokenInfo(const char *data);
 };
 
@@ -207,10 +136,10 @@ public:
 	void setBlockIDWithDepthFirst(Token *tk, size_t *block_id);
 	void dump(Tokens *tokens);
 	void dumpSyntax(Token *tk, int indent);
-	Tokens *getTokensBySyntaxLevel(Token *root, Enum::Lexer::Syntax::Type type);
+	Tokens *getTokensBySyntaxLevel(Token *root, Enum::Parser::Syntax::Type type);
 	Modules *getUsedModules(Token *root);
 private:
-	bool isExpr(Token *tk, Token *prev_tk, Enum::Lexer::Token::Type type, Enum::Lexer::Kind kind);
+	bool isExpr(Token *tk, Token *prev_tk, Enum::Token::Type::Type type, Enum::Token::Kind::Kind kind);
 	void insertStmt(Token *tk, int idx, size_t grouping_num);
 	void insertParenthesis(Tokens *tokens);
 };
@@ -224,7 +153,7 @@ public:
 	Annotator(void);
 	void annotate(LexContext *ctx, Token *tk);
 private:
-	TokenInfo getTokenInfo(Enum::Lexer::Token::Type type);
+	TokenInfo getTokenInfo(Enum::Token::Type::Type type);
 	TokenInfo getTokenInfo(const char *data);
 	bool search(std::vector<std::string> list, std::string target);
 	void setAnnotateMethods(AnnotateMethods *methods);
@@ -258,6 +187,3 @@ public:
 };
 
 #define isSKIP() commentFlag
-extern void *safe_malloc(size_t size);
-extern void safe_free(void *ptr, size_t size);
-
