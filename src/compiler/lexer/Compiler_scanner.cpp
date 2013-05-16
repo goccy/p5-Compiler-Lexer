@@ -119,7 +119,7 @@ bool Scanner::isRegexStartDelim(LexContext *ctx, const StringMap &map)
 	if (before_prev_data == "*") return false;  /* glob */
 	if (before_prev_data == "&") return false;  /* function call */
 	if (before_prev_data == "::") return false; /* method call */
-	if (symbol == '}' || symbol == ',' || symbol == '=') return false;
+	if (symbol == '}' || symbol == '=') return false;
 	if (map.find(prev_data) != map.end()) return true;
 	return false;
 }

@@ -357,7 +357,11 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 			break; /* not reached this stmt */
 		case SemiColon: {
 			size_t k = pos - intermediate_pos;
-			if (start_pos == intermediate_pos) k++;
+			Token *intermediate_tk = ITER_CAST(Token *, intermediate_pos);
+			intermediate_pos;
+			if (start_pos == intermediate_pos && intermediate_tk->info.type != LeftBrace) {
+				k++;
+			}
 			Tokens *stmt = new Tokens();
 			for (size_t j = 0; j < k - 1; j++) {
 				Token *tk = new_tokens->back();

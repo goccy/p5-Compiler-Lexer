@@ -46080,65 +46080,11 @@ $diff
                    'line' => 1644
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Comma,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Comma',
-                   'data' => ',',
-                   'type' => Compiler::Lexer::TokenType::T_Comma,
-                   'line' => 1644
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'E',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 1644
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Less',
-                   'data' => '<',
-                   'type' => Compiler::Lexer::TokenType::T_Less,
-                   'line' => 1644
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'sol',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 1644
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Greater',
-                   'data' => '>',
-                   'type' => Compiler::Lexer::TokenType::T_Greater,
-                   'line' => 1644
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Comma,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Comma',
-                   'data' => ',',
-                   'type' => Compiler::Lexer::TokenType::T_Comma,
-                   'line' => 1644
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegDelim',
-                   'data' => '/',
+                   'data' => ',',
                    'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 1644
                  }, 'Compiler::Lexer::Token' ),
@@ -46146,55 +46092,81 @@ $diff
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegExp',
-                   'data' => ',g;
-                $node =~ s',
-                   'type' => Compiler::Lexer::TokenType::T_RegExp,
-                   'line' => 1645
+                   'name' => 'RegReplaceFrom',
+                   'data' => 'E<sol>',
+                   'type' => Compiler::Lexer::TokenType::T_RegReplaceFrom,
+                   'line' => 1644
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegMiddleDelim',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_RegMiddleDelim,
+                   'line' => 1644
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegReplaceTo',
+                   'data' => '/',
+                   'type' => Compiler::Lexer::TokenType::T_RegReplaceTo,
+                   'line' => 1644
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegDelim',
-                   'data' => '/',
+                   'data' => ',',
                    'type' => Compiler::Lexer::TokenType::T_RegDelim,
-                   'line' => 1645
+                   'line' => 1644
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_RegOpt,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegOpt',
-                   'data' => 'E',
+                   'data' => 'g',
                    'type' => Compiler::Lexer::TokenType::T_RegOpt,
-                   'line' => 1645
+                   'line' => 1644
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Less',
-                   'data' => '<',
-                   'type' => Compiler::Lexer::TokenType::T_Less,
-                   'line' => 1645
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 1644
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'verbar',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'Var',
+                   'data' => '$node',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
                    'line' => 1645
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Greater',
-                   'data' => '>',
-                   'type' => Compiler::Lexer::TokenType::T_Greater,
+                   'name' => 'RegOK',
+                   'data' => '=~',
+                   'type' => Compiler::Lexer::TokenType::T_RegOK,
+                   'line' => 1645
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_RegReplacePrefix,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegReplace',
+                   'data' => 's',
+                   'type' => Compiler::Lexer::TokenType::T_RegReplace,
                    'line' => 1645
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -46210,9 +46182,27 @@ $diff
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegExp',
+                   'name' => 'RegReplaceFrom',
+                   'data' => 'E<verbar>',
+                   'type' => Compiler::Lexer::TokenType::T_RegReplaceFrom,
+                   'line' => 1645
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegMiddleDelim',
+                   'data' => '/',
+                   'type' => Compiler::Lexer::TokenType::T_RegMiddleDelim,
+                   'line' => 1645
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegReplaceTo',
                    'data' => '|',
-                   'type' => Compiler::Lexer::TokenType::T_RegExp,
+                   'type' => Compiler::Lexer::TokenType::T_RegReplaceTo,
                    'line' => 1645
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -46837,30 +46827,48 @@ $diff
                    'line' => 1661
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Comma,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Comma',
+                   'name' => 'RegDelim',
                    'data' => ',',
-                   'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 1661
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'String',
-                   'data' => '$,/$node',
-                   'type' => Compiler::Lexer::TokenType::T_String,
+                   'name' => 'RegReplaceFrom',
+                   'data' => '"$',
+                   'type' => Compiler::Lexer::TokenType::T_RegReplaceFrom,
                    'line' => 1661
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Comma,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Comma',
+                   'name' => 'RegMiddleDelim',
                    'data' => ',',
-                   'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'type' => Compiler::Lexer::TokenType::T_RegMiddleDelim,
+                   'line' => 1661
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegReplaceTo',
+                   'data' => '/$node"',
+                   'type' => Compiler::Lexer::TokenType::T_RegReplaceTo,
+                   'line' => 1661
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegDelim',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 1661
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -58478,21 +58486,19 @@ $diff
             'block_id' => 131
           },
           {
-            'token_num' => 276,
+            'token_num' => 277,
             'has_warnings' => 1,
             'end_line' => 1687,
-            'src' => ' if ( ! $has_input_files ) { foreach my $filename ( @files ) { next if $filename_to_checker { $filename }-> get_skip ; my $checker = $filename_to_checker { $filename } ; foreach my $link ( $checker-> hyperlink ) { my $linked_to_page = $link-> [ 1 ]-> page ; next unless $linked_to_page ; my %problem = ( -msg => $broken_link , -line => $link-> [ 0 ] , parameter => "to \\"$linked_to_page\\"" , ) ; if ( exists $nodes { $linked_to_page } ) { my $node = $link-> [ 1 ]-> node ; next if ! $node ; $node =~ s , E < sol > ,/,g;
-                $node =~ s/E < verbar >/|/g ; if ( $nodes { $linked_to_page } { $node } ) { if ( $nodes { $linked_to_page } { $node } > 1 ) { $problem { -msg } = $multiple_targets ; $problem { parameter } = "in $linked_to_page that $node could be pointing to" ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! $nodes_first_word { $linked_to_page } { $node } ) { $problem { parameter } =~ s , "$,/$node" , ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! exists $valid_modules { $link-> [ 1 ]-> page } ) { my $NAME = $filename_to_pod { $filename } ; if ( ! defined $NAME ) { $checker-> poderror ( \\ %problem ) ; } else { if ( $nodes { $NAME } { $linked_to_page } ) { $problem { -msg } = $broken_internal_link ; } $checker-> poderror ( \\ %problem ) ; } } } } }',
+            'src' => ' if ( ! $has_input_files ) { foreach my $filename ( @files ) { next if $filename_to_checker { $filename }-> get_skip ; my $checker = $filename_to_checker { $filename } ; foreach my $link ( $checker-> hyperlink ) { my $linked_to_page = $link-> [ 1 ]-> page ; next unless $linked_to_page ; my %problem = ( -msg => $broken_link , -line => $link-> [ 0 ] , parameter => "to \\"$linked_to_page\\"" , ) ; if ( exists $nodes { $linked_to_page } ) { my $node = $link-> [ 1 ]-> node ; next if ! $node ; $node =~ s,E<sol>,/,g ; $node =~ s/E<verbar>/|/g ; if ( $nodes { $linked_to_page } { $node } ) { if ( $nodes { $linked_to_page } { $node } > 1 ) { $problem { -msg } = $multiple_targets ; $problem { parameter } = "in $linked_to_page that $node could be pointing to" ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! $nodes_first_word { $linked_to_page } { $node } ) { $problem { parameter } =~ s,"$,/$node", ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! exists $valid_modules { $link-> [ 1 ]-> page } ) { my $NAME = $filename_to_pod { $filename } ; if ( ! defined $NAME ) { $checker-> poderror ( \\ %problem ) ; } else { if ( $nodes { $NAME } { $linked_to_page } ) { $problem { -msg } = $broken_internal_link ; } $checker-> poderror ( \\ %problem ) ; } } } } }',
             'start_line' => 1621,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 269,
+            'token_num' => 270,
             'has_warnings' => 1,
             'end_line' => 1686,
-            'src' => ' foreach my $filename ( @files ) { next if $filename_to_checker { $filename }-> get_skip ; my $checker = $filename_to_checker { $filename } ; foreach my $link ( $checker-> hyperlink ) { my $linked_to_page = $link-> [ 1 ]-> page ; next unless $linked_to_page ; my %problem = ( -msg => $broken_link , -line => $link-> [ 0 ] , parameter => "to \\"$linked_to_page\\"" , ) ; if ( exists $nodes { $linked_to_page } ) { my $node = $link-> [ 1 ]-> node ; next if ! $node ; $node =~ s , E < sol > ,/,g;
-                $node =~ s/E < verbar >/|/g ; if ( $nodes { $linked_to_page } { $node } ) { if ( $nodes { $linked_to_page } { $node } > 1 ) { $problem { -msg } = $multiple_targets ; $problem { parameter } = "in $linked_to_page that $node could be pointing to" ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! $nodes_first_word { $linked_to_page } { $node } ) { $problem { parameter } =~ s , "$,/$node" , ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! exists $valid_modules { $link-> [ 1 ]-> page } ) { my $NAME = $filename_to_pod { $filename } ; if ( ! defined $NAME ) { $checker-> poderror ( \\ %problem ) ; } else { if ( $nodes { $NAME } { $linked_to_page } ) { $problem { -msg } = $broken_internal_link ; } $checker-> poderror ( \\ %problem ) ; } } } }',
+            'src' => ' foreach my $filename ( @files ) { next if $filename_to_checker { $filename }-> get_skip ; my $checker = $filename_to_checker { $filename } ; foreach my $link ( $checker-> hyperlink ) { my $linked_to_page = $link-> [ 1 ]-> page ; next unless $linked_to_page ; my %problem = ( -msg => $broken_link , -line => $link-> [ 0 ] , parameter => "to \\"$linked_to_page\\"" , ) ; if ( exists $nodes { $linked_to_page } ) { my $node = $link-> [ 1 ]-> node ; next if ! $node ; $node =~ s,E<sol>,/,g ; $node =~ s/E<verbar>/|/g ; if ( $nodes { $linked_to_page } { $node } ) { if ( $nodes { $linked_to_page } { $node } > 1 ) { $problem { -msg } = $multiple_targets ; $problem { parameter } = "in $linked_to_page that $node could be pointing to" ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! $nodes_first_word { $linked_to_page } { $node } ) { $problem { parameter } =~ s,"$,/$node", ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! exists $valid_modules { $link-> [ 1 ]-> page } ) { my $NAME = $filename_to_pod { $filename } ; if ( ! defined $NAME ) { $checker-> poderror ( \\ %problem ) ; } else { if ( $nodes { $NAME } { $linked_to_page } ) { $problem { -msg } = $broken_internal_link ; } $checker-> poderror ( \\ %problem ) ; } } } }',
             'start_line' => 1622,
             'indent' => 1,
             'block_id' => 154
@@ -58516,11 +58522,10 @@ $diff
             'block_id' => 155
           },
           {
-            'token_num' => 244,
+            'token_num' => 245,
             'has_warnings' => 1,
             'end_line' => 1685,
-            'src' => ' foreach my $link ( $checker-> hyperlink ) { my $linked_to_page = $link-> [ 1 ]-> page ; next unless $linked_to_page ; my %problem = ( -msg => $broken_link , -line => $link-> [ 0 ] , parameter => "to \\"$linked_to_page\\"" , ) ; if ( exists $nodes { $linked_to_page } ) { my $node = $link-> [ 1 ]-> node ; next if ! $node ; $node =~ s , E < sol > ,/,g;
-                $node =~ s/E < verbar >/|/g ; if ( $nodes { $linked_to_page } { $node } ) { if ( $nodes { $linked_to_page } { $node } > 1 ) { $problem { -msg } = $multiple_targets ; $problem { parameter } = "in $linked_to_page that $node could be pointing to" ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! $nodes_first_word { $linked_to_page } { $node } ) { $problem { parameter } =~ s , "$,/$node" , ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! exists $valid_modules { $link-> [ 1 ]-> page } ) { my $NAME = $filename_to_pod { $filename } ; if ( ! defined $NAME ) { $checker-> poderror ( \\ %problem ) ; } else { if ( $nodes { $NAME } { $linked_to_page } ) { $problem { -msg } = $broken_internal_link ; } $checker-> poderror ( \\ %problem ) ; } } }',
+            'src' => ' foreach my $link ( $checker-> hyperlink ) { my $linked_to_page = $link-> [ 1 ]-> page ; next unless $linked_to_page ; my %problem = ( -msg => $broken_link , -line => $link-> [ 0 ] , parameter => "to \\"$linked_to_page\\"" , ) ; if ( exists $nodes { $linked_to_page } ) { my $node = $link-> [ 1 ]-> node ; next if ! $node ; $node =~ s,E<sol>,/,g ; $node =~ s/E<verbar>/|/g ; if ( $nodes { $linked_to_page } { $node } ) { if ( $nodes { $linked_to_page } { $node } > 1 ) { $problem { -msg } = $multiple_targets ; $problem { parameter } = "in $linked_to_page that $node could be pointing to" ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! $nodes_first_word { $linked_to_page } { $node } ) { $problem { parameter } =~ s,"$,/$node", ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! exists $valid_modules { $link-> [ 1 ]-> page } ) { my $NAME = $filename_to_pod { $filename } ; if ( ! defined $NAME ) { $checker-> poderror ( \\ %problem ) ; } else { if ( $nodes { $NAME } { $linked_to_page } ) { $problem { -msg } = $broken_internal_link ; } $checker-> poderror ( \\ %problem ) ; } } }',
             'start_line' => 1625,
             'indent' => 2,
             'block_id' => 155
@@ -58553,11 +58558,10 @@ $diff
             'block_id' => 156
           },
           {
-            'token_num' => 126,
+            'token_num' => 127,
             'has_warnings' => 1,
             'end_line' => 1665,
-            'src' => ' if ( exists $nodes { $linked_to_page } ) { my $node = $link-> [ 1 ]-> node ; next if ! $node ; $node =~ s , E < sol > ,/,g;
-                $node =~ s/E < verbar >/|/g ; if ( $nodes { $linked_to_page } { $node } ) { if ( $nodes { $linked_to_page } { $node } > 1 ) { $problem { -msg } = $multiple_targets ; $problem { parameter } = "in $linked_to_page that $node could be pointing to" ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! $nodes_first_word { $linked_to_page } { $node } ) { $problem { parameter } =~ s , "$,/$node" , ; $checker-> poderror ( \\ %problem ) ; } }',
+            'src' => ' if ( exists $nodes { $linked_to_page } ) { my $node = $link-> [ 1 ]-> node ; next if ! $node ; $node =~ s,E<sol>,/,g ; $node =~ s/E<verbar>/|/g ; if ( $nodes { $linked_to_page } { $node } ) { if ( $nodes { $linked_to_page } { $node } > 1 ) { $problem { -msg } = $multiple_targets ; $problem { parameter } = "in $linked_to_page that $node could be pointing to" ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! $nodes_first_word { $linked_to_page } { $node } ) { $problem { parameter } =~ s,"$,/$node", ; $checker-> poderror ( \\ %problem ) ; } }',
             'start_line' => 1637,
             'indent' => 3,
             'block_id' => 156
@@ -58581,12 +58585,20 @@ $diff
             'block_id' => 157
           },
           {
-            'token_num' => 21,
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 1644,
+            'src' => ' $node =~ s,E<sol>,/,g ;',
+            'start_line' => 1644,
+            'indent' => 4,
+            'block_id' => 157
+          },
+          {
+            'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 1645,
-            'src' => ' $node =~ s , E < sol > ,/,g;
-                $node =~ s/E < verbar >/|/g ;',
-            'start_line' => 1644,
+            'src' => ' $node =~ s/E<verbar>/|/g ;',
+            'start_line' => 1645,
             'indent' => 4,
             'block_id' => 157
           },
@@ -58636,19 +58648,19 @@ $diff
             'block_id' => 159
           },
           {
-            'token_num' => 31,
+            'token_num' => 33,
             'has_warnings' => 1,
             'end_line' => 1663,
-            'src' => ' elsif ( ! $nodes_first_word { $linked_to_page } { $node } ) { $problem { parameter } =~ s , "$,/$node" , ; $checker-> poderror ( \\ %problem ) ; }',
+            'src' => ' elsif ( ! $nodes_first_word { $linked_to_page } { $node } ) { $problem { parameter } =~ s,"$,/$node", ; $checker-> poderror ( \\ %problem ) ; }',
             'start_line' => 1657,
             'indent' => 4,
             'block_id' => 157
           },
           {
-            'token_num' => 10,
+            'token_num' => 12,
             'has_warnings' => 1,
             'end_line' => 1661,
-            'src' => ' $problem { parameter } =~ s , "$,/$node" , ;',
+            'src' => ' $problem { parameter } =~ s,"$,/$node", ;',
             'start_line' => 1661,
             'indent' => 5,
             'block_id' => 160
