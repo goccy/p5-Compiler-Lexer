@@ -326,15 +326,84 @@ Token *Scanner::scanDoubleCharacterOperator(LexContext *ctx, char symbol, char n
 	return ret;
 }
 
-Token *Scanner::scanSymbol(LexContext *ctx, char symbol, char next_ch, char after_next_ch)
+Token *Scanner::scanSymbol(LexContext *ctx)
 {
 	Token *ret = NULL;
+	ScriptManager *smgr = ctx->smgr;
+	char symbol = smgr->currentChar();
+	char next_ch = smgr->nextChar();
+	char after_next_ch = smgr->afterNextChar();
 	if (ctx->existsBuffer()) ctx->tmgr->tokens->push_back(scanPrevSymbol(ctx, symbol));
 	if (!isRegexStarted) {
 		ret = scanTripleCharacterOperator(ctx, symbol, next_ch, after_next_ch);
 		if (!ret) ret = scanDoubleCharacterOperator(ctx, symbol, next_ch);
 	}
 	if (!ret) ret = scanCurSymbol(ctx, symbol);
+	return ret;
+}
+
+Token *Scanner::scanWordDelimiter(LexContext *ctx)
+{
+	TokenManager *tmgr = ctx->tmgr;
+	Token *ret = NULL;
+	if (ctx->existsBuffer()) {
+		char *token = ctx->buffer();
+		ret = new Token(string(token), ctx->finfo);
+		if (isHereDocument(ctx, tmgr->tokens->lastToken())) {
+			/* Key is HereDocument */
+			here_document_tag = token;
+			ret->info = getTokenInfo(TokenType::HereDocumentRawTag);
+		} else if (isFormat(ctx, ret)) {
+			isFormatDeclared = true;
+			ret->info = getTokenInfo(TokenType::FormatDecl);
+		}
+		ctx->clearBuffer();
+	}
+	return ret;
+}
+
+Token *Scanner::scanReference(LexContext *ctx)
+{
+	Token *ret = NULL;
+	char next_ch = ctx->smgr->nextChar();
+	if (next_ch == '$' || next_ch == '@' ||
+		next_ch == '%' || next_ch == '&') {
+		ret = new Token(string("\\"), ctx->finfo);
+	}
+	return ret;
+}
+
+Token *Scanner::scanSingleLineComment(LexContext *ctx)
+{
+	Token *ret = NULL;
+	ScriptManager *smgr = ctx->smgr;
+	TokenManager *tmgr = ctx->tmgr;
+	if (ctx->existsBuffer()) tmgr->tokens->add(scanPrevSymbol(ctx, '#'));
+	Token *prev_tk = tmgr->tokens->lastToken();
+	TokenType::Type prev_type = (prev_tk) ?  prev_tk->info.type : TokenType::Undefined;
+	if (isRegexStarted || prev_type == TokenType::RegExp || prev_type ==  TokenType::RegReplaceTo) {
+		char tmp[2] = {'#'};
+		ret = new Token(string(tmp), ctx->finfo);
+		ret->info = getTokenInfo(TokenType::RegDelim);
+		ctx->clearBuffer();
+	} else {
+		for (; smgr->currentChar() != '\n' && !smgr->end(); smgr->next()) {}
+		ctx->finfo.start_line_num++;
+	}
+	return ret;
+}
+
+Token *Scanner::scanLineDelimiter(LexContext *ctx)
+{
+	Token *ret = scanWordDelimiter(ctx);
+	Token *last_tk = ctx->tmgr->tokens->lastToken();
+	string data = (ret) ? ret->data : (last_tk) ? last_tk->data : "";
+	if (isFormatDeclared && data == "=") {
+		isFormatDeclared = false;
+		isFormatStarted = true;
+	} else if (here_document_tag != "") {
+		hereDocumentFlag = true;
+	}
 	return ret;
 }
 

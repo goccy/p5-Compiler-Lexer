@@ -107,9 +107,11 @@ public:
 	Token *scanCurSymbol(LexContext *ctx, char symbol);
 	Token *scanDoubleCharacterOperator(LexContext *ctx, char symbol, char next_ch);
 	Token *scanTripleCharacterOperator(LexContext *ctx, char symbol, char next_ch, char after_next_ch);
-	Token *scanSymbol(LexContext *ctx, char symbol);
-	Token *scanSymbol(LexContext *ctx, char symbol, char next_ch);
-	Token *scanSymbol(LexContext *ctx, char symbol, char next_ch, char after_next_ch);
+	Token *scanSymbol(LexContext *ctx);
+	Token *scanWordDelimiter(LexContext *ctx);
+	Token *scanReference(LexContext *ctx);
+	Token *scanSingleLineComment(LexContext *ctx);
+	Token *scanLineDelimiter(LexContext *ctx);
 	Token *scanNumber(LexContext *ctx);
 	bool scanNegativeNumber(LexContext *ctx, char num);
 	TokenInfo getTokenInfo(Enum::Token::Type::Type type);

@@ -69,8 +69,6 @@ Lexer::Lexer(const char *filename)
 Tokens *Lexer::tokenize(char *script)
 {
 	LexContext ctx(filename, script);
-	//Tokens *tokens = new Tokens();
-	//ctx.tokens = tokens;
 	Token *tk = NULL;
 	TokenManager *tmgr = ctx.tmgr;
 	ScriptManager *smgr = ctx.smgr;
@@ -89,52 +87,14 @@ Tokens *Lexer::tokenize(char *script)
 			tmgr->tokens->add(scanner->scanQuote(&ctx, ch));
 			break;
 		case ' ': case '\t':
-			if (ctx.existsBuffer()) {
-				char *token = ctx.buffer();
-				tk = new Token(string(token), ctx.finfo);
-				if (scanner->isHereDocument(&ctx, tmgr->tokens->lastToken())) {
-					/* Key is HereDocument */
-					scanner->here_document_tag = token;
-					tk->info = scanner->getTokenInfo(TokenType::HereDocumentRawTag);
-				} else if (scanner->isFormat(&ctx, tk)) {
-					scanner->isFormatDeclared = true;
-					tk->info = scanner->getTokenInfo(TokenType::FormatDecl);
-				}
-				ctx.clearBuffer();
-				tmgr->tokens->add(tk);
-			}
+			tmgr->tokens->add(scanner->scanWordDelimiter(&ctx));
 			break;
 		case '\\':
-			if (smgr->nextChar() == '$' || smgr->nextChar() == '@' ||
-				smgr->nextChar() == '%' || smgr->nextChar() == '&') {
-				tmgr->tokens->add(new Token(string("\\"), ctx.finfo));
-			}
+			tmgr->tokens->add(scanner->scanReference(&ctx));
 			break;
-		case '#': {
-#ifdef ENABLE_ANNOTATION
-			if (smgr->nextChar() == '@') {
-				tmgr->tokens->add(new Token(string("#@"), ctx.finfo));
-				break;
-			}
-#endif
-			if (ctx.existsBuffer()) {
-				tmgr->tokens->add(scanner->scanPrevSymbol(&ctx, '#'));
-			}
-			Token *prev_tk = tmgr->tokens->lastToken();
-			if (scanner->isRegexStarted ||
-				(prev_tk && prev_tk->info.type == TokenType::RegExp) ||
-				(prev_tk && prev_tk->info.type == TokenType::RegReplaceTo)) {
-				char tmp[2] = {'#'};
-				Token *tk = new Token(string(tmp), ctx.finfo);
-				tk->info = scanner->getTokenInfo(TokenType::RegDelim);
-				tmgr->tokens->add(tk);
-				ctx.clearBuffer();
-				break;
-			}
-			for (; smgr->currentChar() != '\n' && !smgr->end(); smgr->next()) {}
-			ctx.finfo.start_line_num++;
+		case '#':
+			tmgr->tokens->add(scanner->scanSingleLineComment(&ctx));
 			break;
-		}
 		case '-':
 			if (scanner->scanNegativeNumber(&ctx, smgr->nextChar())) {
 				break;
@@ -157,35 +117,13 @@ Tokens *Lexer::tokenize(char *script)
 		case '<': case '>': case '&': case '|':
 		case '!': case '*': case '/': case '%':
 		case '(': case ')': case '{': case '}':
-		case '[': case ']': case '?': case '$': {
-			tmgr->tokens->add(scanner->scanSymbol(&ctx, smgr->currentChar(),
-						smgr->nextChar(), smgr->afterNextChar()));
+		case '[': case ']': case '?': case '$':
+			tmgr->tokens->add(scanner->scanSymbol(&ctx));
 			smgr->forward(ctx.progress);
 			ctx.progress = 0;
 			break;
-		}
 		case '\n':
-			if (ctx.existsBuffer()) {
-				char *token = ctx.buffer();
-				tk = new Token(token, ctx.finfo);
-				if (scanner->isHereDocument(&ctx, tmgr->tokens->lastToken())) {
-					/* Key is HereDocument */
-					char *token = ctx.buffer();
-					tk->info = scanner->getTokenInfo(TokenType::HereDocumentRawTag);
-					scanner->here_document_tag = token;
-				} else if (scanner->isFormat(&ctx, tk)) {
-					scanner->isFormatDeclared = true;
-					tk->info = scanner->getTokenInfo(TokenType::FormatDecl);
-				}
-				tmgr->tokens->add(tk);
-				ctx.clearBuffer();
-			}
-			if (scanner->isFormatDeclared && tmgr->tokens->lastToken()->data == "=") {
-				scanner->isFormatDeclared = false;
-				scanner->isFormatStarted = true;
-			} else if (scanner->here_document_tag != "") {
-				scanner->hereDocumentFlag = true;
-			}
+			tmgr->tokens->add(scanner->scanLineDelimiter(&ctx));
 			break;
 		case '0': case '1': case '2': case '3': case '4':
 		case '5': case '6': case '7': case '8': case '9':

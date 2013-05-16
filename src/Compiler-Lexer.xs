@@ -71,6 +71,10 @@ get_groups_by_syntax_level(self, tokens_, syntax_level)
 CODE:
 {
 	SV **tokens = tokens_->sv_u.svu_array;
+	if (!tokens) {
+		RETVAL = NULL;
+		return;
+	}
 	size_t tokens_size = av_len(tokens_);
 	Tokens tks;
 	for (size_t i = 0; i <= tokens_size; i++) {
