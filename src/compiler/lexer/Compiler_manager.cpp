@@ -1,8 +1,16 @@
 #include <lexer.hpp>
 
-TokenManager::TokenManager(void) : max_token_size(0)
+namespace TokenType = Enum::Token::Type;
+TokenManager::TokenManager(void) : max_token_size(0), idx(0)
 {
 	tokens = new Tokens();
+	size_t i = 0;
+	for (i = 0; decl_tokens[i].type != TokenType::Undefined; i++) {
+		type_to_info_map.insert(TypeMap::value_type(decl_tokens[i].type, decl_tokens[i]));
+		data_to_info_map.insert(TypeDataMap::value_type(decl_tokens[i].data, decl_tokens[i]));
+	}
+	type_to_info_map.insert(TypeMap::value_type(decl_tokens[i].type, decl_tokens[i]));
+	data_to_info_map.insert(TypeDataMap::value_type(decl_tokens[i].data, decl_tokens[i]));
 }
 
 Token *TokenManager::getTokenByBase(Token *base, int offset)
@@ -68,10 +76,37 @@ Token *TokenManager::afterNextToken(void)
 		tokens->at(wanted_idx) : NULL;
 }
 
+TokenInfo TokenManager::getTokenInfo(TokenType::Type type)
+{
+	TypeMap::iterator it = type_to_info_map.find(type);
+	return (it != type_to_info_map.end()) ? it->second : getTokenInfo(TokenType::Undefined);
+}
+
+TokenInfo TokenManager::getTokenInfo(const char *data)
+{
+	TypeDataMap::iterator it = data_to_info_map.find(data);
+	return (it != data_to_info_map.end()) ? it->second : getTokenInfo(TokenType::Undefined);
+}
+
 Token *TokenManager::next(void)
 {
 	this->idx++;
 	return currentToken();
+}
+
+bool TokenManager::end(void)
+{
+	return (idx >= tokens->size()) ? true : false;
+}
+
+void TokenManager::remove(size_t idx)
+{
+	this->tokens->erase(this->tokens->begin() + idx);
+}
+
+void TokenManager::add(Token *tk)
+{
+	this->tokens->add(tk);
 }
 
 Token *TokenManager::back(void)

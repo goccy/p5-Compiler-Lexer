@@ -46,3 +46,6 @@ extern void safe_free(void *ptr, size_t size);
 
 #include <gen_token.hpp>
 #include <token.hpp>
+
+typedef std::map<Enum::Token::Type::Type, TokenInfo> TypeMap;
+typedef std::map<std::string, TokenInfo> TypeDataMap;

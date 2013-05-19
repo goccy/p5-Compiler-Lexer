@@ -5,6 +5,8 @@ public:
 	Tokens *tokens;
 	size_t max_token_size;
 	size_t idx;
+	TypeMap type_to_info_map;
+	TypeDataMap data_to_info_map;
 
 	TokenManager(void);
 	Token *getTokenByBase(Token *base, int offset);
@@ -14,6 +16,11 @@ public:
 	Token *currentToken(void);
 	Token *nextToken(void);
 	Token *afterNextToken(void);
+	void remove(size_t idx);
+	TokenInfo getTokenInfo(Enum::Token::Type::Type type);
+	TokenInfo getTokenInfo(const char *data);
+	void add(Token *tk);
+	bool end(void);
 	Token *next(void);
 	Token *back(void);
 };
@@ -114,8 +121,6 @@ public:
 	Token *scanLineDelimiter(LexContext *ctx);
 	Token *scanNumber(LexContext *ctx);
 	bool scanNegativeNumber(LexContext *ctx, char num);
-	TokenInfo getTokenInfo(Enum::Token::Type::Type type);
-	TokenInfo getTokenInfo(const char *data);
 };
 
 class Lexer {
@@ -128,7 +133,6 @@ public:
 
 	Lexer(const char *filename);
 	Tokens *tokenize(char *script);
-	void annotateTokens(Tokens *tokens);
 	void grouping(Tokens *tokens);
 	void prepare(Tokens *tokens);
 	Token *parseSyntax(Token *start_token, Tokens *tokens);
@@ -141,6 +145,7 @@ public:
 	Tokens *getTokensBySyntaxLevel(Token *root, Enum::Parser::Syntax::Type type);
 	Modules *getUsedModules(Token *root);
 private:
+	void annotateTokens(LexContext *ctx);
 	bool isExpr(Token *tk, Token *prev_tk, Enum::Token::Type::Type type, Enum::Token::Kind::Kind kind);
 	void insertStmt(Token *tk, int idx, size_t grouping_num);
 	void insertParenthesis(Tokens *tokens);
@@ -155,11 +160,9 @@ public:
 	Annotator(void);
 	void annotate(LexContext *ctx, Token *tk);
 private:
-	TokenInfo getTokenInfo(Enum::Token::Type::Type type);
-	TokenInfo getTokenInfo(const char *data);
-	bool search(std::vector<std::string> list, std::string target);
 	void setAnnotateMethods(AnnotateMethods *methods);
-	bool isReservedKeyword(std::string word);
+	bool search(std::vector<std::string> list, std::string target);
+	bool isReservedKeyword(LexContext *ctx, std::string word);
 	TokenInfo annotateRegOpt(LexContext *ctx, Token *tk);
 	TokenInfo annotateNamespace(LexContext *ctx, Token *tk);
 	TokenInfo annotateMethod(LexContext *ctx, Token *tk);

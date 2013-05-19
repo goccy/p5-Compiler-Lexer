@@ -22,13 +22,13 @@ LexContext::LexContext(const char *filename, char *script)
 	finfo.start_line_num = 1;
 	finfo.filename = filename;
 }
-
+/*
 LexContext::LexContext(Tokens *tks)
 {
 	this->tks = tks;
 	this->itr = tks->begin();
 }
-
+*/
 char *LexContext::buffer(void)
 {
 	return token_buffer;
@@ -51,12 +51,12 @@ bool LexContext::existsBuffer(void)
 	return token_buffer[0] != EOL;
 }
 
-Token *LexContext::tk(void) { return ITER_CAST(Token *, itr); }
-Token *LexContext::nextToken(void) {
-	return ITER_CAST(Token *, itr+1);
-}
-void LexContext::next(void) { ++itr; }
-bool LexContext::end(void) { return itr + 1 == tks->end(); }
+//Token *LexContext::tk(void) { return ITER_CAST(Token *, itr); }
+//Token *LexContext::nextToken(void) {
+//	return ITER_CAST(Token *, itr+1);
+//}
+//void LexContext::next(void) { ++itr; }
+//bool LexContext::end(void) { return itr + 1 == tks->end(); }
 
 /*************** Lexer ***************/
 
@@ -84,16 +84,16 @@ Tokens *Lexer::tokenize(char *script)
 		}
 		switch (ch) {
 		case '"': case '\'': case '`':
-			tmgr->tokens->add(scanner->scanQuote(&ctx, ch));
+			tmgr->add(scanner->scanQuote(&ctx, ch));
 			break;
 		case ' ': case '\t':
-			tmgr->tokens->add(scanner->scanWordDelimiter(&ctx));
+			tmgr->add(scanner->scanWordDelimiter(&ctx));
 			break;
 		case '\\':
-			tmgr->tokens->add(scanner->scanReference(&ctx));
+			tmgr->add(scanner->scanReference(&ctx));
 			break;
 		case '#':
-			tmgr->tokens->add(scanner->scanSingleLineComment(&ctx));
+			tmgr->add(scanner->scanSingleLineComment(&ctx));
 			break;
 		case '-':
 			if (scanner->scanNegativeNumber(&ctx, smgr->nextChar())) {
@@ -107,7 +107,7 @@ Tokens *Lexer::tokenize(char *script)
 			if (!ctx.existsBuffer() &&
 				'0' <= smgr->nextChar() && smgr->nextChar() <= '9') {
 				// .01234
-				tmgr->tokens->add(scanner->scanNumber(&ctx));
+				tmgr->add(scanner->scanNumber(&ctx));
 				ctx.clearBuffer();
 				continue;
 			}
@@ -118,12 +118,12 @@ Tokens *Lexer::tokenize(char *script)
 		case '!': case '*': case '/': case '%':
 		case '(': case ')': case '{': case '}':
 		case '[': case ']': case '?': case '$':
-			tmgr->tokens->add(scanner->scanSymbol(&ctx));
+			tmgr->add(scanner->scanSymbol(&ctx));
 			smgr->forward(ctx.progress);
 			ctx.progress = 0;
 			break;
 		case '\n':
-			tmgr->tokens->add(scanner->scanLineDelimiter(&ctx));
+			tmgr->add(scanner->scanLineDelimiter(&ctx));
 			break;
 		case '0': case '1': case '2': case '3': case '4':
 		case '5': case '6': case '7': case '8': case '9':
@@ -132,7 +132,7 @@ Tokens *Lexer::tokenize(char *script)
 				char *token = ctx.buffer();
 				tk = scanner->scanNumber(&ctx);
 				if (token[0] == '-') tk->data = "-" + tk->data;
-				tmgr->tokens->add(tk);
+				tmgr->add(tk);
 				ctx.clearBuffer();
 				continue;
 			}
@@ -142,10 +142,10 @@ Tokens *Lexer::tokenize(char *script)
 		}
 	}
 	if (ctx.existsBuffer()) {
-		Token *tk = new Token(string(ctx.buffer()), ctx.finfo);
-		tmgr->tokens->add(tk);
+		tmgr->add(new Token(string(ctx.buffer()), ctx.finfo));
 		ctx.clearBuffer();
 	}
+	annotateTokens(&ctx);
 	return tmgr->tokens;
 }
 
@@ -159,15 +159,15 @@ void Lexer::dump(Tokens *tokens)
 	}
 }
 
-void Lexer::annotateTokens(Tokens *tokens)
+void Lexer::annotateTokens(LexContext *ctx)
 {
-	LexContext *ctx = new LexContext(tokens);
+	TokenManager *tmgr = ctx->tmgr;
 	Annotator *annotator = new Annotator();
-	for (; ctx->itr != ctx->tks->end(); ctx->next()) {
-		Token *tk = ctx->tk();
+	for (; !tmgr->end(); tmgr->next()) {
+		Token *tk = tmgr->currentToken();
 		if (tk->data == "\n") {
-			ctx->tks->erase(ctx->itr);
-			ctx->itr--;
+			tmgr->remove(tmgr->idx);
+			tmgr->back();
 			continue;
 		}
 		annotator->annotate(ctx, tk);
@@ -254,11 +254,17 @@ void Lexer::prepare(Tokens *tokens)
 				Token *tag = ITER_CAST(Token *, tag_pos);
 				switch (tag->info.type) {
 				case TokenType::HereDocumentTag:
-					tag->info = scanner->getTokenInfo(TokenType::RegDoubleQuote);
+					tag->info.type = Enum::Token::Type::RegDoubleQuote;
+					tag->info.kind = Enum::Token::Kind::RegPrefix;
+					tag->info.name = "RegDoubleQuote";
+					tag->info.data = "qq";
 					tag->data = "qq{" + t->data + "}";
 					break;
 				case TokenType::HereDocumentRawTag:
-					tag->info = scanner->getTokenInfo(TokenType::RegQuote);//RawString);
+					tag->info.type = Enum::Token::Type::RegQuote;
+					tag->info.kind = Enum::Token::Kind::RegPrefix;
+					tag->info.name = "RegQuote";
+					tag->info.data = "q";
 					tag->data = "q{" + t->data + "}";
 					break;
 				default:
@@ -358,7 +364,6 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 		case SemiColon: {
 			size_t k = pos - intermediate_pos;
 			Token *intermediate_tk = ITER_CAST(Token *, intermediate_pos);
-			intermediate_pos;
 			if (start_pos == intermediate_pos && intermediate_tk->info.type != LeftBrace) {
 				k++;
 			}

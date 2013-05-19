@@ -49,17 +49,18 @@ Token *Scanner::scanQuote(LexContext *ctx, char quote)
 {
 	Token *ret = NULL;
 	char *token = ctx->buffer();
+	TokenManager *tmgr = ctx->tmgr;
 	if (isStringStarted) {
 		ret = new Token(string(token), ctx->finfo);
 		switch (quote) {
 		case '\'':
-			ret->info = getTokenInfo(TokenType::RawString);
+			ret->info = tmgr->getTokenInfo(TokenType::RawString);
 			break;
 		case '"':
-			ret->info = getTokenInfo(TokenType::String);
+			ret->info = tmgr->getTokenInfo(TokenType::String);
 			break;
 		case '`':
-			ret->info = getTokenInfo(TokenType::ExecString);
+			ret->info = tmgr->getTokenInfo(TokenType::ExecString);
 			break;
 		default:
 			break;
@@ -74,10 +75,10 @@ Token *Scanner::scanQuote(LexContext *ctx, char quote)
 			}
 			switch (quote) {
 			case '\'':
-				ret->info = getTokenInfo(TokenType::HereDocumentRawTag);
+				ret->info = tmgr->getTokenInfo(TokenType::HereDocumentRawTag);
 				break;
 			case '"':
-				ret->info = getTokenInfo(TokenType::HereDocumentTag);
+				ret->info = tmgr->getTokenInfo(TokenType::HereDocumentTag);
 				break;
 			default:
 				break;
@@ -222,14 +223,15 @@ Token *Scanner::scanPrevSymbol(LexContext *ctx, char symbol)
 {
 	char *token = ctx->buffer();
 	Token *ret = new Token(string(token), ctx->finfo);
+	TokenManager *tmgr = ctx->tmgr;
 	if (isRegexStartDelim(ctx, regex_prefix_map)) {
 		//RegexPrefix
-		ret->info = getTokenInfo(token);
+		ret->info = tmgr->getTokenInfo(token);
 		regex_delim = getRegexDelim(ctx);
 		isRegexStarted = true;
 	} else if (isRegexStartDelim(ctx, regex_replace_map)) {
 		//ReplaceRegexPrefix
-		ret->info = getTokenInfo(token);
+		ret->info = tmgr->getTokenInfo(token);
 		char delim = getRegexDelim(ctx);
 		regex_delim = delim;
 		regex_middle_delim = delim;
@@ -241,7 +243,7 @@ Token *Scanner::scanPrevSymbol(LexContext *ctx, char symbol)
 		if (isHereDocument(ctx, prev_before_tk)) {
 			/* Key is HereDocument */
 			here_document_tag = token;
-			ret->info = getTokenInfo(TokenType::HereDocumentRawTag);
+			ret->info = tmgr->getTokenInfo(TokenType::HereDocumentRawTag);
 		}
 	}
 	ctx->clearBuffer();
@@ -254,12 +256,13 @@ Token *Scanner::scanCurSymbol(LexContext *ctx, char symbol)
 	char *token = ctx->buffer();
 	char tmp[2] = {0};
 	tmp[0] = symbol;
-	Token *prev_tk = ctx->tmgr->tokens->lastToken();
-	int idx = ctx->tmgr->tokens->size() - 2;
-	string prev_before = (idx >= 0) ? ctx->tmgr->tokens->at(idx)->data : "";
+	TokenManager *tmgr = ctx->tmgr;
+	Token *prev_tk = tmgr->tokens->lastToken();
+	int idx = tmgr->tokens->size() - 2;
+	string prev_before = (idx >= 0) ? tmgr->tokens->at(idx)->data : "";
 	if (prev_before != "sub" && isRegexDelim(prev_tk, symbol)) {
 		ret = new Token(string(tmp), ctx->finfo);
-		ret->info = getTokenInfo(TokenType::RegDelim);
+		ret->info = tmgr->getTokenInfo(TokenType::RegDelim);
 		ctx->clearBuffer();
 		if (!isRegexEndDelim(ctx)) {
 			regex_delim = getRegexDelim(ctx);
@@ -269,7 +272,7 @@ Token *Scanner::scanCurSymbol(LexContext *ctx, char symbol)
 		}
 	} else if (isRegexEndDelim(ctx)) {
 		ret = new Token(string(tmp), ctx->finfo);
-		ret->info = getTokenInfo(TokenType::RegDelim);
+		ret->info = tmgr->getTokenInfo(TokenType::RegDelim);
 		ctx->clearBuffer();
 	} else if (symbol == '@' || symbol == '$' || symbol == '%') {// || symbol == '&') {
 		ctx->writeBuffer(symbol);
@@ -333,7 +336,7 @@ Token *Scanner::scanSymbol(LexContext *ctx)
 	char symbol = smgr->currentChar();
 	char next_ch = smgr->nextChar();
 	char after_next_ch = smgr->afterNextChar();
-	if (ctx->existsBuffer()) ctx->tmgr->tokens->push_back(scanPrevSymbol(ctx, symbol));
+	if (ctx->existsBuffer()) ctx->tmgr->add(scanPrevSymbol(ctx, symbol));
 	if (!isRegexStarted) {
 		ret = scanTripleCharacterOperator(ctx, symbol, next_ch, after_next_ch);
 		if (!ret) ret = scanDoubleCharacterOperator(ctx, symbol, next_ch);
@@ -352,10 +355,10 @@ Token *Scanner::scanWordDelimiter(LexContext *ctx)
 		if (isHereDocument(ctx, tmgr->tokens->lastToken())) {
 			/* Key is HereDocument */
 			here_document_tag = token;
-			ret->info = getTokenInfo(TokenType::HereDocumentRawTag);
+			ret->info = tmgr->getTokenInfo(TokenType::HereDocumentRawTag);
 		} else if (isFormat(ctx, ret)) {
 			isFormatDeclared = true;
-			ret->info = getTokenInfo(TokenType::FormatDecl);
+			ret->info = tmgr->getTokenInfo(TokenType::FormatDecl);
 		}
 		ctx->clearBuffer();
 	}
@@ -384,7 +387,7 @@ Token *Scanner::scanSingleLineComment(LexContext *ctx)
 	if (isRegexStarted || prev_type == TokenType::RegExp || prev_type ==  TokenType::RegReplaceTo) {
 		char tmp[2] = {'#'};
 		ret = new Token(string(tmp), ctx->finfo);
-		ret->info = getTokenInfo(TokenType::RegDelim);
+		ret->info = tmgr->getTokenInfo(TokenType::RegDelim);
 		ctx->clearBuffer();
 	} else {
 		for (; smgr->currentChar() != '\n' && !smgr->end(); smgr->next()) {}
@@ -415,6 +418,7 @@ Token *Scanner::scanLineDelimiter(LexContext *ctx)
 
 Token *Scanner::scanNumber(LexContext *ctx)
 {
+	TokenManager *tmgr = ctx->tmgr;
 	char *src = ctx->smgr->raw_script;
 	size_t i = ctx->smgr->idx;
 	char *begin = src + i;
@@ -447,7 +451,7 @@ Token *Scanner::scanNumber(LexContext *ctx)
 	L_emit:;
 	i -= 1;
 	token = new Token(string(begin, src+i), ctx->finfo);
-	token->info = isFloat ? getTokenInfo(TokenType::Double) : getTokenInfo(TokenType::Int);
+	token->info = isFloat ? tmgr->getTokenInfo(TokenType::Double) : tmgr->getTokenInfo(TokenType::Int);
 	ctx->smgr->idx = --i;
 	return token;
 }
@@ -459,6 +463,7 @@ bool Scanner::isSkip(LexContext *ctx)
 	using namespace TokenType;
 	bool ret = commentFlag;
 	ScriptManager *smgr = ctx->smgr;
+	TokenManager *tmgr = ctx->tmgr;
 	char *script = smgr->raw_script;
 	size_t idx = smgr->idx;
 	if (smgr->previousChar() == '\n' && smgr->currentChar() == '=' &&
@@ -487,13 +492,13 @@ bool Scanner::isSkip(LexContext *ctx)
 	} else if (isFormatStarted) {
 		if (smgr->previousChar() == '\n' && smgr->currentChar() == '.') {
 			Token *tk = new Token(string(ctx->buffer()), ctx->finfo);
-			tk->info = getTokenInfo(Format);
+			tk->info = tmgr->getTokenInfo(Format);
 			ctx->clearBuffer();
-			ctx->tmgr->tokens->push_back(tk);
+			tmgr->add(tk);
 
 			tk = new Token(".", ctx->finfo);
-			tk->info = getTokenInfo(TokenType::FormatEnd);
-			ctx->tmgr->tokens->push_back(tk);
+			tk->info = tmgr->getTokenInfo(TokenType::FormatEnd);
+			tmgr->add(tk);
 
 			ctx->progress = 1;
 			isFormatStarted = false;
@@ -541,14 +546,14 @@ bool Scanner::isSkip(LexContext *ctx)
 					regex_middle_delim != '<' &&
 					regex_middle_delim != '[') {
 					tk = new Token(string(ctx->buffer()), ctx->finfo);
-					tk->info = getTokenInfo(RegReplaceFrom);
+					tk->info = tmgr->getTokenInfo(RegReplaceFrom);
 					ctx->clearBuffer();
-					ctx->tmgr->tokens->push_back(tk);
+					tmgr->add(tk);
 				}
 				char tmp[2] = {regex_middle_delim, 0};
 				tk = new Token(string(tmp), ctx->finfo);
-				tk->info = getTokenInfo(RegMiddleDelim);
-				ctx->tmgr->tokens->push_back(tk);
+				tk->info = tmgr->getTokenInfo(RegMiddleDelim);
+				tmgr->add(tk);
 				switch (regex_middle_delim) {
 				case '}':
 					regex_middle_delim = '{';
@@ -576,10 +581,10 @@ bool Scanner::isSkip(LexContext *ctx)
 				ret = true;
 			} else {
 				Token *tk = new Token(string(ctx->buffer()), ctx->finfo);
-				Token *prev_tk = ctx->tmgr->tokens->back();
-				tk->info = (prev_tk->info.type == RegMiddleDelim) ? getTokenInfo(RegReplaceTo) : getTokenInfo(RegExp);
+				Token *prev_tk = tmgr->tokens->back();
+				tk->info = (prev_tk->info.type == RegMiddleDelim) ? tmgr->getTokenInfo(RegReplaceTo) : tmgr->getTokenInfo(RegExp);
 				ctx->clearBuffer();
-				ctx->tmgr->tokens->push_back(tk);
+				tmgr->add(tk);
 				ret = false;
 				isRegexStarted = false;
 				regex_delim = 0;
@@ -591,9 +596,9 @@ bool Scanner::isSkip(LexContext *ctx)
 	} else if (isPrototypeStarted) {
 		if (script[idx] == ')') {
 			Token *tk = new Token(string(ctx->buffer()), ctx->finfo);
-			tk->info = getTokenInfo(Prototype);
+			tk->info = tmgr->getTokenInfo(Prototype);
 			ctx->clearBuffer();
-			ctx->tmgr->tokens->push_back(tk);
+			tmgr->add(tk);
 			isPrototypeStarted = false;
 			ret = false;
 		} else {
@@ -617,12 +622,12 @@ bool Scanner::isSkip(LexContext *ctx)
 			if (i == len) {
 				ctx->progress = len;
 				Token *tk = new Token(string(ctx->buffer()), ctx->finfo);
-				tk->info = getTokenInfo(TokenType::HereDocument);
+				tk->info = tmgr->getTokenInfo(TokenType::HereDocument);
 				ctx->clearBuffer();
-				ctx->tmgr->tokens->push_back(tk);
+				tmgr->add(tk);
 				tk = new Token(here_document_tag, ctx->finfo);
-				tk->info = getTokenInfo(TokenType::HereDocumentEnd);
-				ctx->tmgr->tokens->push_back(tk);
+				tk->info = tmgr->getTokenInfo(TokenType::HereDocumentEnd);
+				tmgr->add(tk);
 				ctx->finfo.start_line_num++;
 				here_document_tag = "";
 				hereDocumentFlag = false;
@@ -637,29 +642,4 @@ bool Scanner::isSkip(LexContext *ctx)
 		}
 	}
 	return ret;
-}
-
-TokenInfo Scanner::getTokenInfo(TokenType::Type type)
-{
-	size_t i = 0;
-	for (; decl_tokens[i].type != TokenType::Undefined; i++) {
-		if (type == decl_tokens[i].type) {
-			return decl_tokens[i];
-		}
-	}
-	return decl_tokens[i];
-}
-
-TokenInfo Scanner::getTokenInfo(const char *data)
-{
-	size_t i = 0;
-	size_t dsize = strlen(data);
-	for (; decl_tokens[i].type != TokenType::Undefined; i++) {
-		const char *token_data = decl_tokens[i].data;
-		size_t tsize = strlen(token_data);
-		if (dsize == tsize && !strncmp(token_data, data, dsize)) {
-			return decl_tokens[i];
-		}
-	}
-	return decl_tokens[i];
 }

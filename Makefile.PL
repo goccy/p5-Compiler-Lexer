@@ -2,9 +2,11 @@ use strict;
 use warnings;
 use inc::Module::Install;
 use Module::Install::XSUtil; # for co-developpers
-use constant DEBUG => 1;
+use constant DEBUG => 0;
 
 use_ppport 3.19;
+#name 'Compiler::Lexer';
+#author 'Masaaki Goshima <goccy54@gmail.com>';
 all_from 'lib/Compiler/Lexer.pm';
 requires_cplusplus;
 cc_warnings;
@@ -19,4 +21,7 @@ if (DEBUG) {
     makemaker_args->{OPTIMIZE} = '-O0';
     makemaker_args->{CCFLAGS} = '-g3 ' . makemaker_args->{CCFLAGS};
 }
+
+#test_requires 'Test::More';
+
 WriteAll(check_nmake => 0);

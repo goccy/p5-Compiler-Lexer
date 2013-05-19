@@ -43,7 +43,6 @@ tokenize(self, script)
 CODE:
 {
 	Tokens *tokens = self->tokenize((char *)script);
-	self->annotateTokens(tokens);
 	AV* ret  = new_Array();
 	for (size_t i = 0; i < tokens->size(); i++) {
 		Token *token = tokens->at(i);
@@ -138,7 +137,6 @@ get_used_modules(self, script)
 CODE:
 {
 	Tokens *tokens = self->tokenize((char *)script);
-	self->annotateTokens(tokens);
 	self->grouping(tokens);
 	self->prepare(tokens);
 	Token *root = self->parseSyntax(NULL, tokens);
@@ -168,7 +166,6 @@ CODE:
 {
 	Lexer lexer(filename);
 	Tokens *tokens = lexer.tokenize((char *)script);
-	lexer.annotateTokens(tokens);
 	lexer.grouping(tokens);
 	lexer.prepare(tokens);
 	Token *root = lexer.parseSyntax(NULL, tokens);

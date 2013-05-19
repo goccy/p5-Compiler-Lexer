@@ -52,31 +52,6 @@ void Annotator::annotate(LexContext *ctx, Token *tk)
 	ctx->prev_type = info.type;
 }
 
-TokenInfo Annotator::getTokenInfo(TokenType::Type type)
-{
-	size_t i = 0;
-	for (; decl_tokens[i].type != TokenType::Undefined; i++) {
-		if (type == decl_tokens[i].type) {
-			return decl_tokens[i];
-		}
-	}
-	return decl_tokens[i];
-}
-
-TokenInfo Annotator::getTokenInfo(const char *data)
-{
-	size_t i = 0;
-	size_t dsize = strlen(data);
-	for (; decl_tokens[i].type != TokenType::Undefined; i++) {
-		const char *token_data = decl_tokens[i].data;
-		size_t tsize = strlen(token_data);
-		if (dsize == tsize && !strncmp(token_data, data, dsize)) {
-			return decl_tokens[i];
-		}
-	}
-	return decl_tokens[i];
-}
-
 bool Annotator::search(vector<string> list, string target)
 {
 	bool ret = false;
@@ -89,144 +64,140 @@ bool Annotator::search(vector<string> list, string target)
 
 TokenInfo Annotator::annotateRegOpt(LexContext *ctx, Token *tk)
 {
-	TokenInfo ret = getTokenInfo(Undefined);
+	TokenInfo ret = ctx->tmgr->getTokenInfo(Undefined);
 	string data = tk->data;
 	if (ctx->prev_type == RegDelim && isalpha(data[0]) &&
 		data != "if"      && data != "while" &&
 		data != "foreach" && data != "for") {
 		//(data == "g" || data == "m" || data == "s" || data == "x")) {
-		ret = getTokenInfo(RegOpt);
+		ret = ctx->tmgr->getTokenInfo(RegOpt);
 	}
 	return ret;
 }
 
 TokenInfo Annotator::annotateNamespace(LexContext *ctx, Token *tk)
 {
-	TokenInfo ret = getTokenInfo(Undefined);
-	Token *next_tk = ctx->nextToken();
+	TokenInfo ret = ctx->tmgr->getTokenInfo(Undefined);
+	Token *next_tk = ctx->tmgr->nextToken();
 	string data = tk->data;
-	if (!ctx->end() && next_tk->data == "::" &&
+	if (next_tk && next_tk->data == "::" &&
 		next_tk->info.type != String && next_tk->info.type != RawString) {
-		ret = getTokenInfo(Namespace);
+		ret = ctx->tmgr->getTokenInfo(Namespace);
 	} else if (ctx->prev_type == NamespaceResolver) {
-		ret = getTokenInfo(Namespace);
+		ret = ctx->tmgr->getTokenInfo(Namespace);
 	}
 	return ret;
 }
 
 TokenInfo Annotator::annotateMethod(LexContext *ctx, Token *tk)
 {
-	TokenInfo ret = getTokenInfo(Undefined);
+	TokenInfo ret = ctx->tmgr->getTokenInfo(Undefined);
 	string data = tk->data;
 	if (ctx->prev_type == Pointer && isalpha(data[0])) {
-		ret = getTokenInfo(Method);
+		ret = ctx->tmgr->getTokenInfo(Method);
 	}
 	return ret;
 }
 
 TokenInfo Annotator::annotateKey(LexContext *ctx, Token *tk)
 {
-	TokenInfo ret = getTokenInfo(Undefined);
-	Token *next_tk = ctx->nextToken();
+	TokenInfo ret = ctx->tmgr->getTokenInfo(Undefined);
+	Token *next_tk = ctx->tmgr->nextToken();
 	string data = tk->data;
-	if (ctx->prev_type == LeftBrace && !ctx->end() &&
+	if (ctx->prev_type == LeftBrace && !ctx->tmgr->end() &&
 		(isalpha(data[0]) || data[0] == '_') &&
 		next_tk->data == "}") {
-		ret = getTokenInfo(Key);
-	} else if (!ctx->end() &&
+		ret = ctx->tmgr->getTokenInfo(Key);
+	} else if (!ctx->tmgr->end() &&
 			   (isalpha(data[0]) || data[0] == '_') &&
 			   next_tk->data == "=>") {
-		ret = getTokenInfo(Key);
+		ret = ctx->tmgr->getTokenInfo(Key);
 	}
 	return ret;
 }
 
 TokenInfo Annotator::annotateShortScalarDereference(LexContext *ctx, Token *tk)
 {
-	TokenInfo ret = getTokenInfo(Undefined);
-	Token *next_tk = ctx->nextToken();
+	TokenInfo ret = ctx->tmgr->getTokenInfo(Undefined);
+	Token *next_tk = ctx->tmgr->nextToken();
 	string data = tk->data;
-	if (!ctx->end() && data == "$$" &&
+	if (next_tk && data == "$$" &&
 		(isalpha(next_tk->data[0]) || next_tk->data[0] == '_')) {
-		ret = getTokenInfo(ShortScalarDereference);
+		ret = ctx->tmgr->getTokenInfo(ShortScalarDereference);
 	}
 	return ret;
 }
 
-bool Annotator::isReservedKeyword(string word)
+bool Annotator::isReservedKeyword(LexContext *ctx, string word)
 {
-	for (int i = 0; decl_tokens[i].type != Undefined; i++) {
-		if (word == decl_tokens[i].data) {
-			return true;
-		}
-	}
-	return false;
+	TokenInfo info = ctx->tmgr->getTokenInfo(word.c_str());
+	return (info.type != TokenType::Undefined) ? true : false;
 }
 
 TokenInfo Annotator::annotateReservedKeyword(LexContext *ctx, Token *tk)
 {
-	TokenInfo ret = getTokenInfo(Undefined);
+	TokenInfo ret = ctx->tmgr->getTokenInfo(Undefined);
 	string data = tk->data;
-	if (isReservedKeyword(data) && ctx->prev_type != FunctionDecl) {
-		ret = getTokenInfo(cstr(data));
+	if (isReservedKeyword(ctx, data) && ctx->prev_type != FunctionDecl) {
+		ret = ctx->tmgr->getTokenInfo(cstr(data));
 	}
 	return ret;
 }
 
 TokenInfo Annotator::annotateNamelessFunction(LexContext *ctx, Token *tk)
 {
-	TokenInfo ret = getTokenInfo(Undefined);
+	TokenInfo ret = ctx->tmgr->getTokenInfo(Undefined);
 	string data = tk->data;
 	if (ctx->prev_type == FunctionDecl && data == "{") {
-		ret = getTokenInfo(cstr(data));
+		ret = ctx->tmgr->getTokenInfo(cstr(data));
 	}
 	return ret;
 }
 
 TokenInfo Annotator::annotateLocalVariable(LexContext *ctx, Token *tk)
 {
-	TokenInfo ret = getTokenInfo(Undefined);
+	TokenInfo ret = ctx->tmgr->getTokenInfo(Undefined);
 	string data = tk->data;
 	if (ctx->prev_type == VarDecl && data.find("$") != string::npos) {
-		ret = getTokenInfo(LocalVar);
+		ret = ctx->tmgr->getTokenInfo(LocalVar);
 		vardecl_list.push_back(data);
 	} else if (ctx->prev_type == VarDecl && data.find("@") != string::npos) {
-		ret = getTokenInfo(LocalArrayVar);
+		ret = ctx->tmgr->getTokenInfo(LocalArrayVar);
 		vardecl_list.push_back(data);
 	} else if (ctx->prev_type == VarDecl && data.find("%") != string::npos) {
-		ret = getTokenInfo(LocalHashVar);
+		ret = ctx->tmgr->getTokenInfo(LocalHashVar);
 		vardecl_list.push_back(data);
 	}
 	return ret;
 }
 
-TokenInfo Annotator::annotateVariable(LexContext *, Token *tk)
+TokenInfo Annotator::annotateVariable(LexContext *ctx, Token *tk)
 {
-	TokenInfo ret = getTokenInfo(Undefined);
+	TokenInfo ret = ctx->tmgr->getTokenInfo(Undefined);
 	string data = tk->data;
 	if (!search(vardecl_list, data)) return ret;
 	if (data.find("@") != string::npos) {
-		ret = getTokenInfo(ArrayVar);
+		ret = ctx->tmgr->getTokenInfo(ArrayVar);
 	} else if (data.find("%") != string::npos) {
-		ret = getTokenInfo(HashVar);
+		ret = ctx->tmgr->getTokenInfo(HashVar);
 	} else {
-		ret = getTokenInfo(Var);
+		ret = ctx->tmgr->getTokenInfo(Var);
 	}
 	return ret;
 }
 
-TokenInfo Annotator::annotateGlobalVariable(LexContext *, Token *tk)
+TokenInfo Annotator::annotateGlobalVariable(LexContext *ctx, Token *tk)
 {
-	TokenInfo ret = getTokenInfo(Undefined);
+	TokenInfo ret = ctx->tmgr->getTokenInfo(Undefined);
 	string data = tk->data;
 	if (data.find("$") != string::npos) {
-		ret = getTokenInfo(GlobalVar);
+		ret = ctx->tmgr->getTokenInfo(GlobalVar);
 		vardecl_list.push_back(data);
 	} else if (data.find("@") != string::npos) {
-		ret = getTokenInfo(GlobalArrayVar);
+		ret = ctx->tmgr->getTokenInfo(GlobalArrayVar);
 		vardecl_list.push_back(data);
 	} else if (data.find("%") != string::npos) {
-		ret = getTokenInfo(GlobalHashVar);
+		ret = ctx->tmgr->getTokenInfo(GlobalHashVar);
 		vardecl_list.push_back(data);
 	}
 	return ret;
@@ -234,50 +205,50 @@ TokenInfo Annotator::annotateGlobalVariable(LexContext *, Token *tk)
 
 TokenInfo Annotator::annotateFunction(LexContext *ctx, Token *tk)
 {
-	TokenInfo ret = getTokenInfo(Undefined);
+	TokenInfo ret = ctx->tmgr->getTokenInfo(Undefined);
 	string data = tk->data;
 	if (ctx->prev_type == FunctionDecl) {
-		ret = getTokenInfo(Function);
+		ret = ctx->tmgr->getTokenInfo(Function);
 		funcdecl_list.push_back(data);
 	}
 	return ret;
 }
 
-TokenInfo Annotator::annotateCall(LexContext *, Token *tk)
+TokenInfo Annotator::annotateCall(LexContext *ctx, Token *tk)
 {
-	TokenInfo ret = getTokenInfo(Undefined);
+	TokenInfo ret = ctx->tmgr->getTokenInfo(Undefined);
 	string data = tk->data;
 	if (search(funcdecl_list, data)) {
-		ret = getTokenInfo(Call);
+		ret = ctx->tmgr->getTokenInfo(Call);
 	}
 	return ret;
 }
 
 TokenInfo Annotator::annotateClass(LexContext *ctx, Token *tk)
 {
-	TokenInfo ret = getTokenInfo(Undefined);
+	TokenInfo ret = ctx->tmgr->getTokenInfo(Undefined);
 	string data = tk->data;
 	if (ctx->prev_type == Package) {
-		ret = getTokenInfo(Class);
+		ret = ctx->tmgr->getTokenInfo(Class);
 		pkgdecl_list.push_back(data);
 	} else if (search(pkgdecl_list, data)) {
-		ret = getTokenInfo(Class);
+		ret = ctx->tmgr->getTokenInfo(Class);
 	}
 	return ret;
 }
 
 TokenInfo Annotator::annotateUsedName(LexContext *ctx, Token *)
 {
-	TokenInfo ret = getTokenInfo(Undefined);
+	TokenInfo ret = ctx->tmgr->getTokenInfo(Undefined);
 	if (ctx->prev_type == UseDecl) {
-		ret = getTokenInfo(UsedName);
+		ret = ctx->tmgr->getTokenInfo(UsedName);
 	}
 	return ret;
 }
 
-TokenInfo Annotator::annotateBareWord(LexContext *, Token *)
+TokenInfo Annotator::annotateBareWord(LexContext *ctx, Token *)
 {
-	TokenInfo ret = getTokenInfo(Key);//BareWord);
+	TokenInfo ret = ctx->tmgr->getTokenInfo(Key);//BareWord);
 	ret.has_warnings = true;
 	return ret;
 }
