@@ -1,5 +1,8 @@
 Revision history for Compiler-Lexer
 
+0.04 : Wed May 22 11:53:00 2013
+     - add simple accessor to Compiler::Lexer::Token
+
 0.03 : Wed May 22 10:20:00 2013
      - modify pod and fix package name of 'Compiler::Lexer::Token'
 

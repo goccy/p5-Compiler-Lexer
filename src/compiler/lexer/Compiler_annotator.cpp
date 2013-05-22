@@ -104,11 +104,11 @@ TokenInfo Annotator::annotateKey(LexContext *ctx, Token *tk)
 	TokenInfo ret = ctx->tmgr->getTokenInfo(Undefined);
 	Token *next_tk = ctx->tmgr->nextToken();
 	string data = tk->data;
-	if (ctx->prev_type == LeftBrace && !ctx->tmgr->end() &&
+	if (ctx->prev_type == LeftBrace && next_tk &&
 		(isalpha(data[0]) || data[0] == '_') &&
 		next_tk->data == "}") {
 		ret = ctx->tmgr->getTokenInfo(Key);
-	} else if (!ctx->tmgr->end() &&
+	} else if (next_tk &&
 			   (isalpha(data[0]) || data[0] == '_') &&
 			   next_tk->data == "=>") {
 		ret = ctx->tmgr->getTokenInfo(Key);

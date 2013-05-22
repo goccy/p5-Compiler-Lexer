@@ -4,17 +4,15 @@ use strict;
 use warnings;
 use Compiler::Lexer::Token;
 use Compiler::Lexer::Constants;
-### =================== Exporter ======================== ###
+
 require Exporter;
 our @ISA = qw(Exporter);
 our %EXPORT_TAGS = ( 'all' => [ qw() ] );
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = qw();
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 require XSLoader;
 XSLoader::load(__PACKAGE__, $VERSION);
-
-### ================ Public Methods ===================== ###
 
 1;
 __END__
@@ -65,6 +63,10 @@ This method requires perl source code in string.
 =head1 AUTHOR
 
 Masaaki Goshima (goccy) E<lt>goccy(at)cpan.orgE<gt>
+
+=head1 CONTRIBUTORS
+
+tokuhirom: Tokuhiro Matsuno
 
 =head1 LICENSE AND COPYRIGHT
 
