@@ -1,5 +1,8 @@
 Revision history for Compiler-Lexer
 
+0.05 : Wed May 22 12:50:00 2013
+     - fix segv of Compiler::Lexer->new->tokenize->('package Foo;')
+
 0.04 : Wed May 22 11:53:00 2013
      - add simple accessor to Compiler::Lexer::Token
 

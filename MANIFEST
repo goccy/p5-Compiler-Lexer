@@ -35,6 +35,7 @@ src/compiler/util/Compiler_token.cpp
 src/compiler/util/Compiler_util.cpp
 src/typemap
 t/format.t
+t/package.t
 t/issue_reports.t
 t/Lexer.t
 t/perl/base/cond.t
