@@ -29,19 +29,19 @@ This document describes Compiler::Lexer version 0.01.
 
 =head1 SYNOPSIS
 
-use Compiler::Lexer;
-use Data::Dumper;
-
-my $filename = $ARGV[0];
-open my $fh, '<', $filename;
-my $script = do { local $/; <$fh> };
-
-my $lexer = Compiler::Lexer->new($filename);
-my $tokens = $lexer->tokenize($script);
-print Dumper $$tokens;
-
-my $modules = $lexer->get_used_modules($script);
-print Dumper $$modules;
+    use Compiler::Lexer;
+    use Data::Dumper;
+    
+    my $filename = $ARGV[0];
+    open my $fh, '<', $filename;
+    my $script = do { local $/; <$fh> };
+    
+    my $lexer = Compiler::Lexer->new($filename);
+    my $tokens = $lexer->tokenize($script);
+    print Dumper $$tokens;
+    
+    my $modules = $lexer->get_used_modules($script);
+    print Dumper $$modules;
 
 =head1 AUTHOR
 
