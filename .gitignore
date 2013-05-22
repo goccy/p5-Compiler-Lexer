@@ -1,6 +1,7 @@
 *.o
 *~
 \#*
+*.bak
 blib
 Lexer.bs
 pm_to_blib

@@ -1,8 +1,8 @@
 package Compiler::Lexer;
-
 use 5.012004;
 use strict;
 use warnings;
+use Compiler::Lexer::Token;
 use Compiler::Lexer::Constants;
 ### =================== Exporter ======================== ###
 require Exporter;
