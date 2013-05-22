@@ -1,6 +1,10 @@
-Revision history for Perl extension Lexer.
+Revision history for Compiler-Lexer
 
-0.01  Wed Oct 31 14:00:38 2012
-	- original version; created by h2xs 1.23 with options
-		-A -n Lexer
+0.03 : Wed May 22 10:20:00 2013
+     - modify pod and fix package name of 'Compiler::Lexer::Token'
 
+0.02 : Tue May 21 20:19:00 2013
+     - modify MANIFEST.
+
+0.01 : Tue May 21 19:33:00 2013
+     - First Version.

@@ -1,0 +1,10 @@
+~$
+^MANIFEST\.
+blib/
+.git/
+Makefile.old
+ppport.h
+\.bak$
+\.tar\.gz$
+.shipit
+

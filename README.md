@@ -13,7 +13,6 @@ Compiler::Lexer - Lexical Analyzer for Perl5
     my $lexer = Compiler::Lexer->new($filename);
     my $tokens = $lexer->tokenize($script);
     print Dumper $tokens;
-    print Dumper $lexer->get_groups_by_syntax_level($$tokens, Compiler::Lexer::SyntaxType::T_Stmt);
     print Dumper $lexer->get_used_modules($script);
 
 # DESCRIPTION
@@ -44,7 +43,7 @@ it under the same terms as Perl itself.
 
 # AUTHOR
 
-Masaaki Goshima (goccy) <goccy54@gmail.com>
+Masaaki Goshima (goccy) <goccy@cpan.org>
 
 # SEE ALSO
 
