@@ -2320,29 +2320,11 @@ krunch.pm krunch.pmc whap.pm whap.pmc',
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'v5',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 57
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringAdd',
-                   'data' => '.',
-                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
-                   'line' => 57
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Double',
-                   'data' => '5.630',
-                   'type' => Compiler::Lexer::TokenType::T_Double,
+                   'name' => 'VersionString',
+                   'data' => 'v5.5.630',
+                   'type' => Compiler::Lexer::TokenType::T_VersionString,
                    'line' => 57
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3499,29 +3481,11 @@ krunch.pm krunch.pmc whap.pm whap.pmc',
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'v5',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 81
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringAdd',
-                   'data' => '.',
-                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
-                   'line' => 81
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Int',
-                   'data' => '5',
-                   'type' => Compiler::Lexer::TokenType::T_Int,
+                   'name' => 'VersionString',
+                   'data' => 'v5.5',
+                   'type' => Compiler::Lexer::TokenType::T_VersionString,
                    'line' => 81
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3643,29 +3607,11 @@ krunch.pm krunch.pmc whap.pm whap.pmc',
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'v5',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 85
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringAdd',
-                   'data' => '.',
-                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
-                   'line' => 85
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Double',
-                   'data' => '5.640',
-                   'type' => Compiler::Lexer::TokenType::T_Double,
+                   'name' => 'VersionString',
+                   'data' => 'v5.5.640',
+                   'type' => Compiler::Lexer::TokenType::T_VersionString,
                    'line' => 85
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3796,29 +3742,11 @@ krunch.pm krunch.pmc whap.pm whap.pmc',
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'v7',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 88
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringAdd',
-                   'data' => '.',
-                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
-                   'line' => 88
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Int',
-                   'data' => '15',
-                   'type' => Compiler::Lexer::TokenType::T_Int,
+                   'name' => 'VersionString',
+                   'data' => 'v7.15',
+                   'type' => Compiler::Lexer::TokenType::T_VersionString,
                    'line' => 88
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3949,56 +3877,11 @@ krunch.pm krunch.pmc whap.pm whap.pmc',
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'v1',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 92
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringAdd',
-                   'data' => '.',
-                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
-                   'line' => 92
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Double',
-                   'data' => '20.300',
-                   'type' => Compiler::Lexer::TokenType::T_Double,
-                   'line' => 92
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Double',
-                   'data' => '.4000',
-                   'type' => Compiler::Lexer::TokenType::T_Double,
-                   'line' => 92
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Double',
-                   'data' => '.50000',
-                   'type' => Compiler::Lexer::TokenType::T_Double,
-                   'line' => 92
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Double',
-                   'data' => '.600000',
-                   'type' => Compiler::Lexer::TokenType::T_Double,
+                   'name' => 'VersionString',
+                   'data' => 'v1.20.300.4000.50000.600000',
+                   'type' => Compiler::Lexer::TokenType::T_VersionString,
                    'line' => 92
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -14657,19 +14540,19 @@ krunch.pm krunch.pmc whap.pm whap.pmc) ;',
             'block_id' => 0
           },
           {
-            'token_num' => 9,
-            'has_warnings' => 1,
+            'token_num' => 7,
+            'has_warnings' => 0,
             'end_line' => 57,
-            'src' => ' eval { require v5 . 5.630 ; } ;',
+            'src' => ' eval { require v5.5.630 ; } ;',
             'start_line' => 57,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 5,
-            'has_warnings' => 1,
+            'token_num' => 3,
+            'has_warnings' => 0,
             'end_line' => 57,
-            'src' => ' require v5 . 5.630 ;',
+            'src' => ' require v5.5.630 ;',
             'start_line' => 57,
             'indent' => 0,
             'block_id' => 4
@@ -14864,10 +14747,10 @@ krunch.pm krunch.pmc whap.pm whap.pmc) ;',
             'block_id' => 0
           },
           {
-            'token_num' => 10,
-            'has_warnings' => 1,
+            'token_num' => 8,
+            'has_warnings' => 0,
             'end_line' => 81,
-            'src' => ' print "not " unless 5.5 .1 gt v5 . 5 ;',
+            'src' => ' print "not " unless 5.5 .1 gt v5.5 ;',
             'start_line' => 81,
             'indent' => 0,
             'block_id' => 0
@@ -14882,19 +14765,19 @@ krunch.pm krunch.pmc whap.pm whap.pmc) ;',
             'block_id' => 0
           },
           {
-            'token_num' => 56,
+            'token_num' => 47,
             'has_warnings' => 1,
             'end_line' => 94,
-            'src' => ' { print "not " unless v5 . 5.640 eq "\\x{5}\\x{5}\\x{280}" ; print "ok " , $i ++ , "\\n" ; print "not " unless v7 . 15 eq "\\x{7}\\x{f}" ; print "ok " , $i ++ , "\\n" ; print "not " unless v1 . 20.300 .4000 .50000 .600000 eq "\\x{1}\\x{14}\\x{12c}\\x{fa0}\\x{c350}\\x{927c0}" ; print "ok " , $i ++ , "\\n" ; }',
+            'src' => ' { print "not " unless v5.5.640 eq "\\x{5}\\x{5}\\x{280}" ; print "ok " , $i ++ , "\\n" ; print "not " unless v7.15 eq "\\x{7}\\x{f}" ; print "ok " , $i ++ , "\\n" ; print "not " unless v1.20.300.4000.50000.600000 eq "\\x{1}\\x{14}\\x{12c}\\x{fa0}\\x{c350}\\x{927c0}" ; print "ok " , $i ++ , "\\n" ; }',
             'start_line' => 84,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 9,
-            'has_warnings' => 1,
+            'token_num' => 7,
+            'has_warnings' => 0,
             'end_line' => 85,
-            'src' => ' print "not " unless v5 . 5.640 eq "\\x{5}\\x{5}\\x{280}" ;',
+            'src' => ' print "not " unless v5.5.640 eq "\\x{5}\\x{5}\\x{280}" ;',
             'start_line' => 85,
             'indent' => 1,
             'block_id' => 5
@@ -14909,10 +14792,10 @@ krunch.pm krunch.pmc whap.pm whap.pmc) ;',
             'block_id' => 5
           },
           {
-            'token_num' => 9,
-            'has_warnings' => 1,
+            'token_num' => 7,
+            'has_warnings' => 0,
             'end_line' => 88,
-            'src' => ' print "not " unless v7 . 15 eq "\\x{7}\\x{f}" ;',
+            'src' => ' print "not " unless v7.15 eq "\\x{7}\\x{f}" ;',
             'start_line' => 88,
             'indent' => 1,
             'block_id' => 5
@@ -14927,10 +14810,10 @@ krunch.pm krunch.pmc whap.pm whap.pmc) ;',
             'block_id' => 5
           },
           {
-            'token_num' => 12,
-            'has_warnings' => 1,
+            'token_num' => 7,
+            'has_warnings' => 0,
             'end_line' => 92,
-            'src' => ' print "not " unless v1 . 20.300 .4000 .50000 .600000 eq "\\x{1}\\x{14}\\x{12c}\\x{fa0}\\x{c350}\\x{927c0}" ;',
+            'src' => ' print "not " unless v1.20.300.4000.50000.600000 eq "\\x{1}\\x{14}\\x{12c}\\x{fa0}\\x{c350}\\x{927c0}" ;',
             'start_line' => 91,
             'indent' => 1,
             'block_id' => 5

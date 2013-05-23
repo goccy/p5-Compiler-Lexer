@@ -168,6 +168,7 @@ typedef enum {
 	String,
 	RawString,
 	ExecString,
+	VersionString,
 	HereDocumentTag,
 	HereDocumentRawTag,
 	RawHereDocument,

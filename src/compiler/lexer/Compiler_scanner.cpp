@@ -416,6 +416,34 @@ Token *Scanner::scanLineDelimiter(LexContext *ctx)
 #define is_number_literal(ch) ((is_number(ch) || ch == '_') && ch != EOL)
 #define is_hexchar(ch) (('a' <= ch && ch <= 'f') || ('A' <= ch && ch <= 'F'))
 
+bool Scanner::isVersionString(LexContext *ctx)
+{
+	if (!ctx->existsBuffer()) return false;
+	char *token = ctx->buffer();
+	if (token[0] != 'v') return false;
+	for (int i = 1; token[i] != EOL; i++) {
+		if (!is_number(token[i])) return false;
+	}
+	return true;
+}
+
+Token *Scanner::scanVersionString(LexContext *ctx)
+{
+	TokenManager *tmgr = ctx->tmgr;
+	char *src = ctx->smgr->raw_script;
+	char *buf = ctx->buffer();
+	size_t i = ctx->smgr->idx;
+	char *begin = src + i;
+	char c = NEXT();
+	Token *token = NULL;
+	for (;(is_number(c) || c == '.') && c != EOL; c = NEXT()) {}
+	i -= 1;
+	token = new Token(string(buf) + string(begin, src+i), ctx->finfo);
+	token->info = tmgr->getTokenInfo(TokenType::VersionString);
+	ctx->smgr->idx = --i;
+	return token;
+}
+
 Token *Scanner::scanNumber(LexContext *ctx)
 {
 	TokenManager *tmgr = ctx->tmgr;

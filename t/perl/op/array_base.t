@@ -226,27 +226,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'UsedName',
-                   'data' => 'v5',
-                   'type' => Compiler::Lexer::TokenType::T_UsedName,
-                   'line' => 10
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringAdd',
-                   'data' => '.',
-                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
-                   'line' => 10
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Int',
-                   'data' => '15',
-                   'type' => Compiler::Lexer::TokenType::T_Int,
+                   'name' => 'VersionString',
+                   'data' => 'v5.15',
+                   'type' => Compiler::Lexer::TokenType::T_VersionString,
                    'line' => 10
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1036,27 +1018,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'UsedName',
-                   'data' => 'v5',
-                   'type' => Compiler::Lexer::TokenType::T_UsedName,
-                   'line' => 29
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringAdd',
-                   'data' => '.',
-                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
-                   'line' => 29
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Int',
-                   'data' => '15',
-                   'type' => Compiler::Lexer::TokenType::T_Int,
+                   'name' => 'VersionString',
+                   'data' => 'v5.15',
+                   'type' => Compiler::Lexer::TokenType::T_VersionString,
                    'line' => 29
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1645,10 +1609,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 1
           },
           {
-            'token_num' => 5,
+            'token_num' => 3,
             'has_warnings' => 0,
             'end_line' => 10,
-            'src' => ' use v5 . 15 ;',
+            'src' => ' use v5.15 ;',
             'start_line' => 10,
             'indent' => 1,
             'block_id' => 1
@@ -1744,10 +1708,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 5,
+            'token_num' => 3,
             'has_warnings' => 0,
             'end_line' => 29,
-            'src' => ' use v5 . 15 ;',
+            'src' => ' use v5.15 ;',
             'start_line' => 29,
             'indent' => 0,
             'block_id' => 0
@@ -1854,12 +1818,12 @@ subtest 'get_used_modules' => sub {
             'name' => 'strict'
           },
           {
-            'args' => '  .  15',
-            'name' => 'v5'
+            'args' => '',
+            'name' => 'v5.15'
           },
           {
-            'args' => '  .  15',
-            'name' => 'v5'
+            'args' => '',
+            'name' => 'v5.15'
           }
         ]
 , 'Compiler::Lexer::get_used_modules');

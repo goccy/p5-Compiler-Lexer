@@ -539,6 +539,7 @@ Term            	Double
 Term            	String              	
 Term            	RawString           	
 Term            	ExecString          	
+Term            	VersionString           
 Term            	HereDocumentTag     	
 Term            	HereDocumentRawTag  	
 Term            	RawHereDocument     	

@@ -6726,38 +6726,11 @@ subtest 'tokenize' => sub {
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'v196',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 109
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringAdd',
-                   'data' => '.',
-                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
-                   'line' => 109
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Double',
-                   'data' => '172.194',
-                   'type' => Compiler::Lexer::TokenType::T_Double,
-                   'line' => 109
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Double',
-                   'data' => '.130',
-                   'type' => Compiler::Lexer::TokenType::T_Double,
+                   'name' => 'VersionString',
+                   'data' => 'v196.172.194.130',
+                   'type' => Compiler::Lexer::TokenType::T_VersionString,
                    'line' => 109
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6879,29 +6852,11 @@ subtest 'tokenize' => sub {
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'v141',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 110
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringAdd',
-                   'data' => '.',
-                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
-                   'line' => 110
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Double',
-                   'data' => '83.130',
-                   'type' => Compiler::Lexer::TokenType::T_Double,
+                   'name' => 'VersionString',
+                   'data' => 'v141.83.130',
+                   'type' => Compiler::Lexer::TokenType::T_VersionString,
                    'line' => 110
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8607,29 +8562,11 @@ subtest 'tokenize' => sub {
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'v196',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 143
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringAdd',
-                   'data' => '.',
-                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
-                   'line' => 143
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Double',
-                   'data' => '172.130',
-                   'type' => Compiler::Lexer::TokenType::T_Double,
+                   'name' => 'VersionString',
+                   'data' => 'v196.172.130',
+                   'type' => Compiler::Lexer::TokenType::T_VersionString,
                    'line' => 143
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8751,29 +8688,11 @@ subtest 'tokenize' => sub {
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'v141',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 144
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringAdd',
-                   'data' => '.',
-                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
-                   'line' => 144
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Double',
-                   'data' => '83.130',
-                   'type' => Compiler::Lexer::TokenType::T_Double,
+                   'name' => 'VersionString',
+                   'data' => 'v141.83.130',
+                   'type' => Compiler::Lexer::TokenType::T_VersionString,
                    'line' => 144
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -19073,10 +18992,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 471,
+            'token_num' => 466,
             'has_warnings' => 1,
             'end_line' => 131,
-            'src' => ' { $a = chr ( 300 ) ; $b = chr ( 130 ) ; open F , ">:utf8" , $a_file or die $! ; print F $a , "\\n" ; close F ; open F , "<:utf8" , $a_file or die $! ; $x = < F > ; chomp ( $x ) ; is ( $x , chr ( 300 ) ) ; open F , $a_file or die $! ; binmode ( F , ":bytes" ) ; $x = < F > ; chomp ( $x ) ; $chr = chr ( 196 ) . chr ( 172 ) ; if ( ord ( $a_file ) == 193 ) { $chr = chr ( 141 ) . chr ( 83 ) ; } is ( $x , $chr ) ; close F ; open F , ">:utf8" , $a_file or die $! ; binmode ( F ) ; binmode ( F , ":utf8" ) ; print F $a ; my $y ; { my $x = tell ( F ) ; { use bytes ; $y = length ( $a ) ; } cmp_ok ( $x , \'==\' , $y ) ; } { use bytes ; my $y = length ( $b ) ; cmp_ok ( $y , \'==\' , 1 ) ; } print F $b , "\\n" ; { use bytes ; my $y = length ( $b ) ; cmp_ok ( $y , \'==\' , 1 ) ; } { my $x = tell ( F ) ; { use bytes ; if ( ord ( \'A\' ) == 193 ) { $y += 2 ; } else { $y += 3 ; } } cmp_ok ( $x , \'==\' , $y ) ; } close F ; open F , $a_file or die $! ; binmode ( F , ":bytes" ) ; $x = < F > ; chomp ( $x ) ; $chr = v196 . 172.194 .130 ; if ( ord ( \'A\' ) == 193 ) { $chr = v141 . 83.130 ; } is ( $x , $chr , sprintf ( \'(%vd)\' , $x ) ) ; open F , "<:utf8" , $a_file or die $! ; $x = < F > ; chomp ( $x ) ; close F ; is ( $x , chr ( 300 ) . chr ( 130 ) , sprintf ( \'(%vd)\' , $x ) ) ; open F , ">" , $a_file or die $! ; binmode ( F , ":bytes:" ) ; my $w ; { use warnings \'utf8\' ; local $SIG { __WARN__ } = sub { $w = $_ [ 0 ] } ; print F $a ; ok ( ( ! $@ ) ) ; like ( $w , qr/Wide character in print/i ) ; } }',
+            'src' => ' { $a = chr ( 300 ) ; $b = chr ( 130 ) ; open F , ">:utf8" , $a_file or die $! ; print F $a , "\\n" ; close F ; open F , "<:utf8" , $a_file or die $! ; $x = < F > ; chomp ( $x ) ; is ( $x , chr ( 300 ) ) ; open F , $a_file or die $! ; binmode ( F , ":bytes" ) ; $x = < F > ; chomp ( $x ) ; $chr = chr ( 196 ) . chr ( 172 ) ; if ( ord ( $a_file ) == 193 ) { $chr = chr ( 141 ) . chr ( 83 ) ; } is ( $x , $chr ) ; close F ; open F , ">:utf8" , $a_file or die $! ; binmode ( F ) ; binmode ( F , ":utf8" ) ; print F $a ; my $y ; { my $x = tell ( F ) ; { use bytes ; $y = length ( $a ) ; } cmp_ok ( $x , \'==\' , $y ) ; } { use bytes ; my $y = length ( $b ) ; cmp_ok ( $y , \'==\' , 1 ) ; } print F $b , "\\n" ; { use bytes ; my $y = length ( $b ) ; cmp_ok ( $y , \'==\' , 1 ) ; } { my $x = tell ( F ) ; { use bytes ; if ( ord ( \'A\' ) == 193 ) { $y += 2 ; } else { $y += 3 ; } } cmp_ok ( $x , \'==\' , $y ) ; } close F ; open F , $a_file or die $! ; binmode ( F , ":bytes" ) ; $x = < F > ; chomp ( $x ) ; $chr = v196.172.194.130 ; if ( ord ( \'A\' ) == 193 ) { $chr = v141.83.130 ; } is ( $x , $chr , sprintf ( \'(%vd)\' , $x ) ) ; open F , "<:utf8" , $a_file or die $! ; $x = < F > ; chomp ( $x ) ; close F ; is ( $x , chr ( 300 ) . chr ( 130 ) , sprintf ( \'(%vd)\' , $x ) ) ; open F , ">" , $a_file or die $! ; binmode ( F , ":bytes:" ) ; my $w ; { use warnings \'utf8\' ; local $SIG { __WARN__ } = sub { $w = $_ [ 0 ] } ; print F $a ; ok ( ( ! $@ ) ) ; like ( $w , qr/Wide character in print/i ) ; } }',
             'start_line' => 53,
             'indent' => 0,
             'block_id' => 0
@@ -19550,28 +19469,28 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 6
           },
           {
-            'token_num' => 7,
+            'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 109,
-            'src' => ' $chr = v196 . 172.194 .130 ;',
+            'src' => ' $chr = v196.172.194.130 ;',
             'start_line' => 109,
             'indent' => 1,
             'block_id' => 6
           },
           {
-            'token_num' => 17,
+            'token_num' => 15,
             'has_warnings' => 1,
             'end_line' => 110,
-            'src' => ' if ( ord ( \'A\' ) == 193 ) { $chr = v141 . 83.130 ; }',
+            'src' => ' if ( ord ( \'A\' ) == 193 ) { $chr = v141.83.130 ; }',
             'start_line' => 110,
             'indent' => 1,
             'block_id' => 6
           },
           {
-            'token_num' => 6,
+            'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 110,
-            'src' => ' $chr = v141 . 83.130 ;',
+            'src' => ' $chr = v141.83.130 ;',
             'start_line' => 110,
             'indent' => 2,
             'block_id' => 16
@@ -19793,28 +19712,28 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 6,
+            'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 143,
-            'src' => ' $chr = v196 . 172.130 ;',
+            'src' => ' $chr = v196.172.130 ;',
             'start_line' => 143,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 17,
+            'token_num' => 15,
             'has_warnings' => 1,
             'end_line' => 144,
-            'src' => ' if ( ord ( \'A\' ) == 193 ) { $chr = v141 . 83.130 ; }',
+            'src' => ' if ( ord ( \'A\' ) == 193 ) { $chr = v141.83.130 ; }',
             'start_line' => 144,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 6,
+            'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 144,
-            'src' => ' $chr = v141 . 83.130 ;',
+            'src' => ' $chr = v141.83.130 ;',
             'start_line' => 144,
             'indent' => 1,
             'block_id' => 19

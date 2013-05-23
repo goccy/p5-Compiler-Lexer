@@ -1,4 +1,5 @@
 #include <common.hpp>
+
 TokenInfo decl_tokens[] = {
 	{Enum::Token::Type::Return, Enum::Token::Kind::Return, "Return", "return"},
 	{Enum::Token::Type::Add, Enum::Token::Kind::Operator, "Add", "+"},
@@ -445,6 +446,7 @@ TokenInfo decl_tokens[] = {
 	{Enum::Token::Type::String, Enum::Token::Kind::Term, "String", ""},
 	{Enum::Token::Type::RawString, Enum::Token::Kind::Term, "RawString", ""},
 	{Enum::Token::Type::ExecString, Enum::Token::Kind::Term, "ExecString", ""},
+	{Enum::Token::Type::VersionString, Enum::Token::Kind::Term, "VersionString", ""},
 	{Enum::Token::Type::HereDocumentTag, Enum::Token::Kind::Term, "HereDocumentTag", ""},
 	{Enum::Token::Type::HereDocumentRawTag, Enum::Token::Kind::Term, "HereDocumentRawTag", ""},
 	{Enum::Token::Type::RawHereDocument, Enum::Token::Kind::Term, "RawHereDocument", ""},
@@ -475,6 +477,6 @@ TokenInfo decl_tokens[] = {
 	{Enum::Token::Type::Argument, Enum::Token::Kind::Term, "Argument", ""},
 	{Enum::Token::Type::List, Enum::Token::Kind::Term, "List", ""},
 	{Enum::Token::Type::Default, Enum::Token::Kind::Term, "Default", "undef"},
-	{Enum::Token::Type::Undefined, Enum::Token::Kind::Undefined, "Undefined", ""},
+	{Enum::Token::Type::Undefined, Enum::Token::Kind::Undefined, "Undefined", ""}
 };
 

@@ -104,6 +104,7 @@ public:
 	bool isRegexDelim(Token *prev_token, char symbol);
 	bool isHereDocument(LexContext *ctx, Token *prev_token);
 	bool isFormat(LexContext *ctx, Token *tk);
+	bool isVersionString(LexContext *ctx);
 	bool isSkip(LexContext *ctx);
 	bool isPrototype(LexContext *ctx);
 	char getRegexDelim(LexContext *ctx);
@@ -120,6 +121,7 @@ public:
 	Token *scanSingleLineComment(LexContext *ctx);
 	Token *scanLineDelimiter(LexContext *ctx);
 	Token *scanNumber(LexContext *ctx);
+	Token *scanVersionString(LexContext *ctx);
 	bool scanNegativeNumber(LexContext *ctx, char num);
 };
 

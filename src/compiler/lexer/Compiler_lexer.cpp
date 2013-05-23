@@ -110,6 +110,10 @@ Tokens *Lexer::tokenize(char *script)
 				tmgr->add(scanner->scanNumber(&ctx));
 				ctx.clearBuffer();
 				continue;
+			} else if (scanner->isVersionString(&ctx)) {
+				tmgr->add(scanner->scanVersionString(&ctx));
+				ctx.clearBuffer();
+				continue;
 			}
 			//fall through
 		case '=': case '^': case '~': case '@':
