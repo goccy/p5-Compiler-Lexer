@@ -1,70 +1,67 @@
 #!/usr/bin/perl
-open(ous, ">", "include/gen_token.hpp");
-my @array = ();
-my @token_enum = ();
-my @kind_enum = ();
+
+use strict;
+use warnings;
+
+my (@info, @token_enum, @kind_enum);
 foreach (<DATA>) {
-    my ($kind,$type,$data) = split /\s+/;
-    push @array, {type => "$type", kind => "$kind", data => "$data"};
-    unless (grep{$_ eq $type} @token_enum) {
-        push(@token_enum, $type);
+    my ($kind, $type, $data) = split /\s+/;
+    push @info, { type => "$type", kind => "$kind", data => "$data" };
+    unless (grep { $_ eq $type } @token_enum) {
+        push @token_enum, $type;
     }
-    unless (grep{$_ eq $kind} @kind_enum) {
-        push(@kind_enum, $kind) if ($kind);
+    unless (grep { $_ eq $kind } @kind_enum) {
+        push @kind_enum, $kind if ($kind);
     }
 }
-close $data;
 
-print ous "namespace Enum {\n";
-print ous "namespace Token {\n";
-print ous "namespace Type {\n";
-print ous "typedef enum {\n";
-foreach (@token_enum) {
-	print ous "\t$_,\n";
-}
-print ous "} Type;\n";
-print ous "}\n";
-print ous "\n";
+my $token_type = join ",\n", map { "\t$_" } @token_enum;
+my $token_kind = join ",\n", map { "\t$_" } @kind_enum;
+my $token_info = join ",\n", map {
+    sprintf(qq|\t{Enum::Token::Type::%s, Enum::Token::Kind::%s, "%s", "%s"}|,
+            $_->{type}, $_->{kind}, $_->{type}, $_->{data});
+} @info;
 
-print ous "namespace Kind {\n";
-print ous "typedef enum {\n";
-foreach (@kind_enum) {
-	print ous "\t$_,\n";
-}
-print ous "} Kind;\n";
-print ous "}\n";
-
-print ous "}\n";
-print ous "}\n";
-
-open(ous, ">", "gen_token_decl.cpp");
-print ous "#include <common.hpp>\n";
-print ous "TokenInfo decl_tokens[] = {\n";
-foreach my $elem (@array) {
-    my $type = $elem->{type};
-    my $kind = $elem->{kind};
-    my $data = $elem->{data};
-    print ous "\t{Enum::Token::Type::${type}, Enum::Token::Kind::${kind}, \"${type}\", \"${data}\"},\n";
-}
-print ous "};\n";
-print ous "\n";
-
-open(ous, ">", "lib/Compiler/Lexer/Constants.pm");
-my $token_type_enums = "";
 my $count = 0;
-foreach my $tk (@token_enum) {
-    $token_type_enums .= " " x 4 . "T_$tk => $count,\n";
-    $count++;
-}
-
-my $kind_enums = "";
+my $token_type_enums = join ",\n", map {
+    ' ' x 4 . "T_$_ => " . $count++;
+} @token_enum;
 $count = 0;
-foreach my $kind (@kind_enum) {
-    $kind_enums .= " " x 4 . "T_$kind => $count,\n";
-    $count++;
+my $token_kind_enums = join ",\n", map {
+    ' ' x 4 . "T_$_ => " . $count++;
+} @kind_enum;
+
+open(my $fh, '>', 'include/gen_token.hpp');
+print $fh <<"CODE";
+namespace Enum {
+namespace Token {
+namespace Type {
+typedef enum {
+$token_type
+} Type;
 }
 
-print ous <<CODE;
+namespace Kind {
+typedef enum {
+$token_kind
+} Kind;
+}
+}
+}
+CODE
+
+open($fh, '>', 'gen_token_decl.cpp');
+print $fh <<"CODE";
+#include <common.hpp>
+
+TokenInfo decl_tokens[] = {
+$token_info
+};
+
+CODE
+
+open($fh, '>', 'lib/Compiler/Lexer/Constants.pm');
+print $fh <<CODE;
 package Compiler::Lexer::TokenType;
 use strict;
 use warnings;
@@ -89,11 +86,12 @@ package Compiler::Lexer::Kind;
 use strict;
 use warnings;
 use constant {
-$kind_enums
+$token_kind_enums
 };
 1;
 CODE
-close(ous);
+
+close($fh);
 
 __DATA__
 Return          	Return              	return

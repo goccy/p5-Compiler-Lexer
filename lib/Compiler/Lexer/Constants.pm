@@ -198,8 +198,7 @@ use constant {
     T_Argument => 193,
     T_List => 194,
     T_Default => 195,
-    T_Undefined => 196,
-
+    T_Undefined => 196
 };
 1;
 
@@ -258,7 +257,6 @@ use constant {
     T_Ref => 36,
     T_Get => 37,
     T_Set => 38,
-    T_Undefined => 39,
-
+    T_Undefined => 39
 };
 1;
