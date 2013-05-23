@@ -1,5 +1,8 @@
 Revision history for Compiler-Lexer
 
+0.06 : Thu May 23 17:44:00 2013
+     - support version string like 'v123.456.7890.00'
+
 0.05 : Wed May 22 12:50:00 2013
      - fix segv of Compiler::Lexer->new->tokenize->('package Foo;')
 
