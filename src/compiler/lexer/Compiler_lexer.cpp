@@ -36,7 +36,7 @@ char *LexContext::buffer(void)
 
 void LexContext::clearBuffer(void)
 {
-	memset(token_buffer, 0, script_size);
+	memset(token_buffer, 0, buffer_idx);
 	buffer_idx = 0;
 }
 
