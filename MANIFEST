@@ -3,7 +3,6 @@ Changes
 example/benchmark.pl
 example/sample.pl
 example/bigdata.pl
-example/lib/BigData.pm
 gen/gen_decl.pl
 gen/test_generator.pl
 inc/Module/Install.pm

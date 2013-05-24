@@ -1,5 +1,11 @@
 Revision history for Compiler-Lexer
 
+0.09 : Fri May 24 18:35:00 2013
+     - fixed example/bigdata.pl and removed example/lib/BigData.pm
+
+0.08 : Fri May 24 18:21:00 2013
+     - removed unknown headers from tarball
+
 0.07 : Fri May 24 17:00:00 2013
      - optimize function call
 
