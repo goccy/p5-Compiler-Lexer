@@ -1,5 +1,8 @@
 Revision history for Compiler-Lexer
 
+0.07 : Fri May 24 17:00:00 2013
+     - optimize function call
+
 0.06 : Thu May 23 17:44:00 2013
      - support version string like 'v123.456.7890.00'
 

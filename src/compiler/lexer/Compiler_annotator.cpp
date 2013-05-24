@@ -43,7 +43,8 @@ void Annotator::annotate(LexContext *ctx, Token *tk)
 	}
 	TokenInfo info;
 	vector<AnnotateMethod>::iterator itr = methods->begin();
-	for (; itr != methods->end(); itr++) {
+	vector<AnnotateMethod>::iterator end = methods->end();
+	for (; itr != end; itr++) {
 		AnnotateMethod method = *itr;
 		info = (this->*method)(ctx, tk);
 		if (info.type != Undefined) break;
