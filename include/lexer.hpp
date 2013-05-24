@@ -87,6 +87,7 @@ public:
 	bool isFormatDeclared;
 	bool commentFlag;
 	bool hereDocumentFlag;
+	bool skipFlag;
 	char start_string_ch;
 	char regex_delim;
 	char regex_middle_delim;

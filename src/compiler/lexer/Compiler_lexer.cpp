@@ -36,27 +36,20 @@ char *LexContext::buffer(void)
 
 void LexContext::clearBuffer(void)
 {
-	memset(token_buffer, 0, buffer_idx);
 	buffer_idx = 0;
+	token_buffer[0] = EOL;
 }
 
 void LexContext::writeBuffer(char ch)
 {
 	token_buffer[buffer_idx] = ch;
-	buffer_idx++;
+	token_buffer[++buffer_idx] = EOL;
 }
 
 bool LexContext::existsBuffer(void)
 {
 	return token_buffer[0] != EOL;
 }
-
-//Token *LexContext::tk(void) { return ITER_CAST(Token *, itr); }
-//Token *LexContext::nextToken(void) {
-//	return ITER_CAST(Token *, itr+1);
-//}
-//void LexContext::next(void) { ++itr; }
-//bool LexContext::end(void) { return itr + 1 == tks->end(); }
 
 /*************** Lexer ***************/
 

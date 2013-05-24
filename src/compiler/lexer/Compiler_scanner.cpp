@@ -6,7 +6,7 @@ namespace TokenKind = Enum::Token::Kind;
 
 Scanner::Scanner() :
 	isStringStarted(false), isRegexStarted(false), isPrototypeStarted(false), isFormatStarted(false),
-	isFormatDeclared(false), commentFlag(false), hereDocumentFlag(false),
+	isFormatDeclared(false), commentFlag(false), hereDocumentFlag(false), skipFlag(false),
 	regex_delim(0), regex_middle_delim(0),
     brace_count_inner_regex(0), bracket_count_inner_regex(0), cury_brace_count_inner_regex(0)
 {
@@ -85,9 +85,11 @@ Token *Scanner::scanQuote(LexContext *ctx, char quote)
 			}
 		}
 		isStringStarted = false;
+		skipFlag = false;
 	} else {
 		start_string_ch = quote;
 		isStringStarted = true;
+		skipFlag = true;
 	}
 	return ret;
 }
@@ -229,6 +231,7 @@ Token *Scanner::scanPrevSymbol(LexContext *ctx, char symbol)
 		ret->info = tmgr->getTokenInfo(token);
 		regex_delim = getRegexDelim(ctx);
 		isRegexStarted = true;
+		skipFlag = true;
 	} else if (isRegexStartDelim(ctx, regex_replace_map)) {
 		//ReplaceRegexPrefix
 		ret->info = tmgr->getTokenInfo(token);
@@ -236,8 +239,10 @@ Token *Scanner::scanPrevSymbol(LexContext *ctx, char symbol)
 		regex_delim = delim;
 		regex_middle_delim = delim;
 		isRegexStarted = true;
+		skipFlag = true;
 	} else if (isPrototype(ctx)) {
 		isPrototypeStarted = true;
+		skipFlag = true;
 	} else {
 		Token *prev_before_tk = ctx->tmgr->tokens->lastToken();
 		if (isHereDocument(ctx, prev_before_tk)) {
@@ -267,6 +272,7 @@ Token *Scanner::scanCurSymbol(LexContext *ctx, char symbol)
 		if (!isRegexEndDelim(ctx)) {
 			regex_delim = getRegexDelim(ctx);
 			isRegexStarted = true;
+			skipFlag = true;
 		} else {
 			regex_delim = 0;
 		}
@@ -283,6 +289,7 @@ Token *Scanner::scanCurSymbol(LexContext *ctx, char symbol)
 		ret = new Token(string(tmp), ctx->finfo);
 		ctx->clearBuffer();
 		isPrototypeStarted = true;
+		skipFlag = true;
 	} else {
 		ret = new Token(string(tmp), ctx->finfo);
 		ctx->clearBuffer();
@@ -404,8 +411,10 @@ Token *Scanner::scanLineDelimiter(LexContext *ctx)
 	if (isFormatDeclared && data == "=") {
 		isFormatDeclared = false;
 		isFormatStarted = true;
+		skipFlag = true;
 	} else if (here_document_tag != "") {
 		hereDocumentFlag = true;
+		skipFlag = true;
 	}
 	return ret;
 }
@@ -507,17 +516,20 @@ bool Scanner::isSkip(LexContext *ctx)
 			commentFlag = true;
 			ret = true;
 		}
-	} else if (here_document_tag != "__END__" && smgr->previousChar() == '\n' &&
+	} else if (!hereDocumentFlag && smgr->previousChar() == '\n' &&
 			   smgr->compare(0, 7, "__END__")) {
 		int progress_to_end = ctx->script_size - idx - 1;
 		ctx->progress = progress_to_end;
 		ret = false;
-	} else if (here_document_tag != "__DATA__" && smgr->previousChar() == '\n' &&
+	} else if (!hereDocumentFlag && smgr->previousChar() == '\n' &&
 			   smgr->compare(0, 8, "__DATA__")) {
 		int progress_to_end = ctx->script_size - idx - 1;
 		ctx->progress = progress_to_end;
 		ret = false;
-	} else if (isFormatStarted) {
+	}
+	if (!skipFlag) return ret;
+
+	if (isFormatStarted) {
 		if (smgr->previousChar() == '\n' && smgr->currentChar() == '.') {
 			Token *tk = new Token(string(ctx->buffer()), ctx->finfo);
 			tk->info = tmgr->getTokenInfo(Format);
@@ -530,6 +542,7 @@ bool Scanner::isSkip(LexContext *ctx)
 
 			ctx->progress = 1;
 			isFormatStarted = false;
+			skipFlag = false;
 			ret = false;
 		} else {
 			ctx->writeBuffer(script[idx]);
@@ -615,6 +628,7 @@ bool Scanner::isSkip(LexContext *ctx)
 				tmgr->add(tk);
 				ret = false;
 				isRegexStarted = false;
+				skipFlag = false;
 				regex_delim = 0;
 				brace_count_inner_regex = 0;
 				cury_brace_count_inner_regex = 0;
@@ -628,6 +642,7 @@ bool Scanner::isSkip(LexContext *ctx)
 			ctx->clearBuffer();
 			tmgr->add(tk);
 			isPrototypeStarted = false;
+			skipFlag = false;
 			ret = false;
 		} else {
 			ctx->writeBuffer(script[idx]);
@@ -659,6 +674,7 @@ bool Scanner::isSkip(LexContext *ctx)
 				ctx->finfo.start_line_num++;
 				here_document_tag = "";
 				hereDocumentFlag = false;
+				skipFlag = false;
 				ret = false;
 			} else {
 				ctx->writeBuffer(script[idx]);
