@@ -65,13 +65,14 @@ Tokens *Lexer::tokenize(char *script)
 	Token *tk = NULL;
 	TokenManager *tmgr = ctx.tmgr;
 	ScriptManager *smgr = ctx.smgr;
-	for (; !smgr->end(); smgr->next()) {
-		char ch = smgr->currentChar();
+	char ch = smgr->currentChar();
+	for (; ch != EOL; smgr->idx++) {
+		ch = smgr->currentChar();
 		if (ch == '\n') ctx.finfo.start_line_num++;
 		if (scanner->isSkip(&ctx)) {
 			continue;
 		} else {
-			smgr->forward(ctx.progress);
+			smgr->idx += ctx.progress;
 			ctx.progress = 0;
 			if (smgr->end()) break;
 		}
@@ -116,7 +117,7 @@ Tokens *Lexer::tokenize(char *script)
 		case '(': case ')': case '{': case '}':
 		case '[': case ']': case '?': case '$':
 			tmgr->add(scanner->scanSymbol(&ctx));
-			smgr->forward(ctx.progress);
+			smgr->idx += ctx.progress;
 			ctx.progress = 0;
 			break;
 		case '\n':

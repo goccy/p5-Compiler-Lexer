@@ -503,7 +503,9 @@ bool Scanner::isSkip(LexContext *ctx)
 	TokenManager *tmgr = ctx->tmgr;
 	char *script = smgr->raw_script;
 	size_t idx = smgr->idx;
-	if (smgr->previousChar() == '\n' && smgr->currentChar() == '=' &&
+	char prev_ch = smgr->previousChar();
+	char cur_ch = smgr->currentChar();
+	if (prev_ch == '\n' && cur_ch == '=' &&
 		isalnum(smgr->nextChar())) {
 		if (smgr->compare(1, 3, "cut")) {
 			DBG_PL("commentFlag => OFF");
@@ -516,17 +518,18 @@ bool Scanner::isSkip(LexContext *ctx)
 			commentFlag = true;
 			ret = true;
 		}
-	} else if (!hereDocumentFlag && smgr->previousChar() == '\n' &&
+	} else if (!hereDocumentFlag && prev_ch == '\n' && cur_ch == '_' &&
 			   smgr->compare(0, 7, "__END__")) {
 		int progress_to_end = ctx->script_size - idx - 1;
 		ctx->progress = progress_to_end;
 		ret = false;
-	} else if (!hereDocumentFlag && smgr->previousChar() == '\n' &&
+	} else if (!hereDocumentFlag && prev_ch == '\n' && cur_ch == '_' &&
 			   smgr->compare(0, 8, "__DATA__")) {
 		int progress_to_end = ctx->script_size - idx - 1;
 		ctx->progress = progress_to_end;
 		ret = false;
 	}
+	if (commentFlag) return ret;
 	if (!skipFlag) return ret;
 
 	if (isFormatStarted) {

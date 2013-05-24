@@ -161,8 +161,7 @@ char ScriptManager::previousChar(void)
 
 char ScriptManager::currentChar(void)
 {
-	size_t current_idx = this->idx;
-	return (current_idx < script_size) ? raw_script[current_idx] : EOL;
+	return raw_script[idx];
 }
 
 char ScriptManager::nextChar(void)
