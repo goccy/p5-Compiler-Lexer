@@ -1,7 +1,7 @@
 package Compiler::Lexer;
-use 5.012004;
 use strict;
 use warnings;
+use 5.010;
 use Compiler::Lexer::Token;
 use Compiler::Lexer::Constants;
 
