@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 #
 # Test inheriting file descriptors across exec (close-on-exec).
@@ -163,7 +163,7 @@ test_inherited($parentfd1);
 close FHPARENT1 or die "close '$tmpfile1': $!";
 close FHPARENT2 or die "close '$tmpfile2': $!";
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -367,7 +367,7 @@ subtest 'tokenize' => sub {
                    'line' => 42
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',

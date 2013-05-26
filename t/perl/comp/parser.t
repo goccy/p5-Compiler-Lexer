@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 
 # Checks if the parser behaves correctly in edge cases
@@ -457,7 +457,7 @@ EOSTANZA
 __END__
 # Don't add new tests HERE. See note above
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);

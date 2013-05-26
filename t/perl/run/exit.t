@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 #
 # Tests for perl exit codes, playing with $?, etc...
@@ -174,7 +174,7 @@ $exit_arg = (44 & 7) if $vms_exit_mode;
 
 is( $exit >> 8, $exit_arg,             'Changing $? in END block' );
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -2403,12 +2403,12 @@ subtest 'tokenize' => sub {
                    'line' => 56
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'RequiredName',
                    'data' => 'POSIX',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_RequiredName,
                    'line' => 56
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7399,7 +7399,7 @@ subtest 'get_groups_by_syntax_level' => sub {
           },
           {
             'token_num' => 10,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 56,
             'src' => ' my $posix_ok = eval { require POSIX ; } ;',
             'start_line' => 56,
@@ -7408,7 +7408,7 @@ subtest 'get_groups_by_syntax_level' => sub {
           },
           {
             'token_num' => 3,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 56,
             'src' => ' require POSIX ;',
             'start_line' => 56,

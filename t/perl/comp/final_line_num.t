@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 
 BEGIN { print "1..1\n"; }
@@ -19,7 +19,7 @@ BEGIN { $SIG{__DIE__} = sub {
 # the next line causes a syntax error at end of file, to be caught above
 BEGIN { $last_line_num = __LINE__; } print 1+
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);

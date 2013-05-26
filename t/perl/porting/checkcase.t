@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!/usr/bin/perl
 # Finds the files that have the same name, case insensitively,
 # in the current directory and its subdirectories
@@ -43,7 +43,7 @@ foreach (sort values %files) {
 print "1..".$test_count."\n";
 # vim: ts=4 sts=4 sw=4 et:
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -58,7 +58,7 @@ subtest 'tokenize' => sub {
                    'line' => 5
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -85,7 +85,7 @@ subtest 'tokenize' => sub {
                    'line' => 6
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',

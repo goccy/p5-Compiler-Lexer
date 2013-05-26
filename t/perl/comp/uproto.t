@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!perl
 
 print "1..43\n";
@@ -154,7 +154,7 @@ is( $_, 42, '$_ is modifiable' );
     is( $_, 44, 'my $_ is modifiable' );
 }
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);

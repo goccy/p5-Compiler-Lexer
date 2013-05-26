@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!perl
 
 # Test scoping issues with embedded code in regexps.
@@ -169,7 +169,7 @@ off;
 { my $y = "a"; $y =~ /a(?{ undef *_ })/ }
 pass "undef *_ in a re-eval does not cause a double free";
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -1595,7 +1595,7 @@ subtest 'tokenize' => sub {
                    'line' => 106
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -2036,7 +2036,7 @@ subtest 'tokenize' => sub {
                    'line' => 118
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -2234,7 +2234,7 @@ subtest 'tokenize' => sub {
                    'line' => 124
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',

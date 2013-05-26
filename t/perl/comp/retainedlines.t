@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl -w
 
 # Check that lines from eval are correctly retained by the debugger
@@ -169,7 +169,7 @@ for (0xA, 0) {
    'subsequent #line 42 "foo" in a string eval updates @{"_<foo"}';
 }
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);

@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 BEGIN {
     chdir 't' if -d 't';
     @INC = qw(../lib .);
@@ -92,7 +92,7 @@ is(($str =~ /(\p{InGreek}+)/)[0], "\x{038B}\x{038C}\x{038D}");
 # The other tests that are based on looking at the generated files are now
 # in t/re/uniprops.t
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -1767,7 +1767,7 @@ subtest 'tokenize' => sub {
                    'line' => 56
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',

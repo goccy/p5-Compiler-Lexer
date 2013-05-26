@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl -w
 
 chdir 't' if -d 't';
@@ -98,7 +98,7 @@ $x->();
 EXPECT
 Undefined subroutine called at - line 3.
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -230,7 +230,7 @@ subtest 'tokenize' => sub {
                    'line' => 6
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -317,6 +317,15 @@ subtest 'tokenize' => sub {
                    'name' => 'Comma',
                    'data' => ',',
                    'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'line' => 10
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 10
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1094,10 +1103,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 8,
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 10,
-            'src' => ' run_multiple_progs ( \'\' , * DATA ) ;',
+            'src' => ' run_multiple_progs ( \'\' , \\ * DATA ) ;',
             'start_line' => 10,
             'indent' => 0,
             'block_id' => 0

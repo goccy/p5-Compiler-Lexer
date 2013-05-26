@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 
 BEGIN { chdir 't'; @INC = '../lib'; require './test.pl' }
@@ -49,7 +49,7 @@ ok !Foo->isa("Bar"),
 ok !Phoo->isa("Bar"),
  '!isa on the stash that claimed the @ISA via ref-to-glob assignment';
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);

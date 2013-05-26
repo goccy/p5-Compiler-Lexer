@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 BEGIN {
     chdir 't' if -d 't';
@@ -182,7 +182,7 @@ EOF
 
 sub last { 9 }
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -341,7 +341,7 @@ subtest 'tokenize' => sub {
                    'line' => 8
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -404,12 +404,12 @@ subtest 'tokenize' => sub {
                    'line' => 16
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'RequiredName',
                    'data' => 'POSIX',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_RequiredName,
                    'line' => 16
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -611,7 +611,7 @@ subtest 'tokenize' => sub {
                    'line' => 21
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -2083,7 +2083,7 @@ subtest 'tokenize' => sub {
                    'line' => 67
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -4376,7 +4376,7 @@ subtest 'get_groups_by_syntax_level' => sub {
           },
           {
             'token_num' => 3,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 16,
             'src' => ' require POSIX ;',
             'start_line' => 16,

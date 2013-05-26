@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 my @symbols;
 BEGIN {
     require './test.pl';
@@ -38,7 +38,7 @@ foreach my $symbol (@symbols) {
        "GVf_IMPORTED_CV set on imported GV");
 }
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -287,7 +287,7 @@ subtest 'tokenize' => sub {
                    'line' => 10
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -314,7 +314,7 @@ subtest 'tokenize' => sub {
                    'line' => 11
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -404,7 +404,7 @@ subtest 'tokenize' => sub {
                    'line' => 13
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -467,7 +467,7 @@ subtest 'tokenize' => sub {
                    'line' => 14
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -704,6 +704,15 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 23
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Mul',
                    'data' => '*',
                    'type' => Compiler::Lexer::TokenType::T_Mul,
@@ -788,6 +797,15 @@ subtest 'tokenize' => sub {
                    'name' => 'LeftParenthesis',
                    'data' => '(',
                    'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 24
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 24
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1349,10 +1367,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 85,
+            'token_num' => 87,
             'has_warnings' => 1,
             'end_line' => 32,
-            'src' => ' foreach my $symbol ( @symbols ) { my ( $ps , $ms ) ; { no strict \'refs\' ; $ps = svref_2object ( * { "Fcntl::$symbol" } ) ; $ms = svref_2object ( * { "::$symbol" } ) ; } object_ok ( $ps , \'B::GV\' ) ; is ( $ps-> GvFLAGS ( ) & GVf_IMPORTED_CV , 0 , "GVf_IMPORTED_CV not set on original" ) ; object_ok ( $ms , \'B::GV\' ) ; is ( $ms-> GvFLAGS ( ) & GVf_IMPORTED_CV , GVf_IMPORTED_CV , "GVf_IMPORTED_CV set on imported GV" ) ; }',
+            'src' => ' foreach my $symbol ( @symbols ) { my ( $ps , $ms ) ; { no strict \'refs\' ; $ps = svref_2object ( \\ * { "Fcntl::$symbol" } ) ; $ms = svref_2object ( \\ * { "::$symbol" } ) ; } object_ok ( $ps , \'B::GV\' ) ; is ( $ps-> GvFLAGS ( ) & GVf_IMPORTED_CV , 0 , "GVf_IMPORTED_CV not set on original" ) ; object_ok ( $ms , \'B::GV\' ) ; is ( $ms-> GvFLAGS ( ) & GVf_IMPORTED_CV , GVf_IMPORTED_CV , "GVf_IMPORTED_CV set on imported GV" ) ; }',
             'start_line' => 19,
             'indent' => 0,
             'block_id' => 0
@@ -1367,10 +1385,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 2
           },
           {
-            'token_num' => 26,
+            'token_num' => 28,
             'has_warnings' => 1,
             'end_line' => 25,
-            'src' => ' { no strict \'refs\' ; $ps = svref_2object ( * { "Fcntl::$symbol" } ) ; $ms = svref_2object ( * { "::$symbol" } ) ; }',
+            'src' => ' { no strict \'refs\' ; $ps = svref_2object ( \\ * { "Fcntl::$symbol" } ) ; $ms = svref_2object ( \\ * { "::$symbol" } ) ; }',
             'start_line' => 21,
             'indent' => 1,
             'block_id' => 2
@@ -1385,19 +1403,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 3
           },
           {
-            'token_num' => 10,
+            'token_num' => 11,
             'has_warnings' => 1,
             'end_line' => 23,
-            'src' => ' $ps = svref_2object ( * { "Fcntl::$symbol" } ) ;',
+            'src' => ' $ps = svref_2object ( \\ * { "Fcntl::$symbol" } ) ;',
             'start_line' => 23,
             'indent' => 2,
             'block_id' => 3
           },
           {
-            'token_num' => 10,
+            'token_num' => 11,
             'has_warnings' => 1,
             'end_line' => 24,
-            'src' => ' $ms = svref_2object ( * { "::$symbol" } ) ;',
+            'src' => ' $ms = svref_2object ( \\ * { "::$symbol" } ) ;',
             'start_line' => 24,
             'indent' => 2,
             'block_id' => 3

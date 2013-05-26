@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!perl -w
 print "1..5\n";
 
@@ -37,7 +37,7 @@ print system ($^X, $file) ? "not ok 5\n" : "ok 5\n";
 
 unlink $file or die "Unlink $file: $!";
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);

@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 #use re 'debug';
 BEGIN {
@@ -21,7 +21,7 @@ for $file ('./re/regexp.t', './t/re/regexp.t', ':re:regexp.t') {
 }
 die "Cannot find ./re/regexp.t or ./t/re/regexp.t\n";
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);

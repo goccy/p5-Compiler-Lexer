@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 
 # tests that aren't important enough for base.term
@@ -78,7 +78,7 @@ $a = "{ 0x01 => 'foo'}->{0x01}";
 $a = eval $a;
 if ($a eq 'foo') {print "ok 23\n";} else {print "not ok 23\n";}
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);

@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 BEGIN {
 	chdir 't' if -d 't';
 	@INC = '../lib';
@@ -231,7 +231,7 @@ END {
 }
 
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -354,12 +354,12 @@ subtest 'tokenize' => sub {
                    'line' => 4
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'RequiredName',
                    'data' => 'Config',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_RequiredName,
                    'line' => 4
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8157,6 +8157,15 @@ subtest 'tokenize' => sub {
                    'line' => 185
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 185
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
@@ -8262,6 +8271,15 @@ subtest 'tokenize' => sub {
                    'name' => 'Comma',
                    'data' => ',',
                    'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'line' => 186
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 186
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8604,6 +8622,15 @@ subtest 'tokenize' => sub {
                    'name' => 'Comma',
                    'data' => ',',
                    'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'line' => 197
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 197
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9289,7 +9316,7 @@ subtest 'get_groups_by_syntax_level' => sub {
           },
           {
             'token_num' => 3,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 4,
             'src' => ' require Config ;',
             'start_line' => 4,
@@ -10188,10 +10215,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 9
           },
           {
-            'token_num' => 105,
+            'token_num' => 107,
             'has_warnings' => 1,
             'end_line' => 194,
-            'src' => ' { local $TODO = \'fails well back into 5.8.x\' ; sub read_fh_and_return_final_rv { my ( $fh ) = @_ ; my $buf = \'\' ; my $rv ; for ( 1 .. 3 ) { $rv = read ( $fh , $buf , 1 , length ( $buf ) ) ; next if $rv ; } return $rv } open ( my $no_perlio , \'<\' , \'ab\' ) or die ; open ( my $perlio , \'<:crlf\' , \'ab\' ) or die ; is ( read_fh_and_return_final_rv ( $perlio ) , read_fh_and_return_final_rv ( $no_perlio ) , "RT#69332 - perlio should return the same value as nonperlio after EOF" ) ; close ( $perlio ) ; close ( $no_perlio ) ; }',
+            'src' => ' { local $TODO = \'fails well back into 5.8.x\' ; sub read_fh_and_return_final_rv { my ( $fh ) = @_ ; my $buf = \'\' ; my $rv ; for ( 1 .. 3 ) { $rv = read ( $fh , $buf , 1 , length ( $buf ) ) ; next if $rv ; } return $rv } open ( my $no_perlio , \'<\' , \\ \'ab\' ) or die ; open ( my $perlio , \'<:crlf\' , \\ \'ab\' ) or die ; is ( read_fh_and_return_final_rv ( $perlio ) , read_fh_and_return_final_rv ( $no_perlio ) , "RT#69332 - perlio should return the same value as nonperlio after EOF" ) ; close ( $perlio ) ; close ( $no_perlio ) ; }',
             'start_line' => 171,
             'indent' => 1,
             'block_id' => 7
@@ -10269,19 +10296,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 12
           },
           {
-            'token_num' => 12,
+            'token_num' => 13,
             'has_warnings' => 0,
             'end_line' => 185,
-            'src' => ' open ( my $no_perlio , \'<\' , \'ab\' ) or die ;',
+            'src' => ' open ( my $no_perlio , \'<\' , \\ \'ab\' ) or die ;',
             'start_line' => 185,
             'indent' => 2,
             'block_id' => 10
           },
           {
-            'token_num' => 12,
+            'token_num' => 13,
             'has_warnings' => 0,
             'end_line' => 186,
-            'src' => ' open ( my $perlio , \'<:crlf\' , \'ab\' ) or die ;',
+            'src' => ' open ( my $perlio , \'<:crlf\' , \\ \'ab\' ) or die ;',
             'start_line' => 186,
             'indent' => 2,
             'block_id' => 10
@@ -10314,19 +10341,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 10
           },
           {
-            'token_num' => 39,
+            'token_num' => 40,
             'has_warnings' => 1,
             'end_line' => 200,
-            'src' => ' { open my $fh , "<" , ( my $f = * f ) ; is join ( "" , < $fh > ) , \'*main::f\' , \'reading from a glob copy\' ; is ref \\ $f , \'GLOB\' , \'the glob copy is unaffected\' ; }',
+            'src' => ' { open my $fh , "<" , \\ ( my $f = * f ) ; is join ( "" , < $fh > ) , \'*main::f\' , \'reading from a glob copy\' ; is ref \\ $f , \'GLOB\' , \'the glob copy is unaffected\' ; }',
             'start_line' => 196,
             'indent' => 1,
             'block_id' => 7
           },
           {
-            'token_num' => 14,
+            'token_num' => 15,
             'has_warnings' => 1,
             'end_line' => 197,
-            'src' => ' open my $fh , "<" , ( my $f = * f ) ;',
+            'src' => ' open my $fh , "<" , \\ ( my $f = * f ) ;',
             'start_line' => 197,
             'indent' => 2,
             'block_id' => 13

@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl -w
 
 # What does this test?
@@ -36,7 +36,7 @@ use TestInit qw(T A); # T is chdir to the top level, A makes paths absolute
 
 system "$^X ext/Pod-Functions/Functions_pm.PL --tap pod/perlfunc.pod";
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -141,7 +141,7 @@ subtest 'tokenize' => sub {
                    'line' => 28
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',

@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!/perl -w
 use strict;
 
@@ -68,7 +68,7 @@ is(eval '$\'', undef, 'Nothing in test.pl mentioned $\'');
 # Currently seeing any of the 3 triggers the setting of all 3.
 # $` and $' will be '' rather than undef if the regexp sets them.
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -83,7 +83,7 @@ subtest 'tokenize' => sub {
                    'line' => 2
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',

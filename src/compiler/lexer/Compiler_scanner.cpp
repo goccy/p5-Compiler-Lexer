@@ -31,7 +31,7 @@ Scanner::Scanner() :
 		"$&",  "$`",  "$'",  "$+",  "$.",  "$/",  "$|",
 		"$,",  "$\\", "$\"", "$%",  "$=",  "$-",  "$~",
 		"$^",  "$*",  "$:",  "$;",  "$?",  "$!",  "$@",
-		"$$",  "$<",  "$>",  "$(",  "$)",  "$[",  "$]",
+		/*"$$",*/  "$<",  "$>",  "$(",  "$)",  "$[",  "$]",
 		NULL
 	};
 	for (size_t i = 0; regex_prefixes[i] != NULL; i++) {
@@ -67,7 +67,10 @@ Token *Scanner::scanQuote(LexContext *ctx, char quote)
 		}
 		ctx->clearBuffer();
 		Token *prev_tk = ctx->tmgr->tokens->lastToken();
-		if (prev_tk && prev_tk->data == "<<") {
+		int idx = ctx->tmgr->tokens->size() - 2;
+		string prev_data = (prev_tk) ? prev_tk->data : "";
+		string before_prev_data = (idx >= 0) ? ctx->tmgr->tokens->at(idx)->data : "";
+		if (prev_data == "<<" || (before_prev_data == "<<" && prev_data == "\\")) {
 			/* String is HereDocument */
 			here_document_tag = ret->data;
 			if (here_document_tag == "") {
@@ -79,6 +82,9 @@ Token *Scanner::scanQuote(LexContext *ctx, char quote)
 				break;
 			case '"':
 				ret->info = tmgr->getTokenInfo(TokenType::HereDocumentTag);
+				break;
+			case '`':
+				ret->info = tmgr->getTokenInfo(TokenType::HereDocumentExecTag);
 				break;
 			default:
 				break;
@@ -115,6 +121,8 @@ bool Scanner::isRegexStartDelim(LexContext *ctx, const StringMap &map)
 	string before_prev_data = (before_prev_token) ? before_prev_token->data : "";
 	TokenType::Type before_prev_type = (before_prev_token) ?
 		before_prev_token->info.type : TokenType::Undefined;
+	TokenKind::Kind before_prev_kind = (before_prev_token) ?
+		before_prev_token->info.kind : TokenKind::Undefined;
 	string prev_data = string(ctx->buffer());
 	char symbol = ctx->smgr->currentChar();
 	//... [before_prev_token] [prev_token] [symbol] ...
@@ -122,7 +130,8 @@ bool Scanner::isRegexStartDelim(LexContext *ctx, const StringMap &map)
 	if (before_prev_data == "*") return false;  /* glob */
 	if (before_prev_data == "&") return false;  /* function call */
 	if (before_prev_data == "::") return false; /* method call */
-	if (symbol == '}' || symbol == '=') return false;
+	if (symbol == '}' || symbol == '=' || symbol == ')') return false;
+	if (before_prev_kind == TokenKind::Modifier) return false; /* dereference */
 	if (map.find(prev_data) != map.end()) return true;
 	return false;
 }
@@ -179,9 +188,11 @@ bool Scanner::isPrototype(LexContext *ctx)
 
 bool Scanner::isHereDocument(LexContext *ctx, Token *tk)
 {
+	int idx = ctx->tmgr->tokens->size() - 2;
+	string prev_tk_data = (idx >= 0) ? ctx->tmgr->tokens->at(idx)->data : "";
 	string tk_data = (tk) ? tk->data : "";
 	char *token = ctx->buffer();
-	if (tk_data == "<<" &&
+	if ((tk_data == "<<" || (prev_tk_data == "<<" && tk_data == "\\")) &&
 		strtod(token, NULL) == 0 && string(token) != "0" &&
 		(isupper(token[0]) || token[0] == '_')) {
 		return true;
@@ -200,7 +211,7 @@ bool Scanner::isRegexDelim(Token *prev_token, char symbol)
 	/* [^0-9] && !"0" && !CONST && !{hash} && ![array] && !func() && !$var */
 	string prev_tk = string(prev_data);
 	if (regex_delim == 0 && prev_token && prev_token->info.type == TokenType::Undefined &&
-		(symbol != '-' && symbol != '=' && symbol != ',') &&
+		(symbol != '-' && symbol != '=' && symbol != ',' && symbol != ')') &&
 		(prev_tk == "q"  || prev_tk == "qq" || prev_tk == "qw" ||
 		 prev_tk == "qx" || prev_tk == "qr" || prev_tk == "m")) {
 		return true;
@@ -213,11 +224,12 @@ bool Scanner::isRegexDelim(Token *prev_token, char symbol)
 	if (!isupper(prev_data[0]) && prev_data[0] != '_' &&
 		prev_data[0] != '}' && prev_data[0] != ']' && prev_data[0] != ')' &&
 		prev_data[0] != '$' && prev_data[0] != '@' && prev_data[0] != '%') {
-		if (isalpha(prev_data[0]) && string(prev_data) != "split" &&
+		if (isalpha(prev_data[0]) &&
+			(string(prev_data) != "split" && string(prev_data) != "grep" && string(prev_data) != "map") &&
 			string(prev_data) != "if" && string(prev_data) != "unless") return false;
 		return true;
 	}
-	if (string(prev_data) == "split") return true;
+	if (string(prev_data) == "split" || string(prev_data) == "grep" || string(prev_data) == "map") return true;
 	return false;
 }
 
@@ -306,7 +318,15 @@ Token *Scanner::scanTripleCharacterOperator(LexContext *ctx, char symbol, char n
 	tmp[2] = after_next_ch;
 	if (operator_map.find(string(tmp)) != operator_map.end()) {
 		ret = new Token(string(tmp), ctx->finfo);
+		ret->info = ctx->tmgr->getTokenInfo(tmp);
 		ctx->progress = 2;
+	} else if (symbol == '$' && next_ch == '$') {
+		ret = new Token("$$", ctx->finfo);
+		TokenManager *tmgr = ctx->tmgr;
+		ret->info = (isalpha(after_next_ch) || after_next_ch == '_') ? 
+			tmgr->getTokenInfo(TokenType::ShortScalarDereference) :
+			tmgr->getTokenInfo("$$");
+		ctx->progress = 1;
 	}
 	return ret;
 }
@@ -319,6 +339,7 @@ Token *Scanner::scanDoubleCharacterOperator(LexContext *ctx, char symbol, char n
 	tmp[1] = next_ch;
 	if (operator_map.find(string(tmp)) != operator_map.end()) {
 		ret = new Token(string(tmp), ctx->finfo);
+		ret->info = ctx->tmgr->getTokenInfo(tmp);
 		ctx->progress = 1;
 	} else if (symbol == '/' && next_ch == '=') {
 		Token *prev_tk = ctx->tmgr->tokens->lastToken();

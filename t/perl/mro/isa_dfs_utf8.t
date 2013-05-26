@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!perl -w
 
 BEGIN {
@@ -73,7 +73,7 @@ foreach my $package (qw(kഌoんḰ urḲḵｋ 캎oẃ к ṭ화ckэ Źzzzዟ�
     }
 }
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -232,7 +232,7 @@ subtest 'tokenize' => sub {
                    'line' => 9
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -259,7 +259,7 @@ subtest 'tokenize' => sub {
                    'line' => 10
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -952,12 +952,12 @@ subtest 'tokenize' => sub {
                    'line' => 46
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'RequiredName',
                    'data' => 'mro',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_RequiredName,
                    'line' => 46
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2303,7 +2303,7 @@ subtest 'get_groups_by_syntax_level' => sub {
           },
           {
             'token_num' => 3,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 46,
             'src' => ' require mro ;',
             'start_line' => 46,

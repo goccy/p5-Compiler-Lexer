@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 
 BEGIN {
@@ -20,7 +20,7 @@ plan(tests => 1);
 # that can be expanded to \r\n on DOSish systems.
 fresh_perl_is("\xEF\xBB\xBFprint 1;\nprint 2", "12", {}, "script starts with a BOM" );
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);

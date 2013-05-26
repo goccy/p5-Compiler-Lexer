@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 
 #
@@ -141,7 +141,7 @@ ok 25, (eval "alarm:1" and
 	not eval "alarm:echo: eq alarm|echo|" and
 	not eval "alarm:echo:ohce: >= 0");
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);

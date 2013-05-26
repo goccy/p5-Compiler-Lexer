@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 
 BEGIN {
@@ -130,7 +130,7 @@ expected($c4, 'ᶜ4', "SCALAR");
     is(ref $a, 'zàp');
 }
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -289,7 +289,7 @@ subtest 'tokenize' => sub {
                    'line' => 9
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -1549,6 +1549,15 @@ subtest 'tokenize' => sub {
                    'line' => 35
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 35
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
@@ -1771,6 +1780,15 @@ subtest 'tokenize' => sub {
                    'name' => 'BuiltinFunc',
                    'data' => 'bless',
                    'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
+                   'line' => 37
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 37
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2098,6 +2116,15 @@ subtest 'tokenize' => sub {
                    'line' => 41
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 41
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
@@ -2248,6 +2275,15 @@ subtest 'tokenize' => sub {
                    'name' => 'BuiltinFunc',
                    'data' => 'bless',
                    'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
+                   'line' => 43
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 43
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3085,6 +3121,15 @@ subtest 'tokenize' => sub {
                    'name' => 'BuiltinFunc',
                    'data' => 'bless',
                    'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
+                   'line' => 61
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 61
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5293,6 +5338,15 @@ subtest 'tokenize' => sub {
                    'line' => 122
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 122
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
@@ -5662,10 +5716,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 12,
+            'token_num' => 13,
             'has_warnings' => 1,
             'end_line' => 35,
-            'src' => ' $c1 = bless ( map "$_" , "test" ) , "ᶜ" ;',
+            'src' => ' $c1 = bless \\ ( map "$_" , "test" ) , "ᶜ" ;',
             'start_line' => 35,
             'indent' => 0,
             'block_id' => 0
@@ -5689,10 +5743,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 8,
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 37,
-            'src' => ' $d1 = bless * tèst , "ɖ" ;',
+            'src' => ' $d1 = bless \\ * tèst , "ɖ" ;',
             'start_line' => 37,
             'indent' => 0,
             'block_id' => 0
@@ -5725,10 +5779,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 8,
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 41,
-            'src' => ' $f1 = bless [ ] , "ḟ" ;',
+            'src' => ' $f1 = bless \\ [ ] , "ḟ" ;',
             'start_line' => 41,
             'indent' => 0,
             'block_id' => 0
@@ -5743,10 +5797,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 14,
+            'token_num' => 15,
             'has_warnings' => 1,
             'end_line' => 43,
-            'src' => ' $g1 = bless substr ( "test" , 1 , 2 ) , "ㄍ" ;',
+            'src' => ' $g1 = bless \\ substr ( "test" , 1 , 2 ) , "ㄍ" ;',
             'start_line' => 43,
             'indent' => 0,
             'block_id' => 0
@@ -5797,10 +5851,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 77,
+            'token_num' => 78,
             'has_warnings' => 1,
             'end_line' => 66,
-            'src' => ' { local $a1 = bless $a1 , "ዐ3" ; local $b1 = bless [ ] , "Ｂ3" ; my $c1 = bless $c1 , "ᶜ3" ; our $test2 = "" ; my $d1 = bless * test2 , "ɖ3" ; expected ( $a1 , "ዐ3" , "HASH" ) ; expected ( $b1 , "Ｂ3" , "ARRAY" ) ; expected ( $c1 , "ᶜ3" , "SCALAR" ) ; expected ( $d1 , "ɖ3" , "GLOB" ) ; }',
+            'src' => ' { local $a1 = bless $a1 , "ዐ3" ; local $b1 = bless [ ] , "Ｂ3" ; my $c1 = bless $c1 , "ᶜ3" ; our $test2 = "" ; my $d1 = bless \\ * test2 , "ɖ3" ; expected ( $a1 , "ዐ3" , "HASH" ) ; expected ( $b1 , "Ｂ3" , "ARRAY" ) ; expected ( $c1 , "ᶜ3" , "SCALAR" ) ; expected ( $d1 , "ɖ3" , "GLOB" ) ; }',
             'start_line' => 57,
             'indent' => 0,
             'block_id' => 0
@@ -5842,10 +5896,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 7
           },
           {
-            'token_num' => 9,
+            'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 61,
-            'src' => ' my $d1 = bless * test2 , "ɖ3" ;',
+            'src' => ' my $d1 = bless \\ * test2 , "ɖ3" ;',
             'start_line' => 61,
             'indent' => 1,
             'block_id' => 7
@@ -6085,10 +6139,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 55,
+            'token_num' => 56,
             'has_warnings' => 1,
             'end_line' => 124,
-            'src' => ' { my %h = 1 .. 2 ; my ( $k ) = keys %h ; my $x = \\ $k ; bless $x , \'pàm\' ; is ( ref $x , \'pàm\' ) ; my $a = bless ( keys %h ) , \'zàp\' ; is ( ref $a , \'zàp\' ) ; }',
+            'src' => ' { my %h = 1 .. 2 ; my ( $k ) = keys %h ; my $x = \\ $k ; bless $x , \'pàm\' ; is ( ref $x , \'pàm\' ) ; my $a = bless \\ ( keys %h ) , \'zàp\' ; is ( ref $a , \'zàp\' ) ; }',
             'start_line' => 115,
             'indent' => 0,
             'block_id' => 0
@@ -6139,10 +6193,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 14
           },
           {
-            'token_num' => 11,
+            'token_num' => 12,
             'has_warnings' => 0,
             'end_line' => 122,
-            'src' => ' my $a = bless ( keys %h ) , \'zàp\' ;',
+            'src' => ' my $a = bless \\ ( keys %h ) , \'zàp\' ;',
             'start_line' => 122,
             'indent' => 1,
             'block_id' => 14

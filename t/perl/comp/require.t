@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 
 BEGIN {
@@ -341,7 +341,7 @@ END {
 
 =pod
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -8165,12 +8165,12 @@ print "ok $i - require() context\\n";
                    'line' => 183
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'RequiredName',
                    'data' => 'bleah',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_RequiredName,
                    'line' => 183
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8336,12 +8336,12 @@ print "ok $i - require() context\\n";
                    'line' => 184
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'RequiredName',
                    'data' => 'bleah',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_RequiredName,
                    'line' => 184
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8489,12 +8489,12 @@ print "ok $i - require() context\\n";
                    'line' => 185
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'RequiredName',
                    'data' => 'bleah',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_RequiredName,
                    'line' => 185
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9499,12 +9499,12 @@ print "ok $i - require() context\\n";
                    'line' => 217
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'RequiredName',
                    'data' => 'Config',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_RequiredName,
                    'line' => 217
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -11236,12 +11236,12 @@ print "ok $i - require() context\\n";
                    'line' => 251
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'RequiredName',
                    'data' => 'urkkk',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_RequiredName,
                    'line' => 251
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -11263,12 +11263,12 @@ print "ok $i - require() context\\n";
                    'line' => 252
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'RequiredName',
                    'data' => 'krunch',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_RequiredName,
                    'line' => 252
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -11704,12 +11704,12 @@ print "ok $i - require() context\\n";
                    'line' => 265
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'RequiredName',
                    'data' => 'Cwd',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_RequiredName,
                    'line' => 265
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -15491,7 +15491,7 @@ print "ok $i - require() context\\n";
           },
           {
             'token_num' => 8,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 184,
             'src' => ' @foo = eval { require bleah } ;',
             'start_line' => 184,
@@ -15518,7 +15518,7 @@ print "ok $i - require() context\\n";
           },
           {
             'token_num' => 6,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 185,
             'src' => ' eval { require bleah } ;',
             'start_line' => 185,
@@ -15711,7 +15711,7 @@ print "ok $i - require() context\\n";
           },
           {
             'token_num' => 3,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 217,
             'src' => ' require Config ;',
             'start_line' => 217,
@@ -15954,7 +15954,7 @@ print "ok $i - require() context\\n";
           },
           {
             'token_num' => 3,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 251,
             'src' => ' require urkkk ;',
             'start_line' => 251,
@@ -15963,7 +15963,7 @@ print "ok $i - require() context\\n";
           },
           {
             'token_num' => 3,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 252,
             'src' => ' require krunch ;',
             'start_line' => 252,
@@ -16044,7 +16044,7 @@ print "ok $i - require() context\\n";
           },
           {
             'token_num' => 3,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 265,
             'src' => ' require Cwd ;',
             'start_line' => 265,

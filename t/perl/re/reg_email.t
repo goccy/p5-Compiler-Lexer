@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl -w
 #
 # Tests to make sure the regexp engine doesn't run into limits too soon.
@@ -110,7 +110,7 @@ Barbapapa <barbapapa @ barbapapa.net>
 "Barba Mama" <barbamama @ [127.0.0.1]>
 Barbalala (lalalalalalalala) <barbalala (Yes, her!) @ (barba) barbapapa.net>
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -269,7 +269,7 @@ subtest 'tokenize' => sub {
                    'line' => 12
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',

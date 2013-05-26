@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 
 # Modules should have their own tests.  For historical reasons, some
@@ -77,7 +77,7 @@ sub compile_module {
 # and vice-versa.  The list should only shrink.
 __DATA__
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -182,7 +182,7 @@ subtest 'tokenize' => sub {
                    'line' => 12
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -209,7 +209,7 @@ subtest 'tokenize' => sub {
                    'line' => 13
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -326,30 +326,30 @@ subtest 'tokenize' => sub {
                    'line' => 18
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 18
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'S',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'RegExp',
+                   'data' => '\\S',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 18
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 18
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -470,12 +470,12 @@ subtest 'tokenize' => sub {
                    'line' => 21
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'RequiredName',
                    'data' => 'Socket',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_RequiredName,
                    'line' => 21
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2113,7 +2113,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 12,
             'has_warnings' => 1,
             'end_line' => 18,
-            'src' => ' my @Core_Modules = grep / S / , < DATA > ;',
+            'src' => ' my @Core_Modules = grep/\\S/ , < DATA > ;',
             'start_line' => 18,
             'indent' => 0,
             'block_id' => 0

@@ -10,6 +10,7 @@ sub get_script {
 
 sub generate {
     my $filename = shift;
+print Dumper $filename;
     my $script = get_script $filename;
     my $lexer = Compiler::Lexer->new($filename);
     my $tokens = $lexer->tokenize($script);
@@ -23,9 +24,9 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 %s
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -74,7 +75,7 @@ TEMPLATE
     $tmp1 =~ s/'type' => '(.*)'/'type' => $1/g;
     $tmp1 =~ s/'kind' => '(.*)'/'kind' => $1/g;
     $tmp1 =~ s/'stype' => '(.*)'/'stype' => $1/g;
-    my $tmp2 = Dumper $$stmts;
+    my $tmp2 = (ref $stmts eq 'REF') ? Dumper $$stmts : '';
     my $tmp3 = Dumper $modules;
     my @filtered = map { $_ =~ s/\$VAR1 = //; $_ =~ s/;$//; $_; } ($tmp1, $tmp2, $tmp3);
     print $fh sprintf($template, $script, @filtered);

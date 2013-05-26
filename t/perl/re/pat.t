@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 #
 # This is a home for regular expression tests that don't fit into
@@ -1271,7 +1271,7 @@ EOP
 
 1;
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -1286,7 +1286,7 @@ subtest 'tokenize' => sub {
                    'line' => 7
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -1313,7 +1313,7 @@ subtest 'tokenize' => sub {
                    'line' => 8
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -14821,12 +14821,12 @@ subtest 'tokenize' => sub {
                    'line' => 300
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'RequiredName',
                    'data' => 'Config',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_RequiredName,
                    'line' => 300
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -18151,7 +18151,7 @@ subtest 'tokenize' => sub {
                    'line' => 371
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -23965,7 +23965,7 @@ subtest 'tokenize' => sub {
                    'line' => 519
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -24172,7 +24172,7 @@ subtest 'tokenize' => sub {
                    'line' => 524
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -24829,7 +24829,7 @@ subtest 'tokenize' => sub {
                    'line' => 534
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -43740,30 +43740,30 @@ subtest 'tokenize' => sub {
                    'line' => 878
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 878
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'S',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'RegExp',
+                   'data' => '\\S',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 878
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 878
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -43821,48 +43821,30 @@ subtest 'tokenize' => sub {
                    'line' => 879
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
-                   'line' => 879
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBracket',
-                   'data' => '[',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBracket,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 879
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'S',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'RegExp',
+                   'data' => '[\\S]',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 879
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RightBracket',
-                   'data' => ']',
-                   'type' => Compiler::Lexer::TokenType::T_RightBracket,
-                   'line' => 879
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 879
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -44001,24 +43983,6 @@ subtest 'tokenize' => sub {
                    'line' => 882
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
-                   'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
-                   'line' => 882
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegReplacePrefix,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegReplace',
-                   'data' => 's',
-                   'type' => Compiler::Lexer::TokenType::T_RegReplace,
-                   'line' => 882
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
@@ -44031,28 +43995,90 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegReplaceFrom',
-                   'data' => ', @a;
-        @c = grep ',
-                   'type' => Compiler::Lexer::TokenType::T_RegReplaceFrom,
-                   'line' => 883
+                   'name' => 'RegExp',
+                   'data' => '\\s',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
+                   'line' => 882
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegMiddleDelim',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_RegMiddleDelim,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
+                   'line' => 882
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'line' => 882
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'ArrayVar',
+                   'data' => '@a',
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
+                   'line' => 882
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 882
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'ArrayVar',
+                   'data' => '@c',
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
+                   'line' => 883
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Assign,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Assign',
+                   'data' => '=',
+                   'type' => Compiler::Lexer::TokenType::T_Assign,
+                   'line' => 883
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'BuiltinFunc',
+                   'data' => 'grep',
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
                    'line' => 883
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegReplaceTo',
+                   'name' => 'RegDelim',
+                   'data' => '/',
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
+                   'line' => 883
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegExp',
                    'data' => '[^\\S]',
-                   'type' => Compiler::Lexer::TokenType::T_RegReplaceTo,
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 883
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -44200,24 +44226,6 @@ subtest 'tokenize' => sub {
                    'line' => 886
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
-                   'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
-                   'line' => 886
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegReplacePrefix,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegReplace',
-                   'data' => 's',
-                   'type' => Compiler::Lexer::TokenType::T_RegReplace,
-                   'line' => 886
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
@@ -44230,28 +44238,90 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegReplaceFrom',
-                   'data' => ', @a;
-        @c = grep ',
-                   'type' => Compiler::Lexer::TokenType::T_RegReplaceFrom,
-                   'line' => 887
+                   'name' => 'RegExp',
+                   'data' => '\\s',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
+                   'line' => 886
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegMiddleDelim',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_RegMiddleDelim,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
+                   'line' => 886
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'line' => 886
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'ArrayVar',
+                   'data' => '@a',
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
+                   'line' => 886
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 886
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'ArrayVar',
+                   'data' => '@c',
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
+                   'line' => 887
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Assign,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Assign',
+                   'data' => '=',
+                   'type' => Compiler::Lexer::TokenType::T_Assign,
+                   'line' => 887
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'BuiltinFunc',
+                   'data' => 'grep',
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
                    'line' => 887
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegReplaceTo',
+                   'name' => 'RegDelim',
+                   'data' => '/',
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
+                   'line' => 887
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegExp',
                    'data' => '[\\s]',
-                   'type' => Compiler::Lexer::TokenType::T_RegReplaceTo,
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 887
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -44561,30 +44631,30 @@ subtest 'tokenize' => sub {
                    'line' => 893
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 893
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'D',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'RegExp',
+                   'data' => '\\D',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 893
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 893
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -44651,57 +44721,30 @@ subtest 'tokenize' => sub {
                    'line' => 894
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
-                   'line' => 894
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBracket',
-                   'data' => '[',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBracket,
-                   'line' => 894
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitXOr',
-                   'data' => '^',
-                   'type' => Compiler::Lexer::TokenType::T_BitXOr,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 894
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'd',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'RegExp',
+                   'data' => '[^\\d]',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 894
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RightBracket',
-                   'data' => ']',
-                   'type' => Compiler::Lexer::TokenType::T_RightBracket,
-                   'line' => 894
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 894
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -44840,30 +44883,30 @@ subtest 'tokenize' => sub {
                    'line' => 897
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 897
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'D',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'RegExp',
+                   'data' => '\\D',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 897
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 897
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -44921,48 +44964,30 @@ subtest 'tokenize' => sub {
                    'line' => 898
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
-                   'line' => 898
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBracket',
-                   'data' => '[',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBracket,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 898
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'D',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'RegExp',
+                   'data' => '[\\D]',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 898
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RightBracket',
-                   'data' => ']',
-                   'type' => Compiler::Lexer::TokenType::T_RightBracket,
-                   'line' => 898
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 898
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -45101,30 +45126,30 @@ subtest 'tokenize' => sub {
                    'line' => 901
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 901
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'd',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'RegExp',
+                   'data' => '\\d',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 901
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 901
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -45182,57 +45207,30 @@ subtest 'tokenize' => sub {
                    'line' => 902
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
-                   'line' => 902
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBracket',
-                   'data' => '[',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBracket,
-                   'line' => 902
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitXOr',
-                   'data' => '^',
-                   'type' => Compiler::Lexer::TokenType::T_BitXOr,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 902
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'D',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'RegExp',
+                   'data' => '[^\\D]',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 902
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RightBracket',
-                   'data' => ']',
-                   'type' => Compiler::Lexer::TokenType::T_RightBracket,
-                   'line' => 902
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 902
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -45371,30 +45369,30 @@ subtest 'tokenize' => sub {
                    'line' => 905
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 905
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'd',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'RegExp',
+                   'data' => '\\d',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 905
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 905
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -45452,48 +45450,30 @@ subtest 'tokenize' => sub {
                    'line' => 906
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
-                   'line' => 906
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBracket',
-                   'data' => '[',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBracket,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 906
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'd',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'RegExp',
+                   'data' => '[\\d]',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 906
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RightBracket',
-                   'data' => ']',
-                   'type' => Compiler::Lexer::TokenType::T_RightBracket,
-                   'line' => 906
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 906
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -45794,30 +45774,30 @@ subtest 'tokenize' => sub {
                    'line' => 912
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 912
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'W',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'RegExp',
+                   'data' => '\\W',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 912
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 912
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -45884,57 +45864,30 @@ subtest 'tokenize' => sub {
                    'line' => 913
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
-                   'line' => 913
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBracket',
-                   'data' => '[',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBracket,
-                   'line' => 913
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitXOr',
-                   'data' => '^',
-                   'type' => Compiler::Lexer::TokenType::T_BitXOr,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 913
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'w',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'RegExp',
+                   'data' => '[^\\w]',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 913
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RightBracket',
-                   'data' => ']',
-                   'type' => Compiler::Lexer::TokenType::T_RightBracket,
-                   'line' => 913
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 913
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -46073,30 +46026,30 @@ subtest 'tokenize' => sub {
                    'line' => 916
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 916
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'W',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'RegExp',
+                   'data' => '\\W',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 916
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 916
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -46154,48 +46107,30 @@ subtest 'tokenize' => sub {
                    'line' => 917
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
-                   'line' => 917
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBracket',
-                   'data' => '[',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBracket,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 917
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'W',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'RegExp',
+                   'data' => '[\\W]',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 917
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RightBracket',
-                   'data' => ']',
-                   'type' => Compiler::Lexer::TokenType::T_RightBracket,
-                   'line' => 917
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 917
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -46334,30 +46269,30 @@ subtest 'tokenize' => sub {
                    'line' => 920
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 920
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'w',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'RegExp',
+                   'data' => '\\w',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 920
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 920
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -46415,57 +46350,30 @@ subtest 'tokenize' => sub {
                    'line' => 921
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
-                   'line' => 921
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBracket',
-                   'data' => '[',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBracket,
-                   'line' => 921
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitXOr',
-                   'data' => '^',
-                   'type' => Compiler::Lexer::TokenType::T_BitXOr,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 921
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'W',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'RegExp',
+                   'data' => '[^\\W]',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 921
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RightBracket',
-                   'data' => ']',
-                   'type' => Compiler::Lexer::TokenType::T_RightBracket,
-                   'line' => 921
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 921
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -46604,30 +46512,30 @@ subtest 'tokenize' => sub {
                    'line' => 924
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 924
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'w',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'RegExp',
+                   'data' => '\\w',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 924
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 924
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -46685,48 +46593,30 @@ subtest 'tokenize' => sub {
                    'line' => 925
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
-                   'line' => 925
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBracket',
-                   'data' => '[',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBracket,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 925
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'w',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'RegExp',
+                   'data' => '[\\w]',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 925
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RightBracket',
-                   'data' => ']',
-                   'type' => Compiler::Lexer::TokenType::T_RightBracket,
-                   'line' => 925
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 925
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -48125,7 +48015,7 @@ subtest 'tokenize' => sub {
                    'line' => 946
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -48350,6 +48240,15 @@ subtest 'tokenize' => sub {
                    'line' => 950
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 950
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Decl,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
@@ -48536,6 +48435,24 @@ subtest 'tokenize' => sub {
                    'name' => 'LeftBrace',
                    'data' => '{',
                    'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'line' => 951
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 951
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 951
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -51311,7 +51228,7 @@ subtest 'tokenize' => sub {
                    'line' => 1004
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -54470,7 +54387,7 @@ subtest 'tokenize' => sub {
                    'line' => 1065
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -59339,7 +59256,7 @@ subtest 'tokenize' => sub {
                    'line' => 1187
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -60898,12 +60815,12 @@ subtest 'tokenize' => sub {
                    'line' => 1227
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'RequiredName',
                    'data' => 'overload',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_RequiredName,
                    'line' => 1227
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -61285,6 +61202,15 @@ subtest 'tokenize' => sub {
                    'line' => 1232
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 1232
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
@@ -61300,6 +61226,15 @@ subtest 'tokenize' => sub {
                    'name' => 'Colon',
                    'data' => ':',
                    'type' => Compiler::Lexer::TokenType::T_Colon,
+                   'line' => 1232
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 1232
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -62266,7 +62201,7 @@ subtest 'tokenize' => sub {
                    'line' => 1256
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -62392,7 +62327,7 @@ subtest 'tokenize' => sub {
                    'line' => 1258
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -62518,7 +62453,7 @@ subtest 'tokenize' => sub {
                    'line' => 1260
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -62770,7 +62705,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 6735,
+            'token_num' => 6728,
             'has_warnings' => 1,
             'end_line' => 1263,
             'src' => ' sub run_tests { { my $x = "abc\\ndef\\n" ; ( my $x_pretty = $x ) =~ s/\\n/\\\\n/g ; ok $x =~/^abc/ , qq["$x_pretty" =~ /^abc/] ; ok $x !~/^def/ , qq["$x_pretty" !~ /^def/] ; ok $x =~/^def/m , qq["$x_pretty" =~ /^def/m] ; ok ( ! ( $x =~/^xxx/ ) , qq["$x_pretty" =~ /^xxx/] ) ; ok ( ! ( $x !~/^abc/ ) , qq["$x_pretty" !~ /^abc/] ) ; ok $x =~/def/ , qq["$x_pretty" =~ /def/] ; ok ( ! ( $x !~/def/ ) , qq["$x_pretty" !~ /def/] ) ; ok $x !~/.def/ , qq["$x_pretty" !~ /.def/] ; ok ( ! ( $x =~/.def/ ) , qq["$x_pretty" =~ /.def/] ) ; ok $x =~/\\ndef/ , qq["$x_pretty" =~ /\\\\ndef/] ; ok ( ! ( $x !~/\\ndef/ ) , qq["$x_pretty" !~ /\\\\ndef/] ) ; } { $_ = \'123\' ; ok / ^ ( [ 0 -9 ] [ 0 -9 ] * ) / , qq[\\$_ = \'$_\'; /^([0-9][0-9]*)/] ; } { $_ = \'aaabbbccc\' ; ok / ( a * b * ) ( c * ) / && $1 eq \'aaabbb\' && $2 eq \'ccc\' , qq[\\$_ = \'$_\'; /(a*b*)(c*)/] ; ok / ( a + b + c + ) / && $1 eq \'aaabbbccc\' , qq[\\$_ = \'$_\'; /(a+b+c+)/] ; unlike ( $_ , qr/a+b?c+/ , qq[\\$_ = \'$_\'; /a+b?c+/] ) ; $_ = \'aaabccc\' ; ok / a + b ? c +/, qq [\\$_ = \'$_\'; /a + b ? c +/];
@@ -62810,11 +62745,9 @@ subtest 'get_groups_by_syntax_level' => sub {
              )            # Otherwise the chunk 1 may succeed with $c>0
            /xg ; } my @ans = ( ) ; my $res ; push @ans , $res while $res = matchit ; is ( "@ans" , "1 1 1" , $message ) ; @ans = matchit ; is ( "@ans" , $expect , $message ) ; $message = "Recursion with (??{ })" ; our $matched ; $matched = qr/\\((?:(?>[^()]+)|(??{$matched}))*\\)/ ; @ans = my @ans1 = ( ) ; push ( @ans , $res ) , push ( @ans1 , $& ) while $res = m/$matched/g ; is ( "@ans" , "1 1 1" , $message ) ; is ( "@ans1" , $expect , $message ) ; @ans = m/$matched/g ; is ( "@ans" , $expect , $message ) ; } { ok "abc" =~/^(??{"a"})b/ , \'"abc" =~ /^(??{"a"})b/\' ; } { my @ans = ( \'a/b\' =~ m%(.*/)?(.*)% ) ; is ( "@ans" , \'a/ b\' , "Stack may be bad" ) ; } { my $message = "Eval-group not allowed at runtime" ; my $code = \'{$blah = 45}\' ; our $blah = 12 ; eval {/(?$code)/ } ; ok ( $@ && $@ =~/not allowed at runtime/ && $blah == 12 , $message ) ; $blah = 12 ; my $res = eval { "xx" =~/(?$code)/o } ; { no warnings \'uninitialized\' ; chomp $@ ; my $message = "$message \'$@\', \'$res\', \'$blah\'" ; ok ( $@ && $@ =~/not allowed at runtime/ && $blah == 12 , $message ) ; } $code = \'=xx\' ; $blah = 12 ; $res = eval { "xx" =~/(?$code)/o } ; { no warnings \'uninitialized\' ; my $message = "$message \'$@\', \'$res\', \'$blah\'" ; ok ( ! $@ && $res , $message ) ; } $code = \'{$blah = 45}\' ; $blah = 12 ; eval "/(?$code)/" ; is ( $blah , 45 , $message ) ; $blah = 12 ;/(?{$blah = 45})/ ; is ( $blah , 45 , $message ) ; } { my $message = "Pos checks" ; my $x = \'banana\' ; $x =~/.a/g ; is ( pos $x , 2 , $message ) ; $x =~/.z/gc ; is ( pos $x , 2 , $message ) ; sub f { my $p = $_ [ 0 ] ; return $p ; } $x =~/.a/g ; is ( f ( pos $x ) , 4 , $message ) ; } { my $message = \'Checking $^R\' ; our $x = $^R = 67 ; \'foot\' =~/foo(?{$x = 12; 75})[t]/ ; is ( $^R , 75 , $message ) ; $x = $^R = 67 ; \'foot\' =~/foo(?{$x = 12; 75})[xy]/ ; ok ( $^R eq \'67\' && $x eq \'12\' , $message ) ; $x = $^R = 67 ; \'foot\' =~/foo(?{ $^R + 12 })((?{ $x = 12; $^R + 17 })[xy])?/ ; ok ( $^R eq \'79\' && $x eq \'12\' , $message ) ; } { is ( qr/\\b\\v$/i , \'(?^i:\\b\\v$)\' , \'qr/\\b\\v$/i\' ) ; is ( qr/\\b\\v$/s , \'(?^s:\\b\\v$)\' , \'qr/\\b\\v$/s\' ) ; is ( qr/\\b\\v$/m , \'(?^m:\\b\\v$)\' , \'qr/\\b\\v$/m\' ) ; is ( qr/\\b\\v$/x , \'(?^x:\\b\\v$)\' , \'qr/\\b\\v$/x\' ) ; is ( qr/\\b\\v$/xism , \'(?^msix:\\b\\v$)\' , \'qr/\\b\\v$/xism\' ) ; is ( qr/\\b\\v$/ , \'(?^:\\b\\v$)\' , \'qr/\\b\\v$/\' ) ; } { is ( qr/\\b\\v$/ , \'(?^:\\b\\v$)\' , \'Verify no locale, no unicode_strings gives default modifier\' ) ; is ( qr/(?l:\\b\\v$)/ , \'(?^:(?l:\\b\\v$))\' , \'Verify infix l modifier compiles\' ) ; is ( qr/(?u:\\b\\v$)/ , \'(?^:(?u:\\b\\v$))\' , \'Verify infix u modifier compiles\' ) ; is ( qr/(?l)\\b\\v$/ , \'(?^:(?l)\\b\\v$)\' , \'Verify (?l) compiles\' ) ; is ( qr/(?u)\\b\\v$/ , \'(?^:(?u)\\b\\v$)\' , \'Verify (?u) compiles\' ) ; my $dual = qr/\\b\\v$/ ; use locale ; my $locale = qr/\\b\\v$/ ; is ( $locale , \'(?^l:\\b\\v$)\' , \'Verify has l modifier when compiled under use locale\' ) ; no locale ; use feature \'unicode_strings\' ; my $unicode = qr/\\b\\v$/ ; is ( $unicode , \'(?^u:\\b\\v$)\' , \'Verify has u modifier when compiled under unicode_strings\' ) ; is ( qr/abc$dual/ , \'(?^u:abc(?^:\\b\\v$))\' , \'Verify retains d meaning when interpolated under locale\' ) ; is ( qr/abc$locale/ , \'(?^u:abc(?^l:\\b\\v$))\' , \'Verify retains l when interpolated under unicode_strings\' ) ; no feature \'unicode_strings\' ; is ( qr/abc$locale/ , \'(?^:abc(?^l:\\b\\v$))\' , \'Verify retains l when interpolated outside locale and unicode strings\' ) ; is ( qr/def$unicode/ , \'(?^:def(?^u:\\b\\v$))\' , \'Verify retains u when interpolated outside locale and unicode strings\' ) ; use locale ; is ( qr/abc$dual/ , \'(?^l:abc(?^:\\b\\v$))\' , \'Verify retains d meaning when interpolated under locale\' ) ; is ( qr/abc$unicode/ , \'(?^l:abc(?^u:\\b\\v$))\' , \'Verify retains u when interpolated under locale\' ) ; } { my $message = "Look around" ; $_ = \'xabcx\' ; foreach my $ans ( \'\' , \'c\' ) { ok (/(?<=(?=a)..)((?=c)|.)/g , $message ) ; is ( $1 , $ans , $message ) ; } } { my $message = "Empty clause" ; $_ = \'a\' ; foreach my $ans ( \'\' , \'a\' , \'\' ) { ok (/^|a|$/g , $message ) ; is ( $& , $ans , $message ) ; } } { sub prefixify { my $message = "Prefixify" ; { my ( $v , $a , $b , $res ) = @_ ; ok ( $v =~ s/\\Q$a\\E/$b/ , $message ) ; is ( $v , $res , $message ) ; } } prefixify ( \'/a/b/lib/arch\' , "/a/b/lib" , \'X/lib\' , \'X/lib/arch\' ) ; prefixify ( \'/a/b/man/arch\' , "/a/b/man" , \'X/man\' , \'X/man/arch\' ) ; } { $_ = \'var="foo"\' ;/(\\")/ ; ok $1 &&/$1/ , "Capture a quote" ; } { no warnings \'closure\' ; my $message = \'(?{ $var } refers to package vars\' ; package aa ; our $c = 2 ; $: : c = 3 ; \'\' =~/(?{ $c = 4 })/ ; main::is ( $c , 4 , $message ) ; main::is ( $: : c , 3 , $message ) ; } { is ( eval \'q(a:[b]:) =~ /[x[:foo:]]/\' , undef ) ; like ( $@ , qr/POSIX class \\[:[^:]+:\\] unknown in regex/ , \'POSIX class [: :] must have valid name\' ) ; for my $d ( qw[= .] ) { is ( eval "/[[${d}foo${d}]]/" , undef ) ; like ( $@ , qr/\\QPOSIX syntax [$d $d] is reserved for future extensions/ , "POSIX syntax [[$d $d]] is an error" ) ; } } { my $message = "Failed pattern returns empty list" ; $_ = \'aaa\' ; @_ =/bbb/ ; is ( "@_" , "" , $message ) ; @_ =/bbb/g ; is ( "@_" , "" , $message ) ; @_ =/(bbb)/ ; is ( "@_" , "" , $message ) ; @_ =/(bbb)/g ; is ( "@_" , "" , $message ) ; } { my $message = \'@- and @+ tests\' ;/a(?=.$)/ ; is ( $# + , 0 , $message ) ; is ( $# - , 0 , $message ) ; is ( $+ [ 0 ] , 2 , $message ) ; is ( $- [ 0 ] , 1 , $message ) ; ok ( ! defined $+ [ 1 ] && ! defined $- [ 1 ] && ! defined $+ [ 2 ] && ! defined $- [ 2 ] , $message ) ;/a(a)(a)/ ; is ( $# + , 2 , $message ) ; is ( $# - , 2 , $message ) ; is ( $+ [ 0 ] , 3 , $message ) ; is ( $- [ 0 ] , 0 , $message ) ; is ( $+ [ 1 ] , 2 , $message ) ; is ( $- [ 1 ] , 1 , $message ) ; is ( $+ [ 2 ] , 3 , $message ) ; is ( $- [ 2 ] , 2 , $message ) ; ok ( ! defined $+ [ 3 ] && ! defined $- [ 3 ] && ! defined $+ [ 4 ] && ! defined $- [ 4 ] , $message ) ; ok ( exists $- [ 0 ] , $message ) ; ok ( exists $+ [ 0 ] , $message ) ; ok ( exists $- [ 2 ] , $message ) ; ok ( exists $+ [ 2 ] , $message ) ; ok ( ! exists $- [ 3 ] , $message ) ; ok ( ! exists $+ [ 3 ] , $message ) ; ok ( exists $- [ -1 ] , $message ) ; ok ( exists $+ [ -1 ] , $message ) ; ok ( exists $- [ -3 ] , $message ) ; ok ( exists $+ [ -3 ] , $message ) ; ok ( ! exists $- [ -4 ] , $message ) ; ok ( ! exists $+ [ -4 ] , $message ) ;/.(a)(b)?(a)/ ; is ( $# + , 3 , $message ) ; is ( $# - , 3 , $message ) ; is ( $+ [ 1 ] , 2 , $message ) ; is ( $- [ 1 ] , 1 , $message ) ; is ( $+ [ 3 ] , 3 , $message ) ; is ( $- [ 3 ] , 2 , $message ) ; ok ( ! defined $+ [ 2 ] && ! defined $- [ 2 ] && ! defined $+ [ 4 ] && ! defined $- [ 4 ] , $message ) ;/.(a)/ ; is ( $# + , 1 , $message ) ; is ( $# - , 1 , $message ) ; is ( $+ [ 0 ] , 2 , $message ) ; is ( $- [ 0 ] , 0 , $message ) ; is ( $+ [ 1 ] , 2 , $message ) ; is ( $- [ 1 ] , 1 , $message ) ; ok ( ! defined $+ [ 2 ] && ! defined $- [ 2 ] && ! defined $+ [ 3 ] && ! defined $- [ 3 ] , $message ) ;/.(a)(ba*)?/ ; is ( $# + , 2 , $message ) ; is ( $# - , 1 , $message ) ; } foreach ( \'$+[0] = 13\' , \'$-[0] = 13\' , \'@+ = (7, 6, 5)\' , \'@- = qw (foo bar)\' ) { is ( eval $_ , undef ) ; like ( $@ , qr/^Modification of a read-only value attempted/ , \'Elements of @- and @+ are read-only\' ) ; } { my $message = \'\\G testing\' ; $_ = \'aaa\' ; pos = 1 ; my @a =/\\Ga/g ; is ( "@a" , "a a" , $message ) ; my $str = \'abcde\' ; pos $str = 2 ; unlike ( $str , qr/^\\G/ , $message ) ; unlike ( $str , qr/^.\\G/ , $message ) ; like ( $str , qr/^..\\G/ , $message ) ; unlike ( $str , qr/^...\\G/ , $message ) ; ok ( $str =~/\\G../ && $& eq \'cd\' , $message ) ; local $: : TODO = $: : running_as_thread ; ok ( $str =~/.\\G./ && $& eq \'bc\' , $message ) ; } { my $message = \'pos inside (?{ })\' ; my $str = \'abcde\' ; our ( $foo , $bar ) ; like ( $str , qr/b(?{$foo = $_; $bar = pos})c/ , $message ) ; is ( $foo , $str , $message ) ; is ( $bar , 2 , $message ) ; is ( pos $str , undef , $message ) ; undef $foo ; undef $bar ; pos $str = undef ; ok ( $str =~/b(?{$foo = $_; $bar = pos})c/g , $message ) ; is ( $foo , $str , $message ) ; is ( $bar , 2 , $message ) ; is ( pos $str , 3 , $message ) ; $_ = $str ; undef $foo ; undef $bar ; like ( $_ , qr/b(?{$foo = $_; $bar = pos})c/ , $message ) ; is ( $foo , $str , $message ) ; is ( $bar , 2 , $message ) ; undef $foo ; undef $bar ; ok (/b(?{$foo = $_; $bar = pos})c/g , $message ) ; is ( $foo , $str , $message ) ; is ( $bar , 2 , $message ) ; is ( pos , 3 , $message ) ; undef $foo ; undef $bar ; pos = undef ; 1 while / b ( ? { $foo = $_ ; $bar = pos } ) c / g ; is ( $foo , $str , $message ) ; is ( $bar , 2 , $message ) ; is ( pos , undef , $message ) ; undef $foo ; undef $bar ; $_ = \'abcde|abcde\' ; ok ( s/b(?{$foo = $_; $bar = pos})c/x/g , $message ) ; is ( $foo , \'abcde|abcde\' , $message ) ; is ( $bar , 8 , $message ) ; is ( $_ , \'axde|axde\' , $message ) ; $_ = \'abcde|abcde\' ; our @res ; ( ) =/([ace]).(?{push @res, $1,$2})([ce])(?{push @res, $1,$2})/g ; @res = map { defined $_ ? "\'$_\'" : \'undef\' } @res ; is ( "@res" , "\'a\' undef \'a\' \'c\' \'e\' undef \'a\' undef \'a\' \'c\'" , $message ) ; @res = ( ) ; ( ) =/([ace]).(?{push @res, $`,$&,$\'})([ce])(?{push @res, $`,$&,$\'})/g ; @res = map { defined $_ ? "\'$_\'" : \'undef\' } @res ; is ( "@res" , "\'\' \'ab\' \'cde|abcde\' " . "\'\' \'abc\' \'de|abcde\' " . "\'abcd\' \'e|\' \'abcde\' " . "\'abcde|\' \'ab\' \'cde\' " . "\'abcde|\' \'abc\' \'de\'" , $message ) ; } { my $message = \'\\G anchor checks\' ; my $foo = \'aabbccddeeffgg\' ; pos ( $foo ) = 1 ; { local $: : TODO = $: : running_as_thread ; no warnings \'uninitialized\' ; ok ( $foo =~/.\\G(..)/g , $message ) ; is ( $1 , \'ab\' , $message ) ; pos ( $foo ) += 1 ; ok ( $foo =~/.\\G(..)/g , $message ) ; is ( $1 , \'cc\' , $message ) ; pos ( $foo ) += 1 ; ok ( $foo =~/.\\G(..)/g , $message ) ; is ( $1 , \'de\' , $message ) ; ok ( $foo =~/\\Gef/g , $message ) ; } undef pos $foo ; ok ( $foo =~/\\G(..)/g , $message ) ; is ( $1 , \'aa\' , $message ) ; ok ( $foo =~/\\G(..)/g , $message ) ; is ( $1 , \'bb\' , $message ) ; pos ( $foo ) = 5 ; ok ( $foo =~/\\G(..)/g , $message ) ; is ( $1 , \'cd\' , $message ) ; } { $_ = \'123x123\' ; my @res =/(\\d*|x)/g ; local $" = \'|\' ; is ( "@res" , "123||x|123|" , "0 match in alternation" ) ; } { my $message = "Match against temporaries (created via pp_helem())" . " is safe" ; ok ( { foo => "bar\\n" . $^X }-> { foo } =~/^(.*)\\n/g , $message ) ; is ( $1 , "bar" , $message ) ; } { my $message = \'package $i inside (?{ }), \' . \'saved substrings and changing $_\' ; our @a = qw[foo bar] ; our @b = ( ) ; s/(\\w)(?{push @b, $1})/,$1,/g for @a ; is ( "@b" , "f o o b a r" , $message ) ; is ( "@a" , ",f,,o,,o, ,b,,a,,r," , $message ) ; $message = \'lexical $i inside (?{ }), \' . \'saved substrings and changing $_\' ; no warnings \'closure\' ; my @c = qw[foo bar] ; my @d = ( ) ; s/(\\w)(?{push @d, $1})/,$1,/g for @c ; is ( "@d" , "f o o b a r" , $message ) ; is ( "@c" , ",f,,o,,o, ,b,,a,,r," , $message ) ; } { my $message = \'Brackets\' ; our $brackets ; $brackets = qr{
             {  (?> [^{}]+ | (??{ $brackets }) )* }
-        }x ; ok ( "{{}" =~ $brackets , $message ) ; is ( $& , "{}" , $message ) ; ok ( "something { long { and } hairy" =~ $brackets , $message ) ; is ( $& , "{ and }" , $message ) ; ok ( "something { long { and } hairy" =~ m/((??{ $brackets }))/ , $message ) ; is ( $& , "{ and }" , $message ) ; } { $_ = "a-a\\nxbb" ; pos = 1 ; ok ( ! m/^-.*bb/mg , \'$_ = "a-a\\nxbb"; m/^-.*bb/mg\' ) ; } { my $message = \'\\G anchor checks\' ; my $text = "aaXbXcc" ; pos ( $text ) = 0 ; ok ( $text !~/\\GXb*X/g , $message ) ; } { $_ = "xA\\n" x 500 ; unlike ( $_ , qr/^\\s*A/m , \'$_ = "xA\\n" x 500; /^\\s*A/m"\' ) ; my $text = "abc dbf" ; my @res = ( $text =~/.*?(b).*?\\b/g ) ; is ( "@res" , "b b" , \'\\b is not special\' ) ; } { my $message = \'\\S, [\\S], \\s, [\\s]\' ; my @a = map chr , 0 .. 255 ; my @b = grep m/\\S/ , @a ; my @c = grep m/[^\\s]/ , @a ; is ( "@b" , "@c" , $message ) ; @b = grep / S / , @a ; @c = grep / [ S ] / , @a ; is ( "@b" , "@c" , $message ) ; @b = grep / s/, @a;
-        @c = grep /[^\\S]/ , @a ; is ( "@b" , "@c" , $message ) ; @b = grep / s/, @a;
-        @c = grep /[\\s]/ , @a ; is ( "@b" , "@c" , $message ) ; } { my $message = \'\\D, [\\D], \\d, [\\d]\' ; my @a = map chr , 0 .. 255 ; my @b = grep / D / , @a ; my @c = grep / [ ^ d ] / , @a ; is ( "@b" , "@c" , $message ) ; @b = grep / D / , @a ; @c = grep / [ D ] / , @a ; is ( "@b" , "@c" , $message ) ; @b = grep / d / , @a ; @c = grep / [ ^ D ] / , @a ; is ( "@b" , "@c" , $message ) ; @b = grep / d / , @a ; @c = grep / [ d ] / , @a ; is ( "@b" , "@c" , $message ) ; } { my $message = \'\\W, [\\W], \\w, [\\w]\' ; my @a = map chr , 0 .. 255 ; my @b = grep / W / , @a ; my @c = grep / [ ^ w ] / , @a ; is ( "@b" , "@c" , $message ) ; @b = grep / W / , @a ; @c = grep / [ W ] / , @a ; is ( "@b" , "@c" , $message ) ; @b = grep / w / , @a ; @c = grep / [ ^ W ] / , @a ; is ( "@b" , "@c" , $message ) ; @b = grep / w / , @a ; @c = grep / [ w ] / , @a ; is ( "@b" , "@c" , $message ) ; } { my $message = \'Backtrack optimization\' ; like ( "\\n\\n" , qr/\\n   $ \\n/x , $message ) ; like ( "\\n\\n" , qr/\\n*  $ \\n/x , $message ) ; like ( "\\n\\n" , qr/\\n+  $ \\n/x , $message ) ; like ( "\\n\\n" , qr/\\n?  $ \\n/x , $message ) ; like ( "\\n\\n" , qr/\\n*? $ \\n/x , $message ) ; like ( "\\n\\n" , qr/\\n+? $ \\n/x , $message ) ; like ( "\\n\\n" , qr/\\n?? $ \\n/x , $message ) ; unlike ( "\\n\\n" , qr/\\n*+ $ \\n/x , $message ) ; unlike ( "\\n\\n" , qr/\\n++ $ \\n/x , $message ) ; like ( "\\n\\n" , qr/\\n?+ $ \\n/x , $message ) ; } { package S ; use overload \'""\' => sub { \'Object S\' } ; sub new { bless [ ] } my $message = "Ref stringification" ;::ok ( do { my $v } =~/^SCALAR/ , "Scalar ref stringification" ) or diag ( $message ) ;::ok ( do { my $v } =~/^REF/ , "Ref ref stringification" ) or diag ( $message ) ;::ok ( [ ] =~/^ARRAY/ , "Array ref stringification" ) or diag ( $message ) ;::ok ( { } =~/^HASH/ , "Hash ref stringification" ) or diag ( $message ) ;::ok ( \'S\'-> new =~/^Object S/ , "Object stringification" ) or diag ( $message ) ; } { my $message = "Test result of match used as match" ; ok ( \'a1b\' =~ ( \'xyz\' =~/y/ ) , $message ) ; is ( $` , \'a\' , $message ) ; ok ( \'a1b\' =~ ( \'xyz\' =~/t/ ) , $message ) ; is ( $` , \'a\' , $message ) ; } { my $message = \'"1" is not \\s\' ; warning_is ( sub { unlike ( "1\\n" x 102, qr/^\\s*\\n/m, $message ) } , undef , "$message (did not warn)" ) ; } { my $message = \'\\s, [[:space:]] and [[:blank:]]\' ; my %space = ( spc => " " , tab => "\\t" , cr => "\\r" , lf => "\\n" , ff => "\\f" , vt => chr ( 11 ) , false => "space" ) ; my @space0 = sort grep { $space { $_ } =~/\\s/ } keys %space ; my @space1 = sort grep { $space { $_ } =~/[[:space:]]/ } keys %space ; my @space2 = sort grep { $space { $_ } =~/[[:blank:]]/ } keys %space ; is ( "@space0" , "cr ff lf spc tab" , $message ) ; is ( "@space1" , "cr ff lf spc tab vt" , $message ) ; is ( "@space2" , "spc tab" , $message ) ; } { my $n = 50 ; foreach my $i ( 0 .. $n ) { my $str = "\\n" x $i ; ok $str =~/.*\\z/ , "implicit MBOL check string disable does not break things length=$i" ; } } { use utf8 ; my $e = "Böck" ; ok ( utf8::is_utf8 ( $e ) , "got a unicode string - rt75680" ) ; ok ( $e !~ m/.*?[x]$/ , "unicode string against /.*?[x]\\$/ - rt75680" ) ; ok ( $e !~ m/.*?\\p{Space}$/i , "unicode string against /.*?\\\\p{space}\\$/i - rt75680" ) ; ok ( $e !~ m/.*?[xyz]$/ , "unicode string against /.*?[xyz]\\$/ - rt75680" ) ; ok ( $e !~ m/(.*?)[,\\p{isSpace}]+((?:\\p{isAlpha}[\\p{isSpace}\\.]{1,2})+)\\p{isSpace}*$/ , "unicode string against big pattern - rt75680" ) ; } { my $e = "B\\x{f6}ck" ; ok ( ! utf8::is_utf8 ( $e ) , "got a latin string - rt75680" ) ; ok ( $e !~ m/.*?[x]$/ , "latin string against /.*?[x]\\$/ - rt75680" ) ; ok ( $e !~ m/.*?\\p{Space}$/i , "latin string against /.*?\\\\p{space}\\$/i - rt75680" ) ; ok ( $e !~ m/.*?[xyz]$/ , "latin string against /.*?[xyz]\\$/ - rt75680" ) ; ok ( $e !~ m/(.*?)[,\\p{isSpace}]+((?:\\p{isAlpha}[\\p{isSpace}\\.]{1,2})+)\\p{isSpace}*$/ , "latin string against big pattern - rt75680" ) ; } { my $message = \'\\p property after empty * match\' ; { like ( "1" , qr/\\s*\\pN/ , $message ) ; like ( "-" , qr/\\s*\\p{Dash}/ , $message ) ; like ( " " , qr/\\w*\\p{Blank}/ , $message ) ; } like ( "1" , qr/\\s*\\pN+/ , $message ) ; like ( "-" , qr/\\s*\\p{Dash}{1}/ , $message ) ; like ( " " , qr/\\w*\\p{Blank}{1,4}/ , $message ) ; } SKIP : { if ( $: : IS_EBCDIC ) { skip "Needs to be customized to run on EBCDIC" , 6 ; } my $c = "\\xc0" ; my $pattern = my $utf8_pattern = qr/((\\xc0)+,?)/ ; utf8::upgrade ( $utf8_pattern ) ; ok $c =~ $pattern , "\\\\xc0 =~ $pattern; Neither pattern nor target utf8" ; ok $c =~/$pattern/i , "\\\\xc0 =~ /$pattern/i; Neither pattern nor target utf8" ; ok $c =~ $utf8_pattern , "\\\\xc0 =~ $pattern; pattern utf8, target not" ; ok $c =~/$utf8_pattern/i , "\\\\xc0 =~ /$pattern/i; pattern utf8, target not" ; utf8::upgrade ( $c ) ; ok $c =~ $pattern , "\\\\xc0 =~ $pattern; target utf8, pattern not" ; ok $c =~/$pattern/i , "\\\\xc0 =~ /$pattern/i; target utf8, pattern not" ; ok $c =~ $utf8_pattern , "\\\\xc0 =~ $pattern; Both target and pattern utf8" ; ok $c =~/$utf8_pattern/i , "\\\\xc0 =~ /$pattern/i; Both target and pattern utf8" ; } SKIP : { if ( $: : IS_EBCDIC ) { skip "Needs to be customized to run on EBCDIC" , 2 ; } use feature \'unicode_strings\' ; ok "\\xc0" =~/\\w/ , \'Under unicode_strings: "\\xc0" =~ /\\w/\' ; ok "\\xc0" !~/(?d:\\w)/ , \'Under unicode_strings: "\\xc0" !~ /(?d:\\w)/\' ; } { foreach ( [ \'my $r = "a" =~ m/a/lt 2\' , \'m\' , \'lt\' ] , [ \'my $r = "a" =~ m/a/le 1\' , \'m\' , \'le\' ] , [ \'my $r = "a" =~ m/a/eq 1\' , \'m\' , \'eq\' ] , [ \'my $r = "a" =~ m/a/ne 0\' , \'m\' , \'ne\' ] , [ \'my $r = "a" =~ m/a/and 1\' , \'m\' , \'and\' ] , [ \'my $r = "a" =~ m/a/unless 0\' , \'m\' , \'unless\' ] , [ \'my $c = 1; my $r; $r = "a" =~ m/a/while $c--\' , \'m\' , \'while\' ] , [ \'my $c = 0; my $r; $r = "a" =~ m/a/until $c++\' , \'m\' , \'until\' ] , [ \'my $r; $r = "a" =~ m/a/for 1\' , \'m\' , \'for\' ] , [ \'my $r; $r = "a" =~ m/a/foreach 1\' , \'m\' , \'foreach\' ] , [ \'my $t = "a"; my $r = $t =~ s/a//lt 2\' , \'s\' , \'lt\' ] , [ \'my $t = "a"; my $r = $t =~ s/a//le 1\' , \'s\' , \'le\' ] , [ \'my $t = "a"; my $r = $t =~ s/a//ne 0\' , \'s\' , \'ne\' ] , [ \'my $t = "a"; my $r = $t =~ s/a//and 1\' , \'s\' , \'and\' ] , [ \'my $t = "a"; my $r = $t =~ s/a//unless 0\' , \'s\' , \'unless\' ] , [ \'my $c = 1; my $r; my $t = "a"; $r = $t =~ s/a//while $c--\' , \'s\' , \'while\' ] , [ \'my $c = 0; my $r; my $t = "a"; $r = $t =~ s/a//until $c++\' , \'s\' , \'until\' ] , [ \'my $r; my $t = "a"; $r = $t =~ s/a//for 1\' , \'s\' , \'for\' ] , [ \'my $r; my $t = "a"; $r = $t =~ s/a//for 1\' , \'s\' , \'foreach\' ] , ) { my $message = sprintf \'regex (%s) followed by $_->[2]\' , $_-> [ 1 ] eq \'m\' ? \'m//\' : \'s///\' ; my $code = "$_->[0]; \'eval_ok \' . \\$r" ; my $result = do { no warnings \'syntax\' ; eval $code ; } ; is ( $@ , \'\' , $message ) ; is ( $result , \'eval_ok 1\' , $message ) ; } } { my $str = "\\x{100}" ; chop $str ; my $qr = qr/$str/ ; is ( "$qr" , "(?^:)" , "Empty pattern qr// stringifies to (?^:) with unicode flag enabled - Bug #80212" ) ; $str = "" ; $qr = qr/$str/ ; is ( "$qr" , "(?^:)" , "Empty pattern qr// stringifies to (?^:) with unicode flag disabled - Bug #80212" ) ; } { local $: : TODO = "[perl #38133]" ; "A" =~/(((?:A))?)+/ ; my $first = $2 ; "A" =~/(((A))?)+/ ; my $second = $2 ; is ( $first , $second ) ; } { my $count = 0 ; while ( "abc" =~ m/(\\G[ac])?/g ) { last if $count ++ > 10 ; } ok ( $count < 10 , \'RT #3516 A\' ) ; $count = 0 ; while ( "abc" =~ m/(\\G|.)[ac]/g ) { last if $count ++ > 10 ; } ok ( $count < 10 , \'RT #3516 B\' ) ; $count = 0 ; while ( "abc" =~ m/(\\G?[ac])?/g ) { last if $count ++ > 10 ; } ok ( $count < 10 , \'RT #3516 C\' ) ; } { our @got = ( ) ; ok ( "ab" =~/((\\w+)(?{ push @got, $2 })){2}/ , "RT #84294: Pattern should match" ) ; my $want = "\'ab\', \'a\', \'b\'" ; my $got = join ( ", " , map { defined ( $_ ) ? "\'$_\'" : "undef" } @got ) ; is ( $got , $want , \'RT #84294: check that "ab" =~ /((\\w+)(?{ push @got, $2 })){2}/ leaves @got in the correct state\' ) ; } { local $SIG { __WARN__ } = sub { } ; my $str = "\\x{110000}" ; unlike ( $str , qr/\\p{ASCII_Hex_Digit=True}/ , "Non-Unicode doesn\'t match \\\\p{}" ) ; unlike ( $str , qr/\\p{ASCII_Hex_Digit=False}/ , "Non-Unicode doesn\'t match \\\\p{}" ) ; like ( $str , qr/\\P{ASCII_Hex_Digit=True}/ , "Non-Unicode matches \\\\P{}" ) ; like ( $str , qr/\\P{ASCII_Hex_Digit=False}/ , "Non-Unicode matches \\\\P{}" ) ; } { use utf8 ; my $str = "abc" ; like ( $str , qr/(?<a>abc)/ , "\'a\' is legal IDStart" ) ; like ( $str , qr/(?<_>abc)/ , "\'_\' is legal IDStart" ) ; like ( $str , qr/(?<ß>abc)/ , "U+00DF is legal IDStart" ) ; like ( $str , qr/(?<ℕ>abc)/ , "U+2115\' is legal IDStart" ) ; foreach my $char ( "%" , "×" , chr ( 0x2118 ) , chr ( 0x212E ) ) { my $prog = qq{use utf8;;
+        }x ; ok ( "{{}" =~ $brackets , $message ) ; is ( $& , "{}" , $message ) ; ok ( "something { long { and } hairy" =~ $brackets , $message ) ; is ( $& , "{ and }" , $message ) ; ok ( "something { long { and } hairy" =~ m/((??{ $brackets }))/ , $message ) ; is ( $& , "{ and }" , $message ) ; } { $_ = "a-a\\nxbb" ; pos = 1 ; ok ( ! m/^-.*bb/mg , \'$_ = "a-a\\nxbb"; m/^-.*bb/mg\' ) ; } { my $message = \'\\G anchor checks\' ; my $text = "aaXbXcc" ; pos ( $text ) = 0 ; ok ( $text !~/\\GXb*X/g , $message ) ; } { $_ = "xA\\n" x 500 ; unlike ( $_ , qr/^\\s*A/m , \'$_ = "xA\\n" x 500; /^\\s*A/m"\' ) ; my $text = "abc dbf" ; my @res = ( $text =~/.*?(b).*?\\b/g ) ; is ( "@res" , "b b" , \'\\b is not special\' ) ; } { my $message = \'\\S, [\\S], \\s, [\\s]\' ; my @a = map chr , 0 .. 255 ; my @b = grep m/\\S/ , @a ; my @c = grep m/[^\\s]/ , @a ; is ( "@b" , "@c" , $message ) ; @b = grep/\\S/ , @a ; @c = grep/[\\S]/ , @a ; is ( "@b" , "@c" , $message ) ; @b = grep/\\s/ , @a ; @c = grep/[^\\S]/ , @a ; is ( "@b" , "@c" , $message ) ; @b = grep/\\s/ , @a ; @c = grep/[\\s]/ , @a ; is ( "@b" , "@c" , $message ) ; } { my $message = \'\\D, [\\D], \\d, [\\d]\' ; my @a = map chr , 0 .. 255 ; my @b = grep/\\D/ , @a ; my @c = grep/[^\\d]/ , @a ; is ( "@b" , "@c" , $message ) ; @b = grep/\\D/ , @a ; @c = grep/[\\D]/ , @a ; is ( "@b" , "@c" , $message ) ; @b = grep/\\d/ , @a ; @c = grep/[^\\D]/ , @a ; is ( "@b" , "@c" , $message ) ; @b = grep/\\d/ , @a ; @c = grep/[\\d]/ , @a ; is ( "@b" , "@c" , $message ) ; } { my $message = \'\\W, [\\W], \\w, [\\w]\' ; my @a = map chr , 0 .. 255 ; my @b = grep/\\W/ , @a ; my @c = grep/[^\\w]/ , @a ; is ( "@b" , "@c" , $message ) ; @b = grep/\\W/ , @a ; @c = grep/[\\W]/ , @a ; is ( "@b" , "@c" , $message ) ; @b = grep/\\w/ , @a ; @c = grep/[^\\W]/ , @a ; is ( "@b" , "@c" , $message ) ; @b = grep/\\w/ , @a ; @c = grep/[\\w]/ , @a ; is ( "@b" , "@c" , $message ) ; } { my $message = \'Backtrack optimization\' ; like ( "\\n\\n" , qr/\\n   $ \\n/x , $message ) ; like ( "\\n\\n" , qr/\\n*  $ \\n/x , $message ) ; like ( "\\n\\n" , qr/\\n+  $ \\n/x , $message ) ; like ( "\\n\\n" , qr/\\n?  $ \\n/x , $message ) ; like ( "\\n\\n" , qr/\\n*? $ \\n/x , $message ) ; like ( "\\n\\n" , qr/\\n+? $ \\n/x , $message ) ; like ( "\\n\\n" , qr/\\n?? $ \\n/x , $message ) ; unlike ( "\\n\\n" , qr/\\n*+ $ \\n/x , $message ) ; unlike ( "\\n\\n" , qr/\\n++ $ \\n/x , $message ) ; like ( "\\n\\n" , qr/\\n?+ $ \\n/x , $message ) ; } { package S ; use overload \'""\' => sub { \'Object S\' } ; sub new { bless [ ] } my $message = "Ref stringification" ;::ok ( do { \\ my $v } =~/^SCALAR/ , "Scalar ref stringification" ) or diag ( $message ) ;::ok ( do { \\ \\ my $v } =~/^REF/ , "Ref ref stringification" ) or diag ( $message ) ;::ok ( [ ] =~/^ARRAY/ , "Array ref stringification" ) or diag ( $message ) ;::ok ( { } =~/^HASH/ , "Hash ref stringification" ) or diag ( $message ) ;::ok ( \'S\'-> new =~/^Object S/ , "Object stringification" ) or diag ( $message ) ; } { my $message = "Test result of match used as match" ; ok ( \'a1b\' =~ ( \'xyz\' =~/y/ ) , $message ) ; is ( $` , \'a\' , $message ) ; ok ( \'a1b\' =~ ( \'xyz\' =~/t/ ) , $message ) ; is ( $` , \'a\' , $message ) ; } { my $message = \'"1" is not \\s\' ; warning_is ( sub { unlike ( "1\\n" x 102, qr/^\\s*\\n/m, $message ) } , undef , "$message (did not warn)" ) ; } { my $message = \'\\s, [[:space:]] and [[:blank:]]\' ; my %space = ( spc => " " , tab => "\\t" , cr => "\\r" , lf => "\\n" , ff => "\\f" , vt => chr ( 11 ) , false => "space" ) ; my @space0 = sort grep { $space { $_ } =~/\\s/ } keys %space ; my @space1 = sort grep { $space { $_ } =~/[[:space:]]/ } keys %space ; my @space2 = sort grep { $space { $_ } =~/[[:blank:]]/ } keys %space ; is ( "@space0" , "cr ff lf spc tab" , $message ) ; is ( "@space1" , "cr ff lf spc tab vt" , $message ) ; is ( "@space2" , "spc tab" , $message ) ; } { my $n = 50 ; foreach my $i ( 0 .. $n ) { my $str = "\\n" x $i ; ok $str =~/.*\\z/ , "implicit MBOL check string disable does not break things length=$i" ; } } { use utf8 ; my $e = "Böck" ; ok ( utf8::is_utf8 ( $e ) , "got a unicode string - rt75680" ) ; ok ( $e !~ m/.*?[x]$/ , "unicode string against /.*?[x]\\$/ - rt75680" ) ; ok ( $e !~ m/.*?\\p{Space}$/i , "unicode string against /.*?\\\\p{space}\\$/i - rt75680" ) ; ok ( $e !~ m/.*?[xyz]$/ , "unicode string against /.*?[xyz]\\$/ - rt75680" ) ; ok ( $e !~ m/(.*?)[,\\p{isSpace}]+((?:\\p{isAlpha}[\\p{isSpace}\\.]{1,2})+)\\p{isSpace}*$/ , "unicode string against big pattern - rt75680" ) ; } { my $e = "B\\x{f6}ck" ; ok ( ! utf8::is_utf8 ( $e ) , "got a latin string - rt75680" ) ; ok ( $e !~ m/.*?[x]$/ , "latin string against /.*?[x]\\$/ - rt75680" ) ; ok ( $e !~ m/.*?\\p{Space}$/i , "latin string against /.*?\\\\p{space}\\$/i - rt75680" ) ; ok ( $e !~ m/.*?[xyz]$/ , "latin string against /.*?[xyz]\\$/ - rt75680" ) ; ok ( $e !~ m/(.*?)[,\\p{isSpace}]+((?:\\p{isAlpha}[\\p{isSpace}\\.]{1,2})+)\\p{isSpace}*$/ , "latin string against big pattern - rt75680" ) ; } { my $message = \'\\p property after empty * match\' ; { like ( "1" , qr/\\s*\\pN/ , $message ) ; like ( "-" , qr/\\s*\\p{Dash}/ , $message ) ; like ( " " , qr/\\w*\\p{Blank}/ , $message ) ; } like ( "1" , qr/\\s*\\pN+/ , $message ) ; like ( "-" , qr/\\s*\\p{Dash}{1}/ , $message ) ; like ( " " , qr/\\w*\\p{Blank}{1,4}/ , $message ) ; } SKIP : { if ( $: : IS_EBCDIC ) { skip "Needs to be customized to run on EBCDIC" , 6 ; } my $c = "\\xc0" ; my $pattern = my $utf8_pattern = qr/((\\xc0)+,?)/ ; utf8::upgrade ( $utf8_pattern ) ; ok $c =~ $pattern , "\\\\xc0 =~ $pattern; Neither pattern nor target utf8" ; ok $c =~/$pattern/i , "\\\\xc0 =~ /$pattern/i; Neither pattern nor target utf8" ; ok $c =~ $utf8_pattern , "\\\\xc0 =~ $pattern; pattern utf8, target not" ; ok $c =~/$utf8_pattern/i , "\\\\xc0 =~ /$pattern/i; pattern utf8, target not" ; utf8::upgrade ( $c ) ; ok $c =~ $pattern , "\\\\xc0 =~ $pattern; target utf8, pattern not" ; ok $c =~/$pattern/i , "\\\\xc0 =~ /$pattern/i; target utf8, pattern not" ; ok $c =~ $utf8_pattern , "\\\\xc0 =~ $pattern; Both target and pattern utf8" ; ok $c =~/$utf8_pattern/i , "\\\\xc0 =~ /$pattern/i; Both target and pattern utf8" ; } SKIP : { if ( $: : IS_EBCDIC ) { skip "Needs to be customized to run on EBCDIC" , 2 ; } use feature \'unicode_strings\' ; ok "\\xc0" =~/\\w/ , \'Under unicode_strings: "\\xc0" =~ /\\w/\' ; ok "\\xc0" !~/(?d:\\w)/ , \'Under unicode_strings: "\\xc0" !~ /(?d:\\w)/\' ; } { foreach ( [ \'my $r = "a" =~ m/a/lt 2\' , \'m\' , \'lt\' ] , [ \'my $r = "a" =~ m/a/le 1\' , \'m\' , \'le\' ] , [ \'my $r = "a" =~ m/a/eq 1\' , \'m\' , \'eq\' ] , [ \'my $r = "a" =~ m/a/ne 0\' , \'m\' , \'ne\' ] , [ \'my $r = "a" =~ m/a/and 1\' , \'m\' , \'and\' ] , [ \'my $r = "a" =~ m/a/unless 0\' , \'m\' , \'unless\' ] , [ \'my $c = 1; my $r; $r = "a" =~ m/a/while $c--\' , \'m\' , \'while\' ] , [ \'my $c = 0; my $r; $r = "a" =~ m/a/until $c++\' , \'m\' , \'until\' ] , [ \'my $r; $r = "a" =~ m/a/for 1\' , \'m\' , \'for\' ] , [ \'my $r; $r = "a" =~ m/a/foreach 1\' , \'m\' , \'foreach\' ] , [ \'my $t = "a"; my $r = $t =~ s/a//lt 2\' , \'s\' , \'lt\' ] , [ \'my $t = "a"; my $r = $t =~ s/a//le 1\' , \'s\' , \'le\' ] , [ \'my $t = "a"; my $r = $t =~ s/a//ne 0\' , \'s\' , \'ne\' ] , [ \'my $t = "a"; my $r = $t =~ s/a//and 1\' , \'s\' , \'and\' ] , [ \'my $t = "a"; my $r = $t =~ s/a//unless 0\' , \'s\' , \'unless\' ] , [ \'my $c = 1; my $r; my $t = "a"; $r = $t =~ s/a//while $c--\' , \'s\' , \'while\' ] , [ \'my $c = 0; my $r; my $t = "a"; $r = $t =~ s/a//until $c++\' , \'s\' , \'until\' ] , [ \'my $r; my $t = "a"; $r = $t =~ s/a//for 1\' , \'s\' , \'for\' ] , [ \'my $r; my $t = "a"; $r = $t =~ s/a//for 1\' , \'s\' , \'foreach\' ] , ) { my $message = sprintf \'regex (%s) followed by $_->[2]\' , $_-> [ 1 ] eq \'m\' ? \'m//\' : \'s///\' ; my $code = "$_->[0]; \'eval_ok \' . \\$r" ; my $result = do { no warnings \'syntax\' ; eval $code ; } ; is ( $@ , \'\' , $message ) ; is ( $result , \'eval_ok 1\' , $message ) ; } } { my $str = "\\x{100}" ; chop $str ; my $qr = qr/$str/ ; is ( "$qr" , "(?^:)" , "Empty pattern qr// stringifies to (?^:) with unicode flag enabled - Bug #80212" ) ; $str = "" ; $qr = qr/$str/ ; is ( "$qr" , "(?^:)" , "Empty pattern qr// stringifies to (?^:) with unicode flag disabled - Bug #80212" ) ; } { local $: : TODO = "[perl #38133]" ; "A" =~/(((?:A))?)+/ ; my $first = $2 ; "A" =~/(((A))?)+/ ; my $second = $2 ; is ( $first , $second ) ; } { my $count = 0 ; while ( "abc" =~ m/(\\G[ac])?/g ) { last if $count ++ > 10 ; } ok ( $count < 10 , \'RT #3516 A\' ) ; $count = 0 ; while ( "abc" =~ m/(\\G|.)[ac]/g ) { last if $count ++ > 10 ; } ok ( $count < 10 , \'RT #3516 B\' ) ; $count = 0 ; while ( "abc" =~ m/(\\G?[ac])?/g ) { last if $count ++ > 10 ; } ok ( $count < 10 , \'RT #3516 C\' ) ; } { our @got = ( ) ; ok ( "ab" =~/((\\w+)(?{ push @got, $2 })){2}/ , "RT #84294: Pattern should match" ) ; my $want = "\'ab\', \'a\', \'b\'" ; my $got = join ( ", " , map { defined ( $_ ) ? "\'$_\'" : "undef" } @got ) ; is ( $got , $want , \'RT #84294: check that "ab" =~ /((\\w+)(?{ push @got, $2 })){2}/ leaves @got in the correct state\' ) ; } { local $SIG { __WARN__ } = sub { } ; my $str = "\\x{110000}" ; unlike ( $str , qr/\\p{ASCII_Hex_Digit=True}/ , "Non-Unicode doesn\'t match \\\\p{}" ) ; unlike ( $str , qr/\\p{ASCII_Hex_Digit=False}/ , "Non-Unicode doesn\'t match \\\\p{}" ) ; like ( $str , qr/\\P{ASCII_Hex_Digit=True}/ , "Non-Unicode matches \\\\P{}" ) ; like ( $str , qr/\\P{ASCII_Hex_Digit=False}/ , "Non-Unicode matches \\\\P{}" ) ; } { use utf8 ; my $str = "abc" ; like ( $str , qr/(?<a>abc)/ , "\'a\' is legal IDStart" ) ; like ( $str , qr/(?<_>abc)/ , "\'_\' is legal IDStart" ) ; like ( $str , qr/(?<ß>abc)/ , "U+00DF is legal IDStart" ) ; like ( $str , qr/(?<ℕ>abc)/ , "U+2115\' is legal IDStart" ) ; foreach my $char ( "%" , "×" , chr ( 0x2118 ) , chr ( 0x212E ) ) { my $prog = qq{use utf8;;
 "abc" =~ qr/(?<$char>abc)/;
-} ; utf8::encode ( $prog ) ; fresh_perl_like ( $prog , qr!Sequence.* not recognized! , "" , sprintf ( "\'U+%04X not legal IDFirst\'" , ord ( $char ) ) ) ; } } { my $pat = "b" ; utf8::upgrade ( $pat ) ; like ( "\\xffb" , qr/$pat/i , "/i: utf8 pattern, non-utf8 string, latin1-char preceding matching char in string" ) ; } { local $SIG { __WARN__ } = sub { pass \'no crash for @a =~ // warning\' } ; eval \' sub { my @a =~ // } \' ; } { my @refs ; my $qr = qr// ; package Cat { require overload ; overload-> import ( \'""\' => sub { ${ $_ [ 0 ] } } , \'.\' => sub { push @refs , ref $_ [ 1 ] if ref $_ [ 1 ] ; bless $_ [ 2 ] ? "$_[1]${$_[0]}" : "${$_[0]}$_[1]" } ) ; } my $s = "foo" ; my $o = bless \\ $s , Cat::;/$o$qr/ ; is "@refs" , "Regexp" , \'/$o$qr/ passes qr ref to cat overload meth\' ; } { my $count = 0 ; my $str = "\\n" ; $count ++ while $str =~/.*/g ; is $count , 2 , \'test that ANCH_MBOL works properly. We should get 2 from $count++ while "\\n"=~/.*/g\' ; my $class_count = 0 ; $class_count ++ while $str =~/[^\\n]*/g ; is $class_count , $count , \'while "\\n"=~/.*/g and while "\\n"=~/[^\\n]*/g should behave the same\' ; my $anch_count = 0 ; $anch_count ++ while $str =~/^.*/mg ; is $anch_count , 1 , \'while "\\n"=~/^.*/mg should match only once\' ; } { use re \'/u\' ; like "\\xe0" , qr/(?i:\\xc0)/ , "(?i: shouldn\'t lose the passed in /u" ; use re \'/a\' ; unlike "\\x{100}" , qr/(?i:\\w)/ , "(?i: shouldn\'t lose the passed in /a" ; use re \'/aa\' ; unlike \'k\' , qr/(?i:\\N{KELVIN SIGN})/ , "(?i: shouldn\'t lose the passed in /aa" ; } }',
+} ; utf8::encode ( $prog ) ; fresh_perl_like ( $prog , qr!Sequence.* not recognized! , "" , sprintf ( "\'U+%04X not legal IDFirst\'" , ord ( $char ) ) ) ; } } { my $pat = "b" ; utf8::upgrade ( $pat ) ; like ( "\\xffb" , qr/$pat/i , "/i: utf8 pattern, non-utf8 string, latin1-char preceding matching char in string" ) ; } { local $SIG { __WARN__ } = sub { pass \'no crash for @a =~ // warning\' } ; eval \' sub { my @a =~ // } \' ; } { my @refs ; my $qr = qr// ; package Cat { require overload ; overload-> import ( \'""\' => sub { ${ $_ [ 0 ] } } , \'.\' => sub { push @refs , ref $_ [ 1 ] if ref $_ [ 1 ] ; bless $_ [ 2 ] ? \\ "$_[1]${$_[0]}" : \\ "${$_[0]}$_[1]" } ) ; } my $s = "foo" ; my $o = bless \\ $s , Cat::;/$o$qr/ ; is "@refs" , "Regexp" , \'/$o$qr/ passes qr ref to cat overload meth\' ; } { my $count = 0 ; my $str = "\\n" ; $count ++ while $str =~/.*/g ; is $count , 2 , \'test that ANCH_MBOL works properly. We should get 2 from $count++ while "\\n"=~/.*/g\' ; my $class_count = 0 ; $class_count ++ while $str =~/[^\\n]*/g ; is $class_count , $count , \'while "\\n"=~/.*/g and while "\\n"=~/[^\\n]*/g should behave the same\' ; my $anch_count = 0 ; $anch_count ++ while $str =~/^.*/mg ; is $anch_count , 1 , \'while "\\n"=~/^.*/mg should match only once\' ; } { use re \'/u\' ; like "\\xe0" , qr/(?i:\\xc0)/ , "(?i: shouldn\'t lose the passed in /u" ; use re \'/a\' ; unlike "\\x{100}" , qr/(?i:\\w)/ , "(?i: shouldn\'t lose the passed in /a" ; use re \'/aa\' ; unlike \'k\' , qr/(?i:\\N{KELVIN SIGN})/ , "(?i: shouldn\'t lose the passed in /aa" ; } }',
             'start_line' => 29,
             'indent' => 0,
             'block_id' => 0
@@ -64457,7 +64390,7 @@ subtest 'get_groups_by_syntax_level' => sub {
           },
           {
             'token_num' => 7,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 300,
             'src' => ' eval { require Config ; } ;',
             'start_line' => 300,
@@ -64466,7 +64399,7 @@ subtest 'get_groups_by_syntax_level' => sub {
           },
           {
             'token_num' => 3,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 300,
             'src' => ' require Config ;',
             'start_line' => 300,
@@ -67997,12 +67930,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 72
           },
           {
-            'token_num' => 121,
+            'token_num' => 129,
             'has_warnings' => 1,
             'end_line' => 889,
-            'src' => ' { my $message = \'\\S, [\\S], \\s, [\\s]\' ; my @a = map chr , 0 .. 255 ; my @b = grep m/\\S/ , @a ; my @c = grep m/[^\\s]/ , @a ; is ( "@b" , "@c" , $message ) ; @b = grep / S / , @a ; @c = grep / [ S ] / , @a ; is ( "@b" , "@c" , $message ) ; @b = grep / s/, @a;
-        @c = grep /[^\\S]/ , @a ; is ( "@b" , "@c" , $message ) ; @b = grep / s/, @a;
-        @c = grep /[\\s]/ , @a ; is ( "@b" , "@c" , $message ) ; }',
+            'src' => ' { my $message = \'\\S, [\\S], \\s, [\\s]\' ; my @a = map chr , 0 .. 255 ; my @b = grep m/\\S/ , @a ; my @c = grep m/[^\\s]/ , @a ; is ( "@b" , "@c" , $message ) ; @b = grep/\\S/ , @a ; @c = grep/[\\S]/ , @a ; is ( "@b" , "@c" , $message ) ; @b = grep/\\s/ , @a ; @c = grep/[^\\S]/ , @a ; is ( "@b" , "@c" , $message ) ; @b = grep/\\s/ , @a ; @c = grep/[\\s]/ , @a ; is ( "@b" , "@c" , $message ) ; }',
             'start_line' => 871,
             'indent' => 1,
             'block_id' => 2
@@ -68054,18 +67985,18 @@ subtest 'get_groups_by_syntax_level' => sub {
           },
           {
             'token_num' => 9,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 878,
-            'src' => ' @b = grep / S / , @a ;',
+            'src' => ' @b = grep/\\S/ , @a ;',
             'start_line' => 878,
             'indent' => 2,
             'block_id' => 73
           },
           {
-            'token_num' => 11,
-            'has_warnings' => 1,
+            'token_num' => 9,
+            'has_warnings' => 0,
             'end_line' => 879,
-            'src' => ' @c = grep / [ S ] / , @a ;',
+            'src' => ' @c = grep/[\\S]/ , @a ;',
             'start_line' => 879,
             'indent' => 2,
             'block_id' => 73
@@ -68080,12 +68011,20 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 73
           },
           {
-            'token_num' => 13,
+            'token_num' => 9,
+            'has_warnings' => 0,
+            'end_line' => 882,
+            'src' => ' @b = grep/\\s/ , @a ;',
+            'start_line' => 882,
+            'indent' => 2,
+            'block_id' => 73
+          },
+          {
+            'token_num' => 9,
             'has_warnings' => 0,
             'end_line' => 883,
-            'src' => ' @b = grep / s/, @a;
-        @c = grep /[^\\S]/ , @a ;',
-            'start_line' => 882,
+            'src' => ' @c = grep/[^\\S]/ , @a ;',
+            'start_line' => 883,
             'indent' => 2,
             'block_id' => 73
           },
@@ -68099,12 +68038,20 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 73
           },
           {
-            'token_num' => 13,
+            'token_num' => 9,
+            'has_warnings' => 0,
+            'end_line' => 886,
+            'src' => ' @b = grep/\\s/ , @a ;',
+            'start_line' => 886,
+            'indent' => 2,
+            'block_id' => 73
+          },
+          {
+            'token_num' => 9,
             'has_warnings' => 0,
             'end_line' => 887,
-            'src' => ' @b = grep / s/, @a;
-        @c = grep /[\\s]/ , @a ;',
-            'start_line' => 886,
+            'src' => ' @c = grep/[\\s]/ , @a ;',
+            'start_line' => 887,
             'indent' => 2,
             'block_id' => 73
           },
@@ -68118,10 +68065,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 73
           },
           {
-            'token_num' => 137,
+            'token_num' => 127,
             'has_warnings' => 1,
             'end_line' => 908,
-            'src' => ' { my $message = \'\\D, [\\D], \\d, [\\d]\' ; my @a = map chr , 0 .. 255 ; my @b = grep / D / , @a ; my @c = grep / [ ^ d ] / , @a ; is ( "@b" , "@c" , $message ) ; @b = grep / D / , @a ; @c = grep / [ D ] / , @a ; is ( "@b" , "@c" , $message ) ; @b = grep / d / , @a ; @c = grep / [ ^ D ] / , @a ; is ( "@b" , "@c" , $message ) ; @b = grep / d / , @a ; @c = grep / [ d ] / , @a ; is ( "@b" , "@c" , $message ) ; }',
+            'src' => ' { my $message = \'\\D, [\\D], \\d, [\\d]\' ; my @a = map chr , 0 .. 255 ; my @b = grep/\\D/ , @a ; my @c = grep/[^\\d]/ , @a ; is ( "@b" , "@c" , $message ) ; @b = grep/\\D/ , @a ; @c = grep/[\\D]/ , @a ; is ( "@b" , "@c" , $message ) ; @b = grep/\\d/ , @a ; @c = grep/[^\\D]/ , @a ; is ( "@b" , "@c" , $message ) ; @b = grep/\\d/ , @a ; @c = grep/[\\d]/ , @a ; is ( "@b" , "@c" , $message ) ; }',
             'start_line' => 890,
             'indent' => 1,
             'block_id' => 2
@@ -68146,18 +68093,18 @@ subtest 'get_groups_by_syntax_level' => sub {
           },
           {
             'token_num' => 10,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 893,
-            'src' => ' my @b = grep / D / , @a ;',
+            'src' => ' my @b = grep/\\D/ , @a ;',
             'start_line' => 893,
             'indent' => 2,
             'block_id' => 74
           },
           {
-            'token_num' => 13,
-            'has_warnings' => 1,
+            'token_num' => 10,
+            'has_warnings' => 0,
             'end_line' => 894,
-            'src' => ' my @c = grep / [ ^ d ] / , @a ;',
+            'src' => ' my @c = grep/[^\\d]/ , @a ;',
             'start_line' => 894,
             'indent' => 2,
             'block_id' => 74
@@ -68173,18 +68120,18 @@ subtest 'get_groups_by_syntax_level' => sub {
           },
           {
             'token_num' => 9,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 897,
-            'src' => ' @b = grep / D / , @a ;',
+            'src' => ' @b = grep/\\D/ , @a ;',
             'start_line' => 897,
             'indent' => 2,
             'block_id' => 74
           },
           {
-            'token_num' => 11,
-            'has_warnings' => 1,
+            'token_num' => 9,
+            'has_warnings' => 0,
             'end_line' => 898,
-            'src' => ' @c = grep / [ D ] / , @a ;',
+            'src' => ' @c = grep/[\\D]/ , @a ;',
             'start_line' => 898,
             'indent' => 2,
             'block_id' => 74
@@ -68200,18 +68147,18 @@ subtest 'get_groups_by_syntax_level' => sub {
           },
           {
             'token_num' => 9,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 901,
-            'src' => ' @b = grep / d / , @a ;',
+            'src' => ' @b = grep/\\d/ , @a ;',
             'start_line' => 901,
             'indent' => 2,
             'block_id' => 74
           },
           {
-            'token_num' => 12,
-            'has_warnings' => 1,
+            'token_num' => 9,
+            'has_warnings' => 0,
             'end_line' => 902,
-            'src' => ' @c = grep / [ ^ D ] / , @a ;',
+            'src' => ' @c = grep/[^\\D]/ , @a ;',
             'start_line' => 902,
             'indent' => 2,
             'block_id' => 74
@@ -68227,18 +68174,18 @@ subtest 'get_groups_by_syntax_level' => sub {
           },
           {
             'token_num' => 9,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 905,
-            'src' => ' @b = grep / d / , @a ;',
+            'src' => ' @b = grep/\\d/ , @a ;',
             'start_line' => 905,
             'indent' => 2,
             'block_id' => 74
           },
           {
-            'token_num' => 11,
-            'has_warnings' => 1,
+            'token_num' => 9,
+            'has_warnings' => 0,
             'end_line' => 906,
-            'src' => ' @c = grep / [ d ] / , @a ;',
+            'src' => ' @c = grep/[\\d]/ , @a ;',
             'start_line' => 906,
             'indent' => 2,
             'block_id' => 74
@@ -68253,10 +68200,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 74
           },
           {
-            'token_num' => 137,
+            'token_num' => 127,
             'has_warnings' => 1,
             'end_line' => 927,
-            'src' => ' { my $message = \'\\W, [\\W], \\w, [\\w]\' ; my @a = map chr , 0 .. 255 ; my @b = grep / W / , @a ; my @c = grep / [ ^ w ] / , @a ; is ( "@b" , "@c" , $message ) ; @b = grep / W / , @a ; @c = grep / [ W ] / , @a ; is ( "@b" , "@c" , $message ) ; @b = grep / w / , @a ; @c = grep / [ ^ W ] / , @a ; is ( "@b" , "@c" , $message ) ; @b = grep / w / , @a ; @c = grep / [ w ] / , @a ; is ( "@b" , "@c" , $message ) ; }',
+            'src' => ' { my $message = \'\\W, [\\W], \\w, [\\w]\' ; my @a = map chr , 0 .. 255 ; my @b = grep/\\W/ , @a ; my @c = grep/[^\\w]/ , @a ; is ( "@b" , "@c" , $message ) ; @b = grep/\\W/ , @a ; @c = grep/[\\W]/ , @a ; is ( "@b" , "@c" , $message ) ; @b = grep/\\w/ , @a ; @c = grep/[^\\W]/ , @a ; is ( "@b" , "@c" , $message ) ; @b = grep/\\w/ , @a ; @c = grep/[\\w]/ , @a ; is ( "@b" , "@c" , $message ) ; }',
             'start_line' => 909,
             'indent' => 1,
             'block_id' => 2
@@ -68281,18 +68228,18 @@ subtest 'get_groups_by_syntax_level' => sub {
           },
           {
             'token_num' => 10,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 912,
-            'src' => ' my @b = grep / W / , @a ;',
+            'src' => ' my @b = grep/\\W/ , @a ;',
             'start_line' => 912,
             'indent' => 2,
             'block_id' => 75
           },
           {
-            'token_num' => 13,
-            'has_warnings' => 1,
+            'token_num' => 10,
+            'has_warnings' => 0,
             'end_line' => 913,
-            'src' => ' my @c = grep / [ ^ w ] / , @a ;',
+            'src' => ' my @c = grep/[^\\w]/ , @a ;',
             'start_line' => 913,
             'indent' => 2,
             'block_id' => 75
@@ -68308,18 +68255,18 @@ subtest 'get_groups_by_syntax_level' => sub {
           },
           {
             'token_num' => 9,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 916,
-            'src' => ' @b = grep / W / , @a ;',
+            'src' => ' @b = grep/\\W/ , @a ;',
             'start_line' => 916,
             'indent' => 2,
             'block_id' => 75
           },
           {
-            'token_num' => 11,
-            'has_warnings' => 1,
+            'token_num' => 9,
+            'has_warnings' => 0,
             'end_line' => 917,
-            'src' => ' @c = grep / [ W ] / , @a ;',
+            'src' => ' @c = grep/[\\W]/ , @a ;',
             'start_line' => 917,
             'indent' => 2,
             'block_id' => 75
@@ -68335,18 +68282,18 @@ subtest 'get_groups_by_syntax_level' => sub {
           },
           {
             'token_num' => 9,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 920,
-            'src' => ' @b = grep / w / , @a ;',
+            'src' => ' @b = grep/\\w/ , @a ;',
             'start_line' => 920,
             'indent' => 2,
             'block_id' => 75
           },
           {
-            'token_num' => 12,
-            'has_warnings' => 1,
+            'token_num' => 9,
+            'has_warnings' => 0,
             'end_line' => 921,
-            'src' => ' @c = grep / [ ^ W ] / , @a ;',
+            'src' => ' @c = grep/[^\\W]/ , @a ;',
             'start_line' => 921,
             'indent' => 2,
             'block_id' => 75
@@ -68362,18 +68309,18 @@ subtest 'get_groups_by_syntax_level' => sub {
           },
           {
             'token_num' => 9,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 924,
-            'src' => ' @b = grep / w / , @a ;',
+            'src' => ' @b = grep/\\w/ , @a ;',
             'start_line' => 924,
             'indent' => 2,
             'block_id' => 75
           },
           {
-            'token_num' => 11,
-            'has_warnings' => 1,
+            'token_num' => 9,
+            'has_warnings' => 0,
             'end_line' => 925,
-            'src' => ' @c = grep / [ w ] / , @a ;',
+            'src' => ' @c = grep/[\\w]/ , @a ;',
             'start_line' => 925,
             'indent' => 2,
             'block_id' => 75
@@ -68496,10 +68443,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 76
           },
           {
-            'token_num' => 113,
+            'token_num' => 116,
             'has_warnings' => 1,
             'end_line' => 955,
-            'src' => ' { package S ; use overload \'""\' => sub { \'Object S\' } ; sub new { bless [ ] } my $message = "Ref stringification" ;::ok ( do { my $v } =~/^SCALAR/ , "Scalar ref stringification" ) or diag ( $message ) ;::ok ( do { my $v } =~/^REF/ , "Ref ref stringification" ) or diag ( $message ) ;::ok ( [ ] =~/^ARRAY/ , "Array ref stringification" ) or diag ( $message ) ;::ok ( { } =~/^HASH/ , "Hash ref stringification" ) or diag ( $message ) ;::ok ( \'S\'-> new =~/^Object S/ , "Object stringification" ) or diag ( $message ) ; }',
+            'src' => ' { package S ; use overload \'""\' => sub { \'Object S\' } ; sub new { bless [ ] } my $message = "Ref stringification" ;::ok ( do { \\ my $v } =~/^SCALAR/ , "Scalar ref stringification" ) or diag ( $message ) ;::ok ( do { \\ \\ my $v } =~/^REF/ , "Ref ref stringification" ) or diag ( $message ) ;::ok ( [ ] =~/^ARRAY/ , "Array ref stringification" ) or diag ( $message ) ;::ok ( { } =~/^HASH/ , "Hash ref stringification" ) or diag ( $message ) ;::ok ( \'S\'-> new =~/^Object S/ , "Object stringification" ) or diag ( $message ) ; }',
             'start_line' => 944,
             'indent' => 1,
             'block_id' => 2
@@ -68532,28 +68479,28 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 77
           },
           {
-            'token_num' => 92,
+            'token_num' => 95,
             'has_warnings' => 1,
             'end_line' => 954,
-            'src' => ' my $message = "Ref stringification" ;::ok ( do { my $v } =~/^SCALAR/ , "Scalar ref stringification" ) or diag ( $message ) ;::ok ( do { my $v } =~/^REF/ , "Ref ref stringification" ) or diag ( $message ) ;::ok ( [ ] =~/^ARRAY/ , "Array ref stringification" ) or diag ( $message ) ;::ok ( { } =~/^HASH/ , "Hash ref stringification" ) or diag ( $message ) ;::ok ( \'S\'-> new =~/^Object S/ , "Object stringification" ) or diag ( $message ) ;',
+            'src' => ' my $message = "Ref stringification" ;::ok ( do { \\ my $v } =~/^SCALAR/ , "Scalar ref stringification" ) or diag ( $message ) ;::ok ( do { \\ \\ my $v } =~/^REF/ , "Ref ref stringification" ) or diag ( $message ) ;::ok ( [ ] =~/^ARRAY/ , "Array ref stringification" ) or diag ( $message ) ;::ok ( { } =~/^HASH/ , "Hash ref stringification" ) or diag ( $message ) ;::ok ( \'S\'-> new =~/^Object S/ , "Object stringification" ) or diag ( $message ) ;',
             'start_line' => 949,
             'indent' => 2,
             'block_id' => 77
           },
           {
-            'token_num' => 5,
+            'token_num' => 6,
             'has_warnings' => 0,
             'end_line' => 950,
-            'src' => ' do { my $v }',
+            'src' => ' do { \\ my $v }',
             'start_line' => 950,
             'indent' => 2,
             'block_id' => 79
           },
           {
-            'token_num' => 5,
+            'token_num' => 7,
             'has_warnings' => 0,
             'end_line' => 951,
-            'src' => ' do { my $v }',
+            'src' => ' do { \\ \\ my $v }',
             'start_line' => 951,
             'indent' => 2,
             'block_id' => 80
@@ -69780,10 +69727,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 112
           },
           {
-            'token_num' => 91,
+            'token_num' => 93,
             'has_warnings' => 1,
             'end_line' => 1240,
-            'src' => ' { my @refs ; my $qr = qr// ; package Cat { require overload ; overload-> import ( \'""\' => sub { ${ $_ [ 0 ] } } , \'.\' => sub { push @refs , ref $_ [ 1 ] if ref $_ [ 1 ] ; bless $_ [ 2 ] ? "$_[1]${$_[0]}" : "${$_[0]}$_[1]" } ) ; } my $s = "foo" ; my $o = bless \\ $s , Cat::;/$o$qr/ ; is "@refs" , "Regexp" , \'/$o$qr/ passes qr ref to cat overload meth\' ; }',
+            'src' => ' { my @refs ; my $qr = qr// ; package Cat { require overload ; overload-> import ( \'""\' => sub { ${ $_ [ 0 ] } } , \'.\' => sub { push @refs , ref $_ [ 1 ] if ref $_ [ 1 ] ; bless $_ [ 2 ] ? \\ "$_[1]${$_[0]}" : \\ "${$_[0]}$_[1]" } ) ; } my $s = "foo" ; my $o = bless \\ $s , Cat::;/$o$qr/ ; is "@refs" , "Regexp" , \'/$o$qr/ passes qr ref to cat overload meth\' ; }',
             'start_line' => 1223,
             'indent' => 1,
             'block_id' => 2
@@ -69808,7 +69755,7 @@ subtest 'get_groups_by_syntax_level' => sub {
           },
           {
             'token_num' => 3,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 1227,
             'src' => ' require overload ;',
             'start_line' => 1227,
@@ -69816,10 +69763,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 115
           },
           {
-            'token_num' => 47,
+            'token_num' => 49,
             'has_warnings' => 1,
             'end_line' => 1234,
-            'src' => ' overload-> import ( \'""\' => sub { ${ $_ [ 0 ] } } , \'.\' => sub { push @refs , ref $_ [ 1 ] if ref $_ [ 1 ] ; bless $_ [ 2 ] ? "$_[1]${$_[0]}" : "${$_[0]}$_[1]" } ) ;',
+            'src' => ' overload-> import ( \'""\' => sub { ${ $_ [ 0 ] } } , \'.\' => sub { push @refs , ref $_ [ 1 ] if ref $_ [ 1 ] ; bless $_ [ 2 ] ? \\ "$_[1]${$_[0]}" : \\ "${$_[0]}$_[1]" } ) ;',
             'start_line' => 1228,
             'indent' => 3,
             'block_id' => 115

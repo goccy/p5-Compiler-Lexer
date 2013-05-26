@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 
 # Test the Internal::* functions and other tibits in universal.c
@@ -70,7 +70,7 @@ $h{b} =~ y/ia/ao/;
 is __PACKAGE__, 'main',
   'turning off a cow’s readonliness did not affect sharers of the same PV';
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -1121,30 +1121,12 @@ Internals::HvREHASH $hashref at (eval 4) line 1.
                    'line' => 41
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegDelim',
-                   'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
-                   'line' => 41
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegExp',
-                   'data' => '',
-                   'type' => Compiler::Lexer::TokenType::T_RegExp,
-                   'line' => 41
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegDelim',
-                   'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
+                   'name' => 'DefaultOperator',
+                   'data' => '//',
+                   'type' => Compiler::Lexer::TokenType::T_DefaultOperator,
                    'line' => 41
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2617,10 +2599,10 @@ Internals::HvREHASH $hashref at (eval 4) line 1.
             'block_id' => 0
           },
           {
-            'token_num' => 9,
+            'token_num' => 7,
             'has_warnings' => 1,
             'end_line' => 41,
-            'src' => ' $x = ${ qr// } ;',
+            'src' => ' $x = ${ qr // } ;',
             'start_line' => 41,
             'indent' => 0,
             'block_id' => 0

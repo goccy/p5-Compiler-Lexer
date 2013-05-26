@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl -w
 #
 # Contributed by Graham Barr <Graham.Barr@tiuk.ti.com>
@@ -92,7 +92,7 @@ ok 20, $warn eq '';
 # If we got any errors that we were not expecting, then print them
 print $warn if length $warn;
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);

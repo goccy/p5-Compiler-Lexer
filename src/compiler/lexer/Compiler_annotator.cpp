@@ -30,7 +30,7 @@ void Annotator::setAnnotateMethods(AnnotateMethods *methods)
 	methods->add(&Annotator::annotateFunction);
 	methods->add(&Annotator::annotateCall);
 	methods->add(&Annotator::annotateClass);
-	methods->add(&Annotator::annotateUsedName);
+	methods->add(&Annotator::annotateModuleName);
 	methods->add(&Annotator::annotateBareWord);
 	methods->setAnnotator(this);
 }
@@ -238,11 +238,13 @@ TokenInfo Annotator::annotateClass(LexContext *ctx, Token *tk)
 	return ret;
 }
 
-TokenInfo Annotator::annotateUsedName(LexContext *ctx, Token *)
+TokenInfo Annotator::annotateModuleName(LexContext *ctx, Token *)
 {
 	TokenInfo ret = ctx->tmgr->getTokenInfo(Undefined);
 	if (ctx->prev_type == UseDecl) {
 		ret = ctx->tmgr->getTokenInfo(UsedName);
+	} else if (ctx->prev_type == RequireDecl) {
+		ret = ctx->tmgr->getTokenInfo(RequiredName);
 	}
 	return ret;
 }

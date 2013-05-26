@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 #
 # Contributed by Graham Barr <Graham.Barr@tiuk.ti.com>
@@ -758,7 +758,7 @@ print "ok ", $i++, "\n";
   }
 }
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -890,7 +890,7 @@ subtest 'tokenize' => sub {
                    'line' => 19
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -20423,6 +20423,15 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 471
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Mul',
                    'data' => '*',
                    'type' => Compiler::Lexer::TokenType::T_Mul,
@@ -20657,6 +20666,15 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 475
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Mul',
                    'data' => '*',
                    'type' => Compiler::Lexer::TokenType::T_Mul,
@@ -20774,6 +20792,15 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 478
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Mul',
                    'data' => '*',
                    'type' => Compiler::Lexer::TokenType::T_Mul,
@@ -20885,6 +20912,15 @@ subtest 'tokenize' => sub {
                    'name' => 'StringEqual',
                    'data' => 'eq',
                    'type' => Compiler::Lexer::TokenType::T_StringEqual,
+                   'line' => 479
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 479
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -21008,6 +21044,15 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 482
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Mul',
                    'data' => '*',
                    'type' => Compiler::Lexer::TokenType::T_Mul,
@@ -21119,6 +21164,15 @@ subtest 'tokenize' => sub {
                    'name' => 'StringEqual',
                    'data' => 'eq',
                    'type' => Compiler::Lexer::TokenType::T_StringEqual,
+                   'line' => 483
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 483
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -23852,6 +23906,15 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 519
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Mul',
                    'data' => '*',
                    'type' => Compiler::Lexer::TokenType::T_Mul,
@@ -23918,6 +23981,15 @@ subtest 'tokenize' => sub {
                    'name' => 'StringEqual',
                    'data' => 'eq',
                    'type' => Compiler::Lexer::TokenType::T_StringEqual,
+                   'line' => 519
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 519
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -24185,6 +24257,15 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 523
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Mul',
                    'data' => '*',
                    'type' => Compiler::Lexer::TokenType::T_Mul,
@@ -24251,6 +24332,15 @@ subtest 'tokenize' => sub {
                    'name' => 'StringEqual',
                    'data' => 'eq',
                    'type' => Compiler::Lexer::TokenType::T_StringEqual,
+                   'line' => 523
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 523
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -24374,6 +24464,15 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 526
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Mul',
                    'data' => '*',
                    'type' => Compiler::Lexer::TokenType::T_Mul,
@@ -24395,6 +24494,15 @@ subtest 'tokenize' => sub {
                    'name' => 'Comma',
                    'data' => ',',
                    'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'line' => 526
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 526
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -24554,6 +24662,15 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 528
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Mul',
                    'data' => '*',
                    'type' => Compiler::Lexer::TokenType::T_Mul,
@@ -24638,6 +24755,15 @@ subtest 'tokenize' => sub {
                    'name' => 'StringEqual',
                    'data' => 'eq',
                    'type' => Compiler::Lexer::TokenType::T_StringEqual,
+                   'line' => 528
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 528
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -24779,6 +24905,15 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 531
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Mul',
                    'data' => '*',
                    'type' => Compiler::Lexer::TokenType::T_Mul,
@@ -24800,6 +24935,15 @@ subtest 'tokenize' => sub {
                    'name' => 'Comma',
                    'data' => ',',
                    'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'line' => 531
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 531
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -24959,6 +25103,15 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 533
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Mul',
                    'data' => '*',
                    'type' => Compiler::Lexer::TokenType::T_Mul,
@@ -25043,6 +25196,15 @@ subtest 'tokenize' => sub {
                    'name' => 'StringEqual',
                    'data' => 'eq',
                    'type' => Compiler::Lexer::TokenType::T_StringEqual,
+                   'line' => 533
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 533
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -38186,19 +38348,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 22,
+            'token_num' => 23,
             'has_warnings' => 1,
             'end_line' => 473,
-            'src' => ' star * FOO , sub { print "not " unless $_ [ 0 ] eq * FOO ; print "ok $i - star *FOO\\n" ; } ;',
+            'src' => ' star * FOO , sub { print "not " unless $_ [ 0 ] eq \\ * FOO ; print "ok $i - star *FOO\\n" ; } ;',
             'start_line' => 470,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 11,
+            'token_num' => 12,
             'has_warnings' => 1,
             'end_line' => 471,
-            'src' => ' print "not " unless $_ [ 0 ] eq * FOO ;',
+            'src' => ' print "not " unless $_ [ 0 ] eq \\ * FOO ;',
             'start_line' => 471,
             'indent' => 1,
             'block_id' => 41
@@ -38222,19 +38384,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 24,
+            'token_num' => 25,
             'has_warnings' => 1,
             'end_line' => 477,
-            'src' => ' star ( * FOO , sub { print "not " unless $_ [ 0 ] eq * FOO ; print "ok $i - star(*FOO)\\n" ; } ) ;',
+            'src' => ' star ( * FOO , sub { print "not " unless $_ [ 0 ] eq \\ * FOO ; print "ok $i - star(*FOO)\\n" ; } ) ;',
             'start_line' => 474,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 11,
+            'token_num' => 12,
             'has_warnings' => 1,
             'end_line' => 475,
-            'src' => ' print "not " unless $_ [ 0 ] eq * FOO ;',
+            'src' => ' print "not " unless $_ [ 0 ] eq \\ * FOO ;',
             'start_line' => 475,
             'indent' => 1,
             'block_id' => 42
@@ -38258,19 +38420,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 22,
+            'token_num' => 24,
             'has_warnings' => 1,
             'end_line' => 481,
-            'src' => ' star * FOO , sub { print "not " unless $_ [ 0 ] eq * FOO ; print "ok $i - star \\\\*FOO\\n" ; } ;',
+            'src' => ' star \\ * FOO , sub { print "not " unless $_ [ 0 ] eq \\ * FOO ; print "ok $i - star \\\\*FOO\\n" ; } ;',
             'start_line' => 478,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 11,
+            'token_num' => 12,
             'has_warnings' => 1,
             'end_line' => 479,
-            'src' => ' print "not " unless $_ [ 0 ] eq * FOO ;',
+            'src' => ' print "not " unless $_ [ 0 ] eq \\ * FOO ;',
             'start_line' => 479,
             'indent' => 1,
             'block_id' => 43
@@ -38294,19 +38456,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 24,
+            'token_num' => 26,
             'has_warnings' => 1,
             'end_line' => 485,
-            'src' => ' star ( * FOO , sub { print "not " unless $_ [ 0 ] eq * FOO ; print "ok $i - star(\\\\*FOO)\\n" ; } ) ;',
+            'src' => ' star ( \\ * FOO , sub { print "not " unless $_ [ 0 ] eq \\ * FOO ; print "ok $i - star(\\\\*FOO)\\n" ; } ) ;',
             'start_line' => 482,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 11,
+            'token_num' => 12,
             'has_warnings' => 1,
             'end_line' => 483,
-            'src' => ' print "not " unless $_ [ 0 ] eq * FOO ;',
+            'src' => ' print "not " unless $_ [ 0 ] eq \\ * FOO ;',
             'start_line' => 483,
             'indent' => 1,
             'block_id' => 44
@@ -38600,19 +38762,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 33,
+            'token_num' => 35,
             'has_warnings' => 1,
             'end_line' => 521,
-            'src' => ' star2 * FOO , * BAR , sub { print "not " unless $_ [ 0 ] eq * FOO and $_ [ 1 ] eq * BAR ; print "ok $i - star2 *FOO, *BAR\\n" ; } ;',
+            'src' => ' star2 * FOO , * BAR , sub { print "not " unless $_ [ 0 ] eq \\ * FOO and $_ [ 1 ] eq \\ * BAR ; print "ok $i - star2 *FOO, *BAR\\n" ; } ;',
             'start_line' => 518,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 19,
+            'token_num' => 21,
             'has_warnings' => 1,
             'end_line' => 519,
-            'src' => ' print "not " unless $_ [ 0 ] eq * FOO and $_ [ 1 ] eq * BAR ;',
+            'src' => ' print "not " unless $_ [ 0 ] eq \\ * FOO and $_ [ 1 ] eq \\ * BAR ;',
             'start_line' => 519,
             'indent' => 1,
             'block_id' => 53
@@ -38636,19 +38798,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 35,
+            'token_num' => 37,
             'has_warnings' => 1,
             'end_line' => 525,
-            'src' => ' star2 ( * FOO , * BAR , sub { print "not " unless $_ [ 0 ] eq * FOO and $_ [ 1 ] eq * BAR ; print "ok $i - star2(*FOO, *BAR)\\n" ; } ) ;',
+            'src' => ' star2 ( * FOO , * BAR , sub { print "not " unless $_ [ 0 ] eq \\ * FOO and $_ [ 1 ] eq \\ * BAR ; print "ok $i - star2(*FOO, *BAR)\\n" ; } ) ;',
             'start_line' => 522,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 19,
+            'token_num' => 21,
             'has_warnings' => 1,
             'end_line' => 523,
-            'src' => ' print "not " unless $_ [ 0 ] eq * FOO and $_ [ 1 ] eq * BAR ;',
+            'src' => ' print "not " unless $_ [ 0 ] eq \\ * FOO and $_ [ 1 ] eq \\ * BAR ;',
             'start_line' => 523,
             'indent' => 1,
             'block_id' => 54
@@ -38672,10 +38834,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 41,
+            'token_num' => 45,
             'has_warnings' => 1,
             'end_line' => 530,
-            'src' => ' star2 * FOO , * BAR , sub { no strict \'refs\' ; print "not " unless $_ [ 0 ] eq * { \'FOO\' } and $_ [ 1 ] eq * { \'BAR\' } ; print "ok $i - star2 \\*FOO, \\*BAR\\n" ; } ;',
+            'src' => ' star2 \\ * FOO , \\ * BAR , sub { no strict \'refs\' ; print "not " unless $_ [ 0 ] eq \\ * { \'FOO\' } and $_ [ 1 ] eq \\ * { \'BAR\' } ; print "ok $i - star2 \\*FOO, \\*BAR\\n" ; } ;',
             'start_line' => 526,
             'indent' => 0,
             'block_id' => 0
@@ -38690,10 +38852,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 55
           },
           {
-            'token_num' => 23,
+            'token_num' => 25,
             'has_warnings' => 0,
             'end_line' => 528,
-            'src' => ' print "not " unless $_ [ 0 ] eq * { \'FOO\' } and $_ [ 1 ] eq * { \'BAR\' } ;',
+            'src' => ' print "not " unless $_ [ 0 ] eq \\ * { \'FOO\' } and $_ [ 1 ] eq \\ * { \'BAR\' } ;',
             'start_line' => 528,
             'indent' => 1,
             'block_id' => 55
@@ -38717,10 +38879,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 43,
+            'token_num' => 47,
             'has_warnings' => 1,
             'end_line' => 535,
-            'src' => ' star2 ( * FOO , * BAR , sub { no strict \'refs\' ; print "not " unless $_ [ 0 ] eq * { \'FOO\' } and $_ [ 1 ] eq * { \'BAR\' } ; print "ok $i - star2(\\*FOO, \\*BAR)\\n" ; } ) ;',
+            'src' => ' star2 ( \\ * FOO , \\ * BAR , sub { no strict \'refs\' ; print "not " unless $_ [ 0 ] eq \\ * { \'FOO\' } and $_ [ 1 ] eq \\ * { \'BAR\' } ; print "ok $i - star2(\\*FOO, \\*BAR)\\n" ; } ) ;',
             'start_line' => 531,
             'indent' => 0,
             'block_id' => 0
@@ -38735,10 +38897,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 56
           },
           {
-            'token_num' => 23,
+            'token_num' => 25,
             'has_warnings' => 0,
             'end_line' => 533,
-            'src' => ' print "not " unless $_ [ 0 ] eq * { \'FOO\' } and $_ [ 1 ] eq * { \'BAR\' } ;',
+            'src' => ' print "not " unless $_ [ 0 ] eq \\ * { \'FOO\' } and $_ [ 1 ] eq \\ * { \'BAR\' } ;',
             'start_line' => 533,
             'indent' => 1,
             'block_id' => 56

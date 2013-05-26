@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 
 print "1..57\n";
@@ -281,7 +281,7 @@ $test++;
 print "not " unless($a[~~2] == 3);
 print "ok 57\n";
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -1805,6 +1805,15 @@ subtest 'tokenize' => sub {
                    'line' => 45
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 45
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
@@ -1918,6 +1927,15 @@ EOF
                    'name' => 'LeftShift',
                    'data' => '<<',
                    'type' => Compiler::Lexer::TokenType::T_LeftShift,
+                   'line' => 56
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 56
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8790,21 +8808,21 @@ EOT
                    'line' => 265
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'NamespaceResolver',
                    'data' => '::',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_NamespaceResolver,
                    'line' => 265
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'NamespaceResolver',
                    'data' => '::',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_NamespaceResolver,
                    'line' => 265
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8898,21 +8916,21 @@ EOT
                    'line' => 266
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'NamespaceResolver',
                    'data' => '::',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_NamespaceResolver,
                    'line' => 266
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'NamespaceResolver',
                    'data' => '::',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_NamespaceResolver,
                    'line' => 266
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9750,10 +9768,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 6,
+            'token_num' => 7,
             'has_warnings' => 0,
             'end_line' => 45,
-            'src' => ' eval q{print <<\'EOF\';
+            'src' => ' eval << q{print <<\'EOF\';
 ok 10
 EOF
 
@@ -9767,10 +9785,10 @@ EOF
             'block_id' => 0
           },
           {
-            'token_num' => 6,
+            'token_num' => 7,
             'has_warnings' => 0,
             'end_line' => 56,
-            'src' => ' print << EOS . q{ok 12 - make sure single quotes are honored \\nnot ok
+            'src' => ' print << EOS . << q{ok 12 - make sure single quotes are honored \\nnot ok
 EOS
 ok 13
 } ;',
@@ -10731,10 +10749,10 @@ EOT
             'block_id' => 26
           },
           {
-            'token_num' => 4,
+            'token_num' => 2,
             'has_warnings' => 1,
             'end_line' => 266,
-            'src' => ' foo :: ::::bar ;',
+            'src' => ' foo::::::bar ;',
             'start_line' => 266,
             'indent' => 0,
             'block_id' => 0

@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 
 sub foo1 {
@@ -190,7 +190,7 @@ print keys %$href ? 'not ' : '', "ok 35\n";
 autov($href->{b});
 print join(':', %$href) eq 'b:23' ? '' : 'not ', "ok 36\n";
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -6147,6 +6147,15 @@ sub info_main {
                    'line' => 138
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 138
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
@@ -6179,8 +6188,26 @@ sub info_main {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Var',
+                   'data' => '$i',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 140
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 140
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'String',
-                   'data' => '$in : print ',
+                   'data' => 'n : print ',
                    'type' => Compiler::Lexer::TokenType::T_String,
                    'line' => 140
                  }, 'Compiler::Lexer::Token' ),
@@ -6197,8 +6224,26 @@ sub info_main {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Var',
+                   'data' => '$i',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 140
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 140
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'String',
-                   'data' => '$in;
+                   'data' => 'n;
         &iseof(*F);
 	close F or die ',
                    'type' => Compiler::Lexer::TokenType::T_String,
@@ -6417,10 +6462,28 @@ sub iseof {
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 1,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Key',
+                   'data' => 'i',
+                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'line' => 159
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 159
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'String',
-                   'data' => 'in : print ',
+                   'data' => 'n : print ',
                    'type' => Compiler::Lexer::TokenType::T_String,
                    'line' => 159
                  }, 'Compiler::Lexer::Token' ),
@@ -6619,10 +6682,28 @@ sub iseof {
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 1,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Key',
+                   'data' => 'i',
+                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'line' => 167
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 167
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'String',
-                   'data' => 'in : print ',
+                   'data' => 'n : print ',
                    'type' => Compiler::Lexer::TokenType::T_String,
                    'line' => 167
                  }, 'Compiler::Lexer::Token' ),
@@ -8308,7 +8389,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 103,
+            'token_num' => 112,
             'has_warnings' => 1,
             'end_line' => 179,
             'src' => ' & \'mainsomesub(28, \' \'foo, __FILE__, __LINE__);
@@ -8340,9 +8421,9 @@ sub file_main {
 sub info_main {
         local(*F);
 
-        open(F, \' Cmd_subval . \'tmp) || die "test: can\' t open : $! "n;
+        open(F, \' Cmd_subval . \'tmp) || die "test: can\' t open : $! \\ "n;
 	$i++;
-        eof F ? print " not ok "$in : print " ok "$in;
+        eof F ? print " not ok $i \\ "n : print " ok $i \\ "n;
         &iseof(*F);
 	close F or die " \'Cant close: $!";
 }
@@ -8357,11 +8438,11 @@ sub iseof {
 {package foo;
 
  sub main\' file_package { local ( * F ) = @_ ; open ( F , \'Cmd_subval.tmp\' ) || die "can\'t open: $!\\n" ; \'$maini++;
-        eof F ? print "not ok $main\' "in : print " ok \'$maini\\n";
+        eof F ? print "not ok $main\' i \\ "n : print " ok \'$maini\\n";
  }
 
  sub main\' info_package { local ( * F ) ; open ( F , \'Cmd_subval.tmp\' ) || die "can\'t open: $!\\n" ; \'$maini++;
-        eof F ? print "not ok $main\' "in : print " ok \'$maini\\n";
+        eof F ? print "not ok $main\' i \\ "n : print " ok \'$maini\\n";
         &iseof(*F);
  }
 
@@ -8410,11 +8491,11 @@ sub iseof {
             'block_id' => 46
           },
           {
-            'token_num' => 7,
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 174,
             'src' => ' \'$maini++;
-        eof F ? print "not ok $main\' "in : print " ok \'$maini\\n";
+        eof F ? print "not ok $main\' i \\ "n : print " ok \'$maini\\n";
         &iseof(*F);
  }
 

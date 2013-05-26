@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 
 # make sure conditional operators work
@@ -23,7 +23,7 @@ $x != $x && (print "not ok 3\n");
 $x == $x || (print "not ok 4\n");
 $x != $x || (print "ok 4\n");
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);

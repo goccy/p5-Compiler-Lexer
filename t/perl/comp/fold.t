@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl -w
 
 # Uncomment this for testing, but don't leave it in for "production", as
@@ -126,7 +126,7 @@ is ($@, '', 'no error');
    'lone y/// is not bound via =~ after || folding';
 }
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);

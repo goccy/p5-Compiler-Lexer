@@ -407,7 +407,8 @@ Decl            	LocalDecl           	local
 Decl            	OurDecl             	our
 Decl            	StateDecl           	state
 Decl            	UseDecl             	use
-Term            	UsedName            	
+Module          	UsedName            	
+Module          	RequiredName            	
 Stmt            	IfStmt              	if
 Stmt            	ElseStmt            	else
 Stmt            	ElsifStmt           	elsif
@@ -542,6 +543,7 @@ Term            	ExecString
 Term            	VersionString           
 Term            	HereDocumentTag     	
 Term            	HereDocumentRawTag  	
+Term            	HereDocumentExecTag  	
 Term            	RawHereDocument     	
 Term            	HereDocument        	
 Term            	HereDocumentEnd     	

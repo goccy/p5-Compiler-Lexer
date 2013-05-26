@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 
 print "1..13\n";
@@ -78,7 +78,7 @@ if ($_ eq 'abcdef') {print "ok 3\n";} else {print "not ok 3\n";}
     print eval '$t8 =~ /$ub/' ? "ok 13\n" : "not ok 13\t# $t8\n";
 }
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);

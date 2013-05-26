@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 
 # tests for DATA filehandle operations
@@ -87,7 +87,7 @@ nothing
 EXPECT
 ok
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -312,6 +312,15 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 18
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Mul',
                    'data' => '*',
                    'type' => Compiler::Lexer::TokenType::T_Mul,
@@ -426,10 +435,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 8,
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 18,
-            'src' => ' run_multiple_progs ( \'\' , * DATA ) ;',
+            'src' => ' run_multiple_progs ( \'\' , \\ * DATA ) ;',
             'start_line' => 18,
             'indent' => 0,
             'block_id' => 0

@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 
 chdir 't' if -d 't';
@@ -13,7 +13,7 @@ chdir 't' if -d 't';
 $FATAL = 1; # we expect all the tests to croak
 require "../t/lib/common.pl";
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);

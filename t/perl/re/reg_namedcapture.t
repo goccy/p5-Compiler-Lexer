@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 
 BEGIN {
@@ -32,7 +32,7 @@ print eval '*X{HASH}{X} || 1' ? "" :"not ","ok ",++$test,"\n";
 *Y = *!;
 print 0<keys(%Y) ? "" :"not ","ok ",++$test,"\n";
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);

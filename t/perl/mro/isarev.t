@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 
 BEGIN {
@@ -153,7 +153,7 @@ i phoo => qw [],
 %Thrat:: = ();
 i Smin => qw [], '%Package:: list assignment';
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -402,7 +402,7 @@ subtest 'tokenize' => sub {
                    'line' => 11
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -429,7 +429,7 @@ subtest 'tokenize' => sub {
                    'line' => 12
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -519,7 +519,7 @@ subtest 'tokenize' => sub {
                    'line' => 15
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -5796,6 +5796,15 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 128
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Mul',
                    'data' => '*',
                    'type' => Compiler::Lexer::TokenType::T_Mul,
@@ -6051,6 +6060,15 @@ subtest 'tokenize' => sub {
                    'name' => 'Assign',
                    'data' => '=',
                    'type' => Compiler::Lexer::TokenType::T_Assign,
+                   'line' => 132
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 132
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7368,10 +7386,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 5,
+            'token_num' => 6,
             'has_warnings' => 1,
             'end_line' => 128,
-            'src' => ' $_ = * alpha::ISA ;',
+            'src' => ' $_ = \\ * alpha::ISA ;',
             'start_line' => 128,
             'indent' => 0,
             'block_id' => 0
@@ -7404,10 +7422,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 5,
+            'token_num' => 6,
             'has_warnings' => 1,
             'end_line' => 132,
-            'src' => ' $_ = * az::ISA ;',
+            'src' => ' $_ = \\ * az::ISA ;',
             'start_line' => 132,
             'indent' => 0,
             'block_id' => 0

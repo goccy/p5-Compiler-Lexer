@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!/usr/bin/perl -w
 
 BEGIN {
@@ -1853,7 +1853,7 @@ if ($regen) {
     close_and_rename($copy_fh);
 }
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -1967,7 +1967,7 @@ subtest 'tokenize' => sub {
                    'line' => 8
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -1994,7 +1994,7 @@ subtest 'tokenize' => sub {
                    'line' => 9
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -2021,7 +2021,7 @@ subtest 'tokenize' => sub {
                    'line' => 10
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -2057,7 +2057,7 @@ subtest 'tokenize' => sub {
                    'line' => 12
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -2084,7 +2084,7 @@ subtest 'tokenize' => sub {
                    'line' => 13
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -2111,7 +2111,7 @@ subtest 'tokenize' => sub {
                    'line' => 14
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -10798,7 +10798,7 @@ Usage: $0 [ --regen | --cpan | --show_all | FILE ... | --add_link MODULE ... ]\\
                    'line' => 580
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -18252,12 +18252,12 @@ Usage: $0 [ --regen | --cpan | --show_all | FILE ... | --add_link MODULE ... ]\\
                    'line' => 773
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'RequiredName',
                    'data' => 'Encode',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_RequiredName,
                    'line' => 773
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -28603,6 +28603,15 @@ Usage: $0 [ --regen | --cpan | --show_all | FILE ... | --add_link MODULE ... ]\\
                    'name' => 'BuiltinFunc',
                    'data' => 'bless',
                    'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
+                   'line' => 1047
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 1047
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -55134,7 +55143,7 @@ Usage: $0 [ --regen | --cpan | --show_all | FILE ... | --add_link MODULE ... ]\\
           },
           {
             'token_num' => 3,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 773,
             'src' => ' require Encode ;',
             'start_line' => 773,
@@ -56182,10 +56191,10 @@ Usage: $0 [ --regen | --cpan | --show_all | FILE ... | --add_link MODULE ... ]\\
             'block_id' => 76
           },
           {
-            'token_num' => 37,
+            'token_num' => 38,
             'has_warnings' => 1,
             'end_line' => 1051,
-            'src' => ' sub TIEHANDLE { my $class = shift ; my $array_ref = shift ; my $self = bless do { my $anonymous_scalar } , $class ; $array { Scalar::Util::refaddr $self } = $array_ref ; return $self ; }',
+            'src' => ' sub TIEHANDLE { my $class = shift ; my $array_ref = shift ; my $self = bless \\ do { my $anonymous_scalar } , $class ; $array { Scalar::Util::refaddr $self } = $array_ref ; return $self ; }',
             'start_line' => 1043,
             'indent' => 1,
             'block_id' => 76
@@ -56209,10 +56218,10 @@ Usage: $0 [ --regen | --cpan | --show_all | FILE ... | --add_link MODULE ... ]\\
             'block_id' => 77
           },
           {
-            'token_num' => 12,
+            'token_num' => 13,
             'has_warnings' => 1,
             'end_line' => 1047,
-            'src' => ' my $self = bless do { my $anonymous_scalar } , $class ;',
+            'src' => ' my $self = bless \\ do { my $anonymous_scalar } , $class ;',
             'start_line' => 1047,
             'indent' => 2,
             'block_id' => 77

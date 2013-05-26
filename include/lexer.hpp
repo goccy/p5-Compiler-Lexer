@@ -179,7 +179,7 @@ private:
 	TokenInfo annotateFunction(LexContext *ctx, Token *tk);
 	TokenInfo annotateCall(LexContext *ctx, Token *tk);
 	TokenInfo annotateClass(LexContext *ctx, Token *tk);
-	TokenInfo annotateUsedName(LexContext *ctx, Token *tk);
+	TokenInfo annotateModuleName(LexContext *ctx, Token *tk);
 	TokenInfo annotateBareWord(LexContext *ctx, Token *tk);
 };
 

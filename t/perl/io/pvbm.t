@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 
 # Test that various IO functions don't try to treat PVBMs as
@@ -90,7 +90,7 @@ sub PVBM () { 'foo' }
     ok (!eval { open \$pvbm, '<', 'none.such', }, 'open(PVBM ref) fails');
 }
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);

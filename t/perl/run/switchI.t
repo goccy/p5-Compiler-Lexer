@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl -IFoo::Bar -IBla
 
 BEGIN {
@@ -35,7 +35,7 @@ SKIP: {
 	        { switches => ['-IFoo::Bar2'], nolib => 1 }, '-I with colons');
 }
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);

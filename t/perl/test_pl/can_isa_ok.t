@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!/usr/bin/env perl -w
 
 # Test isa_ok() and can_ok() in test.pl
@@ -69,7 +69,7 @@ note "object/class_ok"; {
 
 done_testing;
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -84,7 +84,7 @@ subtest 'tokenize' => sub {
                    'line' => 5
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -111,7 +111,7 @@ subtest 'tokenize' => sub {
                    'line' => 6
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -668,6 +668,15 @@ subtest 'tokenize' => sub {
                    'name' => 'LeftParenthesis',
                    'data' => '(',
                    'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 20
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 20
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2473,10 +2482,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 7,
+            'token_num' => 8,
             'has_warnings' => 1,
             'end_line' => 20,
-            'src' => ' isa_ok ( 42 , \'SCALAR\' ) ;',
+            'src' => ' isa_ok ( \\ 42 , \'SCALAR\' ) ;',
             'start_line' => 20,
             'indent' => 0,
             'block_id' => 0

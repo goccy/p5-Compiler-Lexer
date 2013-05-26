@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 
 my $PERLIO;
@@ -259,7 +259,7 @@ EOT
     ok PerlIO::get_layers(12), 'str/num arguments are treated identically';
 }
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -1021,7 +1021,7 @@ subtest 'tokenize' => sub {
                    'line' => 20
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -10447,6 +10447,15 @@ print ref *PerlIO::Layer::NoWarnings{CODE};
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 240
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Mul',
                    'data' => '*',
                    'type' => Compiler::Lexer::TokenType::T_Mul,
@@ -11423,12 +11432,12 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 915,
+            'token_num' => 916,
             'has_warnings' => 1,
             'end_line' => 253,
             'src' => ' { sub check { my ( $result , $expected , $id ) = @_ ; if ( $NONSTDIO ) { shift @$result if $result-> [ 0 ] eq "unix" ; if ( $FASTSTDIO ) { $expected-> [ 0 ] = $ENV { PERLIO } ; } else { $expected-> [ 0 ] = $ENV { PERLIO } if $expected-> [ 0 ] eq "stdio" ; } } elsif ( ! $FASTSTDIO && ! $DOSISH ) { splice ( @$result , 0 , 2 , "stdio" ) if @$result >= 2 && $result-> [ 0 ] eq "unix" && $result-> [ 1 ] eq "perlio" ; } elsif ( $DOSISH ) { splice ( @$result , 0 , 2 , "stdio" ) if @$result >= 2 && $result-> [ 0 ] eq "unix" && $result-> [ 1 ] eq "crlf" ; } if ( $DOSISH && grep { $_ eq \'crlf\' } @$expected ) { splice @$expected , 1 , 1 if $expected-> [ 1 ] eq \'crlf\' ; } my $n = scalar @$expected ; is ( scalar @$result , $n , "$id - layers == $n" ) ; for ( my $i = 0 ; $i < $n ; $i ++ ) { my $j = $expected-> [ $i ] ; if ( ref $j eq \'CODE\' ) { ok ( $j-> ( $result-> [ $i ] ) , "$id - $i is ok" ) ; } else { is ( $result-> [ $i ] , $j , sprintf ( "$id - $i is %s" , defined $j ? $j : "undef" ) ) ; } } } check ( [ PerlIO::get_layers ( STDIN ) ] , $UTF8_STDIN ? [ "stdio" , "utf8" ] : [ "stdio" ] , "STDIN" ) ; my $afile = tempfile ( ) ; open ( F , ">:crlf" , $afile ) ; check ( [ PerlIO::get_layers ( F ) ] , [ qw(stdio crlf) ] , "open :crlf" ) ; binmode ( F , ":crlf" ) ; check ( [ PerlIO::get_layers ( F ) ] , [ qw(stdio crlf) ] , "binmode :crlf" ) ; binmode ( F , ":encoding(cp1047)" ) ; check ( [ PerlIO::get_layers ( F ) ] , [ qw[stdio crlf encoding(cp1047) utf8] ] , ":encoding(cp1047)" ) ; binmode ( F , ":crlf" ) ; check ( [ PerlIO::get_layers ( F ) ] , [ qw[stdio crlf encoding(cp1047) utf8 crlf utf8] ] , ":encoding(cp1047):crlf" ) ; binmode ( F , ":pop:pop" ) ; check ( [ PerlIO::get_layers ( F ) ] , [ qw(stdio crlf) ] , ":pop" ) ; binmode ( F , ":raw" ) ; check ( [ PerlIO::get_layers ( F ) ] , [ "stdio" ] , ":raw" ) ; binmode ( F , ":utf8" ) ; check ( [ PerlIO::get_layers ( F ) ] , [ qw(stdio utf8) ] , ":utf8" ) ; binmode ( F , ":bytes" ) ; check ( [ PerlIO::get_layers ( F ) ] , [ "stdio" ] , ":bytes" ) ; binmode ( F , ":encoding(utf8)" ) ; check ( [ PerlIO::get_layers ( F ) ] , [ qw[stdio encoding(utf8) utf8] ] , ":encoding(utf8)" ) ; binmode ( F , ":raw :crlf" ) ; check ( [ PerlIO::get_layers ( F ) ] , [ qw(stdio crlf) ] , ":raw:crlf" ) ; binmode ( F , ":raw :encoding(latin1)" ) ; unless ( $DOSISH || ! $FASTSTDIO ) { my @results = PerlIO::get_layers ( F , details => 1 ) ; splice ( @results , 1 , 2 ) if $NONSTDIO ; check ( [ @results ] , [ "stdio" , undef , sub { $_ [ 0 ] > 0 } , "encoding" , "iso-8859-1" , sub { $_ [ 0 ] & PerlIO::F_UTF8 ( ) } ] , ":raw:encoding(latin1)" ) ; } binmode ( F ) ; check ( [ PerlIO::get_layers ( F ) ] , [ "stdio" ] , "binmode" ) ; { local $@ = "foo" ; binmode ( F , ":encoding(utf8)" ) ; is ( $@ , "foo" , \'$@ not clobbered by binmode and :encoding\' ) ; } close F ; { use open ( IN => ":crlf" , OUT => ":encoding(cp1252)" ) ; open F , \'<\' , $afile ; open G , \'>\' , $afile ; check ( [ PerlIO::get_layers ( F , input => 1 ) ] , [ qw(stdio crlf) ] , "use open IN" ) ; check ( [ PerlIO::get_layers ( G , output => 1 ) ] , [ qw[stdio encoding(cp1252) utf8] ] , "use open OUT" ) ; close F ; close G ; } fresh_perl_like ( qq{open(UTF, "<:raw:encoding(utf8)", \'$afile\') or die \\$!;
 print ref *PerlIO::Layer::NoWarnings{CODE};
-} , qr/^CODE/ ) ; my $f ; sub TIESCALAR { bless [ ] } sub FETCH { ++ $f ; $_ [ 0 ] [ 0 ] = $_ [ 1 ] } sub STORE { $_ [ 0 ] [ 0 ] } tie my $t , "" ; $t = * f ; $f = 0 ; PerlIO::get_layers $t ; is $f , 1 , \'1 fetch on tied glob\' ; $t = * f ; $f = 0 ; PerlIO::get_layers $t ; is $f , 1 , \'1 fetch on tied globref\' ; $t = * f ; $f = 0 ; PerlIO::get_layers \\ $t ; is $f , 1 , \'1 fetch on referenced tied glob\' ; $t = \'\' ; $f = 0 ; PerlIO::get_layers $t ; is $f , 1 , \'1 fetch on tied string\' ; open "12" , "<:crlf" , "test.pl" or die "$0 cannot open test.pl: $!" ; ok PerlIO::get_layers ( 12 ) , \'str/num arguments are treated identically\' ; }',
+} , qr/^CODE/ ) ; my $f ; sub TIESCALAR { bless [ ] } sub FETCH { ++ $f ; $_ [ 0 ] [ 0 ] = $_ [ 1 ] } sub STORE { $_ [ 0 ] [ 0 ] } tie my $t , "" ; $t = * f ; $f = 0 ; PerlIO::get_layers $t ; is $f , 1 , \'1 fetch on tied glob\' ; $t = \\ * f ; $f = 0 ; PerlIO::get_layers $t ; is $f , 1 , \'1 fetch on tied globref\' ; $t = * f ; $f = 0 ; PerlIO::get_layers \\ $t ; is $f , 1 , \'1 fetch on referenced tied glob\' ; $t = \'\' ; $f = 0 ; PerlIO::get_layers $t ; is $f , 1 , \'1 fetch on tied string\' ; open "12" , "<:crlf" , "test.pl" or die "$0 cannot open test.pl: $!" ; ok PerlIO::get_layers ( 12 ) , \'str/num arguments are treated identically\' ; }',
             'start_line' => 55,
             'indent' => 0,
             'block_id' => 0
@@ -12138,10 +12147,10 @@ print ref *PerlIO::Layer::NoWarnings{CODE};
             'block_id' => 7
           },
           {
-            'token_num' => 5,
+            'token_num' => 6,
             'has_warnings' => 1,
             'end_line' => 240,
-            'src' => ' $t = * f ;',
+            'src' => ' $t = \\ * f ;',
             'start_line' => 240,
             'indent' => 1,
             'block_id' => 7

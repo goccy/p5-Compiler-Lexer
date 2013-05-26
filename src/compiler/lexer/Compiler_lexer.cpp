@@ -83,9 +83,6 @@ Tokens *Lexer::tokenize(char *script)
 		case ' ': case '\t':
 			tmgr->add(scanner->scanWordDelimiter(&ctx));
 			break;
-		case '\\':
-			tmgr->add(scanner->scanReference(&ctx));
-			break;
 		case '#':
 			tmgr->add(scanner->scanSingleLineComment(&ctx));
 			break;
@@ -116,6 +113,7 @@ Tokens *Lexer::tokenize(char *script)
 		case '!': case '*': case '/': case '%':
 		case '(': case ')': case '{': case '}':
 		case '[': case ']': case '?': case '$':
+		case '\\':
 			tmgr->add(scanner->scanSymbol(&ctx));
 			smgr->idx += ctx.progress;
 			ctx.progress = 0;
@@ -193,6 +191,7 @@ void Lexer::grouping(Tokens *tokens)
 				else break;
 				pos++;
 				move_count++;
+				if (pos == tokens->end()) break;
 				next_tk = ITER_CAST(Token *, pos);
 			} while ((tk->info.type == NamespaceResolver &&
 					 (next_tk && next_tk->info.kind != TokenKind::Symbol &&
@@ -242,38 +241,43 @@ void Lexer::prepare(Tokens *tokens)
 		Token *t = ITER_CAST(Token *, it);
 		switch (t->info.type) {
 		case TokenType::HereDocumentTag: case TokenType::HereDocumentRawTag:
+		case TokenType::HereDocumentExecTag:
 			tag_pos = it;
 			break;
-		case TokenType::HereDocument:
-			if (tag_pos == start_pos) {
-				fprintf(stderr, "ERROR!: nothing use HereDocumentTag\n");
-				exit(EXIT_FAILURE);
-			} else {
-				Token *tag = ITER_CAST(Token *, tag_pos);
-				switch (tag->info.type) {
-				case TokenType::HereDocumentTag:
-					tag->info.type = Enum::Token::Type::RegDoubleQuote;
-					tag->info.kind = Enum::Token::Kind::RegPrefix;
-					tag->info.name = "RegDoubleQuote";
-					tag->info.data = "qq";
-					tag->data = "qq{" + t->data + "}";
-					break;
-				case TokenType::HereDocumentRawTag:
-					tag->info.type = Enum::Token::Type::RegQuote;
-					tag->info.kind = Enum::Token::Kind::RegPrefix;
-					tag->info.name = "RegQuote";
-					tag->info.data = "q";
-					tag->data = "q{" + t->data + "}";
-					break;
-				default:
-					break;
-				}
-				tokens->erase(tag_pos-1);
-				tokens->erase(it-1);
-				it--;
-				continue;
+		case TokenType::HereDocument: {
+			assert(tag_pos != start_pos && "ERROR!: nothing use HereDocumentTag");
+			Token *tag = ITER_CAST(Token *, tag_pos);
+			switch (tag->info.type) {
+			case TokenType::HereDocumentTag:
+				tag->info.type = Enum::Token::Type::RegDoubleQuote;
+				tag->info.kind = Enum::Token::Kind::RegPrefix;
+				tag->info.name = "RegDoubleQuote";
+				tag->info.data = "qq";
+				tag->data = "qq{" + t->data + "}";
+				break;
+			case TokenType::HereDocumentRawTag:
+				tag->info.type = Enum::Token::Type::RegQuote;
+				tag->info.kind = Enum::Token::Kind::RegPrefix;
+				tag->info.name = "RegQuote";
+				tag->info.data = "q";
+				tag->data = "q{" + t->data + "}";
+				break;
+			case TokenType::HereDocumentExecTag:
+				tag->info.type = Enum::Token::Type::RegExec;
+				tag->info.kind = Enum::Token::Kind::RegPrefix;
+				tag->info.name = "RegExec";
+				tag->info.data = "qx";
+				tag->data = "qx{" + t->data + "}";
+				break;
+			default:
+				break;
 			}
+			tokens->erase(tag_pos-1);
+			tokens->erase(it-1);
+			it--;
+			continue;
 			break;
+		}
 		case TokenType::HereDocumentEnd:
 			tokens->erase(it);
 			continue;
@@ -666,12 +670,12 @@ Modules *Lexer::getUsedModules(Token *root)
 		if (tks[i]->info.type == UseDecl && i + 1 < root->token_num) {
 			const char *module_name = cstr(tks[i+1]->data);
 			string args;
-			for (i += 2; tks[i]->info.type != SemiColon; i++) {
+			for (i += 2; tks[i]->info.type != SemiColon && i < root->token_num; i++) {
 				args += " " + string(tks[i]->deparse());
 			}
 			ret->push_back(new Module(module_name, (new string(args))->c_str()));
 		}
-		if (tks[i]->token_num > 0) {
+		if (tks[i]->token_num > 0 && i < root->token_num) {
 			Modules *new_mds = getUsedModules(tks[i]);
 			ret->insert(ret->end(), new_mds->begin(), new_mds->end());
 		}

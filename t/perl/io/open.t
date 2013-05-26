@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 
 BEGIN {
@@ -385,7 +385,7 @@ SKIP: {
     ok( $INC{'IO/File.pm'}, "IO::File now loaded" );
 }
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -580,7 +580,7 @@ subtest 'tokenize' => sub {
                    'line' => 10
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -607,7 +607,7 @@ subtest 'tokenize' => sub {
                    'line' => 11
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -6009,7 +6009,7 @@ subtest 'tokenize' => sub {
                    'line' => 112
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -6144,7 +6144,7 @@ subtest 'tokenize' => sub {
                    'line' => 114
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -11963,6 +11963,15 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 226
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Mul',
                    'data' => '*',
                    'type' => Compiler::Lexer::TokenType::T_Mul,
@@ -12167,7 +12176,7 @@ subtest 'tokenize' => sub {
                    'line' => 230
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -12920,6 +12929,15 @@ subtest 'tokenize' => sub {
                    'name' => 'Comma',
                    'data' => ',',
                    'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'line' => 246
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 246
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -14975,7 +14993,7 @@ subtest 'tokenize' => sub {
                    'line' => 286
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -17658,6 +17676,15 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 367
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Mul',
                    'data' => '*',
                    'type' => Compiler::Lexer::TokenType::T_Mul,
@@ -19697,19 +19724,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 19
           },
           {
-            'token_num' => 71,
+            'token_num' => 72,
             'has_warnings' => 1,
             'end_line' => 236,
-            'src' => ' { ok ( open ( my $stdout , ">&" , * STDOUT ) , \'dup \\*STDOUT into lexical fh\' ) ; ok ( open ( STDOUT , ">&" , $stdout ) , \'restore dupped STDOUT from lexical fh\' ) ; { use strict ; ok ( open ( my $stdout , ">&" , STDOUT ) , \'dup STDOUT into lexical fh\' ) ; } ok ( open ( my $stdin , "<&" , fileno STDIN ) , \'dup fileno(STDIN) into lexical fh\' ) or _diag $! ; }',
+            'src' => ' { ok ( open ( my $stdout , ">&" , \\ * STDOUT ) , \'dup \\*STDOUT into lexical fh\' ) ; ok ( open ( STDOUT , ">&" , $stdout ) , \'restore dupped STDOUT from lexical fh\' ) ; { use strict ; ok ( open ( my $stdout , ">&" , STDOUT ) , \'dup STDOUT into lexical fh\' ) ; } ok ( open ( my $stdin , "<&" , fileno STDIN ) , \'dup fileno(STDIN) into lexical fh\' ) or _diag $! ; }',
             'start_line' => 225,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 16,
+            'token_num' => 17,
             'has_warnings' => 1,
             'end_line' => 226,
-            'src' => ' ok ( open ( my $stdout , ">&" , * STDOUT ) , \'dup \\*STDOUT into lexical fh\' ) ;',
+            'src' => ' ok ( open ( my $stdout , ">&" , \\ * STDOUT ) , \'dup \\*STDOUT into lexical fh\' ) ;',
             'start_line' => 226,
             'indent' => 1,
             'block_id' => 20
@@ -19796,10 +19823,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 22
           },
           {
-            'token_num' => 23,
+            'token_num' => 24,
             'has_warnings' => 1,
             'end_line' => 246,
-            'src' => ' ok ( ! open ( F , \'>\' , my $s ) && ${ "!" } { EINVAL } , \'open(reference) raises EINVAL\' ) ;',
+            'src' => ' ok ( ! open ( F , \'>\' , \\ my $s ) && ${ "!" } { EINVAL } , \'open(reference) raises EINVAL\' ) ;',
             'start_line' => 246,
             'indent' => 1,
             'block_id' => 22
@@ -20325,10 +20352,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 32
           },
           {
-            'token_num' => 11,
+            'token_num' => 12,
             'has_warnings' => 1,
             'end_line' => 367,
-            'src' => ' is $var , "hello" , \'[perl #77684]: open $fh, ">", \\$glob_copy\' or unlink * STDOUT ;',
+            'src' => ' is $var , "hello" , \'[perl #77684]: open $fh, ">", \\$glob_copy\' or unlink \\ * STDOUT ;',
             'start_line' => 365,
             'indent' => 1,
             'block_id' => 32

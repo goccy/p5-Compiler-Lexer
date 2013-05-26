@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 
 # ** DO NOT ADD ANY MORE TESTS HERE **
@@ -833,7 +833,7 @@ print "If you get here, you didn't crash\n";
 EXPECT
 If you get here, you didn't crash
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -992,7 +992,7 @@ subtest 'tokenize' => sub {
                    'line' => 17
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -2216,31 +2216,66 @@ subtest 'tokenize' => sub {
                    'line' => 46
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegDelim',
+                   'name' => 'RightParenthesis',
                    'data' => ')',
-                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
                    'line' => 46
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegExp',
-                   'data' => ' {
-	if (eval $1',
-                   'type' => Compiler::Lexer::TokenType::T_RegExp,
+                   'name' => 'LeftBrace',
+                   'data' => '{',
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'line' => 46
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Stmt,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'IfStmt',
+                   'data' => 'if',
+                   'type' => Compiler::Lexer::TokenType::T_IfStmt,
+                   'line' => 47
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 47
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'BuiltinFunc',
+                   'data' => 'eval',
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
                    'line' => 47
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegDelim',
+                   'name' => 'SpecificValue',
+                   'data' => '$1',
+                   'type' => Compiler::Lexer::TokenType::T_SpecificValue,
+                   'line' => 47
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightParenthesis',
                    'data' => ')',
-                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
                    'line' => 47
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2739,11 +2774,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 115,
+            'token_num' => 119,
             'has_warnings' => 1,
             'end_line' => 56,
-            'src' => ' foreach my $prog ( @prgs ) { my ( $raw_prog , $name ) = @$prog ; my $switch ; if ( $raw_prog =~ s/^\\s*(-\\w.*)\\n// ) { $switch = $1 ; } my ( $prog , $expected ) = split (/\\nEXPECT\\n/ , $raw_prog ) ; $prog .= "\\n" ; $expected = \'\' unless defined $expected ; if ( $prog =~/^\\# SKIP: (.+)/m) {
-	if (eval $1) { ok ( 1 , "Skip: $1" ) ; next ; } } $expected =~ s/\\n+$// ; fresh_perl_is ( $prog , $expected , { switches => [ $switch || \'\' ] } , $name ) ; }',
+            'src' => ' foreach my $prog ( @prgs ) { my ( $raw_prog , $name ) = @$prog ; my $switch ; if ( $raw_prog =~ s/^\\s*(-\\w.*)\\n// ) { $switch = $1 ; } my ( $prog , $expected ) = split (/\\nEXPECT\\n/ , $raw_prog ) ; $prog .= "\\n" ; $expected = \'\' unless defined $expected ; if ( $prog =~/^\\# SKIP: (.+)/m ) { if ( eval $1 ) { ok ( 1 , "Skip: $1" ) ; next ; } } $expected =~ s/\\n+$// ; fresh_perl_is ( $prog , $expected , { switches => [ $switch || \'\' ] } , $name ) ; }',
             'start_line' => 34,
             'indent' => 0,
             'block_id' => 0
@@ -2812,14 +2846,22 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 5
           },
           {
-            'token_num' => 32,
+            'token_num' => 27,
             'has_warnings' => 1,
-            'end_line' => 53,
-            'src' => ' if ( $prog =~/^\\# SKIP: (.+)/m) {
-	if (eval $1) { ok ( 1 , "Skip: $1" ) ; next ; } } $expected =~ s/\\n+$// ;',
+            'end_line' => 51,
+            'src' => ' if ( $prog =~/^\\# SKIP: (.+)/m ) { if ( eval $1 ) { ok ( 1 , "Skip: $1" ) ; next ; } }',
             'start_line' => 46,
             'indent' => 1,
             'block_id' => 5
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 50,
+            'src' => ' if ( eval $1 ) { ok ( 1 , "Skip: $1" ) ; next ; }',
+            'start_line' => 47,
+            'indent' => 2,
+            'block_id' => 7
           },
           {
             'token_num' => 7,
@@ -2827,8 +2869,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 48,
             'src' => ' ok ( 1 , "Skip: $1" ) ;',
             'start_line' => 48,
-            'indent' => 1,
-            'block_id' => 6
+            'indent' => 3,
+            'block_id' => 8
           },
           {
             'token_num' => 2,
@@ -2836,8 +2878,17 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 49,
             'src' => ' next ;',
             'start_line' => 49,
+            'indent' => 3,
+            'block_id' => 8
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 53,
+            'src' => ' $expected =~ s/\\n+$// ;',
+            'start_line' => 53,
             'indent' => 1,
-            'block_id' => 6
+            'block_id' => 5
           },
           {
             'token_num' => 19,

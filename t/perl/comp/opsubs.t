@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl -Tw
 
 # Uncomment this for testing, but don't leave it in for "production", as
@@ -215,7 +215,7 @@ from irc://irc.perl.org/p5p 2004/08/12
 
 =cut
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);

@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 
 BEGIN {
@@ -481,7 +481,7 @@ package peen {
 
 "We're included by lib/Tie/Array/std.t so we need to return something true";
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -15719,7 +15719,7 @@ subtest 'tokenize' => sub {
                    'line' => 296
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -17564,7 +17564,7 @@ subtest 'tokenize' => sub {
                    'line' => 346
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -18419,7 +18419,7 @@ subtest 'tokenize' => sub {
                    'line' => 371
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'UsedName',
@@ -20678,57 +20678,165 @@ subtest 'tokenize' => sub {
                    'line' => 411
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegDelim',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 411
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'FunctionDecl',
+                   'data' => 'sub',
+                   'type' => Compiler::Lexer::TokenType::T_FunctionDecl,
+                   'line' => 411
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Function',
+                   'data' => 'get_y',
+                   'type' => Compiler::Lexer::TokenType::T_Function,
+                   'line' => 411
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftBrace',
+                   'data' => '{',
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 411
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegReplaceFrom',
-                   'data' => ' sub get_y { @y=(1..4)',
-                   'type' => Compiler::Lexer::TokenType::T_RegReplaceFrom,
+                   'name' => 'ArrayVar',
+                   'data' => '@y',
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
+                   'line' => 411
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Assign,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Assign',
+                   'data' => '=',
+                   'type' => Compiler::Lexer::TokenType::T_Assign,
+                   'line' => 411
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
                    'line' => 411
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegMiddleDelim',
+                   'name' => 'Int',
+                   'data' => '1',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
+                   'line' => 411
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Slice',
+                   'data' => '..',
+                   'type' => Compiler::Lexer::TokenType::T_Slice,
+                   'line' => 411
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '4',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
+                   'line' => 411
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightParenthesis',
+                   'data' => ')',
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
+                   'line' => 411
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_RegMiddleDelim,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 411
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Return,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Return',
+                   'data' => 'return',
+                   'type' => Compiler::Lexer::TokenType::T_Return,
+                   'line' => 411
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 411
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegReplaceTo',
-                   'data' => ' return \\@y }',
-                   'type' => Compiler::Lexer::TokenType::T_RegReplaceTo,
+                   'name' => 'ArrayVar',
+                   'data' => '@y',
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 411
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegDelim',
+                   'name' => 'RightBrace',
+                   'data' => '}',
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
+                   'line' => 411
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 411
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
-                   'has_warnings' => 0,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 1,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'Key',
                    'data' => 'is',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 412
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -22010,12 +22118,12 @@ subtest 'tokenize' => sub {
                    'line' => 446
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ShortArrayDereference',
                    'data' => '@$',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ShortArrayDereference,
                    'line' => 446
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -22181,12 +22289,12 @@ subtest 'tokenize' => sub {
                    'line' => 448
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ShortArrayDereference',
                    'data' => '@$',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ShortArrayDereference,
                    'line' => 449
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -25722,10 +25830,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 36
           },
           {
-            'token_num' => 82,
+            'token_num' => 94,
             'has_warnings' => 1,
             'end_line' => 416,
-            'src' => ' { my $x = get_x ( ) ; my %x = %$x ; sub get_x { %x = ( 1 .. 4 ) ; return \\ %x } ; is ( join ( " " , map + ( $_ , $x { $_ } ) , sort keys %x ) , "1 2 3 4" , \'bug 70171 (self-assignment via my %x = %$x)\' ) ; my $y = get_y ( ) ; my @y = @$y; sub get_y { @y=(1..4); return \\@y };is ( "@y" , "1 2 3 4" , \'bug 70171 (self-assignment via my @x = @$x)\' ) ; }',
+            'src' => ' { my $x = get_x ( ) ; my %x = %$x ; sub get_x { %x = ( 1 .. 4 ) ; return \\ %x } ; is ( join ( " " , map + ( $_ , $x { $_ } ) , sort keys %x ) , "1 2 3 4" , \'bug 70171 (self-assignment via my %x = %$x)\' ) ; my $y = get_y ( ) ; my @y = @$y ; sub get_y { @y = ( 1 .. 4 ) ; return \\ @y } ; is ( "@y" , "1 2 3 4" , \'bug 70171 (self-assignment via my @x = @$x)\' ) ; }',
             'start_line' => 405,
             'indent' => 0,
             'block_id' => 0
@@ -25794,11 +25902,47 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 37
           },
           {
-            'token_num' => 18,
+            'token_num' => 5,
             'has_warnings' => 0,
-            'end_line' => 415,
-            'src' => ' my @y = @$y; sub get_y { @y=(1..4); return \\@y };is ( "@y" , "1 2 3 4" , \'bug 70171 (self-assignment via my @x = @$x)\' ) ;',
+            'end_line' => 411,
+            'src' => ' my @y = @$y ;',
             'start_line' => 411,
+            'indent' => 1,
+            'block_id' => 37
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 0,
+            'end_line' => 411,
+            'src' => ' sub get_y { @y = ( 1 .. 4 ) ; return \\ @y } ;',
+            'start_line' => 411,
+            'indent' => 1,
+            'block_id' => 37
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 0,
+            'end_line' => 411,
+            'src' => ' sub get_y { @y = ( 1 .. 4 ) ; return \\ @y }',
+            'start_line' => 411,
+            'indent' => 1,
+            'block_id' => 38
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 0,
+            'end_line' => 411,
+            'src' => ' @y = ( 1 .. 4 ) ;',
+            'start_line' => 411,
+            'indent' => 2,
+            'block_id' => 39
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 415,
+            'src' => ' is ( "@y" , "1 2 3 4" , \'bug 70171 (self-assignment via my @x = @$x)\' ) ;',
+            'start_line' => 412,
             'indent' => 1,
             'block_id' => 37
           },
@@ -25818,7 +25962,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my ( $i , $ra , $rh ) ;',
             'start_line' => 420,
             'indent' => 1,
-            'block_id' => 39
+            'block_id' => 40
           },
           {
             'token_num' => 7,
@@ -25827,7 +25971,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' again : my @a = @$ra ;',
             'start_line' => 421,
             'indent' => 1,
-            'block_id' => 39
+            'block_id' => 40
           },
           {
             'token_num' => 5,
@@ -25836,7 +25980,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my %h = %$rh ;',
             'start_line' => 423,
             'indent' => 1,
-            'block_id' => 39
+            'block_id' => 40
           },
           {
             'token_num' => 7,
@@ -25845,7 +25989,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' @a = qw(1 2 3 4) ;',
             'start_line' => 424,
             'indent' => 1,
-            'block_id' => 39
+            'block_id' => 40
           },
           {
             'token_num' => 7,
@@ -25854,7 +25998,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' %h = qw(a 1 b 2 c 3 d 4) ;',
             'start_line' => 425,
             'indent' => 1,
-            'block_id' => 39
+            'block_id' => 40
           },
           {
             'token_num' => 5,
@@ -25863,7 +26007,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $ra = \\ @a ;',
             'start_line' => 426,
             'indent' => 1,
-            'block_id' => 39
+            'block_id' => 40
           },
           {
             'token_num' => 5,
@@ -25872,7 +26016,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $rh = \\ %h ;',
             'start_line' => 427,
             'indent' => 1,
-            'block_id' => 39
+            'block_id' => 40
           },
           {
             'token_num' => 6,
@@ -25881,7 +26025,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' goto again unless $i ++ ;',
             'start_line' => 428,
             'indent' => 1,
-            'block_id' => 39
+            'block_id' => 40
           },
           {
             'token_num' => 9,
@@ -25890,7 +26034,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( "@a" , "1 2 3 4" , \'bug 70171 (self-assignment via my @x = @$x) - goto variant\' ) ;',
             'start_line' => 430,
             'indent' => 1,
-            'block_id' => 39
+            'block_id' => 40
           },
           {
             'token_num' => 27,
@@ -25899,7 +26043,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( join ( " " , map + ( $_ , $h { $_ } ) , sort keys %h ) , "a 1 b 2 c 3 d 4" , \'bug 70171 (self-assignment via my %x = %$x) - goto variant\' ) ;',
             'start_line' => 433,
             'indent' => 1,
-            'block_id' => 39
+            'block_id' => 40
           },
           {
             'token_num' => 6,
@@ -25938,10 +26082,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 3,
+            'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 446,
-            'src' => ' undef @$::ra ;',
+            'src' => ' undef @$:: ra ;',
             'start_line' => 446,
             'indent' => 0,
             'block_id' => 0
@@ -25965,10 +26109,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 8,
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 449,
-            'src' => ' @$::ra = ( \'a\' .. \'z\' ) ;',
+            'src' => ' @$:: ra = ( \'a\' .. \'z\' ) ;',
             'start_line' => 449,
             'indent' => 0,
             'block_id' => 0
@@ -25998,7 +26142,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' skip "no Scalar::Util::weaken on miniperl" , 1 , if is_miniperl ;',
             'start_line' => 454,
             'indent' => 1,
-            'block_id' => 41
+            'block_id' => 42
           },
           {
             'token_num' => 3,
@@ -26007,7 +26151,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' require Scalar::Util ;',
             'start_line' => 455,
             'indent' => 1,
-            'block_id' => 41
+            'block_id' => 42
           },
           {
             'token_num' => 8,
@@ -26016,7 +26160,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' Scalar::Util::weaken ( $a = \\ @ISA ) ;',
             'start_line' => 457,
             'indent' => 2,
-            'block_id' => 42
+            'block_id' => 43
           },
           {
             'token_num' => 7,
@@ -26025,7 +26169,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' @ISA = qw(Foo) ;',
             'start_line' => 458,
             'indent' => 2,
-            'block_id' => 42
+            'block_id' => 43
           },
           {
             'token_num' => 17,
@@ -26034,7 +26178,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' Scalar::Util::weaken ( $a = \\ $ISA [ 0 ] ) ;::is @ISA , 1 , \'backref magic is not copied to elements\' ;',
             'start_line' => 459,
             'indent' => 2,
-            'block_id' => 42
+            'block_id' => 43
           },
           {
             'token_num' => 4,
@@ -26043,7 +26187,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $#ISA = -1 ;',
             'start_line' => 464,
             'indent' => 1,
-            'block_id' => 43
+            'block_id' => 44
           },
           {
             'token_num' => 7,
@@ -26052,7 +26196,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' @ISA = qw(Foo) ;',
             'start_line' => 465,
             'indent' => 1,
-            'block_id' => 43
+            'block_id' => 44
           },
           {
             'token_num' => 10,
@@ -26061,7 +26205,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $ISA [ 0 ] = qw(Sphare) ;',
             'start_line' => 466,
             'indent' => 1,
-            'block_id' => 43
+            'block_id' => 44
           },
           {
             'token_num' => 12,
@@ -26070,7 +26214,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' \'pling\' }::is eval { pling peen } , \'pling\' , \'arylen_p magic does not stop isa magic from being copied\' ;',
             'start_line' => 468,
             'indent' => 2,
-            'block_id' => 44
+            'block_id' => 45
           },
           {
             'token_num' => 2,
@@ -26079,7 +26223,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' "We\'re included by lib/Tie/Array/std.t so we need to return something true" ;',
             'start_line' => 475,
             'indent' => 1,
-            'block_id' => 43
+            'block_id' => 44
           },
           {
             'token_num' => 2,

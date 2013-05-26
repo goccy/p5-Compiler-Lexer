@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 BEGIN {
     chdir 't' if -d 't';
     @INC = qw(../lib .);
@@ -39,7 +39,7 @@ $s =~ m/[\p{Hiragana}\x{104}]/;
 
 is($::count, 1, "Swatch hash caching kept us from reloading swatch hash.");
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);

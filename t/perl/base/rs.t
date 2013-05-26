@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     use_ok('Compiler::Lexer');
 }
-my $script =<<'SCRIPT';
+my $script =<<'__SCRIPT__';
 #!./perl
 # Test $!
 
@@ -250,7 +250,7 @@ sub test_record {
 }
 
 
-SCRIPT
+__SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
@@ -1957,6 +1957,15 @@ subtest 'tokenize' => sub {
                    'line' => 58
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 58
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
@@ -2458,6 +2467,15 @@ subtest 'tokenize' => sub {
                    'name' => 'Assign',
                    'data' => '=',
                    'type' => Compiler::Lexer::TokenType::T_Assign,
+                   'line' => 66
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 66
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6754,6 +6772,15 @@ subtest 'tokenize' => sub {
                    'line' => 208
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 208
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
@@ -6994,6 +7021,15 @@ subtest 'tokenize' => sub {
                    'name' => 'Assign',
                    'data' => '=',
                    'type' => Compiler::Lexer::TokenType::T_Assign,
+                   'line' => 215
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
                    'line' => 215
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7816,6 +7852,15 @@ subtest 'tokenize' => sub {
                    'line' => 238
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Ref',
+                   'data' => '\\',
+                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'line' => 238
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
@@ -8284,10 +8329,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 207,
+            'token_num' => 209,
             'has_warnings' => 1,
             'end_line' => 77,
-            'src' => ' if ( $^O eq \'VMS\' ) { open FDLFILE , "> ./foo.fdl" ; print FDLFILE "RECORD\\n FORMAT VARIABLE\\n" ; close FDLFILE ; open CREATEFILE , "> ./foo.com" ; print CREATEFILE \'$ DEFINE/USER SYS$INPUT NL:\' , "\\n" ; print CREATEFILE \'$ DEFINE/USER SYS$OUTPUT NL:\' , "\\n" ; print CREATEFILE \'$ OPEN YOW []FOO.BAR/WRITE\' , "\\n" ; print CREATEFILE \'$ CLOSE YOW\' , "\\n" ; print CREATEFILE "\\$EXIT\\n" ; close CREATEFILE ; $throwaway = `\\@\\[\\]foo` , "\\n" ; open ( TEMPFILE , ">./foo.bar" ) or print "# open failed $! $^E\\n" ; print TEMPFILE "foo\\nfoobar\\nbaz\\n" ; close TEMPFILE ; open TESTFILE , "<./foo.bar" ; $/ = 10 ; $bar = < TESTFILE > ; if ( $bar eq "foo\\n" ) { print "ok $test_count\\n" ; } else { print "not ok $test_count\\n" ; } $test_count ++ ; $bar = < TESTFILE > ; if ( $bar eq "foobar\\n" ) { print "ok $test_count\\n" ; } else { print "not ok $test_count\\n" ; } $test_count ++ ; $/ = 2 ; $bar = < TESTFILE > ; if ( $bar eq "ba" ) { print "ok $test_count\\n" ; } else { print "not ok $test_count\\n" ; } $test_count ++ ; $bar = < TESTFILE > ; if ( $bar eq "z\\n" ) { print "ok $test_count\\n" ; } else { print "not ok $test_count\\n" ; } $test_count ++ ; close TESTFILE ; 1 while unlink qw(foo.bar foo.com foo.fdl) ; }',
+            'src' => ' if ( $^O eq \'VMS\' ) { open FDLFILE , "> ./foo.fdl" ; print FDLFILE "RECORD\\n FORMAT VARIABLE\\n" ; close FDLFILE ; open CREATEFILE , "> ./foo.com" ; print CREATEFILE \'$ DEFINE/USER SYS$INPUT NL:\' , "\\n" ; print CREATEFILE \'$ DEFINE/USER SYS$OUTPUT NL:\' , "\\n" ; print CREATEFILE \'$ OPEN YOW []FOO.BAR/WRITE\' , "\\n" ; print CREATEFILE \'$ CLOSE YOW\' , "\\n" ; print CREATEFILE "\\$EXIT\\n" ; close CREATEFILE ; $throwaway = `\\@\\[\\]foo` , "\\n" ; open ( TEMPFILE , ">./foo.bar" ) or print "# open failed $! $^E\\n" ; print TEMPFILE "foo\\nfoobar\\nbaz\\n" ; close TEMPFILE ; open TESTFILE , "<./foo.bar" ; $/ = \\ 10 ; $bar = < TESTFILE > ; if ( $bar eq "foo\\n" ) { print "ok $test_count\\n" ; } else { print "not ok $test_count\\n" ; } $test_count ++ ; $bar = < TESTFILE > ; if ( $bar eq "foobar\\n" ) { print "ok $test_count\\n" ; } else { print "not ok $test_count\\n" ; } $test_count ++ ; $/ = \\ 2 ; $bar = < TESTFILE > ; if ( $bar eq "ba" ) { print "ok $test_count\\n" ; } else { print "not ok $test_count\\n" ; } $test_count ++ ; $bar = < TESTFILE > ; if ( $bar eq "z\\n" ) { print "ok $test_count\\n" ; } else { print "not ok $test_count\\n" ; } $test_count ++ ; close TESTFILE ; 1 while unlink qw(foo.bar foo.com foo.fdl) ; }',
             'start_line' => 39,
             'indent' => 0,
             'block_id' => 0
@@ -8428,10 +8473,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 1
           },
           {
-            'token_num' => 4,
+            'token_num' => 5,
             'has_warnings' => 0,
             'end_line' => 58,
-            'src' => ' $/ = 10 ;',
+            'src' => ' $/ = \\ 10 ;',
             'start_line' => 58,
             'indent' => 1,
             'block_id' => 1
@@ -8545,10 +8590,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 1
           },
           {
-            'token_num' => 4,
+            'token_num' => 5,
             'has_warnings' => 0,
             'end_line' => 66,
-            'src' => ' $/ = 2 ;',
+            'src' => ' $/ = \\ 2 ;',
             'start_line' => 66,
             'indent' => 1,
             'block_id' => 1
@@ -9400,10 +9445,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 23
           },
           {
-            'token_num' => 154,
+            'token_num' => 157,
             'has_warnings' => 1,
             'end_line' => 243,
-            'src' => ' sub test_record { * FH = shift ; $/ = 2 ; $bar = < FH > ; if ( $bar ne "12" ) { print "not " ; } print "ok $test_count # \\$/ = \\\\2\\n" ; $test_count ++ ; $/ = "2" ; $bar = < FH > ; if ( $bar ne "34" ) { print "not " ; } print "ok $test_count # \\$/ = \\"2\\"\\n" ; $test_count ++ ; $foo = 2 ; $/ = \\ $foo ; $bar = < FH > ; if ( $bar ne "56" ) { print "not " ; } print "ok $test_count # \\$/ = \\\\\\$foo (\\$foo = 2)\\n" ; $test_count ++ ; $foo = "2" ; $/ = \\ $foo ; $bar = < FH > ; if ( $bar ne "78" ) { print "not " ; } print "ok $test_count # \\$/ = \\\\\\$foo (\\$foo = \\"2\\")\\n" ; $test_count ++ ; $/ = 0 ; $bar = < FH > ; if ( $bar ne "90123456789012345678901234567890" ) { print "not " ; } print "ok $test_count # \\$/ = \\\\0\\n" ; $test_count ++ ; }',
+            'src' => ' sub test_record { * FH = shift ; $/ = \\ 2 ; $bar = < FH > ; if ( $bar ne "12" ) { print "not " ; } print "ok $test_count # \\$/ = \\\\2\\n" ; $test_count ++ ; $/ = \\ "2" ; $bar = < FH > ; if ( $bar ne "34" ) { print "not " ; } print "ok $test_count # \\$/ = \\"2\\"\\n" ; $test_count ++ ; $foo = 2 ; $/ = \\ $foo ; $bar = < FH > ; if ( $bar ne "56" ) { print "not " ; } print "ok $test_count # \\$/ = \\\\\\$foo (\\$foo = 2)\\n" ; $test_count ++ ; $foo = "2" ; $/ = \\ $foo ; $bar = < FH > ; if ( $bar ne "78" ) { print "not " ; } print "ok $test_count # \\$/ = \\\\\\$foo (\\$foo = \\"2\\")\\n" ; $test_count ++ ; $/ = \\ 0 ; $bar = < FH > ; if ( $bar ne "90123456789012345678901234567890" ) { print "not " ; } print "ok $test_count # \\$/ = \\\\0\\n" ; $test_count ++ ; }',
             'start_line' => 204,
             'indent' => 0,
             'block_id' => 0
@@ -9418,10 +9463,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 30
           },
           {
-            'token_num' => 4,
+            'token_num' => 5,
             'has_warnings' => 0,
             'end_line' => 208,
-            'src' => ' $/ = 2 ;',
+            'src' => ' $/ = \\ 2 ;',
             'start_line' => 208,
             'indent' => 1,
             'block_id' => 30
@@ -9472,10 +9517,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 30
           },
           {
-            'token_num' => 4,
+            'token_num' => 5,
             'has_warnings' => 0,
             'end_line' => 215,
-            'src' => ' $/ = "2" ;',
+            'src' => ' $/ = \\ "2" ;',
             'start_line' => 215,
             'indent' => 1,
             'block_id' => 30
@@ -9652,10 +9697,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 30
           },
           {
-            'token_num' => 4,
+            'token_num' => 5,
             'has_warnings' => 0,
             'end_line' => 238,
-            'src' => ' $/ = 0 ;',
+            'src' => ' $/ = \\ 0 ;',
             'start_line' => 238,
             'indent' => 1,
             'block_id' => 30
