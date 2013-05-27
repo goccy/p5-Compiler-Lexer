@@ -1,0 +1,26 @@
+---
+abstract: 'Lexical Analyzer for Perl5'
+author:
+  - 'Masaaki Goshima <goccy54@gmail.com>'
+build_requires:
+  Devel::PPPort: 3.19
+  ExtUtils::MakeMaker: 6.59
+  ExtUtils::ParseXS: 2.21
+  Test::More: 0
+configure_requires:
+  ExtUtils::MakeMaker: 0
+dynamic_config: 0
+generated_by: 'ExtUtils::MakeMaker version 6.64, CPAN::Meta::Converter version 2.120921'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Compiler-Lexer
+no_index:
+  directory:
+    - t
+    - inc
+requires:
+  XSLoader: 0.02
+  perl: 5.008001
+version: 0.12

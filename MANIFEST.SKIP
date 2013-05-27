@@ -2,7 +2,9 @@
 ^MANIFEST\.
 blib/
 .git/
+Makefile
 Makefile.old
+^MYMETA\.
 ppport.h
 \.bak$
 \.tar\.gz$

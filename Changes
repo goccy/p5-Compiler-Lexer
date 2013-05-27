@@ -1,5 +1,11 @@
 Revision history for Compiler-Lexer
 
+0.12 : Mon May 27 16:40:00 2013
+     - added META.yml and optimized annotation methods
+
+0.10 : Mon May 27 11:50:00 2013
+     - supported perl-5.8.1 and fixed some bugs
+
 0.09 : Fri May 24 18:35:00 2013
      - fixed example/bigdata.pl and removed example/lib/BigData.pm
 
