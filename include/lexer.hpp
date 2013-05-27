@@ -156,42 +156,27 @@ private:
 
 class Annotator {
 public:
-	AnnotateMethods *methods;
-	std::vector<std::string> vardecl_list;
-	std::vector<std::string> funcdecl_list;
-	std::vector<std::string> pkgdecl_list;
+	StringMap vardecl_map;
+	StringMap funcdecl_map;
+	StringMap pkgdecl_map;
 	Annotator(void);
 	void annotate(LexContext *ctx, Token *tk);
 private:
-	void setAnnotateMethods(AnnotateMethods *methods);
-	bool search(std::vector<std::string> list, std::string target);
-	bool isReservedKeyword(LexContext *ctx, std::string word);
-	TokenInfo annotateRegOpt(LexContext *ctx, Token *tk);
-	TokenInfo annotateNamespace(LexContext *ctx, Token *tk);
-	TokenInfo annotateMethod(LexContext *ctx, Token *tk);
-	TokenInfo annotateKey(LexContext *ctx, Token *tk);
-	TokenInfo annotateShortScalarDereference(LexContext *ctx, Token *tk);
-	TokenInfo annotateReservedKeyword(LexContext *ctx, Token *tk);
-	TokenInfo annotateNamelessFunction(LexContext *ctx, Token *tk);
-	TokenInfo annotateLocalVariable(LexContext *ctx, Token *tk);
-	TokenInfo annotateVariable(LexContext *ctx, Token *tk);
-	TokenInfo annotateGlobalVariable(LexContext *ctx, Token *tk);
-	TokenInfo annotateFunction(LexContext *ctx, Token *tk);
-	TokenInfo annotateCall(LexContext *ctx, Token *tk);
-	TokenInfo annotateClass(LexContext *ctx, Token *tk);
-	TokenInfo annotateModuleName(LexContext *ctx, Token *tk);
-	TokenInfo annotateBareWord(LexContext *ctx, Token *tk);
-};
-
-typedef TokenInfo (Annotator::*AnnotateMethod)(LexContext *ctx, Token *tk);
-class AnnotateMethods : public std::vector<AnnotateMethod> {
-public:
-	Annotator *executor;
-
-	AnnotateMethods(void);
-	void add(AnnotateMethod method);
-	void setAnnotator(Annotator *executor);
-	std::vector<AnnotateMethod>::iterator iterator(void);
+	void annotateRegOpt(LexContext *ctx, Token *tk, TokenInfo *info);
+	void annotateNamespace(LexContext *ctx, Token *tk, TokenInfo *info);
+	void annotateMethod(LexContext *ctx, Token *tk, TokenInfo *info);
+	void annotateKey(LexContext *ctx, Token *tk, TokenInfo *info);
+	void annotateShortScalarDereference(LexContext *ctx, Token *tk, TokenInfo *info);
+	void annotateReservedKeyword(LexContext *ctx, Token *tk, TokenInfo *info);
+	void annotateNamelessFunction(LexContext *ctx, Token *tk, TokenInfo *info);
+	void annotateLocalVariable(LexContext *ctx, Token *tk, TokenInfo *info);
+	void annotateVariable(LexContext *ctx, Token *tk, TokenInfo *info);
+	void annotateGlobalVariable(LexContext *ctx, Token *tk, TokenInfo *info);
+	void annotateFunction(LexContext *ctx, Token *tk, TokenInfo *info);
+	void annotateCall(LexContext *ctx, Token *tk, TokenInfo *info);
+	void annotateClass(LexContext *ctx, Token *tk, TokenInfo *info);
+	void annotateModuleName(LexContext *ctx, Token *tk, TokenInfo *info);
+	void annotateBareWord(LexContext *ctx, Token *tk, TokenInfo *info);
 };
 
 #define isSKIP() commentFlag

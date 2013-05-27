@@ -670,12 +670,12 @@ Modules *Lexer::getUsedModules(Token *root)
 		if (tks[i]->info.type == UseDecl && i + 1 < root->token_num) {
 			const char *module_name = cstr(tks[i+1]->data);
 			string args;
-			for (i += 2; tks[i]->info.type != SemiColon && i < root->token_num; i++) {
+			for (i += 2; i < root->token_num && tks[i]->info.type != SemiColon; i++) {
 				args += " " + string(tks[i]->deparse());
 			}
 			ret->push_back(new Module(module_name, (new string(args))->c_str()));
 		}
-		if (tks[i]->token_num > 0 && i < root->token_num) {
+		if (i < root->token_num && tks[i]->token_num > 0) {
 			Modules *new_mds = getUsedModules(tks[i]);
 			ret->insert(ret->end(), new_mds->begin(), new_mds->end());
 		}
