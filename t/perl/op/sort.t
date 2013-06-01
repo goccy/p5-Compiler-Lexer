@@ -9196,12 +9196,12 @@ cmp_ok',
                    'line' => 165
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
+                   'name' => 'CallDecl',
                    'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
+                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
                    'line' => 165
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10267,12 +10267,12 @@ cmp_ok',
                    'line' => 180
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
+                   'name' => 'CallDecl',
                    'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
+                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
                    'line' => 180
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -11338,12 +11338,12 @@ cmp_ok',
                    'line' => 195
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
+                   'name' => 'CallDecl',
                    'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
+                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
                    'line' => 195
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -12409,12 +12409,12 @@ cmp_ok',
                    'line' => 210
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
+                   'name' => 'CallDecl',
                    'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
+                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
                    'line' => 210
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -17188,12 +17188,12 @@ cmp_ok',
                    'line' => 292
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
+                   'name' => 'CallDecl',
                    'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
+                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
                    'line' => 292
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -43117,12 +43117,12 @@ cmp_ok',
                    'line' => 781
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
+                   'name' => 'CallDecl',
                    'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
+                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
                    'line' => 781
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -46618,12 +46618,12 @@ cmp_ok',
                    'line' => 836
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
+                   'name' => 'CallDecl',
                    'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
+                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
                    'line' => 836
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -46672,12 +46672,12 @@ cmp_ok',
                    'line' => 836
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
+                   'name' => 'CallDecl',
                    'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
+                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
                    'line' => 836
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -50217,12 +50217,12 @@ cmp_ok',
                    'line' => 949
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
+                   'name' => 'CallDecl',
                    'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
+                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
                    'line' => 949
                  }, 'Compiler::Lexer::Token' ),
           bless( {

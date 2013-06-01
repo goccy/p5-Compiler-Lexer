@@ -34699,12 +34699,12 @@ subtest 'tokenize' => sub {
                    'line' => 760
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
+                   'name' => 'CallDecl',
                    'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
+                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
                    'line' => 760
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -34798,12 +34798,12 @@ subtest 'tokenize' => sub {
                    'line' => 761
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
+                   'name' => 'CallDecl',
                    'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
+                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
                    'line' => 761
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -35698,12 +35698,12 @@ subtest 'tokenize' => sub {
                    'line' => 778
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
+                   'name' => 'CallDecl',
                    'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
+                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
                    'line' => 778
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -36157,12 +36157,12 @@ subtest 'tokenize' => sub {
                    'line' => 787
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
+                   'name' => 'CallDecl',
                    'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
+                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
                    'line' => 787
                  }, 'Compiler::Lexer::Token' ),
           bless( {

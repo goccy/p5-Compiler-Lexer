@@ -2416,12 +2416,12 @@ print "ok";
                    'line' => 80
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
+                   'name' => 'CallDecl',
                    'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
+                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
                    'line' => 80
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4450,12 +4450,12 @@ print do \'op/threads_create.pl\' || die $@;
                    'line' => 156
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
+                   'name' => 'CallDecl',
                    'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
+                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
                    'line' => 156
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4990,12 +4990,12 @@ print do \'op/threads_create.pl\' || die $@;
                    'line' => 172
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
+                   'name' => 'CallDecl',
                    'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
+                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
                    'line' => 172
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6415,12 +6415,12 @@ print create threads sub {
                    'line' => 260
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
+                   'name' => 'CallDecl',
                    'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
+                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
                    'line' => 260
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7027,12 +7027,12 @@ print create threads sub {
                    'line' => 278
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
+                   'name' => 'CallDecl',
                    'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
+                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
                    'line' => 278
                  }, 'Compiler::Lexer::Token' ),
           bless( {

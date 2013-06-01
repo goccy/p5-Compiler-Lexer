@@ -167,6 +167,7 @@ private:
 	void annotateMethod(LexContext *ctx, Token *tk, TokenInfo *info);
 	void annotateKey(LexContext *ctx, Token *tk, TokenInfo *info);
 	void annotateShortScalarDereference(LexContext *ctx, Token *tk, TokenInfo *info);
+	void annotateCallDecl(LexContext *ctx, Token *tk, TokenInfo *info);
 	void annotateReservedKeyword(LexContext *ctx, Token *tk, TokenInfo *info);
 	void annotateNamelessFunction(LexContext *ctx, Token *tk, TokenInfo *info);
 	void annotateLocalVariable(LexContext *ctx, Token *tk, TokenInfo *info);

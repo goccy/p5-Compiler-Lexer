@@ -30,6 +30,7 @@ void Annotator::annotate(LexContext *ctx, Token *tk)
 	ANNOTATE(annotateMethod, info);
 	ANNOTATE(annotateKey, info);
 	ANNOTATE(annotateShortScalarDereference, info);
+	ANNOTATE(annotateCallDecl, info);
 	ANNOTATE(annotateReservedKeyword, info);
 	ANNOTATE(annotateNamelessFunction, info);
 	ANNOTATE(annotateLocalVariable, info);
@@ -94,6 +95,15 @@ void Annotator::annotateShortScalarDereference(LexContext *ctx, Token *tk, Token
 	if (next_tk && data == "$$" &&
 		(isalpha(next_tk->data[0]) || next_tk->data[0] == '_')) {
 		*info = ctx->tmgr->getTokenInfo(ShortScalarDereference);
+	}
+}
+
+void Annotator::annotateCallDecl(LexContext *ctx, Token *tk, TokenInfo *info)
+{
+	Token *prev_tk = ctx->tmgr->previousToken();
+	string data = tk->data;
+	if (prev_tk && prev_tk->info.type == TokenType::Ref && tk->data == "&") {
+		*info = ctx->tmgr->getTokenInfo(CallDecl);
 	}
 }
 
