@@ -11,3 +11,4 @@ MYMETA.yml
 Makefile
 Makefile.old
 src/Compiler-Lexer.cpp
+.DS_Store

@@ -8776,13 +8776,12 @@ YYY: print "OK\\n";
                    'line' => 240
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => '
-close',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'BuiltinFunc',
+                   'data' => 'close',
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
                    'line' => 241
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -23784,8 +23783,7 @@ YYY: print "OK\\n";
             'token_num' => 3,
             'has_warnings' => 1,
             'end_line' => 241,
-            'src' => ' 
-close $f ;',
+            'src' => ' close $f ;',
             'start_line' => 241,
             'indent' => 0,
             'block_id' => 0

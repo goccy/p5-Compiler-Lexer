@@ -3,12 +3,14 @@
 use strict;
 use warnings;
 
-my (@info, @token_enum, @kind_enum);
+my (@info, @token_enum, @kind_enum, @type_to_info);
 foreach (<DATA>) {
     my ($kind, $type, $data) = split /\s+/;
-    push @info, { type => "$type", kind => "$kind", data => "$data" };
+    my $info = { type => "$type", kind => "$kind", data => "$data" };
+    push @info, $info;
     unless (grep { $_ eq $type } @token_enum) {
         push @token_enum, $type;
+        $type_to_info[scalar @token_enum - 1] = $info;
     }
     unless (grep { $_ eq $kind } @kind_enum) {
         push @kind_enum, $kind if ($kind);
@@ -20,6 +22,23 @@ my $token_kind = join ",\n", map { "\t$_" } @kind_enum;
 my $token_info = join ",\n", map {
     sprintf(qq|\t{Enum::Token::Type::%s, Enum::Token::Kind::%s, "%s", "%s"}|,
             $_->{type}, $_->{kind}, $_->{type}, $_->{data});
+} @info;
+
+my $type_to_info = join ",\n", map {
+    sprintf(qq|\t{Enum::Token::Type::%s, Enum::Token::Kind::%s, "%s", "%s"}|,
+            $_->{type}, $_->{kind}, $_->{type}, $_->{data});
+} @type_to_info;
+
+my %keyword_map;
+$keyword_map{$_->{data}}++ foreach @info;
+
+my $keywords = join "\n", map {
+    sprintf(qq|"%s", {Enum::Token::Type::%s, Enum::Token::Kind::%s, "%s", "%s"}|,
+            $_->{data}, $_->{type}, $_->{kind}, $_->{type}, $_->{data});
+} grep {
+    $keyword_map{$_->{data}} == 1
+} grep {
+    $_->{data}
 } @info;
 
 my $count = 0;
@@ -58,6 +77,10 @@ TokenInfo decl_tokens[] = {
 $token_info
 };
 
+TokenInfo type_to_info[] = {
+$type_to_info
+};
+
 CODE
 
 open($fh, '>', 'lib/Compiler/Lexer/Constants.pm');
@@ -89,6 +112,24 @@ use constant {
 $token_kind_enums
 };
 1;
+CODE
+
+open($fh, '>', 'gen/reserved_keywords.gperf');
+print $fh <<CODE;
+%{
+
+#include <lexer.hpp>
+
+typedef struct _ReservedKeyword {
+    const char *name;
+    TokenInfo info;
+} ReservedKeyword;
+%}
+
+ReservedKeyword;
+%%
+$keywords
+%%
 CODE
 
 close($fh);
@@ -184,7 +225,6 @@ Function        	BuiltinFunc         	quotemeta
 Function        	BuiltinFunc         	split
 Function        	BuiltinFunc         	study
 Function        	BuiltinFunc         	pop
-Function        	BuiltinFunc         	pop
 Function        	BuiltinFunc         	push
 Function        	BuiltinFunc         	splice
 Function        	BuiltinFunc         	shift
@@ -226,7 +266,6 @@ Function        	BuiltinFunc         	telldir
 Function        	BuiltinFunc         	truncate
 Function        	BuiltinFunc         	warn
 Function        	BuiltinFunc         	write
-Function        	BuiltinFunc         	syswrite
 Function        	BuiltinFunc         	vec
 Function        	BuiltinFunc         	chdir
 Function        	BuiltinFunc         	chmod
@@ -304,7 +343,6 @@ Function        	BuiltinFunc         	endhostent
 Function        	BuiltinFunc         	endnetent
 Function        	BuiltinFunc         	endpwent
 Function        	BuiltinFunc         	getgrent
-Function        	BuiltinFunc         	getgrent
 Function        	BuiltinFunc         	getgrgid
 Function        	BuiltinFunc         	getgrnam
 Function        	BuiltinFunc         	getlogin
@@ -334,7 +372,6 @@ Function        	BuiltinFunc         	setservent
 Function        	BuiltinFunc         	gmtime
 Function        	BuiltinFunc         	localtime
 Function        	BuiltinFunc         	time
-Function        	BuiltinFunc         	times
 Function        	BuiltinFunc         	ref
 Function        	BuiltinFunc         	bless
 Function        	BuiltinFunc         	defined

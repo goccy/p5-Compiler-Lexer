@@ -3401,129 +3401,30 @@ subtest 'tokenize' => sub {
                    'line' => 56
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
-                   'line' => 56
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitXOr',
-                   'data' => '^',
-                   'type' => Compiler::Lexer::TokenType::T_BitXOr,
-                   'line' => 56
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftParenthesis',
-                   'data' => '(',
-                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
-                   'line' => 56
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBracket',
-                   'data' => '[',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBracket,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 56
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Int',
-                   'data' => '0',
-                   'type' => Compiler::Lexer::TokenType::T_Int,
+                   'name' => 'RegExp',
+                   'data' => '^([0-9][0-9]*)',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 56
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Int',
-                   'data' => '-9',
-                   'type' => Compiler::Lexer::TokenType::T_Int,
-                   'line' => 56
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RightBracket',
-                   'data' => ']',
-                   'type' => Compiler::Lexer::TokenType::T_RightBracket,
-                   'line' => 56
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBracket',
-                   'data' => '[',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBracket,
-                   'line' => 56
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Int',
-                   'data' => '0',
-                   'type' => Compiler::Lexer::TokenType::T_Int,
-                   'line' => 56
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Int',
-                   'data' => '-9',
-                   'type' => Compiler::Lexer::TokenType::T_Int,
-                   'line' => 56
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RightBracket',
-                   'data' => ']',
-                   'type' => Compiler::Lexer::TokenType::T_RightBracket,
-                   'line' => 56
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Mul',
-                   'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Mul,
-                   'line' => 56
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RightParenthesis',
-                   'data' => ')',
-                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
-                   'line' => 56
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 56
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3644,111 +3545,30 @@ subtest 'tokenize' => sub {
                    'line' => 61
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
-                   'line' => 61
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftParenthesis',
-                   'data' => '(',
-                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 61
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'a',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 61
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Mul',
-                   'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Mul,
+                   'name' => 'RegExp',
+                   'data' => '(a*b*)(c*)',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 61
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'b',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 61
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Mul',
-                   'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Mul,
-                   'line' => 61
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RightParenthesis',
-                   'data' => ')',
-                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
-                   'line' => 61
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftParenthesis',
-                   'data' => '(',
-                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
-                   'line' => 61
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'c',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 61
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Mul',
-                   'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Mul,
-                   'line' => 61
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RightParenthesis',
-                   'data' => ')',
-                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
-                   'line' => 61
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 61
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3887,93 +3707,30 @@ subtest 'tokenize' => sub {
                    'line' => 63
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
-                   'line' => 63
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftParenthesis',
-                   'data' => '(',
-                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 63
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'a',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 63
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Add',
-                   'data' => '+',
-                   'type' => Compiler::Lexer::TokenType::T_Add,
+                   'name' => 'RegExp',
+                   'data' => '(a+b+c+)',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 63
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'b',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 63
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Add',
-                   'data' => '+',
-                   'type' => Compiler::Lexer::TokenType::T_Add,
-                   'line' => 63
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'c',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 63
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Add',
-                   'data' => '+',
-                   'type' => Compiler::Lexer::TokenType::T_Add,
-                   'line' => 63
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RightParenthesis',
-                   'data' => ')',
-                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
-                   'line' => 63
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 63
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4247,69 +4004,6 @@ subtest 'tokenize' => sub {
                    'line' => 67
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
-                   'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
-                   'line' => 67
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'a',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 67
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Add',
-                   'data' => '+',
-                   'type' => Compiler::Lexer::TokenType::T_Add,
-                   'line' => 67
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'b',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 67
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'ThreeTermOperator',
-                   'data' => '?',
-                   'type' => Compiler::Lexer::TokenType::T_ThreeTermOperator,
-                   'line' => 67
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'c',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 67
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Add',
-                   'data' => '+',
-                   'type' => Compiler::Lexer::TokenType::T_Add,
-                   'line' => 67
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
@@ -4323,7 +4017,7 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegExp',
-                   'data' => ', qq [\\$_ = \'$_\'; ',
+                   'data' => 'a+b?c+',
                    'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 67
                  }, 'Compiler::Lexer::Token' ),
@@ -4337,57 +4031,21 @@ subtest 'tokenize' => sub {
                    'line' => 67
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
-                   'data' => 'a',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
                    'line' => 67
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_RegPrefix,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Add',
-                   'data' => '+',
-                   'type' => Compiler::Lexer::TokenType::T_Add,
-                   'line' => 67
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'b',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 67
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'ThreeTermOperator',
-                   'data' => '?',
-                   'type' => Compiler::Lexer::TokenType::T_ThreeTermOperator,
-                   'line' => 67
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'c',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 67
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Add',
-                   'data' => '+',
-                   'type' => Compiler::Lexer::TokenType::T_Add,
+                   'name' => 'RegDoubleQuote',
+                   'data' => 'qq',
+                   'type' => Compiler::Lexer::TokenType::T_RegDoubleQuote,
                    'line' => 67
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4395,7 +4053,7 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegDelim',
-                   'data' => '/',
+                   'data' => '[',
                    'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 67
                  }, 'Compiler::Lexer::Token' ),
@@ -4404,72 +4062,35 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegExp',
-                   'data' => '];
-         ok ',
+                   'data' => '\\$_ = \'$_\'; /a+b?c+/',
                    'type' => Compiler::Lexer::TokenType::T_RegExp,
-                   'line' => 68
+                   'line' => 67
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegDelim',
-                   'data' => '/',
+                   'data' => ']',
                    'type' => Compiler::Lexer::TokenType::T_RegDelim,
-                   'line' => 68
+                   'line' => 67
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
-                   'data' => 'a',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
-                   'line' => 68
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Mul',
-                   'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Mul,
-                   'line' => 68
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 67
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 1,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Key',
-                   'data' => 'b',
+                   'data' => 'ok',
                    'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 68
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'ThreeTermOperator',
-                   'data' => '?',
-                   'type' => Compiler::Lexer::TokenType::T_ThreeTermOperator,
-                   'line' => 68
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'c',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 68
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Mul',
-                   'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Mul,
                    'line' => 68
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4486,7 +4107,7 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegExp',
-                   'data' => ', qq [\\$_ = \'$_\'; ',
+                   'data' => 'a*b?c*',
                    'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 68
                  }, 'Compiler::Lexer::Token' ),
@@ -4500,57 +4121,21 @@ subtest 'tokenize' => sub {
                    'line' => 68
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
-                   'data' => 'a',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
                    'line' => 68
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_RegPrefix,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Mul',
-                   'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Mul,
-                   'line' => 68
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'b',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 68
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'ThreeTermOperator',
-                   'data' => '?',
-                   'type' => Compiler::Lexer::TokenType::T_ThreeTermOperator,
-                   'line' => 68
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'c',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 68
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Mul',
-                   'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Mul,
+                   'name' => 'RegDoubleQuote',
+                   'data' => 'qq',
+                   'type' => Compiler::Lexer::TokenType::T_RegDoubleQuote,
                    'line' => 68
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4558,7 +4143,7 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegDelim',
-                   'data' => '/',
+                   'data' => '[',
                    'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 68
                  }, 'Compiler::Lexer::Token' ),
@@ -4567,74 +4152,71 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegExp',
-                   'data' => '];
-
-        $_ = \'aaaccc\';
-         ok ',
+                   'data' => '\\$_ = \'$_\'; /a*b?c*/',
                    'type' => Compiler::Lexer::TokenType::T_RegExp,
-                   'line' => 71
+                   'line' => 68
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegDelim',
-                   'data' => '/',
+                   'data' => ']',
                    'type' => Compiler::Lexer::TokenType::T_RegDelim,
-                   'line' => 71
+                   'line' => 68
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
-                   'data' => 'a',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
-                   'line' => 71
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 68
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Mul',
-                   'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Mul,
-                   'line' => 71
+                   'name' => 'SpecificValue',
+                   'data' => '$_',
+                   'type' => Compiler::Lexer::TokenType::T_SpecificValue,
+                   'line' => 70
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Assign,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Assign',
+                   'data' => '=',
+                   'type' => Compiler::Lexer::TokenType::T_Assign,
+                   'line' => 70
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RawString',
+                   'data' => 'aaaccc',
+                   'type' => Compiler::Lexer::TokenType::T_RawString,
+                   'line' => 70
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 70
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 1,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Key',
-                   'data' => 'b',
+                   'data' => 'ok',
                    'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 71
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'ThreeTermOperator',
-                   'data' => '?',
-                   'type' => Compiler::Lexer::TokenType::T_ThreeTermOperator,
-                   'line' => 71
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'c',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 71
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Mul',
-                   'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Mul,
                    'line' => 71
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4651,7 +4233,7 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegExp',
-                   'data' => ', qq [\\$_ = \'$_\'; ',
+                   'data' => 'a*b?c*',
                    'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 71
                  }, 'Compiler::Lexer::Token' ),
@@ -4665,57 +4247,21 @@ subtest 'tokenize' => sub {
                    'line' => 71
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
-                   'data' => 'a',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
                    'line' => 71
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_RegPrefix,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Mul',
-                   'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Mul,
-                   'line' => 71
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'b',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 71
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'ThreeTermOperator',
-                   'data' => '?',
-                   'type' => Compiler::Lexer::TokenType::T_ThreeTermOperator,
-                   'line' => 71
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'c',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 71
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Mul',
-                   'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Mul,
+                   'name' => 'RegDoubleQuote',
+                   'data' => 'qq',
+                   'type' => Compiler::Lexer::TokenType::T_RegDoubleQuote,
                    'line' => 71
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4723,7 +4269,7 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegDelim',
-                   'data' => '/',
+                   'data' => '[',
                    'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 71
                  }, 'Compiler::Lexer::Token' ),
@@ -4732,72 +4278,71 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegExp',
-                   'data' => '];
-        unlike($_, qr',
+                   'data' => '\\$_ = \'$_\'; /a*b?c*/',
                    'type' => Compiler::Lexer::TokenType::T_RegExp,
-                   'line' => 72
+                   'line' => 71
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegDelim',
-                   'data' => '/',
+                   'data' => ']',
                    'type' => Compiler::Lexer::TokenType::T_RegDelim,
-                   'line' => 72
+                   'line' => 71
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
-                   'data' => 'a',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
-                   'line' => 72
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Mul',
-                   'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Mul,
-                   'line' => 72
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 71
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 1,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Key',
-                   'data' => 'b',
+                   'data' => 'unlike',
                    'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 72
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Add',
-                   'data' => '+',
-                   'type' => Compiler::Lexer::TokenType::T_Add,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
                    'line' => 72
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'c',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'SpecificValue',
+                   'data' => '$_',
+                   'type' => Compiler::Lexer::TokenType::T_SpecificValue,
                    'line' => 72
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Mul',
-                   'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Mul,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'line' => 72
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_RegPrefix,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegDecl',
+                   'data' => 'qr',
+                   'type' => Compiler::Lexer::TokenType::T_RegDecl,
                    'line' => 72
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4814,7 +4359,7 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegExp',
-                   'data' => ', qq [\\$_ = \'$_\'; ',
+                   'data' => 'a*b+c*',
                    'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 72
                  }, 'Compiler::Lexer::Token' ),
@@ -4828,57 +4373,21 @@ subtest 'tokenize' => sub {
                    'line' => 72
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
-                   'data' => 'a',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
                    'line' => 72
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_RegPrefix,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Mul',
-                   'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Mul,
-                   'line' => 72
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'b',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 72
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Add',
-                   'data' => '+',
-                   'type' => Compiler::Lexer::TokenType::T_Add,
-                   'line' => 72
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'c',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 72
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Mul',
-                   'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Mul,
+                   'name' => 'RegDoubleQuote',
+                   'data' => 'qq',
+                   'type' => Compiler::Lexer::TokenType::T_RegDoubleQuote,
                    'line' => 72
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4886,7 +4395,7 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegDelim',
-                   'data' => '/',
+                   'data' => '[',
                    'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 72
                  }, 'Compiler::Lexer::Token' ),
@@ -4895,11 +4404,80 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegExp',
-                   'data' => ']);
-
-        $_ = \'abcdef\';
-         ok ',
+                   'data' => '\\$_ = \'$_\'; /a*b+c*/',
                    'type' => Compiler::Lexer::TokenType::T_RegExp,
+                   'line' => 72
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegDelim',
+                   'data' => ']',
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
+                   'line' => 72
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightParenthesis',
+                   'data' => ')',
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
+                   'line' => 72
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 72
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SpecificValue',
+                   'data' => '$_',
+                   'type' => Compiler::Lexer::TokenType::T_SpecificValue,
+                   'line' => 74
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Assign,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Assign',
+                   'data' => '=',
+                   'type' => Compiler::Lexer::TokenType::T_Assign,
+                   'line' => 74
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RawString',
+                   'data' => 'abcdef',
+                   'type' => Compiler::Lexer::TokenType::T_RawString,
+                   'line' => 74
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 74
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 1,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Key',
+                   'data' => 'ok',
+                   'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 75
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4912,39 +4490,21 @@ subtest 'tokenize' => sub {
                    'line' => 75
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
-                   'data' => 'bcd',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
-                   'line' => 75
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitOr',
-                   'data' => '|',
-                   'type' => Compiler::Lexer::TokenType::T_BitOr,
+                   'name' => 'RegExp',
+                   'data' => 'bcd|xyz',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 75
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'xyz',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 75
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 75
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5011,48 +4571,30 @@ subtest 'tokenize' => sub {
                    'line' => 76
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 76
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'xyz',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 76
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitOr',
-                   'data' => '|',
-                   'type' => Compiler::Lexer::TokenType::T_BitOr,
+                   'name' => 'RegExp',
+                   'data' => 'xyz|bcd',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 76
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'bcd',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 76
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 76
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5218,39 +4760,30 @@ subtest 'tokenize' => sub {
                    'line' => 78
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
-                   'line' => 78
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitXOr',
-                   'data' => '^',
-                   'type' => Compiler::Lexer::TokenType::T_BitXOr,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 78
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'SpecificValue',
-                   'data' => '$_',
-                   'type' => Compiler::Lexer::TokenType::T_SpecificValue,
+                   'name' => 'RegExp',
+                   'data' => '^$_$',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 78
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'SpecificValue',
-                   'data' => '$/',
-                   'type' => Compiler::Lexer::TokenType::T_SpecificValue,
+                   'name' => 'RegDelim',
+                   'data' => '/',
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 78
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -62705,18 +62238,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 6728,
+            'token_num' => 6677,
             'has_warnings' => 1,
             'end_line' => 1263,
-            'src' => ' sub run_tests { { my $x = "abc\\ndef\\n" ; ( my $x_pretty = $x ) =~ s/\\n/\\\\n/g ; ok $x =~/^abc/ , qq["$x_pretty" =~ /^abc/] ; ok $x !~/^def/ , qq["$x_pretty" !~ /^def/] ; ok $x =~/^def/m , qq["$x_pretty" =~ /^def/m] ; ok ( ! ( $x =~/^xxx/ ) , qq["$x_pretty" =~ /^xxx/] ) ; ok ( ! ( $x !~/^abc/ ) , qq["$x_pretty" !~ /^abc/] ) ; ok $x =~/def/ , qq["$x_pretty" =~ /def/] ; ok ( ! ( $x !~/def/ ) , qq["$x_pretty" !~ /def/] ) ; ok $x !~/.def/ , qq["$x_pretty" !~ /.def/] ; ok ( ! ( $x =~/.def/ ) , qq["$x_pretty" =~ /.def/] ) ; ok $x =~/\\ndef/ , qq["$x_pretty" =~ /\\\\ndef/] ; ok ( ! ( $x !~/\\ndef/ ) , qq["$x_pretty" !~ /\\\\ndef/] ) ; } { $_ = \'123\' ; ok / ^ ( [ 0 -9 ] [ 0 -9 ] * ) / , qq[\\$_ = \'$_\'; /^([0-9][0-9]*)/] ; } { $_ = \'aaabbbccc\' ; ok / ( a * b * ) ( c * ) / && $1 eq \'aaabbb\' && $2 eq \'ccc\' , qq[\\$_ = \'$_\'; /(a*b*)(c*)/] ; ok / ( a + b + c + ) / && $1 eq \'aaabbbccc\' , qq[\\$_ = \'$_\'; /(a+b+c+)/] ; unlike ( $_ , qr/a+b?c+/ , qq[\\$_ = \'$_\'; /a+b?c+/] ) ; $_ = \'aaabccc\' ; ok / a + b ? c +/, qq [\\$_ = \'$_\'; /a + b ? c +/];
-         ok /a * b ? c */, qq [\\$_ = \'$_\'; /a * b ? c */];
-
-        $_ = \'aaaccc\';
-         ok /a * b ? c */, qq [\\$_ = \'$_\'; /a * b ? c */];
-        unlike($_, qr/a * b + c */, qq [\\$_ = \'$_\'; /a * b + c */]);
-
-        $_ = \'abcdef\';
-         ok /bcd | xyz / , qq[\\$_ = \'$_\'; /bcd|xyz/] ; ok / xyz | bcd / , qq[\\$_ = \'$_\'; /xyz|bcd/] ; ok m|bc/*d| , qq[\\$_ = \'$_\'; m|bc/*d|] ; ok / ^ $_ $/ , qq[\\$_ = \'$_\'; /^\\$_\\$/] ; } { ok "ab\\ncd\\n" =~/^cd/m , q["ab\\ncd\\n" =~ /^cd/m] ; } { our %XXX = map { ( $_ => $_ ) } 123 , 234 , 345 ; our @XXX = ( \'ok 1\' , \'not ok 1\' , \'ok 2\' , \'not ok 2\' , \'not ok 3\' ) ; while ( $_ = shift ( @XXX ) ) { my $e = index ( $_ , \'not\' ) >= 0 ? \'\' : 1 ; my $r = m?(.*)? ; is ( $r , $e , "?(.*)?" ) ;/not/ && reset ; if (/not ok 2/ ) { if ( $^O eq \'VMS\' ) { $_ = shift ( @XXX ) ; } else { reset \'X\' ; } } } SKIP : { if ( $^O eq \'VMS\' ) { skip "Reset \'X\'" , 1 ; } ok ! keys %XXX , "%XXX is empty" ; } } { my $message = "Test empty pattern" ; my $xyz = \'xyz\' ; my $cde = \'cde\' ; $cde =~/[^ab]*/ ; $xyz =~ // ; is ( $& , $xyz , $message ) ; my $foo = \'[^ab]*\' ; $cde =~/$foo/ ; $xyz =~ // ; is ( $& , $xyz , $message ) ; $cde =~/$foo/ ; my $null ; no warnings \'uninitialized\' ; $xyz =~/$null/ ; is ( $& , $xyz , $message ) ; $null = "" ; $xyz =~/$null/ ; is ( $& , $xyz , $message ) ; } { my $message = q!Check $`, $&, $\'! ; $_ = \'abcdefghi\' ;/def/ ; is ( "$`:$&:$\'" , \'abc:def:ghi\' , $message ) ; no warnings \'void\' ;/cde/ + 0 ; is ( "$`:$&:$\'" , \'ab:cde:fghi\' , $message ) ;/[d][e][f]/ ; is ( "$`:$&:$\'" , \'abc:def:ghi\' , $message ) ; } { $_ = \'now is the {time for all} good men to come to.\' ;/ {([^}]*)}/ ; is ( $1 , \'time for all\' , "Match braces" ) ; } { my $message = "{N,M} quantifier" ; $_ = \'xxx {3,4}  yyy   zzz\' ; ok (/( {3,4})/ , $message ) ; is ( $1 , \'   \' , $message ) ; unlike ( $_ , qr/( {4,})/ , $message ) ; ok (/( {2,3}.)/ , $message ) ; is ( $1 , \'  y\' , $message ) ; ok (/(y{2,3}.)/ , $message ) ; is ( $1 , \'yyy \' , $message ) ; unlike ( $_ , qr/x {3,4}/ , $message ) ; unlike ( $_ , qr/^xxx {3,4}/ , $message ) ; } { my $message = "Test /g" ; local $" = ":" ; $_ = "now is the time for all good men to come to." ; my @words =/(\\w+)/g ; my $exp = "now:is:the:time:for:all:good:men:to:come:to" ; is ( "@words" , $exp , $message ) ; @words = ( ) ; while (/\\w+/g ) { push ( @words , $& ) ; } is ( "@words" , $exp , $message ) ; @words = ( ) ; pos = 0 ; while (/to/g ) { push ( @words , $& ) ; } is ( "@words" , "to:to" , $message ) ; pos $_ = 0 ; @words =/to/g ; is ( "@words" , "to:to" , $message ) ; } { $_ = "abcdefghi" ; my $pat1 = \'def\' ; my $pat2 = \'^def\' ; my $pat3 = \'.def.\' ; my $pat4 = \'abc\' ; my $pat5 = \'^abc\' ; my $pat6 = \'abc$\' ; my $pat7 = \'ghi\' ; my $pat8 = \'\\w*ghi\' ; my $pat9 = \'ghi$\' ; my $t1 = my $t2 = my $t3 = my $t4 = my $t5 = my $t6 = my $t7 = my $t8 = my $t9 = 0 ; for my $iter ( 1 .. 5 ) { $t1 ++ if/$pat1/o ; $t2 ++ if/$pat2/o ; $t3 ++ if/$pat3/o ; $t4 ++ if/$pat4/o ; $t5 ++ if/$pat5/o ; $t6 ++ if/$pat6/o ; $t7 ++ if/$pat7/o ; $t8 ++ if/$pat8/o ; $t9 ++ if/$pat9/o ; } my $x = "$t1$t2$t3$t4$t5$t6$t7$t8$t9" ; is ( $x , \'505550555\' , "Test /o" ) ; } { my $xyz = \'xyz\' ; ok "abc" =~/^abc$|$xyz/ , "| after \\$" ; my $message = \'$ inside ()\' ; my $result ; eval \'"abc" =~ /a(bc$)|$xyz/; $result = "$&:$1"\' ; is ( $@ , "" , $message ) ; is ( $result , "abc:bc" , $message ) ; } { my $message = "Scalar /g" ; $_ = "abcfooabcbar" ; ok (/abc/g && $` eq "" , $message ) ; ok (/abc/g && $` eq "abcfoo" , $message ) ; ok ( !/abc/g , $message ) ; $message = "Scalar /gi" ; pos = 0 ; ok (/ABC/gi && $` eq "" , $message ) ; ok (/ABC/gi && $` eq "abcfoo" , $message ) ; ok ( !/ABC/gi , $message ) ; $message = "Scalar /g" ; pos = 0 ; ok (/abc/g && $\' eq "fooabcbar" , $message ) ; ok (/abc/g && $\' eq "bar" , $message ) ; $_ .= \'\' ; my @x =/abc/g ; is ( @x , 2 , "/g reset after assignment" ) ; } { my $message = \'/g, \\G and pos\' ; $_ = "abdc" ; pos $_ = 2 ;/\\Gc/gc ; is ( pos $_ , 2 , $message ) ;/\\Gc/g ; is ( pos $_ , undef , $message ) ; } { my $message = \'(?{ })\' ; our $out = 1 ; \'abc\' =~ \'ma(?{ $out = 2 })b\' ; is ( $out , 2 , $message ) ; $out = 1 ; \'abc\' =~ \'ma(?{ $out = 3 })c\' ; is ( $out , 1 , $message ) ; } { $_ = \'foobar1 bar2 foobar3 barfoobar5 foobar6\' ; my @out =/(?<!foo)bar./g ; is ( "@out" , \'bar2 barf\' , "Negative lookbehind" ) ; } { my $message = "REG_INFTY tests" ; eval { require Config ; } ; $: : reg_infty = $Config::Config { reg_infty } // 32767 ; $: : reg_infty_m = $: : reg_infty - 1 ; $: : reg_infty_p = $: : reg_infty + 1 ; $: : reg_infty_m = $: : reg_infty_m ; is ( eval q{(\'aaa\' =~ /(a{1,$::reg_infty_m})/)[0]} , \'aaa\' , $message ) ; is ( $@ , \'\' , $message ) ; is ( eval q{(\'a\' x $::reg_infty_m) =~ /a{$::reg_infty_m}/} , 1 , $message ) ; is ( $@ , \'\' , $message ) ; isnt ( q{(\'a\' x ($::reg_infty_m - 1)) !~ /a{$::reg_infty_m}/} , 1 , $message ) ; is ( $@ , \'\' , $message ) ; eval "\'aaa\' =~ /a{1,$::reg_infty}/" ; like ( $@ , qr/^\\QQuantifier in {,} bigger than/ , $message ) ; eval "\'aaa\' =~ /a{1,$::reg_infty_p}/" ; like ( $@ , qr/^\\QQuantifier in {,} bigger than/ , $message ) ; } { my $context = \'x\' x 256 ; eval qq("${context}y" =~ /(?<=$context)y/) ; ok $@ =~/^\\QLookbehind longer than 255 not/ , "Lookbehind limit" ; } { for my $l ( 125 , 140 , 250 , 270 , 300000 , 30 ) { my $a = \'a\' x $l ; my $message = "Long monster, length = $l" ; like ( "ba$a=" , qr/a$a=/ , $message ) ; unlike ( "b$a=" , qr/a$a=/ , $message ) ; like ( "b$a=" , qr/ba+=/ , $message ) ; like ( "ba$a=" , qr/b(?:a|b)+=/ , $message ) ; } } { my $long_constant_len = join \'|\' , 12120 .. 32645 ; my $long_var_len = join \'|\' , 8120 .. 28645 ; my %ans = ( \'ax13876y25677lbc\' => 1 , \'ax13876y25677mcb\' => 0 , \'ax13876y35677nbc\' => 0 , \'ax13876y25677y21378obc\' => 1 , \'ax13876y25677y21378zbc\' => 0 , \'ax13876y25677y21378y21378kbc\' => 1 , \'ax13876y25677y21378y21378kcb\' => 0 , \'ax13876y25677y21378y21378y21378kbc\' => 0 , ) ; for ( keys %ans ) { my $message = "20000 nodes, const-len \'$_\'" ; ok ! ( $ans { $_ } xor/a(?=([yx]($long_constant_len)){2,4}[k-o]).*b./o ) , $message ; $message = "20000 nodes, var-len \'$_\'" ; ok ! ( $ans { $_ } xor/a(?=([yx]($long_var_len)){2,4}[k-o]).*b./o , ) , $message ; } } { my $message = "Complicated backtracking" ; $_ = " a (bla()) and x(y b((l)u((e))) and b(l(e)e)e" ; my $expect = "(bla()) ((l)u((e))) (l(e)e)" ; use vars \'$c\' ; sub matchit { m/
+            'src' => ' sub run_tests { { my $x = "abc\\ndef\\n" ; ( my $x_pretty = $x ) =~ s/\\n/\\\\n/g ; ok $x =~/^abc/ , qq["$x_pretty" =~ /^abc/] ; ok $x !~/^def/ , qq["$x_pretty" !~ /^def/] ; ok $x =~/^def/m , qq["$x_pretty" =~ /^def/m] ; ok ( ! ( $x =~/^xxx/ ) , qq["$x_pretty" =~ /^xxx/] ) ; ok ( ! ( $x !~/^abc/ ) , qq["$x_pretty" !~ /^abc/] ) ; ok $x =~/def/ , qq["$x_pretty" =~ /def/] ; ok ( ! ( $x !~/def/ ) , qq["$x_pretty" !~ /def/] ) ; ok $x !~/.def/ , qq["$x_pretty" !~ /.def/] ; ok ( ! ( $x =~/.def/ ) , qq["$x_pretty" =~ /.def/] ) ; ok $x =~/\\ndef/ , qq["$x_pretty" =~ /\\\\ndef/] ; ok ( ! ( $x !~/\\ndef/ ) , qq["$x_pretty" !~ /\\\\ndef/] ) ; } { $_ = \'123\' ; ok/^([0-9][0-9]*)/ , qq[\\$_ = \'$_\'; /^([0-9][0-9]*)/] ; } { $_ = \'aaabbbccc\' ; ok/(a*b*)(c*)/ && $1 eq \'aaabbb\' && $2 eq \'ccc\' , qq[\\$_ = \'$_\'; /(a*b*)(c*)/] ; ok/(a+b+c+)/ && $1 eq \'aaabbbccc\' , qq[\\$_ = \'$_\'; /(a+b+c+)/] ; unlike ( $_ , qr/a+b?c+/ , qq[\\$_ = \'$_\'; /a+b?c+/] ) ; $_ = \'aaabccc\' ; ok/a+b?c+/ , qq[\\$_ = \'$_\'; /a+b?c+/] ; ok/a*b?c*/ , qq[\\$_ = \'$_\'; /a*b?c*/] ; $_ = \'aaaccc\' ; ok/a*b?c*/ , qq[\\$_ = \'$_\'; /a*b?c*/] ; unlike ( $_ , qr/a*b+c*/ , qq[\\$_ = \'$_\'; /a*b+c*/] ) ; $_ = \'abcdef\' ; ok/bcd|xyz/ , qq[\\$_ = \'$_\'; /bcd|xyz/] ; ok/xyz|bcd/ , qq[\\$_ = \'$_\'; /xyz|bcd/] ; ok m|bc/*d| , qq[\\$_ = \'$_\'; m|bc/*d|] ; ok/^$_$/ , qq[\\$_ = \'$_\'; /^\\$_\\$/] ; } { ok "ab\\ncd\\n" =~/^cd/m , q["ab\\ncd\\n" =~ /^cd/m] ; } { our %XXX = map { ( $_ => $_ ) } 123 , 234 , 345 ; our @XXX = ( \'ok 1\' , \'not ok 1\' , \'ok 2\' , \'not ok 2\' , \'not ok 3\' ) ; while ( $_ = shift ( @XXX ) ) { my $e = index ( $_ , \'not\' ) >= 0 ? \'\' : 1 ; my $r = m?(.*)? ; is ( $r , $e , "?(.*)?" ) ;/not/ && reset ; if (/not ok 2/ ) { if ( $^O eq \'VMS\' ) { $_ = shift ( @XXX ) ; } else { reset \'X\' ; } } } SKIP : { if ( $^O eq \'VMS\' ) { skip "Reset \'X\'" , 1 ; } ok ! keys %XXX , "%XXX is empty" ; } } { my $message = "Test empty pattern" ; my $xyz = \'xyz\' ; my $cde = \'cde\' ; $cde =~/[^ab]*/ ; $xyz =~ // ; is ( $& , $xyz , $message ) ; my $foo = \'[^ab]*\' ; $cde =~/$foo/ ; $xyz =~ // ; is ( $& , $xyz , $message ) ; $cde =~/$foo/ ; my $null ; no warnings \'uninitialized\' ; $xyz =~/$null/ ; is ( $& , $xyz , $message ) ; $null = "" ; $xyz =~/$null/ ; is ( $& , $xyz , $message ) ; } { my $message = q!Check $`, $&, $\'! ; $_ = \'abcdefghi\' ;/def/ ; is ( "$`:$&:$\'" , \'abc:def:ghi\' , $message ) ; no warnings \'void\' ;/cde/ + 0 ; is ( "$`:$&:$\'" , \'ab:cde:fghi\' , $message ) ;/[d][e][f]/ ; is ( "$`:$&:$\'" , \'abc:def:ghi\' , $message ) ; } { $_ = \'now is the {time for all} good men to come to.\' ;/ {([^}]*)}/ ; is ( $1 , \'time for all\' , "Match braces" ) ; } { my $message = "{N,M} quantifier" ; $_ = \'xxx {3,4}  yyy   zzz\' ; ok (/( {3,4})/ , $message ) ; is ( $1 , \'   \' , $message ) ; unlike ( $_ , qr/( {4,})/ , $message ) ; ok (/( {2,3}.)/ , $message ) ; is ( $1 , \'  y\' , $message ) ; ok (/(y{2,3}.)/ , $message ) ; is ( $1 , \'yyy \' , $message ) ; unlike ( $_ , qr/x {3,4}/ , $message ) ; unlike ( $_ , qr/^xxx {3,4}/ , $message ) ; } { my $message = "Test /g" ; local $" = ":" ; $_ = "now is the time for all good men to come to." ; my @words =/(\\w+)/g ; my $exp = "now:is:the:time:for:all:good:men:to:come:to" ; is ( "@words" , $exp , $message ) ; @words = ( ) ; while (/\\w+/g ) { push ( @words , $& ) ; } is ( "@words" , $exp , $message ) ; @words = ( ) ; pos = 0 ; while (/to/g ) { push ( @words , $& ) ; } is ( "@words" , "to:to" , $message ) ; pos $_ = 0 ; @words =/to/g ; is ( "@words" , "to:to" , $message ) ; } { $_ = "abcdefghi" ; my $pat1 = \'def\' ; my $pat2 = \'^def\' ; my $pat3 = \'.def.\' ; my $pat4 = \'abc\' ; my $pat5 = \'^abc\' ; my $pat6 = \'abc$\' ; my $pat7 = \'ghi\' ; my $pat8 = \'\\w*ghi\' ; my $pat9 = \'ghi$\' ; my $t1 = my $t2 = my $t3 = my $t4 = my $t5 = my $t6 = my $t7 = my $t8 = my $t9 = 0 ; for my $iter ( 1 .. 5 ) { $t1 ++ if/$pat1/o ; $t2 ++ if/$pat2/o ; $t3 ++ if/$pat3/o ; $t4 ++ if/$pat4/o ; $t5 ++ if/$pat5/o ; $t6 ++ if/$pat6/o ; $t7 ++ if/$pat7/o ; $t8 ++ if/$pat8/o ; $t9 ++ if/$pat9/o ; } my $x = "$t1$t2$t3$t4$t5$t6$t7$t8$t9" ; is ( $x , \'505550555\' , "Test /o" ) ; } { my $xyz = \'xyz\' ; ok "abc" =~/^abc$|$xyz/ , "| after \\$" ; my $message = \'$ inside ()\' ; my $result ; eval \'"abc" =~ /a(bc$)|$xyz/; $result = "$&:$1"\' ; is ( $@ , "" , $message ) ; is ( $result , "abc:bc" , $message ) ; } { my $message = "Scalar /g" ; $_ = "abcfooabcbar" ; ok (/abc/g && $` eq "" , $message ) ; ok (/abc/g && $` eq "abcfoo" , $message ) ; ok ( !/abc/g , $message ) ; $message = "Scalar /gi" ; pos = 0 ; ok (/ABC/gi && $` eq "" , $message ) ; ok (/ABC/gi && $` eq "abcfoo" , $message ) ; ok ( !/ABC/gi , $message ) ; $message = "Scalar /g" ; pos = 0 ; ok (/abc/g && $\' eq "fooabcbar" , $message ) ; ok (/abc/g && $\' eq "bar" , $message ) ; $_ .= \'\' ; my @x =/abc/g ; is ( @x , 2 , "/g reset after assignment" ) ; } { my $message = \'/g, \\G and pos\' ; $_ = "abdc" ; pos $_ = 2 ;/\\Gc/gc ; is ( pos $_ , 2 , $message ) ;/\\Gc/g ; is ( pos $_ , undef , $message ) ; } { my $message = \'(?{ })\' ; our $out = 1 ; \'abc\' =~ \'ma(?{ $out = 2 })b\' ; is ( $out , 2 , $message ) ; $out = 1 ; \'abc\' =~ \'ma(?{ $out = 3 })c\' ; is ( $out , 1 , $message ) ; } { $_ = \'foobar1 bar2 foobar3 barfoobar5 foobar6\' ; my @out =/(?<!foo)bar./g ; is ( "@out" , \'bar2 barf\' , "Negative lookbehind" ) ; } { my $message = "REG_INFTY tests" ; eval { require Config ; } ; $: : reg_infty = $Config::Config { reg_infty } // 32767 ; $: : reg_infty_m = $: : reg_infty - 1 ; $: : reg_infty_p = $: : reg_infty + 1 ; $: : reg_infty_m = $: : reg_infty_m ; is ( eval q{(\'aaa\' =~ /(a{1,$::reg_infty_m})/)[0]} , \'aaa\' , $message ) ; is ( $@ , \'\' , $message ) ; is ( eval q{(\'a\' x $::reg_infty_m) =~ /a{$::reg_infty_m}/} , 1 , $message ) ; is ( $@ , \'\' , $message ) ; isnt ( q{(\'a\' x ($::reg_infty_m - 1)) !~ /a{$::reg_infty_m}/} , 1 , $message ) ; is ( $@ , \'\' , $message ) ; eval "\'aaa\' =~ /a{1,$::reg_infty}/" ; like ( $@ , qr/^\\QQuantifier in {,} bigger than/ , $message ) ; eval "\'aaa\' =~ /a{1,$::reg_infty_p}/" ; like ( $@ , qr/^\\QQuantifier in {,} bigger than/ , $message ) ; } { my $context = \'x\' x 256 ; eval qq("${context}y" =~ /(?<=$context)y/) ; ok $@ =~/^\\QLookbehind longer than 255 not/ , "Lookbehind limit" ; } { for my $l ( 125 , 140 , 250 , 270 , 300000 , 30 ) { my $a = \'a\' x $l ; my $message = "Long monster, length = $l" ; like ( "ba$a=" , qr/a$a=/ , $message ) ; unlike ( "b$a=" , qr/a$a=/ , $message ) ; like ( "b$a=" , qr/ba+=/ , $message ) ; like ( "ba$a=" , qr/b(?:a|b)+=/ , $message ) ; } } { my $long_constant_len = join \'|\' , 12120 .. 32645 ; my $long_var_len = join \'|\' , 8120 .. 28645 ; my %ans = ( \'ax13876y25677lbc\' => 1 , \'ax13876y25677mcb\' => 0 , \'ax13876y35677nbc\' => 0 , \'ax13876y25677y21378obc\' => 1 , \'ax13876y25677y21378zbc\' => 0 , \'ax13876y25677y21378y21378kbc\' => 1 , \'ax13876y25677y21378y21378kcb\' => 0 , \'ax13876y25677y21378y21378y21378kbc\' => 0 , ) ; for ( keys %ans ) { my $message = "20000 nodes, const-len \'$_\'" ; ok ! ( $ans { $_ } xor/a(?=([yx]($long_constant_len)){2,4}[k-o]).*b./o ) , $message ; $message = "20000 nodes, var-len \'$_\'" ; ok ! ( $ans { $_ } xor/a(?=([yx]($long_var_len)){2,4}[k-o]).*b./o , ) , $message ; } } { my $message = "Complicated backtracking" ; $_ = " a (bla()) and x(y b((l)u((e))) and b(l(e)e)e" ; my $expect = "(bla()) ((l)u((e))) (l(e)e)" ; use vars \'$c\' ; sub matchit { m/
              (
                \\(
                (?{ $c = 1 })    # Initialize
@@ -62870,10 +62395,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 3
           },
           {
-            'token_num' => 27,
+            'token_num' => 16,
             'has_warnings' => 1,
             'end_line' => 57,
-            'src' => ' { $_ = \'123\' ; ok / ^ ( [ 0 -9 ] [ 0 -9 ] * ) / , qq[\\$_ = \'$_\'; /^([0-9][0-9]*)/] ; }',
+            'src' => ' { $_ = \'123\' ; ok/^([0-9][0-9]*)/ , qq[\\$_ = \'$_\'; /^([0-9][0-9]*)/] ; }',
             'start_line' => 54,
             'indent' => 1,
             'block_id' => 2
@@ -62888,27 +62413,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 4
           },
           {
-            'token_num' => 21,
+            'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 56,
-            'src' => ' ok / ^ ( [ 0 -9 ] [ 0 -9 ] * ) / , qq[\\$_ = \'$_\'; /^([0-9][0-9]*)/] ;',
+            'src' => ' ok/^([0-9][0-9]*)/ , qq[\\$_ = \'$_\'; /^([0-9][0-9]*)/] ;',
             'start_line' => 56,
             'indent' => 2,
             'block_id' => 4
           },
           {
-            'token_num' => 191,
+            'token_num' => 151,
             'has_warnings' => 1,
             'end_line' => 79,
-            'src' => ' { $_ = \'aaabbbccc\' ; ok / ( a * b * ) ( c * ) / && $1 eq \'aaabbb\' && $2 eq \'ccc\' , qq[\\$_ = \'$_\'; /(a*b*)(c*)/] ; ok / ( a + b + c + ) / && $1 eq \'aaabbbccc\' , qq[\\$_ = \'$_\'; /(a+b+c+)/] ; unlike ( $_ , qr/a+b?c+/ , qq[\\$_ = \'$_\'; /a+b?c+/] ) ; $_ = \'aaabccc\' ; ok / a + b ? c +/, qq [\\$_ = \'$_\'; /a + b ? c +/];
-         ok /a * b ? c */, qq [\\$_ = \'$_\'; /a * b ? c */];
-
-        $_ = \'aaaccc\';
-         ok /a * b ? c */, qq [\\$_ = \'$_\'; /a * b ? c */];
-        unlike($_, qr/a * b + c */, qq [\\$_ = \'$_\'; /a * b + c */]);
-
-        $_ = \'abcdef\';
-         ok /bcd | xyz / , qq[\\$_ = \'$_\'; /bcd|xyz/] ; ok / xyz | bcd / , qq[\\$_ = \'$_\'; /xyz|bcd/] ; ok m|bc/*d| , qq[\\$_ = \'$_\'; m|bc/*d|] ; ok / ^ $_ $/ , qq[\\$_ = \'$_\'; /^\\$_\\$/] ; }',
+            'src' => ' { $_ = \'aaabbbccc\' ; ok/(a*b*)(c*)/ && $1 eq \'aaabbb\' && $2 eq \'ccc\' , qq[\\$_ = \'$_\'; /(a*b*)(c*)/] ; ok/(a+b+c+)/ && $1 eq \'aaabbbccc\' , qq[\\$_ = \'$_\'; /(a+b+c+)/] ; unlike ( $_ , qr/a+b?c+/ , qq[\\$_ = \'$_\'; /a+b?c+/] ) ; $_ = \'aaabccc\' ; ok/a+b?c+/ , qq[\\$_ = \'$_\'; /a+b?c+/] ; ok/a*b?c*/ , qq[\\$_ = \'$_\'; /a*b?c*/] ; $_ = \'aaaccc\' ; ok/a*b?c*/ , qq[\\$_ = \'$_\'; /a*b?c*/] ; unlike ( $_ , qr/a*b+c*/ , qq[\\$_ = \'$_\'; /a*b+c*/] ) ; $_ = \'abcdef\' ; ok/bcd|xyz/ , qq[\\$_ = \'$_\'; /bcd|xyz/] ; ok/xyz|bcd/ , qq[\\$_ = \'$_\'; /xyz|bcd/] ; ok m|bc/*d| , qq[\\$_ = \'$_\'; m|bc/*d|] ; ok/^$_$/ , qq[\\$_ = \'$_\'; /^\\$_\\$/] ; }',
             'start_line' => 59,
             'indent' => 1,
             'block_id' => 2
@@ -62923,19 +62440,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 5
           },
           {
-            'token_num' => 27,
+            'token_num' => 18,
             'has_warnings' => 1,
             'end_line' => 62,
-            'src' => ' ok / ( a * b * ) ( c * ) / && $1 eq \'aaabbb\' && $2 eq \'ccc\' , qq[\\$_ = \'$_\'; /(a*b*)(c*)/] ;',
+            'src' => ' ok/(a*b*)(c*)/ && $1 eq \'aaabbb\' && $2 eq \'ccc\' , qq[\\$_ = \'$_\'; /(a*b*)(c*)/] ;',
             'start_line' => 61,
             'indent' => 2,
             'block_id' => 5
           },
           {
-            'token_num' => 21,
+            'token_num' => 14,
             'has_warnings' => 1,
             'end_line' => 63,
-            'src' => ' ok / ( a + b + c + ) / && $1 eq \'aaabbbccc\' , qq[\\$_ = \'$_\'; /(a+b+c+)/] ;',
+            'src' => ' ok/(a+b+c+)/ && $1 eq \'aaabbbccc\' , qq[\\$_ = \'$_\'; /(a+b+c+)/] ;',
             'start_line' => 63,
             'indent' => 2,
             'block_id' => 5
@@ -62959,27 +62476,73 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 5
           },
           {
-            'token_num' => 84,
+            'token_num' => 10,
             'has_warnings' => 1,
-            'end_line' => 75,
-            'src' => ' ok / a + b ? c +/, qq [\\$_ = \'$_\'; /a + b ? c +/];
-         ok /a * b ? c */, qq [\\$_ = \'$_\'; /a * b ? c */];
-
-        $_ = \'aaaccc\';
-         ok /a * b ? c */, qq [\\$_ = \'$_\'; /a * b ? c */];
-        unlike($_, qr/a * b + c */, qq [\\$_ = \'$_\'; /a * b + c */]);
-
-        $_ = \'abcdef\';
-         ok /bcd | xyz / , qq[\\$_ = \'$_\'; /bcd|xyz/] ;',
+            'end_line' => 67,
+            'src' => ' ok/a+b?c+/ , qq[\\$_ = \'$_\'; /a+b?c+/] ;',
             'start_line' => 67,
             'indent' => 2,
             'block_id' => 5
           },
           {
-            'token_num' => 12,
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 68,
+            'src' => ' ok/a*b?c*/ , qq[\\$_ = \'$_\'; /a*b?c*/] ;',
+            'start_line' => 68,
+            'indent' => 2,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 70,
+            'src' => ' $_ = \'aaaccc\' ;',
+            'start_line' => 70,
+            'indent' => 2,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 71,
+            'src' => ' ok/a*b?c*/ , qq[\\$_ = \'$_\'; /a*b?c*/] ;',
+            'start_line' => 71,
+            'indent' => 2,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 72,
+            'src' => ' unlike ( $_ , qr/a*b+c*/ , qq[\\$_ = \'$_\'; /a*b+c*/] ) ;',
+            'start_line' => 72,
+            'indent' => 2,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 74,
+            'src' => ' $_ = \'abcdef\' ;',
+            'start_line' => 74,
+            'indent' => 2,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 75,
+            'src' => ' ok/bcd|xyz/ , qq[\\$_ = \'$_\'; /bcd|xyz/] ;',
+            'start_line' => 75,
+            'indent' => 2,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 76,
-            'src' => ' ok / xyz | bcd / , qq[\\$_ = \'$_\'; /xyz|bcd/] ;',
+            'src' => ' ok/xyz|bcd/ , qq[\\$_ = \'$_\'; /xyz|bcd/] ;',
             'start_line' => 76,
             'indent' => 2,
             'block_id' => 5
@@ -62994,10 +62557,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 5
           },
           {
-            'token_num' => 11,
+            'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 78,
-            'src' => ' ok / ^ $_ $/ , qq[\\$_ = \'$_\'; /^\\$_\\$/] ;',
+            'src' => ' ok/^$_$/ , qq[\\$_ = \'$_\'; /^\\$_\\$/] ;',
             'start_line' => 78,
             'indent' => 2,
             'block_id' => 5

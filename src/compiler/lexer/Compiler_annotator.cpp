@@ -8,8 +8,8 @@ Annotator::Annotator(void)
 {
 }
 
-#define ANNOTATE(method, info) do {				\
-		method(ctx, tk, &info);					\
+#define ANNOTATE(method, data, info) do {		\
+		method(ctx, data, tk, &info);			\
 		if (info.type != Undefined) {			\
 			tk->info = info;					\
 			ctx->prev_type = info.type;			\
@@ -25,28 +25,29 @@ void Annotator::annotate(LexContext *ctx, Token *tk)
 	}
 	TokenInfo info;
 	info.type = Undefined;
-	ANNOTATE(annotateRegOpt, info);
-	ANNOTATE(annotateNamespace, info);
-	ANNOTATE(annotateMethod, info);
-	ANNOTATE(annotateKey, info);
-	ANNOTATE(annotateShortScalarDereference, info);
-	ANNOTATE(annotateCallDecl, info);
-	ANNOTATE(annotateReservedKeyword, info);
-	ANNOTATE(annotateNamelessFunction, info);
-	ANNOTATE(annotateLocalVariable, info);
-	ANNOTATE(annotateVariable, info);
-	ANNOTATE(annotateGlobalVariable, info);
-	ANNOTATE(annotateFunction, info);
-	ANNOTATE(annotateCall, info);
-	ANNOTATE(annotateClass, info);
-	ANNOTATE(annotateModuleName, info);
-	ANNOTATE(annotateBareWord, info);
+	string data = string(tk->_data);
+	ANNOTATE(annotateRegOpt, data, info);
+	ANNOTATE(annotateNamespace, data, info);
+	ANNOTATE(annotateMethod, data, info);
+	ANNOTATE(annotateKey, data, info);
+	ANNOTATE(annotateShortScalarDereference, data, info);
+	ANNOTATE(annotateCallDecl, data, info);
+	ANNOTATE(annotateReservedKeyword, data, info);
+	ANNOTATE(annotateGlobOrMul, data, info);
+	ANNOTATE(annotateNamelessFunction, data, info);
+	ANNOTATE(annotateLocalVariable, data, info);
+	ANNOTATE(annotateVariable, data, info);
+	ANNOTATE(annotateGlobalVariable, data, info);
+	ANNOTATE(annotateFunction, data, info);
+	ANNOTATE(annotateCall, data, info);
+	ANNOTATE(annotateClass, data, info);
+	ANNOTATE(annotateModuleName, data, info);
+	ANNOTATE(annotateBareWord, data, info);
 }
 
-void Annotator::annotateRegOpt(LexContext *ctx, Token *tk, TokenInfo *info)
+void Annotator::annotateRegOpt(LexContext *ctx, const string &data, Token *tk, TokenInfo *info)
 {
-	string data = tk->data;
-	if (ctx->prev_type == RegDelim && isalpha(data[0]) &&
+	if (ctx->prev_type == RegDelim && isalpha(tk->_data[0]) &&
 		data != "if"      && data != "while" &&
 		data != "foreach" && data != "for") {
 		//(data == "g" || data == "m" || data == "s" || data == "x")) {
@@ -54,10 +55,10 @@ void Annotator::annotateRegOpt(LexContext *ctx, Token *tk, TokenInfo *info)
 	}
 }
 
-void Annotator::annotateNamespace(LexContext *ctx, Token *tk, TokenInfo *info)
+void Annotator::annotateNamespace(LexContext *ctx, const string &, Token *tk, TokenInfo *info)
 {
-	Token *next_tk = ctx->tmgr->nextToken();
-	if (next_tk && next_tk->data == "::" &&
+	Token *next_tk = ctx->tmgr->nextToken(tk);
+	if (next_tk && next_tk->_data[0] == ':' && next_tk->_data[1] == ':' &&
 		next_tk->info.type != String && next_tk->info.type != RawString) {
 		*info = ctx->tmgr->getTokenInfo(Namespace);
 	} else if (ctx->prev_type == NamespaceResolver) {
@@ -65,68 +66,70 @@ void Annotator::annotateNamespace(LexContext *ctx, Token *tk, TokenInfo *info)
 	}
 }
 
-void Annotator::annotateMethod(LexContext *ctx, Token *tk, TokenInfo *info)
+void Annotator::annotateMethod(LexContext *ctx, const string &, Token *tk, TokenInfo *info)
 {
-	string data = tk->data;
-	if (ctx->prev_type == Pointer && isalpha(data[0])) {
+	if (ctx->prev_type == Pointer && isalpha(tk->_data[0])) {
 		*info = ctx->tmgr->getTokenInfo(Method);
 	}
 }
 
-void Annotator::annotateKey(LexContext *ctx, Token *tk, TokenInfo *info)
+void Annotator::annotateKey(LexContext *ctx, const string &, Token *tk, TokenInfo *info)
 {
-	Token *next_tk = ctx->tmgr->nextToken();
-	string data = tk->data;
+	Token *next_tk = ctx->tmgr->nextToken(tk);
 	if (ctx->prev_type == LeftBrace && next_tk &&
-		(isalpha(data[0]) || data[0] == '_') &&
-		next_tk->data == "}") {
+		(isalpha(tk->_data[0]) || tk->_data[0] == '_') &&
+		next_tk->_data[0] == '}') {
 		*info = ctx->tmgr->getTokenInfo(Key);
 	} else if (next_tk &&
-			   (isalpha(data[0]) || data[0] == '_') &&
-			   next_tk->data == "=>") {
+			   (isalpha(tk->_data[0]) || tk->_data[0] == '_') &&
+			   (next_tk->_data[0] == '=' && next_tk->_data[1] == '>')) {
 		*info = ctx->tmgr->getTokenInfo(Key);
 	}
 }
 
-void Annotator::annotateShortScalarDereference(LexContext *ctx, Token *tk, TokenInfo *info)
+void Annotator::annotateShortScalarDereference(LexContext *ctx, const string &, Token *tk, TokenInfo *info)
 {
-	Token *next_tk = ctx->tmgr->nextToken();
-	string data = tk->data;
-	if (next_tk && data == "$$" &&
-		(isalpha(next_tk->data[0]) || next_tk->data[0] == '_')) {
+	Token *next_tk = ctx->tmgr->nextToken(tk);
+	if (next_tk && (tk->_data[0] == '$' && tk->_data[1] == '$') &&
+		(isalpha(next_tk->_data[0]) || next_tk->_data[0] == '_')) {
 		*info = ctx->tmgr->getTokenInfo(ShortScalarDereference);
 	}
 }
 
-void Annotator::annotateCallDecl(LexContext *ctx, Token *tk, TokenInfo *info)
+void Annotator::annotateCallDecl(LexContext *ctx, const string &, Token *tk, TokenInfo *info)
 {
-	Token *prev_tk = ctx->tmgr->previousToken();
-	string data = tk->data;
-	if (prev_tk && prev_tk->info.type == TokenType::Ref && tk->data == "&") {
+	Token *prev_tk = ctx->tmgr->previousToken(tk);
+	if (prev_tk && prev_tk->info.type == TokenType::Ref && tk->_data[0] == '&') {
 		*info = ctx->tmgr->getTokenInfo(CallDecl);
+	} else if (tk->_data[0] == '&') {
+		*info = ctx->tmgr->getTokenInfo(BitAnd);
 	}
 }
 
-void Annotator::annotateReservedKeyword(LexContext *ctx, Token *tk, TokenInfo *info)
+void Annotator::annotateReservedKeyword(LexContext *ctx, const string &, Token *tk, TokenInfo *info)
 {
-	string data = tk->data;
-	TokenInfo reserved_info = ctx->tmgr->getTokenInfo(data.c_str());
+	TokenInfo reserved_info = ctx->tmgr->getTokenInfo(tk->_data);
 	if (reserved_info.type != TokenType::Undefined && ctx->prev_type != FunctionDecl) {
 		*info = reserved_info;
 	}
 }
 
-void Annotator::annotateNamelessFunction(LexContext *ctx, Token *tk, TokenInfo *info)
+void Annotator::annotateGlobOrMul(LexContext *ctx, const string &, Token *tk, TokenInfo *info)
 {
-	string data = tk->data;
-	if (ctx->prev_type == FunctionDecl && data == "{") {
-		*info = ctx->tmgr->getTokenInfo(cstr(data));
+	if (tk->_data[0] == '*') {
+		*info = ctx->tmgr->getTokenInfo(Mul);
 	}
 }
 
-void Annotator::annotateLocalVariable(LexContext *ctx, Token *tk, TokenInfo *info)
+void Annotator::annotateNamelessFunction(LexContext *ctx, const string &, Token *tk, TokenInfo *info)
 {
-	string data = tk->data;
+	if (ctx->prev_type == FunctionDecl && tk->_data[0] == '{') {
+		*info = ctx->tmgr->getTokenInfo(tk->_data);
+	}
+}
+
+void Annotator::annotateLocalVariable(LexContext *ctx, const string &data, Token *, TokenInfo *info)
+{
 	if (ctx->prev_type == VarDecl && data.find("$") != string::npos) {
 		*info = ctx->tmgr->getTokenInfo(LocalVar);
 		vardecl_map.insert(StringMap::value_type(data, ""));
@@ -139,9 +142,8 @@ void Annotator::annotateLocalVariable(LexContext *ctx, Token *tk, TokenInfo *inf
 	}
 }
 
-void Annotator::annotateVariable(LexContext *ctx, Token *tk, TokenInfo *info)
+void Annotator::annotateVariable(LexContext *ctx, const string &data, Token *, TokenInfo *info)
 {
-	string data = tk->data;
 	if (vardecl_map.find(data) == vardecl_map.end()) return;
 	if (data.find("@") != string::npos) {
 		*info = ctx->tmgr->getTokenInfo(ArrayVar);
@@ -152,9 +154,8 @@ void Annotator::annotateVariable(LexContext *ctx, Token *tk, TokenInfo *info)
 	}
 }
 
-void Annotator::annotateGlobalVariable(LexContext *ctx, Token *tk, TokenInfo *info)
+void Annotator::annotateGlobalVariable(LexContext *ctx, const string &data, Token *, TokenInfo *info)
 {
-	string data = tk->data;
 	if (data.find("$") != string::npos) {
 		*info = ctx->tmgr->getTokenInfo(GlobalVar);
 		vardecl_map.insert(StringMap::value_type(data, ""));
@@ -167,26 +168,23 @@ void Annotator::annotateGlobalVariable(LexContext *ctx, Token *tk, TokenInfo *in
 	}
 }
 
-void Annotator::annotateFunction(LexContext *ctx, Token *tk, TokenInfo *info)
+void Annotator::annotateFunction(LexContext *ctx, const string &data, Token *, TokenInfo *info)
 {
-	string data = tk->data;
 	if (ctx->prev_type == FunctionDecl) {
 		*info = ctx->tmgr->getTokenInfo(Function);
 		funcdecl_map.insert(StringMap::value_type(data, ""));
 	}
 }
 
-void Annotator::annotateCall(LexContext *ctx, Token *tk, TokenInfo *info)
+void Annotator::annotateCall(LexContext *ctx, const string &data, Token *, TokenInfo *info)
 {
-	string data = tk->data;
 	if (funcdecl_map.find(data) != funcdecl_map.end()) {
 		*info = ctx->tmgr->getTokenInfo(Call);
 	}
 }
 
-void Annotator::annotateClass(LexContext *ctx, Token *tk, TokenInfo *info)
+void Annotator::annotateClass(LexContext *ctx, const string &data, Token *, TokenInfo *info)
 {
-	string data = tk->data;
 	if (ctx->prev_type == Package) {
 		*info = ctx->tmgr->getTokenInfo(Class);
 		pkgdecl_map.insert(StringMap::value_type(data, ""));
@@ -195,7 +193,7 @@ void Annotator::annotateClass(LexContext *ctx, Token *tk, TokenInfo *info)
 	}
 }
 
-void Annotator::annotateModuleName(LexContext *ctx, Token *, TokenInfo *info)
+void Annotator::annotateModuleName(LexContext *ctx, const string &, Token *, TokenInfo *info)
 {
 	if (ctx->prev_type == UseDecl) {
 		*info = ctx->tmgr->getTokenInfo(UsedName);
@@ -204,7 +202,7 @@ void Annotator::annotateModuleName(LexContext *ctx, Token *, TokenInfo *info)
 	}
 }
 
-void Annotator::annotateBareWord(LexContext *ctx, Token *, TokenInfo *info)
+void Annotator::annotateBareWord(LexContext *ctx, const string &, Token *, TokenInfo *info)
 {
 	*info = ctx->tmgr->getTokenInfo(Key);//BareWord);
 	info->has_warnings = true;

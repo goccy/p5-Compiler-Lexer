@@ -10,100 +10,71 @@ namespace TokenKind = Enum::Token::Kind;
 Module::Module(const char *name_, const char *args_)
 	: name(name_), args(args_) {}
 
-/************ LexContext *************/
-
 LexContext::LexContext(const char *filename, char *script)
 	: progress(0), buffer_idx(0)
 {
 	script_size = strlen(script) + 1;
-	token_buffer = (char *)safe_malloc(script_size);
+	token_buffer = (char *)malloc(script_size * 2);
+	buffer_head = token_buffer;
+	token_buffer[0] = EOL;
+	prev_type = TokenType::Undefined;
 	smgr = new ScriptManager(script);
-	tmgr = new TokenManager();
+	tmgr = new TokenManager(script_size);
 	finfo.start_line_num = 1;
 	finfo.filename = filename;
 }
-/*
-LexContext::LexContext(Tokens *tks)
-{
-	this->tks = tks;
-	this->itr = tks->begin();
-}
-*/
-char *LexContext::buffer(void)
-{
-	return token_buffer;
-}
-
-void LexContext::clearBuffer(void)
-{
-	buffer_idx = 0;
-	token_buffer[0] = EOL;
-}
-
-void LexContext::writeBuffer(char ch)
-{
-	token_buffer[buffer_idx] = ch;
-	token_buffer[++buffer_idx] = EOL;
-}
-
-bool LexContext::existsBuffer(void)
-{
-	return token_buffer[0] != EOL;
-}
-
-/*************** Lexer ***************/
 
 Lexer::Lexer(const char *filename)
 {
-	filename = filename;
-	scanner = new Scanner();
+	this->filename = filename;
 }
 
 Tokens *Lexer::tokenize(char *script)
 {
-	LexContext ctx(filename, script);
+	Scanner scanner;
+	ctx = new LexContext(filename, script);
 	Token *tk = NULL;
-	TokenManager *tmgr = ctx.tmgr;
-	ScriptManager *smgr = ctx.smgr;
+	TokenManager *tmgr = ctx->tmgr;
+	ScriptManager *smgr = ctx->smgr;
 	char ch = smgr->currentChar();
 	for (; ch != EOL; smgr->idx++) {
 		ch = smgr->currentChar();
-		if (ch == '\n') ctx.finfo.start_line_num++;
-		if (scanner->isSkip(&ctx)) {
+		if (ch == '\n') ctx->finfo.start_line_num++;
+		if (scanner.isSkip(ctx)) {
 			continue;
 		} else {
-			smgr->idx += ctx.progress;
-			ctx.progress = 0;
+			smgr->idx += ctx->progress;
+			ctx->progress = 0;
 			if (smgr->end()) break;
 		}
 		switch (ch) {
 		case '"': case '\'': case '`':
-			tmgr->add(scanner->scanQuote(&ctx, ch));
+			tmgr->add(scanner.scanQuote(ctx, ch));
 			break;
 		case ' ': case '\t':
-			tmgr->add(scanner->scanWordDelimiter(&ctx));
+			tmgr->add(scanner.scanWordDelimiter(ctx));
 			break;
 		case '#':
-			tmgr->add(scanner->scanSingleLineComment(&ctx));
+			tmgr->add(scanner.scanSingleLineComment(ctx));
 			break;
 		case '-':
-			if (scanner->scanNegativeNumber(&ctx, smgr->nextChar())) {
+			if (scanner.scanNegativeNumber(ctx, smgr->nextChar())) {
 				break;
 			} else if (isalpha(smgr->nextChar())) {
-				ctx.writeBuffer(smgr->currentChar());
+				ctx->writeBuffer(smgr->currentChar());
 				break;
 			}
 			//fall through
 		case '.':
-			if (!ctx.existsBuffer() &&
+			if (!ctx->existsBuffer() &&
 				'0' <= smgr->nextChar() && smgr->nextChar() <= '9') {
 				// .01234
-				tmgr->add(scanner->scanNumber(&ctx));
-				ctx.clearBuffer();
+				tmgr->add(scanner.scanNumber(ctx));
+				ctx->clearBuffer();
 				continue;
-			} else if (scanner->isVersionString(&ctx)) {
-				tmgr->add(scanner->scanVersionString(&ctx));
-				ctx.clearBuffer();
+			} else if (scanner.isVersionString(ctx)) {
+				tmgr->add(scanner.scanVersionString(ctx));
+				ctx->clearBuffer();
 				continue;
 			}
 			//fall through
@@ -114,35 +85,44 @@ Tokens *Lexer::tokenize(char *script)
 		case '(': case ')': case '{': case '}':
 		case '[': case ']': case '?': case '$':
 		case '\\':
-			tmgr->add(scanner->scanSymbol(&ctx));
-			smgr->idx += ctx.progress;
-			ctx.progress = 0;
+			tmgr->add(scanner.scanSymbol(ctx));
+			smgr->idx += ctx->progress;
+			ctx->progress = 0;
 			break;
 		case '\n':
-			tmgr->add(scanner->scanLineDelimiter(&ctx));
+			tmgr->add(scanner.scanLineDelimiter(ctx));
 			break;
 		case '0': case '1': case '2': case '3': case '4':
 		case '5': case '6': case '7': case '8': case '9':
-			if (!ctx.existsBuffer() ||
-				(ctx.buffer_idx == 1 && ctx.buffer()[0] == '-')) {
-				char *token = ctx.buffer();
-				tk = scanner->scanNumber(&ctx);
-				if (token[0] == '-') tk->data = "-" + tk->data;
-				tmgr->add(tk);
-				ctx.clearBuffer();
+			if (!ctx->existsBuffer() ||
+				(ctx->buffer_idx == 1 && ctx->buffer()[0] == '-')) {
+				tmgr->add(scanner.scanNumber(ctx));
+				ctx->clearBuffer();
 				continue;
 			}
-		default:
-			ctx.writeBuffer(smgr->currentChar());
+		default: {
+			char ch = smgr->currentChar();
+			if (ch != '\n') ctx->writeBuffer(ch);
 			break;
 		}
+		}
 	}
-	if (ctx.existsBuffer()) {
-		tmgr->add(new Token(string(ctx.buffer()), ctx.finfo));
-		ctx.clearBuffer();
+	if (ctx->existsBuffer()) {
+		tmgr->add(tmgr->new_Token(ctx->buffer(), ctx->finfo));
+		ctx->clearBuffer();
 	}
-	annotateTokens(&ctx);
+	annotateTokens(ctx, tmgr->tokens);
 	return tmgr->tokens;
+}
+
+void Lexer::clearContext(void)
+{
+	free(ctx->tmgr->head);
+	free(ctx->buffer_head);
+	delete ctx->tmgr->tokens;
+	delete ctx->tmgr;
+	delete ctx->smgr;
+	delete ctx;
 }
 
 void Lexer::dump(Tokens *tokens)
@@ -150,23 +130,18 @@ void Lexer::dump(Tokens *tokens)
 	TokenPos it = tokens->begin();
 	while (it != tokens->end()) {
 		Token *t = ITER_CAST(Token *, it);
-		fprintf(stdout, "[%-12s] : %12s \n", cstr(t->data), t->info.name);
+		fprintf(stdout, "[%-12s] : %12s \n", t->_data, t->info.name);
 		it++;
 	}
 }
 
-void Lexer::annotateTokens(LexContext *ctx)
+void Lexer::annotateTokens(LexContext *ctx, Tokens *tokens)
 {
-	TokenManager *tmgr = ctx->tmgr;
-	Annotator *annotator = new Annotator();
-	for (; !tmgr->end(); tmgr->next()) {
-		Token *tk = tmgr->currentToken();
-		if (tk->data == "\n") {
-			tmgr->remove(tmgr->idx);
-			tmgr->back();
-			continue;
-		}
-		annotator->annotate(ctx, tk);
+	Annotator annotator;
+	size_t size = tokens->size();
+	for (size_t i = 0; i < size; i++) {
+		Token *tk = tokens->at(i);
+		annotator.annotate(ctx, tk);
 	}
 }
 
@@ -187,7 +162,7 @@ void Lexer::grouping(Tokens *tokens)
 			size_t move_count = 0;
 			do {
 				tk = ITER_CAST(Token *, pos);
-				if (tk) ns += tk->data;
+				if (tk) ns += string(tk->_data);
 				else break;
 				pos++;
 				move_count++;
@@ -199,7 +174,8 @@ void Lexer::grouping(Tokens *tokens)
 					 (next_tk && next_tk->info.type == NamespaceResolver));
 			TokenPos end_pos = pos;
 			pos -= move_count;
-			ns_token->data = ns;
+			//if (ns_token->info.type == Namespace) asm("int3");
+			ns_token->_data = (new string(ns))->c_str();
 			ns_token->info.has_warnings = true;
 			ns = "";
 			tokens->erase(start_pos, end_pos);
@@ -210,7 +186,8 @@ void Lexer::grouping(Tokens *tokens)
 			Token *next_tk = ITER_CAST(Token *, pos+1);
 			TokenType::Type type = next_tk->info.type;
 			if (type == Key || type == Var || type == GlobalVar) {
-				as_token->data += next_tk->data;
+				string new_str = string(as_token->_data) + string(next_tk->_data);
+				as_token->_data = (new string(new_str))->c_str();
 				tokens->erase(pos+1);
 			}
 			break;
@@ -220,7 +197,8 @@ void Lexer::grouping(Tokens *tokens)
 			Token *next_tk = ITER_CAST(Token *, pos+1);
 			if (!next_tk) break;
 			Token *sp_token = tk;
-			sp_token->data += next_tk->data;
+			string new_str = string(sp_token->_data) + string(next_tk->_data);
+			sp_token->_data = (new string(new_str))->c_str();
 			tokens->erase(pos+1);
 			break;
 		}
@@ -253,21 +231,24 @@ void Lexer::prepare(Tokens *tokens)
 				tag->info.kind = Enum::Token::Kind::RegPrefix;
 				tag->info.name = "RegDoubleQuote";
 				tag->info.data = "qq";
-				tag->data = "qq{" + t->data + "}";
+				//tag->data = "qq{" + string(t->_data) + "}";
+				tag->_data = (new string("qq{" + string(t->_data) + "}"))->c_str();
 				break;
 			case TokenType::HereDocumentRawTag:
 				tag->info.type = Enum::Token::Type::RegQuote;
 				tag->info.kind = Enum::Token::Kind::RegPrefix;
 				tag->info.name = "RegQuote";
 				tag->info.data = "q";
-				tag->data = "q{" + t->data + "}";
+				//tag->data = "q{" + string(t->_data) + "}";
+				tag->_data = (new string("q{" + string(t->_data) + "}"))->c_str();
 				break;
 			case TokenType::HereDocumentExecTag:
 				tag->info.type = Enum::Token::Type::RegExec;
 				tag->info.kind = Enum::Token::Kind::RegPrefix;
 				tag->info.name = "RegExec";
 				tag->info.data = "qx";
-				tag->data = "qx{" + t->data + "}";
+				//tag->data = "qx{" + string(t->_data) + "}";
+				tag->_data = (new string("qx{" + string(t->_data) + "}"))->c_str();
 				break;
 			default:
 				break;
@@ -668,7 +649,7 @@ Modules *Lexer::getUsedModules(Token *root)
 	for (size_t i = 0; i < root->token_num; i++) {
 		Token **tks = root->tks;
 		if (tks[i]->info.type == UseDecl && i + 1 < root->token_num) {
-			const char *module_name = cstr(tks[i+1]->data);
+			const char *module_name = tks[i+1]->_data;
 			string args;
 			for (i += 2; i < root->token_num && tks[i]->info.type != SemiColon; i++) {
 				args += " " + string(tks[i]->deparse());

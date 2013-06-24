@@ -2398,8 +2398,7 @@ END       {context}
                    'has_warnings' => 1,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Key',
-                   'data' => '
-void',
+                   'data' => 'void',
                    'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 129
                  }, 'Compiler::Lexer::Token' ),

@@ -4502,8 +4502,7 @@ $foo =;',
                    'has_warnings' => 1,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Key',
-                   'data' => '
-do_eval1',
+                   'data' => 'do_eval1',
                    'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 114
                  }, 'Compiler::Lexer::Token' ),
@@ -6051,8 +6050,7 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
                    'has_warnings' => 1,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Key',
-                   'data' => '
-is',
+                   'data' => 'is',
                    'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 181
                  }, 'Compiler::Lexer::Token' ),
@@ -19375,8 +19373,7 @@ $foo =;\' ;',
             'token_num' => 5,
             'has_warnings' => 1,
             'end_line' => 114,
-            'src' => ' 
-do_eval1 ( \'is($x, "aa")\' ) ;',
+            'src' => ' do_eval1 ( \'is($x, "aa")\' ) ;',
             'start_line' => 114,
             'indent' => 0,
             'block_id' => 0
@@ -19682,8 +19679,7 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
             'token_num' => 15,
             'has_warnings' => 1,
             'end_line' => 182,
-            'src' => ' 
-is ( create_closure ( "good" )-> ( ) , "good" , \'closures created within eval bind correctly\' ) ;',
+            'src' => ' is ( create_closure ( "good" )-> ( ) , "good" , \'closures created within eval bind correctly\' ) ;',
             'start_line' => 181,
             'indent' => 0,
             'block_id' => 0

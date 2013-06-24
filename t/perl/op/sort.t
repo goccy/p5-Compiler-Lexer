@@ -8845,8 +8845,7 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 1,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Key',
-                   'data' => '
-cmp_ok',
+                   'data' => 'cmp_ok',
                    'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 156
                  }, 'Compiler::Lexer::Token' ),
@@ -9028,8 +9027,7 @@ cmp_ok',
                    'has_warnings' => 1,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Key',
-                   'data' => '
-cmp_ok',
+                   'data' => 'cmp_ok',
                    'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 162
                  }, 'Compiler::Lexer::Token' ),
@@ -51778,8 +51776,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 14,
             'has_warnings' => 1,
             'end_line' => 156,
-            'src' => ' 
-cmp_ok ( $@ , \'eq\' , \'\' , q(old skool package) ) ;',
+            'src' => ' cmp_ok ( $@ , \'eq\' , \'\' , q(old skool package) ) ;',
             'start_line' => 156,
             'indent' => 0,
             'block_id' => 0
@@ -51799,8 +51796,7 @@ cmp_ok ( $@ , \'eq\' , \'\' , q(old skool package) ) ;',
             'token_num' => 14,
             'has_warnings' => 1,
             'end_line' => 162,
-            'src' => ' 
-cmp_ok ( $@ , \'eq\' , \'\' , q(one is not a sub) ) ;',
+            'src' => ' cmp_ok ( $@ , \'eq\' , \'\' , q(one is not a sub) ) ;',
             'start_line' => 162,
             'indent' => 0,
             'block_id' => 0

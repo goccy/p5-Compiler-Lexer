@@ -44,7 +44,8 @@ CODE:
 {
 	Tokens *tokens = self->tokenize((char *)script);
 	AV* ret  = new_Array();
-	for (size_t i = 0; i < tokens->size(); i++) {
+	size_t size = tokens->size();
+	for (size_t i = 0; i < size; i++) {
 		Token *token = tokens->at(i);
 		HV *hash = (HV*)new_Hash();
 		hv_stores(hash, "stype", set(new_Int(token->stype)));
@@ -53,10 +54,11 @@ CODE:
 		hv_stores(hash, "line", set(new_Int(token->finfo.start_line_num)));
 		hv_stores(hash, "has_warnings", set(new_Int(token->info.has_warnings)));
 		hv_stores(hash, "name", set(new_String(token->info.name, strlen(token->info.name))));
-		hv_stores(hash, "data", set(new_String(token->data.c_str(), strlen(token->data.c_str()))));
-		HV *stash = (HV *)gv_stashpv("Compiler::Lexer::Token", sizeof("Compiler::Lexer::Token") + 1);
+		hv_stores(hash, "data", set(new_String(token->_data, strlen(token->_data))));
+		HV *stash = (HV *)gv_stashpv("Compiler::Lexer::Token", sizeof("Compiler::Lexer::Token"));
 		av_push(ret, set(sv_bless(new_Ref(hash), stash)));
 	}
+	self->clearContext();
     RETVAL = (AV *)new_Ref(ret);
 }
 OUTPUT:
@@ -100,6 +102,7 @@ CODE:
 		Token *tk = new Token(std::string(data), finfo);
 		tk->info = info;
 		tk->type = type;
+		tk->_data = data;
 		tks.push_back(tk);
 	}
 	self->grouping(&tks);
@@ -156,6 +159,7 @@ CODE:
 		hv_stores(hash, "args", set(new_String(module_args, module_args_len)));
 		av_push(ret, set(new_Ref(hash)));
 	}
+	self->clearContext();
 	RETVAL = ret;
 }
 OUTPUT:
@@ -175,9 +179,6 @@ CODE:
 	const char *src = root->deparse();
 	size_t len = strlen(src) + 1;
 	size_t token_size = tokens->size();
-	//delete root;
-	//lexer.deleteTokens(tokens);
-	//lexer.deleteToken(root);
 	RETVAL = newSVpv(src, len);
 }
 OUTPUT:

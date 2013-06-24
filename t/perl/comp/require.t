@@ -6910,13 +6910,12 @@ krunch.pm krunch.pmc whap.pm whap.pmc',
                    'line' => 163
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'kind' => Compiler::Lexer::Kind::T_Do,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => '
-do',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'Do',
+                   'data' => 'do',
+                   'type' => Compiler::Lexer::TokenType::T_Do,
                    'line' => 164
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -15244,10 +15243,9 @@ krunch.pm krunch.pmc whap.pm whap.pmc) ;',
           },
           {
             'token_num' => 6,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 164,
-            'src' => ' 
-do "bleah.do" or die $@ ;',
+            'src' => ' do "bleah.do" or die $@ ;',
             'start_line' => 164,
             'indent' => 0,
             'block_id' => 0

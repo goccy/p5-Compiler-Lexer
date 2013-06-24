@@ -37,11 +37,11 @@ public:
 	TokenInfo info;
 	FileInfo finfo;
 	Token **tks;
+	const char *_data;
 	std::string data;
-	int idx;
 	size_t token_num;
 	size_t total_token_num;
-	std::string deparsed_data;
+	const char *deparsed_data;
 	bool isDeparsed;
 	bool isDeleted;
 
@@ -52,10 +52,20 @@ public:
 
 class Tokens : public std::vector<Token *> {
 public:
-	Tokens(void);
-	void add(Token *token);
-	void remove(size_t idx);
-	Token *lastToken(void);
+
+	Tokens(void) {}
+	inline void add(Token *token) {
+		if (token) push_back(token);
+	}
+
+	inline void remove(size_t) {
+		//erase(idx);
+	}
+
+	inline Token *lastToken(void) {
+		return (size() > 0) ? back() : NULL;
+	}
 };
 
 extern TokenInfo decl_tokens[];
+extern TokenInfo type_to_info[];
