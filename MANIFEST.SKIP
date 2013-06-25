@@ -2,11 +2,14 @@
 ^MANIFEST\.
 blib/
 .git/
-Makefile
+^Makefile$
 Makefile.old
 ^MYMETA\.
 ppport.h
 \.bak$
 \.tar\.gz$
 .shipit
-
+t/perl
+example/bigdata.pl
+gen/
+\.o$
