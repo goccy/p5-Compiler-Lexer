@@ -13,7 +13,7 @@ my $hoge;
 SCRIPT
 
 subtest 'tokenize' => sub {
-    is_deeply($$tokens, [
+    is_deeply($tokens, [
         bless( {
             'kind' => Compiler::Lexer::Kind::T_Decl,
             'has_warnings' => 0,

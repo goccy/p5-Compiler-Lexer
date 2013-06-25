@@ -209,10 +209,10 @@ package Compiler::Lexer::SyntaxType;
 use strict;
 use warnings;
 use constant {
-    T_Value     => 0,
-    T_Term      => 1,
-    T_Expr      => 2,
-    T_Stmt      => 3,
+    T_Value => 0,
+    T_Term => 1,
+    T_Expr => 2,
+    T_Stmt => 3,
     T_BlockStmt => 4
 };
 1;

@@ -811,7 +811,7 @@ __SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
-    is_deeply($$tokens, [
+    is_deeply($tokens, [
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_ModWord,
                    'has_warnings' => 0,
@@ -30725,8 +30725,8 @@ my %MK = (
 subtest 'get_groups_by_syntax_level' => sub {
     my $lexer = Compiler::Lexer->new('');
     my $tokens = $lexer->tokenize($script);
-    my $stmts = $lexer->get_groups_by_syntax_level($$tokens, Compiler::Lexer::SyntaxType::T_Stmt);
-    is_deeply($$stmts, [
+    my $stmts = $lexer->get_groups_by_syntax_level($tokens, Compiler::Lexer::SyntaxType::T_Stmt);
+    is_deeply($stmts, [
           {
             'token_num' => 6,
             'has_warnings' => 0,

@@ -2,8 +2,9 @@
 
 use strict;
 use warnings;
+use YAML;
 
-my (@info, @token_enum, @kind_enum, @type_to_info);
+my (@info, @token_enum, @kind_enum, @syntax_enum, @type_to_info);
 foreach (<DATA>) {
     my ($kind, $type, $data) = split /\s+/;
     my $info = { type => "$type", kind => "$kind", data => "$data" };
@@ -16,6 +17,8 @@ foreach (<DATA>) {
         push @kind_enum, $kind if ($kind);
     }
 }
+
+@syntax_enum = qw/Value Term Expr Stmt BlockStmt/;
 
 my $token_type = join ",\n", map { "\t$_" } @token_enum;
 my $token_kind = join ",\n", map { "\t$_" } @kind_enum;
@@ -45,10 +48,32 @@ my $count = 0;
 my $token_type_enums = join ",\n", map {
     ' ' x 4 . "T_$_ => " . $count++;
 } @token_enum;
+
+$count = 0;
+my $syntax_type_enums = join ",\n", map {
+    ' ' x 4 . "T_$_ => " . $count++;
+} @syntax_enum;
+
 $count = 0;
 my $token_kind_enums = join ",\n", map {
     ' ' x 4 . "T_$_ => " . $count++;
 } @kind_enum;
+
+my %token_type_constants_map;
+my %token_kind_constants_map;
+my %syntax_type_constants_map;
+$count = 0;
+$token_type_constants_map{"T_$_"} = $count++ foreach @token_enum;
+$count = 0;
+$token_kind_constants_map{"T_$_"} = $count++ foreach @kind_enum;
+$count = 0;
+$syntax_type_constants_map{"T_$_"} = $count++ foreach @syntax_enum;
+
+my $constants = +{
+    token_type => \%token_type_constants_map,
+    syntax_type => \%syntax_type_constants_map,
+    token_kind => \%token_kind_constants_map
+};
 
 open(my $fh, '>', 'include/gen_token.hpp');
 print $fh <<"CODE";
@@ -97,11 +122,7 @@ package Compiler::Lexer::SyntaxType;
 use strict;
 use warnings;
 use constant {
-    T_Value     => 0,
-    T_Term      => 1,
-    T_Expr      => 2,
-    T_Stmt      => 3,
-    T_BlockStmt => 4
+$syntax_type_enums
 };
 1;
 
@@ -113,6 +134,9 @@ $token_kind_enums
 };
 1;
 CODE
+
+open($fh, '>', 'gen/gen_constants.yaml');
+print $fh Dump $constants;
 
 open($fh, '>', 'gen/reserved_keywords.gperf');
 print $fh <<CODE;

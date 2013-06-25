@@ -19,6 +19,7 @@ extern "C" {
 #ifdef __cplusplus
 };
 #endif
+
 typedef Lexer * Compiler_Lexer;
 
 MODULE = Compiler::Lexer PACKAGE = Compiler::Lexer
@@ -59,7 +60,7 @@ CODE:
 		av_push(ret, set(sv_bless(new_Ref(hash), stash)));
 	}
 	self->clearContext();
-    RETVAL = (AV *)new_Ref(ret);
+    RETVAL = ret;
 }
 OUTPUT:
 RETVAL
@@ -131,7 +132,7 @@ CODE:
 		hv_stores(hash, "has_warnings", set(new_Int(stmt->info.has_warnings)));
 		av_push(ret, set(new_Ref(hash)));
 	}
-	RETVAL = (AV *)new_Ref(ret);
+	RETVAL = ret;
 }
 OUTPUT:
 	RETVAL

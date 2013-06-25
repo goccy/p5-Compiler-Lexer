@@ -6,4 +6,4 @@ BEGIN { use_ok('Compiler::Lexer') };
 use Data::Dumper;
 
 my $tokens = Compiler::Lexer->new('-')->tokenize('package Foo');
-print Dumper $$tokens;
+print Dumper $tokens;
