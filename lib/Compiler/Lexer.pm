@@ -2,6 +2,7 @@ package Compiler::Lexer;
 use strict;
 use warnings;
 use 5.008_001;
+use File::Find;
 use Compiler::Lexer::Token;
 use Compiler::Lexer::Constants;
 
@@ -13,6 +14,55 @@ our @EXPORT = qw();
 our $VERSION = '0.13';
 require XSLoader;
 XSLoader::load(__PACKAGE__, $VERSION);
+
+my $inc;
+
+sub set_library_path {
+    my ($self, $_inc) = @_;
+    $inc = $_inc;
+}
+
+sub load_module {
+    my ($self, $name) = @_;
+    $name =~ s|::|/|g;
+    my @include_path = (@$inc) ? @$inc : @INC;
+    my $module_path = '';
+    foreach my $path (@include_path) {
+        find(sub {
+            return if ($module_path);
+            my $absolute_path = $File::Find::name;
+            if ($absolute_path =~ "$name.pm") {
+                $module_path = $absolute_path;
+            }
+        }, $path);
+        last if ($module_path);
+    }
+    return undef unless $module_path;
+    open my $fh, '<', $module_path;
+    return do { local $/; <$fh> };
+}
+
+sub recursive_tokenize {
+    my ($self, $script) = @_;
+    my %results;
+    $self->__recursive_tokenize(\%results, $script);
+    $results{main} = $self->tokenize($script);
+    return \%results;
+}
+
+sub __recursive_tokenize {
+    my ($self, $results, $script) = @_;
+    my $modules = $self->get_used_modules($script);
+    foreach my $module (@$modules) {
+        my $name = $module->{name};
+        next if (defined $results->{$name});
+        $results->{$name} ||= [];
+        my $code = $self->load_module($name);
+        next unless ($code);
+        $results->{$name} = $self->tokenize($code);
+        $self->__recursive_tokenize($results, $code);
+    }
+}
 
 1;
 __END__
