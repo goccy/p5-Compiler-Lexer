@@ -9,3 +9,7 @@ use Compiler::Lexer;
 my $lexer = Compiler::Lexer->new('-');
 
 SCRIPT
+
+ok(scalar @{$results->{'Compiler::Lexer'}} > 0);
+
+done_testing;

@@ -25,7 +25,7 @@ sub set_library_path {
 sub load_module {
     my ($self, $name) = @_;
     $name =~ s|::|/|g;
-    my @include_path = (@$inc) ? @$inc : @INC;
+    my @include_path = ($inc) ? @$inc : @INC;
     my $module_path = '';
     foreach my $path (@include_path) {
         find(sub {
