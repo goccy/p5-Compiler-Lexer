@@ -28,6 +28,7 @@ sub load_module {
     my @include_path = ($inc) ? @$inc : @INC;
     my $module_path = '';
     foreach my $path (@include_path) {
+        next unless -e $path;
         find(sub {
             return if ($module_path);
             my $absolute_path = $File::Find::name;
