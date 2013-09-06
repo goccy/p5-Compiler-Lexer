@@ -8,7 +8,7 @@ Compiler::Lexer - Lexical Analyzer for Perl5
     use Data::Dumper;
 
     my $filename = $ARGV[0];
-    open(my $fh, "<", $filename) or die("$filename is not found.");
+    open(my $fh, "<", $filename) or die("$filename could not find.");
     my $script = do { local $/; <$fh> };
     my $lexer = Compiler::Lexer->new($filename);
     my $tokens = $lexer->tokenize($script);

@@ -83,10 +83,10 @@ Compiler::Lexer - Lexical Analyzer for Perl5
 
   my $lexer = Compiler::Lexer->new($filename);
   my $tokens = $lexer->tokenize($script);
-  print Dumper $$tokens;
+  print Dumper $tokens;
 
   my $modules = $lexer->get_used_modules($script);
-  print Dumper $$modules;
+  print Dumper $modules;
 
 =head1 METHODS
 
