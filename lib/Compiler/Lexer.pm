@@ -78,7 +78,7 @@ Compiler::Lexer - Lexical Analyzer for Perl5
   use Data::Dumper;
 
   my $filename = $ARGV[0];
-  open my $fh, '<', $filename;
+  open my $fh, '<', $filename or die "Cannot open $filename: $!";
   my $script = do { local $/; <$fh> };
 
   my $lexer = Compiler::Lexer->new($filename);
@@ -97,7 +97,7 @@ Compiler::Lexer provides three methods
 =item my $lexer = Compiler::Lexer->new($filename);
 
 create new instance.
-You can create object from `$filename` in string.
+You can create object from $filename in string.
 
 =item $lexer->tokenize($script);
 
