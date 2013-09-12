@@ -90,8 +90,6 @@ Compiler::Lexer - Lexical Analyzer for Perl5
 
 =head1 METHODS
 
-Compiler::Lexer provides three methods
-
 =over
 
 =item my $lexer = Compiler::Lexer->new($filename);
@@ -103,6 +101,15 @@ You can create object from $filename in string.
 
 get token objects includes parameter of 'name' or 'type' or 'line' and so on.
 This method requires perl source code in string.
+
+=item $lexer->set_library_path(['path1', 'path2' ...])
+
+set libraries path for reading recursively. Default paths are @INC.
+
+=item $lexer->recursive_tokenize($script)
+
+get hash reference like { 'module_nameA' => [], 'module_nameB' => [] ... }.
+This method requires per source code in string.
 
 =item $lexer->get_used_modules($script);
 
