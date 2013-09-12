@@ -1,0 +1,80 @@
+{
+   "abstract" : "Lexical Analyzer for Perl5",
+   "author" : [
+      "Masaaki Goshima (goccy) <goccy(at)cpan.org>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Minilla/v0.6.5, CPAN::Meta::Converter version 2.132510",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Compiler-Lexer",
+   "no_index" : {
+      "directory" : [
+         "t",
+         "examples",
+         "builder"
+      ]
+   },
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Devel::PPPort" : "3.19",
+            "ExtUtils::MakeMaker" : "6.59",
+            "ExtUtils::ParseXS" : "2.21",
+            "Test::More" : "0"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "CPAN::Meta" : "0",
+            "CPAN::Meta::Prereqs" : "0",
+            "Module::Build" : "0.38",
+            "Module::Build::XSUtil" : "0.02"
+         }
+      },
+      "develop" : {
+         "requires" : {
+            "Test::CPAN::Meta" : "0",
+            "Test::MinimumVersion" : "0.10108",
+            "Test::Pod" : "1.41",
+            "Test::Spellunker" : "v0.2.7"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "XSLoader" : "0.02",
+            "perl" : "5.008001"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "Test::More" : "0"
+         }
+      }
+   },
+   "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/goccy/p5-Compiler-Lexer/issues"
+      },
+      "homepage" : "https://github.com/goccy/p5-Compiler-Lexer",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/goccy/p5-Compiler-Lexer.git",
+         "web" : "https://github.com/goccy/p5-Compiler-Lexer"
+      }
+   },
+   "version" : "0.13",
+   "x_contributors" : [
+      "tokuhirom <tokuhirom@gmail.com>",
+      "Reini Urban <rurban@cpanel.net>",
+      "masaaki.goshima <masaaki.goshima@mixi.co.jp>",
+      "Fumihiro Itoh <fmhrit@gmail.com>",
+      "Masaaki Goshima <goccy54@gmail.com>"
+   ]
+}

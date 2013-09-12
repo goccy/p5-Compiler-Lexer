@@ -12,3 +12,17 @@ Makefile
 Makefile.old
 src/Compiler-Lexer.cpp
 .DS_Store
+/Compiler-Lexer-*
+/.build
+/_build_params
+/Build
+!Build/
+!META.json
+!LICENSE
+local
+_build
+lib/Compiler/Lexer.c
+lib/Compiler/Lexer.xs
+GTAGS
+GRTAGS
+GPATH

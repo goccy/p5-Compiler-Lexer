@@ -49,13 +49,13 @@ CODE:
 	for (size_t i = 0; i < size; i++) {
 		Token *token = tokens->at(i);
 		HV *hash = (HV*)new_Hash();
-		hv_stores(hash, "stype", set(new_Int(token->stype)));
-		hv_stores(hash, "type", set(new_Int(token->info.type)));
-		hv_stores(hash, "kind", set(new_Int(token->info.kind)));
-		hv_stores(hash, "line", set(new_Int(token->finfo.start_line_num)));
-		hv_stores(hash, "has_warnings", set(new_Int(token->info.has_warnings)));
-		hv_stores(hash, "name", set(new_String(token->info.name, strlen(token->info.name))));
-		hv_stores(hash, "data", set(new_String(token->_data, strlen(token->_data))));
+		(void)hv_stores(hash, "stype", set(new_Int(token->stype)));
+		(void)hv_stores(hash, "type", set(new_Int(token->info.type)));
+		(void)hv_stores(hash, "kind", set(new_Int(token->info.kind)));
+		(void)hv_stores(hash, "line", set(new_Int(token->finfo.start_line_num)));
+		(void)hv_stores(hash, "has_warnings", set(new_Int(token->info.has_warnings)));
+		(void)hv_stores(hash, "name", set(new_String(token->info.name, strlen(token->info.name))));
+		(void)hv_stores(hash, "data", set(new_String(token->_data, strlen(token->_data))));
 		HV *stash = (HV *)gv_stashpv("Compiler::Lexer::Token", sizeof("Compiler::Lexer::Token"));
 		av_push(ret, set(sv_bless(new_Ref(hash), stash)));
 	}
@@ -123,13 +123,13 @@ CODE:
 		const char *src = stmt->deparse();
 		size_t len = strlen(src);
 		HV *hash = (HV*)new_Hash();
-		hv_stores(hash, "src", set(new_String(src, len)));
-		hv_stores(hash, "token_num", set(new_Int(stmt->total_token_num)));
-		hv_stores(hash, "indent", set(new_Int(stmt->finfo.indent)));
-		hv_stores(hash, "block_id", set(new_Int(stmt->finfo.block_id)));
-		hv_stores(hash, "start_line", set(new_Int(stmt->finfo.start_line_num)));
-		hv_stores(hash, "end_line", set(new_Int(stmt->finfo.end_line_num)));
-		hv_stores(hash, "has_warnings", set(new_Int(stmt->info.has_warnings)));
+		(void)hv_stores(hash, "src", set(new_String(src, len)));
+		(void)hv_stores(hash, "token_num", set(new_Int(stmt->total_token_num)));
+		(void)hv_stores(hash, "indent", set(new_Int(stmt->finfo.indent)));
+		(void)hv_stores(hash, "block_id", set(new_Int(stmt->finfo.block_id)));
+		(void)hv_stores(hash, "start_line", set(new_Int(stmt->finfo.start_line_num)));
+		(void)hv_stores(hash, "end_line", set(new_Int(stmt->finfo.end_line_num)));
+		(void)hv_stores(hash, "has_warnings", set(new_Int(stmt->info.has_warnings)));
 		av_push(ret, set(new_Ref(hash)));
 	}
 	RETVAL = ret;
@@ -156,8 +156,8 @@ CODE:
 		size_t module_name_len = strlen(module_name);
 		size_t module_args_len = (module_args) ? strlen(module_args) : 0;
 		HV *hash = (HV*)new_Hash();
-		hv_stores(hash, "name", set(new_String(module_name, module_name_len)));
-		hv_stores(hash, "args", set(new_String(module_args, module_args_len)));
+		(void)hv_stores(hash, "name", set(new_String(module_name, module_name_len)));
+		(void)hv_stores(hash, "args", set(new_String(module_args, module_args_len)));
 		av_push(ret, set(new_Ref(hash)));
 	}
 	self->clearContext();

@@ -1,0 +1,8 @@
+[build]
+build_class = "builder::MyBuilder"
+
+[no_index]
+directory = ['t', 'examples', 'builder']
+
+[FileGatherer]
+exclude_match = ['^t/perl/.*', '^example/bigdata.pl']
