@@ -122,7 +122,9 @@ void Annotator::annotateGlobOrMul(LexContext *ctx, const string &, Token *tk, To
 	TokenType::Type prev_type = (prev_tk) ? prev_tk->info.type : TokenType::Undefined;
 	TokenKind::Kind prev_kind = (prev_tk) ? prev_tk->info.kind : TokenKind::Undefined;
 	if (prev_type == SemiColon || prev_type == LeftParenthesis || prev_type == Comma ||
-		prev_kind == TokenKind::Assign || prev_kind == TokenKind::Operator || prev_kind == TokenKind::Decl) {
+		prev_kind == TokenKind::Assign ||
+		(prev_type != Inc && prev_type != Dec && prev_kind == TokenKind::Operator) ||
+		prev_kind == TokenKind::Decl) {
 		*info = ctx->tmgr->getTokenInfo(Glob);
 	} else {
 		*info = ctx->tmgr->getTokenInfo(Mul);
