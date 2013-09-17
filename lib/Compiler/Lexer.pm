@@ -78,7 +78,7 @@ Compiler::Lexer - Lexical Analyzer for Perl5
   use Data::Dumper;
 
   my $filename = $ARGV[0];
-  open my $fh, '<', $filename;
+  open my $fh, '<', $filename or die "Cannot open $filename: $!";
   my $script = do { local $/; <$fh> };
 
   my $lexer = Compiler::Lexer->new($filename);
@@ -90,19 +90,26 @@ Compiler::Lexer - Lexical Analyzer for Perl5
 
 =head1 METHODS
 
-Compiler::Lexer provides three methods
-
 =over
 
 =item my $lexer = Compiler::Lexer->new($filename);
 
 create new instance.
-You can create object from `$filename` in string.
+You can create object from $filename in string.
 
 =item $lexer->tokenize($script);
 
 get token objects includes parameter of 'name' or 'type' or 'line' and so on.
 This method requires perl source code in string.
+
+=item $lexer->set_library_path(['path1', 'path2' ...])
+
+set libraries path for reading recursively. Default paths are @INC.
+
+=item $lexer->recursive_tokenize($script)
+
+get hash reference like { 'module_nameA' => [], 'module_nameB' => [] ... }.
+This method requires per source code in string.
 
 =item $lexer->get_used_modules($script);
 

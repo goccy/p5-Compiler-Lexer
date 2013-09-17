@@ -1,6 +1,7 @@
 #include <lexer.hpp>
 
 namespace TokenType = Enum::Token::Type;
+namespace TokenKind = Enum::Token::Kind;
 using namespace TokenType;
 using namespace std;
 
@@ -116,7 +117,14 @@ void Annotator::annotateReservedKeyword(LexContext *ctx, const string &, Token *
 
 void Annotator::annotateGlobOrMul(LexContext *ctx, const string &, Token *tk, TokenInfo *info)
 {
-	if (tk->_data[0] == '*') {
+	if (tk->_data[0] != '*') return;
+	Token *prev_tk = ctx->tmgr->previousToken(tk);
+	TokenType::Type prev_type = (prev_tk) ? prev_tk->info.type : TokenType::Undefined;
+	TokenKind::Kind prev_kind = (prev_tk) ? prev_tk->info.kind : TokenKind::Undefined;
+	if (prev_type == SemiColon || prev_type == LeftParenthesis || prev_type == Comma ||
+		prev_kind == TokenKind::Assign || prev_kind == TokenKind::Operator || prev_kind == TokenKind::Decl) {
+		*info = ctx->tmgr->getTokenInfo(Glob);
+	} else {
 		*info = ctx->tmgr->getTokenInfo(Mul);
 	}
 }

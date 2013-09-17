@@ -8,43 +8,46 @@ Compiler::Lexer - Lexical Analyzer for Perl5
     use Data::Dumper;
 
     my $filename = $ARGV[0];
-    open(my $fh, "<", $filename) or die("$filename could not find.");
+    open my $fh, '<', $filename;
     my $script = do { local $/; <$fh> };
+
     my $lexer = Compiler::Lexer->new($filename);
     my $tokens = $lexer->tokenize($script);
     print Dumper $tokens;
-    print Dumper $lexer->get_used_modules($script);
 
-# DESCRIPTION
-
-Compiler::Lexer is lexical analyzer for perl5.
+    my $modules = $lexer->get_used_modules($script);
+    print Dumper $modules;
 
 # METHODS
 
+Compiler::Lexer provides three methods
+
 - my $lexer = Compiler::Lexer->new($filename);
 
-    Create new instance. You can create object from `$filename` in string.
+    create new instance.
+    You can create object from \`$filename\` in string.
 
 - $lexer->tokenize($script);
 
-    Get token objects includes parameter of 'name' or 'type' or 'line' and so on.
+    get token objects includes parameter of 'name' or 'type' or 'line' and so on.
     This method requires perl source code in string.
 
-- $lexer->get_used_modules($script);
+- $lexer->get\_used\_modules($script);
 
-    Get names of used module. This method requires perl source code in string.
-
-# LICENSE
-
-Copyright (C) Masaaki Goshima (goccy).
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+    get names of used module.
+    This method requires perl source code in string.
 
 # AUTHOR
 
-Masaaki Goshima (goccy) <goccy@cpan.org>
+Masaaki Goshima (goccy) <goccy(at)cpan.org>
 
-# SEE ALSO
+# CONTRIBUTORS
 
-[Compiler::Parser](http://search.cpan.org/perldoc?Compiler::Parser)
+tokuhirom: Tokuhiro Matsuno
+
+# LICENSE AND COPYRIGHT
+
+Copyright (c) 2013, Masaaki Goshima (goccy). All rights reserved.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.

@@ -279,7 +279,7 @@ bool Lexer::isExpr(Token *tk, Token *prev_tk, TokenType::Type type, TokenKind::K
 		(tk->tks[2]->info.type == Arrow || tk->tks[2]->info.type == Comma)) {
 		/* { [key|"key"] [,|=>] value ... */
 		return true;
-	} else if (type == Pointer || type == Mul || kind == TokenKind::Term || kind == TokenKind::Function ||/* type == FunctionDecl ||*/
+	} else if (type == Pointer || (type == Mul || type == Glob) || kind == TokenKind::Term || kind == TokenKind::Function ||/* type == FunctionDecl ||*/
 			((prev_tk && prev_tk->stype == SyntaxType::Expr) && (type == RightBrace || type == RightBracket))) {
 		/* ->{ or $hash{ or map { or {key}{ or [idx]{ */
 		return true;
