@@ -2686,12 +2686,12 @@ subtest 'tokenize' => sub {
                    'line' => 45
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BuiltinFunc',
+                   'name' => 'Key',
                    'data' => 'keys',
-                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
+                   'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 45
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2776,12 +2776,12 @@ subtest 'tokenize' => sub {
                    'line' => 46
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BuiltinFunc',
+                   'name' => 'Key',
                    'data' => 'values',
-                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
+                   'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 46
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3685,12 +3685,12 @@ subtest 'tokenize' => sub {
                    'line' => 61
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BuiltinFunc',
+                   'name' => 'Key',
                    'data' => 'keys',
-                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
+                   'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 61
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -16285,19 +16285,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 10,
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 45,
-            'src' => ' is ( $# keys , 29 , "keys" ) ;',
+            'src' => ' is ( $#keys , 29 , "keys" ) ;',
             'start_line' => 45,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 10,
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 46,
-            'src' => ' is ( $# values , 29 , "values" ) ;',
+            'src' => ' is ( $#values , 29 , "values" ) ;',
             'start_line' => 46,
             'indent' => 0,
             'block_id' => 0
@@ -16366,10 +16366,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 10,
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 61,
-            'src' => ' is ( $# keys , 31 , "added a key" ) ;',
+            'src' => ' is ( $#keys , 31 , "added a key" ) ;',
             'start_line' => 61,
             'indent' => 0,
             'block_id' => 0

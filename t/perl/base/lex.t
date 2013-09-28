@@ -773,12 +773,12 @@ subtest 'tokenize' => sub {
                    'line' => 14
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringMul',
+                   'name' => 'Key',
                    'data' => 'x',
-                   'type' => Compiler::Lexer::TokenType::T_StringMul,
+                   'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 14
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9537,10 +9537,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 4
           },
           {
-            'token_num' => 5,
+            'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 14,
-            'src' => ' $x = $# x ;',
+            'src' => ' $x = $#x ;',
             'start_line' => 14,
             'indent' => 0,
             'block_id' => 0

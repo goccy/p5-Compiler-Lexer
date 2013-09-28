@@ -982,12 +982,12 @@ subtest 'tokenize' => sub {
                    'line' => 27
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringMul',
+                   'name' => 'Key',
                    'data' => 'x',
-                   'type' => Compiler::Lexer::TokenType::T_StringMul,
+                   'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 27
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1054,12 +1054,12 @@ subtest 'tokenize' => sub {
                    'line' => 29
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringMul',
+                   'name' => 'Key',
                    'data' => 'x',
-                   'type' => Compiler::Lexer::TokenType::T_StringMul,
+                   'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 29
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2449,10 +2449,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 5,
+            'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 27,
-            'src' => ' $tmp = $# x ;',
+            'src' => ' $tmp = $#x ;',
             'start_line' => 27,
             'indent' => 0,
             'block_id' => 0
@@ -2467,10 +2467,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 12,
+            'token_num' => 11,
             'has_warnings' => 0,
             'end_line' => 29,
-            'src' => ' if ( $# x == \'1\' ) { print "ok 3\\n" ; }',
+            'src' => ' if ( $#x == \'1\' ) { print "ok 3\\n" ; }',
             'start_line' => 29,
             'indent' => 0,
             'block_id' => 0
