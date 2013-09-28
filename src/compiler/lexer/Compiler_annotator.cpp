@@ -85,6 +85,8 @@ void Annotator::annotateKey(LexContext *ctx, const string &, Token *tk, TokenInf
 			   (isalpha(tk->_data[0]) || tk->_data[0] == '_') &&
 			   (next_tk->_data[0] == '=' && next_tk->_data[1] == '>')) {
 		*info = ctx->tmgr->getTokenInfo(Key);
+	} else if (ctx->prev_type == ArraySize && (isalpha(tk->_data[0]) || tk->_data[0] == '_')) {
+		*info = ctx->tmgr->getTokenInfo(Key);
 	}
 }
 

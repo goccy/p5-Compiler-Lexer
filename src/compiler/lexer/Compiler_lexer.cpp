@@ -29,6 +29,11 @@ Lexer::Lexer(const char *filename)
 	this->filename = filename;
 }
 
+Lexer::~Lexer(void)
+{
+	//free((void *)this->filename);
+}
+
 Tokens *Lexer::tokenize(char *script)
 {
 	Scanner scanner;
@@ -123,6 +128,7 @@ void Lexer::clearContext(void)
 	delete ctx->tmgr;
 	delete ctx->smgr;
 	delete ctx;
+	ctx = NULL;
 }
 
 void Lexer::dump(Tokens *tokens)

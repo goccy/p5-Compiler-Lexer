@@ -37,6 +37,14 @@ CODE:
 OUTPUT:
 	RETVAL
 
+void
+DESTROY(self)
+	Compiler_Lexer self
+CODE:
+{
+	delete self;
+}
+
 AV *
 tokenize(self, script)
 	Compiler_Lexer self

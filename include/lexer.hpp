@@ -234,11 +234,11 @@ public:
 	TokenPos start_pos;
 	TokenPos pos;
 	FileInfo finfo;
-	Scanner *scanner;
 	const char *filename;
 	LexContext *ctx;
 
 	Lexer(const char *filename);
+	~Lexer(void);
 	Tokens *tokenize(char *script);
 	void clearContext(void);
 	void grouping(Tokens *tokens);
