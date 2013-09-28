@@ -2,6 +2,11 @@ Revision history for Perl extension Compiler-Lexer.
 
 {{$NEXT}}
 
+0.14 2013-09-28T11:37:15Z
+     - supported glob and array_size operator
+     - supported simple recursive_tokenize
+     - added destructor for Lexer
+
 0.13 : Tue Jun 25 16:30:00 2013
      - changed type of return value from reference of array reference to simple array reference
      - optimized by gperf
