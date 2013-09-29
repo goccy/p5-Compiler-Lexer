@@ -578,6 +578,7 @@ RegPrefix       	RegExec             	qx
 RegPrefix       	RegDecl             	qr
 RegPrefix       	RegMatch            	m
 Term            	RegDelim            	
+Term            	HandleDelim            	
 Term            	RegMiddleDelim      	
 RegReplacePrefix	RegAllReplace       	tr
 RegReplacePrefix	RegAllReplace       	y

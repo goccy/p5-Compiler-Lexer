@@ -1024,12 +1024,12 @@ subtest 'tokenize' => sub {
                    'line' => 27
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Less',
+                   'name' => 'HandleDelim',
                    'data' => '<',
-                   'type' => Compiler::Lexer::TokenType::T_Less,
+                   'type' => Compiler::Lexer::TokenType::T_HandleDelim,
                    'line' => 27
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1042,12 +1042,12 @@ subtest 'tokenize' => sub {
                    'line' => 27
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Greater',
+                   'name' => 'HandleDelim',
                    'data' => '>',
-                   'type' => Compiler::Lexer::TokenType::T_Greater,
+                   'type' => Compiler::Lexer::TokenType::T_HandleDelim,
                    'line' => 27
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1285,12 +1285,12 @@ subtest 'tokenize' => sub {
                    'line' => 33
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Less',
+                   'name' => 'HandleDelim',
                    'data' => '<',
-                   'type' => Compiler::Lexer::TokenType::T_Less,
+                   'type' => Compiler::Lexer::TokenType::T_HandleDelim,
                    'line' => 33
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1303,12 +1303,12 @@ subtest 'tokenize' => sub {
                    'line' => 33
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Greater',
+                   'name' => 'HandleDelim',
                    'data' => '>',
-                   'type' => Compiler::Lexer::TokenType::T_Greater,
+                   'type' => Compiler::Lexer::TokenType::T_HandleDelim,
                    'line' => 33
                  }, 'Compiler::Lexer::Token' ),
           bless( {

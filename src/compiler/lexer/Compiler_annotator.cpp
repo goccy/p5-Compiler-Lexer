@@ -33,6 +33,7 @@ void Annotator::annotate(LexContext *ctx, Token *tk)
 	ANNOTATE(annotateKey, data, info);
 	ANNOTATE(annotateShortScalarDereference, data, info);
 	ANNOTATE(annotateCallDecl, data, info);
+	ANNOTATE(annotateHandleDelimiter, data, info);
 	ANNOTATE(annotateReservedKeyword, data, info);
 	ANNOTATE(annotateGlobOrMul, data, info);
 	ANNOTATE(annotateNamelessFunction, data, info);
@@ -106,6 +107,24 @@ void Annotator::annotateCallDecl(LexContext *ctx, const string &, Token *tk, Tok
 		*info = ctx->tmgr->getTokenInfo(CallDecl);
 	} else if (tk->_data[0] == '&') {
 		*info = ctx->tmgr->getTokenInfo(BitAnd);
+	}
+}
+
+void Annotator::annotateHandleDelimiter(LexContext *ctx, const string &, Token *tk, TokenInfo *info)
+{
+	if (tk->_data[0] != '<') return;
+	Token *prev_tk = ctx->tmgr->previousToken(tk);
+	TokenKind::Kind prev_kind = (prev_tk) ? prev_tk->info.kind : TokenKind::Undefined;
+	TokenType::Type prev_type = (prev_tk) ? prev_tk->info.type : TokenType::Undefined;
+	if (prev_type == SemiColon || prev_type == LeftParenthesis || prev_type == Comma ||
+		prev_kind == TokenKind::Assign ||
+		(prev_type != Inc && prev_type != Dec && prev_kind == TokenKind::Operator) ||
+		prev_kind == TokenKind::Decl) {
+		*info = ctx->tmgr->getTokenInfo(HandleDelim);
+		Token *handle_end_delimiter = ctx->tmgr->getTokenByBase(tk, 2);
+		if (handle_end_delimiter && handle_end_delimiter->_data[0] == '>') {
+			handle_end_delimiter->info = ctx->tmgr->getTokenInfo(HandleDelim);
+		}
 	}
 }
 

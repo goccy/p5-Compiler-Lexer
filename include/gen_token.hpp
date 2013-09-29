@@ -147,6 +147,7 @@ typedef enum {
 	RegDecl,
 	RegMatch,
 	RegDelim,
+	HandleDelim,
 	RegMiddleDelim,
 	RegAllReplace,
 	RegReplace,

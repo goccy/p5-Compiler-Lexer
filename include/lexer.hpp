@@ -273,6 +273,7 @@ private:
 	void annotateKey(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
 	void annotateShortScalarDereference(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
 	void annotateCallDecl(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
+	void annotateHandleDelimiter(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
 	void annotateReservedKeyword(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
 	void annotateGlobOrMul(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
 	void annotateNamelessFunction(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
