@@ -14810,12 +14810,12 @@ subtest 'tokenize' => sub {
                    'line' => 359
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Function,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'BuiltinFunc',
                    'data' => 'die',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
                    'line' => 359
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -14855,12 +14855,12 @@ subtest 'tokenize' => sub {
                    'line' => 360
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Function,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'BuiltinFunc',
                    'data' => 'die',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
                    'line' => 360
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -14900,12 +14900,12 @@ subtest 'tokenize' => sub {
                    'line' => 361
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Function,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'BuiltinFunc',
                    'data' => 'die',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
                    'line' => 361
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -14945,12 +14945,12 @@ subtest 'tokenize' => sub {
                    'line' => 362
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Function,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'BuiltinFunc',
                    'data' => 'die',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
                    'line' => 362
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -14990,12 +14990,12 @@ subtest 'tokenize' => sub {
                    'line' => 363
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Function,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'BuiltinFunc',
                    'data' => 'die',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
                    'line' => 363
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -15035,12 +15035,12 @@ subtest 'tokenize' => sub {
                    'line' => 364
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Function,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'BuiltinFunc',
                    'data' => 'die',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
                    'line' => 364
                  }, 'Compiler::Lexer::Token' ),
           bless( {

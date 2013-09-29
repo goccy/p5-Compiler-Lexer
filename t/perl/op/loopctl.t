@@ -1018,6 +1018,7 @@ __SCRIPT__
 
 subtest 'tokenize' => sub {
     my $tokens = Compiler::Lexer->new('')->tokenize($script);
+
     is_deeply($tokens, [
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_ModWord,
@@ -27552,12 +27553,12 @@ subtest 'tokenize' => sub {
                    'line' => 916
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Last,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'Last',
                    'data' => 'last',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_Last,
                    'line' => 916
                  }, 'Compiler::Lexer::Token' ),
           bless( {
