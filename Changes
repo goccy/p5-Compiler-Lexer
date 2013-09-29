@@ -2,6 +2,9 @@ Revision history for Perl extension Compiler-Lexer.
 
 {{$NEXT}}
 
+0.15 2013-09-29T09:38:16Z
+     - supported file handler like '<$fh>'
+
 0.14 2013-09-28T11:37:15Z
      - supported glob and array_size operator
      - supported simple recursive_tokenize
