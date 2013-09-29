@@ -27,6 +27,11 @@ Token *TokenManager::previousToken(Token *tk)
 	return (tk != head) ? tk - 1 : NULL;
 }
 
+Token *TokenManager::beforePreviousToken(Token *tk)
+{
+	return (tk != head && (tk-1) != head) ? tk - 2 : NULL;
+}
+
 Token *TokenManager::lastToken(void)
 {
 	return (head != pool) ? pool-1 : NULL;

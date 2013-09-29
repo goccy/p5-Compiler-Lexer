@@ -77,8 +77,11 @@ void Annotator::annotateMethod(LexContext *ctx, const string &, Token *tk, Token
 
 void Annotator::annotateKey(LexContext *ctx, const string &, Token *tk, TokenInfo *info)
 {
+	Token *prev_before_tk = ctx->tmgr->beforePreviousToken(tk);
+	TokenType::Type prev_before_type = (prev_before_tk) ? prev_before_tk->info.type : Undefined; 
 	Token *next_tk = ctx->tmgr->nextToken(tk);
-	if (ctx->prev_type == LeftBrace && next_tk &&
+	if (prev_before_type != Function &&
+		ctx->prev_type == LeftBrace && next_tk &&
 		(isalpha(tk->_data[0]) || tk->_data[0] == '_') &&
 		next_tk->_data[0] == '}') {
 		*info = ctx->tmgr->getTokenInfo(Key);

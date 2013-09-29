@@ -37,6 +37,7 @@ public:
 	Token *getTokenByBase(Token *base, int offset);
 	Token *getTokenByIdx(size_t idx);
 	Token *beforePreviousToken(void);
+	Token *beforePreviousToken(Token *tk);
 	Token *previousToken(void);
 	Token *previousToken(Token *tk);
 	Token *currentToken(void);
