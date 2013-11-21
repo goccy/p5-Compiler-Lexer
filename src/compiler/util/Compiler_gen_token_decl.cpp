@@ -476,6 +476,9 @@ TokenInfo decl_tokens[] = {
 	{Enum::Token::Type::Argument, Enum::Token::Kind::Term, "Argument", ""},
 	{Enum::Token::Type::List, Enum::Token::Kind::Term, "List", ""},
 	{Enum::Token::Type::Default, Enum::Token::Kind::Term, "Default", "undef"},
+	{Enum::Token::Type::Pod, Enum::Token::Kind::Verbose, "Pod", ""},
+	{Enum::Token::Type::Comment, Enum::Token::Kind::Verbose, "Comment", ""},
+	{Enum::Token::Type::WhiteSpace, Enum::Token::Kind::Verbose, "WhiteSpace", ""},
 	{Enum::Token::Type::Undefined, Enum::Token::Kind::Undefined, "Undefined", ""}
 };
 
@@ -680,6 +683,9 @@ TokenInfo type_to_info[] = {
 	{Enum::Token::Type::Argument, Enum::Token::Kind::Term, "Argument", ""},
 	{Enum::Token::Type::List, Enum::Token::Kind::Term, "List", ""},
 	{Enum::Token::Type::Default, Enum::Token::Kind::Term, "Default", "undef"},
+	{Enum::Token::Type::Pod, Enum::Token::Kind::Verbose, "Pod", ""},
+	{Enum::Token::Type::Comment, Enum::Token::Kind::Verbose, "Comment", ""},
+	{Enum::Token::Type::WhiteSpace, Enum::Token::Kind::Verbose, "WhiteSpace", ""},
 	{Enum::Token::Type::Undefined, Enum::Token::Kind::Undefined, "Undefined", ""}
 };
 

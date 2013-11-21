@@ -20,10 +20,15 @@ Compiler::Lexer - Lexical Analyzer for Perl5
 
 # METHODS
 
-- my $lexer = Compiler::Lexer->new($filename);
+- my $lexer = Compiler::Lexer->new($options);
 
     create new instance.
-    You can create object from $filename in string.
+    You can create object from $options in hash reference.
+
+    #### options list
+
+    - filename
+    - verbose : includes token of Pod or Comment
 
 - $lexer->tokenize($script);
 

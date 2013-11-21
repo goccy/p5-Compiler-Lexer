@@ -202,7 +202,10 @@ use constant {
     T_Argument => 197,
     T_List => 198,
     T_Default => 199,
-    T_Undefined => 200
+    T_Pod => 200,
+    T_Comment => 201,
+    T_WhiteSpace => 202,
+    T_Undefined => 203
 };
 1;
 
@@ -262,6 +265,7 @@ use constant {
     T_Ref => 37,
     T_Get => 38,
     T_Set => 39,
-    T_Undefined => 40
+    T_Verbose => 40,
+    T_Undefined => 41
 };
 1;

@@ -202,6 +202,9 @@ typedef enum {
 	Argument,
 	List,
 	Default,
+	Pod,
+	Comment,
+	WhiteSpace,
 	Undefined
 } Type;
 }
@@ -248,6 +251,7 @@ typedef enum {
 	Ref,
 	Get,
 	Set,
+	Verbose,
 	Undefined
 } Kind;
 }

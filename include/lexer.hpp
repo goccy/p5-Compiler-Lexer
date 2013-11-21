@@ -202,6 +202,7 @@ public:
 	DoubleCharactorOperatorMap double_operator_map;
 	TripleCharactorOperatorMap triple_operator_map;
 	StringMap operator_map;
+	bool verbose;
 
 	Scanner(void);
 	bool isRegexStartDelim(LexContext *ctx, const StringMap &list);
@@ -236,9 +237,10 @@ public:
 	TokenPos pos;
 	FileInfo finfo;
 	const char *filename;
+	bool verbose;
 	LexContext *ctx;
 
-	Lexer(const char *filename);
+	Lexer(const char *filename, bool verbose);
 	~Lexer(void);
 	Tokens *tokenize(char *script);
 	void clearContext(void);

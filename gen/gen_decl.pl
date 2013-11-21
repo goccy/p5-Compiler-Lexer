@@ -634,4 +634,7 @@ Function        	Call
 Term            	Argument            	
 Term            	List                	
 Term            	Default             	undef
+Verbose             Pod
+Verbose             Comment
+Verbose             WhiteSpace
 Undefined       	Undefined           	

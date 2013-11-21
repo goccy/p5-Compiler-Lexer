@@ -46,7 +46,8 @@ token_kind:
   T_StmtEnd: 26
   T_Symbol: 27
   T_Term: 29
-  T_Undefined: 40
+  T_Undefined: 41
+  T_Verbose: 40
 token_type:
   T_AUTOLOAD: 70
   T_Add: 1
@@ -82,6 +83,7 @@ token_type:
   T_CodeVar: 160
   T_Colon: 99
   T_Comma: 98
+  T_Comment: 201
   T_Compare: 29
   T_ConstValue: 131
   T_Continue: 80
@@ -177,6 +179,7 @@ token_type:
   T_OrEqual: 52
   T_OurDecl: 85
   T_Package: 121
+  T_Pod: 200
   T_Pointer: 118
   T_PolymorphicCompare: 30
   T_PowerEqual: 45
@@ -238,7 +241,7 @@ token_type:
   T_ThreeTermOperator: 6
   T_ToDo: 56
   T_TypeRef: 152
-  T_Undefined: 200
+  T_Undefined: 203
   T_UnlessStmt: 93
   T_UntilStmt: 94
   T_UseDecl: 87
@@ -248,4 +251,5 @@ token_type:
   T_VersionString: 168
   T_WhenStmt: 95
   T_WhileStmt: 125
+  T_WhiteSpace: 202
   T_XOr: 18

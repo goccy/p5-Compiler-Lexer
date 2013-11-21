@@ -24,9 +24,10 @@ LexContext::LexContext(const char *filename, char *script)
 	finfo.filename = filename;
 }
 
-Lexer::Lexer(const char *filename)
+Lexer::Lexer(const char *filename, bool verbose)
 {
 	this->filename = filename;
+	this->verbose  = verbose;
 }
 
 Lexer::~Lexer(void)
@@ -37,6 +38,7 @@ Lexer::~Lexer(void)
 Tokens *Lexer::tokenize(char *script)
 {
 	Scanner scanner;
+	scanner.verbose = verbose;
 	ctx = new LexContext(filename, script);
 	Token *tk = NULL;
 	TokenManager *tmgr = ctx->tmgr;

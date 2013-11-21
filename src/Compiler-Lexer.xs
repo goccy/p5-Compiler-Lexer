@@ -26,12 +26,14 @@ MODULE = Compiler::Lexer PACKAGE = Compiler::Lexer
 PROTOTYPES: DISABLE
 
 Compiler_Lexer
-new(classname, filename)
+_new(classname, _options)
 	char *classname
-	const char *filename
+	HV   *_options
 CODE:
 {
-	Lexer *lexer = new Lexer(filename);
+	const char *filename = SvPVX(get_value(_options, "filename"));
+	bool verbose = SvIVX(get_value(_options, "verbose"));
+	Lexer *lexer = new Lexer(filename, verbose);
 	RETVAL = lexer;
 }
 OUTPUT:
@@ -180,7 +182,7 @@ deparse(filename, script)
     const char *script
 CODE:
 {
-	Lexer lexer(filename);
+	Lexer lexer(filename, false);
 	Tokens *tokens = lexer.tokenize((char *)script);
 	lexer.grouping(tokens);
 	lexer.prepare(tokens);

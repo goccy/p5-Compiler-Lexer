@@ -450,7 +450,17 @@ Token *Scanner::scanSingleLineComment(LexContext *ctx)
 		ret->info = tmgr->getTokenInfo(TokenType::RegDelim);
 		ctx->clearBuffer();
 	} else {
-		for (; smgr->currentChar() != '\n' && !smgr->end(); smgr->next()) {}
+		if (verbose) {
+			for (; smgr->currentChar() != '\n' && !smgr->end(); smgr->next()) {
+				ctx->writeBuffer(smgr->currentChar());
+			}
+			Token *tk = tmgr->new_Token(ctx->buffer(), ctx->finfo);
+			tk->info = tmgr->getTokenInfo(TokenType::Comment);
+			ctx->clearBuffer();
+			tmgr->add(tk);
+		} else {
+			for (; smgr->currentChar() != '\n' && !smgr->end(); smgr->next()) {}
+		}
 		ctx->finfo.start_line_num++;
 	}
 	return ret;
@@ -578,6 +588,12 @@ bool Scanner::isSkip(LexContext *ctx)
 			ctx->progress = 4;
 			commentFlag = false;
 			ret = false;
+			if (verbose) {
+				Token *tk = tmgr->new_Token(ctx->buffer(), ctx->finfo);
+				tk->info = tmgr->getTokenInfo(TokenType::Pod);
+				ctx->clearBuffer();
+				tmgr->add(tk);
+			}
 			ctx->finfo.start_line_num++;
 		} else {
 			DBG_PL("commentFlag => ON");
@@ -585,7 +601,10 @@ bool Scanner::isSkip(LexContext *ctx)
 			ret = true;
 		}
 	}
-	if (commentFlag) return ret;
+	if (commentFlag) {
+		if (verbose) ctx->writeBuffer(cur_ch);
+		return ret;
+	}
 	if (prev_ch == '\n' && cur_ch == '_' && !hereDocumentFlag &&
 			   smgr->compare(0, 7, "__END__")) {
 		int progress_to_end = ctx->script_size - idx - 1;
