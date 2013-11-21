@@ -2,6 +2,9 @@ Revision history for Perl extension Compiler-Lexer.
 
 {{$NEXT}}
 
+0.16 2013-11-21T15:59:11Z
+     - supported 'verbose' option for includes token of 'Pod' or 'Comment'
+
 0.15 2013-09-29T09:38:16Z
      - supported file handler like '<$fh>'
 

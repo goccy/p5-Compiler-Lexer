@@ -69,7 +69,7 @@
          "web" : "https://github.com/goccy/p5-Compiler-Lexer"
       }
    },
-   "version" : "0.15",
+   "version" : "0.16",
    "x_contributors" : [
       "tokuhirom <tokuhirom@gmail.com>",
       "Reini Urban <rurban@cpanel.net>",
