@@ -60,6 +60,7 @@ Tokens *Lexer::tokenize(char *script)
 			break;
 		case ' ': case '\t':
 			tmgr->add(scanner.scanWordDelimiter(ctx));
+			tmgr->add(scanner.scanWhiteSpace(ctx)); // For newline character
 			break;
 		case '#':
 			tmgr->add(scanner.scanSingleLineComment(ctx));
@@ -98,6 +99,7 @@ Tokens *Lexer::tokenize(char *script)
 			break;
 		case '\n':
 			tmgr->add(scanner.scanLineDelimiter(ctx));
+			tmgr->add(scanner.scanWhiteSpace(ctx)); // For newline character
 			break;
 		case '0': case '1': case '2': case '3': case '4':
 		case '5': case '6': case '7': case '8': case '9':
