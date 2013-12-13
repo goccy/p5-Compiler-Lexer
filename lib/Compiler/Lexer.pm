@@ -81,6 +81,8 @@ sub __recursive_tokenize {
 1;
 __END__
 
+=encoding utf-8
+
 =head1 NAME
 
 Compiler::Lexer - Lexical Analyzer for Perl5
@@ -103,20 +105,20 @@ Compiler::Lexer - Lexical Analyzer for Perl5
 
 =head1 METHODS
 
-=over
+=over 4
 
 =item my $lexer = Compiler::Lexer->new($options);
 
 create new instance.
 You can create object from $options in hash reference.
 
-=head4 options list
+B<options list>
 
-=over
+=over 4
 
 =item filename
 
-=item verbose : includes token of Pod or Comment
+=item verbose : includes token of Pod, Comment and WhiteSpace
 
 =back
 
