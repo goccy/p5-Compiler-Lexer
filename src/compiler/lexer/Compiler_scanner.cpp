@@ -349,7 +349,7 @@ Token *Scanner::scanTripleCharacterOperator(LexContext *ctx, char symbol, char n
 	} else if (symbol == '$' && next_ch == '$') {
 		ret = ctx->tmgr->new_Token((char *)"$$", ctx->finfo);
 		TokenManager *tmgr = ctx->tmgr;
-		ret->info = (isalpha(after_next_ch) || after_next_ch == '_') ? 
+		ret->info = (isalpha(after_next_ch) || after_next_ch == '_') ?
 			tmgr->getTokenInfo(TokenType::ShortScalarDereference) :
 			tmgr->getTokenInfo("$$");
 		ctx->progress = 1;
@@ -461,6 +461,7 @@ Token *Scanner::scanSingleLineComment(LexContext *ctx)
 		} else {
 			for (; smgr->currentChar() != '\n' && !smgr->end(); smgr->next()) {}
 		}
+		tmgr->add(scanWhiteSpace(ctx));
 		ctx->finfo.start_line_num++;
 	}
 	return ret;
@@ -566,6 +567,54 @@ Token *Scanner::scanNumber(LexContext *ctx)
 	ctx->smgr->idx = --i;
 	return token;
 }
+
+Token *Scanner::scanWhiteSpace(LexContext *ctx)
+{
+	TokenManager *tmgr = ctx->tmgr;
+	Token *prev_tk = tmgr->lastToken();
+	TokenType::Type prev_type = (prev_tk) ? prev_tk->info.type : TokenType::Undefined;
+
+	if (prev_type == TokenType::Comment || prev_type == TokenType::Pod) {
+		// Add WhiteSpace token (data: '\n') for Comment or Pod token
+		// Because the newline character is not on the trailing of those tokens
+		ctx->writeBuffer('\n');
+		ctx->finfo.start_line_num = prev_tk->finfo.start_line_num;
+	} else {
+		bool does_ws_continue = false;
+		ScriptManager *smgr = ctx->smgr;
+		for (; !smgr->end(); smgr->next()) {
+			char ch = smgr->currentChar();
+			if (ch == ' ' || ch == '\t') {
+				// For normal whitespace.
+				// It collects into one token when a whitespace continues.
+				ctx->writeBuffer(ch);
+				does_ws_continue = true;
+				continue;
+			} else if (!does_ws_continue && ch == '\n') {
+				// For newline character.
+				// It should be on the same line to before token.
+				ctx->writeBuffer(ch);
+				if (verbose && prev_type != TokenType::HereDocumentEnd) {
+					ctx->finfo.start_line_num = prev_tk->finfo.start_line_num;
+				}
+				break;
+			}
+			smgr->back();
+			break;
+		}
+	}
+
+	if (!verbose) {
+		ctx->clearBuffer();
+		return NULL;
+	}
+
+	Token *token = tmgr->new_Token(ctx->buffer(), ctx->finfo);
+	token->info = tmgr->getTokenInfo(TokenType::WhiteSpace);
+	ctx->clearBuffer();
+	return token;
+}
+
 #undef NEXT
 #undef PREDICT
 
@@ -589,10 +638,12 @@ bool Scanner::isSkip(LexContext *ctx)
 			commentFlag = false;
 			ret = false;
 			if (verbose) {
+				ctx->finfo.start_line_num++;
 				Token *tk = tmgr->new_Token(ctx->buffer(), ctx->finfo);
 				tk->info = tmgr->getTokenInfo(TokenType::Pod);
 				ctx->clearBuffer();
 				tmgr->add(tk);
+				tmgr->add(scanWhiteSpace(ctx));
 			}
 			ctx->finfo.start_line_num++;
 		} else {
@@ -748,6 +799,7 @@ bool Scanner::isSkip(LexContext *ctx)
 			for (i = 0; i < len && script[idx + i] == here_document_tag.at(i); i++) {}
 			if (i == len) {
 				ctx->progress = len;
+				if (verbose) ctx->finfo.start_line_num++;
 				Token *tk = ctx->tmgr->new_Token(ctx->buffer(), ctx->finfo);
 				tk->info = tmgr->getTokenInfo(TokenType::HereDocument);
 				ctx->clearBuffer();
@@ -756,7 +808,7 @@ bool Scanner::isSkip(LexContext *ctx)
 				tk = ctx->tmgr->new_Token((char *)here_document_tag_tk->_data, ctx->finfo);
 				tk->info = tmgr->getTokenInfo(TokenType::HereDocumentEnd);
 				tmgr->add(tk);
-				ctx->finfo.start_line_num++;
+				if (!verbose) ctx->finfo.start_line_num++;
 				here_document_tag = "";
 				hereDocumentFlag = false;
 				skipFlag = false;

@@ -228,6 +228,7 @@ public:
 	Token *scanLineDelimiter(LexContext *ctx);
 	Token *scanNumber(LexContext *ctx);
 	Token *scanVersionString(LexContext *ctx);
+	Token *scanWhiteSpace(LexContext *ctx);
 	bool scanNegativeNumber(LexContext *ctx, char num);
 };
 
