@@ -25,10 +25,10 @@ Compiler::Lexer - Lexical Analyzer for Perl5
     create new instance.
     You can create object from $options in hash reference.
 
-    #### options list
+    __options list__
 
     - filename
-    - verbose : includes token of Pod or Comment
+    - verbose : includes token of Pod, Comment and WhiteSpace
 
 - $lexer->tokenize($script);
 

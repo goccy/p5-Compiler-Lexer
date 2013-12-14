@@ -26,6 +26,10 @@ my $FIELDS = [qw/
 1;
 __END__
 
+=encoding utf-8
+
+=for stopwords stype
+
 =head1 NAME
 
 Compiler::Lexer::Token
