@@ -7,47 +7,42 @@ syntax_type:
   T_Value: 0
 token_kind:
   T_AUTOLOAD: 10
-  T_Annotation: 33
+  T_Annotation: 28
   T_Assign: 2
-  T_Break: 20
   T_CORE: 11
-  T_Class: 32
-  T_Colon: 25
-  T_Comma: 24
-  T_Continue: 18
+  T_Class: 27
+  T_Colon: 20
+  T_Comma: 19
+  T_Control: 14
   T_DESTROY: 12
   T_DataWord: 8
   T_Decl: 3
-  T_DefaultStmt: 23
-  T_Do: 19
+  T_DefaultStmt: 18
+  T_Do: 15
   T_Function: 4
-  T_Get: 38
-  T_Goto: 17
+  T_Get: 33
   T_Handle: 13
   T_Import: 6
-  T_Last: 16
   T_ModWord: 9
-  T_Modifier: 28
-  T_Module: 21
-  T_Namespace: 30
-  T_Next: 15
+  T_Modifier: 23
+  T_Module: 16
+  T_Namespace: 25
   T_Operator: 1
-  T_Package: 31
-  T_Redo: 14
-  T_Ref: 37
-  T_RegOpt: 34
-  T_RegPrefix: 35
-  T_RegReplacePrefix: 36
+  T_Package: 26
+  T_Ref: 32
+  T_RegOpt: 29
+  T_RegPrefix: 30
+  T_RegReplacePrefix: 31
   T_Return: 0
-  T_Set: 39
+  T_Set: 34
   T_SingleTerm: 5
   T_SpecificKeyword: 7
-  T_Stmt: 22
-  T_StmtEnd: 26
-  T_Symbol: 27
-  T_Term: 29
-  T_Undefined: 41
-  T_Verbose: 40
+  T_Stmt: 17
+  T_StmtEnd: 21
+  T_Symbol: 22
+  T_Term: 24
+  T_Undefined: 36
+  T_Verbose: 35
 token_type:
   T_AUTOLOAD: 70
   T_Add: 1

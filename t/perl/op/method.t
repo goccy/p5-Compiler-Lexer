@@ -7622,7 +7622,7 @@ sub C::AUTOLOAD {
                    'line' => 165
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Goto,
+                   'kind' => Compiler::Lexer::Kind::T_Control,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Goto',

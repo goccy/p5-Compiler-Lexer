@@ -1586,7 +1586,7 @@ subtest 'tokenize' => sub {
                    'line' => 16
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Last,
+                   'kind' => Compiler::Lexer::Kind::T_Control,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Last',
@@ -1703,7 +1703,7 @@ subtest 'tokenize' => sub {
                    'line' => 17
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Last,
+                   'kind' => Compiler::Lexer::Kind::T_Control,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Last',
@@ -37589,7 +37589,7 @@ subtest 'tokenize' => sub {
                    'line' => 672
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Goto,
+                   'kind' => Compiler::Lexer::Kind::T_Control,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Goto',
@@ -37967,7 +37967,7 @@ subtest 'tokenize' => sub {
                    'line' => 678
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Goto,
+                   'kind' => Compiler::Lexer::Kind::T_Control,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Goto',
@@ -38426,7 +38426,7 @@ subtest 'tokenize' => sub {
                    'line' => 685
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Goto,
+                   'kind' => Compiler::Lexer::Kind::T_Control,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Goto',
@@ -38786,7 +38786,7 @@ subtest 'tokenize' => sub {
                    'line' => 691
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Goto,
+                   'kind' => Compiler::Lexer::Kind::T_Control,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Goto',

@@ -2048,7 +2048,7 @@ subtest 'tokenize' => sub {
                    'line' => 95
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Next,
+                   'kind' => Compiler::Lexer::Kind::T_Control,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Next',
@@ -5305,7 +5305,7 @@ subtest 'tokenize' => sub {
                    'line' => 170
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Next,
+                   'kind' => Compiler::Lexer::Kind::T_Control,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Next',
@@ -5332,7 +5332,7 @@ subtest 'tokenize' => sub {
                    'line' => 170
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Last,
+                   'kind' => Compiler::Lexer::Kind::T_Control,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Last',
@@ -5530,7 +5530,7 @@ subtest 'tokenize' => sub {
                    'line' => 174
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Next,
+                   'kind' => Compiler::Lexer::Kind::T_Control,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Next',
@@ -5737,7 +5737,7 @@ subtest 'tokenize' => sub {
                    'line' => 178
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Next,
+                   'kind' => Compiler::Lexer::Kind::T_Control,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Next',
@@ -5890,7 +5890,7 @@ subtest 'tokenize' => sub {
                    'line' => 182
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Next,
+                   'kind' => Compiler::Lexer::Kind::T_Control,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Next',
@@ -6079,7 +6079,7 @@ subtest 'tokenize' => sub {
                    'line' => 185
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Next,
+                   'kind' => Compiler::Lexer::Kind::T_Control,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Next',
@@ -7033,7 +7033,7 @@ subtest 'tokenize' => sub {
                    'line' => 201
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Next,
+                   'kind' => Compiler::Lexer::Kind::T_Control,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Next',

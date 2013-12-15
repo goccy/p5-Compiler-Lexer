@@ -989,7 +989,7 @@ skip_all("Could not spot definition of PL_Yes in output of `$trial`")
                    'line' => 35
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Next,
+                   'kind' => Compiler::Lexer::Kind::T_Control,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Next',
@@ -1547,7 +1547,7 @@ skip_all("Could not spot definition of PL_Yes in output of `$trial`")
                    'line' => 49
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Next,
+                   'kind' => Compiler::Lexer::Kind::T_Control,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Next',
@@ -1727,7 +1727,7 @@ skip_all("Could not spot definition of PL_Yes in output of `$trial`")
                    'line' => 52
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Next,
+                   'kind' => Compiler::Lexer::Kind::T_Control,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Next',

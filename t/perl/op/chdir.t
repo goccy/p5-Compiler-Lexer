@@ -8317,7 +8317,7 @@ Use of chdir(\'\') or chdir(undef) as chdir() is deprecated at $0 line 64.
                    'line' => 183
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Next,
+                   'kind' => Compiler::Lexer::Kind::T_Control,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Next',
@@ -8389,7 +8389,7 @@ Use of chdir(\'\') or chdir(undef) as chdir() is deprecated at $0 line 64.
                    'line' => 186
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Next,
+                   'kind' => Compiler::Lexer::Kind::T_Control,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Next',

@@ -129,7 +129,7 @@ ReservedKeywordMap::in_word_set (register const char *str, register unsigned int
       {"state", {Enum::Token::Type::StateDecl, Enum::Token::Kind::Decl, "StateDecl", "state"}},
       {""}, {""}, {""},
 #line 280 "gen/reserved_keywords.gperf"
-      {"next", {Enum::Token::Type::Next, Enum::Token::Kind::Next, "Next", "next"}},
+      {"next", {Enum::Token::Type::Next, Enum::Token::Kind::Control, "Next", "next"}},
       {""}, {""},
 #line 48 "gen/reserved_keywords.gperf"
       {"gt", {Enum::Token::Type::StringGreater, Enum::Token::Kind::Operator, "StringGreater", "gt"}},
@@ -349,7 +349,7 @@ ReservedKeywordMap::in_word_set (register const char *str, register unsigned int
 #line 52 "gen/reserved_keywords.gperf"
       {"cmp", {Enum::Token::Type::StringCompare, Enum::Token::Kind::Operator, "StringCompare", "cmp"}},
 #line 279 "gen/reserved_keywords.gperf"
-      {"redo", {Enum::Token::Type::Redo, Enum::Token::Kind::Redo, "Redo", "redo"}},
+      {"redo", {Enum::Token::Type::Redo, Enum::Token::Kind::Control, "Redo", "redo"}},
       {""}, {""},
 #line 365 "gen/reserved_keywords.gperf"
       {"$+", {Enum::Token::Type::SpecificValue, Enum::Token::Kind::Term, "SpecificValue", "$+"}},
@@ -452,7 +452,7 @@ ReservedKeywordMap::in_word_set (register const char *str, register unsigned int
 #line 397 "gen/reserved_keywords.gperf"
       {"$^L", {Enum::Token::Type::SpecificValue, Enum::Token::Kind::Term, "SpecificValue", "$^L"}},
 #line 282 "gen/reserved_keywords.gperf"
-      {"goto", {Enum::Token::Type::Goto, Enum::Token::Kind::Goto, "Goto", "goto"}},
+      {"goto", {Enum::Token::Type::Goto, Enum::Token::Kind::Control, "Goto", "goto"}},
       {""},
 #line 198 "gen/reserved_keywords.gperf"
       {"socket", {Enum::Token::Type::BuiltinFunc, Enum::Token::Kind::Function, "BuiltinFunc", "socket"}},
@@ -495,7 +495,7 @@ ReservedKeywordMap::in_word_set (register const char *str, register unsigned int
 #line 44 "gen/reserved_keywords.gperf"
       {"!=", {Enum::Token::Type::NotEqual, Enum::Token::Kind::Operator, "NotEqual", "!="}},
 #line 283 "gen/reserved_keywords.gperf"
-      {"continue", {Enum::Token::Type::Continue, Enum::Token::Kind::Continue, "Continue", "continue"}},
+      {"continue", {Enum::Token::Type::Continue, Enum::Token::Kind::Control, "Continue", "continue"}},
       {""}, {""},
 #line 18 "gen/reserved_keywords.gperf"
       {"?", {Enum::Token::Type::ThreeTermOperator, Enum::Token::Kind::Operator, "ThreeTermOperator", "?"}},
@@ -630,7 +630,7 @@ ReservedKeywordMap::in_word_set (register const char *str, register unsigned int
 #line 65 "gen/reserved_keywords.gperf"
       {"||=", {Enum::Token::Type::OrEqual, Enum::Token::Kind::Assign, "OrEqual", "||="}},
 #line 281 "gen/reserved_keywords.gperf"
-      {"last", {Enum::Token::Type::Last, Enum::Token::Kind::Last, "Last", "last"}},
+      {"last", {Enum::Token::Type::Last, Enum::Token::Kind::Control, "Last", "last"}},
 #line 154 "gen/reserved_keywords.gperf"
       {"rmdir", {Enum::Token::Type::BuiltinFunc, Enum::Token::Kind::Function, "BuiltinFunc", "rmdir"}},
 #line 123 "gen/reserved_keywords.gperf"
@@ -1083,7 +1083,7 @@ ReservedKeywordMap::in_word_set (register const char *str, register unsigned int
       {"study", {Enum::Token::Type::BuiltinFunc, Enum::Token::Kind::Function, "BuiltinFunc", "study"}},
       {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""},
 #line 285 "gen/reserved_keywords.gperf"
-      {"break", {Enum::Token::Type::Break, Enum::Token::Kind::Break, "Break", "break"}},
+      {"break", {Enum::Token::Type::Break, Enum::Token::Kind::Control, "Break", "break"}},
       {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""},
       {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""},
       {""}, {""}, {""},
