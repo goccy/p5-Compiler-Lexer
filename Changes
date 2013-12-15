@@ -2,6 +2,9 @@ Revision history for Perl extension Compiler-Lexer.
 
 {{$NEXT}}
 
+0.17 2013-12-15T10:10:37Z
+     - supported WhiteSpace token when verbose option is enabled
+
 0.16 2013-11-21T15:59:11Z
      - supported 'verbose' option for includes token of 'Pod' or 'Comment'
 
