@@ -161,6 +161,13 @@ public:
 		token_buffer[buffer_idx] = EOL;
 	}
 
+	inline void writeBuffer(const char *str) {
+		for (size_t i = 0; str[i] != EOL; i++) {
+			token_buffer[buffer_idx++] = str[i];
+		}
+		token_buffer[buffer_idx] = EOL;
+	}
+
 	inline bool existsBuffer(void) {
 		return token_buffer[0] != EOL;
 	}

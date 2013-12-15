@@ -98,7 +98,7 @@ subtest 'tokenize' => sub {
 
 =head2
 
-',
+=cut',
             'type' => Compiler::Lexer::TokenType::T_Pod,
             'line' => 9
         }, 'Compiler::Lexer::Token' ),

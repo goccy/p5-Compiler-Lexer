@@ -639,6 +639,7 @@ bool Scanner::isSkip(LexContext *ctx)
 			ret = false;
 			if (verbose) {
 				ctx->finfo.start_line_num++;
+				ctx->writeBuffer("=cut");
 				Token *tk = tmgr->new_Token(ctx->buffer(), ctx->finfo);
 				tk->info = tmgr->getTokenInfo(TokenType::Pod);
 				ctx->clearBuffer();
