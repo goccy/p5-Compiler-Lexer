@@ -2,7 +2,7 @@
 
 use strict;
 use warnings;
-use YAML;
+use YAML::XS qw/Dump/;
 
 my (@info, @token_enum, @kind_enum, @syntax_enum, @type_to_info);
 foreach (<DATA>) {
@@ -194,7 +194,6 @@ Operator        	PolymorphicCompare  	~~
 Operator        	RegOK               	=~
 Operator        	RegNot              	!~
 Operator        	NotEqual            	!=
-Operator        	ArraySize           	$#
 Operator        	StringLess          	lt
 Operator        	StringLessEqual     	le
 Operator        	StringGreater       	gt
@@ -223,6 +222,7 @@ Decl            	VarDecl             	my
 Decl            	FunctionDecl        	sub
 Function        	Method              	
 Assign          	Assign              	=
+SingleTerm        	ArraySize           	$#
 SingleTerm      	Is                  	
 SingleTerm      	IsNot               	!
 SingleTerm      	Not                 	not

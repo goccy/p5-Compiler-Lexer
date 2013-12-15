@@ -584,7 +584,7 @@ ReservedKeywordMap::in_word_set (register const char *str, register unsigned int
       {"__FILE__", {Enum::Token::Type::SpecificKeyword, Enum::Token::Kind::SpecificKeyword, "SpecificKeyword", "__FILE__"}},
       {""}, {""}, {""},
 #line 45 "gen/reserved_keywords.gperf"
-      {"$#", {Enum::Token::Type::ArraySize, Enum::Token::Kind::Operator, "ArraySize", "$#"}},
+      {"$#", {Enum::Token::Type::ArraySize, Enum::Token::Kind::SingleTerm, "ArraySize", "$#"}},
 #line 401 "gen/reserved_keywords.gperf"
       {"$^R", {Enum::Token::Type::SpecificValue, Enum::Token::Kind::Term, "SpecificValue", "$^R"}},
       {""},

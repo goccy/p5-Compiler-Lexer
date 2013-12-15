@@ -98,3 +98,42 @@ DISTRIBUTIONS
       Test::Builder::Module 0
       Test::More 0.61
       perl 5.008_001
+  YAML-0.84
+    pathname: M/MS/MSTROUT/YAML-0.84.tar.gz
+    provides:
+      Test::YAML 0.84
+      Test::YAML::Filter undef
+      YAML 0.84
+      YAML::Any 0.84
+      YAML::Dumper 0.84
+      YAML::Dumper::Base 0.84
+      YAML::Error 0.84
+      YAML::Loader 0.84
+      YAML::Loader::Base 0.84
+      YAML::Marshall 0.84
+      YAML::Mo undef
+      YAML::Node 0.84
+      YAML::Tag 0.84
+      YAML::Type::blessed undef
+      YAML::Type::code undef
+      YAML::Type::glob undef
+      YAML::Type::ref undef
+      YAML::Type::regexp undef
+      YAML::Type::undef undef
+      YAML::Types 0.84
+      YAML::Warning undef
+      yaml_mapping undef
+      yaml_scalar undef
+      yaml_sequence undef
+    requirements:
+      ExtUtils::MakeMaker 6.59
+      perl 5.008001
+  YAML-LibYAML-0.41
+    pathname: I/IN/INGY/YAML-LibYAML-0.41.tar.gz
+    provides:
+      YAML::LibYAML 0.18
+      YAML::XS 0.41
+      YAML::XS::LibYAML undef
+    requirements:
+      ExtUtils::MakeMaker 6.59
+      perl 5.008001
