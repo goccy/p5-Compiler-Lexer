@@ -35132,12 +35132,12 @@ subtest 'tokenize' => sub {
                    'line' => 441
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Stmt,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'UnlessStmt',
                    'data' => 'unless',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_UnlessStmt,
                    'line' => 441
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -36701,7 +36701,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 441,
-            'src' => ' die qq[$0: failed to find casefoldings from "$CF"\\n]unless $num_tests > 0 ;',
+            'src' => ' die qq[$0: failed to find casefoldings from "$CF"\\n] unless $num_tests > 0 ;',
             'start_line' => 441,
             'indent' => 0,
             'block_id' => 0

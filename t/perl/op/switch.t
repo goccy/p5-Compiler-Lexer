@@ -22918,12 +22918,12 @@ subtest 'tokenize' => sub {
                    'line' => 481
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'And',
                    'data' => 'and',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_And,
                    'line' => 481
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -63809,7 +63809,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 42,
             'has_warnings' => 1,
             'end_line' => 486,
-            'src' => ' { my $ok = 0 ; given ( 12 ) { when (/(\\d+)/and ( 1 <= $1 and $1 <= 12 ) ) { $ok = 1 ; } } ok ( $ok , "bool not smartmatches" ) ; }',
+            'src' => ' { my $ok = 0 ; given ( 12 ) { when (/(\\d+)/ and ( 1 <= $1 and $1 <= 12 ) ) { $ok = 1 ; } } ok ( $ok , "bool not smartmatches" ) ; }',
             'start_line' => 478,
             'indent' => 0,
             'block_id' => 0
@@ -63827,7 +63827,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 28,
             'has_warnings' => 1,
             'end_line' => 484,
-            'src' => ' given ( 12 ) { when (/(\\d+)/and ( 1 <= $1 and $1 <= 12 ) ) { $ok = 1 ; } }',
+            'src' => ' given ( 12 ) { when (/(\\d+)/ and ( 1 <= $1 and $1 <= 12 ) ) { $ok = 1 ; } }',
             'start_line' => 480,
             'indent' => 1,
             'block_id' => 204
@@ -63836,7 +63836,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 22,
             'has_warnings' => 1,
             'end_line' => 483,
-            'src' => ' when (/(\\d+)/and ( 1 <= $1 and $1 <= 12 ) ) { $ok = 1 ; }',
+            'src' => ' when (/(\\d+)/ and ( 1 <= $1 and $1 <= 12 ) ) { $ok = 1 ; }',
             'start_line' => 481,
             'indent' => 2,
             'block_id' => 205

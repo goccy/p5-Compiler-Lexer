@@ -5659,12 +5659,12 @@ subtest 'tokenize' => sub {
                    'line' => 119
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'And',
                    'data' => 'and',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_And,
                    'line' => 120
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -26633,7 +26633,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 20,
             'has_warnings' => 1,
             'end_line' => 120,
-            'src' => ' skip "Solaris tmpfs has different mtime/ctime link semantics" , 2 if $Is_Solaris and $cwd =~ m#^/tmp#and $mtime && $mtime == $ctime ;',
+            'src' => ' skip "Solaris tmpfs has different mtime/ctime link semantics" , 2 if $Is_Solaris and $cwd =~ m#^/tmp# and $mtime && $mtime == $ctime ;',
             'start_line' => 118,
             'indent' => 2,
             'block_id' => 9

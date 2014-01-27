@@ -746,21 +746,21 @@ skip_all("Could not spot definition of PL_Yes in output of `$trial`")
                    'line' => 29
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'VarDecl',
                    'data' => 'my',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_VarDecl,
                    'line' => 31
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'GlobalHashVar',
+                   'name' => 'LocalHashVar',
                    'data' => '%exported',
-                   'type' => Compiler::Lexer::TokenType::T_GlobalHashVar,
+                   'type' => Compiler::Lexer::TokenType::T_LocalHashVar,
                    'line' => 31
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2353,12 +2353,12 @@ subtest 'get_groups_by_syntax_level' => sub {
           },
           {
             'token_num' => 14,
-            'has_warnings' => 1,
+            'has_warnings' => 0,
             'end_line' => 31,
             'src' => ' my $defined = qr/^[0-9a-fA-F]{8,16}\\s+[^Uu]\\s+_?/m;
 
 skip_all("Could not spot definition of PL_Yes in output of `$trial`")
-    unless $yes =~ /${defined}PL_Yes/m;my %exported ;',
+    unless $yes =~ /${defined}PL_Yes/m; my %exported ;',
             'start_line' => 26,
             'indent' => 0,
             'block_id' => 0

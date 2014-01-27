@@ -51,12 +51,29 @@ void Annotator::annotate(LexContext *ctx, Token *tk)
 	ANNOTATE(annotateBareWord, data, info);
 }
 
+bool Annotator::isRegexOption(const char *opt)
+{
+	size_t len = strlen(opt);
+	for (size_t i = 0; i < len; i++) {
+		char ch = opt[i];
+		switch (ch) {
+		case 'a': case 'c': case 'd': case 'e':
+		case 'g': case 'i': case 'm': case 'l':
+		case 'o': case 'p': case 'r': case 's':
+		case 'u': case 'x':
+			break;
+		default:
+			return false;
+			break;
+		}
+	}
+	return true;
+}
+
 void Annotator::annotateRegOpt(LexContext *ctx, const string &data, Token *tk, TokenInfo *info)
 {
 	if (ctx->prev_type == RegDelim && isalpha(tk->_data[0]) &&
-		data != "if"      && data != "while" &&
-		data != "foreach" && data != "for") {
-		//(data == "g" || data == "m" || data == "s" || data == "x")) {
+		isRegexOption(data.c_str())) {
 		*info = ctx->tmgr->getTokenInfo(RegOpt);
 	}
 }
@@ -149,7 +166,7 @@ void Annotator::annotateGlobOrMul(LexContext *ctx, const string &, Token *tk, To
 	Token *prev_tk = ctx->tmgr->previousToken(tk);
 	TokenType::Type prev_type = (prev_tk) ? prev_tk->info.type : TokenType::Undefined;
 	TokenKind::Kind prev_kind = (prev_tk) ? prev_tk->info.kind : TokenKind::Undefined;
-	if (prev_type == SemiColon || prev_type == LeftParenthesis || prev_type == Comma ||
+	if (prev_type == SemiColon || prev_type == LeftParenthesis || prev_type == LeftBrace || prev_type == Comma ||
 		prev_kind == TokenKind::Assign ||
 		(prev_type != Inc && prev_type != Dec && prev_kind == TokenKind::Operator) ||
 		prev_kind == TokenKind::Decl) {

@@ -7454,12 +7454,12 @@ subtest 'tokenize' => sub {
                    'line' => 209
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'And',
                    'data' => 'and',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_And,
                    'line' => 209
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8516,12 +8516,12 @@ subtest 'tokenize' => sub {
                    'line' => 234
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'And',
                    'data' => 'and',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_And,
                    'line' => 234
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -14070,7 +14070,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 496,
             'has_warnings' => 1,
             'end_line' => 303,
-            'src' => ' sub check_file { my ( $codefn ) = @_ ; print "# Checking $codefn\\n" ; open my $codefh , "<" , $codefn or die "Can\'t open $codefn: $!" ; my $listed_as ; my $listed_as_line ; my $sub = \'top of file\' ; while ( < $codefh > ) { chomp ; if ( m<^[^#\\s]>and $_ !~ m/^[{}]*$/ ) { $sub = $_ ; } next if $sub =~ m/^XS/ ; if ( m</\\* diag_listed_as: (.*) \\*/> ) { $listed_as = $1 ; $listed_as_line = $. + 1 ; } next if/^#/ ; next if/^ +/ ; my $multiline = 0 ; if ( m/$source_msg_re(?:_nocontext)?\\s*\\(/ ) { while ( not m/\\);$/ ) { my $nextline = < $codefh > ; last if not defined $nextline ; chomp $nextline ; $nextline =~ s/^\\s+// ; $_ =~ s/\\\\$// ; if ( $_ =~ m/"$/and $nextline =~ m/^"/ ) { $_ =~ s/"$// ; $nextline =~ s/^"// ; } $_ .= $nextline ; ++ $multiline ; } } s/$specialformats_re/"%$specialformats{$1}" .  (defined $2 ? \'\' : \'"\')/ge ; s/ (?<!%) % $format_modifiers ( [dioxXucsfeEgGp] ) /%$1/xg ; my ( $name , $category ) ; if (/$source_msg_call_re/ ) { ( $name , $category ) = ( $+ { \'text\' } , $+ { \'category\' } ) ; } elsif (/$bad_version_re/ ) { ( $name , $category ) = ( $+ { \'text\' } , undef ) ; } else { next ; } my $severity = { croak => [ qw/P F/ ] , die => [ qw/P F/ ] , warn => [ qw/W D S/ ] , }-> { $+ { \'routine\' } || \'die\' } ; my @categories ; if ( defined $category ) { @categories = map { s/^WARN_// ; lc $_ } split/\\s*[|,]\\s*/ , $category ; } if ( $listed_as and $listed_as_line == $. - $multiline ) { $name = $listed_as ; } else { $name =~ s/%%/%/g ; $name =~ s/%l[ud]/%d/g ; $name =~ s/%\\.(\\d+|\\*)s/\\%s/g ; $name =~ s/(?:%s){2,}/%s/g ; $name =~ s/(\\\\")|("\\s*[A-Z_]+\\s*")/$1 ? \'"\' : \'%s\'/egg ; $name =~ s/\\\\t/\\t/g ; $name =~ s/\\\\n/\\n/g ; $name =~ s/\\s+$// ; $name =~ s/(\\\\)\\\\/$1/g ; } next if $name =~ m/^\\t/ ; next if $name eq \'%s\' ; next if $name eq \'SKIPME\' ; check_message ( standardize ( $name ) , $codefn ) ; } }',
+            'src' => ' sub check_file { my ( $codefn ) = @_ ; print "# Checking $codefn\\n" ; open my $codefh , "<" , $codefn or die "Can\'t open $codefn: $!" ; my $listed_as ; my $listed_as_line ; my $sub = \'top of file\' ; while ( < $codefh > ) { chomp ; if ( m<^[^#\\s]> and $_ !~ m/^[{}]*$/ ) { $sub = $_ ; } next if $sub =~ m/^XS/ ; if ( m</\\* diag_listed_as: (.*) \\*/> ) { $listed_as = $1 ; $listed_as_line = $. + 1 ; } next if/^#/ ; next if/^ +/ ; my $multiline = 0 ; if ( m/$source_msg_re(?:_nocontext)?\\s*\\(/ ) { while ( not m/\\);$/ ) { my $nextline = < $codefh > ; last if not defined $nextline ; chomp $nextline ; $nextline =~ s/^\\s+// ; $_ =~ s/\\\\$// ; if ( $_ =~ m/"$/ and $nextline =~ m/^"/ ) { $_ =~ s/"$// ; $nextline =~ s/^"// ; } $_ .= $nextline ; ++ $multiline ; } } s/$specialformats_re/"%$specialformats{$1}" .  (defined $2 ? \'\' : \'"\')/ge ; s/ (?<!%) % $format_modifiers ( [dioxXucsfeEgGp] ) /%$1/xg ; my ( $name , $category ) ; if (/$source_msg_call_re/ ) { ( $name , $category ) = ( $+ { \'text\' } , $+ { \'category\' } ) ; } elsif (/$bad_version_re/ ) { ( $name , $category ) = ( $+ { \'text\' } , undef ) ; } else { next ; } my $severity = { croak => [ qw/P F/ ] , die => [ qw/P F/ ] , warn => [ qw/W D S/ ] , }-> { $+ { \'routine\' } || \'die\' } ; my @categories ; if ( defined $category ) { @categories = map { s/^WARN_// ; lc $_ } split/\\s*[|,]\\s*/ , $category ; } if ( $listed_as and $listed_as_line == $. - $multiline ) { $name = $listed_as ; } else { $name =~ s/%%/%/g ; $name =~ s/%l[ud]/%d/g ; $name =~ s/%\\.(\\d+|\\*)s/\\%s/g ; $name =~ s/(?:%s){2,}/%s/g ; $name =~ s/(\\\\")|("\\s*[A-Z_]+\\s*")/$1 ? \'"\' : \'%s\'/egg ; $name =~ s/\\\\t/\\t/g ; $name =~ s/\\\\n/\\n/g ; $name =~ s/\\s+$// ; $name =~ s/(\\\\)\\\\/$1/g ; } next if $name =~ m/^\\t/ ; next if $name eq \'%s\' ; next if $name eq \'SKIPME\' ; check_message ( standardize ( $name ) , $codefn ) ; } }',
             'start_line' => 193,
             'indent' => 0,
             'block_id' => 0
@@ -14133,7 +14133,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 460,
             'has_warnings' => 1,
             'end_line' => 302,
-            'src' => ' while ( < $codefh > ) { chomp ; if ( m<^[^#\\s]>and $_ !~ m/^[{}]*$/ ) { $sub = $_ ; } next if $sub =~ m/^XS/ ; if ( m</\\* diag_listed_as: (.*) \\*/> ) { $listed_as = $1 ; $listed_as_line = $. + 1 ; } next if/^#/ ; next if/^ +/ ; my $multiline = 0 ; if ( m/$source_msg_re(?:_nocontext)?\\s*\\(/ ) { while ( not m/\\);$/ ) { my $nextline = < $codefh > ; last if not defined $nextline ; chomp $nextline ; $nextline =~ s/^\\s+// ; $_ =~ s/\\\\$// ; if ( $_ =~ m/"$/and $nextline =~ m/^"/ ) { $_ =~ s/"$// ; $nextline =~ s/^"// ; } $_ .= $nextline ; ++ $multiline ; } } s/$specialformats_re/"%$specialformats{$1}" .  (defined $2 ? \'\' : \'"\')/ge ; s/ (?<!%) % $format_modifiers ( [dioxXucsfeEgGp] ) /%$1/xg ; my ( $name , $category ) ; if (/$source_msg_call_re/ ) { ( $name , $category ) = ( $+ { \'text\' } , $+ { \'category\' } ) ; } elsif (/$bad_version_re/ ) { ( $name , $category ) = ( $+ { \'text\' } , undef ) ; } else { next ; } my $severity = { croak => [ qw/P F/ ] , die => [ qw/P F/ ] , warn => [ qw/W D S/ ] , }-> { $+ { \'routine\' } || \'die\' } ; my @categories ; if ( defined $category ) { @categories = map { s/^WARN_// ; lc $_ } split/\\s*[|,]\\s*/ , $category ; } if ( $listed_as and $listed_as_line == $. - $multiline ) { $name = $listed_as ; } else { $name =~ s/%%/%/g ; $name =~ s/%l[ud]/%d/g ; $name =~ s/%\\.(\\d+|\\*)s/\\%s/g ; $name =~ s/(?:%s){2,}/%s/g ; $name =~ s/(\\\\")|("\\s*[A-Z_]+\\s*")/$1 ? \'"\' : \'%s\'/egg ; $name =~ s/\\\\t/\\t/g ; $name =~ s/\\\\n/\\n/g ; $name =~ s/\\s+$// ; $name =~ s/(\\\\)\\\\/$1/g ; } next if $name =~ m/^\\t/ ; next if $name eq \'%s\' ; next if $name eq \'SKIPME\' ; check_message ( standardize ( $name ) , $codefn ) ; }',
+            'src' => ' while ( < $codefh > ) { chomp ; if ( m<^[^#\\s]> and $_ !~ m/^[{}]*$/ ) { $sub = $_ ; } next if $sub =~ m/^XS/ ; if ( m</\\* diag_listed_as: (.*) \\*/> ) { $listed_as = $1 ; $listed_as_line = $. + 1 ; } next if/^#/ ; next if/^ +/ ; my $multiline = 0 ; if ( m/$source_msg_re(?:_nocontext)?\\s*\\(/ ) { while ( not m/\\);$/ ) { my $nextline = < $codefh > ; last if not defined $nextline ; chomp $nextline ; $nextline =~ s/^\\s+// ; $_ =~ s/\\\\$// ; if ( $_ =~ m/"$/ and $nextline =~ m/^"/ ) { $_ =~ s/"$// ; $nextline =~ s/^"// ; } $_ .= $nextline ; ++ $multiline ; } } s/$specialformats_re/"%$specialformats{$1}" .  (defined $2 ? \'\' : \'"\')/ge ; s/ (?<!%) % $format_modifiers ( [dioxXucsfeEgGp] ) /%$1/xg ; my ( $name , $category ) ; if (/$source_msg_call_re/ ) { ( $name , $category ) = ( $+ { \'text\' } , $+ { \'category\' } ) ; } elsif (/$bad_version_re/ ) { ( $name , $category ) = ( $+ { \'text\' } , undef ) ; } else { next ; } my $severity = { croak => [ qw/P F/ ] , die => [ qw/P F/ ] , warn => [ qw/W D S/ ] , }-> { $+ { \'routine\' } || \'die\' } ; my @categories ; if ( defined $category ) { @categories = map { s/^WARN_// ; lc $_ } split/\\s*[|,]\\s*/ , $category ; } if ( $listed_as and $listed_as_line == $. - $multiline ) { $name = $listed_as ; } else { $name =~ s/%%/%/g ; $name =~ s/%l[ud]/%d/g ; $name =~ s/%\\.(\\d+|\\*)s/\\%s/g ; $name =~ s/(?:%s){2,}/%s/g ; $name =~ s/(\\\\")|("\\s*[A-Z_]+\\s*")/$1 ? \'"\' : \'%s\'/egg ; $name =~ s/\\\\t/\\t/g ; $name =~ s/\\\\n/\\n/g ; $name =~ s/\\s+$// ; $name =~ s/(\\\\)\\\\/$1/g ; } next if $name =~ m/^\\t/ ; next if $name eq \'%s\' ; next if $name eq \'SKIPME\' ; check_message ( standardize ( $name ) , $codefn ) ; }',
             'start_line' => 204,
             'indent' => 1,
             'block_id' => 21
@@ -14151,7 +14151,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 20,
             'has_warnings' => 1,
             'end_line' => 211,
-            'src' => ' if ( m<^[^#\\s]>and $_ !~ m/^[{}]*$/ ) { $sub = $_ ; }',
+            'src' => ' if ( m<^[^#\\s]> and $_ !~ m/^[{}]*$/ ) { $sub = $_ ; }',
             'start_line' => 209,
             'indent' => 2,
             'block_id' => 22
@@ -14232,7 +14232,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 96,
             'has_warnings' => 1,
             'end_line' => 241,
-            'src' => ' if ( m/$source_msg_re(?:_nocontext)?\\s*\\(/ ) { while ( not m/\\);$/ ) { my $nextline = < $codefh > ; last if not defined $nextline ; chomp $nextline ; $nextline =~ s/^\\s+// ; $_ =~ s/\\\\$// ; if ( $_ =~ m/"$/and $nextline =~ m/^"/ ) { $_ =~ s/"$// ; $nextline =~ s/^"// ; } $_ .= $nextline ; ++ $multiline ; } }',
+            'src' => ' if ( m/$source_msg_re(?:_nocontext)?\\s*\\(/ ) { while ( not m/\\);$/ ) { my $nextline = < $codefh > ; last if not defined $nextline ; chomp $nextline ; $nextline =~ s/^\\s+// ; $_ =~ s/\\\\$// ; if ( $_ =~ m/"$/ and $nextline =~ m/^"/ ) { $_ =~ s/"$// ; $nextline =~ s/^"// ; } $_ .= $nextline ; ++ $multiline ; } }',
             'start_line' => 222,
             'indent' => 2,
             'block_id' => 22
@@ -14241,7 +14241,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 87,
             'has_warnings' => 1,
             'end_line' => 240,
-            'src' => ' while ( not m/\\);$/ ) { my $nextline = < $codefh > ; last if not defined $nextline ; chomp $nextline ; $nextline =~ s/^\\s+// ; $_ =~ s/\\\\$// ; if ( $_ =~ m/"$/and $nextline =~ m/^"/ ) { $_ =~ s/"$// ; $nextline =~ s/^"// ; } $_ .= $nextline ; ++ $multiline ; }',
+            'src' => ' while ( not m/\\);$/ ) { my $nextline = < $codefh > ; last if not defined $nextline ; chomp $nextline ; $nextline =~ s/^\\s+// ; $_ =~ s/\\\\$// ; if ( $_ =~ m/"$/ and $nextline =~ m/^"/ ) { $_ =~ s/"$// ; $nextline =~ s/^"// ; } $_ .= $nextline ; ++ $multiline ; }',
             'start_line' => 223,
             'indent' => 3,
             'block_id' => 25
@@ -14295,7 +14295,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 36,
             'has_warnings' => 1,
             'end_line' => 237,
-            'src' => ' if ( $_ =~ m/"$/and $nextline =~ m/^"/ ) { $_ =~ s/"$// ; $nextline =~ s/^"// ; }',
+            'src' => ' if ( $_ =~ m/"$/ and $nextline =~ m/^"/ ) { $_ =~ s/"$// ; $nextline =~ s/^"// ; }',
             'start_line' => 234,
             'indent' => 4,
             'block_id' => 26

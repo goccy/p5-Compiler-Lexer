@@ -1209,12 +1209,12 @@ subtest 'tokenize' => sub {
                    'line' => 36
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'And',
                    'data' => 'and',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_And,
                    'line' => 37
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1941,7 +1941,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 48,
             'has_warnings' => 1,
             'end_line' => 42,
-            'src' => ' if ( $^O =~/^(?:gnukfreebsd|linux)$/and ( my $linuxthreads = qx[getconf GNU_LIBPTHREAD_VERSION 2>&1] ) =~/linuxthreads/ ) { chomp $linuxthreads ; diag "We\'re running under $^O with linuxthreads <$linuxthreads>" ; isnt ( $pid , $pid2 , "getpid() in a thread is different from the parent on this non-POSIX system" ) ; isnt ( $ppid , $ppid2 , "getppid() in a thread is different from the parent on this non-POSIX system" ) ; }',
+            'src' => ' if ( $^O =~/^(?:gnukfreebsd|linux)$/ and ( my $linuxthreads = qx[getconf GNU_LIBPTHREAD_VERSION 2>&1] ) =~/linuxthreads/ ) { chomp $linuxthreads ; diag "We\'re running under $^O with linuxthreads <$linuxthreads>" ; isnt ( $pid , $pid2 , "getpid() in a thread is different from the parent on this non-POSIX system" ) ; isnt ( $ppid , $ppid2 , "getppid() in a thread is different from the parent on this non-POSIX system" ) ; }',
             'start_line' => 36,
             'indent' => 0,
             'block_id' => 0

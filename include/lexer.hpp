@@ -278,6 +278,7 @@ public:
 	Annotator(void);
 	void annotate(LexContext *ctx, Token *tk);
 private:
+	bool isRegexOption(const char *opt);
 	void annotateRegOpt(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
 	void annotateNamespace(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
 	void annotateMethod(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);

@@ -7514,9 +7514,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Mul',
+                   'name' => 'Glob',
                    'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Mul,
+                   'type' => Compiler::Lexer::TokenType::T_Glob,
                    'line' => 159
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7893,9 +7893,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Mul',
+                   'name' => 'Glob',
                    'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Mul,
+                   'type' => Compiler::Lexer::TokenType::T_Glob,
                    'line' => 169
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8073,9 +8073,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Mul',
+                   'name' => 'Glob',
                    'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Mul,
+                   'type' => Compiler::Lexer::TokenType::T_Glob,
                    'line' => 174
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8451,9 +8451,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Mul',
+                   'name' => 'Glob',
                    'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Mul,
+                   'type' => Compiler::Lexer::TokenType::T_Glob,
                    'line' => 182
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -26710,9 +26710,9 @@ bless \\$A::B, q{M};
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Mul',
+                   'name' => 'Glob',
                    'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Mul,
+                   'type' => Compiler::Lexer::TokenType::T_Glob,
                    'line' => 536
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -37911,9 +37911,9 @@ print FOO, "\\n";
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Mul',
+                   'name' => 'Glob',
                    'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Mul,
+                   'type' => Compiler::Lexer::TokenType::T_Glob,
                    'line' => 835
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -40521,9 +40521,9 @@ print FOO, "\\n";
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Mul',
+                   'name' => 'Glob',
                    'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Mul,
+                   'type' => Compiler::Lexer::TokenType::T_Glob,
                    'line' => 905
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -40710,9 +40710,9 @@ print FOO, "\\n";
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Mul',
+                   'name' => 'Glob',
                    'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Mul,
+                   'type' => Compiler::Lexer::TokenType::T_Glob,
                    'line' => 908
                  }, 'Compiler::Lexer::Token' ),
           bless( {

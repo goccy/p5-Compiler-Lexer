@@ -4570,12 +4570,12 @@ subtest 'tokenize' => sub {
                    'line' => 80
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'And',
                    'data' => 'and',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_And,
                    'line' => 80
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4795,12 +4795,12 @@ subtest 'tokenize' => sub {
                    'line' => 84
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'And',
                    'data' => 'and',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_And,
                    'line' => 84
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7525,7 +7525,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 368,
             'has_warnings' => 1,
             'end_line' => 135,
-            'src' => ' for ( $i = 1 ; @tests ; $i ++ ) { ( $template , $evalData , $result , $comment , $data ) = @{ shift @tests } ; $w = undef ; $x = sprintf ( $template , @$evalData ) ; $x = ">$x<" if defined $x ; substr ( $x , -1 , 0 ) = $w if $w ; my $y = $x ; if ( $y =~ s/([Ee][-+])0(\\d)/$1$2/ ) { if ( $template =~/%\\+?\\-/and $result =~/ $/ ) { $y =~ s/<$/ </ ; } elsif ( $template =~/%\\+?0/and $result =~/^0/ ) { $y =~ s/^>0/>00/ ; } elsif ( $result =~/^ / ) { $y =~ s/^>/> / ; } } my $skip = 0 ; if ( $comment =~ s/\\s+skip:\\s*(.*)// ) { my $os = $1 ; my $osv = exists $Config { osvers } ? $Config { osvers } : "0" ; if ( $os =~/\\ball\\b/i ) { $skip = 1 ; } elsif ( $os =~/\\b$^O(?::(\\S+))?\\b/i ) { my $vsn = defined $1 ? $1 : "0" ; s/^(\\d+(\\.\\d+)?).*/$1/ for $osv , $vsn ; $skip = $vsn ? ( $osv <= $vsn ? 1 : 0 ) : 1 ; } $skip and $comment =~ s/$/, failure expected on $^O $osv/ ; } if ( $x eq ">$result<" ) { print "ok $i\\n" ; } elsif ( $skip ) { print "ok $i # skip $comment\\n" ; } elsif ( $y eq ">$result<" ) { print ( "ok $i # >$result< $x three-digit exponent accepted\\n" ) ; } elsif ( $result =~/[-+]\\d{3}$/ && ( ( ! eval { require POSIX } ) || ( length ( & POSIX::DBL_MAX ) - rindex ( & POSIX::DBL_MAX , \'+\' ) ) == 3 ) ) { print ( "ok $i # >$template< >$data< >$result<" , " Suppressed: exponent out of range?\\n" ) ; } else { $y = ( $x eq $y ? "" : " => $y" ) ; print ( "not ok $i >$template< >$data< >$result< $x$y" , $comment ? " # $comment\\n" : "\\n" ) ; } }',
+            'src' => ' for ( $i = 1 ; @tests ; $i ++ ) { ( $template , $evalData , $result , $comment , $data ) = @{ shift @tests } ; $w = undef ; $x = sprintf ( $template , @$evalData ) ; $x = ">$x<" if defined $x ; substr ( $x , -1 , 0 ) = $w if $w ; my $y = $x ; if ( $y =~ s/([Ee][-+])0(\\d)/$1$2/ ) { if ( $template =~/%\\+?\\-/ and $result =~/ $/ ) { $y =~ s/<$/ </ ; } elsif ( $template =~/%\\+?0/ and $result =~/^0/ ) { $y =~ s/^>0/>00/ ; } elsif ( $result =~/^ / ) { $y =~ s/^>/> / ; } } my $skip = 0 ; if ( $comment =~ s/\\s+skip:\\s*(.*)// ) { my $os = $1 ; my $osv = exists $Config { osvers } ? $Config { osvers } : "0" ; if ( $os =~/\\ball\\b/i ) { $skip = 1 ; } elsif ( $os =~/\\b$^O(?::(\\S+))?\\b/i ) { my $vsn = defined $1 ? $1 : "0" ; s/^(\\d+(\\.\\d+)?).*/$1/ for $osv , $vsn ; $skip = $vsn ? ( $osv <= $vsn ? 1 : 0 ) : 1 ; } $skip and $comment =~ s/$/, failure expected on $^O $osv/ ; } if ( $x eq ">$result<" ) { print "ok $i\\n" ; } elsif ( $skip ) { print "ok $i # skip $comment\\n" ; } elsif ( $y eq ">$result<" ) { print ( "ok $i # >$result< $x three-digit exponent accepted\\n" ) ; } elsif ( $result =~/[-+]\\d{3}$/ && ( ( ! eval { require POSIX } ) || ( length ( & POSIX::DBL_MAX ) - rindex ( & POSIX::DBL_MAX , \'+\' ) ) == 3 ) ) { print ( "ok $i # >$template< >$data< >$result<" , " Suppressed: exponent out of range?\\n" ) ; } else { $y = ( $x eq $y ? "" : " => $y" ) ; print ( "not ok $i >$template< >$data< >$result< $x$y" , $comment ? " # $comment\\n" : "\\n" ) ; } }',
             'start_line' => 70,
             'indent' => 0,
             'block_id' => 0
@@ -7615,7 +7615,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 82,
             'has_warnings' => 1,
             'end_line' => 91,
-            'src' => ' if ( $y =~ s/([Ee][-+])0(\\d)/$1$2/ ) { if ( $template =~/%\\+?\\-/and $result =~/ $/ ) { $y =~ s/<$/ </ ; } elsif ( $template =~/%\\+?0/and $result =~/^0/ ) { $y =~ s/^>0/>00/ ; } elsif ( $result =~/^ / ) { $y =~ s/^>/> / ; } }',
+            'src' => ' if ( $y =~ s/([Ee][-+])0(\\d)/$1$2/ ) { if ( $template =~/%\\+?\\-/ and $result =~/ $/ ) { $y =~ s/<$/ </ ; } elsif ( $template =~/%\\+?0/ and $result =~/^0/ ) { $y =~ s/^>0/>00/ ; } elsif ( $result =~/^ / ) { $y =~ s/^>/> / ; } }',
             'start_line' => 78,
             'indent' => 1,
             'block_id' => 11
@@ -7624,7 +7624,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 25,
             'has_warnings' => 1,
             'end_line' => 82,
-            'src' => ' if ( $template =~/%\\+?\\-/and $result =~/ $/ ) { $y =~ s/<$/ </ ; }',
+            'src' => ' if ( $template =~/%\\+?\\-/ and $result =~/ $/ ) { $y =~ s/<$/ </ ; }',
             'start_line' => 80,
             'indent' => 2,
             'block_id' => 12
@@ -7642,7 +7642,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 25,
             'has_warnings' => 1,
             'end_line' => 86,
-            'src' => ' elsif ( $template =~/%\\+?0/and $result =~/^0/ ) { $y =~ s/^>0/>00/ ; }',
+            'src' => ' elsif ( $template =~/%\\+?0/ and $result =~/^0/ ) { $y =~ s/^>0/>00/ ; }',
             'start_line' => 84,
             'indent' => 2,
             'block_id' => 12

@@ -1427,12 +1427,12 @@ subtest 'tokenize' => sub {
                    'line' => 40
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'And',
                    'data' => 'and',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_And,
                    'line' => 41
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3329,7 +3329,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 13,
             'has_warnings' => 1,
             'end_line' => 41,
-            'src' => ' $^O =~/^(MSWin32|cygwin|uwin|dos|epoc|os2)$/and skip ( "Can\'t inplace edit without backups on $^O" , 4 ) ;',
+            'src' => ' $^O =~/^(MSWin32|cygwin|uwin|dos|epoc|os2)$/ and skip ( "Can\'t inplace edit without backups on $^O" , 4 ) ;',
             'start_line' => 40,
             'indent' => 1,
             'block_id' => 5
