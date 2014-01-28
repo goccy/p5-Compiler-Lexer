@@ -73,6 +73,7 @@ bool Annotator::isRegexOption(const char *opt)
 void Annotator::annotateRegOpt(LexContext *ctx, const string &data, Token *tk, TokenInfo *info)
 {
 	if (ctx->prev_type == RegDelim && isalpha(tk->_data[0]) &&
+		data != "or" &&
 		isRegexOption(data.c_str())) {
 		*info = ctx->tmgr->getTokenInfo(RegOpt);
 	}

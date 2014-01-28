@@ -4417,12 +4417,12 @@ z
                    'line' => 72
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'Or',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_Or,
                    'line' => 72
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4606,12 +4606,12 @@ z
                    'line' => 75
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'Or',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_Or,
                    'line' => 75
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4795,12 +4795,12 @@ z
                    'line' => 78
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'Or',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_Or,
                    'line' => 78
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6901,12 +6901,12 @@ z
                    'line' => 115
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'Or',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_Or,
                    'line' => 115
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9157,7 +9157,7 @@ z
             'token_num' => 141,
             'has_warnings' => 1,
             'end_line' => 85,
-            'src' => ' sub testpipe ( $$$$$$ ) { my ( $str , $write_c , $read_c , $how_w , $how_r , $why ) = @_ ; ( my $quoted = $str ) =~ s/\\n/\\\\n/g ; ; my $fh ; if ( $how_w eq \'print\' ) { open $fh , \'-|\' , qq[$Perl -we "$set_out;print for grep length, split /(.{1,$write_c})/s, qq($quoted)"]or die "open: $!" ; } elsif ( $how_w eq \'print/flush\' ) { open $fh , \'-|\' , qq[$Perl -we "$set_out;eval qq(\\\\x24\\\\x7c = 1) or die;print for grep length, split /(.{1,$write_c})/s, qq($quoted)"]or die "open: $!" ; } elsif ( $how_w eq \'syswrite\' ) { open $fh , \'-|\' , qq[$Perl -we "$set_out;eval qq(sub w {syswrite STDOUT, \\\\x24_} 1) or die; w() for grep length, split /(.{1,$write_c})/s, qq($quoted)"]or die "open: $!" ; } else { die "Unrecognized write: \'$how_w\'" ; } binmode $fh , \':crlf\' if defined $main::use_crlf && $main::use_crlf == 1 ; testread ( $fh , $str , $read_c , $how_r , $write_c , $how_w , "pipe$why" ) ; }',
+            'src' => ' sub testpipe ( $$$$$$ ) { my ( $str , $write_c , $read_c , $how_w , $how_r , $why ) = @_ ; ( my $quoted = $str ) =~ s/\\n/\\\\n/g ; ; my $fh ; if ( $how_w eq \'print\' ) { open $fh , \'-|\' , qq[$Perl -we "$set_out;print for grep length, split /(.{1,$write_c})/s, qq($quoted)"] or die "open: $!" ; } elsif ( $how_w eq \'print/flush\' ) { open $fh , \'-|\' , qq[$Perl -we "$set_out;eval qq(\\\\x24\\\\x7c = 1) or die;print for grep length, split /(.{1,$write_c})/s, qq($quoted)"] or die "open: $!" ; } elsif ( $how_w eq \'syswrite\' ) { open $fh , \'-|\' , qq[$Perl -we "$set_out;eval qq(sub w {syswrite STDOUT, \\\\x24_} 1) or die; w() for grep length, split /(.{1,$write_c})/s, qq($quoted)"] or die "open: $!" ; } else { die "Unrecognized write: \'$how_w\'" ; } binmode $fh , \':crlf\' if defined $main::use_crlf && $main::use_crlf == 1 ; testread ( $fh , $str , $read_c , $how_r , $write_c , $how_w , "pipe$why" ) ; }',
             'start_line' => 66,
             'indent' => 0,
             'block_id' => 0
@@ -9202,7 +9202,7 @@ z
             'token_num' => 21,
             'has_warnings' => 1,
             'end_line' => 73,
-            'src' => ' if ( $how_w eq \'print\' ) { open $fh , \'-|\' , qq[$Perl -we "$set_out;print for grep length, split /(.{1,$write_c})/s, qq($quoted)"]or die "open: $!" ; }',
+            'src' => ' if ( $how_w eq \'print\' ) { open $fh , \'-|\' , qq[$Perl -we "$set_out;print for grep length, split /(.{1,$write_c})/s, qq($quoted)"] or die "open: $!" ; }',
             'start_line' => 70,
             'indent' => 1,
             'block_id' => 8
@@ -9211,7 +9211,7 @@ z
             'token_num' => 13,
             'has_warnings' => 1,
             'end_line' => 72,
-            'src' => ' open $fh , \'-|\' , qq[$Perl -we "$set_out;print for grep length, split /(.{1,$write_c})/s, qq($quoted)"]or die "open: $!" ;',
+            'src' => ' open $fh , \'-|\' , qq[$Perl -we "$set_out;print for grep length, split /(.{1,$write_c})/s, qq($quoted)"] or die "open: $!" ;',
             'start_line' => 72,
             'indent' => 2,
             'block_id' => 9
@@ -9220,7 +9220,7 @@ z
             'token_num' => 21,
             'has_warnings' => 1,
             'end_line' => 76,
-            'src' => ' elsif ( $how_w eq \'print/flush\' ) { open $fh , \'-|\' , qq[$Perl -we "$set_out;eval qq(\\\\x24\\\\x7c = 1) or die;print for grep length, split /(.{1,$write_c})/s, qq($quoted)"]or die "open: $!" ; }',
+            'src' => ' elsif ( $how_w eq \'print/flush\' ) { open $fh , \'-|\' , qq[$Perl -we "$set_out;eval qq(\\\\x24\\\\x7c = 1) or die;print for grep length, split /(.{1,$write_c})/s, qq($quoted)"] or die "open: $!" ; }',
             'start_line' => 73,
             'indent' => 1,
             'block_id' => 8
@@ -9229,7 +9229,7 @@ z
             'token_num' => 13,
             'has_warnings' => 1,
             'end_line' => 75,
-            'src' => ' open $fh , \'-|\' , qq[$Perl -we "$set_out;eval qq(\\\\x24\\\\x7c = 1) or die;print for grep length, split /(.{1,$write_c})/s, qq($quoted)"]or die "open: $!" ;',
+            'src' => ' open $fh , \'-|\' , qq[$Perl -we "$set_out;eval qq(\\\\x24\\\\x7c = 1) or die;print for grep length, split /(.{1,$write_c})/s, qq($quoted)"] or die "open: $!" ;',
             'start_line' => 75,
             'indent' => 2,
             'block_id' => 10
@@ -9238,7 +9238,7 @@ z
             'token_num' => 21,
             'has_warnings' => 1,
             'end_line' => 79,
-            'src' => ' elsif ( $how_w eq \'syswrite\' ) { open $fh , \'-|\' , qq[$Perl -we "$set_out;eval qq(sub w {syswrite STDOUT, \\\\x24_} 1) or die; w() for grep length, split /(.{1,$write_c})/s, qq($quoted)"]or die "open: $!" ; }',
+            'src' => ' elsif ( $how_w eq \'syswrite\' ) { open $fh , \'-|\' , qq[$Perl -we "$set_out;eval qq(sub w {syswrite STDOUT, \\\\x24_} 1) or die; w() for grep length, split /(.{1,$write_c})/s, qq($quoted)"] or die "open: $!" ; }',
             'start_line' => 76,
             'indent' => 1,
             'block_id' => 8
@@ -9247,7 +9247,7 @@ z
             'token_num' => 13,
             'has_warnings' => 1,
             'end_line' => 78,
-            'src' => ' open $fh , \'-|\' , qq[$Perl -we "$set_out;eval qq(sub w {syswrite STDOUT, \\\\x24_} 1) or die; w() for grep length, split /(.{1,$write_c})/s, qq($quoted)"]or die "open: $!" ;',
+            'src' => ' open $fh , \'-|\' , qq[$Perl -we "$set_out;eval qq(sub w {syswrite STDOUT, \\\\x24_} 1) or die; w() for grep length, split /(.{1,$write_c})/s, qq($quoted)"] or die "open: $!" ;',
             'start_line' => 78,
             'indent' => 2,
             'block_id' => 11
@@ -9481,7 +9481,7 @@ z
             'token_num' => 14,
             'has_warnings' => 0,
             'end_line' => 115,
-            'src' => ' open my $fh , \'-|\' , qq[$Perl -we "eval qq(\\\\x24\\\\x7c = 1) or die; binmode STDOUT; sleep 1, print for split //, qq(a\\nb\\n\\nc\\n\\n\\n)"]or die "open: $!" ;',
+            'src' => ' open my $fh , \'-|\' , qq[$Perl -we "eval qq(\\\\x24\\\\x7c = 1) or die; binmode STDOUT; sleep 1, print for split //, qq(a\\nb\\n\\nc\\n\\n\\n)"] or die "open: $!" ;',
             'start_line' => 115,
             'indent' => 0,
             'block_id' => 0

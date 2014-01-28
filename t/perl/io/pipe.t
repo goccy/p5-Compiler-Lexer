@@ -5870,12 +5870,12 @@ subtest 'tokenize' => sub {
                    'line' => 163
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'Or',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_Or,
                    'line' => 163
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6365,12 +6365,12 @@ subtest 'tokenize' => sub {
                    'line' => 179
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'Or',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_Or,
                    'line' => 179
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8246,12 +8246,12 @@ subtest 'tokenize' => sub {
                    'line' => 220
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'Or',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_Or,
                    'line' => 220
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9860,7 +9860,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 11,
             'has_warnings' => 1,
             'end_line' => 163,
-            'src' => ' open NIL , qq{|$Perl -e "exit 0"}or die "open failed: $!" ;',
+            'src' => ' open NIL , qq{|$Perl -e "exit 0"} or die "open failed: $!" ;',
             'start_line' => 163,
             'indent' => 2,
             'block_id' => 22
@@ -9923,7 +9923,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 11,
             'has_warnings' => 1,
             'end_line' => 179,
-            'src' => ' open NIL , qq{|$Perl -e "exit 23";}or die "fork failed: $!" ;',
+            'src' => ' open NIL , qq{|$Perl -e "exit 23";} or die "fork failed: $!" ;',
             'start_line' => 179,
             'indent' => 2,
             'block_id' => 25
@@ -10148,7 +10148,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 23,
             'has_warnings' => 1,
             'end_line' => 223,
-            'src' => ' { local ( * NIL ) ; open NIL , qq{|$Perl -e "exit 23"}or die "fork failed: $!" ; $? = 42 ; }',
+            'src' => ' { local ( * NIL ) ; open NIL , qq{|$Perl -e "exit 23"} or die "fork failed: $!" ; $? = 42 ; }',
             'start_line' => 218,
             'indent' => 0,
             'block_id' => 0
@@ -10166,7 +10166,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 11,
             'has_warnings' => 1,
             'end_line' => 220,
-            'src' => ' open NIL , qq{|$Perl -e "exit 23"}or die "fork failed: $!" ;',
+            'src' => ' open NIL , qq{|$Perl -e "exit 23"} or die "fork failed: $!" ;',
             'start_line' => 220,
             'indent' => 1,
             'block_id' => 30

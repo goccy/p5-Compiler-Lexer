@@ -16399,12 +16399,12 @@ $h{xkey}, $h{ykey}
                    'line' => 541
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'Or',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_Or,
                    'line' => 541
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -30366,7 +30366,7 @@ $h{xkey}, $h{ykey}
             'end_line' => 562,
             'src' => ' { my ( $pound_utf8 , $pm_utf8 ) = map { my $a = "$_\\x{100}" ; chop $a ; $a } my ( $pound , $pm ) = ( "\\xA3" , "\\xB1" ) ; foreach my $first ( \'N\' , $pound , $pound_utf8 ) { foreach my $base ( \'N\' , $pm , $pm_utf8 ) { foreach my $second ( $base , "$base\\n" , "$base\\nMoo!" , "$base\\nMoo!\\n" , "$base\\nMoo!\\n" , ) { foreach ( [ \'^*\' , qr/(.+)/ ] , [ \'@*\' , qr/(.*?)$/s ] ) { my ( $format , $re ) = @$_ ; $format = "1^*2 3${format}4" ; foreach my $class ( \'\' , \'Count\' ) { my $name = qq{swrite("$format", "$first", "$second") class="$class"} ; $name =~ s/\\n/\\\\n/g ; $name =~ s{(.)}{
 			ord($1) > 126 ? sprintf("\\\\x{%x}",ord($1)) : $1
-		    }ge ; $first =~/(.+)/or die $first ; my $expect = "1${1}2" ; $second =~ $re or die $second ; $expect .= " 3${1}4" ; if ( $class ) { my $copy1 = $first ; my $copy2 ; tie $copy2 , $class , $second ; is swrite ( "$format" , $copy1 , $copy2 ) , $expect , $name ; my $obj = tied $copy2 ; is $obj-> [ 1 ] , 1 , \'value read exactly once\' ; } else { my ( $copy1 , $copy2 ) = ( $first , $second ) ; is swrite ( "$format" , $copy1 , $copy2 ) , $expect , $name ; } } } } } } }',
+		    }ge ; $first =~/(.+)/ or die $first ; my $expect = "1${1}2" ; $second =~ $re or die $second ; $expect .= " 3${1}4" ; if ( $class ) { my $copy1 = $first ; my $copy2 ; tie $copy2 , $class , $second ; is swrite ( "$format" , $copy1 , $copy2 ) , $expect , $name ; my $obj = tied $copy2 ; is $obj-> [ 1 ] , 1 , \'value read exactly once\' ; } else { my ( $copy1 , $copy2 ) = ( $first , $second ) ; is swrite ( "$format" , $copy1 , $copy2 ) , $expect , $name ; } } } } } } }',
             'start_line' => 523,
             'indent' => 0,
             'block_id' => 0
@@ -30404,7 +30404,7 @@ $h{xkey}, $h{ykey}
             'end_line' => 561,
             'src' => ' foreach my $first ( \'N\' , $pound , $pound_utf8 ) { foreach my $base ( \'N\' , $pm , $pm_utf8 ) { foreach my $second ( $base , "$base\\n" , "$base\\nMoo!" , "$base\\nMoo!\\n" , "$base\\nMoo!\\n" , ) { foreach ( [ \'^*\' , qr/(.+)/ ] , [ \'@*\' , qr/(.*?)$/s ] ) { my ( $format , $re ) = @$_ ; $format = "1^*2 3${format}4" ; foreach my $class ( \'\' , \'Count\' ) { my $name = qq{swrite("$format", "$first", "$second") class="$class"} ; $name =~ s/\\n/\\\\n/g ; $name =~ s{(.)}{
 			ord($1) > 126 ? sprintf("\\\\x{%x}",ord($1)) : $1
-		    }ge ; $first =~/(.+)/or die $first ; my $expect = "1${1}2" ; $second =~ $re or die $second ; $expect .= " 3${1}4" ; if ( $class ) { my $copy1 = $first ; my $copy2 ; tie $copy2 , $class , $second ; is swrite ( "$format" , $copy1 , $copy2 ) , $expect , $name ; my $obj = tied $copy2 ; is $obj-> [ 1 ] , 1 , \'value read exactly once\' ; } else { my ( $copy1 , $copy2 ) = ( $first , $second ) ; is swrite ( "$format" , $copy1 , $copy2 ) , $expect , $name ; } } } } } }',
+		    }ge ; $first =~/(.+)/ or die $first ; my $expect = "1${1}2" ; $second =~ $re or die $second ; $expect .= " 3${1}4" ; if ( $class ) { my $copy1 = $first ; my $copy2 ; tie $copy2 , $class , $second ; is swrite ( "$format" , $copy1 , $copy2 ) , $expect , $name ; my $obj = tied $copy2 ; is $obj-> [ 1 ] , 1 , \'value read exactly once\' ; } else { my ( $copy1 , $copy2 ) = ( $first , $second ) ; is swrite ( "$format" , $copy1 , $copy2 ) , $expect , $name ; } } } } } }',
             'start_line' => 527,
             'indent' => 1,
             'block_id' => 28
@@ -30415,7 +30415,7 @@ $h{xkey}, $h{ykey}
             'end_line' => 560,
             'src' => ' foreach my $base ( \'N\' , $pm , $pm_utf8 ) { foreach my $second ( $base , "$base\\n" , "$base\\nMoo!" , "$base\\nMoo!\\n" , "$base\\nMoo!\\n" , ) { foreach ( [ \'^*\' , qr/(.+)/ ] , [ \'@*\' , qr/(.*?)$/s ] ) { my ( $format , $re ) = @$_ ; $format = "1^*2 3${format}4" ; foreach my $class ( \'\' , \'Count\' ) { my $name = qq{swrite("$format", "$first", "$second") class="$class"} ; $name =~ s/\\n/\\\\n/g ; $name =~ s{(.)}{
 			ord($1) > 126 ? sprintf("\\\\x{%x}",ord($1)) : $1
-		    }ge ; $first =~/(.+)/or die $first ; my $expect = "1${1}2" ; $second =~ $re or die $second ; $expect .= " 3${1}4" ; if ( $class ) { my $copy1 = $first ; my $copy2 ; tie $copy2 , $class , $second ; is swrite ( "$format" , $copy1 , $copy2 ) , $expect , $name ; my $obj = tied $copy2 ; is $obj-> [ 1 ] , 1 , \'value read exactly once\' ; } else { my ( $copy1 , $copy2 ) = ( $first , $second ) ; is swrite ( "$format" , $copy1 , $copy2 ) , $expect , $name ; } } } } }',
+		    }ge ; $first =~/(.+)/ or die $first ; my $expect = "1${1}2" ; $second =~ $re or die $second ; $expect .= " 3${1}4" ; if ( $class ) { my $copy1 = $first ; my $copy2 ; tie $copy2 , $class , $second ; is swrite ( "$format" , $copy1 , $copy2 ) , $expect , $name ; my $obj = tied $copy2 ; is $obj-> [ 1 ] , 1 , \'value read exactly once\' ; } else { my ( $copy1 , $copy2 ) = ( $first , $second ) ; is swrite ( "$format" , $copy1 , $copy2 ) , $expect , $name ; } } } } }',
             'start_line' => 528,
             'indent' => 2,
             'block_id' => 29
@@ -30426,7 +30426,7 @@ $h{xkey}, $h{ykey}
             'end_line' => 559,
             'src' => ' foreach my $second ( $base , "$base\\n" , "$base\\nMoo!" , "$base\\nMoo!\\n" , "$base\\nMoo!\\n" , ) { foreach ( [ \'^*\' , qr/(.+)/ ] , [ \'@*\' , qr/(.*?)$/s ] ) { my ( $format , $re ) = @$_ ; $format = "1^*2 3${format}4" ; foreach my $class ( \'\' , \'Count\' ) { my $name = qq{swrite("$format", "$first", "$second") class="$class"} ; $name =~ s/\\n/\\\\n/g ; $name =~ s{(.)}{
 			ord($1) > 126 ? sprintf("\\\\x{%x}",ord($1)) : $1
-		    }ge ; $first =~/(.+)/or die $first ; my $expect = "1${1}2" ; $second =~ $re or die $second ; $expect .= " 3${1}4" ; if ( $class ) { my $copy1 = $first ; my $copy2 ; tie $copy2 , $class , $second ; is swrite ( "$format" , $copy1 , $copy2 ) , $expect , $name ; my $obj = tied $copy2 ; is $obj-> [ 1 ] , 1 , \'value read exactly once\' ; } else { my ( $copy1 , $copy2 ) = ( $first , $second ) ; is swrite ( "$format" , $copy1 , $copy2 ) , $expect , $name ; } } } }',
+		    }ge ; $first =~/(.+)/ or die $first ; my $expect = "1${1}2" ; $second =~ $re or die $second ; $expect .= " 3${1}4" ; if ( $class ) { my $copy1 = $first ; my $copy2 ; tie $copy2 , $class , $second ; is swrite ( "$format" , $copy1 , $copy2 ) , $expect , $name ; my $obj = tied $copy2 ; is $obj-> [ 1 ] , 1 , \'value read exactly once\' ; } else { my ( $copy1 , $copy2 ) = ( $first , $second ) ; is swrite ( "$format" , $copy1 , $copy2 ) , $expect , $name ; } } } }',
             'start_line' => 529,
             'indent' => 3,
             'block_id' => 30
@@ -30437,7 +30437,7 @@ $h{xkey}, $h{ykey}
             'end_line' => 558,
             'src' => ' foreach ( [ \'^*\' , qr/(.+)/ ] , [ \'@*\' , qr/(.*?)$/s ] ) { my ( $format , $re ) = @$_ ; $format = "1^*2 3${format}4" ; foreach my $class ( \'\' , \'Count\' ) { my $name = qq{swrite("$format", "$first", "$second") class="$class"} ; $name =~ s/\\n/\\\\n/g ; $name =~ s{(.)}{
 			ord($1) > 126 ? sprintf("\\\\x{%x}",ord($1)) : $1
-		    }ge ; $first =~/(.+)/or die $first ; my $expect = "1${1}2" ; $second =~ $re or die $second ; $expect .= " 3${1}4" ; if ( $class ) { my $copy1 = $first ; my $copy2 ; tie $copy2 , $class , $second ; is swrite ( "$format" , $copy1 , $copy2 ) , $expect , $name ; my $obj = tied $copy2 ; is $obj-> [ 1 ] , 1 , \'value read exactly once\' ; } else { my ( $copy1 , $copy2 ) = ( $first , $second ) ; is swrite ( "$format" , $copy1 , $copy2 ) , $expect , $name ; } } }',
+		    }ge ; $first =~/(.+)/ or die $first ; my $expect = "1${1}2" ; $second =~ $re or die $second ; $expect .= " 3${1}4" ; if ( $class ) { my $copy1 = $first ; my $copy2 ; tie $copy2 , $class , $second ; is swrite ( "$format" , $copy1 , $copy2 ) , $expect , $name ; my $obj = tied $copy2 ; is $obj-> [ 1 ] , 1 , \'value read exactly once\' ; } else { my ( $copy1 , $copy2 ) = ( $first , $second ) ; is swrite ( "$format" , $copy1 , $copy2 ) , $expect , $name ; } } }',
             'start_line' => 531,
             'indent' => 4,
             'block_id' => 31
@@ -30466,7 +30466,7 @@ $h{xkey}, $h{ykey}
             'end_line' => 557,
             'src' => ' foreach my $class ( \'\' , \'Count\' ) { my $name = qq{swrite("$format", "$first", "$second") class="$class"} ; $name =~ s/\\n/\\\\n/g ; $name =~ s{(.)}{
 			ord($1) > 126 ? sprintf("\\\\x{%x}",ord($1)) : $1
-		    }ge ; $first =~/(.+)/or die $first ; my $expect = "1${1}2" ; $second =~ $re or die $second ; $expect .= " 3${1}4" ; if ( $class ) { my $copy1 = $first ; my $copy2 ; tie $copy2 , $class , $second ; is swrite ( "$format" , $copy1 , $copy2 ) , $expect , $name ; my $obj = tied $copy2 ; is $obj-> [ 1 ] , 1 , \'value read exactly once\' ; } else { my ( $copy1 , $copy2 ) = ( $first , $second ) ; is swrite ( "$format" , $copy1 , $copy2 ) , $expect , $name ; } }',
+		    }ge ; $first =~/(.+)/ or die $first ; my $expect = "1${1}2" ; $second =~ $re or die $second ; $expect .= " 3${1}4" ; if ( $class ) { my $copy1 = $first ; my $copy2 ; tie $copy2 , $class , $second ; is swrite ( "$format" , $copy1 , $copy2 ) , $expect , $name ; my $obj = tied $copy2 ; is $obj-> [ 1 ] , 1 , \'value read exactly once\' ; } else { my ( $copy1 , $copy2 ) = ( $first , $second ) ; is swrite ( "$format" , $copy1 , $copy2 ) , $expect , $name ; } }',
             'start_line' => 534,
             'indent' => 5,
             'block_id' => 32
@@ -30504,7 +30504,7 @@ $h{xkey}, $h{ykey}
             'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 541,
-            'src' => ' $first =~/(.+)/or die $first ;',
+            'src' => ' $first =~/(.+)/ or die $first ;',
             'start_line' => 541,
             'indent' => 6,
             'block_id' => 33

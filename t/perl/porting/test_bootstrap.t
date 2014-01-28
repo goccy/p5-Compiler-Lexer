@@ -1181,12 +1181,12 @@ subtest 'tokenize' => sub {
                    'line' => 33
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'Or',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_Or,
                    'line' => 33
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2399,7 +2399,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 159,
             'has_warnings' => 1,
             'end_line' => 47,
-            'src' => ' while ( my $file = < $fh > ) { next unless $file =~ s!^t/!! ; chomp $file ; $file =~ s/\\s+.*// ; next unless $file =~ m!\\.t$! ; local $/ ; open my $t , \'<\' , $file or die "Can\'t open $file: $!" ; my $contents = < $t > ; unlike ( $contents , qr/use\\s+Test::More/ , "$file doesn\'t use Test::\\QMore" ) ; next unless $file =~ m!^base/!or $file =~ m!^comp! ; if ( $file =~ m!comp/(.*)\\.t! && $exceptions { $1 } ) { my $allowed = $exceptions { $1 } ; $contents =~ s/\\Q$allowed//gs ; } unlike ( $contents , qr/^\\s*use\\s+/m , "$file doesn\'t use use" ) unless $file eq \'comp/use.t\' ; unlike ( $contents , qr/^\\s*require\\s+/m , "$file doesn\'t use require" ) unless $file eq \'comp/require.t\' }',
+            'src' => ' while ( my $file = < $fh > ) { next unless $file =~ s!^t/!! ; chomp $file ; $file =~ s/\\s+.*// ; next unless $file =~ m!\\.t$! ; local $/ ; open my $t , \'<\' , $file or die "Can\'t open $file: $!" ; my $contents = < $t > ; unlike ( $contents , qr/use\\s+Test::More/ , "$file doesn\'t use Test::\\QMore" ) ; next unless $file =~ m!^base/! or $file =~ m!^comp! ; if ( $file =~ m!comp/(.*)\\.t! && $exceptions { $1 } ) { my $allowed = $exceptions { $1 } ; $contents =~ s/\\Q$allowed//gs ; } unlike ( $contents , qr/^\\s*use\\s+/m , "$file doesn\'t use use" ) unless $file eq \'comp/use.t\' ; unlike ( $contents , qr/^\\s*require\\s+/m , "$file doesn\'t use require" ) unless $file eq \'comp/require.t\' }',
             'start_line' => 22,
             'indent' => 0,
             'block_id' => 0
@@ -2480,7 +2480,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 16,
             'has_warnings' => 1,
             'end_line' => 33,
-            'src' => ' next unless $file =~ m!^base/!or $file =~ m!^comp! ;',
+            'src' => ' next unless $file =~ m!^base/! or $file =~ m!^comp! ;',
             'start_line' => 33,
             'indent' => 1,
             'block_id' => 1

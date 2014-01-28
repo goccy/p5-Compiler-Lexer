@@ -3014,12 +3014,12 @@ subtest 'tokenize' => sub {
                    'line' => 94
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'Or',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_Or,
                    'line' => 95
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3998,7 +3998,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 23,
             'has_warnings' => 1,
             'end_line' => 96,
-            'src' => ' if ( $Config { extensions } =~ m{XS/APItest} ) { eval q[use XS::APItest qw(mycroak); 1]or die "use XS::APItest: $@\\n" ; }',
+            'src' => ' if ( $Config { extensions } =~ m{XS/APItest} ) { eval q[use XS::APItest qw(mycroak); 1] or die "use XS::APItest: $@\\n" ; }',
             'start_line' => 93,
             'indent' => 1,
             'block_id' => 10
@@ -4007,7 +4007,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 9,
             'has_warnings' => 0,
             'end_line' => 95,
-            'src' => ' eval q[use XS::APItest qw(mycroak); 1]or die "use XS::APItest: $@\\n" ;',
+            'src' => ' eval q[use XS::APItest qw(mycroak); 1] or die "use XS::APItest: $@\\n" ;',
             'start_line' => 94,
             'indent' => 2,
             'block_id' => 11

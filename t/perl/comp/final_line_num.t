@@ -232,12 +232,12 @@ subtest 'tokenize' => sub {
                    'line' => 6
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'Or',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_Or,
                    'line' => 6
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -559,7 +559,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 38,
             'has_warnings' => 1,
             'end_line' => 10,
-            'src' => ' $SIG { __DIE__ } = sub { $_ [ 0 ] =~/\\Asyntax error at [^ ]+ line ([0-9]+), at EOF/or exit 1 ; my $error_line_num = $1 ; print $error_line_num == $last_line_num ? "ok 1\\n" : "not ok 1\\n" ; exit 0 ; } ;',
+            'src' => ' $SIG { __DIE__ } = sub { $_ [ 0 ] =~/\\Asyntax error at [^ ]+ line ([0-9]+), at EOF/ or exit 1 ; my $error_line_num = $1 ; print $error_line_num == $last_line_num ? "ok 1\\n" : "not ok 1\\n" ; exit 0 ; } ;',
             'start_line' => 5,
             'indent' => 1,
             'block_id' => 2
@@ -568,7 +568,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 12,
             'has_warnings' => 0,
             'end_line' => 6,
-            'src' => ' $_ [ 0 ] =~/\\Asyntax error at [^ ]+ line ([0-9]+), at EOF/or exit 1 ;',
+            'src' => ' $_ [ 0 ] =~/\\Asyntax error at [^ ]+ line ([0-9]+), at EOF/ or exit 1 ;',
             'start_line' => 6,
             'indent' => 2,
             'block_id' => 3

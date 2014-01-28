@@ -745,12 +745,12 @@ subtest 'tokenize' => sub {
                    'line' => 21
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'Or',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_Or,
                    'line' => 22
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1115,12 +1115,12 @@ subtest 'tokenize' => sub {
                    'line' => 30
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'Or',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_Or,
                    'line' => 30
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1349,12 +1349,12 @@ subtest 'tokenize' => sub {
                    'line' => 35
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'Or',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_Or,
                    'line' => 36
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1557,12 +1557,12 @@ subtest 'tokenize' => sub {
                    'line' => 41
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'Or',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_Or,
                    'line' => 41
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1764,12 +1764,12 @@ subtest 'tokenize' => sub {
                    'line' => 44
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'Or',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_Or,
                    'line' => 44
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2019,9 +2019,9 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 104,
             'has_warnings' => 1,
             'end_line' => 42,
-            'src' => ' { is ( mypragma::in_effect ( ) , undef , "pragma not in effect yet" ) ; eval qq{is(mypragma::in_effect(), undef, "pragma not in effect yet"); 1}or die $@ ; use mypragma ; use Sans_mypragma ; is ( mypragma::in_effect ( ) , 42 , "pragma is in effect within this block" ) ; is ( Sans_mypragma::affected ( ) , undef , "pragma not in effect outside this file" ) ; eval qq{is(mypragma::in_effect(), 42,
-	       "pragma is in effect within this eval"); 1}or die $@ ; { no mypragma ; is ( mypragma::in_effect ( ) , 0 , "pragma no longer in effect" ) ; eval qq{is(mypragma::in_effect(), 0, "pragma no longer in effect"); 1}or die $@ ; } is ( mypragma::in_effect ( ) , 42 , "pragma is in effect within this block" ) ; eval qq{is(mypragma::in_effect(), 42,
-	       "pragma is in effect within this eval"); 1}or die $@ ; }',
+            'src' => ' { is ( mypragma::in_effect ( ) , undef , "pragma not in effect yet" ) ; eval qq{is(mypragma::in_effect(), undef, "pragma not in effect yet"); 1} or die $@ ; use mypragma ; use Sans_mypragma ; is ( mypragma::in_effect ( ) , 42 , "pragma is in effect within this block" ) ; is ( Sans_mypragma::affected ( ) , undef , "pragma not in effect outside this file" ) ; eval qq{is(mypragma::in_effect(), 42,
+	       "pragma is in effect within this eval"); 1} or die $@ ; { no mypragma ; is ( mypragma::in_effect ( ) , 0 , "pragma no longer in effect" ) ; eval qq{is(mypragma::in_effect(), 0, "pragma no longer in effect"); 1} or die $@ ; } is ( mypragma::in_effect ( ) , 42 , "pragma is in effect within this block" ) ; eval qq{is(mypragma::in_effect(), 42,
+	       "pragma is in effect within this eval"); 1} or die $@ ; }',
             'start_line' => 19,
             'indent' => 0,
             'block_id' => 0
@@ -2039,7 +2039,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 9,
             'has_warnings' => 0,
             'end_line' => 22,
-            'src' => ' eval qq{is(mypragma::in_effect(), undef, "pragma not in effect yet"); 1}or die $@ ;',
+            'src' => ' eval qq{is(mypragma::in_effect(), undef, "pragma not in effect yet"); 1} or die $@ ;',
             'start_line' => 21,
             'indent' => 1,
             'block_id' => 3
@@ -2085,7 +2085,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'has_warnings' => 0,
             'end_line' => 30,
             'src' => ' eval qq{is(mypragma::in_effect(), 42,
-	       "pragma is in effect within this eval"); 1}or die $@ ;',
+	       "pragma is in effect within this eval"); 1} or die $@ ;',
             'start_line' => 29,
             'indent' => 1,
             'block_id' => 3
@@ -2094,7 +2094,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 25,
             'has_warnings' => 1,
             'end_line' => 37,
-            'src' => ' { no mypragma ; is ( mypragma::in_effect ( ) , 0 , "pragma no longer in effect" ) ; eval qq{is(mypragma::in_effect(), 0, "pragma no longer in effect"); 1}or die $@ ; }',
+            'src' => ' { no mypragma ; is ( mypragma::in_effect ( ) , 0 , "pragma no longer in effect" ) ; eval qq{is(mypragma::in_effect(), 0, "pragma no longer in effect"); 1} or die $@ ; }',
             'start_line' => 32,
             'indent' => 1,
             'block_id' => 3
@@ -2121,7 +2121,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 9,
             'has_warnings' => 0,
             'end_line' => 36,
-            'src' => ' eval qq{is(mypragma::in_effect(), 0, "pragma no longer in effect"); 1}or die $@ ;',
+            'src' => ' eval qq{is(mypragma::in_effect(), 0, "pragma no longer in effect"); 1} or die $@ ;',
             'start_line' => 35,
             'indent' => 2,
             'block_id' => 4
@@ -2140,7 +2140,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'has_warnings' => 0,
             'end_line' => 41,
             'src' => ' eval qq{is(mypragma::in_effect(), 42,
-	       "pragma is in effect within this eval"); 1}or die $@ ;',
+	       "pragma is in effect within this eval"); 1} or die $@ ;',
             'start_line' => 40,
             'indent' => 1,
             'block_id' => 3
@@ -2158,7 +2158,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 9,
             'has_warnings' => 0,
             'end_line' => 44,
-            'src' => ' eval qq{is(mypragma::in_effect(), undef, "pragma not in effect"); 1}or die $@ ;',
+            'src' => ' eval qq{is(mypragma::in_effect(), undef, "pragma not in effect"); 1} or die $@ ;',
             'start_line' => 44,
             'indent' => 0,
             'block_id' => 0

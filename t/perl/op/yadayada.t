@@ -906,12 +906,12 @@ print ${\\"D"}  ...  A ;
                    'line' => 45
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'Or',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_Or,
                    'line' => 45
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1222,7 +1222,7 @@ print ${\\"D"}  ...  A ;
        {local *STDOUT; no strict "subs"; $line;}
         pass \\$mess;
         1;
-    }or do { my $err = $@ ; $err =~ s/\\n//g ; fail "$mess ($err)" ; } }',
+    } or do { my $err = $@ ; $err =~ s/\\n//g ; fail "$mess ($err)" ; } }',
             'start_line' => 38,
             'indent' => 0,
             'block_id' => 0

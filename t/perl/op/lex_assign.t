@@ -5091,12 +5091,12 @@ subtest 'tokenize' => sub {
                    'line' => 119
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'Or',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_Or,
                    'line' => 119
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6100,12 +6100,12 @@ subtest 'tokenize' => sub {
                    'line' => 151
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'Or',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_Or,
                    'line' => 151
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7830,7 +7830,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 129,
             'has_warnings' => 1,
             'end_line' => 144,
-            'src' => ' for ( @INPUT ) { $ord ++ ; ( $op , undef , $comment ) =/^([^\\#]+)(\\#\\s+(.*))?/ ; $comment = $op unless defined $comment ; chomp ; $op = "$op==$op" unless $op =~/==/ ; ( $op , $expectop ) = $op =~/(.*)==(.*)/ ; $skip = ( $op =~/^\'\\?\\?\\?\'/or $comment =~/skip\\(.*\\Q$^O\\E.*\\)/i ) ? "skip" : "# \'$_\'\\nnot" ; $integer = ( $comment =~/^i_/ ) ? "use integer" : \'\' ; ( print "#skipping $comment:\\nok $ord\\n" ) , next if $skip eq \'skip\' ; eval q{  local \\$SIG{__WARN__} = \\\\&wrn;
+            'src' => ' for ( @INPUT ) { $ord ++ ; ( $op , undef , $comment ) =/^([^\\#]+)(\\#\\s+(.*))?/ ; $comment = $op unless defined $comment ; chomp ; $op = "$op==$op" unless $op =~/==/ ; ( $op , $expectop ) = $op =~/(.*)==(.*)/ ; $skip = ( $op =~/^\'\\?\\?\\?\'/ or $comment =~/skip\\(.*\\Q$^O\\E.*\\)/i ) ? "skip" : "# \'$_\'\\nnot" ; $integer = ( $comment =~/^i_/ ) ? "use integer" : \'\' ; ( print "#skipping $comment:\\nok $ord\\n" ) , next if $skip eq \'skip\' ; eval q{  local \\$SIG{__WARN__} = \\\\&wrn;
   my \\$a = \'fake\';
   $integer;
   \\$a = $op;
@@ -7903,7 +7903,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 21,
             'has_warnings' => 1,
             'end_line' => 120,
-            'src' => ' $skip = ( $op =~/^\'\\?\\?\\?\'/or $comment =~/skip\\(.*\\Q$^O\\E.*\\)/i ) ? "skip" : "# \'$_\'\\nnot" ;',
+            'src' => ' $skip = ( $op =~/^\'\\?\\?\\?\'/ or $comment =~/skip\\(.*\\Q$^O\\E.*\\)/i ) ? "skip" : "# \'$_\'\\nnot" ;',
             'start_line' => 119,
             'indent' => 1,
             'block_id' => 10
@@ -8003,7 +8003,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 87,
             'has_warnings' => 1,
             'end_line' => 172,
-            'src' => ' for ( @simple_input ) { $ord ++ ; ( $op , undef , $comment ) =/^([^\\#]+)(\\#\\s+(.*))?/ ; $comment = $op unless defined $comment ; chomp ; ( $operator , $variable ) =/^\\s*(\\w+)\\s*\\$(\\w+)/or warn "misprocessed \'$_\'\\n" ; eval q{  local \\$SIG{__WARN__} = \\\\&wrn;
+            'src' => ' for ( @simple_input ) { $ord ++ ; ( $op , undef , $comment ) =/^([^\\#]+)(\\#\\s+(.*))?/ ; $comment = $op unless defined $comment ; chomp ; ( $operator , $variable ) =/^\\s*(\\w+)\\s*\\$(\\w+)/ or warn "misprocessed \'$_\'\\n" ; eval q{  local \\$SIG{__WARN__} = \\\\&wrn;
   my \\$$variable = "Ac# Ca\\\\nxxx";
   \\$$variable = $operator \\$$variable;
   \\$toself = \\$$variable;
@@ -8056,7 +8056,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 13,
             'has_warnings' => 1,
             'end_line' => 151,
-            'src' => ' ( $operator , $variable ) =/^\\s*(\\w+)\\s*\\$(\\w+)/or warn "misprocessed \'$_\'\\n" ;',
+            'src' => ' ( $operator , $variable ) =/^\\s*(\\w+)\\s*\\$(\\w+)/ or warn "misprocessed \'$_\'\\n" ;',
             'start_line' => 151,
             'indent' => 1,
             'block_id' => 14
