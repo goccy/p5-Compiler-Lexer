@@ -3138,9 +3138,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_SingleTerm,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'IsNot',
+                   'name' => 'Not',
                    'data' => '!',
-                   'type' => Compiler::Lexer::TokenType::T_IsNot,
+                   'type' => Compiler::Lexer::TokenType::T_Not,
                    'line' => 46
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3174,9 +3174,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_SingleTerm,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'IsNot',
+                   'name' => 'Not',
                    'data' => '!',
-                   'type' => Compiler::Lexer::TokenType::T_IsNot,
+                   'type' => Compiler::Lexer::TokenType::T_Not,
                    'line' => 46
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4893,9 +4893,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_SingleTerm,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'IsNot',
+                   'name' => 'Not',
                    'data' => '!',
-                   'type' => Compiler::Lexer::TokenType::T_IsNot,
+                   'type' => Compiler::Lexer::TokenType::T_Not,
                    'line' => 78
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9025,9 +9025,9 @@ my %MK = (
                    'kind' => Compiler::Lexer::Kind::T_SingleTerm,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'IsNot',
+                   'name' => 'Not',
                    'data' => '!',
-                   'type' => Compiler::Lexer::TokenType::T_IsNot,
+                   'type' => Compiler::Lexer::TokenType::T_Not,
                    'line' => 337
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -12776,18 +12776,18 @@ my %MK = (
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'And',
+                   'name' => 'AlphabetAnd',
                    'data' => 'and',
-                   'type' => Compiler::Lexer::TokenType::T_And,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetAnd,
                    'line' => 433
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_SingleTerm,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'IsNot',
+                   'name' => 'Not',
                    'data' => '!',
-                   'type' => Compiler::Lexer::TokenType::T_IsNot,
+                   'type' => Compiler::Lexer::TokenType::T_Not,
                    'line' => 433
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -12983,18 +12983,18 @@ my %MK = (
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'And',
+                   'name' => 'AlphabetAnd',
                    'data' => 'and',
-                   'type' => Compiler::Lexer::TokenType::T_And,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetAnd,
                    'line' => 436
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_SingleTerm,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'IsNot',
+                   'name' => 'Not',
                    'data' => '!',
-                   'type' => Compiler::Lexer::TokenType::T_IsNot,
+                   'type' => Compiler::Lexer::TokenType::T_Not,
                    'line' => 436
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -13091,9 +13091,9 @@ my %MK = (
                    'kind' => Compiler::Lexer::Kind::T_SingleTerm,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'IsNot',
+                   'name' => 'Not',
                    'data' => '!',
-                   'type' => Compiler::Lexer::TokenType::T_IsNot,
+                   'type' => Compiler::Lexer::TokenType::T_Not,
                    'line' => 439
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -25286,9 +25286,9 @@ my %MK = (
                    'kind' => Compiler::Lexer::Kind::T_Assign,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringAdd',
+                   'name' => 'StringAddEqual',
                    'data' => '.=',
-                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
+                   'type' => Compiler::Lexer::TokenType::T_StringAddEqual,
                    'line' => 679
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -25898,9 +25898,9 @@ my %MK = (
                    'kind' => Compiler::Lexer::Kind::T_SingleTerm,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'IsNot',
+                   'name' => 'Not',
                    'data' => '!',
-                   'type' => Compiler::Lexer::TokenType::T_IsNot,
+                   'type' => Compiler::Lexer::TokenType::T_Not,
                    'line' => 694
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -26339,9 +26339,9 @@ my %MK = (
                    'kind' => Compiler::Lexer::Kind::T_SingleTerm,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'IsNot',
+                   'name' => 'Not',
                    'data' => '!',
-                   'type' => Compiler::Lexer::TokenType::T_IsNot,
+                   'type' => Compiler::Lexer::TokenType::T_Not,
                    'line' => 702
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -26546,9 +26546,9 @@ my %MK = (
                    'kind' => Compiler::Lexer::Kind::T_SingleTerm,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'IsNot',
+                   'name' => 'Not',
                    'data' => '!',
-                   'type' => Compiler::Lexer::TokenType::T_IsNot,
+                   'type' => Compiler::Lexer::TokenType::T_Not,
                    'line' => 705
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -27581,9 +27581,9 @@ my %MK = (
                    'kind' => Compiler::Lexer::Kind::T_Assign,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringAdd',
+                   'name' => 'StringAddEqual',
                    'data' => '.=',
-                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
+                   'type' => Compiler::Lexer::TokenType::T_StringAddEqual,
                    'line' => 731
                  }, 'Compiler::Lexer::Token' ),
           bless( {

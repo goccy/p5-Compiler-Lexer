@@ -4010,9 +4010,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 57
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4181,9 +4181,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 61
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4442,9 +4442,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 66
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5099,9 +5099,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 75
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6512,9 +6512,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 105
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7061,9 +7061,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 113
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7475,9 +7475,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 119
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7853,9 +7853,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_SingleTerm,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'IsNot',
+                   'name' => 'Not',
                    'data' => '!',
-                   'type' => Compiler::Lexer::TokenType::T_IsNot,
+                   'type' => Compiler::Lexer::TokenType::T_Not,
                    'line' => 128
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8069,9 +8069,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 134
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8366,9 +8366,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 140
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8834,9 +8834,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 148
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8987,9 +8987,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 151
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9248,9 +9248,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 156
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9878,9 +9878,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 172
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -12956,9 +12956,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_SingleTerm,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'IsNot',
+                   'name' => 'Not',
                    'data' => '!',
-                   'type' => Compiler::Lexer::TokenType::T_IsNot,
+                   'type' => Compiler::Lexer::TokenType::T_Not,
                    'line' => 233
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -13280,9 +13280,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_SingleTerm,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'IsNot',
+                   'name' => 'Not',
                    'data' => '!',
-                   'type' => Compiler::Lexer::TokenType::T_IsNot,
+                   'type' => Compiler::Lexer::TokenType::T_Not,
                    'line' => 241
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -13577,9 +13577,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_SingleTerm,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'IsNot',
+                   'name' => 'Not',
                    'data' => '!',
-                   'type' => Compiler::Lexer::TokenType::T_IsNot,
+                   'type' => Compiler::Lexer::TokenType::T_Not,
                    'line' => 250
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -14225,9 +14225,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Assign,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringAdd',
+                   'name' => 'StringAddEqual',
                    'data' => '.=',
-                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
+                   'type' => Compiler::Lexer::TokenType::T_StringAddEqual,
                    'line' => 268
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -14720,9 +14720,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Assign,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringAdd',
+                   'name' => 'StringAddEqual',
                    'data' => '.=',
-                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
+                   'type' => Compiler::Lexer::TokenType::T_StringAddEqual,
                    'line' => 278
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -16097,9 +16097,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Assign,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringAdd',
+                   'name' => 'StringAddEqual',
                    'data' => '.=',
-                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
+                   'type' => Compiler::Lexer::TokenType::T_StringAddEqual,
                    'line' => 303
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -18392,9 +18392,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Assign,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringAdd',
+                   'name' => 'StringAddEqual',
                    'data' => '.=',
-                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
+                   'type' => Compiler::Lexer::TokenType::T_StringAddEqual,
                    'line' => 346
                  }, 'Compiler::Lexer::Token' ),
           bless( {

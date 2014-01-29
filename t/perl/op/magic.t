@@ -7270,9 +7270,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 228
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9566,9 +9566,9 @@ $0 = Cygwin::win_to_posix_path(Cygwin::posix_to_win_path($0, 1));
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 296
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9602,9 +9602,9 @@ $0 = Cygwin::win_to_posix_path(Cygwin::posix_to_win_path($0, 1));
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 296
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9829,9 +9829,9 @@ $0 = Cygwin::win_to_posix_path(Cygwin::posix_to_win_path($0, 1));
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 303
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10009,9 +10009,9 @@ $0 = Cygwin::win_to_posix_path(Cygwin::posix_to_win_path($0, 1));
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 304
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10111,9 +10111,9 @@ print "\\$^X is $^X, \\$0 is $0\\n";
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 309
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10210,9 +10210,9 @@ print "\\$^X is $^X, \\$0 is $0\\n";
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 310
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10399,9 +10399,9 @@ print "\\$^X is $^X, \\$0 is $0\\n";
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 312
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10417,9 +10417,9 @@ print "\\$^X is $^X, \\$0 is $0\\n";
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 312
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -11011,9 +11011,9 @@ print "\\$^X is $^X, \\$0 is $0\\n";
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 322
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -11029,9 +11029,9 @@ print "\\$^X is $^X, \\$0 is $0\\n";
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 322
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -11479,9 +11479,9 @@ print "\\$^X is $^X, \\$0 is $0\\n";
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Or',
+                   'name' => 'AlphabetOr',
                    'data' => 'or',
-                   'type' => Compiler::Lexer::TokenType::T_Or,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetOr,
                    'line' => 330
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -13833,9 +13833,9 @@ print "\\$DB::single \\$DB::trace \\$DB::signal";
                    'kind' => Compiler::Lexer::Kind::T_SingleTerm,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'IsNot',
+                   'name' => 'Not',
                    'data' => '!',
-                   'type' => Compiler::Lexer::TokenType::T_IsNot,
+                   'type' => Compiler::Lexer::TokenType::T_Not,
                    'line' => 408
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -14988,9 +14988,9 @@ print "\\$DB::single \\$DB::trace \\$DB::signal";
                    'kind' => Compiler::Lexer::Kind::T_Assign,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringAdd',
+                   'name' => 'StringAddEqual',
                    'data' => '.=',
-                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
+                   'type' => Compiler::Lexer::TokenType::T_StringAddEqual,
                    'line' => 446
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -15069,9 +15069,9 @@ print "\\$DB::single \\$DB::trace \\$DB::signal";
                    'kind' => Compiler::Lexer::Kind::T_Assign,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringAdd',
+                   'name' => 'StringAddEqual',
                    'data' => '.=',
-                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
+                   'type' => Compiler::Lexer::TokenType::T_StringAddEqual,
                    'line' => 447
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -16676,9 +16676,9 @@ print scalar %${package}::;
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'And',
+                   'name' => 'AlphabetAnd',
                    'data' => 'and',
-                   'type' => Compiler::Lexer::TokenType::T_And,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetAnd,
                    'line' => 508
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -16883,9 +16883,9 @@ print scalar %${package}::;
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'And',
+                   'name' => 'AlphabetAnd',
                    'data' => 'and',
-                   'type' => Compiler::Lexer::TokenType::T_And,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetAnd,
                    'line' => 511
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -17216,9 +17216,9 @@ print scalar %${package}::;
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'And',
+                   'name' => 'AlphabetAnd',
                    'data' => 'and',
-                   'type' => Compiler::Lexer::TokenType::T_And,
+                   'type' => Compiler::Lexer::TokenType::T_AlphabetAnd,
                    'line' => 514
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -21980,9 +21980,9 @@ print scalar %${package}::;
                    'kind' => Compiler::Lexer::Kind::T_SingleTerm,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'IsNot',
+                   'name' => 'Not',
                    'data' => '!',
-                   'type' => Compiler::Lexer::TokenType::T_IsNot,
+                   'type' => Compiler::Lexer::TokenType::T_Not,
                    'line' => 638
                  }, 'Compiler::Lexer::Token' ),
           bless( {

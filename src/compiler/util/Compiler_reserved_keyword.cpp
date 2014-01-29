@@ -107,7 +107,7 @@ ReservedKeywordMap::in_word_set (register const char *str, register unsigned int
 #line 72 "gen/reserved_keywords.gperf"
       {"=", {Enum::Token::Type::Assign, Enum::Token::Kind::Assign, "Assign", "="}},
 #line 35 "gen/reserved_keywords.gperf"
-      {".=", {Enum::Token::Type::StringAdd, Enum::Token::Kind::Assign, "StringAdd", ".="}},
+      {".=", {Enum::Token::Type::StringAddEqual, Enum::Token::Kind::Assign, "StringAddEqual", ".="}},
       {""}, {""}, {""}, {""},
 #line 38 "gen/reserved_keywords.gperf"
       {"==", {Enum::Token::Type::EqualEqual, Enum::Token::Kind::Operator, "EqualEqual", "=="}},
@@ -210,7 +210,7 @@ ReservedKeywordMap::in_word_set (register const char *str, register unsigned int
 #line 32 "gen/reserved_keywords.gperf"
       {"*=", {Enum::Token::Type::MulEqual, Enum::Token::Kind::Assign, "MulEqual", "*="}},
 #line 74 "gen/reserved_keywords.gperf"
-      {"not", {Enum::Token::Type::Not, Enum::Token::Kind::SingleTerm, "Not", "not"}},
+      {"not", {Enum::Token::Type::AlphabetNot, Enum::Token::Kind::SingleTerm, "AlphabetNot", "not"}},
 #line 232 "gen/reserved_keywords.gperf"
       {"getprotobyname", {Enum::Token::Type::BuiltinFunc, Enum::Token::Kind::Function, "BuiltinFunc", "getprotobyname"}},
       {""},
@@ -287,7 +287,7 @@ ReservedKeywordMap::in_word_set (register const char *str, register unsigned int
       {"open", {Enum::Token::Type::BuiltinFunc, Enum::Token::Kind::Function, "BuiltinFunc", "open"}},
       {""}, {""},
 #line 25 "gen/reserved_keywords.gperf"
-      {"or", {Enum::Token::Type::Or, Enum::Token::Kind::Operator, "Or", "or"}},
+      {"or", {Enum::Token::Type::AlphabetOr, Enum::Token::Kind::Operator, "AlphabetOr", "or"}},
 #line 184 "gen/reserved_keywords.gperf"
       {"tie", {Enum::Token::Type::BuiltinFunc, Enum::Token::Kind::Function, "BuiltinFunc", "tie"}},
 #line 244 "gen/reserved_keywords.gperf"
@@ -565,7 +565,7 @@ ReservedKeywordMap::in_word_set (register const char *str, register unsigned int
 #line 265 "gen/reserved_keywords.gperf"
       {"__SUB__", {Enum::Token::Type::SpecificKeyword, Enum::Token::Kind::SpecificKeyword, "SpecificKeyword", "__SUB__"}},
 #line 28 "gen/reserved_keywords.gperf"
-      {"xor", {Enum::Token::Type::XOr, Enum::Token::Kind::Operator, "XOr", "xor"}},
+      {"xor", {Enum::Token::Type::AlphabetXOr, Enum::Token::Kind::Operator, "AlphabetXOr", "xor"}},
 #line 124 "gen/reserved_keywords.gperf"
       {"read", {Enum::Token::Type::BuiltinFunc, Enum::Token::Kind::Function, "BuiltinFunc", "read"}},
       {""},
@@ -670,7 +670,7 @@ ReservedKeywordMap::in_word_set (register const char *str, register unsigned int
 #line 360 "gen/reserved_keywords.gperf"
       {"$8", {Enum::Token::Type::SpecificValue, Enum::Token::Kind::Term, "SpecificValue", "$8"}},
 #line 26 "gen/reserved_keywords.gperf"
-      {"and", {Enum::Token::Type::And, Enum::Token::Kind::Operator, "And", "and"}},
+      {"and", {Enum::Token::Type::AlphabetAnd, Enum::Token::Kind::Operator, "AlphabetAnd", "and"}},
       {""}, {""},
 #line 325 "gen/reserved_keywords.gperf"
       {",", {Enum::Token::Type::Comma, Enum::Token::Kind::Comma, "Comma", ","}},
@@ -870,7 +870,7 @@ ReservedKeywordMap::in_word_set (register const char *str, register unsigned int
 #line 321 "gen/reserved_keywords.gperf"
       {"until", {Enum::Token::Type::UntilStmt, Enum::Token::Kind::Stmt, "UntilStmt", "until"}},
 #line 73 "gen/reserved_keywords.gperf"
-      {"!", {Enum::Token::Type::IsNot, Enum::Token::Kind::SingleTerm, "IsNot", "!"}},
+      {"!", {Enum::Token::Type::Not, Enum::Token::Kind::SingleTerm, "Not", "!"}},
 #line 61 "gen/reserved_keywords.gperf"
       {"||", {Enum::Token::Type::Or, Enum::Token::Kind::Operator, "Or", "||"}},
       {""},

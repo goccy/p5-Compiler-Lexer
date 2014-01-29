@@ -173,18 +173,18 @@ Operator        	Ref                 	\\
 Operator        	Glob                	*
 Operator        	BitNot              	~
 Operator        	BitOr               	|
-Operator        	Or                  	or
+Operator        	AlphabetOr             	or
 Operator        	BitAnd              	&
-Operator        	And                 	and
+Operator        	AlphabetAnd            	and
 Operator        	BitXOr              	^
-Operator        	XOr                 	xor
+Operator        	AlphabetXOr            	xor
 Operator        	StringMul           	x
 Assign          	AddEqual            	+=
 Assign          	SubEqual            	-=
 Assign          	MulEqual            	*=
 Assign          	DivEqual            	/=
 Assign          	ModEqual            	%=
-Assign          	StringAdd           	.=
+Assign          	StringAddEqual         	.=
 Operator        	GreaterEqual        	>=
 Operator        	LessEqual           	<=
 Operator        	EqualEqual          	==
@@ -224,8 +224,8 @@ Function        	Method
 Assign          	Assign              	=
 SingleTerm        	ArraySize           	$#
 SingleTerm      	Is                  	
-SingleTerm      	IsNot               	!
-SingleTerm      	Not                 	not
+SingleTerm      	Not               	    !
+SingleTerm      	AlphabetNot            	not
 Function        	BuiltinFunc         	chomp
 Function        	BuiltinFunc         	chop
 Function        	BuiltinFunc         	chr
