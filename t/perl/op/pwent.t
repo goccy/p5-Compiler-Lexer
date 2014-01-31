@@ -2095,12 +2095,84 @@ subtest 'tokenize' => sub {
                    'line' => 53
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'BuiltinFunc',
+                   'data' => 'split',
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
+                   'line' => 53
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
-                   'data' => 'split \'\\s+\', $_[0], 2',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
+                   'name' => 'RawString',
+                   'data' => '\\s+',
+                   'type' => Compiler::Lexer::TokenType::T_RawString,
+                   'line' => 53
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'line' => 53
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SpecificValue',
+                   'data' => '$_',
+                   'type' => Compiler::Lexer::TokenType::T_SpecificValue,
+                   'line' => 53
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftBracket',
+                   'data' => '[',
+                   'type' => Compiler::Lexer::TokenType::T_LeftBracket,
+                   'line' => 53
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '0',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
+                   'line' => 53
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightBracket',
+                   'data' => ']',
+                   'type' => Compiler::Lexer::TokenType::T_RightBracket,
+                   'line' => 53
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'line' => 53
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '2',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 53
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9613,11 +9685,11 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 306,
+            'token_num' => 314,
             'has_warnings' => 1,
             'end_line' => 107,
             'src' => ' if ( ! defined $where && $Config::Config { useperlio } ) { my %want = do { my $inx = 0 ; map { $_ => { inx => $inx ++ , mung => sub { $_ [ 0 ] } } } qw{RecordName Password UniqueID PrimaryGroupID
-	       RealName NFSHomeDirectory UserShell} ; } ; $want { RecordName } { mung } = sub { ( split \'\\s+\', $_[0], 2 ) [ 0 ] } ; $want { UniqueID } { mung } = $want { PrimaryGroupID } { mung } = sub { unpack \'L\' , pack \'l\' , $_ [ 0 ] } ; foreach my $dscl ( qw(/usr/bin/dscl) ) { next unless -x $dscl ; next unless open my $fh , \'-|\' , "$dscl . -readall /Users @{[keys %want]} 2>/dev/null" ; my @lines ; my @rec ; while ( < $fh > ) { chomp ; if ( $_ eq \'-\' ) { if ( @rec ) { no warnings \'uninitialized\' ; push @lines , join ( \':\' , @rec ) . "\\n" ; @rec = ( ) ; } next ; } my ( $name , $value ) = split \':\\s+\' , $_ , 2 ; unless ( defined $value ) { s/:$// ; $name = $_ ; $value = < $fh > ; chomp $value ; $value =~ s/^\\s+// ; } if ( defined ( my $info = $want { $name } ) ) { $rec [ $info-> { inx } ] = $info-> { mung }-> ( $value ) ; } } if ( @rec ) { push @lines , join ( \':\' , @rec ) . "\\n" ; } my $data = join \'\' , @lines ; if ( open PW , \'<\' , \\ $data ) { $where = "dscl . -readall /Users" ; last ; } } }',
+	       RealName NFSHomeDirectory UserShell} ; } ; $want { RecordName } { mung } = sub { ( split \'\\s+\' , $_ [ 0 ] , 2 ) [ 0 ] } ; $want { UniqueID } { mung } = $want { PrimaryGroupID } { mung } = sub { unpack \'L\' , pack \'l\' , $_ [ 0 ] } ; foreach my $dscl ( qw(/usr/bin/dscl) ) { next unless -x $dscl ; next unless open my $fh , \'-|\' , "$dscl . -readall /Users @{[keys %want]} 2>/dev/null" ; my @lines ; my @rec ; while ( < $fh > ) { chomp ; if ( $_ eq \'-\' ) { if ( @rec ) { no warnings \'uninitialized\' ; push @lines , join ( \':\' , @rec ) . "\\n" ; @rec = ( ) ; } next ; } my ( $name , $value ) = split \':\\s+\' , $_ , 2 ; unless ( defined $value ) { s/:$// ; $name = $_ ; $value = < $fh > ; chomp $value ; $value =~ s/^\\s+// ; } if ( defined ( my $info = $want { $name } ) ) { $rec [ $info-> { inx } ] = $info-> { mung }-> ( $value ) ; } } if ( @rec ) { push @lines , join ( \':\' , @rec ) . "\\n" ; } my $data = join \'\' , @lines ; if ( open PW , \'<\' , \\ $data ) { $where = "dscl . -readall /Users" ; last ; } } }',
             'start_line' => 39,
             'indent' => 0,
             'block_id' => 0
@@ -9662,10 +9734,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 6
           },
           {
-            'token_num' => 18,
+            'token_num' => 26,
             'has_warnings' => 1,
             'end_line' => 53,
-            'src' => ' $want { RecordName } { mung } = sub { ( split \'\\s+\', $_[0], 2 ) [ 0 ] } ;',
+            'src' => ' $want { RecordName } { mung } = sub { ( split \'\\s+\' , $_ [ 0 ] , 2 ) [ 0 ] } ;',
             'start_line' => 53,
             'indent' => 1,
             'block_id' => 5

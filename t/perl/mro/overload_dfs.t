@@ -768,12 +768,12 @@ subtest 'tokenize' => sub {
                    'line' => 25
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Function,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
+                   'name' => 'BuiltinFunc',
                    'data' => 'shift',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
                    'line' => 25
                  }, 'Compiler::Lexer::Token' ),
           bless( {

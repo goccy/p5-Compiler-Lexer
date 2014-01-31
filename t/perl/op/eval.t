@@ -5698,15 +5698,6 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
                    'line' => 165
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
-                   'data' => '',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
-                   'line' => 165
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
@@ -19535,10 +19526,10 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
             'block_id' => 7
           },
           {
-            'token_num' => 87,
+            'token_num' => 86,
             'has_warnings' => 1,
             'end_line' => 170,
-            'src' => ' { my $x = curr_test ( ) ; my $got ; sub recurse { my $l = shift ; if ( $l < $x ) { ++ $l ; eval \'print "# level $l\\n"; recurse($l);\' ; die if $@ ; } else { $got = "ok $l" ; } } local $SIG { __WARN__ } = sub { fail (  ) if $_ [ 0 ] =~/^Deep recurs/ } ; recurse ( curr_test ( ) - 5 ) ; is ( $got , "ok $x" , "recursive subroutine-call inside eval\'\' see its own lexicals" ) ; }',
+            'src' => ' { my $x = curr_test ( ) ; my $got ; sub recurse { my $l = shift ; if ( $l < $x ) { ++ $l ; eval \'print "# level $l\\n"; recurse($l);\' ; die if $@ ; } else { $got = "ok $l" ; } } local $SIG { __WARN__ } = sub { fail ( ) if $_ [ 0 ] =~/^Deep recurs/ } ; recurse ( curr_test ( ) - 5 ) ; is ( $got , "ok $x" , "recursive subroutine-call inside eval\'\' see its own lexicals" ) ; }',
             'start_line' => 151,
             'indent' => 0,
             'block_id' => 0
@@ -19634,10 +19625,10 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
             'block_id' => 11
           },
           {
-            'token_num' => 23,
+            'token_num' => 22,
             'has_warnings' => 1,
             'end_line' => 165,
-            'src' => ' local $SIG { __WARN__ } = sub { fail (  ) if $_ [ 0 ] =~/^Deep recurs/ } ;',
+            'src' => ' local $SIG { __WARN__ } = sub { fail ( ) if $_ [ 0 ] =~/^Deep recurs/ } ;',
             'start_line' => 165,
             'indent' => 1,
             'block_id' => 8

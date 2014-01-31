@@ -5053,17 +5053,17 @@ subtest 'tokenize' => sub {
                    'line' => 87
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 87
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Key',
                    'data' => 'd',
@@ -5296,17 +5296,17 @@ subtest 'tokenize' => sub {
                    'line' => 92
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 92
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Key',
                    'data' => 'd',
@@ -5548,17 +5548,17 @@ subtest 'tokenize' => sub {
                    'line' => 98
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 98
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Key',
                    'data' => 'd',
@@ -5881,17 +5881,17 @@ subtest 'tokenize' => sub {
                    'line' => 105
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 105
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Key',
                    'data' => 'd',
@@ -17114,6 +17114,1471 @@ subtest 'get_groups_by_syntax_level' => sub {
             'start_line' => 86,
             'indent' => 0,
             'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 87,
+            'src' => ' delete $B:: { d } ;',
+            'start_line' => 87,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 88,
+            'src' => ' is ( A-> d , "C::d" ) ;',
+            'start_line' => 88,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 90,
+            'src' => ' eval \'sub B::d {"B::d2.5"}\' ;',
+            'start_line' => 90,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 91,
+            'src' => ' A-> d ;',
+            'start_line' => 91,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 92,
+            'src' => ' my $glob = \\ delete $B:: { d } ;',
+            'start_line' => 92,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 93,
+            'src' => ' is ( A-> d , "C::d" ) ;',
+            'start_line' => 93,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 95,
+            'src' => ' eval \'sub B::d {"B::d3"}\' ;',
+            'start_line' => 95,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 96,
+            'src' => ' is ( A-> d , "B::d3" ) ;',
+            'start_line' => 96,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 98,
+            'src' => ' delete $B:: { d } ;',
+            'start_line' => 98,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 99,
+            'src' => ' * dummy::dummy = sub { } ;',
+            'start_line' => 99,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 100,
+            'src' => ' is ( A-> d , "C::d" ) ;',
+            'start_line' => 100,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 102,
+            'src' => ' eval \'sub B::d {"B::d4"}\' ;',
+            'start_line' => 102,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 103,
+            'src' => ' is ( A-> d , "B::d4" ) ;',
+            'start_line' => 103,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 105,
+            'src' => ' delete $B:: { d } ;',
+            'start_line' => 105,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 106,
+            'src' => ' is ( A-> d , "C::d" ) ;',
+            'start_line' => 106,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 20,
+            'has_warnings' => 1,
+            'end_line' => 111,
+            'src' => ' { local * C::d ; is ( eval { A-> d } || "nope" , "nope" ) ; }',
+            'start_line' => 108,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 109,
+            'src' => ' local * C::d ;',
+            'start_line' => 109,
+            'indent' => 1,
+            'block_id' => 12
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 110,
+            'src' => ' is ( eval { A-> d } || "nope" , "nope" ) ;',
+            'start_line' => 110,
+            'indent' => 1,
+            'block_id' => 12
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 112,
+            'src' => ' is ( A-> d , "C::d" ) ;',
+            'start_line' => 112,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 114,
+            'src' => ' * A::x = * A::d ;',
+            'start_line' => 114,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 115,
+            'src' => ' A-> d ;',
+            'start_line' => 115,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 116,
+            'src' => ' is ( eval { A-> x } || "nope" , "nope" , \'cache should not follow synonyms\' ) ;',
+            'start_line' => 116,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 118,
+            'src' => ' my $counter ;',
+            'start_line' => 118,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 120,
+            'src' => ' eval q{sub C::e;
+BEGIN { *B::e = \\&C::e }	# Shouldn\'t prevent AUTOLOAD in original pkg
+sub Y::f;
+$counter = 0;
+
+@X::ISA = \'Y\';
+@Y::ISA = \'B\';
+
+sub B::AUTOLOAD {
+  my $c = ++$counter;
+  my $method = $B::AUTOLOAD; 
+  my $msg = "B: In $method, $c";
+  eval "sub $method { \\$msg }";
+  goto &$method;
+}
+sub C::AUTOLOAD {
+  my $c = ++$counter;
+  my $method = $C::AUTOLOAD; 
+  my $msg = "C: In $method, $c";
+  eval "sub $method { \\$msg }";
+  goto &$method;
+}
+} ;',
+            'start_line' => 120,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 145,
+            'src' => ' is ( A-> e ( ) , "C: In C::e, 1" ) ;',
+            'start_line' => 145,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 146,
+            'src' => ' is ( A-> e ( ) , "C: In C::e, 1" ) ;',
+            'start_line' => 146,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 148,
+            'src' => ' is ( A-> ee ( ) , "B: In A::ee, 2" ) ;',
+            'start_line' => 148,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 149,
+            'src' => ' is ( A-> ee ( ) , "B: In A::ee, 2" ) ;',
+            'start_line' => 149,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 151,
+            'src' => ' is ( Y-> f ( ) , "B: In Y::f, 3" ) ;',
+            'start_line' => 151,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 152,
+            'src' => ' is ( Y-> f ( ) , "B: In Y::f, 3" ) ;',
+            'start_line' => 152,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 47,
+            'has_warnings' => 1,
+            'end_line' => 168,
+            'src' => ' { no warnings \'redefine\' ; * B::AUTOLOAD = sub { use warnings ; my $c = ++ $counter ; my $method = $: : AUTOLOAD ; no strict \'refs\' ; * $: : AUTOLOAD = sub { "new B: In $method, $c" } ; goto &$:: AUTOLOAD ; } ; }',
+            'start_line' => 158,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 159,
+            'src' => ' no warnings \'redefine\' ;',
+            'start_line' => 159,
+            'indent' => 1,
+            'block_id' => 13
+          },
+          {
+            'token_num' => 41,
+            'has_warnings' => 1,
+            'end_line' => 167,
+            'src' => ' * B::AUTOLOAD = sub { use warnings ; my $c = ++ $counter ; my $method = $: : AUTOLOAD ; no strict \'refs\' ; * $: : AUTOLOAD = sub { "new B: In $method, $c" } ; goto &$:: AUTOLOAD ; } ;',
+            'start_line' => 160,
+            'indent' => 1,
+            'block_id' => 13
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 161,
+            'src' => ' use warnings ;',
+            'start_line' => 161,
+            'indent' => 2,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 162,
+            'src' => ' my $c = ++ $counter ;',
+            'start_line' => 162,
+            'indent' => 2,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 163,
+            'src' => ' my $method = $: : AUTOLOAD ;',
+            'start_line' => 163,
+            'indent' => 2,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 164,
+            'src' => ' no strict \'refs\' ;',
+            'start_line' => 164,
+            'indent' => 2,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 0,
+            'end_line' => 165,
+            'src' => ' * $: : AUTOLOAD = sub { "new B: In $method, $c" } ;',
+            'start_line' => 165,
+            'indent' => 2,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 166,
+            'src' => ' goto &$:: AUTOLOAD ;',
+            'start_line' => 166,
+            'indent' => 2,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 170,
+            'src' => ' is ( A-> eee ( ) , "new B: In A::eee, 4" ) ;',
+            'start_line' => 170,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 171,
+            'src' => ' is ( A-> eee ( ) , "new B: In A::eee, 4" ) ;',
+            'start_line' => 171,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 26,
+            'has_warnings' => 1,
+            'end_line' => 180,
+            'src' => ' { no strict \'refs\' ; no warnings \'deprecated\' ; is ( defined ( @{ "unknown_package::ISA" } ) ? "defined" : "undefined" , "undefined" ) ; }',
+            'start_line' => 173,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 174,
+            'src' => ' no strict \'refs\' ;',
+            'start_line' => 174,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 175,
+            'src' => ' no warnings \'deprecated\' ;',
+            'start_line' => 175,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 179,
+            'src' => ' is ( defined ( @{ "unknown_package::ISA" } ) ? "defined" : "undefined" , "undefined" ) ;',
+            'start_line' => 179,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 59,
+            'has_warnings' => 1,
+            'end_line' => 192,
+            'src' => ' { package A1 ; sub foo { "foo" } package A2 ; @A2::ISA = \'A1\' ; package main ; is ( A2-> foo ( ) , "foo" ) ; is ( do { eval \'A2::foo()\' ; $@ ? 1 : 0 } , 1 ) ; is ( A2-> foo ( ) , "foo" ) ; }',
+            'start_line' => 183,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 184,
+            'src' => ' package A1 ;',
+            'start_line' => 184,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 185,
+            'src' => ' sub foo { "foo" }',
+            'start_line' => 185,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 186,
+            'src' => ' package A2 ;',
+            'start_line' => 186,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 187,
+            'src' => ' @A2::ISA = \'A1\' ;',
+            'start_line' => 187,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 188,
+            'src' => ' package main ;',
+            'start_line' => 188,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 189,
+            'src' => ' is ( A2-> foo ( ) , "foo" ) ;',
+            'start_line' => 189,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 17,
+            'has_warnings' => 1,
+            'end_line' => 190,
+            'src' => ' is ( do { eval \'A2::foo()\' ; $@ ? 1 : 0 } , 1 ) ;',
+            'start_line' => 190,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 0,
+            'end_line' => 190,
+            'src' => ' do { eval \'A2::foo()\' ; $@ ? 1 : 0 }',
+            'start_line' => 190,
+            'indent' => 1,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 190,
+            'src' => ' eval \'A2::foo()\' ;',
+            'start_line' => 190,
+            'indent' => 2,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 191,
+            'src' => ' is ( A2-> foo ( ) , "foo" ) ;',
+            'start_line' => 191,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 206,
+            'src' => ' my $e ;',
+            'start_line' => 206,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 208,
+            'src' => ' eval \'$e = bless {}, "E::A"; E::A->foo()\' ;',
+            'start_line' => 208,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 209,
+            'src' => ' like ( $@ , qr/^\\QCan\'t locate object method "foo" via package "E::A" at/ ) ;',
+            'start_line' => 209,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 210,
+            'src' => ' eval \'$e = bless {}, "E::B"; $e->foo()\' ;',
+            'start_line' => 210,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 211,
+            'src' => ' like ( $@ , qr/^\\QCan\'t locate object method "foo" via package "E::B" at/ ) ;',
+            'start_line' => 211,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 212,
+            'src' => ' eval \'E::C->foo()\' ;',
+            'start_line' => 212,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 213,
+            'src' => ' like ( $@ , qr/^\\QCan\'t locate object method "foo" via package "E::C" (perhaps / ) ;',
+            'start_line' => 213,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 215,
+            'src' => ' eval \'UNIVERSAL->E::D::foo()\' ;',
+            'start_line' => 215,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 216,
+            'src' => ' like ( $@ , qr/^\\QCan\'t locate object method "foo" via package "E::D" (perhaps / ) ;',
+            'start_line' => 216,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 217,
+            'src' => ' eval \'my $e = bless {}, "UNIVERSAL"; $e->E::E::foo()\' ;',
+            'start_line' => 217,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 218,
+            'src' => ' like ( $@ , qr/^\\QCan\'t locate object method "foo" via package "E::E" (perhaps / ) ;',
+            'start_line' => 218,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 220,
+            'src' => ' $e = bless { } , "E::F" ;',
+            'start_line' => 220,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 221,
+            'src' => ' eval \'UNIVERSAL->E::F::foo()\' ;',
+            'start_line' => 221,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 222,
+            'src' => ' like ( $@ , qr/^\\QCan\'t locate object method "foo" via package "E::F" at/ ) ;',
+            'start_line' => 222,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 223,
+            'src' => ' eval \'$e = bless {}, "UNIVERSAL"; $e->E::F::foo()\' ;',
+            'start_line' => 223,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 224,
+            'src' => ' like ( $@ , qr/^\\QCan\'t locate object method "foo" via package "E::F" at/ ) ;',
+            'start_line' => 224,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 229,
+            'src' => ' is ( $: : { "Foo::" } || "none" , "none" ) ;',
+            'start_line' => 229,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 230,
+            'src' => ' is ( $: : { "Foo::" } || "none" , "none" ) ;',
+            'start_line' => 230,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 232,
+            'src' => ' is ( UNIVERSAL::can ( "Foo" , "boogie" ) ? "yes" : "no" , "no" ) ;',
+            'start_line' => 232,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 233,
+            'src' => ' is ( $: : { "Foo::" } || "none" , "none" ) ;',
+            'start_line' => 233,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 235,
+            'src' => ' is ( Foo-> UNIVERSAL::can ( "boogie" ) ? "yes" : "no" , "no" ) ;',
+            'start_line' => 235,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 236,
+            'src' => ' is ( $: : { "Foo::" } || "none" , "none" ) ;',
+            'start_line' => 236,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 238,
+            'src' => ' is ( Foo-> can ( "boogie" ) ? "yes" : "no" , "no" ) ;',
+            'start_line' => 238,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 239,
+            'src' => ' is ( $: : { "Foo::" } || "none" , "none" ) ;',
+            'start_line' => 239,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 241,
+            'src' => ' is ( eval \'Foo->boogie(); 1\' ? "yes" : "no" , "no" ) ;',
+            'start_line' => 241,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 242,
+            'src' => ' is ( $: : { "Foo::" } || "none" , "none" ) ;',
+            'start_line' => 242,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 21,
+            'has_warnings' => 1,
+            'end_line' => 245,
+            'src' => ' is ( do { eval \'Foo->boogie()\' ; $@ =~/^\\QCan\'t locate object method "boogie" via package "Foo" (perhaps / ? 1 : $@ } , 1 ) ;',
+            'start_line' => 244,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 0,
+            'end_line' => 245,
+            'src' => ' do { eval \'Foo->boogie()\' ; $@ =~/^\\QCan\'t locate object method "boogie" via package "Foo" (perhaps / ? 1 : $@ }',
+            'start_line' => 244,
+            'indent' => 0,
+            'block_id' => 25
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 244,
+            'src' => ' eval \'Foo->boogie()\' ;',
+            'start_line' => 244,
+            'indent' => 1,
+            'block_id' => 26
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 247,
+            'src' => ' eval \'sub Foo::boogie { "yes, sir!" }\' ;',
+            'start_line' => 247,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 248,
+            'src' => ' is ( $: : { "Foo::" } ? "ok" : "none" , "ok" ) ;',
+            'start_line' => 248,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 249,
+            'src' => ' is ( Foo-> boogie ( ) , "yes, sir!" ) ;',
+            'start_line' => 249,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 256,
+            'src' => ' eval \'sub AUTOLOAD { "ok ", shift, "\\n"; }\' ;',
+            'start_line' => 256,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 257,
+            'src' => ' ok ( 1 ) ;',
+            'start_line' => 257,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 266,
+            'src' => ' is ( eval q[
+	my $x = \'x\'; # Lexical or package variable, 5.6.1 panics.
+	sub Foo::x : lvalue { $x }
+	Foo->$x = \'ok\';
+    ] || $@ , \'ok\' ) ;',
+            'start_line' => 260,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 65,
+            'has_warnings' => 1,
+            'end_line' => 282,
+            'src' => ' { use warnings ; my $w = \'\' ; local $SIG { __WARN__ } = sub { $w = $_ [ 0 ] } ; sub AutoDest::Base::AUTOLOAD { } @AutoDest::ISA = qw(AutoDest::Base) ; { my $x = bless { } , \'AutoDest\' ; } $w =~ s/\\n//g ; is ( $w , \'\' ) ; }',
+            'start_line' => 272,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 273,
+            'src' => ' use warnings ;',
+            'start_line' => 273,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 274,
+            'src' => ' my $w = \'\' ;',
+            'start_line' => 274,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 275,
+            'src' => ' local $SIG { __WARN__ } = sub { $w = $_ [ 0 ] } ;',
+            'start_line' => 275,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 278,
+            'src' => ' @AutoDest::ISA = qw(AutoDest::Base) ;',
+            'start_line' => 278,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 0,
+            'end_line' => 279,
+            'src' => ' { my $x = bless { } , \'AutoDest\' ; }',
+            'start_line' => 279,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 0,
+            'end_line' => 279,
+            'src' => ' my $x = bless { } , \'AutoDest\' ;',
+            'start_line' => 279,
+            'indent' => 2,
+            'block_id' => 31
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 280,
+            'src' => ' $w =~ s/\\n//g ;',
+            'start_line' => 280,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 281,
+            'src' => ' is ( $w , \'\' ) ;',
+            'start_line' => 281,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 286,
+            'src' => ' package main ;',
+            'start_line' => 286,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 287,
+            'src' => ' our @X ;',
+            'start_line' => 287,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 288,
+            'src' => ' package Amajor ;',
+            'start_line' => 288,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 291,
+            'src' => ' sub test { push @main::X , \'Amajor\' , @_ ; }',
+            'start_line' => 289,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 290,
+            'src' => ' push @main::X , \'Amajor\' , @_ ;',
+            'start_line' => 290,
+            'indent' => 1,
+            'block_id' => 32
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 292,
+            'src' => ' package Bminor ;',
+            'start_line' => 292,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 293,
+            'src' => ' use base qw(Amajor) ;',
+            'start_line' => 293,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 294,
+            'src' => ' package main ;',
+            'start_line' => 294,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 296,
+            'src' => ' $_ [ 0 ]-> Bminor::SUPER::test ( \'x\' , \'y\' ) ;',
+            'start_line' => 296,
+            'indent' => 1,
+            'block_id' => 33
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 297,
+            'src' => ' push @main::X , \'Bminor\' , @_ ;',
+            'start_line' => 297,
+            'indent' => 1,
+            'block_id' => 33
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 299,
+            'src' => ' Bminor-> test ( \'y\' , \'z\' ) ;',
+            'start_line' => 299,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 300,
+            'src' => ' is ( "@X" , "Amajor Bminor x y Bminor Bminor y z" ) ;',
+            'start_line' => 300,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 302,
+            'src' => ' package main ;',
+            'start_line' => 302,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 42,
+            'has_warnings' => 1,
+            'end_line' => 316,
+            'src' => ' for my $meth ( [ \'Bar\' , \'Foo::Bar\' ] , [ \'SUPER::Bar\' , \'main::SUPER::Bar\' ] , [ \'Xyz::SUPER::Bar\' , \'Xyz::SUPER::Bar\' ] ) { fresh_perl_is ( q{package UNIVERSAL; sub AUTOLOAD { my \\$c = shift; print "\\$c \\$AUTOLOAD\\\\n" }
+package Xyz;
+package main; Foo->$meth->[0]();
+} , "Foo $meth->[1]" , { switches => [ \'-w\' ] } , "check if UNIVERSAL::AUTOLOAD works" , ) ; }',
+            'start_line' => 303,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 18,
+            'has_warnings' => 1,
+            'end_line' => 315,
+            'src' => ' fresh_perl_is ( q{package UNIVERSAL; sub AUTOLOAD { my \\$c = shift; print "\\$c \\$AUTOLOAD\\\\n" }
+package Xyz;
+package main; Foo->$meth->[0]();
+} , "Foo $meth->[1]" , { switches => [ \'-w\' ] } , "check if UNIVERSAL::AUTOLOAD works" , ) ;',
+            'start_line' => 307,
+            'indent' => 1,
+            'block_id' => 34
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 328,
+            'src' => ' { fresh_perl_is ( q{sub M::DESTROY; bless {}, "M" ; print "survived\\n";
+} , "survived" , { } , "no crash with a declared but missing DESTROY method" ) ; }',
+            'start_line' => 320,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 327,
+            'src' => ' fresh_perl_is ( q{sub M::DESTROY; bless {}, "M" ; print "survived\\n";
+} , "survived" , { } , "no crash with a declared but missing DESTROY method" ) ;',
+            'start_line' => 321,
+            'indent' => 1,
+            'block_id' => 35
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 331,
+            'src' => ' sub TIESCALAR { bless [ ] }',
+            'start_line' => 331,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 332,
+            'src' => ' sub FETCH { "main" }',
+            'start_line' => 332,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 333,
+            'src' => ' my $kalled ;',
+            'start_line' => 333,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 334,
+            'src' => ' sub bolgy { ++ $kalled ; }',
+            'start_line' => 334,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 334,
+            'src' => ' ++ $kalled ;',
+            'start_line' => 334,
+            'indent' => 1,
+            'block_id' => 39
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 335,
+            'src' => ' tie my $a , "" ;',
+            'start_line' => 335,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 336,
+            'src' => ' $a-> bolgy ;',
+            'start_line' => 336,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 337,
+            'src' => ' is $kalled , 1 , \'calling a class method via a magic variable\' ;',
+            'start_line' => 337,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 60,
+            'has_warnings' => 1,
+            'end_line' => 353,
+            'src' => ' { package NulTest ; sub method { 1 } package main ; eval { NulTest-> ${ \\ "method\\0Whoops" } ; } ; like $@ , qr/Can\'t locate object method "method\\0Whoops" via package "NulTest" at/ , "method lookup is nul-clean" ; * NulTest::AUTOLOAD = sub { our $AUTOLOAD ; return $AUTOLOAD } ; like ( NulTest-> ${ \\ "nul\\0test" } , "nul\\0test" , "AUTOLOAD is nul-clean" ) ; }',
+            'start_line' => 339,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 340,
+            'src' => ' package NulTest ;',
+            'start_line' => 340,
+            'indent' => 1,
+            'block_id' => 40
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 341,
+            'src' => ' sub method { 1 }',
+            'start_line' => 341,
+            'indent' => 1,
+            'block_id' => 40
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 343,
+            'src' => ' package main ;',
+            'start_line' => 343,
+            'indent' => 1,
+            'block_id' => 40
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 346,
+            'src' => ' eval { NulTest-> ${ \\ "method\\0Whoops" } ; } ;',
+            'start_line' => 344,
+            'indent' => 1,
+            'block_id' => 40
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 345,
+            'src' => ' NulTest-> ${ \\ "method\\0Whoops" } ;',
+            'start_line' => 345,
+            'indent' => 1,
+            'block_id' => 41
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 348,
+            'src' => ' like $@ , qr/Can\'t locate object method "method\\0Whoops" via package "NulTest" at/ , "method lookup is nul-clean" ;',
+            'start_line' => 347,
+            'indent' => 1,
+            'block_id' => 40
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 350,
+            'src' => ' * NulTest::AUTOLOAD = sub { our $AUTOLOAD ; return $AUTOLOAD } ;',
+            'start_line' => 350,
+            'indent' => 1,
+            'block_id' => 40
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 350,
+            'src' => ' our $AUTOLOAD ;',
+            'start_line' => 350,
+            'indent' => 2,
+            'block_id' => 42
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 352,
+            'src' => ' like ( NulTest-> ${ \\ "nul\\0test" } , "nul\\0test" , "AUTOLOAD is nul-clean" ) ;',
+            'start_line' => 352,
+            'indent' => 1,
+            'block_id' => 40
+          },
+          {
+            'token_num' => 17,
+            'has_warnings' => 1,
+            'end_line' => 363,
+            'src' => ' { fresh_perl_is ( q! sub T::DESTROY { $x = $_[0]; } bless [], "T";! , "DESTROY created new reference to dead object \'T\' during global destruction." , { } , "DESTROY creating a new reference to the object generates a warning." ) ; }',
+            'start_line' => 356,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 362,
+            'src' => ' fresh_perl_is ( q! sub T::DESTROY { $x = $_[0]; } bless [], "T";! , "DESTROY created new reference to dead object \'T\' during global destruction." , { } , "DESTROY creating a new reference to the object generates a warning." ) ;',
+            'start_line' => 357,
+            'indent' => 1,
+            'block_id' => 43
+          },
+          {
+            'token_num' => 29,
+            'has_warnings' => 1,
+            'end_line' => 371,
+            'src' => ' { $: : { "Just" } = \\ 1 ; sub Just::a_japh { return "$_[0] another Perl hacker," } is eval { "Just"-> a_japh } , "Just another Perl hacker," , \'constants do not interfere with class methods\' ; }',
+            'start_line' => 366,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 367,
+            'src' => ' = \\ 1 ;',
+            'start_line' => 367,
+            'indent' => 1,
+            'block_id' => 45
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 370,
+            'src' => ' is eval { "Just"-> a_japh } , "Just another Perl hacker," , \'constants do not interfere with class methods\' ;',
+            'start_line' => 369,
+            'indent' => 1,
+            'block_id' => 45
+          },
+          {
+            'token_num' => 144,
+            'has_warnings' => 1,
+            'end_line' => 390,
+            'src' => ' { no strict \'vars\' ; sub bliggles { 1 } sub lbiggles : lvalue { index "foo" , "f" } ok eval { main-> bliggles ( my ( $foo , $bar ) ) } , \'foo->bar(my($foo,$bar)) is not called in lvalue context\' ; ok eval { main-> bliggles ( our ( $foo , $bar ) ) } , \'foo->bar(our($foo,$bar)) is not called in lvalue context\' ; ok eval { main-> bliggles ( local ( $foo , $bar ) ) } , \'foo->bar(local($foo,$bar)) is not called in lvalue context\' ; ok eval { ( ) = main-> lbiggles ( my ( $foo , $bar ) ) ; 1 } , \'foo->lv(my($foo,$bar)) is not called in lvalue context\' ; ok eval { ( ) = main-> lbiggles ( our ( $foo , $bar ) ) ; 1 } , \'foo->lv(our($foo,$bar)) is not called in lvalue context\' ; ok eval { ( ) = main-> lbiggles ( local ( $foo , $bar ) ) ; 1 } , \'foo->lv(local($foo,$bar)) is not called in lvalue context\' ; }',
+            'start_line' => 374,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 375,
+            'src' => ' no strict \'vars\' ;',
+            'start_line' => 375,
+            'indent' => 1,
+            'block_id' => 48
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 376,
+            'src' => ' sub bliggles { 1 }',
+            'start_line' => 376,
+            'indent' => 1,
+            'block_id' => 48
+          },
+          {
+            'token_num' => 28,
+            'has_warnings' => 1,
+            'end_line' => 379,
+            'src' => ' sub lbiggles : lvalue { index "foo" , "f" } ok eval { main-> bliggles ( my ( $foo , $bar ) ) } , \'foo->bar(my($foo,$bar)) is not called in lvalue context\' ;',
+            'start_line' => 377,
+            'indent' => 1,
+            'block_id' => 48
+          },
+          {
+            'token_num' => 18,
+            'has_warnings' => 1,
+            'end_line' => 381,
+            'src' => ' ok eval { main-> bliggles ( our ( $foo , $bar ) ) } , \'foo->bar(our($foo,$bar)) is not called in lvalue context\' ;',
+            'start_line' => 380,
+            'indent' => 1,
+            'block_id' => 48
+          },
+          {
+            'token_num' => 18,
+            'has_warnings' => 1,
+            'end_line' => 383,
+            'src' => ' ok eval { main-> bliggles ( local ( $foo , $bar ) ) } , \'foo->bar(local($foo,$bar)) is not called in lvalue context\' ;',
+            'start_line' => 382,
+            'indent' => 1,
+            'block_id' => 48
+          },
+          {
+            'token_num' => 23,
+            'has_warnings' => 1,
+            'end_line' => 385,
+            'src' => ' ok eval { ( ) = main-> lbiggles ( my ( $foo , $bar ) ) ; 1 } , \'foo->lv(my($foo,$bar)) is not called in lvalue context\' ;',
+            'start_line' => 384,
+            'indent' => 1,
+            'block_id' => 48
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 384,
+            'src' => ' ( ) = main-> lbiggles ( my ( $foo , $bar ) ) ;',
+            'start_line' => 384,
+            'indent' => 1,
+            'block_id' => 49
+          },
+          {
+            'token_num' => 23,
+            'has_warnings' => 1,
+            'end_line' => 387,
+            'src' => ' ok eval { ( ) = main-> lbiggles ( our ( $foo , $bar ) ) ; 1 } , \'foo->lv(our($foo,$bar)) is not called in lvalue context\' ;',
+            'start_line' => 386,
+            'indent' => 1,
+            'block_id' => 48
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 386,
+            'src' => ' ( ) = main-> lbiggles ( our ( $foo , $bar ) ) ;',
+            'start_line' => 386,
+            'indent' => 1,
+            'block_id' => 49
+          },
+          {
+            'token_num' => 23,
+            'has_warnings' => 1,
+            'end_line' => 389,
+            'src' => ' ok eval { ( ) = main-> lbiggles ( local ( $foo , $bar ) ) ; 1 } , \'foo->lv(local($foo,$bar)) is not called in lvalue context\' ;',
+            'start_line' => 388,
+            'indent' => 1,
+            'block_id' => 48
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 388,
+            'src' => ' ( ) = main-> lbiggles ( local ( $foo , $bar ) ) ;',
+            'start_line' => 388,
+            'indent' => 1,
+            'block_id' => 49
+          },
+          {
+            'token_num' => 43,
+            'has_warnings' => 1,
+            'end_line' => 404,
+            'src' => ' { package NoSub ; eval \'AUTOLOAD { our $AUTOLOAD; return $AUTOLOAD }\' ;::ok ( ! $@ , "AUTOLOAD without a leading sub is legal" ) ; eval "DESTROY { ::pass( q!DESTROY without a leading sub is legal and gets called! ) }" ; {::ok ( NoSub-> can ( "AUTOLOAD" ) , "...and sets up an AUTOLOAD normally" ) ;::is ( eval { NoSub-> bluh } , "NoSub::bluh" , "...which works as expected" ) ; }',
+            'start_line' => 392,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 395,
+            'src' => ' package NoSub ;',
+            'start_line' => 395,
+            'indent' => 1,
+            'block_id' => 50
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 398,
+            'src' => ' eval \'AUTOLOAD { our $AUTOLOAD; return $AUTOLOAD }\' ;::ok ( ! $@ , "AUTOLOAD without a leading sub is legal" ) ;',
+            'start_line' => 397,
+            'indent' => 1,
+            'block_id' => 50
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 400,
+            'src' => ' eval "DESTROY { ::pass( q!DESTROY without a leading sub is legal and gets called! ) }" ;',
+            'start_line' => 400,
+            'indent' => 1,
+            'block_id' => 50
+          },
+          {
+            'token_num' => 25,
+            'has_warnings' => 1,
+            'end_line' => 403,
+            'src' => ' {::ok ( NoSub-> can ( "AUTOLOAD" ) , "...and sets up an AUTOLOAD normally" ) ;::is ( eval { NoSub-> bluh } , "NoSub::bluh" , "...which works as expected" ) ;',
+            'start_line' => 401,
+            'indent' => 1,
+            'block_id' => 50
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 0,
+            'end_line' => 405,
+            'src' => ' { bless { } , "NoSub" ; }',
+            'start_line' => 405,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 405,
+            'src' => ' bless { } , "NoSub" ;',
+            'start_line' => 405,
+            'indent' => 1,
+            'block_id' => 51
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');
@@ -17125,6 +18590,18 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '',
             'name' => 'strict'
+          },
+          {
+            'args' => '',
+            'name' => 'warnings'
+          },
+          {
+            'args' => '',
+            'name' => 'warnings'
+          },
+          {
+            'args' => '  qw ( Amajor )',
+            'name' => 'base'
           }
         ]
 , 'Compiler::Lexer::get_used_modules');

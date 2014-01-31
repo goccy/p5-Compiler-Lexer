@@ -4407,12 +4407,12 @@ subtest 'tokenize' => sub {
                    'line' => 89
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightParenthesis',
                    'data' => ')',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
                    'line' => 89
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4560,12 +4560,12 @@ subtest 'tokenize' => sub {
                    'line' => 90
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightParenthesis',
                    'data' => ')',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
                    'line' => 90
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7198,42 +7198,31 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 268,
-            'has_warnings' => 1,
-            'end_line' => 147,
-            'src' => ' { 1 } is grep ( { $_ eq "\\x{539f}" } keys %::) , 1 , "Constant subs generate the right glob." ; is grep ( { $_ eq "\\345\\216\\237" } keys %::) , 0 ; eval q{ sub wròng1 (_$); wròng1(1,2) } ; like ( $@ , qr/Malformed prototype for main::wròng1/ , \'Malformed prototype croak is clean.\' ) ; eval q{ sub ча::ики ($__); ча::ики(1,2) } ; like ( $@ , qr/Malformed prototype for ча::ики/ ) ; our $問 = 10 ; is $問 , 10 , "our works" ; is $main::問 , 10 , "...as does getting the same variable through the fully qualified name" ; is ${ "main::\\345\\225\\217" } , undef , "..and using the encoded form doesn\'t" ; { use charnames qw( :full ) ; eval qq! my \\$\\x{30cb} \\N{DROMEDARY CAMEL} ! ; $@ =~ s/eval \\d+/eval 11/ ; is $@ , \'Unrecognized character \\x{1f42a}; marked by <-- HERE after  my $ニ <-- HERE near column 8 at (eval 11) line 1.
-\' , "\'Unrecognized character\' croak is UTF-8 clean" ; } { use feature \'state\' ; for ( qw( my state our ) ) { local $@ ; eval "$_ Ｆｏｏ $x = 1;" ; like $@ , qr/No such class Ｆｏｏ/u , "\'No such class\' warning for $_ is UTF-8 clean" ; } } { local $@ ; eval "our \\$main::\\x{30cb};" ; like $@ , qr!No package name allowed for variable \\$main::\\x{30cb} in "our"! , "\'No such package name allowed for variable\' is UTF-8 clean" ; } { use feature \'state\' ; local $@ ; for ( qw( my state ) ) { eval "$_ \\$::\\x{30cb};" ; like $@ , qr!"$_" variable \\$::\\x{30cb} can\'t be in a package! , qq!\'"$_" variable %s can\'t be in a package\' is UTF-8 clean! ; } } { local $@ ; eval qq!print \\x{30cb}, "comma""! ; like $@ , qr/No comma allowed after filehandle/ , "No comma allowed after filehandle triggers correctly for UTF-8 filehandles." ; } eval q{ Ｆｏｏ::$bar } ; like ( $@ , qr/Bad name after Ｆｏｏ::/ , \'Bad name after Ｆｏｏ::\' ) ; eval q{ Ｆｏｏ\'\'bar } ; like ( $@ , qr/Bad name after Ｆｏｏ\'/ , \'Bad name after Ｆｏｏ\\\'\' ) ; ; ) ;',
+            'token_num' => 8,
+            'has_warnings' => 0,
+            'end_line' => 87,
+            'src' => ' sub 原 (  ) { 1 }',
             'start_line' => 87,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 255,
-            'has_warnings' => 1,
-            'end_line' => 147,
-            'src' => ' keys %::) , 1 , "Constant subs generate the right glob." ; is grep ( { $_ eq "\\345\\216\\237" } keys %::) , 0 ; eval q{ sub wròng1 (_$); wròng1(1,2) } ; like ( $@ , qr/Malformed prototype for main::wròng1/ , \'Malformed prototype croak is clean.\' ) ; eval q{ sub ча::ики ($__); ча::ики(1,2) } ; like ( $@ , qr/Malformed prototype for ча::ики/ ) ; our $問 = 10 ; is $問 , 10 , "our works" ; is $main::問 , 10 , "...as does getting the same variable through the fully qualified name" ; is ${ "main::\\345\\225\\217" } , undef , "..and using the encoded form doesn\'t" ; { use charnames qw( :full ) ; eval qq! my \\$\\x{30cb} \\N{DROMEDARY CAMEL} ! ; $@ =~ s/eval \\d+/eval 11/ ; is $@ , \'Unrecognized character \\x{1f42a}; marked by <-- HERE after  my $ニ <-- HERE near column 8 at (eval 11) line 1.
-\' , "\'Unrecognized character\' croak is UTF-8 clean" ; } { use feature \'state\' ; for ( qw( my state our ) ) { local $@ ; eval "$_ Ｆｏｏ $x = 1;" ; like $@ , qr/No such class Ｆｏｏ/u , "\'No such class\' warning for $_ is UTF-8 clean" ; } } { local $@ ; eval "our \\$main::\\x{30cb};" ; like $@ , qr!No package name allowed for variable \\$main::\\x{30cb} in "our"! , "\'No such package name allowed for variable\' is UTF-8 clean" ; } { use feature \'state\' ; local $@ ; for ( qw( my state ) ) { eval "$_ \\$::\\x{30cb};" ; like $@ , qr!"$_" variable \\$::\\x{30cb} can\'t be in a package! , qq!\'"$_" variable %s can\'t be in a package\' is UTF-8 clean! ; } } { local $@ ; eval qq!print \\x{30cb}, "comma""! ; like $@ , qr/No comma allowed after filehandle/ , "No comma allowed after filehandle triggers correctly for UTF-8 filehandles." ; } eval q{ Ｆｏｏ::$bar } ; like ( $@ , qr/Bad name after Ｆｏｏ::/ , \'Bad name after Ｆｏｏ::\' ) ; eval q{ Ｆｏｏ\'\'bar } ; like ( $@ , qr/Bad name after Ｆｏｏ\'/ , \'Bad name after Ｆｏｏ\\\'\' ) ; ;',
-            'start_line' => 89,
-            'indent' => 0,
-            'block_id' => 15
-          },
-          {
-            'token_num' => 7,
+            'token_num' => 16,
             'has_warnings' => 1,
             'end_line' => 89,
-            'src' => ' keys %::) , 1 , "Constant subs generate the right glob." ;',
+            'src' => ' is grep ( { $_ eq "\\x{539f}" } keys %:: ) , 1 , "Constant subs generate the right glob." ;',
             'start_line' => 89,
             'indent' => 0,
-            'block_id' => 16
+            'block_id' => 0
           },
           {
-            'token_num' => 5,
+            'token_num' => 14,
             'has_warnings' => 1,
             'end_line' => 90,
-            'src' => ' keys %::) , 0 ;',
+            'src' => ' is grep ( { $_ eq "\\345\\216\\237" } keys %:: ) , 0 ;',
             'start_line' => 90,
             'indent' => 0,
-            'block_id' => 16
+            'block_id' => 0
           },
           {
             'token_num' => 6,
@@ -7242,7 +7231,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' eval q{ sub wròng1 (_$); wròng1(1,2) } ;',
             'start_line' => 93,
             'indent' => 0,
-            'block_id' => 16
+            'block_id' => 0
           },
           {
             'token_num' => 12,
@@ -7251,7 +7240,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' like ( $@ , qr/Malformed prototype for main::wròng1/ , \'Malformed prototype croak is clean.\' ) ;',
             'start_line' => 94,
             'indent' => 0,
-            'block_id' => 16
+            'block_id' => 0
           },
           {
             'token_num' => 6,
@@ -7260,7 +7249,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' eval q{ sub ча::ики ($__); ча::ики(1,2) } ;',
             'start_line' => 96,
             'indent' => 0,
-            'block_id' => 16
+            'block_id' => 0
           },
           {
             'token_num' => 10,
@@ -7269,7 +7258,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' like ( $@ , qr/Malformed prototype for ча::ики/ ) ;',
             'start_line' => 97,
             'indent' => 0,
-            'block_id' => 16
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -7278,7 +7267,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' our $問 = 10 ;',
             'start_line' => 99,
             'indent' => 0,
-            'block_id' => 16
+            'block_id' => 0
           },
           {
             'token_num' => 7,
@@ -7287,7 +7276,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is $問 , 10 , "our works" ;',
             'start_line' => 100,
             'indent' => 0,
-            'block_id' => 16
+            'block_id' => 0
           },
           {
             'token_num' => 7,
@@ -7296,7 +7285,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is $main::問 , 10 , "...as does getting the same variable through the fully qualified name" ;',
             'start_line' => 101,
             'indent' => 0,
-            'block_id' => 16
+            'block_id' => 0
           },
           {
             'token_num' => 9,
@@ -7305,7 +7294,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ${ "main::\\345\\225\\217" } , undef , "..and using the encoded form doesn\'t" ;',
             'start_line' => 102,
             'indent' => 0,
-            'block_id' => 16
+            'block_id' => 0
           },
           {
             'token_num' => 31,
@@ -7315,7 +7304,7 @@ subtest 'get_groups_by_syntax_level' => sub {
 \' , "\'Unrecognized character\' croak is UTF-8 clean" ; }',
             'start_line' => 104,
             'indent' => 0,
-            'block_id' => 16
+            'block_id' => 0
           },
           {
             'token_num' => 7,
@@ -7361,7 +7350,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' { use feature \'state\' ; for ( qw( my state our ) ) { local $@ ; eval "$_ Ｆｏｏ $x = 1;" ; like $@ , qr/No such class Ｆｏｏ/u , "\'No such class\' warning for $_ is UTF-8 clean" ; } }',
             'start_line' => 113,
             'indent' => 0,
-            'block_id' => 16
+            'block_id' => 0
           },
           {
             'token_num' => 4,
@@ -7415,7 +7404,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' { local $@ ; eval "our \\$main::\\x{30cb};" ; like $@ , qr!No package name allowed for variable \\$main::\\x{30cb} in "our"! , "\'No such package name allowed for variable\' is UTF-8 clean" ; }',
             'start_line' => 122,
             'indent' => 0,
-            'block_id' => 16
+            'block_id' => 0
           },
           {
             'token_num' => 3,
@@ -7451,7 +7440,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' { use feature \'state\' ; local $@ ; for ( qw( my state ) ) { eval "$_ \\$::\\x{30cb};" ; like $@ , qr!"$_" variable \\$::\\x{30cb} can\'t be in a package! , qq!\'"$_" variable %s can\'t be in a package\' is UTF-8 clean! ; } }',
             'start_line' => 128,
             'indent' => 0,
-            'block_id' => 16
+            'block_id' => 0
           },
           {
             'token_num' => 4,
@@ -7505,7 +7494,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' { local $@ ; eval qq!print \\x{30cb}, "comma""! ; like $@ , qr/No comma allowed after filehandle/ , "No comma allowed after filehandle triggers correctly for UTF-8 filehandles." ; }',
             'start_line' => 137,
             'indent' => 0,
-            'block_id' => 16
+            'block_id' => 0
           },
           {
             'token_num' => 3,
@@ -7541,7 +7530,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' eval q{ Ｆｏｏ::$bar } ;',
             'start_line' => 144,
             'indent' => 0,
-            'block_id' => 16
+            'block_id' => 0
           },
           {
             'token_num' => 12,
@@ -7550,7 +7539,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' like ( $@ , qr/Bad name after Ｆｏｏ::/ , \'Bad name after Ｆｏｏ::\' ) ;',
             'start_line' => 145,
             'indent' => 0,
-            'block_id' => 16
+            'block_id' => 0
           },
           {
             'token_num' => 6,
@@ -7559,7 +7548,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' eval q{ Ｆｏｏ\'\'bar } ;',
             'start_line' => 146,
             'indent' => 0,
-            'block_id' => 16
+            'block_id' => 0
           },
           {
             'token_num' => 12,
@@ -7568,7 +7557,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' like ( $@ , qr/Bad name after Ｆｏｏ\'/ , \'Bad name after Ｆｏｏ\\\'\' ) ;',
             'start_line' => 147,
             'indent' => 0,
-            'block_id' => 16
+            'block_id' => 0
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

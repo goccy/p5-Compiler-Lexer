@@ -13552,17 +13552,17 @@ subtest 'tokenize' => sub {
                    'line' => 318
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 318
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Key',
                    'data' => 'ISA',
@@ -15712,10 +15712,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 42
           },
           {
-            'token_num' => 10,
+            'token_num' => 23,
             'has_warnings' => 1,
-            'end_line' => 318,
-            'src' => ' { @BḼᵑtｈ::ISA = \'Bલdḏ\' ; delete $BḼᵑtｈ::{ ISA } ;',
+            'end_line' => 320,
+            'src' => ' { @BḼᵑtｈ::ISA = \'Bલdḏ\' ; delete $BḼᵑtｈ:: { ISA } ; ok ! BḼᵑtｈ-> isa ( "Bલdḏ" ) , \'delete $package::{ISA}\' ; }',
             'start_line' => 314,
             'indent' => 0,
             'block_id' => 0
@@ -15730,13 +15730,58 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 44
           },
           {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 318,
+            'src' => ' delete $BḼᵑtｈ:: { ISA } ;',
+            'start_line' => 318,
+            'indent' => 1,
+            'block_id' => 44
+          },
+          {
             'token_num' => 11,
             'has_warnings' => 1,
             'end_line' => 319,
             'src' => ' ok ! BḼᵑtｈ-> isa ( "Bલdḏ" ) , \'delete $package::{ISA}\' ;',
             'start_line' => 319,
+            'indent' => 1,
+            'block_id' => 44
+          },
+          {
+            'token_num' => 23,
+            'has_warnings' => 1,
+            'end_line' => 328,
+            'src' => ' { @ᖫᕃㄒṭ::ISA = "ᖮw잍" ; @ᖮw잍::ISA = "ሲঌએ" ; undef %ᖮw잍::; ok ! ᖫᕃㄒṭ-> isa ( \'ሲঌએ\' ) , \'undef %package:: updates subclasses\' ; }',
+            'start_line' => 322,
             'indent' => 0,
             'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 324,
+            'src' => ' @ᖫᕃㄒṭ::ISA = "ᖮw잍" ;',
+            'start_line' => 324,
+            'indent' => 1,
+            'block_id' => 46
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 325,
+            'src' => ' @ᖮw잍::ISA = "ሲঌએ" ;',
+            'start_line' => 325,
+            'indent' => 1,
+            'block_id' => 46
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 327,
+            'src' => ' undef %ᖮw잍::; ok ! ᖫᕃㄒṭ-> isa ( \'ሲঌએ\' ) , \'undef %package:: updates subclasses\' ;',
+            'start_line' => 326,
+            'indent' => 1,
+            'block_id' => 46
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

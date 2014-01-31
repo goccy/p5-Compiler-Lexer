@@ -24530,9 +24530,45 @@ my %fs_hash = 6000..6009;
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
-                   'data' => '$x, 1, \'RT #16302\'',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
+                   'name' => 'Var',
+                   'data' => '$x',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 596
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'line' => 596
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '1',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
+                   'line' => 596
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'line' => 596
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RawString',
+                   'data' => 'RT #16302',
+                   'type' => Compiler::Lexer::TokenType::T_RawString,
                    'line' => 596
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -30266,10 +30302,10 @@ my %fs_hash = 6000..6009;
             'block_id' => 141
           },
           {
-            'token_num' => 23,
+            'token_num' => 27,
             'has_warnings' => 1,
             'end_line' => 599,
-            'src' => ' { my $x = 1 ; sub f16302 { sub { is ( $x, 1, \'RT #16302\' ) ; }-> ( ) ; } }',
+            'src' => ' { my $x = 1 ; sub f16302 { sub { is ( $x , 1 , \'RT #16302\' ) ; }-> ( ) ; } }',
             'start_line' => 592,
             'indent' => 0,
             'block_id' => 0
@@ -30284,28 +30320,28 @@ my %fs_hash = 6000..6009;
             'block_id' => 142
           },
           {
-            'token_num' => 16,
+            'token_num' => 20,
             'has_warnings' => 1,
             'end_line' => 598,
-            'src' => ' sub f16302 { sub { is ( $x, 1, \'RT #16302\' ) ; }-> ( ) ; }',
+            'src' => ' sub f16302 { sub { is ( $x , 1 , \'RT #16302\' ) ; }-> ( ) ; }',
             'start_line' => 594,
             'indent' => 1,
             'block_id' => 142
           },
           {
-            'token_num' => 12,
+            'token_num' => 16,
             'has_warnings' => 1,
             'end_line' => 597,
-            'src' => ' sub { is ( $x, 1, \'RT #16302\' ) ; }-> ( ) ;',
+            'src' => ' sub { is ( $x , 1 , \'RT #16302\' ) ; }-> ( ) ;',
             'start_line' => 595,
             'indent' => 2,
             'block_id' => 143
           },
           {
-            'token_num' => 5,
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 596,
-            'src' => ' is ( $x, 1, \'RT #16302\' ) ;',
+            'src' => ' is ( $x , 1 , \'RT #16302\' ) ;',
             'start_line' => 596,
             'indent' => 3,
             'block_id' => 144

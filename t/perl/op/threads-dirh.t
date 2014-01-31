@@ -1011,9 +1011,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
+                   'name' => 'Var',
                    'data' => '$dir',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
+                   'type' => Compiler::Lexer::TokenType::T_Var,
                    'line' => 38
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4735,7 +4735,7 @@ subtest 'get_groups_by_syntax_level' => sub {
           },
           {
             'token_num' => 5,
-            'has_warnings' => 0,
+            'has_warnings' => 1,
             'end_line' => 38,
             'src' => ' chdir ( $dir ) ;',
             'start_line' => 38,

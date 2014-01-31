@@ -3291,15 +3291,6 @@ subtest 'tokenize' => sub {
                    'line' => 62
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
-                   'data' => '',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
-                   'line' => 62
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
@@ -8648,15 +8639,6 @@ print scalar @DB::args;
                    'line' => 222
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
-                   'data' => '',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
-                   'line' => 222
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
@@ -8852,15 +8834,6 @@ print scalar @DB::args;
                    'name' => 'LeftParenthesis',
                    'data' => '(',
                    'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
-                   'line' => 224
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
-                   'data' => '',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
                    'line' => 224
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9935,15 +9908,6 @@ print scalar @DB::args;
                    'line' => 246
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
-                   'data' => '',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
-                   'line' => 246
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
@@ -10727,10 +10691,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 11,
+            'token_num' => 10,
             'has_warnings' => 0,
             'end_line' => 62,
-            'src' => ' sub { f (  ) }-> ( ) ;',
+            'src' => ' sub { f ( ) }-> ( ) ;',
             'start_line' => 62,
             'indent' => 0,
             'block_id' => 0
@@ -11403,10 +11367,10 @@ print scalar @DB::args;
             'block_id' => 28
           },
           {
-            'token_num' => 58,
+            'token_num' => 56,
             'has_warnings' => 1,
             'end_line' => 226,
-            'src' => ' { my $gone ; sub fwib::DESTROY { ++ $gone } package DB ; sub { (  ) = caller ( 0 ) }-> ( ) ; @args = bless [ ] , \'fwib\' ; sub { (  ) = caller ( 0 ) }-> ( ) ;::is $gone , 1 , \'caller does not leak @DB::args elems when AvREAL\' ; }',
+            'src' => ' { my $gone ; sub fwib::DESTROY { ++ $gone } package DB ; sub { ( ) = caller ( 0 ) }-> ( ) ; @args = bless [ ] , \'fwib\' ; sub { ( ) = caller ( 0 ) }-> ( ) ;::is $gone , 1 , \'caller does not leak @DB::args elems when AvREAL\' ; }',
             'start_line' => 218,
             'indent' => 0,
             'block_id' => 0
@@ -11430,10 +11394,10 @@ print scalar @DB::args;
             'block_id' => 29
           },
           {
-            'token_num' => 15,
+            'token_num' => 14,
             'has_warnings' => 0,
             'end_line' => 222,
-            'src' => ' sub { (  ) = caller ( 0 ) }-> ( ) ;',
+            'src' => ' sub { ( ) = caller ( 0 ) }-> ( ) ;',
             'start_line' => 222,
             'indent' => 1,
             'block_id' => 29
@@ -11448,10 +11412,10 @@ print scalar @DB::args;
             'block_id' => 29
           },
           {
-            'token_num' => 21,
+            'token_num' => 20,
             'has_warnings' => 1,
             'end_line' => 225,
-            'src' => ' sub { (  ) = caller ( 0 ) }-> ( ) ;::is $gone , 1 , \'caller does not leak @DB::args elems when AvREAL\' ;',
+            'src' => ' sub { ( ) = caller ( 0 ) }-> ( ) ;::is $gone , 1 , \'caller does not leak @DB::args elems when AvREAL\' ;',
             'start_line' => 224,
             'indent' => 1,
             'block_id' => 29
@@ -11583,19 +11547,19 @@ print scalar @DB::args;
             'block_id' => 0
           },
           {
-            'token_num' => 32,
+            'token_num' => 31,
             'has_warnings' => 1,
             'end_line' => 249,
-            'src' => ' eval { sub { (  ) = caller 0 ; }-> ( 1 .. 3 ) } ;::like $@ , qr "^Cannot set tied \\@DB::args at " , \'caller dies with tie @DB::args\' ;::ok tied @args , \'@DB::args is still tied\' ;',
+            'src' => ' eval { sub { ( ) = caller 0 ; }-> ( 1 .. 3 ) } ;::like $@ , qr "^Cannot set tied \\@DB::args at " , \'caller dies with tie @DB::args\' ;::ok tied @args , \'@DB::args is still tied\' ;',
             'start_line' => 246,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 7,
+            'token_num' => 6,
             'has_warnings' => 0,
             'end_line' => 246,
-            'src' => ' (  ) = caller 0 ;',
+            'src' => ' ( ) = caller 0 ;',
             'start_line' => 246,
             'indent' => 1,
             'block_id' => 39

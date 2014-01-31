@@ -1073,12 +1073,12 @@ subtest 'tokenize' => sub {
                    'line' => 29
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 29
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2549,15 +2549,6 @@ subtest 'tokenize' => sub {
                    'line' => 53
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
-                   'data' => '',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
-                   'line' => 53
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
@@ -2945,12 +2936,12 @@ subtest 'tokenize' => sub {
                    'line' => 58
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 58
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3807,6 +3798,186 @@ subtest 'get_groups_by_syntax_level' => sub {
             'start_line' => 28,
             'indent' => 0,
             'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 29,
+            'src' => ' my $fooref = delete $ｍａｉｎ:: { ｆｏｏ } ;',
+            'start_line' => 29,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 25,
+            'has_warnings' => 1,
+            'end_line' => 32,
+            'src' => ' $fooref-> ( ) ;::is ( $c [ 3 ] , "ｍａｉｎ::__ANON__" , "deleted subroutine name" ) ;::ok ( $c [ 4 ] , "hasargs true with deleted sub" ) ;',
+            'start_line' => 30,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 34,
+            'src' => ' print "# Tests with caller(1)\\n" ;',
+            'start_line' => 34,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 0,
+            'end_line' => 36,
+            'src' => ' sub ｆ { @c = caller ( 1 ) }',
+            'start_line' => 36,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 0,
+            'end_line' => 38,
+            'src' => ' sub ｃａｌｌｆ { ｆ ( ) ; }',
+            'start_line' => 38,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 38,
+            'src' => ' ｆ ( ) ;',
+            'start_line' => 38,
+            'indent' => 1,
+            'block_id' => 7
+          },
+          {
+            'token_num' => 24,
+            'has_warnings' => 1,
+            'end_line' => 41,
+            'src' => ' ｃａｌｌｆ ( ) ;::is ( $c [ 3 ] , "ｍａｉｎ::ｃａｌｌｆ" , "subroutine name" ) ;::ok ( $c [ 4 ] , "hasargs true with ｃａｌｌｆ()" ) ;',
+            'start_line' => 39,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 43,
+            'src' => ' & ｃａｌｌｆ ;::ok ( ! $c [ 4 ] , "hasargs false with &ｃａｌｌｆ" ) ;',
+            'start_line' => 42,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 28,
+            'has_warnings' => 1,
+            'end_line' => 47,
+            'src' => ' eval { ｆ ( ) } ;::is ( $c [ 3 ] , "(eval)" , "subroutine name in an eval {}" ) ;::ok ( ! $c [ 4 ] , "hasargs false in an eval {}" ) ;',
+            'start_line' => 45,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 27,
+            'has_warnings' => 1,
+            'end_line' => 51,
+            'src' => ' eval q{ ｆ() } ;::is ( $c [ 3 ] , "(eval)" , "subroutine name in an eval \'\'" ) ;::ok ( ! $c [ 4 ] , "hasargs false in an eval \'\'" ) ;',
+            'start_line' => 49,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 30,
+            'has_warnings' => 1,
+            'end_line' => 55,
+            'src' => ' sub { ｆ ( ) }-> ( ) ;::is ( $c [ 3 ] , "ｍａｉｎ::__ANON__" , "anonymous subroutine name" ) ;::ok ( $c [ 4 ] , "hasargs true with anon sub" ) ;',
+            'start_line' => 53,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 57,
+            'src' => ' sub ｆｏｏ2 { ｆ ( ) }',
+            'start_line' => 57,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 58,
+            'src' => ' my $fooref2 = delete $ｍａｉｎ:: { ｆｏｏ2 } ;',
+            'start_line' => 58,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 71,
+            'has_warnings' => 1,
+            'end_line' => 71,
+            'src' => ' $fooref2-> ( ) ;::is ( $c [ 3 ] , "ｍａｉｎ::__ANON__" , "deleted subroutine name" ) ;::ok ( $c [ 4 ] , "hasargs true with deleted sub" ) ; sub ｐｂ { return ( caller ( 0 ) ) [ 3 ] }::is ( eval \'ｐｂ()\' , \'ｍａｉｎ::ｐｂ\' , "actually return the right function name" ) ; my $saved_perldb = $^P ; $^P = 16 ; $^P = $saved_perldb ;::is ( eval \'ｐｂ()\' , \'ｍａｉｎ::ｐｂ\' , \'actually return the right function name even if $^P had been on at some point\' ) ; ;',
+            'start_line' => 59,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 25,
+            'has_warnings' => 1,
+            'end_line' => 61,
+            'src' => ' $fooref2-> ( ) ;::is ( $c [ 3 ] , "ｍａｉｎ::__ANON__" , "deleted subroutine name" ) ;::ok ( $c [ 4 ] , "hasargs true with deleted sub" ) ;',
+            'start_line' => 59,
+            'indent' => 0,
+            'block_id' => 10
+          },
+          {
+            'token_num' => 45,
+            'has_warnings' => 1,
+            'end_line' => 71,
+            'src' => ' sub ｐｂ { return ( caller ( 0 ) ) [ 3 ] }::is ( eval \'ｐｂ()\' , \'ｍａｉｎ::ｐｂ\' , "actually return the right function name" ) ; my $saved_perldb = $^P ; $^P = 16 ; $^P = $saved_perldb ;::is ( eval \'ｐｂ()\' , \'ｍａｉｎ::ｐｂ\' , \'actually return the right function name even if $^P had been on at some point\' ) ;',
+            'start_line' => 63,
+            'indent' => 0,
+            'block_id' => 10
+          },
+          {
+            'token_num' => 20,
+            'has_warnings' => 1,
+            'end_line' => 65,
+            'src' => ' return ( caller ( 0 ) ) [ 3 ] }::is ( eval \'ｐｂ()\' , \'ｍａｉｎ::ｐｂ\' , "actually return the right function name" ) ;',
+            'start_line' => 63,
+            'indent' => 1,
+            'block_id' => 11
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 67,
+            'src' => ' my $saved_perldb = $^P ;',
+            'start_line' => 67,
+            'indent' => 1,
+            'block_id' => 11
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 68,
+            'src' => ' $^P = 16 ;',
+            'start_line' => 68,
+            'indent' => 1,
+            'block_id' => 11
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 71,
+            'src' => ' $^P = $saved_perldb ;::is ( eval \'ｐｂ()\' , \'ｍａｉｎ::ｐｂ\' , \'actually return the right function name even if $^P had been on at some point\' ) ;',
+            'start_line' => 69,
+            'indent' => 1,
+            'block_id' => 11
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

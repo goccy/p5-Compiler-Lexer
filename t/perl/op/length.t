@@ -8016,9 +8016,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
-                   'data' => '"\'print length undef\' warned"',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
+                   'name' => 'String',
+                   'data' => '\'print length undef\' warned',
+                   'type' => Compiler::Lexer::TokenType::T_String,
                    'line' => 222
                  }, 'Compiler::Lexer::Token' ),
           bless( {

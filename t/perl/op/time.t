@@ -8247,12 +8247,39 @@ subtest 'tokenize' => sub {
                    'line' => 143
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 143
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'BuiltinFunc',
+                   'data' => 'localtime',
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
+                   'line' => 143
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 143
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
-                   'data' => ' (localtime(1296000.23',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
+                   'name' => 'Double',
+                   'data' => '1296000.23',
+                   'type' => Compiler::Lexer::TokenType::T_Double,
                    'line' => 143
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8463,12 +8490,39 @@ subtest 'tokenize' => sub {
                    'line' => 145
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 145
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'BuiltinFunc',
+                   'data' => 'gmtime',
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
+                   'line' => 145
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 145
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
-                   'data' => ' (gmtime(1.23',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
+                   'name' => 'Double',
+                   'data' => '1.23',
+                   'type' => Compiler::Lexer::TokenType::T_Double,
                    'line' => 145
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -12672,13 +12726,472 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 10
           },
           {
-            'token_num' => 19,
+            'token_num' => 56,
             'has_warnings' => 1,
-            'end_line' => 143,
-            'src' => ' { warning_is ( sub { is (  (localtime(1296000.23 ) ) [ 5 ] + 1900 , 1970 ) }',
+            'end_line' => 147,
+            'src' => ' { warning_is ( sub { is ( ( localtime ( 1296000.23 ) ) [ 5 ] + 1900 , 1970 ) } , undef , \'Ignore fractional time\' ) ; warning_is ( sub { is ( ( gmtime ( 1.23 ) ) [ 5 ] + 1900 , 1970 ) } , undef , \'Ignore fractional time\' ) ; }',
             'start_line' => 142,
             'indent' => 0,
             'block_id' => 0
+          },
+          {
+            'token_num' => 27,
+            'has_warnings' => 1,
+            'end_line' => 144,
+            'src' => ' warning_is ( sub { is ( ( localtime ( 1296000.23 ) ) [ 5 ] + 1900 , 1970 ) } , undef , \'Ignore fractional time\' ) ;',
+            'start_line' => 143,
+            'indent' => 1,
+            'block_id' => 11
+          },
+          {
+            'token_num' => 27,
+            'has_warnings' => 1,
+            'end_line' => 146,
+            'src' => ' warning_is ( sub { is ( ( gmtime ( 1.23 ) ) [ 5 ] + 1900 , 1970 ) } , undef , \'Ignore fractional time\' ) ;',
+            'start_line' => 145,
+            'indent' => 1,
+            'block_id' => 11
+          },
+          {
+            'token_num' => 105,
+            'has_warnings' => 1,
+            'end_line' => 170,
+            'src' => ' { my %time2year = ( -2 ** 52 => -142711421 , -2 ** 48 => -8917617 , -2 ** 46 => -2227927 , 2 ** 46 => 2231866 , 2 ** 48 => 8921556 , 2 ** 52 => 142715360 , ) ; for my $time ( sort keys %time2year ) { my $want = $time2year { $time } ; my $have = ( gmtime ( $time ) ) [ 5 ] + 1900 ; is $have , $want , "year check, gmtime($time)" ; $have = ( localtime ( $time ) ) [ 5 ] + 1900 ; is $have , $want , "year check, localtime($time)" ; } }',
+            'start_line' => 151,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 42,
+            'has_warnings' => 0,
+            'end_line' => 159,
+            'src' => ' my %time2year = ( -2 ** 52 => -142711421 , -2 ** 48 => -8917617 , -2 ** 46 => -2227927 , 2 ** 46 => 2231866 , 2 ** 48 => 8921556 , 2 ** 52 => 142715360 , ) ;',
+            'start_line' => 152,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 61,
+            'has_warnings' => 1,
+            'end_line' => 169,
+            'src' => ' for my $time ( sort keys %time2year ) { my $want = $time2year { $time } ; my $have = ( gmtime ( $time ) ) [ 5 ] + 1900 ; is $have , $want , "year check, gmtime($time)" ; $have = ( localtime ( $time ) ) [ 5 ] + 1900 ; is $have , $want , "year check, localtime($time)" ; }',
+            'start_line' => 161,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 162,
+            'src' => ' my $want = $time2year { $time } ;',
+            'start_line' => 162,
+            'indent' => 2,
+            'block_id' => 15
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 164,
+            'src' => ' my $have = ( gmtime ( $time ) ) [ 5 ] + 1900 ;',
+            'start_line' => 164,
+            'indent' => 2,
+            'block_id' => 15
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 165,
+            'src' => ' is $have , $want , "year check, gmtime($time)" ;',
+            'start_line' => 165,
+            'indent' => 2,
+            'block_id' => 15
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 167,
+            'src' => ' $have = ( localtime ( $time ) ) [ 5 ] + 1900 ;',
+            'start_line' => 167,
+            'indent' => 2,
+            'block_id' => 15
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 168,
+            'src' => ' is $have , $want , "year check, localtime($time)" ;',
+            'start_line' => 168,
+            'indent' => 2,
+            'block_id' => 15
+          },
+          {
+            'token_num' => 113,
+            'has_warnings' => 1,
+            'end_line' => 196,
+            'src' => ' { my $warning ; local $SIG { __WARN__ } = sub { $warning .= join "\\n" , @_ ; } ; my $big_time = 2 ** 60 ; my $small_time = -2 ** 60 ; $warning = \'\' ; my $date = gmtime ( $big_time ) ; like $warning , qr/^gmtime(.*) too large/ ; $warning = \'\' ; $date = localtime ( $big_time ) ; like $warning , qr/^localtime(.*) too large/ ; $warning = \'\' ; $date = gmtime ( $small_time ) ; like $warning , qr/^gmtime(.*) too small/ ; $warning = \'\' ; $date = localtime ( $small_time ) ; like $warning , qr/^localtime(.*) too small/ ; }',
+            'start_line' => 174,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 175,
+            'src' => ' my $warning ;',
+            'start_line' => 175,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 17,
+            'has_warnings' => 1,
+            'end_line' => 176,
+            'src' => ' local $SIG { __WARN__ } = sub { $warning .= join "\\n" , @_ ; } ;',
+            'start_line' => 176,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 176,
+            'src' => ' $warning .= join "\\n" , @_ ;',
+            'start_line' => 176,
+            'indent' => 2,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 178,
+            'src' => ' my $big_time = 2 ** 60 ;',
+            'start_line' => 178,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 179,
+            'src' => ' my $small_time = -2 ** 60 ;',
+            'start_line' => 179,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 181,
+            'src' => ' $warning = \'\' ;',
+            'start_line' => 181,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 182,
+            'src' => ' my $date = gmtime ( $big_time ) ;',
+            'start_line' => 182,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 183,
+            'src' => ' like $warning , qr/^gmtime(.*) too large/ ;',
+            'start_line' => 183,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 185,
+            'src' => ' $warning = \'\' ;',
+            'start_line' => 185,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 186,
+            'src' => ' $date = localtime ( $big_time ) ;',
+            'start_line' => 186,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 187,
+            'src' => ' like $warning , qr/^localtime(.*) too large/ ;',
+            'start_line' => 187,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 189,
+            'src' => ' $warning = \'\' ;',
+            'start_line' => 189,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 190,
+            'src' => ' $date = gmtime ( $small_time ) ;',
+            'start_line' => 190,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 191,
+            'src' => ' like $warning , qr/^gmtime(.*) too small/ ;',
+            'start_line' => 191,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 193,
+            'src' => ' $warning = \'\' ;',
+            'start_line' => 193,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 194,
+            'src' => ' $date = localtime ( $small_time ) ;',
+            'start_line' => 194,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 195,
+            'src' => ' like $warning , qr/^localtime(.*) too small/ ;',
+            'start_line' => 195,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 200,
+            'src' => ' my $smallest = -67768100567755200.0 ;',
+            'start_line' => 200,
+            'indent' => 1,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 201,
+            'src' => ' my $biggest = 67767976233316800.0 ;',
+            'start_line' => 201,
+            'indent' => 1,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 204,
+            'src' => ' my $small_time = $smallest - 200 ;',
+            'start_line' => 204,
+            'indent' => 1,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 205,
+            'src' => ' my $big_time = $biggest + 200 ;',
+            'start_line' => 205,
+            'indent' => 1,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 29,
+            'has_warnings' => 1,
+            'end_line' => 214,
+            'src' => ' if ( $small_time + 200 != $smallest || $small_time == $smallest || $big_time - 200 != $biggest || $big_time == $biggest ) { skip "Can\'t represent test values" , 4 ; }',
+            'start_line' => 209,
+            'indent' => 1,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 213,
+            'src' => ' skip "Can\'t represent test values" , 4 ;',
+            'start_line' => 213,
+            'indent' => 2,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 215,
+            'src' => ' my $small_time_f = sprintf ( "%.0f" , $small_time ) ;',
+            'start_line' => 215,
+            'indent' => 1,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 216,
+            'src' => ' my $big_time_f = sprintf ( "%.0f" , $big_time ) ;',
+            'start_line' => 216,
+            'indent' => 1,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 219,
+            'src' => ' my $warning ;',
+            'start_line' => 219,
+            'indent' => 1,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 17,
+            'has_warnings' => 1,
+            'end_line' => 220,
+            'src' => ' local $SIG { __WARN__ } = sub { $warning .= join "\\n" , @_ ; } ;',
+            'start_line' => 220,
+            'indent' => 1,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 220,
+            'src' => ' $warning .= join "\\n" , @_ ;',
+            'start_line' => 220,
+            'indent' => 2,
+            'block_id' => 20
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 221,
+            'src' => ' $warning = \'\' ;',
+            'start_line' => 221,
+            'indent' => 1,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 222,
+            'src' => ' my $date = gmtime ( $big_time ) ;',
+            'start_line' => 222,
+            'indent' => 1,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 223,
+            'src' => ' like $warning , qr/^gmtime\\($big_time_f\\) too large/ ;',
+            'start_line' => 223,
+            'indent' => 1,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 225,
+            'src' => ' $warning = \'\' ;',
+            'start_line' => 225,
+            'indent' => 1,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 226,
+            'src' => ' $date = localtime ( $big_time ) ;',
+            'start_line' => 226,
+            'indent' => 1,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 227,
+            'src' => ' like $warning , qr/^localtime\\($big_time_f\\) too large/ ;',
+            'start_line' => 227,
+            'indent' => 1,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 229,
+            'src' => ' $warning = \'\' ;',
+            'start_line' => 229,
+            'indent' => 1,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 230,
+            'src' => ' $date = gmtime ( $small_time ) ;',
+            'start_line' => 230,
+            'indent' => 1,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 231,
+            'src' => ' like $warning , qr/^gmtime\\($small_time_f\\) too small/ ;',
+            'start_line' => 231,
+            'indent' => 1,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 233,
+            'src' => ' $warning = \'\' ;',
+            'start_line' => 233,
+            'indent' => 1,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 234,
+            'src' => ' $date = localtime ( $small_time ) ;',
+            'start_line' => 234,
+            'indent' => 1,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 235,
+            'src' => ' like $warning , qr/^localtime\\($small_time_f\\) too small/ ;',
+            'start_line' => 235,
+            'indent' => 1,
+            'block_id' => 18
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

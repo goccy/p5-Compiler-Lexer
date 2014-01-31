@@ -86,6 +86,8 @@ void Annotator::annotateNamespace(LexContext *ctx, const string &, Token *tk, To
 		next_tk->info.type != String && next_tk->info.type != RawString) {
 		*info = ctx->tmgr->getTokenInfo(Namespace);
 	} else if (ctx->prev_type == NamespaceResolver) {
+		TokenInfo tk_info = ctx->tmgr->getTokenInfo(tk->_data);
+		if (tk_info.kind == TokenKind::Symbol) return;
 		*info = ctx->tmgr->getTokenInfo(Namespace);
 	}
 }

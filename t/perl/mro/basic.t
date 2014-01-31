@@ -13626,17 +13626,17 @@ subtest 'tokenize' => sub {
                    'line' => 320
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 320
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Key',
                    'data' => 'ISA',
@@ -15768,10 +15768,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 42
           },
           {
-            'token_num' => 10,
+            'token_num' => 23,
             'has_warnings' => 1,
-            'end_line' => 320,
-            'src' => ' { @Blength::ISA = \'Bladd\' ; delete $Blength::{ ISA } ;',
+            'end_line' => 322,
+            'src' => ' { @Blength::ISA = \'Bladd\' ; delete $Blength:: { ISA } ; ok ! Blength-> isa ( "Bladd" ) , \'delete $package::{ISA}\' ; }',
             'start_line' => 316,
             'indent' => 0,
             'block_id' => 0
@@ -15786,13 +15786,58 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 44
           },
           {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 320,
+            'src' => ' delete $Blength:: { ISA } ;',
+            'start_line' => 320,
+            'indent' => 1,
+            'block_id' => 44
+          },
+          {
             'token_num' => 11,
             'has_warnings' => 1,
             'end_line' => 321,
             'src' => ' ok ! Blength-> isa ( "Bladd" ) , \'delete $package::{ISA}\' ;',
             'start_line' => 321,
+            'indent' => 1,
+            'block_id' => 44
+          },
+          {
+            'token_num' => 23,
+            'has_warnings' => 1,
+            'end_line' => 330,
+            'src' => ' { @Thrext::ISA = "Thwit" ; @Thwit::ISA = "Sile" ; undef %Thwit::; ok ! Thrext-> isa ( \'Sile\' ) , \'undef %package:: updates subclasses\' ; }',
+            'start_line' => 324,
             'indent' => 0,
             'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 326,
+            'src' => ' @Thrext::ISA = "Thwit" ;',
+            'start_line' => 326,
+            'indent' => 1,
+            'block_id' => 46
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 327,
+            'src' => ' @Thwit::ISA = "Sile" ;',
+            'start_line' => 327,
+            'indent' => 1,
+            'block_id' => 46
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 329,
+            'src' => ' undef %Thwit::; ok ! Thrext-> isa ( \'Sile\' ) , \'undef %package:: updates subclasses\' ;',
+            'start_line' => 328,
+            'indent' => 1,
+            'block_id' => 46
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

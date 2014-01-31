@@ -1381,12 +1381,12 @@ subtest 'tokenize' => sub {
                    'line' => 34
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightParenthesis',
                    'data' => ')',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
                    'line' => 34
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1498,12 +1498,12 @@ subtest 'tokenize' => sub {
                    'line' => 35
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightParenthesis',
                    'data' => ')',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
                    'line' => 35
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1624,12 +1624,12 @@ subtest 'tokenize' => sub {
                    'line' => 37
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightParenthesis',
                    'data' => ')',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
                    'line' => 37
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1777,12 +1777,12 @@ subtest 'tokenize' => sub {
                    'line' => 38
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightParenthesis',
                    'data' => ')',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
                    'line' => 38
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8790,12 +8790,12 @@ subtest 'tokenize' => sub {
                    'line' => 414
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 414
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9483,12 +9483,12 @@ subtest 'tokenize' => sub {
                    'line' => 434
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 434
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9672,12 +9672,12 @@ subtest 'tokenize' => sub {
                    'line' => 441
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 441
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10131,12 +10131,12 @@ subtest 'tokenize' => sub {
                    'line' => 448
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 448
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -11121,147 +11121,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 968,
+            'token_num' => 36,
             'has_warnings' => 1,
-            'end_line' => 468,
-            'src' => ' { package Ｎeẁ ; use strict ; use warnings ; package ऑlㄉ ; use strict ; use warnings ; { no strict \'refs\' ; * { \'ऑlㄉ::\' } = * { \'Ｎeẁ::\' } ; } } ok ( ऑlㄉ-> isa ( Ｎeẁ::) , \'ऑlㄉ inherits from Ｎeẁ\' ) ; ok ( Ｎeẁ-> isa ( ऑlㄉ::) , \'Ｎeẁ inherits from ऑlㄉ\' ) ; object_ok ( bless ( { } , ऑlㄉ::) , Ｎeẁ::, \'ऑlㄉ object\' ) ; object_ok ( bless ( { } , Ｎeẁ::) , ऑlㄉ::, \'Ｎeẁ object\' ) ; for ( { name => \'assigning a glob to a glob\' , code => \'$life_raft = $::{"ｌㅔf::"}; *ｌㅔf:: = $::{"릭Ⱶᵀ::"}\' , } , { name => \'assigning a string to a glob\' , code => \'$life_raft = $::{"ｌㅔf::"}; *ｌㅔf:: = "릭Ⱶᵀ::"\' , } , { name => \'assigning a stashref to a glob\' , code => \'$life_raft = \\%ｌㅔf::; *ｌㅔf:: = \\%릭Ⱶᵀ::\' , } , ) { my $prog = q~
-     BEGIN {
-         unless (-d \'blib\') {
-             chdir \'t\' if -d \'t\';
-             @INC = \'../lib\';
-         }
-     }
-     use utf8;
-     use open qw( :utf8 :std );
-
-     @숩cਲꩋ::ISA = "ｌㅔf";
-     @ｌㅔf::ISA = "톺ĺФț";
-
-     sub 톺ĺФț::Ｓᑊeಅḱ { "Woof!" }
-     sub ᴖ릭ᚽʇ::Ｓᑊeಅḱ { "Bow-wow!" }
-
-     my $thing = bless [], "숩cਲꩋ";
-
-     # mro_package_moved needs to know to skip non-globs
-     $릭Ⱶᵀ::{"ᚷꝆエcƙ::"} = 3;
-
-     @릭Ⱶᵀ::ISA = \'ᴖ릭ᚽʇ\';
-     my $life_raft;
-    __code__;
-
-     print $thing->Ｓᑊeಅḱ, "\\n";
-
-     undef $life_raft;
-     print $thing->Ｓᑊeಅḱ, "\\n";
-   ~ =~ s\\__code__\\$$_{code}\\r ; utf8::encode ( $prog ) ; fresh_perl_is $prog , "Bow-wow!\\nBow-wow!\\n" , { } , "replacing packages by $$_{name} updates isa caches" ; } for ( { name => \'assigning a glob to a glob\' , code => \'$life_raft = $::{"ｌㅔf::"}; *ｌㅔf:: = $::{"릭Ⱶᵀ::"}\' , } , { name => \'assigning a string to a glob\' , code => \'$life_raft = $::{"ｌㅔf::"}; *ｌㅔf:: = "릭Ⱶᵀ::"\' , } , { name => \'assigning a stashref to a glob\' , code => \'$life_raft = \\%ｌㅔf::; *ｌㅔf:: = \\%릭Ⱶᵀ::\' , } , ) { my $prog = q~
-     BEGIN {
-         unless (-d \'blib\') {
-             chdir \'t\' if -d \'t\';
-             @INC = \'../lib\';
-         }
-     }
-     use utf8;
-     use open qw( :utf8 :std );
-     @숩cਲꩋ::ISA = "ｌㅔf::Side";
-     @ｌㅔf::Side::ISA = "톺ĺФț";
-
-     sub 톺ĺФț::Ｓᑊeಅḱ { "Woof!" }
-     sub ᴖ릭ᚽʇ::Ｓᑊeಅḱ { "Bow-wow!" }
-
-     my $thing = bless [], "숩cਲꩋ";
-
-     @릭Ⱶᵀ::Side::ISA = \'ᴖ릭ᚽʇ\';
-     my $life_raft;
-    __code__;
-
-     print $thing->Ｓᑊeಅḱ, "\\n";
-
-     undef $life_raft;
-     print $thing->Ｓᑊeಅḱ, "\\n";
-   ~ =~ s\\__code__\\$$_{code}\\r ; utf8::encode ( $prog ) ; fresh_perl_is $prog , "Bow-wow!\\nBow-wow!\\n" , { } , "replacing nested packages by $$_{name} updates isa caches" ; } for ( { name => \'assigning a glob to a glob\' , code => \'*cฬnए:: = *ɵűʇㄦ::\' , } , { name => \'assigning a string to a glob\' , code => \'*cฬnए:: = "ɵűʇㄦ::"\' , } , { name => \'assigning a stashref to a glob\' , code => \'*cฬnए:: = \\%ɵűʇㄦ::\' , } , ) { for my $tail ( \'인ንʵ\' , \'인ንʵ::\' , \'인ንʵ:::\' , \'인ንʵ::::\' ) { my $prog = q~
-     BEGIN {
-         unless (-d \'blib\') {
-             chdir \'t\' if -d \'t\';
-             @INC = \'../lib\';
-         }
-     }
-      use utf8;
-      use open qw( :utf8 :std );
-      use Encode ();
-
-      if (grep /\\P{ASCII}/, @ARGV) {
-        @ARGV = map { Encode::decode("UTF-8", $_) } @ARGV;
-      }
-
-      my $tail = shift;
-      @Ｌфť::ISA = "ɵűʇㄦ::$tail";
-      @R익hȚ::ISA = "cฬnए::$tail";
-      bless [], "ɵűʇㄦ::$tail"; # autovivify the stash
-
-     __code__;
-
-      print "ok 1", "\\n" if Ｌфť->isa("cฬnए::$tail");
-      print "ok 2", "\\n" if R익hȚ->isa("ɵűʇㄦ::$tail");
-      print "ok 3", "\\n" if R익hȚ->isa("cฬnए::$tail");
-      print "ok 4", "\\n" if Ｌфť->isa("ɵűʇㄦ::$tail");
-    ~ =~ s\\__code__\\$$_{code}\\r ; utf8::encode ( $prog ) ; fresh_perl_is $prog , "ok 1\\nok 2\\nok 3\\nok 4\\n" , { args => [ $tail ] } , "replacing nonexistent nested packages by $$_{name} updates isa caches" . " ($tail)" ; $prog = q~
-      BEGIN {
-         unless (-d \'blib\') {
-             chdir \'t\' if -d \'t\';
-             @INC = \'../lib\';
-         }
-      }
-      use utf8;
-      use open qw( :utf8 :std );
-      use Encode ();
-
-      if (grep /\\P{ASCII}/, @ARGV) {
-        @ARGV = map { Encode::decode("UTF-8", $_) } @ARGV;
-      }
-
-      my $tail = shift;
-      @Ｌфť::ISA = "ɵűʇㄦ::$tail";
-      @R익hȚ::ISA = "cฬnए::$tail";
-
-     __code__;
-
-      bless [], "ɵűʇㄦ::$tail";
-
-      print "ok 1", "\\n" if Ｌфť->isa("cฬnए::$tail");
-      print "ok 2", "\\n" if R익hȚ->isa("ɵűʇㄦ::$tail");
-      print "ok 3", "\\n" if R익hȚ->isa("cฬnए::$tail");
-      print "ok 4", "\\n" if Ｌфť->isa("ɵűʇㄦ::$tail");
-    ~ =~ s\\__code__\\$$_{code}\\r ; utf8::encode ( $prog ) ; fresh_perl_is $prog , "ok 1\\nok 2\\nok 3\\nok 4\\n" , { args => [ $tail ] } , "Giving nonexistent packages multiple effective names by $$_{name}" . " ($tail)" ; } } no warnings ; { @ቹऋ::ISA = ( "Cuȓ" , "ฮﾝᛞ" ) ; @Cuȓ::ISA = "Hyḹ앛Ҭテ" ; sub Hyḹ앛Ҭテ::Ｓᑊeಅḱ { "Arff!" } sub ฮﾝᛞ::Ｓᑊeಅḱ { "Woof!" } my $pet = bless [ ] , "ቹऋ" ; my $life_raft = delete $: : { \'Cuȓ::\' } ; is $pet-> Ｓᑊeಅḱ , \'Woof!\' , \'deleting a stash from its parent stash invalidates the isa caches\' ; undef $life_raft ; is $pet-> Ｓᑊeಅḱ , \'Woof!\' , \'the deleted stash is gone completely when freed\' ; } { @펱ᑦ::ISA = ( "Cuȓȓ::Cuȓȓ::Cuȓȓ" , "ɥwn" ) ; @Cuȓȓ::Cuȓȓ::Cuȓȓ::ISA = "lȺt랕ᚖ" ; sub lȺt랕ᚖ::Ｓᑊeಅḱ { "Arff!" } sub ɥwn::Ｓᑊeಅḱ { "Woof!" } my $pet = bless [ ] , "펱ᑦ" ; my $life_raft = delete $: : { \'Cuȓȓ::\' } ; is $pet-> Ｓᑊeಅḱ , \'Woof!\' , \'deleting a stash from its parent stash resets caches of substashes\' ; undef $life_raft ; is $pet-> Ｓᑊeಅḱ , \'Woof!\' , \'the deleted substash is gone completely when freed\' ; } my $prog = q~#!perl -w
-     BEGIN {
-         unless (-d \'blib\') {
-             chdir \'t\' if -d \'t\';
-             @INC = \'../lib\';
-         }
-     }
-     use utf8;
-     use open qw( :utf8 :std );
-     @펱ᑦ::ISA = "T잌ዕ";
-     @T잌ዕ::ISA = "Bᛆヶṝ";
-     
-     sub Bᛆヶṝ::Ｓᑊeಅḱ { print "Woof!\\n" }
-     sub lȺt랕ᚖ::Ｓᑊeಅḱ { print "Bow-wow!\\n" }
-     
-     my $pet = bless [], "펱ᑦ";
-     
-     $pet->Ｓᑊeಅḱ;
-     
-     sub ດƓ::Ｓᑊeಅḱ { print "Hello.\\n" } # strange ດƓ!
-     @ດƓ::ISA = \'lȺt랕ᚖ\';
-     *T잌ዕ:: = delete $::{\'ດƓ::\'};
-     
-     $pet->Ｓᑊeಅḱ;
-   ~ ; utf8::encode ( $prog ) ; fresh_perl_is $prog , "Woof!\\nHello.\\n" , { stderr => 1 } , "Assigning a nameless package over one w/subclasses updates isa caches" ; no warnings ; { no strict \'refs\' ; sub ʉ::bᓗnǩ::bᓗnǩ::ພo { "bbb" } sub ᵛeↄl움::ພo { "lasrevinu" } @ݏ엗Ƚeᵬૐᵖ::ISA = qw \'ພo::bᓗnǩ::bᓗnǩ ᵛeↄl움\' ; * ພo::ବㄗ::= * ʉ::bᓗnǩ::; * ພo::= * ʉ::; * ʉ::= * ቦᵕ::; my $accum = \'\' ; $accum .= \'ݏ엗Ƚeᵬૐᵖ\'-> ພo ; delete ${ "ພo::bᓗnǩ::" } { "bᓗnǩ::" } ; $accum .= \'ݏ엗Ƚeᵬૐᵖ\'-> ພo ; @ݏ엗Ƚeᵬૐᵖ::ISA = @ݏ엗Ƚeᵬૐᵖ::ISA ; $accum .= \'ݏ엗Ƚeᵬૐᵖ\'-> ພo ; is $accum , \'bbblasrevinulasrevinu\' , \'nested classes deleted & added simultaneously\' ; } use warnings ; watchdog 3 ; * ᕘ::= \\ %::; * Aᶜme::Mῌ::Aᶜme::= \\ * Aᶜme::; pass ( "mro_package_moved and self-referential packages" ) ; { no strict refs => ; no warnings ; @ოƐ::mഒrェ::ISA = "foᚒ" ; sub foᚒ::ວmᑊ { "aoeaa" } * ťວ::= * ოƐ::; delete $: : { "ოƐ::" } ; @C힐dᒡl았::ISA = \'ťວ::mഒrェ\' ; my $accum = \'C힐dᒡl았\'-> ວmᑊ . \'-\' ; my $life_raft = delete ${ "ťວ::" } { "mഒrェ::" } ; $accum .= eval { \'C힐dᒡl았\'-> ວmᑊ } // \'<undef>\' ; is $accum , \'aoeaa-<undef>\' , \'Deleting globs whose loc in the symtab differs from gv_fullname\' } * ᵍh엞::= * ኔƞ::; @숩cਲꩋ::ISA = \'ᵍh엞\' ; undef %ᵍh엞::; sub F렐ᛔ::ວmᑊ { "clumpren" } eval \'
-  $ኔƞ::whatever++;
-  @ኔƞ::ISA = "F렐ᛔ";
-\' ; is eval { \'숩cਲꩋ\'-> ວmᑊ } , \'clumpren\' , \'Changes to @ISA after undef via original name\' ; undef %ᵍh엞::; eval \'
-  $ᵍh엞::whatever++;
-  @ᵍh엞::ISA = "F렐ᛔ";
-\' ; is eval { \'숩cਲꩋ\'-> ວmᑊ } , \'clumpren\' , \'Changes to @ISA after undef via alias\' ; { { package śmᛅḙ::በɀ } * pḢ린ᚷ::= * śmᛅḙ::; * 본::= delete $śmᛅḙ::{ "በɀ::" } ; no strict \'refs\' ; * { "pḢ린ᚷ::በɀ::fฤmᛈ" } = sub { "hello" } ; sub Ｆルmፕṟ::fฤmᛈ { "good bye" } ; @ᵇるᣘ킨::ISA = qw "본 Ｆルmፕṟ" ; is fฤmᛈ ᵇるᣘ킨 , "good bye" , \'detached stashes lose all names corresponding to the containing stash\' ; } @촐oン::ISA = \'ᚖგ:\' ; bless [ ] , "ᚖგ:" ; ok "촐oン"-> isa ( "ᚖგ:" ) , \'class isa "class:"\' ; { no strict \'refs\' ; * { "ᚖგ:::" } = * ᚖგ::} ok "촐oン"-> isa ( "ᚖგ" ) , \'isa(ᕘ) when inheriting from "class:" which is an alias for ᕘ\' ; { no warnings ; my $ᕘ = delete $ᚖგ::{ ":" } ; ok ! 촐oン-> isa ( "ᚖგ" ) , \'class that isa "class:" no longer isa ᕘ if "class:" has been deleted\' ; } @촐oン::ISA = \':\' ; bless [ ] , ":" ; ok "촐oン"-> isa ( ":" ) , \'class isa ":"\' ; { no strict \'refs\' ; * { ":::" } = * ፑňṪu앝ȋ온::} ok "촐oン"-> isa ( "ፑňṪu앝ȋ온" ) , \'isa(ᕘ) when inheriting from ":" which is an alias for ᕘ\' ; @촐oン::ISA = \'ᚖგ:\' ; bless [ ] , "ᚖგ:" ; { no strict \'refs\' ; my $life_raft = \\ %{ "ᚖგ:::" } ; * { "ᚖგ:::" } = \\ %ᚖგ::; ok "촐oン"-> isa ( "ᚖგ" ) , \'isa(ᕘ) when inheriting from "class:" after hash-to-glob assignment\' ; } @촐oン::ISA = \'ŏ:\' ; bless [ ] , "ŏ:" ; { no strict \'refs\' ; my $life_raft = \\ %{ "ŏ:::" } ; * { "ŏ:::" } = "ᚖგ::" ; ok "촐oン"-> isa ( "ᚖგ" ) , \'isa(ᕘ) when inheriting from "class:" after string-to-glob assignment\' ; } } ; } ; } ;',
+            'end_line' => 32,
+            'src' => ' { package Ｎeẁ ; use strict ; use warnings ; package ऑlㄉ ; use strict ; use warnings ; { no strict \'refs\' ; * { \'ऑlㄉ::\' } = * { \'Ｎeẁ::\' } ; } }',
             'start_line' => 19,
             'indent' => 0,
             'block_id' => 0
@@ -11348,478 +11211,40 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 4
           },
           {
-            'token_num' => 928,
-            'has_warnings' => 1,
-            'end_line' => 468,
-            'src' => ' ऑlㄉ-> isa ( Ｎeẁ::) , \'ऑlㄉ inherits from Ｎeẁ\' ) ; ok ( Ｎeẁ-> isa ( ऑlㄉ::) , \'Ｎeẁ inherits from ऑlㄉ\' ) ; object_ok ( bless ( { } , ऑlㄉ::) , Ｎeẁ::, \'ऑlㄉ object\' ) ; object_ok ( bless ( { } , Ｎeẁ::) , ऑlㄉ::, \'Ｎeẁ object\' ) ; for ( { name => \'assigning a glob to a glob\' , code => \'$life_raft = $::{"ｌㅔf::"}; *ｌㅔf:: = $::{"릭Ⱶᵀ::"}\' , } , { name => \'assigning a string to a glob\' , code => \'$life_raft = $::{"ｌㅔf::"}; *ｌㅔf:: = "릭Ⱶᵀ::"\' , } , { name => \'assigning a stashref to a glob\' , code => \'$life_raft = \\%ｌㅔf::; *ｌㅔf:: = \\%릭Ⱶᵀ::\' , } , ) { my $prog = q~
-     BEGIN {
-         unless (-d \'blib\') {
-             chdir \'t\' if -d \'t\';
-             @INC = \'../lib\';
-         }
-     }
-     use utf8;
-     use open qw( :utf8 :std );
-
-     @숩cਲꩋ::ISA = "ｌㅔf";
-     @ｌㅔf::ISA = "톺ĺФț";
-
-     sub 톺ĺФț::Ｓᑊeಅḱ { "Woof!" }
-     sub ᴖ릭ᚽʇ::Ｓᑊeಅḱ { "Bow-wow!" }
-
-     my $thing = bless [], "숩cਲꩋ";
-
-     # mro_package_moved needs to know to skip non-globs
-     $릭Ⱶᵀ::{"ᚷꝆエcƙ::"} = 3;
-
-     @릭Ⱶᵀ::ISA = \'ᴖ릭ᚽʇ\';
-     my $life_raft;
-    __code__;
-
-     print $thing->Ｓᑊeಅḱ, "\\n";
-
-     undef $life_raft;
-     print $thing->Ｓᑊeಅḱ, "\\n";
-   ~ =~ s\\__code__\\$$_{code}\\r ; utf8::encode ( $prog ) ; fresh_perl_is $prog , "Bow-wow!\\nBow-wow!\\n" , { } , "replacing packages by $$_{name} updates isa caches" ; } for ( { name => \'assigning a glob to a glob\' , code => \'$life_raft = $::{"ｌㅔf::"}; *ｌㅔf:: = $::{"릭Ⱶᵀ::"}\' , } , { name => \'assigning a string to a glob\' , code => \'$life_raft = $::{"ｌㅔf::"}; *ｌㅔf:: = "릭Ⱶᵀ::"\' , } , { name => \'assigning a stashref to a glob\' , code => \'$life_raft = \\%ｌㅔf::; *ｌㅔf:: = \\%릭Ⱶᵀ::\' , } , ) { my $prog = q~
-     BEGIN {
-         unless (-d \'blib\') {
-             chdir \'t\' if -d \'t\';
-             @INC = \'../lib\';
-         }
-     }
-     use utf8;
-     use open qw( :utf8 :std );
-     @숩cਲꩋ::ISA = "ｌㅔf::Side";
-     @ｌㅔf::Side::ISA = "톺ĺФț";
-
-     sub 톺ĺФț::Ｓᑊeಅḱ { "Woof!" }
-     sub ᴖ릭ᚽʇ::Ｓᑊeಅḱ { "Bow-wow!" }
-
-     my $thing = bless [], "숩cਲꩋ";
-
-     @릭Ⱶᵀ::Side::ISA = \'ᴖ릭ᚽʇ\';
-     my $life_raft;
-    __code__;
-
-     print $thing->Ｓᑊeಅḱ, "\\n";
-
-     undef $life_raft;
-     print $thing->Ｓᑊeಅḱ, "\\n";
-   ~ =~ s\\__code__\\$$_{code}\\r ; utf8::encode ( $prog ) ; fresh_perl_is $prog , "Bow-wow!\\nBow-wow!\\n" , { } , "replacing nested packages by $$_{name} updates isa caches" ; } for ( { name => \'assigning a glob to a glob\' , code => \'*cฬnए:: = *ɵűʇㄦ::\' , } , { name => \'assigning a string to a glob\' , code => \'*cฬnए:: = "ɵűʇㄦ::"\' , } , { name => \'assigning a stashref to a glob\' , code => \'*cฬnए:: = \\%ɵűʇㄦ::\' , } , ) { for my $tail ( \'인ንʵ\' , \'인ንʵ::\' , \'인ንʵ:::\' , \'인ንʵ::::\' ) { my $prog = q~
-     BEGIN {
-         unless (-d \'blib\') {
-             chdir \'t\' if -d \'t\';
-             @INC = \'../lib\';
-         }
-     }
-      use utf8;
-      use open qw( :utf8 :std );
-      use Encode ();
-
-      if (grep /\\P{ASCII}/, @ARGV) {
-        @ARGV = map { Encode::decode("UTF-8", $_) } @ARGV;
-      }
-
-      my $tail = shift;
-      @Ｌфť::ISA = "ɵűʇㄦ::$tail";
-      @R익hȚ::ISA = "cฬnए::$tail";
-      bless [], "ɵűʇㄦ::$tail"; # autovivify the stash
-
-     __code__;
-
-      print "ok 1", "\\n" if Ｌфť->isa("cฬnए::$tail");
-      print "ok 2", "\\n" if R익hȚ->isa("ɵűʇㄦ::$tail");
-      print "ok 3", "\\n" if R익hȚ->isa("cฬnए::$tail");
-      print "ok 4", "\\n" if Ｌфť->isa("ɵűʇㄦ::$tail");
-    ~ =~ s\\__code__\\$$_{code}\\r ; utf8::encode ( $prog ) ; fresh_perl_is $prog , "ok 1\\nok 2\\nok 3\\nok 4\\n" , { args => [ $tail ] } , "replacing nonexistent nested packages by $$_{name} updates isa caches" . " ($tail)" ; $prog = q~
-      BEGIN {
-         unless (-d \'blib\') {
-             chdir \'t\' if -d \'t\';
-             @INC = \'../lib\';
-         }
-      }
-      use utf8;
-      use open qw( :utf8 :std );
-      use Encode ();
-
-      if (grep /\\P{ASCII}/, @ARGV) {
-        @ARGV = map { Encode::decode("UTF-8", $_) } @ARGV;
-      }
-
-      my $tail = shift;
-      @Ｌфť::ISA = "ɵűʇㄦ::$tail";
-      @R익hȚ::ISA = "cฬnए::$tail";
-
-     __code__;
-
-      bless [], "ɵűʇㄦ::$tail";
-
-      print "ok 1", "\\n" if Ｌфť->isa("cฬnए::$tail");
-      print "ok 2", "\\n" if R익hȚ->isa("ɵűʇㄦ::$tail");
-      print "ok 3", "\\n" if R익hȚ->isa("cฬnए::$tail");
-      print "ok 4", "\\n" if Ｌфť->isa("ɵűʇㄦ::$tail");
-    ~ =~ s\\__code__\\$$_{code}\\r ; utf8::encode ( $prog ) ; fresh_perl_is $prog , "ok 1\\nok 2\\nok 3\\nok 4\\n" , { args => [ $tail ] } , "Giving nonexistent packages multiple effective names by $$_{name}" . " ($tail)" ; } } no warnings ; { @ቹऋ::ISA = ( "Cuȓ" , "ฮﾝᛞ" ) ; @Cuȓ::ISA = "Hyḹ앛Ҭテ" ; sub Hyḹ앛Ҭテ::Ｓᑊeಅḱ { "Arff!" } sub ฮﾝᛞ::Ｓᑊeಅḱ { "Woof!" } my $pet = bless [ ] , "ቹऋ" ; my $life_raft = delete $: : { \'Cuȓ::\' } ; is $pet-> Ｓᑊeಅḱ , \'Woof!\' , \'deleting a stash from its parent stash invalidates the isa caches\' ; undef $life_raft ; is $pet-> Ｓᑊeಅḱ , \'Woof!\' , \'the deleted stash is gone completely when freed\' ; } { @펱ᑦ::ISA = ( "Cuȓȓ::Cuȓȓ::Cuȓȓ" , "ɥwn" ) ; @Cuȓȓ::Cuȓȓ::Cuȓȓ::ISA = "lȺt랕ᚖ" ; sub lȺt랕ᚖ::Ｓᑊeಅḱ { "Arff!" } sub ɥwn::Ｓᑊeಅḱ { "Woof!" } my $pet = bless [ ] , "펱ᑦ" ; my $life_raft = delete $: : { \'Cuȓȓ::\' } ; is $pet-> Ｓᑊeಅḱ , \'Woof!\' , \'deleting a stash from its parent stash resets caches of substashes\' ; undef $life_raft ; is $pet-> Ｓᑊeಅḱ , \'Woof!\' , \'the deleted substash is gone completely when freed\' ; } my $prog = q~#!perl -w
-     BEGIN {
-         unless (-d \'blib\') {
-             chdir \'t\' if -d \'t\';
-             @INC = \'../lib\';
-         }
-     }
-     use utf8;
-     use open qw( :utf8 :std );
-     @펱ᑦ::ISA = "T잌ዕ";
-     @T잌ዕ::ISA = "Bᛆヶṝ";
-     
-     sub Bᛆヶṝ::Ｓᑊeಅḱ { print "Woof!\\n" }
-     sub lȺt랕ᚖ::Ｓᑊeಅḱ { print "Bow-wow!\\n" }
-     
-     my $pet = bless [], "펱ᑦ";
-     
-     $pet->Ｓᑊeಅḱ;
-     
-     sub ດƓ::Ｓᑊeಅḱ { print "Hello.\\n" } # strange ດƓ!
-     @ດƓ::ISA = \'lȺt랕ᚖ\';
-     *T잌ዕ:: = delete $::{\'ດƓ::\'};
-     
-     $pet->Ｓᑊeಅḱ;
-   ~ ; utf8::encode ( $prog ) ; fresh_perl_is $prog , "Woof!\\nHello.\\n" , { stderr => 1 } , "Assigning a nameless package over one w/subclasses updates isa caches" ; no warnings ; { no strict \'refs\' ; sub ʉ::bᓗnǩ::bᓗnǩ::ພo { "bbb" } sub ᵛeↄl움::ພo { "lasrevinu" } @ݏ엗Ƚeᵬૐᵖ::ISA = qw \'ພo::bᓗnǩ::bᓗnǩ ᵛeↄl움\' ; * ພo::ବㄗ::= * ʉ::bᓗnǩ::; * ພo::= * ʉ::; * ʉ::= * ቦᵕ::; my $accum = \'\' ; $accum .= \'ݏ엗Ƚeᵬૐᵖ\'-> ພo ; delete ${ "ພo::bᓗnǩ::" } { "bᓗnǩ::" } ; $accum .= \'ݏ엗Ƚeᵬૐᵖ\'-> ພo ; @ݏ엗Ƚeᵬૐᵖ::ISA = @ݏ엗Ƚeᵬૐᵖ::ISA ; $accum .= \'ݏ엗Ƚeᵬૐᵖ\'-> ພo ; is $accum , \'bbblasrevinulasrevinu\' , \'nested classes deleted & added simultaneously\' ; } use warnings ; watchdog 3 ; * ᕘ::= \\ %::; * Aᶜme::Mῌ::Aᶜme::= \\ * Aᶜme::; pass ( "mro_package_moved and self-referential packages" ) ; { no strict refs => ; no warnings ; @ოƐ::mഒrェ::ISA = "foᚒ" ; sub foᚒ::ວmᑊ { "aoeaa" } * ťວ::= * ოƐ::; delete $: : { "ოƐ::" } ; @C힐dᒡl았::ISA = \'ťວ::mഒrェ\' ; my $accum = \'C힐dᒡl았\'-> ວmᑊ . \'-\' ; my $life_raft = delete ${ "ťວ::" } { "mഒrェ::" } ; $accum .= eval { \'C힐dᒡl았\'-> ວmᑊ } // \'<undef>\' ; is $accum , \'aoeaa-<undef>\' , \'Deleting globs whose loc in the symtab differs from gv_fullname\' } * ᵍh엞::= * ኔƞ::; @숩cਲꩋ::ISA = \'ᵍh엞\' ; undef %ᵍh엞::; sub F렐ᛔ::ວmᑊ { "clumpren" } eval \'
-  $ኔƞ::whatever++;
-  @ኔƞ::ISA = "F렐ᛔ";
-\' ; is eval { \'숩cਲꩋ\'-> ວmᑊ } , \'clumpren\' , \'Changes to @ISA after undef via original name\' ; undef %ᵍh엞::; eval \'
-  $ᵍh엞::whatever++;
-  @ᵍh엞::ISA = "F렐ᛔ";
-\' ; is eval { \'숩cਲꩋ\'-> ວmᑊ } , \'clumpren\' , \'Changes to @ISA after undef via alias\' ; { { package śmᛅḙ::በɀ } * pḢ린ᚷ::= * śmᛅḙ::; * 본::= delete $śmᛅḙ::{ "በɀ::" } ; no strict \'refs\' ; * { "pḢ린ᚷ::በɀ::fฤmᛈ" } = sub { "hello" } ; sub Ｆルmፕṟ::fฤmᛈ { "good bye" } ; @ᵇるᣘ킨::ISA = qw "본 Ｆルmፕṟ" ; is fฤmᛈ ᵇるᣘ킨 , "good bye" , \'detached stashes lose all names corresponding to the containing stash\' ; } @촐oン::ISA = \'ᚖგ:\' ; bless [ ] , "ᚖგ:" ; ok "촐oン"-> isa ( "ᚖგ:" ) , \'class isa "class:"\' ; { no strict \'refs\' ; * { "ᚖგ:::" } = * ᚖგ::} ok "촐oン"-> isa ( "ᚖგ" ) , \'isa(ᕘ) when inheriting from "class:" which is an alias for ᕘ\' ; { no warnings ; my $ᕘ = delete $ᚖგ::{ ":" } ; ok ! 촐oン-> isa ( "ᚖგ" ) , \'class that isa "class:" no longer isa ᕘ if "class:" has been deleted\' ; } @촐oン::ISA = \':\' ; bless [ ] , ":" ; ok "촐oン"-> isa ( ":" ) , \'class isa ":"\' ; { no strict \'refs\' ; * { ":::" } = * ፑňṪu앝ȋ온::} ok "촐oン"-> isa ( "ፑňṪu앝ȋ온" ) , \'isa(ᕘ) when inheriting from ":" which is an alias for ᕘ\' ; @촐oン::ISA = \'ᚖგ:\' ; bless [ ] , "ᚖგ:" ; { no strict \'refs\' ; my $life_raft = \\ %{ "ᚖგ:::" } ; * { "ᚖგ:::" } = \\ %ᚖგ::; ok "촐oン"-> isa ( "ᚖგ" ) , \'isa(ᕘ) when inheriting from "class:" after hash-to-glob assignment\' ; } @촐oン::ISA = \'ŏ:\' ; bless [ ] , "ŏ:" ; { no strict \'refs\' ; my $life_raft = \\ %{ "ŏ:::" } ; * { "ŏ:::" } = "ᚖგ::" ; ok "촐oン"-> isa ( "ᚖგ" ) , \'isa(ᕘ) when inheriting from "class:" after string-to-glob assignment\' ; } } ; } ;',
-            'start_line' => 34,
-            'indent' => 0,
-            'block_id' => 4
-          },
-          {
-            'token_num' => 9,
+            'token_num' => 12,
             'has_warnings' => 1,
             'end_line' => 34,
-            'src' => ' ऑlㄉ-> isa ( Ｎeẁ::) , \'ऑlㄉ inherits from Ｎeẁ\' ) ;',
+            'src' => ' ok ( ऑlㄉ-> isa ( Ｎeẁ:: ) , \'ऑlㄉ inherits from Ｎeẁ\' ) ;',
             'start_line' => 34,
             'indent' => 0,
-            'block_id' => 4
+            'block_id' => 0
           },
           {
-            'token_num' => 915,
-            'has_warnings' => 1,
-            'end_line' => 468,
-            'src' => ' Ｎeẁ-> isa ( ऑlㄉ::) , \'Ｎeẁ inherits from ऑlㄉ\' ) ; object_ok ( bless ( { } , ऑlㄉ::) , Ｎeẁ::, \'ऑlㄉ object\' ) ; object_ok ( bless ( { } , Ｎeẁ::) , ऑlㄉ::, \'Ｎeẁ object\' ) ; for ( { name => \'assigning a glob to a glob\' , code => \'$life_raft = $::{"ｌㅔf::"}; *ｌㅔf:: = $::{"릭Ⱶᵀ::"}\' , } , { name => \'assigning a string to a glob\' , code => \'$life_raft = $::{"ｌㅔf::"}; *ｌㅔf:: = "릭Ⱶᵀ::"\' , } , { name => \'assigning a stashref to a glob\' , code => \'$life_raft = \\%ｌㅔf::; *ｌㅔf:: = \\%릭Ⱶᵀ::\' , } , ) { my $prog = q~
-     BEGIN {
-         unless (-d \'blib\') {
-             chdir \'t\' if -d \'t\';
-             @INC = \'../lib\';
-         }
-     }
-     use utf8;
-     use open qw( :utf8 :std );
-
-     @숩cਲꩋ::ISA = "ｌㅔf";
-     @ｌㅔf::ISA = "톺ĺФț";
-
-     sub 톺ĺФț::Ｓᑊeಅḱ { "Woof!" }
-     sub ᴖ릭ᚽʇ::Ｓᑊeಅḱ { "Bow-wow!" }
-
-     my $thing = bless [], "숩cਲꩋ";
-
-     # mro_package_moved needs to know to skip non-globs
-     $릭Ⱶᵀ::{"ᚷꝆエcƙ::"} = 3;
-
-     @릭Ⱶᵀ::ISA = \'ᴖ릭ᚽʇ\';
-     my $life_raft;
-    __code__;
-
-     print $thing->Ｓᑊeಅḱ, "\\n";
-
-     undef $life_raft;
-     print $thing->Ｓᑊeಅḱ, "\\n";
-   ~ =~ s\\__code__\\$$_{code}\\r ; utf8::encode ( $prog ) ; fresh_perl_is $prog , "Bow-wow!\\nBow-wow!\\n" , { } , "replacing packages by $$_{name} updates isa caches" ; } for ( { name => \'assigning a glob to a glob\' , code => \'$life_raft = $::{"ｌㅔf::"}; *ｌㅔf:: = $::{"릭Ⱶᵀ::"}\' , } , { name => \'assigning a string to a glob\' , code => \'$life_raft = $::{"ｌㅔf::"}; *ｌㅔf:: = "릭Ⱶᵀ::"\' , } , { name => \'assigning a stashref to a glob\' , code => \'$life_raft = \\%ｌㅔf::; *ｌㅔf:: = \\%릭Ⱶᵀ::\' , } , ) { my $prog = q~
-     BEGIN {
-         unless (-d \'blib\') {
-             chdir \'t\' if -d \'t\';
-             @INC = \'../lib\';
-         }
-     }
-     use utf8;
-     use open qw( :utf8 :std );
-     @숩cਲꩋ::ISA = "ｌㅔf::Side";
-     @ｌㅔf::Side::ISA = "톺ĺФț";
-
-     sub 톺ĺФț::Ｓᑊeಅḱ { "Woof!" }
-     sub ᴖ릭ᚽʇ::Ｓᑊeಅḱ { "Bow-wow!" }
-
-     my $thing = bless [], "숩cਲꩋ";
-
-     @릭Ⱶᵀ::Side::ISA = \'ᴖ릭ᚽʇ\';
-     my $life_raft;
-    __code__;
-
-     print $thing->Ｓᑊeಅḱ, "\\n";
-
-     undef $life_raft;
-     print $thing->Ｓᑊeಅḱ, "\\n";
-   ~ =~ s\\__code__\\$$_{code}\\r ; utf8::encode ( $prog ) ; fresh_perl_is $prog , "Bow-wow!\\nBow-wow!\\n" , { } , "replacing nested packages by $$_{name} updates isa caches" ; } for ( { name => \'assigning a glob to a glob\' , code => \'*cฬnए:: = *ɵűʇㄦ::\' , } , { name => \'assigning a string to a glob\' , code => \'*cฬnए:: = "ɵűʇㄦ::"\' , } , { name => \'assigning a stashref to a glob\' , code => \'*cฬnए:: = \\%ɵűʇㄦ::\' , } , ) { for my $tail ( \'인ንʵ\' , \'인ንʵ::\' , \'인ንʵ:::\' , \'인ንʵ::::\' ) { my $prog = q~
-     BEGIN {
-         unless (-d \'blib\') {
-             chdir \'t\' if -d \'t\';
-             @INC = \'../lib\';
-         }
-     }
-      use utf8;
-      use open qw( :utf8 :std );
-      use Encode ();
-
-      if (grep /\\P{ASCII}/, @ARGV) {
-        @ARGV = map { Encode::decode("UTF-8", $_) } @ARGV;
-      }
-
-      my $tail = shift;
-      @Ｌфť::ISA = "ɵűʇㄦ::$tail";
-      @R익hȚ::ISA = "cฬnए::$tail";
-      bless [], "ɵűʇㄦ::$tail"; # autovivify the stash
-
-     __code__;
-
-      print "ok 1", "\\n" if Ｌфť->isa("cฬnए::$tail");
-      print "ok 2", "\\n" if R익hȚ->isa("ɵűʇㄦ::$tail");
-      print "ok 3", "\\n" if R익hȚ->isa("cฬnए::$tail");
-      print "ok 4", "\\n" if Ｌфť->isa("ɵűʇㄦ::$tail");
-    ~ =~ s\\__code__\\$$_{code}\\r ; utf8::encode ( $prog ) ; fresh_perl_is $prog , "ok 1\\nok 2\\nok 3\\nok 4\\n" , { args => [ $tail ] } , "replacing nonexistent nested packages by $$_{name} updates isa caches" . " ($tail)" ; $prog = q~
-      BEGIN {
-         unless (-d \'blib\') {
-             chdir \'t\' if -d \'t\';
-             @INC = \'../lib\';
-         }
-      }
-      use utf8;
-      use open qw( :utf8 :std );
-      use Encode ();
-
-      if (grep /\\P{ASCII}/, @ARGV) {
-        @ARGV = map { Encode::decode("UTF-8", $_) } @ARGV;
-      }
-
-      my $tail = shift;
-      @Ｌфť::ISA = "ɵűʇㄦ::$tail";
-      @R익hȚ::ISA = "cฬnए::$tail";
-
-     __code__;
-
-      bless [], "ɵűʇㄦ::$tail";
-
-      print "ok 1", "\\n" if Ｌфť->isa("cฬnए::$tail");
-      print "ok 2", "\\n" if R익hȚ->isa("ɵűʇㄦ::$tail");
-      print "ok 3", "\\n" if R익hȚ->isa("cฬnए::$tail");
-      print "ok 4", "\\n" if Ｌфť->isa("ɵűʇㄦ::$tail");
-    ~ =~ s\\__code__\\$$_{code}\\r ; utf8::encode ( $prog ) ; fresh_perl_is $prog , "ok 1\\nok 2\\nok 3\\nok 4\\n" , { args => [ $tail ] } , "Giving nonexistent packages multiple effective names by $$_{name}" . " ($tail)" ; } } no warnings ; { @ቹऋ::ISA = ( "Cuȓ" , "ฮﾝᛞ" ) ; @Cuȓ::ISA = "Hyḹ앛Ҭテ" ; sub Hyḹ앛Ҭテ::Ｓᑊeಅḱ { "Arff!" } sub ฮﾝᛞ::Ｓᑊeಅḱ { "Woof!" } my $pet = bless [ ] , "ቹऋ" ; my $life_raft = delete $: : { \'Cuȓ::\' } ; is $pet-> Ｓᑊeಅḱ , \'Woof!\' , \'deleting a stash from its parent stash invalidates the isa caches\' ; undef $life_raft ; is $pet-> Ｓᑊeಅḱ , \'Woof!\' , \'the deleted stash is gone completely when freed\' ; } { @펱ᑦ::ISA = ( "Cuȓȓ::Cuȓȓ::Cuȓȓ" , "ɥwn" ) ; @Cuȓȓ::Cuȓȓ::Cuȓȓ::ISA = "lȺt랕ᚖ" ; sub lȺt랕ᚖ::Ｓᑊeಅḱ { "Arff!" } sub ɥwn::Ｓᑊeಅḱ { "Woof!" } my $pet = bless [ ] , "펱ᑦ" ; my $life_raft = delete $: : { \'Cuȓȓ::\' } ; is $pet-> Ｓᑊeಅḱ , \'Woof!\' , \'deleting a stash from its parent stash resets caches of substashes\' ; undef $life_raft ; is $pet-> Ｓᑊeಅḱ , \'Woof!\' , \'the deleted substash is gone completely when freed\' ; } my $prog = q~#!perl -w
-     BEGIN {
-         unless (-d \'blib\') {
-             chdir \'t\' if -d \'t\';
-             @INC = \'../lib\';
-         }
-     }
-     use utf8;
-     use open qw( :utf8 :std );
-     @펱ᑦ::ISA = "T잌ዕ";
-     @T잌ዕ::ISA = "Bᛆヶṝ";
-     
-     sub Bᛆヶṝ::Ｓᑊeಅḱ { print "Woof!\\n" }
-     sub lȺt랕ᚖ::Ｓᑊeಅḱ { print "Bow-wow!\\n" }
-     
-     my $pet = bless [], "펱ᑦ";
-     
-     $pet->Ｓᑊeಅḱ;
-     
-     sub ດƓ::Ｓᑊeಅḱ { print "Hello.\\n" } # strange ດƓ!
-     @ດƓ::ISA = \'lȺt랕ᚖ\';
-     *T잌ዕ:: = delete $::{\'ດƓ::\'};
-     
-     $pet->Ｓᑊeಅḱ;
-   ~ ; utf8::encode ( $prog ) ; fresh_perl_is $prog , "Woof!\\nHello.\\n" , { stderr => 1 } , "Assigning a nameless package over one w/subclasses updates isa caches" ; no warnings ; { no strict \'refs\' ; sub ʉ::bᓗnǩ::bᓗnǩ::ພo { "bbb" } sub ᵛeↄl움::ພo { "lasrevinu" } @ݏ엗Ƚeᵬૐᵖ::ISA = qw \'ພo::bᓗnǩ::bᓗnǩ ᵛeↄl움\' ; * ພo::ବㄗ::= * ʉ::bᓗnǩ::; * ພo::= * ʉ::; * ʉ::= * ቦᵕ::; my $accum = \'\' ; $accum .= \'ݏ엗Ƚeᵬૐᵖ\'-> ພo ; delete ${ "ພo::bᓗnǩ::" } { "bᓗnǩ::" } ; $accum .= \'ݏ엗Ƚeᵬૐᵖ\'-> ພo ; @ݏ엗Ƚeᵬૐᵖ::ISA = @ݏ엗Ƚeᵬૐᵖ::ISA ; $accum .= \'ݏ엗Ƚeᵬૐᵖ\'-> ພo ; is $accum , \'bbblasrevinulasrevinu\' , \'nested classes deleted & added simultaneously\' ; } use warnings ; watchdog 3 ; * ᕘ::= \\ %::; * Aᶜme::Mῌ::Aᶜme::= \\ * Aᶜme::; pass ( "mro_package_moved and self-referential packages" ) ; { no strict refs => ; no warnings ; @ოƐ::mഒrェ::ISA = "foᚒ" ; sub foᚒ::ວmᑊ { "aoeaa" } * ťວ::= * ოƐ::; delete $: : { "ოƐ::" } ; @C힐dᒡl았::ISA = \'ťວ::mഒrェ\' ; my $accum = \'C힐dᒡl았\'-> ວmᑊ . \'-\' ; my $life_raft = delete ${ "ťວ::" } { "mഒrェ::" } ; $accum .= eval { \'C힐dᒡl았\'-> ວmᑊ } // \'<undef>\' ; is $accum , \'aoeaa-<undef>\' , \'Deleting globs whose loc in the symtab differs from gv_fullname\' } * ᵍh엞::= * ኔƞ::; @숩cਲꩋ::ISA = \'ᵍh엞\' ; undef %ᵍh엞::; sub F렐ᛔ::ວmᑊ { "clumpren" } eval \'
-  $ኔƞ::whatever++;
-  @ኔƞ::ISA = "F렐ᛔ";
-\' ; is eval { \'숩cਲꩋ\'-> ວmᑊ } , \'clumpren\' , \'Changes to @ISA after undef via original name\' ; undef %ᵍh엞::; eval \'
-  $ᵍh엞::whatever++;
-  @ᵍh엞::ISA = "F렐ᛔ";
-\' ; is eval { \'숩cਲꩋ\'-> ວmᑊ } , \'clumpren\' , \'Changes to @ISA after undef via alias\' ; { { package śmᛅḙ::በɀ } * pḢ린ᚷ::= * śmᛅḙ::; * 본::= delete $śmᛅḙ::{ "በɀ::" } ; no strict \'refs\' ; * { "pḢ린ᚷ::በɀ::fฤmᛈ" } = sub { "hello" } ; sub Ｆルmፕṟ::fฤmᛈ { "good bye" } ; @ᵇるᣘ킨::ISA = qw "본 Ｆルmፕṟ" ; is fฤmᛈ ᵇるᣘ킨 , "good bye" , \'detached stashes lose all names corresponding to the containing stash\' ; } @촐oン::ISA = \'ᚖგ:\' ; bless [ ] , "ᚖგ:" ; ok "촐oン"-> isa ( "ᚖგ:" ) , \'class isa "class:"\' ; { no strict \'refs\' ; * { "ᚖგ:::" } = * ᚖგ::} ok "촐oン"-> isa ( "ᚖგ" ) , \'isa(ᕘ) when inheriting from "class:" which is an alias for ᕘ\' ; { no warnings ; my $ᕘ = delete $ᚖგ::{ ":" } ; ok ! 촐oン-> isa ( "ᚖგ" ) , \'class that isa "class:" no longer isa ᕘ if "class:" has been deleted\' ; } @촐oン::ISA = \':\' ; bless [ ] , ":" ; ok "촐oン"-> isa ( ":" ) , \'class isa ":"\' ; { no strict \'refs\' ; * { ":::" } = * ፑňṪu앝ȋ온::} ok "촐oン"-> isa ( "ፑňṪu앝ȋ온" ) , \'isa(ᕘ) when inheriting from ":" which is an alias for ᕘ\' ; @촐oン::ISA = \'ᚖგ:\' ; bless [ ] , "ᚖგ:" ; { no strict \'refs\' ; my $life_raft = \\ %{ "ᚖგ:::" } ; * { "ᚖგ:::" } = \\ %ᚖგ::; ok "촐oン"-> isa ( "ᚖგ" ) , \'isa(ᕘ) when inheriting from "class:" after hash-to-glob assignment\' ; } @촐oン::ISA = \'ŏ:\' ; bless [ ] , "ŏ:" ; { no strict \'refs\' ; my $life_raft = \\ %{ "ŏ:::" } ; * { "ŏ:::" } = "ᚖგ::" ; ok "촐oン"-> isa ( "ᚖგ" ) , \'isa(ᕘ) when inheriting from "class:" after string-to-glob assignment\' ; } } ;',
-            'start_line' => 35,
-            'indent' => 0,
-            'block_id' => 4
-          },
-          {
-            'token_num' => 9,
+            'token_num' => 12,
             'has_warnings' => 1,
             'end_line' => 35,
-            'src' => ' Ｎeẁ-> isa ( ऑlㄉ::) , \'Ｎeẁ inherits from ऑlㄉ\' ) ;',
+            'src' => ' ok ( Ｎeẁ-> isa ( ऑlㄉ:: ) , \'Ｎeẁ inherits from ऑlㄉ\' ) ;',
             'start_line' => 35,
             'indent' => 0,
-            'block_id' => 4
+            'block_id' => 0
           },
           {
-            'token_num' => 11,
+            'token_num' => 14,
             'has_warnings' => 1,
             'end_line' => 37,
-            'src' => ' bless ( { } , ऑlㄉ::) , Ｎeẁ::, \'ऑlㄉ object\' ) ;',
+            'src' => ' object_ok ( bless ( { } , ऑlㄉ:: ) , Ｎeẁ::, \'ऑlㄉ object\' ) ;',
             'start_line' => 37,
             'indent' => 0,
-            'block_id' => 4
+            'block_id' => 0
           },
           {
-            'token_num' => 705,
-            'has_warnings' => 1,
-            'end_line' => 431,
-            'src' => ' object_ok ( bless ( { } , Ｎeẁ::) , ऑlㄉ::, \'Ｎeẁ object\' ) ; for ( { name => \'assigning a glob to a glob\' , code => \'$life_raft = $::{"ｌㅔf::"}; *ｌㅔf:: = $::{"릭Ⱶᵀ::"}\' , } , { name => \'assigning a string to a glob\' , code => \'$life_raft = $::{"ｌㅔf::"}; *ｌㅔf:: = "릭Ⱶᵀ::"\' , } , { name => \'assigning a stashref to a glob\' , code => \'$life_raft = \\%ｌㅔf::; *ｌㅔf:: = \\%릭Ⱶᵀ::\' , } , ) { my $prog = q~
-     BEGIN {
-         unless (-d \'blib\') {
-             chdir \'t\' if -d \'t\';
-             @INC = \'../lib\';
-         }
-     }
-     use utf8;
-     use open qw( :utf8 :std );
-
-     @숩cਲꩋ::ISA = "ｌㅔf";
-     @ｌㅔf::ISA = "톺ĺФț";
-
-     sub 톺ĺФț::Ｓᑊeಅḱ { "Woof!" }
-     sub ᴖ릭ᚽʇ::Ｓᑊeಅḱ { "Bow-wow!" }
-
-     my $thing = bless [], "숩cਲꩋ";
-
-     # mro_package_moved needs to know to skip non-globs
-     $릭Ⱶᵀ::{"ᚷꝆエcƙ::"} = 3;
-
-     @릭Ⱶᵀ::ISA = \'ᴖ릭ᚽʇ\';
-     my $life_raft;
-    __code__;
-
-     print $thing->Ｓᑊeಅḱ, "\\n";
-
-     undef $life_raft;
-     print $thing->Ｓᑊeಅḱ, "\\n";
-   ~ =~ s\\__code__\\$$_{code}\\r ; utf8::encode ( $prog ) ; fresh_perl_is $prog , "Bow-wow!\\nBow-wow!\\n" , { } , "replacing packages by $$_{name} updates isa caches" ; } for ( { name => \'assigning a glob to a glob\' , code => \'$life_raft = $::{"ｌㅔf::"}; *ｌㅔf:: = $::{"릭Ⱶᵀ::"}\' , } , { name => \'assigning a string to a glob\' , code => \'$life_raft = $::{"ｌㅔf::"}; *ｌㅔf:: = "릭Ⱶᵀ::"\' , } , { name => \'assigning a stashref to a glob\' , code => \'$life_raft = \\%ｌㅔf::; *ｌㅔf:: = \\%릭Ⱶᵀ::\' , } , ) { my $prog = q~
-     BEGIN {
-         unless (-d \'blib\') {
-             chdir \'t\' if -d \'t\';
-             @INC = \'../lib\';
-         }
-     }
-     use utf8;
-     use open qw( :utf8 :std );
-     @숩cਲꩋ::ISA = "ｌㅔf::Side";
-     @ｌㅔf::Side::ISA = "톺ĺФț";
-
-     sub 톺ĺФț::Ｓᑊeಅḱ { "Woof!" }
-     sub ᴖ릭ᚽʇ::Ｓᑊeಅḱ { "Bow-wow!" }
-
-     my $thing = bless [], "숩cਲꩋ";
-
-     @릭Ⱶᵀ::Side::ISA = \'ᴖ릭ᚽʇ\';
-     my $life_raft;
-    __code__;
-
-     print $thing->Ｓᑊeಅḱ, "\\n";
-
-     undef $life_raft;
-     print $thing->Ｓᑊeಅḱ, "\\n";
-   ~ =~ s\\__code__\\$$_{code}\\r ; utf8::encode ( $prog ) ; fresh_perl_is $prog , "Bow-wow!\\nBow-wow!\\n" , { } , "replacing nested packages by $$_{name} updates isa caches" ; } for ( { name => \'assigning a glob to a glob\' , code => \'*cฬnए:: = *ɵűʇㄦ::\' , } , { name => \'assigning a string to a glob\' , code => \'*cฬnए:: = "ɵűʇㄦ::"\' , } , { name => \'assigning a stashref to a glob\' , code => \'*cฬnए:: = \\%ɵűʇㄦ::\' , } , ) { for my $tail ( \'인ንʵ\' , \'인ንʵ::\' , \'인ንʵ:::\' , \'인ንʵ::::\' ) { my $prog = q~
-     BEGIN {
-         unless (-d \'blib\') {
-             chdir \'t\' if -d \'t\';
-             @INC = \'../lib\';
-         }
-     }
-      use utf8;
-      use open qw( :utf8 :std );
-      use Encode ();
-
-      if (grep /\\P{ASCII}/, @ARGV) {
-        @ARGV = map { Encode::decode("UTF-8", $_) } @ARGV;
-      }
-
-      my $tail = shift;
-      @Ｌфť::ISA = "ɵűʇㄦ::$tail";
-      @R익hȚ::ISA = "cฬnए::$tail";
-      bless [], "ɵűʇㄦ::$tail"; # autovivify the stash
-
-     __code__;
-
-      print "ok 1", "\\n" if Ｌфť->isa("cฬnए::$tail");
-      print "ok 2", "\\n" if R익hȚ->isa("ɵűʇㄦ::$tail");
-      print "ok 3", "\\n" if R익hȚ->isa("cฬnए::$tail");
-      print "ok 4", "\\n" if Ｌфť->isa("ɵűʇㄦ::$tail");
-    ~ =~ s\\__code__\\$$_{code}\\r ; utf8::encode ( $prog ) ; fresh_perl_is $prog , "ok 1\\nok 2\\nok 3\\nok 4\\n" , { args => [ $tail ] } , "replacing nonexistent nested packages by $$_{name} updates isa caches" . " ($tail)" ; $prog = q~
-      BEGIN {
-         unless (-d \'blib\') {
-             chdir \'t\' if -d \'t\';
-             @INC = \'../lib\';
-         }
-      }
-      use utf8;
-      use open qw( :utf8 :std );
-      use Encode ();
-
-      if (grep /\\P{ASCII}/, @ARGV) {
-        @ARGV = map { Encode::decode("UTF-8", $_) } @ARGV;
-      }
-
-      my $tail = shift;
-      @Ｌфť::ISA = "ɵűʇㄦ::$tail";
-      @R익hȚ::ISA = "cฬnए::$tail";
-
-     __code__;
-
-      bless [], "ɵűʇㄦ::$tail";
-
-      print "ok 1", "\\n" if Ｌфť->isa("cฬnए::$tail");
-      print "ok 2", "\\n" if R익hȚ->isa("ɵűʇㄦ::$tail");
-      print "ok 3", "\\n" if R익hȚ->isa("cฬnए::$tail");
-      print "ok 4", "\\n" if Ｌфť->isa("ɵűʇㄦ::$tail");
-    ~ =~ s\\__code__\\$$_{code}\\r ; utf8::encode ( $prog ) ; fresh_perl_is $prog , "ok 1\\nok 2\\nok 3\\nok 4\\n" , { args => [ $tail ] } , "Giving nonexistent packages multiple effective names by $$_{name}" . " ($tail)" ; } } no warnings ; { @ቹऋ::ISA = ( "Cuȓ" , "ฮﾝᛞ" ) ; @Cuȓ::ISA = "Hyḹ앛Ҭテ" ; sub Hyḹ앛Ҭテ::Ｓᑊeಅḱ { "Arff!" } sub ฮﾝᛞ::Ｓᑊeಅḱ { "Woof!" } my $pet = bless [ ] , "ቹऋ" ; my $life_raft = delete $: : { \'Cuȓ::\' } ; is $pet-> Ｓᑊeಅḱ , \'Woof!\' , \'deleting a stash from its parent stash invalidates the isa caches\' ; undef $life_raft ; is $pet-> Ｓᑊeಅḱ , \'Woof!\' , \'the deleted stash is gone completely when freed\' ; } { @펱ᑦ::ISA = ( "Cuȓȓ::Cuȓȓ::Cuȓȓ" , "ɥwn" ) ; @Cuȓȓ::Cuȓȓ::Cuȓȓ::ISA = "lȺt랕ᚖ" ; sub lȺt랕ᚖ::Ｓᑊeಅḱ { "Arff!" } sub ɥwn::Ｓᑊeಅḱ { "Woof!" } my $pet = bless [ ] , "펱ᑦ" ; my $life_raft = delete $: : { \'Cuȓȓ::\' } ; is $pet-> Ｓᑊeಅḱ , \'Woof!\' , \'deleting a stash from its parent stash resets caches of substashes\' ; undef $life_raft ; is $pet-> Ｓᑊeಅḱ , \'Woof!\' , \'the deleted substash is gone completely when freed\' ; } my $prog = q~#!perl -w
-     BEGIN {
-         unless (-d \'blib\') {
-             chdir \'t\' if -d \'t\';
-             @INC = \'../lib\';
-         }
-     }
-     use utf8;
-     use open qw( :utf8 :std );
-     @펱ᑦ::ISA = "T잌ዕ";
-     @T잌ዕ::ISA = "Bᛆヶṝ";
-     
-     sub Bᛆヶṝ::Ｓᑊeಅḱ { print "Woof!\\n" }
-     sub lȺt랕ᚖ::Ｓᑊeಅḱ { print "Bow-wow!\\n" }
-     
-     my $pet = bless [], "펱ᑦ";
-     
-     $pet->Ｓᑊeಅḱ;
-     
-     sub ດƓ::Ｓᑊeಅḱ { print "Hello.\\n" } # strange ດƓ!
-     @ດƓ::ISA = \'lȺt랕ᚖ\';
-     *T잌ዕ:: = delete $::{\'ດƓ::\'};
-     
-     $pet->Ｓᑊeಅḱ;
-   ~ ; utf8::encode ( $prog ) ; fresh_perl_is $prog , "Woof!\\nHello.\\n" , { stderr => 1 } , "Assigning a nameless package over one w/subclasses updates isa caches" ; no warnings ; { no strict \'refs\' ; sub ʉ::bᓗnǩ::bᓗnǩ::ພo { "bbb" } sub ᵛeↄl움::ພo { "lasrevinu" } @ݏ엗Ƚeᵬૐᵖ::ISA = qw \'ພo::bᓗnǩ::bᓗnǩ ᵛeↄl움\' ; * ພo::ବㄗ::= * ʉ::bᓗnǩ::; * ພo::= * ʉ::; * ʉ::= * ቦᵕ::; my $accum = \'\' ; $accum .= \'ݏ엗Ƚeᵬૐᵖ\'-> ພo ; delete ${ "ພo::bᓗnǩ::" } { "bᓗnǩ::" } ; $accum .= \'ݏ엗Ƚeᵬૐᵖ\'-> ພo ; @ݏ엗Ƚeᵬૐᵖ::ISA = @ݏ엗Ƚeᵬૐᵖ::ISA ; $accum .= \'ݏ엗Ƚeᵬૐᵖ\'-> ພo ; is $accum , \'bbblasrevinulasrevinu\' , \'nested classes deleted & added simultaneously\' ; } use warnings ; watchdog 3 ; * ᕘ::= \\ %::; * Aᶜme::Mῌ::Aᶜme::= \\ * Aᶜme::; pass ( "mro_package_moved and self-referential packages" ) ; { no strict refs => ; no warnings ; @ოƐ::mഒrェ::ISA = "foᚒ" ; sub foᚒ::ວmᑊ { "aoeaa" } * ťວ::= * ოƐ::; delete $: : { "ოƐ::" } ; @C힐dᒡl았::ISA = \'ťວ::mഒrェ\' ; my $accum = \'C힐dᒡl았\'-> ວmᑊ . \'-\' ; my $life_raft = delete ${ "ťວ::" } { "mഒrェ::" } ; $accum .= eval { \'C힐dᒡl았\'-> ວmᑊ } // \'<undef>\' ; is $accum , \'aoeaa-<undef>\' , \'Deleting globs whose loc in the symtab differs from gv_fullname\' } * ᵍh엞::= * ኔƞ::; @숩cਲꩋ::ISA = \'ᵍh엞\' ; undef %ᵍh엞::; sub F렐ᛔ::ວmᑊ { "clumpren" } eval \'
-  $ኔƞ::whatever++;
-  @ኔƞ::ISA = "F렐ᛔ";
-\' ; is eval { \'숩cਲꩋ\'-> ວmᑊ } , \'clumpren\' , \'Changes to @ISA after undef via original name\' ; undef %ᵍh엞::; eval \'
-  $ᵍh엞::whatever++;
-  @ᵍh엞::ISA = "F렐ᛔ";
-\' ; is eval { \'숩cਲꩋ\'-> ວmᑊ } , \'clumpren\' , \'Changes to @ISA after undef via alias\' ; { { package śmᛅḙ::በɀ } * pḢ린ᚷ::= * śmᛅḙ::; * 본::= delete $śmᛅḙ::{ "በɀ::" } ; no strict \'refs\' ; * { "pḢ린ᚷ::በɀ::fฤmᛈ" } = sub { "hello" } ; sub Ｆルmፕṟ::fฤmᛈ { "good bye" } ; @ᵇるᣘ킨::ISA = qw "본 Ｆルmፕṟ" ; is fฤmᛈ ᵇるᣘ킨 , "good bye" , \'detached stashes lose all names corresponding to the containing stash\' ; } @촐oン::ISA = \'ᚖგ:\' ;',
-            'start_line' => 38,
-            'indent' => 0,
-            'block_id' => 4
-          },
-          {
-            'token_num' => 11,
+            'token_num' => 14,
             'has_warnings' => 1,
             'end_line' => 38,
-            'src' => ' bless ( { } , Ｎeẁ::) , ऑlㄉ::, \'Ｎeẁ object\' ) ;',
+            'src' => ' object_ok ( bless ( { } , Ｎeẁ:: ) , ऑlㄉ::, \'Ｎeẁ object\' ) ;',
             'start_line' => 38,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 69,
@@ -11857,7 +11282,7 @@ subtest 'get_groups_by_syntax_level' => sub {
    ~ =~ s\\__code__\\$$_{code}\\r ; utf8::encode ( $prog ) ; fresh_perl_is $prog , "Bow-wow!\\nBow-wow!\\n" , { } , "replacing packages by $$_{name} updates isa caches" ; }',
             'start_line' => 43,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 16,
@@ -11947,7 +11372,7 @@ subtest 'get_groups_by_syntax_level' => sub {
    ~ =~ s\\__code__\\$$_{code}\\r ; utf8::encode ( $prog ) ; fresh_perl_is $prog , "Bow-wow!\\nBow-wow!\\n" , { } , "replacing nested packages by $$_{name} updates isa caches" ; }',
             'start_line' => 105,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 16,
@@ -12061,7 +11486,7 @@ subtest 'get_groups_by_syntax_level' => sub {
     ~ =~ s\\__code__\\$$_{code}\\r ; utf8::encode ( $prog ) ; fresh_perl_is $prog , "ok 1\\nok 2\\nok 3\\nok 4\\n" , { args => [ $tail ] } , "Giving nonexistent packages multiple effective names by $$_{name}" . " ($tail)" ; } }',
             'start_line' => 169,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 89,
@@ -12239,7 +11664,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' no warnings ;',
             'start_line' => 258,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 64,
@@ -12248,7 +11673,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' { @ቹऋ::ISA = ( "Cuȓ" , "ฮﾝᛞ" ) ; @Cuȓ::ISA = "Hyḹ앛Ҭテ" ; sub Hyḹ앛Ҭテ::Ｓᑊeಅḱ { "Arff!" } sub ฮﾝᛞ::Ｓᑊeಅḱ { "Woof!" } my $pet = bless [ ] , "ቹऋ" ; my $life_raft = delete $: : { \'Cuȓ::\' } ; is $pet-> Ｓᑊeಅḱ , \'Woof!\' , \'deleting a stash from its parent stash invalidates the isa caches\' ; undef $life_raft ; is $pet-> Ｓᑊeಅḱ , \'Woof!\' , \'the deleted stash is gone completely when freed\' ; }',
             'start_line' => 265,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 8,
@@ -12320,7 +11745,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' { @펱ᑦ::ISA = ( "Cuȓȓ::Cuȓȓ::Cuȓȓ" , "ɥwn" ) ; @Cuȓȓ::Cuȓȓ::Cuȓȓ::ISA = "lȺt랕ᚖ" ; sub lȺt랕ᚖ::Ｓᑊeಅḱ { "Arff!" } sub ɥwn::Ｓᑊeಅḱ { "Woof!" } my $pet = bless [ ] , "펱ᑦ" ; my $life_raft = delete $: : { \'Cuȓȓ::\' } ; is $pet-> Ｓᑊeಅḱ , \'Woof!\' , \'deleting a stash from its parent stash resets caches of substashes\' ; undef $life_raft ; is $pet-> Ｓᑊeಅḱ , \'Woof!\' , \'the deleted substash is gone completely when freed\' ; }',
             'start_line' => 284,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 8,
@@ -12416,7 +11841,7 @@ subtest 'get_groups_by_syntax_level' => sub {
    ~ ;',
             'start_line' => 304,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -12425,7 +11850,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' utf8::encode ( $prog ) ;',
             'start_line' => 329,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 13,
@@ -12434,7 +11859,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' fresh_perl_is $prog , "Woof!\\nHello.\\n" , { stderr => 1 } , "Assigning a nameless package over one w/subclasses updates isa caches" ;',
             'start_line' => 331,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 3,
@@ -12443,7 +11868,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' no warnings ;',
             'start_line' => 338,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 75,
@@ -12452,7 +11877,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' { no strict \'refs\' ; sub ʉ::bᓗnǩ::bᓗnǩ::ພo { "bbb" } sub ᵛeↄl움::ພo { "lasrevinu" } @ݏ엗Ƚeᵬૐᵖ::ISA = qw \'ພo::bᓗnǩ::bᓗnǩ ᵛeↄl움\' ; * ພo::ବㄗ::= * ʉ::bᓗnǩ::; * ພo::= * ʉ::; * ʉ::= * ቦᵕ::; my $accum = \'\' ; $accum .= \'ݏ엗Ƚeᵬૐᵖ\'-> ພo ; delete ${ "ພo::bᓗnǩ::" } { "bᓗnǩ::" } ; $accum .= \'ݏ엗Ƚeᵬૐᵖ\'-> ພo ; @ݏ엗Ƚeᵬૐᵖ::ISA = @ݏ엗Ƚeᵬૐᵖ::ISA ; $accum .= \'ݏ엗Ƚeᵬૐᵖ\'-> ພo ; is $accum , \'bbblasrevinulasrevinu\' , \'nested classes deleted & added simultaneously\' ; }',
             'start_line' => 338,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 4,
@@ -12542,7 +11967,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' use warnings ;',
             'start_line' => 363,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 3,
@@ -12551,7 +11976,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' watchdog 3 ;',
             'start_line' => 367,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 14,
@@ -12560,7 +11985,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' * ᕘ::= \\ %::; * Aᶜme::Mῌ::Aᶜme::= \\ * Aᶜme::; pass ( "mro_package_moved and self-referential packages" ) ;',
             'start_line' => 368,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 71,
@@ -12569,7 +11994,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' { no strict refs => ; no warnings ; @ოƐ::mഒrェ::ISA = "foᚒ" ; sub foᚒ::ວmᑊ { "aoeaa" } * ťວ::= * ოƐ::; delete $: : { "ოƐ::" } ; @C힐dᒡl았::ISA = \'ťວ::mഒrェ\' ; my $accum = \'C힐dᒡl았\'-> ວmᑊ . \'-\' ; my $life_raft = delete ${ "ťວ::" } { "mഒrェ::" } ; $accum .= eval { \'C힐dᒡl았\'-> ວmᑊ } // \'<undef>\' ; is $accum , \'aoeaa-<undef>\' , \'Deleting globs whose loc in the symtab differs from gv_fullname\' }',
             'start_line' => 374,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -12650,7 +12075,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' * ᵍh엞::= * ኔƞ::; @숩cਲꩋ::ISA = \'ᵍh엞\' ;',
             'start_line' => 390,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 3,
@@ -12662,7 +12087,7 @@ subtest 'get_groups_by_syntax_level' => sub {
 \' ;',
             'start_line' => 394,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 12,
@@ -12671,7 +12096,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is eval { \'숩cਲꩋ\'-> ວmᑊ } , \'clumpren\' , \'Changes to @ISA after undef via original name\' ;',
             'start_line' => 398,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -12683,7 +12108,7 @@ subtest 'get_groups_by_syntax_level' => sub {
 \' ;',
             'start_line' => 400,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 12,
@@ -12692,16 +12117,25 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is eval { \'숩cਲꩋ\'-> ວmᑊ } , \'clumpren\' , \'Changes to @ISA after undef via alias\' ;',
             'start_line' => 405,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
-            'token_num' => 16,
+            'token_num' => 51,
             'has_warnings' => 1,
-            'end_line' => 414,
-            'src' => ' { { package śmᛅḙ::በɀ } * pḢ린ᚷ::= * śmᛅḙ::; * 본::= delete $śmᛅḙ::{ "በɀ::" } ;',
+            'end_line' => 428,
+            'src' => ' { { package śmᛅḙ::በɀ } * pḢ린ᚷ::= * śmᛅḙ::; * 본::= delete $śmᛅḙ:: { "በɀ::" } ; no strict \'refs\' ; * { "pḢ린ᚷ::በɀ::fฤmᛈ" } = sub { "hello" } ; sub Ｆルmፕṟ::fฤmᛈ { "good bye" } ; @ᵇるᣘ킨::ISA = qw "본 Ｆルmፕṟ" ; is fฤmᛈ ᵇるᣘ킨 , "good bye" , \'detached stashes lose all names corresponding to the containing stash\' ; }',
             'start_line' => 411,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 414,
+            'src' => ' * pḢ린ᚷ::= * śmᛅḙ::; * 본::= delete $śmᛅḙ:: { "በɀ::" } ;',
+            'start_line' => 413,
+            'indent' => 1,
+            'block_id' => 28
           },
           {
             'token_num' => 4,
@@ -12709,8 +12143,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 420,
             'src' => ' no strict \'refs\' ;',
             'start_line' => 420,
-            'indent' => 0,
-            'block_id' => 5
+            'indent' => 1,
+            'block_id' => 28
           },
           {
             'token_num' => 10,
@@ -12718,8 +12152,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 421,
             'src' => ' * { "pḢ린ᚷ::በɀ::fฤmᛈ" } = sub { "hello" } ;',
             'start_line' => 421,
-            'indent' => 0,
-            'block_id' => 5
+            'indent' => 1,
+            'block_id' => 28
           },
           {
             'token_num' => 6,
@@ -12727,8 +12161,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 422,
             'src' => ' sub Ｆルmፕṟ::fฤmᛈ { "good bye" } ;',
             'start_line' => 422,
-            'indent' => 0,
-            'block_id' => 5
+            'indent' => 1,
+            'block_id' => 28
           },
           {
             'token_num' => 5,
@@ -12736,8 +12170,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 424,
             'src' => ' @ᵇるᣘ킨::ISA = qw "본 Ｆルmፕṟ" ;',
             'start_line' => 424,
-            'indent' => 0,
-            'block_id' => 5
+            'indent' => 1,
+            'block_id' => 28
           },
           {
             'token_num' => 8,
@@ -12745,8 +12179,17 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 427,
             'src' => ' is fฤmᛈ ᵇるᣘ킨 , "good bye" , \'detached stashes lose all names corresponding to the containing stash\' ;',
             'start_line' => 426,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 431,
+            'src' => ' @촐oン::ISA = \'ᚖგ:\' ;',
+            'start_line' => 431,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 6,
@@ -12755,7 +12198,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' bless [ ] , "ᚖგ:" ;',
             'start_line' => 432,
             'indent' => 0,
-            'block_id' => 4
+            'block_id' => 0
           },
           {
             'token_num' => 10,
@@ -12764,16 +12207,16 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ok "촐oン"-> isa ( "ᚖგ:" ) , \'class isa "class:"\' ;',
             'start_line' => 433,
             'indent' => 0,
-            'block_id' => 4
+            'block_id' => 0
           },
           {
-            'token_num' => 46,
+            'token_num' => 13,
             'has_warnings' => 1,
-            'end_line' => 444,
-            'src' => ' { no strict \'refs\' ; * { "ᚖგ:::" } = * ᚖგ::} ok "촐oン"-> isa ( "ᚖგ" ) , \'isa(ᕘ) when inheriting from "class:" which is an alias for ᕘ\' ; { no warnings ; my $ᕘ = delete $ᚖგ::{ ":" } ; ok ! 촐oン-> isa ( "ᚖგ" ) , \'class that isa "class:" no longer isa ᕘ if "class:" has been deleted\' ; }',
+            'end_line' => 434,
+            'src' => ' { no strict \'refs\' ; * { "ᚖგ:::" } = * ᚖგ:: }',
             'start_line' => 434,
             'indent' => 0,
-            'block_id' => 4
+            'block_id' => 0
           },
           {
             'token_num' => 4,
@@ -12782,25 +12225,25 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' no strict \'refs\' ;',
             'start_line' => 434,
             'indent' => 1,
-            'block_id' => 32
+            'block_id' => 33
           },
           {
-            'token_num' => 17,
+            'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 436,
-            'src' => ' * { "ᚖგ:::" } = * ᚖგ::} ok "촐oン"-> isa ( "ᚖგ" ) , \'isa(ᕘ) when inheriting from "class:" which is an alias for ᕘ\' ;',
-            'start_line' => 434,
-            'indent' => 1,
-            'block_id' => 32
+            'src' => ' ok "촐oン"-> isa ( "ᚖგ" ) , \'isa(ᕘ) when inheriting from "class:" which is an alias for ᕘ\' ;',
+            'start_line' => 435,
+            'indent' => 0,
+            'block_id' => 0
           },
           {
-            'token_num' => 12,
+            'token_num' => 25,
             'has_warnings' => 1,
-            'end_line' => 441,
-            'src' => ' { no warnings ; my $ᕘ = delete $ᚖგ::{ ":" } ;',
+            'end_line' => 444,
+            'src' => ' { no warnings ; my $ᕘ = delete $ᚖგ:: { ":" } ; ok ! 촐oン-> isa ( "ᚖგ" ) , \'class that isa "class:" no longer isa ᕘ if "class:" has been deleted\' ; }',
             'start_line' => 437,
-            'indent' => 1,
-            'block_id' => 32
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 3,
@@ -12808,8 +12251,17 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 438,
             'src' => ' no warnings ;',
             'start_line' => 438,
-            'indent' => 2,
-            'block_id' => 33
+            'indent' => 1,
+            'block_id' => 34
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 441,
+            'src' => ' my $ᕘ = delete $ᚖგ:: { ":" } ;',
+            'start_line' => 441,
+            'indent' => 1,
+            'block_id' => 34
           },
           {
             'token_num' => 11,
@@ -12818,7 +12270,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ok ! 촐oン-> isa ( "ᚖგ" ) , \'class that isa "class:" no longer isa ᕘ if "class:" has been deleted\' ;',
             'start_line' => 442,
             'indent' => 1,
-            'block_id' => 32
+            'block_id' => 34
           },
           {
             'token_num' => 4,
@@ -12827,7 +12279,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' @촐oン::ISA = \':\' ;',
             'start_line' => 445,
             'indent' => 0,
-            'block_id' => 4
+            'block_id' => 0
           },
           {
             'token_num' => 6,
@@ -12836,7 +12288,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' bless [ ] , ":" ;',
             'start_line' => 446,
             'indent' => 0,
-            'block_id' => 4
+            'block_id' => 0
           },
           {
             'token_num' => 10,
@@ -12845,16 +12297,16 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ok "촐oン"-> isa ( ":" ) , \'class isa ":"\' ;',
             'start_line' => 447,
             'indent' => 0,
-            'block_id' => 4
+            'block_id' => 0
           },
           {
-            'token_num' => 104,
+            'token_num' => 13,
             'has_warnings' => 1,
-            'end_line' => 468,
-            'src' => ' { no strict \'refs\' ; * { ":::" } = * ፑňṪu앝ȋ온::} ok "촐oン"-> isa ( "ፑňṪu앝ȋ온" ) , \'isa(ᕘ) when inheriting from ":" which is an alias for ᕘ\' ; @촐oン::ISA = \'ᚖგ:\' ; bless [ ] , "ᚖგ:" ; { no strict \'refs\' ; my $life_raft = \\ %{ "ᚖგ:::" } ; * { "ᚖგ:::" } = \\ %ᚖგ::; ok "촐oン"-> isa ( "ᚖგ" ) , \'isa(ᕘ) when inheriting from "class:" after hash-to-glob assignment\' ; } @촐oン::ISA = \'ŏ:\' ; bless [ ] , "ŏ:" ; { no strict \'refs\' ; my $life_raft = \\ %{ "ŏ:::" } ; * { "ŏ:::" } = "ᚖგ::" ; ok "촐oン"-> isa ( "ᚖგ" ) , \'isa(ᕘ) when inheriting from "class:" after string-to-glob assignment\' ; }',
+            'end_line' => 448,
+            'src' => ' { no strict \'refs\' ; * { ":::" } = * ፑňṪu앝ȋ온:: }',
             'start_line' => 448,
             'indent' => 0,
-            'block_id' => 4
+            'block_id' => 0
           },
           {
             'token_num' => 4,
@@ -12863,16 +12315,16 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' no strict \'refs\' ;',
             'start_line' => 448,
             'indent' => 1,
-            'block_id' => 34
+            'block_id' => 36
           },
           {
-            'token_num' => 17,
+            'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 450,
-            'src' => ' * { ":::" } = * ፑňṪu앝ȋ온::} ok "촐oン"-> isa ( "ፑňṪu앝ȋ온" ) , \'isa(ᕘ) when inheriting from ":" which is an alias for ᕘ\' ;',
-            'start_line' => 448,
-            'indent' => 1,
-            'block_id' => 34
+            'src' => ' ok "촐oン"-> isa ( "ፑňṪu앝ȋ온" ) , \'isa(ᕘ) when inheriting from ":" which is an alias for ᕘ\' ;',
+            'start_line' => 449,
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 4,
@@ -12880,8 +12332,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 451,
             'src' => ' @촐oン::ISA = \'ᚖგ:\' ;',
             'start_line' => 451,
-            'indent' => 1,
-            'block_id' => 34
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 6,
@@ -12889,8 +12341,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 452,
             'src' => ' bless [ ] , "ᚖგ:" ;',
             'start_line' => 452,
-            'indent' => 1,
-            'block_id' => 34
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 31,
@@ -12898,8 +12350,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 459,
             'src' => ' { no strict \'refs\' ; my $life_raft = \\ %{ "ᚖგ:::" } ; * { "ᚖგ:::" } = \\ %ᚖგ::; ok "촐oン"-> isa ( "ᚖგ" ) , \'isa(ᕘ) when inheriting from "class:" after hash-to-glob assignment\' ; }',
             'start_line' => 453,
-            'indent' => 1,
-            'block_id' => 34
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 4,
@@ -12907,8 +12359,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 454,
             'src' => ' no strict \'refs\' ;',
             'start_line' => 454,
-            'indent' => 2,
-            'block_id' => 35
+            'indent' => 1,
+            'block_id' => 37
           },
           {
             'token_num' => 8,
@@ -12916,8 +12368,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 455,
             'src' => ' my $life_raft = \\ %{ "ᚖგ:::" } ;',
             'start_line' => 455,
-            'indent' => 2,
-            'block_id' => 35
+            'indent' => 1,
+            'block_id' => 37
           },
           {
             'token_num' => 17,
@@ -12925,8 +12377,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 458,
             'src' => ' * { "ᚖგ:::" } = \\ %ᚖგ::; ok "촐oン"-> isa ( "ᚖგ" ) , \'isa(ᕘ) when inheriting from "class:" after hash-to-glob assignment\' ;',
             'start_line' => 456,
-            'indent' => 2,
-            'block_id' => 35
+            'indent' => 1,
+            'block_id' => 37
           },
           {
             'token_num' => 4,
@@ -12934,8 +12386,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 460,
             'src' => ' @촐oン::ISA = \'ŏ:\' ;',
             'start_line' => 460,
-            'indent' => 1,
-            'block_id' => 34
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 6,
@@ -12943,8 +12395,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 461,
             'src' => ' bless [ ] , "ŏ:" ;',
             'start_line' => 461,
-            'indent' => 1,
-            'block_id' => 34
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 31,
@@ -12952,8 +12404,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 468,
             'src' => ' { no strict \'refs\' ; my $life_raft = \\ %{ "ŏ:::" } ; * { "ŏ:::" } = "ᚖგ::" ; ok "촐oン"-> isa ( "ᚖგ" ) , \'isa(ᕘ) when inheriting from "class:" after string-to-glob assignment\' ; }',
             'start_line' => 462,
-            'indent' => 1,
-            'block_id' => 34
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 4,
@@ -12961,8 +12413,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 463,
             'src' => ' no strict \'refs\' ;',
             'start_line' => 463,
-            'indent' => 2,
-            'block_id' => 36
+            'indent' => 1,
+            'block_id' => 38
           },
           {
             'token_num' => 8,
@@ -12970,8 +12422,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 464,
             'src' => ' my $life_raft = \\ %{ "ŏ:::" } ;',
             'start_line' => 464,
-            'indent' => 2,
-            'block_id' => 36
+            'indent' => 1,
+            'block_id' => 38
           },
           {
             'token_num' => 7,
@@ -12979,8 +12431,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 465,
             'src' => ' * { "ŏ:::" } = "ᚖგ::" ;',
             'start_line' => 465,
-            'indent' => 2,
-            'block_id' => 36
+            'indent' => 1,
+            'block_id' => 38
           },
           {
             'token_num' => 10,
@@ -12988,8 +12440,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 467,
             'src' => ' ok "촐oン"-> isa ( "ᚖგ" ) , \'isa(ᕘ) when inheriting from "class:" after string-to-glob assignment\' ;',
             'start_line' => 466,
-            'indent' => 2,
-            'block_id' => 36
+            'indent' => 1,
+            'block_id' => 38
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

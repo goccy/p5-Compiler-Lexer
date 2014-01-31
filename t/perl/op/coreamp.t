@@ -3870,9 +3870,36 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
-                   'data' => '$_[0]',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
+                   'name' => 'SpecificValue',
+                   'data' => '$_',
+                   'type' => Compiler::Lexer::TokenType::T_SpecificValue,
+                   'line' => 92
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftBracket',
+                   'data' => '[',
+                   'type' => Compiler::Lexer::TokenType::T_LeftBracket,
+                   'line' => 92
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '0',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
+                   'line' => 92
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightBracket',
+                   'data' => ']',
+                   'type' => Compiler::Lexer::TokenType::T_RightBracket,
                    'line' => 92
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -41905,10 +41932,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 8
           },
           {
-            'token_num' => 836,
+            'token_num' => 839,
             'has_warnings' => 1,
             'end_line' => 229,
-            'src' => ' sub test_proto { my ( $o ) = shift ; * { "my$o" } = \\ & { "CORE::$o" } ; my $p = prototype "CORE::$o" ; $p = \'$;$\' if $p eq \'$_\' ; if ( $p eq \'\' ) { $tests ++ ; eval " &CORE::$o(1) " ; like $@ , qr/^Too many arguments for $o at / , "&$o with too many args" ; } elsif ( $p eq \'_\' ) { $tests ++ ; eval " &CORE::$o(1,2) " ; my $desc = quotemeta op_desc ( $o ) ; like $@ , qr/^Too many arguments for $desc at / , "&$o with too many args" ; if ( ! @_ ) { return } $tests += 6 ; my ( $in , $out ) = @_ ; is & { "CORE::$o" } ( $in ) , $out , "&$o" ; lis [ & { "CORE::$o" } ( $in ) ] , [ $out ] , "&$o in list context" ; $_ = $in ; is & { "CORE::$o" } ( ) , $out , "&$o with no args" ; undef $_ ; { my $_ = $in ; is & { "CORE::$o" } ( ) , $out , "&$o with no args uses lexical \\$_" ; } my $r ; $r = sub { if ( $_[0] ) { my $_ = $in ; is & { "CORE::$o" } ( ) , $out , "&$o with no args uses the right lexical \\$_ under recursion" ; } else { &$r ( 1 ) } } ; &$r ( 0 ) ; my $_ = $in ; eval { is "CORE::$o"-> ( ) , $out , "&$o with the right lexical \\$_ in an eval" } ; } elsif ( $p =~ \'^;([$*]+)\\z\' ) { my $maxargs = length $1 ; $tests += 1 ; eval " &CORE::$o((1)x($maxargs+1)) " ; my $desc = quotemeta op_desc ( $o ) ; like $@ , qr/^Too many arguments for $desc at / , "&$o with too many args" ; } elsif ( $p =~ \'^([$*]+);?\\z\' ) { my $args = length $1 ; $tests += 2 ; my $desc = quotemeta op_desc ( $o ) ; eval " &CORE::$o((1)x($args-1)) " ; like $@ , qr/^Not enough arguments for $desc at / , "&$o w/too few args" ; eval " &CORE::$o((1)x($args+1)) " ; like $@ , qr/^Too many arguments for $desc at / , "&$o w/too many args" ; } elsif ( $p =~ \'^([$*]+);([$*]+)\\z\' ) { my $minargs = length $1 ; my $maxargs = $minargs + length $2 ; $tests += 2 ; eval " &CORE::$o((1)x($minargs-1)) " ; like $@ , qr/^Not enough arguments for $o at / , "&$o with too few args" ; eval " &CORE::$o((1)x($maxargs+1)) " ; like $@ , qr/^Too many arguments for $o at / , "&$o with too many args" ; } elsif ( $p eq \'_;$\' ) { $tests += 1 ; eval " &CORE::$o(1,2,3) " ; like $@ , qr/^Too many arguments for $o at / , "&$o with too many args" ; } elsif ( $p eq \'@\' ) { } elsif ( $p =~ \'^[$*;]+@\\z\' ) { $tests ++ ; $p =~ \';@\' ; my $minargs = $- [ 0 ] ; eval " &CORE::$o((1)x($minargs-1)) " ; my $desc = quotemeta op_desc ( $o ) ; like $@ , qr/^Not enough arguments for $desc at / , "&$o with too few args" ; } elsif ( $p =~/^\\*\\\\\\$\\$(;?)\\$\\z/ ) { $tests += 5 ; eval "&CORE::$o(1,1,1,1,1)" ; like $@ , qr/^Too many arguments for $o at / , "&$o with too many args" ; eval " &CORE::$o((1)x(\\$1?2:3)) " ; like $@ , qr/^Not enough arguments for $o at / , "&$o with too few args" ; eval " &CORE::$o(1,[],1,1) " ; like $@ , qr/^Type of arg 2 to &CORE::$o must be scalar reference at / , "&$o with array ref arg" ; eval " &CORE::$o(1,1,1,1) " ; like $@ , qr/^Type of arg 2 to &CORE::$o must be scalar reference at / , "&$o with scalar arg" ; eval " &CORE::$o(1,bless([], \'sov\'),1,1) " ; like $@ , qr/^Type of arg 2 to &CORE::$o must be scalar reference at / , "&$o with non-scalar arg w/scalar overload (which does not count)" ; } elsif ( $p =~/^\\\\%\\$*\\z/ ) { $tests += 5 ; eval "&CORE::$o(" . join ( "," , ( 1 ) x length $p ) . ")" ; like $@ , qr/^Too many arguments for $o at / , "&$o with too many args" ; eval " &CORE::$o(" . join ( "," , ( 1 ) x ( length ( $p ) -2 ) ) . ") " ; like $@ , qr/^Not enough arguments for $o at / , "&$o with too few args" ; my $moreargs = ",1" x ( length ( $p ) - 2 ) ; eval " &CORE::$o([]$moreargs) " ; like $@ , qr/^Type of arg 1 to &CORE::$o must be hash reference at / , "&$o with array ref arg" ; eval " &CORE::$o(*foo$moreargs) " ; like $@ , qr/^Type of arg 1 to &CORE::$o must be hash reference at / , "&$o with typeglob arg" ; eval " &CORE::$o(bless([], \'hov\')$moreargs) " ; like $@ , qr/^Type of arg 1 to &CORE::$o must be hash reference at / , "&$o with non-hash arg with hash overload (which does not count)" ; } elsif ( $p =~/^\\\\\\[(\\$\\@%&?\\*)](\\$\\@)?\\z/ ) { $tests += 4 ; unless ( $2 ) { $tests ++ ; eval " &CORE::$o(1,2) " ; like $@ , qr/^Too many arguments for $o at / , "&$o with too many args" ; } eval { & { "CORE::$o" } ( $2 ? 1 : ( ) ) } ; like $@ , qr/^Not enough arguments for $o at / , "&$o with too few args" ; my $more_args = $2 ? \',1\' : \'\' ; eval " &CORE::$o(2$more_args) " ; like $@ , qr/^Type of arg 1 to &CORE::$o must be reference to one of(?x:
+            'src' => ' sub test_proto { my ( $o ) = shift ; * { "my$o" } = \\ & { "CORE::$o" } ; my $p = prototype "CORE::$o" ; $p = \'$;$\' if $p eq \'$_\' ; if ( $p eq \'\' ) { $tests ++ ; eval " &CORE::$o(1) " ; like $@ , qr/^Too many arguments for $o at / , "&$o with too many args" ; } elsif ( $p eq \'_\' ) { $tests ++ ; eval " &CORE::$o(1,2) " ; my $desc = quotemeta op_desc ( $o ) ; like $@ , qr/^Too many arguments for $desc at / , "&$o with too many args" ; if ( ! @_ ) { return } $tests += 6 ; my ( $in , $out ) = @_ ; is & { "CORE::$o" } ( $in ) , $out , "&$o" ; lis [ & { "CORE::$o" } ( $in ) ] , [ $out ] , "&$o in list context" ; $_ = $in ; is & { "CORE::$o" } ( ) , $out , "&$o with no args" ; undef $_ ; { my $_ = $in ; is & { "CORE::$o" } ( ) , $out , "&$o with no args uses lexical \\$_" ; } my $r ; $r = sub { if ( $_ [ 0 ] ) { my $_ = $in ; is & { "CORE::$o" } ( ) , $out , "&$o with no args uses the right lexical \\$_ under recursion" ; } else { &$r ( 1 ) } } ; &$r ( 0 ) ; my $_ = $in ; eval { is "CORE::$o"-> ( ) , $out , "&$o with the right lexical \\$_ in an eval" } ; } elsif ( $p =~ \'^;([$*]+)\\z\' ) { my $maxargs = length $1 ; $tests += 1 ; eval " &CORE::$o((1)x($maxargs+1)) " ; my $desc = quotemeta op_desc ( $o ) ; like $@ , qr/^Too many arguments for $desc at / , "&$o with too many args" ; } elsif ( $p =~ \'^([$*]+);?\\z\' ) { my $args = length $1 ; $tests += 2 ; my $desc = quotemeta op_desc ( $o ) ; eval " &CORE::$o((1)x($args-1)) " ; like $@ , qr/^Not enough arguments for $desc at / , "&$o w/too few args" ; eval " &CORE::$o((1)x($args+1)) " ; like $@ , qr/^Too many arguments for $desc at / , "&$o w/too many args" ; } elsif ( $p =~ \'^([$*]+);([$*]+)\\z\' ) { my $minargs = length $1 ; my $maxargs = $minargs + length $2 ; $tests += 2 ; eval " &CORE::$o((1)x($minargs-1)) " ; like $@ , qr/^Not enough arguments for $o at / , "&$o with too few args" ; eval " &CORE::$o((1)x($maxargs+1)) " ; like $@ , qr/^Too many arguments for $o at / , "&$o with too many args" ; } elsif ( $p eq \'_;$\' ) { $tests += 1 ; eval " &CORE::$o(1,2,3) " ; like $@ , qr/^Too many arguments for $o at / , "&$o with too many args" ; } elsif ( $p eq \'@\' ) { } elsif ( $p =~ \'^[$*;]+@\\z\' ) { $tests ++ ; $p =~ \';@\' ; my $minargs = $- [ 0 ] ; eval " &CORE::$o((1)x($minargs-1)) " ; my $desc = quotemeta op_desc ( $o ) ; like $@ , qr/^Not enough arguments for $desc at / , "&$o with too few args" ; } elsif ( $p =~/^\\*\\\\\\$\\$(;?)\\$\\z/ ) { $tests += 5 ; eval "&CORE::$o(1,1,1,1,1)" ; like $@ , qr/^Too many arguments for $o at / , "&$o with too many args" ; eval " &CORE::$o((1)x(\\$1?2:3)) " ; like $@ , qr/^Not enough arguments for $o at / , "&$o with too few args" ; eval " &CORE::$o(1,[],1,1) " ; like $@ , qr/^Type of arg 2 to &CORE::$o must be scalar reference at / , "&$o with array ref arg" ; eval " &CORE::$o(1,1,1,1) " ; like $@ , qr/^Type of arg 2 to &CORE::$o must be scalar reference at / , "&$o with scalar arg" ; eval " &CORE::$o(1,bless([], \'sov\'),1,1) " ; like $@ , qr/^Type of arg 2 to &CORE::$o must be scalar reference at / , "&$o with non-scalar arg w/scalar overload (which does not count)" ; } elsif ( $p =~/^\\\\%\\$*\\z/ ) { $tests += 5 ; eval "&CORE::$o(" . join ( "," , ( 1 ) x length $p ) . ")" ; like $@ , qr/^Too many arguments for $o at / , "&$o with too many args" ; eval " &CORE::$o(" . join ( "," , ( 1 ) x ( length ( $p ) -2 ) ) . ") " ; like $@ , qr/^Not enough arguments for $o at / , "&$o with too few args" ; my $moreargs = ",1" x ( length ( $p ) - 2 ) ; eval " &CORE::$o([]$moreargs) " ; like $@ , qr/^Type of arg 1 to &CORE::$o must be hash reference at / , "&$o with array ref arg" ; eval " &CORE::$o(*foo$moreargs) " ; like $@ , qr/^Type of arg 1 to &CORE::$o must be hash reference at / , "&$o with typeglob arg" ; eval " &CORE::$o(bless([], \'hov\')$moreargs) " ; like $@ , qr/^Type of arg 1 to &CORE::$o must be hash reference at / , "&$o with non-hash arg with hash overload (which does not count)" ; } elsif ( $p =~/^\\\\\\[(\\$\\@%&?\\*)](\\$\\@)?\\z/ ) { $tests += 4 ; unless ( $2 ) { $tests ++ ; eval " &CORE::$o(1,2) " ; like $@ , qr/^Too many arguments for $o at / , "&$o with too many args" ; } eval { & { "CORE::$o" } ( $2 ? 1 : ( ) ) } ; like $@ , qr/^Not enough arguments for $o at / , "&$o with too few args" ; my $more_args = $2 ? \',1\' : \'\' ; eval " &CORE::$o(2$more_args) " ; like $@ , qr/^Type of arg 1 to &CORE::$o must be reference to one of(?x:
                 ) \\[\\Q$1\\E] at / , "&$o with non-ref arg" ; eval " &CORE::$o(*STDOUT{IO}$more_args) " ; like $@ , qr/^Type of arg 1 to &CORE::$o must be reference to one of(?x:
                 ) \\[\\Q$1\\E] at / , "&$o with ioref arg" ; my $class = ref * DATA { IO } ; eval " &CORE::$o(bless(*DATA{IO}, \'hov\')$more_args) " ; like $@ , qr/^Type of arg 1 to &CORE::$o must be reference to one of(?x:
                 ) \\[\\Q$1\\E] at / , "&$o with ioref arg with hash overload (which does not count)" ; bless * DATA { IO } , $class ; if ( do { $1 !~/&/ } ) { $tests ++ ; eval " &CORE::$o(\\\\&scriggle$more_args) " ; like $@ , qr/^Type of arg 1 to &CORE::$o must be reference to one (?x:
@@ -41990,10 +42017,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 11
           },
           {
-            'token_num' => 184,
+            'token_num' => 187,
             'has_warnings' => 1,
             'end_line' => 106,
-            'src' => ' elsif ( $p eq \'_\' ) { $tests ++ ; eval " &CORE::$o(1,2) " ; my $desc = quotemeta op_desc ( $o ) ; like $@ , qr/^Too many arguments for $desc at / , "&$o with too many args" ; if ( ! @_ ) { return } $tests += 6 ; my ( $in , $out ) = @_ ; is & { "CORE::$o" } ( $in ) , $out , "&$o" ; lis [ & { "CORE::$o" } ( $in ) ] , [ $out ] , "&$o in list context" ; $_ = $in ; is & { "CORE::$o" } ( ) , $out , "&$o with no args" ; undef $_ ; { my $_ = $in ; is & { "CORE::$o" } ( ) , $out , "&$o with no args uses lexical \\$_" ; } my $r ; $r = sub { if ( $_[0] ) { my $_ = $in ; is & { "CORE::$o" } ( ) , $out , "&$o with no args uses the right lexical \\$_ under recursion" ; } else { &$r ( 1 ) } } ; &$r ( 0 ) ; my $_ = $in ; eval { is "CORE::$o"-> ( ) , $out , "&$o with the right lexical \\$_ in an eval" } ; }',
+            'src' => ' elsif ( $p eq \'_\' ) { $tests ++ ; eval " &CORE::$o(1,2) " ; my $desc = quotemeta op_desc ( $o ) ; like $@ , qr/^Too many arguments for $desc at / , "&$o with too many args" ; if ( ! @_ ) { return } $tests += 6 ; my ( $in , $out ) = @_ ; is & { "CORE::$o" } ( $in ) , $out , "&$o" ; lis [ & { "CORE::$o" } ( $in ) ] , [ $out ] , "&$o in list context" ; $_ = $in ; is & { "CORE::$o" } ( ) , $out , "&$o with no args" ; undef $_ ; { my $_ = $in ; is & { "CORE::$o" } ( ) , $out , "&$o with no args uses lexical \\$_" ; } my $r ; $r = sub { if ( $_ [ 0 ] ) { my $_ = $in ; is & { "CORE::$o" } ( ) , $out , "&$o with no args uses the right lexical \\$_ under recursion" ; } else { &$r ( 1 ) } } ; &$r ( 0 ) ; my $_ = $in ; eval { is "CORE::$o"-> ( ) , $out , "&$o with the right lexical \\$_ in an eval" } ; }',
             'start_line' => 59,
             'indent' => 1,
             'block_id' => 9
@@ -42143,19 +42170,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 12
           },
           {
-            'token_num' => 36,
+            'token_num' => 39,
             'has_warnings' => 1,
             'end_line' => 100,
-            'src' => ' $r = sub { if ( $_[0] ) { my $_ = $in ; is & { "CORE::$o" } ( ) , $out , "&$o with no args uses the right lexical \\$_ under recursion" ; } else { &$r ( 1 ) } } ;',
+            'src' => ' $r = sub { if ( $_ [ 0 ] ) { my $_ = $in ; is & { "CORE::$o" } ( ) , $out , "&$o with no args uses the right lexical \\$_ under recursion" ; } else { &$r ( 1 ) } } ;',
             'start_line' => 91,
             'indent' => 2,
             'block_id' => 12
           },
           {
-            'token_num' => 23,
+            'token_num' => 26,
             'has_warnings' => 1,
             'end_line' => 96,
-            'src' => ' if ( $_[0] ) { my $_ = $in ; is & { "CORE::$o" } ( ) , $out , "&$o with no args uses the right lexical \\$_ under recursion" ; }',
+            'src' => ' if ( $_ [ 0 ] ) { my $_ = $in ; is & { "CORE::$o" } ( ) , $out , "&$o with no args uses the right lexical \\$_ under recursion" ; }',
             'start_line' => 92,
             'indent' => 3,
             'block_id' => 19

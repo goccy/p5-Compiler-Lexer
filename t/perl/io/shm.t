@@ -1204,9 +1204,27 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
-                   'data' => 'skip_all => "SIGSYS caught"',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
+                   'name' => 'Key',
+                   'data' => 'skip_all',
+                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'line' => 43
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Arrow',
+                   'data' => '=>',
+                   'type' => Compiler::Lexer::TokenType::T_Arrow,
+                   'line' => 43
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'String',
+                   'data' => 'SIGSYS caught',
+                   'type' => Compiler::Lexer::TokenType::T_String,
                    'line' => 43
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4180,7 +4198,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 31,
+            'token_num' => 33,
             'has_warnings' => 1,
             'end_line' => 45,
             'src' => ' { local $SIG { SYS } = sub { plan ( skip_all => "SIGSYS caught" ) } if exists $SIG { SYS } ; $key = shmget IPC_PRIVATE , 8 , S_IRWXU ; }',
@@ -4189,7 +4207,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 20,
+            'token_num' => 22,
             'has_warnings' => 1,
             'end_line' => 43,
             'src' => ' local $SIG { SYS } = sub { plan ( skip_all => "SIGSYS caught" ) } if exists $SIG { SYS } ;',

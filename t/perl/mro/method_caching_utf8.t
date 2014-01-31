@@ -961,12 +961,66 @@ subtest 'tokenize' => sub {
                    'line' => 31
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'MC텟ᵀ',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 31
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'NamespaceResolver',
+                   'data' => '::',
+                   'type' => Compiler::Lexer::TokenType::T_NamespaceResolver,
+                   'line' => 31
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'ድ리ᭉᛞ',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 31
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Pointer',
+                   'data' => '->',
+                   'type' => Compiler::Lexer::TokenType::T_Pointer,
+                   'line' => 31
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Call',
+                   'data' => 'ᕘ',
+                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'line' => 31
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 31
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
-                   'data' => 'MC텟ᵀ::ድ리ᭉᛞ->ᕘ(0',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
+                   'name' => 'Int',
+                   'data' => '0',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 31
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2275,12 +2329,66 @@ subtest 'tokenize' => sub {
                    'line' => 37
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'MC텟ᵀ',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 37
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'NamespaceResolver',
+                   'data' => '::',
+                   'type' => Compiler::Lexer::TokenType::T_NamespaceResolver,
+                   'line' => 37
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'ድ리ᭉᛞ',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 37
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Pointer',
+                   'data' => '->',
+                   'type' => Compiler::Lexer::TokenType::T_Pointer,
+                   'line' => 37
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Call',
+                   'data' => 'ᕘ',
+                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'line' => 37
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 37
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
-                   'data' => 'MC텟ᵀ::ድ리ᭉᛞ->ᕘ(0',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
+                   'name' => 'Int',
+                   'data' => '0',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 37
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2743,12 +2851,66 @@ subtest 'tokenize' => sub {
                    'line' => 39
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'MC텟ᵀ',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 39
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'NamespaceResolver',
+                   'data' => '::',
+                   'type' => Compiler::Lexer::TokenType::T_NamespaceResolver,
+                   'line' => 39
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'ድ리ᭉᛞ',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 39
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Pointer',
+                   'data' => '->',
+                   'type' => Compiler::Lexer::TokenType::T_Pointer,
+                   'line' => 39
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Call',
+                   'data' => 'ᕘ',
+                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'line' => 39
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 39
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
-                   'data' => 'MC텟ᵀ::ድ리ᭉᛞ->ᕘ(0',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
+                   'name' => 'Int',
+                   'data' => '0',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 39
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4372,12 +4534,12 @@ subtest 'tokenize' => sub {
                    'line' => 44
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 44
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4660,12 +4822,12 @@ subtest 'tokenize' => sub {
                    'line' => 45
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 45
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5803,12 +5965,12 @@ subtest 'tokenize' => sub {
                    'line' => 50
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 50
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6163,12 +6325,12 @@ subtest 'tokenize' => sub {
                    'line' => 52
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 52
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6658,12 +6820,12 @@ subtest 'tokenize' => sub {
                    'line' => 54
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 54
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7144,12 +7306,12 @@ subtest 'tokenize' => sub {
                    'line' => 56
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 56
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7666,12 +7828,12 @@ subtest 'tokenize' => sub {
                    'line' => 60
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 60
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7720,12 +7882,12 @@ subtest 'tokenize' => sub {
                    'line' => 60
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 60
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8917,22 +9079,22 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 3
           },
           {
-            'token_num' => 142,
+            'token_num' => 736,
             'has_warnings' => 1,
-            'end_line' => 37,
-            'src' => ' my @testsubs = ( sub { is ( MC텟ᵀ::ድ리ᭉᛞ->ᕘ(0 ) , 1 ) ; } , sub { eval \'sub MC텟ᵀ::Bࡎᶓ::ᕘ { return $_[1]+2 }\' ; is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 2 ) ; } , sub { eval \'sub MC텟ᵀ::Bࡎᶓ::ᕘ($) { return $_[1]+3 }\' ; is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 3 ) ; } , sub { eval \'sub MC텟ᵀ::Bࡎᶓ::ᕘ($) { 4 }\' ; is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 4 ) ; } , sub { * MC텟ᵀ::Bࡎᶓ::ᕘ = sub { $_ [ 1 ] + 5 } ; is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 5 ) ; } , sub { local * MC텟ᵀ::Bࡎᶓ::ᕘ = sub { $_ [ 1 ] + 6 } ; is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 6 ) ; } , sub { is ( MC텟ᵀ::ድ리ᭉᛞ->ᕘ(0 ) , 5 ) ;',
+            'end_line' => 63,
+            'src' => ' my @testsubs = ( sub { is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 1 ) ; } , sub { eval \'sub MC텟ᵀ::Bࡎᶓ::ᕘ { return $_[1]+2 }\' ; is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 2 ) ; } , sub { eval \'sub MC텟ᵀ::Bࡎᶓ::ᕘ($) { return $_[1]+3 }\' ; is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 3 ) ; } , sub { eval \'sub MC텟ᵀ::Bࡎᶓ::ᕘ($) { 4 }\' ; is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 4 ) ; } , sub { * MC텟ᵀ::Bࡎᶓ::ᕘ = sub { $_ [ 1 ] + 5 } ; is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 5 ) ; } , sub { local * MC텟ᵀ::Bࡎᶓ::ᕘ = sub { $_ [ 1 ] + 6 } ; is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 6 ) ; } , sub { is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 5 ) ; } , sub { sub FFF { $_ [ 1 ] + 7 } ; local * MC텟ᵀ::Bࡎᶓ::ᕘ = * FFF ; is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 7 ) ; } , sub { is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 5 ) ; } , sub { sub DḊƋ { $_ [ 1 ] + 8 } ; * MC텟ᵀ::Bࡎᶓ::ᕘ = * DḊƋ ; is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 8 ) ; } , sub { * ǎᔆɗＦ::앗ｄƑ = sub { $_ [ 1 ] + 9 } ; * MC텟ᵀ::Bࡎᶓ::ᕘ = \\ & ǎᔆɗＦ::앗ｄƑ ; is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 9 ) ; } , sub { undef * MC텟ᵀ::Bࡎᶓ::ᕘ ; eval { MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) } ; like ( $@ , qr/locate object method/ ) ; } , sub { eval "sub MC텟ᵀ::Bࡎᶓ::ᕘ($);" ; * MC텟ᵀ::Bࡎᶓ::ᕘ = \\ & ǎᔆɗＦ::앗ｄƑ ; is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 9 ) ; } , sub { * Xƴƶ = sub { $_ [ 1 ] + 10 } ; ${ MC텟ᵀ::Bࡎᶓ:: } { ᕘ } = \\ & Xƴƶ ; is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 10 ) ; } , sub { ${ MC텟ᵀ::Bࡎᶓ:: } { ᕘ } = sub { $_ [ 1 ] + 11 } ; is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 11 ) ; } , sub { undef * MC텟ᵀ::Bࡎᶓ::ᕘ ; eval { MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) } ; like ( $@ , qr/locate object method/ ) ; } , sub { eval \'package MC텟ᵀ::Bࡎᶓ; sub ᕘ { $_[1]+12 }\' ; is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 12 ) ; } , sub { eval \'package ᛎᛎᛎ; sub ᕘ { $_[1]+13 }\' ; * MC텟ᵀ::Bࡎᶓ::ᕘ = \\ & ᛎᛎᛎ::ᕘ ; is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 13 ) ; } , sub { ${ MC텟ᵀ::Bࡎᶓ:: } { ᕘ } = sub { $_ [ 1 ] + 14 } ; is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 14 ) ; } , sub { undef * { MC텟ᵀ::Bࡎᶓ:: } ; eval { MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) } ; like ( $@ , qr/locate object method/ ) ; } , sub { eval \'package MC텟ᵀ::Bࡎᶓ; sub ᕘ { $_[1]+15 }\' ; is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 15 ) ; } , sub { undef %{ MC텟ᵀ::Bࡎᶓ:: } ; eval { MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) } ; like ( $@ , qr/locate object method/ ) ; } , sub { eval \'package MC텟ᵀ::Bࡎᶓ; sub ᕘ { $_[1]+16 }\' ; is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 16 ) ; } , sub { %{ MC텟ᵀ::Bࡎᶓ:: } = ( ) ; eval { MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) } ; like ( $@ , qr/locate object method/ ) ; } , sub { eval \'package MC텟ᵀ::Bࡎᶓ; sub ᕘ { $_[1]+17 }\' ; is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 17 ) ; } , sub { * { MC텟ᵀ::Bࡎᶓ:: } = * { Ƒｏｏ:: } ; eval { MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) } ; like ( $@ , qr/locate object method/ ) ; } , sub { * MC텟ᵀ::ድ리ᭉᛞ::ᕘ = \\ & MC텟ᵀ::Bࡎᶓ::ᕘ ; eval { MC텟ᵀ::ድ리ᭉᛞ::ᕘ ( 0 , 0 ) } ; ok ( ! $@ ) ; undef * MC텟ᵀ::ድ리ᭉᛞ::ᕘ } , sub { eval \'package MC텟ᵀ::Bࡎᶓ; sub ᕘ { $_[1]+18 }\' ; is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 18 ) ; } , ) ;',
             'start_line' => 30,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 10,
+            'token_num' => 12,
             'has_warnings' => 1,
             'end_line' => 31,
-            'src' => ' sub { is ( MC텟ᵀ::ድ리ᭉᛞ->ᕘ(0 ) , 1 ) ;',
+            'src' => ' is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 1 ) ;',
             'start_line' => 31,
-            'indent' => 0,
-            'block_id' => 4
+            'indent' => 1,
+            'block_id' => 5
           },
           {
             'token_num' => 3,
@@ -9023,6 +9185,537 @@ subtest 'get_groups_by_syntax_level' => sub {
             'start_line' => 36,
             'indent' => 1,
             'block_id' => 11
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 37,
+            'src' => ' is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 5 ) ;',
+            'start_line' => 37,
+            'indent' => 1,
+            'block_id' => 13
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 0,
+            'end_line' => 38,
+            'src' => ' sub FFF { $_ [ 1 ] + 7 } ;',
+            'start_line' => 38,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 0,
+            'end_line' => 38,
+            'src' => ' sub FFF { $_ [ 1 ] + 7 }',
+            'start_line' => 38,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 38,
+            'src' => ' local * MC텟ᵀ::Bࡎᶓ::ᕘ = * FFF ;',
+            'start_line' => 38,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 38,
+            'src' => ' is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 7 ) ;',
+            'start_line' => 38,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 39,
+            'src' => ' is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 5 ) ;',
+            'start_line' => 39,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 0,
+            'end_line' => 40,
+            'src' => ' sub DḊƋ { $_ [ 1 ] + 8 } ;',
+            'start_line' => 40,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 0,
+            'end_line' => 40,
+            'src' => ' sub DḊƋ { $_ [ 1 ] + 8 }',
+            'start_line' => 40,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 40,
+            'src' => ' * MC텟ᵀ::Bࡎᶓ::ᕘ = * DḊƋ ;',
+            'start_line' => 40,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 40,
+            'src' => ' is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 8 ) ;',
+            'start_line' => 40,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 41,
+            'src' => ' * ǎᔆɗＦ::앗ｄƑ = sub { $_ [ 1 ] + 9 } ;',
+            'start_line' => 41,
+            'indent' => 1,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 41,
+            'src' => ' * MC텟ᵀ::Bࡎᶓ::ᕘ = \\ & ǎᔆɗＦ::앗ｄƑ ;',
+            'start_line' => 41,
+            'indent' => 1,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 41,
+            'src' => ' is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 9 ) ;',
+            'start_line' => 41,
+            'indent' => 1,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 42,
+            'src' => ' undef * MC텟ᵀ::Bࡎᶓ::ᕘ ;',
+            'start_line' => 42,
+            'indent' => 1,
+            'block_id' => 21
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 42,
+            'src' => ' eval { MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) } ;',
+            'start_line' => 42,
+            'indent' => 1,
+            'block_id' => 21
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 42,
+            'src' => ' like ( $@ , qr/locate object method/ ) ;',
+            'start_line' => 42,
+            'indent' => 1,
+            'block_id' => 21
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 43,
+            'src' => ' eval "sub MC텟ᵀ::Bࡎᶓ::ᕘ($);" ;',
+            'start_line' => 43,
+            'indent' => 1,
+            'block_id' => 22
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 43,
+            'src' => ' * MC텟ᵀ::Bࡎᶓ::ᕘ = \\ & ǎᔆɗＦ::앗ｄƑ ;',
+            'start_line' => 43,
+            'indent' => 1,
+            'block_id' => 22
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 43,
+            'src' => ' is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 9 ) ;',
+            'start_line' => 43,
+            'indent' => 1,
+            'block_id' => 22
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 44,
+            'src' => ' * Xƴƶ = sub { $_ [ 1 ] + 10 } ;',
+            'start_line' => 44,
+            'indent' => 1,
+            'block_id' => 23
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 44,
+            'src' => ' ${ MC텟ᵀ::Bࡎᶓ:: } { ᕘ } = \\ & Xƴƶ ;',
+            'start_line' => 44,
+            'indent' => 1,
+            'block_id' => 23
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 44,
+            'src' => ' is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 10 ) ;',
+            'start_line' => 44,
+            'indent' => 1,
+            'block_id' => 23
+          },
+          {
+            'token_num' => 17,
+            'has_warnings' => 1,
+            'end_line' => 45,
+            'src' => ' ${ MC텟ᵀ::Bࡎᶓ:: } { ᕘ } = sub { $_ [ 1 ] + 11 } ;',
+            'start_line' => 45,
+            'indent' => 1,
+            'block_id' => 25
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 45,
+            'src' => ' is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 11 ) ;',
+            'start_line' => 45,
+            'indent' => 1,
+            'block_id' => 25
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 47,
+            'src' => ' undef * MC텟ᵀ::Bࡎᶓ::ᕘ ;',
+            'start_line' => 47,
+            'indent' => 1,
+            'block_id' => 27
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 47,
+            'src' => ' eval { MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) } ;',
+            'start_line' => 47,
+            'indent' => 1,
+            'block_id' => 27
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 47,
+            'src' => ' like ( $@ , qr/locate object method/ ) ;',
+            'start_line' => 47,
+            'indent' => 1,
+            'block_id' => 27
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 48,
+            'src' => ' eval \'package MC텟ᵀ::Bࡎᶓ; sub ᕘ { $_[1]+12 }\' ;',
+            'start_line' => 48,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 48,
+            'src' => ' is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 12 ) ;',
+            'start_line' => 48,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 49,
+            'src' => ' eval \'package ᛎᛎᛎ; sub ᕘ { $_[1]+13 }\' ;',
+            'start_line' => 49,
+            'indent' => 1,
+            'block_id' => 29
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 49,
+            'src' => ' * MC텟ᵀ::Bࡎᶓ::ᕘ = \\ & ᛎᛎᛎ::ᕘ ;',
+            'start_line' => 49,
+            'indent' => 1,
+            'block_id' => 29
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 49,
+            'src' => ' is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 13 ) ;',
+            'start_line' => 49,
+            'indent' => 1,
+            'block_id' => 29
+          },
+          {
+            'token_num' => 17,
+            'has_warnings' => 1,
+            'end_line' => 50,
+            'src' => ' ${ MC텟ᵀ::Bࡎᶓ:: } { ᕘ } = sub { $_ [ 1 ] + 14 } ;',
+            'start_line' => 50,
+            'indent' => 1,
+            'block_id' => 30
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 50,
+            'src' => ' is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 14 ) ;',
+            'start_line' => 50,
+            'indent' => 1,
+            'block_id' => 30
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 52,
+            'src' => ' undef * { MC텟ᵀ::Bࡎᶓ:: } ;',
+            'start_line' => 52,
+            'indent' => 1,
+            'block_id' => 32
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 52,
+            'src' => ' eval { MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) } ;',
+            'start_line' => 52,
+            'indent' => 1,
+            'block_id' => 32
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 52,
+            'src' => ' like ( $@ , qr/locate object method/ ) ;',
+            'start_line' => 52,
+            'indent' => 1,
+            'block_id' => 32
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 53,
+            'src' => ' eval \'package MC텟ᵀ::Bࡎᶓ; sub ᕘ { $_[1]+15 }\' ;',
+            'start_line' => 53,
+            'indent' => 1,
+            'block_id' => 33
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 53,
+            'src' => ' is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 15 ) ;',
+            'start_line' => 53,
+            'indent' => 1,
+            'block_id' => 33
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 54,
+            'src' => ' undef %{ MC텟ᵀ::Bࡎᶓ:: } ;',
+            'start_line' => 54,
+            'indent' => 1,
+            'block_id' => 34
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 54,
+            'src' => ' eval { MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) } ;',
+            'start_line' => 54,
+            'indent' => 1,
+            'block_id' => 34
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 54,
+            'src' => ' like ( $@ , qr/locate object method/ ) ;',
+            'start_line' => 54,
+            'indent' => 1,
+            'block_id' => 34
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 55,
+            'src' => ' eval \'package MC텟ᵀ::Bࡎᶓ; sub ᕘ { $_[1]+16 }\' ;',
+            'start_line' => 55,
+            'indent' => 1,
+            'block_id' => 35
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 55,
+            'src' => ' is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 16 ) ;',
+            'start_line' => 55,
+            'indent' => 1,
+            'block_id' => 35
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 56,
+            'src' => ' %{ MC텟ᵀ::Bࡎᶓ:: } = ( ) ;',
+            'start_line' => 56,
+            'indent' => 1,
+            'block_id' => 36
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 56,
+            'src' => ' eval { MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) } ;',
+            'start_line' => 56,
+            'indent' => 1,
+            'block_id' => 36
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 56,
+            'src' => ' like ( $@ , qr/locate object method/ ) ;',
+            'start_line' => 56,
+            'indent' => 1,
+            'block_id' => 36
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 57,
+            'src' => ' eval \'package MC텟ᵀ::Bࡎᶓ; sub ᕘ { $_[1]+17 }\' ;',
+            'start_line' => 57,
+            'indent' => 1,
+            'block_id' => 37
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 57,
+            'src' => ' is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 17 ) ;',
+            'start_line' => 57,
+            'indent' => 1,
+            'block_id' => 37
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 60,
+            'src' => ' * { MC텟ᵀ::Bࡎᶓ:: } = * { Ƒｏｏ:: } ;',
+            'start_line' => 60,
+            'indent' => 1,
+            'block_id' => 38
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 60,
+            'src' => ' eval { MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) } ;',
+            'start_line' => 60,
+            'indent' => 1,
+            'block_id' => 38
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 60,
+            'src' => ' like ( $@ , qr/locate object method/ ) ;',
+            'start_line' => 60,
+            'indent' => 1,
+            'block_id' => 38
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 61,
+            'src' => ' * MC텟ᵀ::ድ리ᭉᛞ::ᕘ = \\ & MC텟ᵀ::Bࡎᶓ::ᕘ ;',
+            'start_line' => 61,
+            'indent' => 1,
+            'block_id' => 39
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 61,
+            'src' => ' eval { MC텟ᵀ::ድ리ᭉᛞ::ᕘ ( 0 , 0 ) } ;',
+            'start_line' => 61,
+            'indent' => 1,
+            'block_id' => 39
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 61,
+            'src' => ' ok ( ! $@ ) ;',
+            'start_line' => 61,
+            'indent' => 1,
+            'block_id' => 39
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 62,
+            'src' => ' eval \'package MC텟ᵀ::Bࡎᶓ; sub ᕘ { $_[1]+18 }\' ;',
+            'start_line' => 62,
+            'indent' => 1,
+            'block_id' => 40
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 62,
+            'src' => ' is ( MC텟ᵀ::ድ리ᭉᛞ-> ᕘ ( 0 ) , 18 ) ;',
+            'start_line' => 62,
+            'indent' => 1,
+            'block_id' => 40
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 65,
+            'src' => ' plan ( tests => scalar ( @testsubs ) ) ;',
+            'start_line' => 65,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 0,
+            'end_line' => 67,
+            'src' => ' $_-> ( ) for ( @testsubs ) ;',
+            'start_line' => 67,
+            'indent' => 0,
+            'block_id' => 0
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

@@ -423,21 +423,21 @@ subtest 'tokenize' => sub {
                    'line' => 16
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 16
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Call',
+                   'name' => 'Key',
                    'data' => 'removed',
-                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 16
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -963,21 +963,21 @@ subtest 'tokenize' => sub {
                    'line' => 24
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 24
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Call',
+                   'name' => 'Key',
                    'data' => 'replaced',
-                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 24
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1179,21 +1179,21 @@ subtest 'tokenize' => sub {
                    'line' => 31
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 31
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Call',
+                   'name' => 'Key',
                    'data' => 'removed2',
-                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 31
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1791,21 +1791,21 @@ subtest 'tokenize' => sub {
                    'line' => 41
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 41
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Call',
+                   'name' => 'Key',
                    'data' => 'replaced2',
-                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 41
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1940,6 +1940,159 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 15,
             'src' => ' sub bound { removed ( ) }',
             'start_line' => 15,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 16,
+            'src' => ' delete $main:: { removed } ;',
+            'start_line' => 16,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 17,
+            'src' => ' is ( bound ( ) , 23 , \'function still bound\' ) ;',
+            'start_line' => 17,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 18,
+            'src' => ' ok ( ! main-> can ( \'removed\' ) , \'function not available as method\' ) ;',
+            'start_line' => 18,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 21,
+            'src' => ' sub replaced { \'func\' }',
+            'start_line' => 21,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 22,
+            'src' => ' is ( replaced ( ) , \'func\' , \'original function still bound\' ) ;',
+            'start_line' => 22,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 23,
+            'src' => ' is ( main-> replaced , \'meth\' , \'method is replaced function\' ) ;',
+            'start_line' => 23,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 25,
+            'src' => ' sub replaced { \'meth\' }',
+            'start_line' => 25,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 29,
+            'src' => ' sub removed2 { 24 }',
+            'start_line' => 29,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 30,
+            'src' => ' sub bound2 { removed2 ( ) }',
+            'start_line' => 30,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 31,
+            'src' => ' undef $main:: { removed2 } ;',
+            'start_line' => 31,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 32,
+            'src' => ' eval { bound2 ( ) } ;',
+            'start_line' => 32,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 34,
+            'src' => ' like ( $@ , qr/Undefined subroutine &main::removed2 called/ , \'function not bound\' ) ;',
+            'start_line' => 33,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 35,
+            'src' => ' ok ( ! main-> can ( \'removed2\' ) , \'function not available as method\' ) ;',
+            'start_line' => 35,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 38,
+            'src' => ' sub replaced2 { \'func\' }',
+            'start_line' => 38,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 39,
+            'src' => ' is ( replaced2 ( ) , \'meth\' , \'original function not bound, was replaced\' ) ;',
+            'start_line' => 39,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 40,
+            'src' => ' ok ( main-> replaced2 eq \'meth\' , \'method is replaced function\' ) ;',
+            'start_line' => 40,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 42,
+            'src' => ' sub replaced2 { \'meth\' }',
+            'start_line' => 42,
             'indent' => 0,
             'block_id' => 0
           }

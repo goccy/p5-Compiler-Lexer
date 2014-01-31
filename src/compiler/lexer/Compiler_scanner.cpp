@@ -199,7 +199,7 @@ bool Scanner::isPrototype(LexContext *ctx)
 	char symbol = ctx->smgr->currentChar();
 	if (symbol != '(') return false;
 	if (prev_data == "sub") return true;
-	if (before_prev_data == "sub") return true;
+	if (prev_data != "{" && before_prev_data == "sub") return true;
 	return false;
 }
 

@@ -9,7 +9,7 @@ use Cwd qw/getcwd/;
 
 use constant CURRENT_DIR => getcwd;
 use constant YAML_PATH => CURRENT_DIR . '/gen/gen_constants.yaml';
-use constant PERL_DIR => '/path/to/perl-5.16.3';
+use constant PERL_DIR => '/path/to/perl-5.16.0';
 
 my $template = template();
 

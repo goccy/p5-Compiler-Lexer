@@ -4569,12 +4569,12 @@ subtest 'tokenize' => sub {
                    'line' => 100
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 100
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4650,12 +4650,12 @@ subtest 'tokenize' => sub {
                    'line' => 101
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 101
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -26044,17 +26044,17 @@ subtest 'tokenize' => sub {
                    'line' => 532
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 532
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Key',
                    'data' => 'HASH',
@@ -27548,21 +27548,21 @@ subtest 'tokenize' => sub {
                    'line' => 577
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 577
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Call',
+                   'name' => 'Key',
                    'data' => 's1',
-                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 577
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -27683,21 +27683,21 @@ subtest 'tokenize' => sub {
                    'line' => 578
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 578
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Call',
+                   'name' => 'Key',
                    'data' => 's2',
-                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 578
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -27809,21 +27809,21 @@ subtest 'tokenize' => sub {
                    'line' => 579
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 579
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Call',
+                   'name' => 'Key',
                    'data' => 's3',
-                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 579
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -27935,21 +27935,21 @@ subtest 'tokenize' => sub {
                    'line' => 580
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 580
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Call',
+                   'name' => 'Key',
                    'data' => 's4',
-                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 580
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -29901,12 +29901,12 @@ print FÒÒ, "\\n";
                    'line' => 636
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Function,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
+                   'name' => 'BuiltinFunc',
                    'data' => 'shift',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
                    'line' => 636
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -38110,6 +38110,4202 @@ subtest 'get_groups_by_syntax_level' => sub {
             'start_line' => 99,
             'indent' => 1,
             'block_id' => 9
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 100,
+            'src' => ' ok ( exists $ฝ오:: { \'ʉ::\' } ) ;',
+            'start_line' => 100,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 101,
+            'src' => ' is ( $ฝ오:: { \'ʉ::\' } , \'*ฝ오::ʉ::\' ) ;',
+            'start_line' => 101,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 105,
+            'src' => ' $ᕘ = \'stuff\' ;',
+            'start_line' => 105,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 106,
+            'src' => ' @ᕘ = qw(more stuff) ;',
+            'start_line' => 106,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 107,
+            'src' => ' %ᕘ = qw(even more random stuff) ;',
+            'start_line' => 107,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 108,
+            'src' => ' undef * ᕘ ;',
+            'start_line' => 108,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 109,
+            'src' => ' is ( $ᕘ , undef ) ;',
+            'start_line' => 109,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 110,
+            'src' => ' is ( scalar @ᕘ , 0 ) ;',
+            'start_line' => 110,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 111,
+            'src' => ' is ( scalar %ᕘ , 0 ) ;',
+            'start_line' => 111,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 198,
+            'has_warnings' => 1,
+            'end_line' => 150,
+            'src' => ' { my $msg = \'\' ; local $SIG { __WARN__ } = sub { $msg = $_ [ 0 ] } ; use warnings ; * ᕘ = \'ᴮᛅ\' ; is ( $msg , \'\' ) ; * ᕘ = undef ; like ( $msg , qr/Undefined value assigned to typeglob/ ) ; no warnings \'once\' ; my $copy = * PWÒMPF ; foreach ( $copy , * SKRÈÈÈ ) { $msg = \'\' ; my $victim = sprintf "%d" , $_ ; like ( $msg , qr/Argument "\\*main::(\\p{ASCII}|\\Q\\x{\\E\\p{ASCII_Hex_Digit}{2}\\}){3}\\Q...\\E" isn\'t numeric in sprintf/ , "Warning on conversion to IV" ) ; is ( $victim , 0 ) ; $msg = \'\' ; $victim = sprintf "%u" , $_ ; like ( $msg , qr/Argument "\\*main::(\\p{ASCII}|\\Q\\x{\\E\\p{ASCII_Hex_Digit}{2}\\}){3}\\Q...\\E" isn\'t numeric in sprintf/ , "Warning on conversion to UV" ) ; is ( $victim , 0 ) ; $msg = \'\' ; $victim = sprintf "%e" , $_ ; like ( $msg , qr/Argument "\\*main::(\\p{ASCII}|\\Q\\x{\\E\\p{ASCII_Hex_Digit}{2}\\}){3}\\Q...\\E" isn\'t numeric in sprintf/ , "Warning on conversion to NV" ) ; like ( $victim , qr/^0\\.0+E\\+?00/i , "Expect floating point zero" ) ; $msg = \'\' ; $victim = sprintf "%s" , $_ ; is ( $msg , \'\' , "No warning on stringification" ) ; is ( $victim , \'\' . $_ ) ; } }',
+            'start_line' => 113,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 115,
+            'src' => ' my $msg = \'\' ;',
+            'start_line' => 115,
+            'indent' => 1,
+            'block_id' => 12
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 116,
+            'src' => ' local $SIG { __WARN__ } = sub { $msg = $_ [ 0 ] } ;',
+            'start_line' => 116,
+            'indent' => 1,
+            'block_id' => 12
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 117,
+            'src' => ' use warnings ;',
+            'start_line' => 117,
+            'indent' => 1,
+            'block_id' => 12
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 118,
+            'src' => ' * ᕘ = \'ᴮᛅ\' ;',
+            'start_line' => 118,
+            'indent' => 1,
+            'block_id' => 12
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 119,
+            'src' => ' is ( $msg , \'\' ) ;',
+            'start_line' => 119,
+            'indent' => 1,
+            'block_id' => 12
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 120,
+            'src' => ' * ᕘ = undef ;',
+            'start_line' => 120,
+            'indent' => 1,
+            'block_id' => 12
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 121,
+            'src' => ' like ( $msg , qr/Undefined value assigned to typeglob/ ) ;',
+            'start_line' => 121,
+            'indent' => 1,
+            'block_id' => 12
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 123,
+            'src' => ' no warnings \'once\' ;',
+            'start_line' => 123,
+            'indent' => 1,
+            'block_id' => 12
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 125,
+            'src' => ' my $copy = * PWÒMPF ;',
+            'start_line' => 125,
+            'indent' => 1,
+            'block_id' => 12
+          },
+          {
+            'token_num' => 135,
+            'has_warnings' => 1,
+            'end_line' => 149,
+            'src' => ' foreach ( $copy , * SKRÈÈÈ ) { $msg = \'\' ; my $victim = sprintf "%d" , $_ ; like ( $msg , qr/Argument "\\*main::(\\p{ASCII}|\\Q\\x{\\E\\p{ASCII_Hex_Digit}{2}\\}){3}\\Q...\\E" isn\'t numeric in sprintf/ , "Warning on conversion to IV" ) ; is ( $victim , 0 ) ; $msg = \'\' ; $victim = sprintf "%u" , $_ ; like ( $msg , qr/Argument "\\*main::(\\p{ASCII}|\\Q\\x{\\E\\p{ASCII_Hex_Digit}{2}\\}){3}\\Q...\\E" isn\'t numeric in sprintf/ , "Warning on conversion to UV" ) ; is ( $victim , 0 ) ; $msg = \'\' ; $victim = sprintf "%e" , $_ ; like ( $msg , qr/Argument "\\*main::(\\p{ASCII}|\\Q\\x{\\E\\p{ASCII_Hex_Digit}{2}\\}){3}\\Q...\\E" isn\'t numeric in sprintf/ , "Warning on conversion to NV" ) ; like ( $victim , qr/^0\\.0+E\\+?00/i , "Expect floating point zero" ) ; $msg = \'\' ; $victim = sprintf "%s" , $_ ; is ( $msg , \'\' , "No warning on stringification" ) ; is ( $victim , \'\' . $_ ) ; }',
+            'start_line' => 126,
+            'indent' => 1,
+            'block_id' => 12
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 127,
+            'src' => ' $msg = \'\' ;',
+            'start_line' => 127,
+            'indent' => 2,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 0,
+            'end_line' => 128,
+            'src' => ' my $victim = sprintf "%d" , $_ ;',
+            'start_line' => 128,
+            'indent' => 2,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 130,
+            'src' => ' like ( $msg , qr/Argument "\\*main::(\\p{ASCII}|\\Q\\x{\\E\\p{ASCII_Hex_Digit}{2}\\}){3}\\Q...\\E" isn\'t numeric in sprintf/ , "Warning on conversion to IV" ) ;',
+            'start_line' => 129,
+            'indent' => 2,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 131,
+            'src' => ' is ( $victim , 0 ) ;',
+            'start_line' => 131,
+            'indent' => 2,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 133,
+            'src' => ' $msg = \'\' ;',
+            'start_line' => 133,
+            'indent' => 2,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 134,
+            'src' => ' $victim = sprintf "%u" , $_ ;',
+            'start_line' => 134,
+            'indent' => 2,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 136,
+            'src' => ' like ( $msg , qr/Argument "\\*main::(\\p{ASCII}|\\Q\\x{\\E\\p{ASCII_Hex_Digit}{2}\\}){3}\\Q...\\E" isn\'t numeric in sprintf/ , "Warning on conversion to UV" ) ;',
+            'start_line' => 135,
+            'indent' => 2,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 137,
+            'src' => ' is ( $victim , 0 ) ;',
+            'start_line' => 137,
+            'indent' => 2,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 139,
+            'src' => ' $msg = \'\' ;',
+            'start_line' => 139,
+            'indent' => 2,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 140,
+            'src' => ' $victim = sprintf "%e" , $_ ;',
+            'start_line' => 140,
+            'indent' => 2,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 142,
+            'src' => ' like ( $msg , qr/Argument "\\*main::(\\p{ASCII}|\\Q\\x{\\E\\p{ASCII_Hex_Digit}{2}\\}){3}\\Q...\\E" isn\'t numeric in sprintf/ , "Warning on conversion to NV" ) ;',
+            'start_line' => 141,
+            'indent' => 2,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 143,
+            'src' => ' like ( $victim , qr/^0\\.0+E\\+?00/i , "Expect floating point zero" ) ;',
+            'start_line' => 143,
+            'indent' => 2,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 145,
+            'src' => ' $msg = \'\' ;',
+            'start_line' => 145,
+            'indent' => 2,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 146,
+            'src' => ' $victim = sprintf "%s" , $_ ;',
+            'start_line' => 146,
+            'indent' => 2,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 147,
+            'src' => ' is ( $msg , \'\' , "No warning on stringification" ) ;',
+            'start_line' => 147,
+            'indent' => 2,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 148,
+            'src' => ' is ( $victim , \'\' . $_ ) ;',
+            'start_line' => 148,
+            'indent' => 2,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 152,
+            'src' => ' my $test = curr_test ( ) ;',
+            'start_line' => 152,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 154,
+            'src' => ' $Ẋ = "ok $test\\n" ;',
+            'start_line' => 154,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 155,
+            'src' => ' ++ $test ;',
+            'start_line' => 155,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 156,
+            'src' => ' @Ẋ = ( "ok $test\\n" ) ;',
+            'start_line' => 156,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 157,
+            'src' => ' ++ $test ;',
+            'start_line' => 157,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 158,
+            'src' => ' %Ẋ = ( "ok $test" => "\\n" ) ;',
+            'start_line' => 158,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 159,
+            'src' => ' ++ $test ;',
+            'start_line' => 159,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 160,
+            'src' => ' sub Ẋ { "ok $test\\n" }',
+            'start_line' => 160,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 34,
+            'has_warnings' => 0,
+            'end_line' => 161,
+            'src' => ' print ${ * Ẋ { SCALAR } } , @{ * Ẋ { ARRAY } } , %{ * Ẋ { HASH } } , & { * Ẋ { CODE } } ;',
+            'start_line' => 161,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 164,
+            'src' => ' ++ $test ;',
+            'start_line' => 164,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 167,
+            'src' => ' format Ẋ = XXX This text isn\'t used. Should it be?
+ . curr_test ( $test ) ;',
+            'start_line' => 165,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 169,
+            'src' => ' is ( ref * Ẋ { FORMAT } , "FORMAT" ) ;',
+            'start_line' => 169,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 170,
+            'src' => ' * Ẋ = * STDOUT ;',
+            'start_line' => 170,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 171,
+            'src' => ' is ( * { * Ẋ { GLOB } } , "*main::STDOUT" ) ;',
+            'start_line' => 171,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 77,
+            'has_warnings' => 1,
+            'end_line' => 187,
+            'src' => ' { my $test = curr_test ( ) ; print { * Ẋ { IO } } "ok $test\\n" ; ++ $test ; my $warn ; local $SIG { __WARN__ } = sub { $warn .= $_ [ 0 ] ; } ; my $val = * Ẋ { FILEHANDLE } ; print { * Ẋ { IO } } ( $warn =~/is deprecated/ ? "ok $test\\n" : "not ok $test\\n" ) ; curr_test ( ++ $test ) ; }',
+            'start_line' => 173,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 174,
+            'src' => ' my $test = curr_test ( ) ;',
+            'start_line' => 174,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 0,
+            'end_line' => 176,
+            'src' => ' print { * Ẋ { IO } } "ok $test\\n" ;',
+            'start_line' => 176,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 177,
+            'src' => ' ++ $test ;',
+            'start_line' => 177,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 179,
+            'src' => ' my $warn ;',
+            'start_line' => 179,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 17,
+            'has_warnings' => 1,
+            'end_line' => 182,
+            'src' => ' local $SIG { __WARN__ } = sub { $warn .= $_ [ 0 ] ; } ;',
+            'start_line' => 180,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 181,
+            'src' => ' $warn .= $_ [ 0 ] ;',
+            'start_line' => 181,
+            'indent' => 2,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 0,
+            'end_line' => 183,
+            'src' => ' my $val = * Ẋ { FILEHANDLE } ;',
+            'start_line' => 183,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 20,
+            'has_warnings' => 1,
+            'end_line' => 185,
+            'src' => ' print { * Ẋ { IO } } ( $warn =~/is deprecated/ ? "ok $test\\n" : "not ok $test\\n" ) ;',
+            'start_line' => 184,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 186,
+            'src' => ' curr_test ( ++ $test ) ;',
+            'start_line' => 186,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 153,
+            'has_warnings' => 1,
+            'end_line' => 220,
+            'src' => ' { my $a = "Sʎｍ000" ; ok ( ! defined * { $a } ) ; { no warnings \'deprecated\' ; ok ( ! defined @{ $a } ) ; } ok ( ! defined * { $a } ) ; { no warnings \'deprecated\' ; ok ( ! defined %{ $a } ) ; } ok ( ! defined * { $a } ) ; ok ( ! defined ${ $a } ) ; ok ( ! defined * { $a } ) ; ok ( ! defined & { $a } ) ; ok ( ! defined * { $a } ) ; my $state = "not" ; * { $a } = sub { $state = "ok" } ; ok ( defined & { $a } ) ; ok ( defined * { $a } ) ; & { $a } ; is ( $state , \'ok\' ) ; }',
+            'start_line' => 190,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 193,
+            'src' => ' my $a = "Sʎｍ000" ;',
+            'start_line' => 193,
+            'indent' => 1,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 194,
+            'src' => ' ok ( ! defined * { $a } ) ;',
+            'start_line' => 194,
+            'indent' => 1,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 199,
+            'src' => ' { no warnings \'deprecated\' ; ok ( ! defined @{ $a } ) ; }',
+            'start_line' => 196,
+            'indent' => 1,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 197,
+            'src' => ' no warnings \'deprecated\' ;',
+            'start_line' => 197,
+            'indent' => 2,
+            'block_id' => 20
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 198,
+            'src' => ' ok ( ! defined @{ $a } ) ;',
+            'start_line' => 198,
+            'indent' => 2,
+            'block_id' => 20
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 200,
+            'src' => ' ok ( ! defined * { $a } ) ;',
+            'start_line' => 200,
+            'indent' => 1,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 205,
+            'src' => ' { no warnings \'deprecated\' ; ok ( ! defined %{ $a } ) ; }',
+            'start_line' => 202,
+            'indent' => 1,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 203,
+            'src' => ' no warnings \'deprecated\' ;',
+            'start_line' => 203,
+            'indent' => 2,
+            'block_id' => 21
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 204,
+            'src' => ' ok ( ! defined %{ $a } ) ;',
+            'start_line' => 204,
+            'indent' => 2,
+            'block_id' => 21
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 206,
+            'src' => ' ok ( ! defined * { $a } ) ;',
+            'start_line' => 206,
+            'indent' => 1,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 208,
+            'src' => ' ok ( ! defined ${ $a } ) ;',
+            'start_line' => 208,
+            'indent' => 1,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 209,
+            'src' => ' ok ( ! defined * { $a } ) ;',
+            'start_line' => 209,
+            'indent' => 1,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 211,
+            'src' => ' ok ( ! defined & { $a } ) ;',
+            'start_line' => 211,
+            'indent' => 1,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 212,
+            'src' => ' ok ( ! defined * { $a } ) ;',
+            'start_line' => 212,
+            'indent' => 1,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 214,
+            'src' => ' my $state = "not" ;',
+            'start_line' => 214,
+            'indent' => 1,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 215,
+            'src' => ' * { $a } = sub { $state = "ok" } ;',
+            'start_line' => 215,
+            'indent' => 1,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 216,
+            'src' => ' ok ( defined & { $a } ) ;',
+            'start_line' => 216,
+            'indent' => 1,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 217,
+            'src' => ' ok ( defined * { $a } ) ;',
+            'start_line' => 217,
+            'indent' => 1,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 218,
+            'src' => ' & { $a } ;',
+            'start_line' => 218,
+            'indent' => 1,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 219,
+            'src' => ' is ( $state , \'ok\' ) ;',
+            'start_line' => 219,
+            'indent' => 1,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 224,
+            'src' => ' $Ｊ = 1 ;',
+            'start_line' => 224,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 224,
+            'src' => ' %Ｊ = ( a => 1 ) ;',
+            'start_line' => 224,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 224,
+            'src' => ' @Ｊ = ( 1 ) ;',
+            'start_line' => 224,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 224,
+            'src' => ' local * Ｊ = * Ｊ ;',
+            'start_line' => 224,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 224,
+            'src' => ' * Ｊ = sub { } ;',
+            'start_line' => 224,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 226,
+            'src' => ' is ( $Ｊ , 1 ) ;',
+            'start_line' => 226,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 227,
+            'src' => ' is ( $Ｊ { a } , 1 ) ;',
+            'start_line' => 227,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 228,
+            'src' => ' is ( $Ｊ [ 0 ] , 1 ) ;',
+            'start_line' => 228,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 21,
+            'has_warnings' => 1,
+            'end_line' => 235,
+            'src' => ' { my $g = * ᕘ ; $g = < DATA > ; is ( $g , "Perl\\n" ) ; }',
+            'start_line' => 230,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 232,
+            'src' => ' my $g = * ᕘ ;',
+            'start_line' => 232,
+            'indent' => 1,
+            'block_id' => 27
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 233,
+            'src' => ' $g = < DATA > ;',
+            'start_line' => 233,
+            'indent' => 1,
+            'block_id' => 27
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 234,
+            'src' => ' is ( $g , "Perl\\n" ) ;',
+            'start_line' => 234,
+            'indent' => 1,
+            'block_id' => 27
+          },
+          {
+            'token_num' => 91,
+            'has_warnings' => 1,
+            'end_line' => 250,
+            'src' => ' { my $w = \'\' ; local $SIG { __WARN__ } = sub { $w = $_ [ 0 ] } ; sub aʙȼ1 (  ) ; local * aʙȼ1 = sub { } ; is ( $w , \'\' ) ; sub aʙȼ2 (  ) ; local * aʙȼ2 ; * aʙȼ2 = sub { } ; is ( $w , \'\' ) ; sub aʙȼ3 (  ) ; * aʙȼ3 = sub { } ; like ( $w , qr/Prototype mismatch/ ) ; }',
+            'start_line' => 237,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 238,
+            'src' => ' my $w = \'\' ;',
+            'start_line' => 238,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 239,
+            'src' => ' local $SIG { __WARN__ } = sub { $w = $_ [ 0 ] } ;',
+            'start_line' => 239,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 240,
+            'src' => ' sub aʙȼ1 (  ) ;',
+            'start_line' => 240,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 0,
+            'end_line' => 241,
+            'src' => ' local * aʙȼ1 = sub { } ;',
+            'start_line' => 241,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 242,
+            'src' => ' is ( $w , \'\' ) ;',
+            'start_line' => 242,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 243,
+            'src' => ' sub aʙȼ2 (  ) ;',
+            'start_line' => 243,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 244,
+            'src' => ' local * aʙȼ2 ;',
+            'start_line' => 244,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 245,
+            'src' => ' * aʙȼ2 = sub { } ;',
+            'start_line' => 245,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 246,
+            'src' => ' is ( $w , \'\' ) ;',
+            'start_line' => 246,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 247,
+            'src' => ' sub aʙȼ3 (  ) ;',
+            'start_line' => 247,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 248,
+            'src' => ' * aʙȼ3 = sub { } ;',
+            'start_line' => 248,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 249,
+            'src' => ' like ( $w , qr/Prototype mismatch/ ) ;',
+            'start_line' => 249,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 24,
+            'has_warnings' => 1,
+            'end_line' => 259,
+            'src' => ' { my $x = "not " ; $x = undef ; $x .= < DATA > ; is ( $x , "Rules\\n" ) ; }',
+            'start_line' => 252,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 255,
+            'src' => ' my $x = "not " ;',
+            'start_line' => 255,
+            'indent' => 1,
+            'block_id' => 33
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 256,
+            'src' => ' $x = undef ;',
+            'start_line' => 256,
+            'indent' => 1,
+            'block_id' => 33
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 257,
+            'src' => ' $x .= < DATA > ;',
+            'start_line' => 257,
+            'indent' => 1,
+            'block_id' => 33
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 258,
+            'src' => ' is ( $x , "Rules\\n" ) ;',
+            'start_line' => 258,
+            'indent' => 1,
+            'block_id' => 33
+          },
+          {
+            'token_num' => 108,
+            'has_warnings' => 1,
+            'end_line' => 273,
+            'src' => ' { my $e = \'\' ; local $SIG { __DIE__ } = sub { $e = $_ [ 0 ] } ; my %Ｖ ; sub ƒ { $_ [ 0 ] = 0 ; $_ [ 0 ] = "a" ; $_ [ 0 ] = * DATA } ƒ ( $Ｖ { Ｖ } ) ; is ( $Ｖ { Ｖ } , \'*main::DATA\' ) ; is ( ref \\ $Ｖ { Ｖ } , \'GLOB\' , \'lvalue assignment preserves globs\' ) ; my $x = readline $Ｖ { Ｖ } ; is ( $x , "perl\\n" ) ; is ( $e , \'\' , \'__DIE__ handler never called\' ) ; }',
+            'start_line' => 261,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 263,
+            'src' => ' my $e = \'\' ;',
+            'start_line' => 263,
+            'indent' => 1,
+            'block_id' => 34
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 264,
+            'src' => ' local $SIG { __DIE__ } = sub { $e = $_ [ 0 ] } ;',
+            'start_line' => 264,
+            'indent' => 1,
+            'block_id' => 34
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 265,
+            'src' => ' my %Ｖ ;',
+            'start_line' => 265,
+            'indent' => 1,
+            'block_id' => 34
+          },
+          {
+            'token_num' => 25,
+            'has_warnings' => 1,
+            'end_line' => 266,
+            'src' => ' sub ƒ { $_ [ 0 ] = 0 ; $_ [ 0 ] = "a" ; $_ [ 0 ] = * DATA }',
+            'start_line' => 266,
+            'indent' => 1,
+            'block_id' => 34
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 266,
+            'src' => ' $_ [ 0 ] = 0 ;',
+            'start_line' => 266,
+            'indent' => 2,
+            'block_id' => 36
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 266,
+            'src' => ' $_ [ 0 ] = "a" ;',
+            'start_line' => 266,
+            'indent' => 2,
+            'block_id' => 36
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 267,
+            'src' => ' ƒ ( $Ｖ { Ｖ } ) ;',
+            'start_line' => 267,
+            'indent' => 1,
+            'block_id' => 34
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 268,
+            'src' => ' is ( $Ｖ { Ｖ } , \'*main::DATA\' ) ;',
+            'start_line' => 268,
+            'indent' => 1,
+            'block_id' => 34
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 269,
+            'src' => ' is ( ref \\ $Ｖ { Ｖ } , \'GLOB\' , \'lvalue assignment preserves globs\' ) ;',
+            'start_line' => 269,
+            'indent' => 1,
+            'block_id' => 34
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 270,
+            'src' => ' my $x = readline $Ｖ { Ｖ } ;',
+            'start_line' => 270,
+            'indent' => 1,
+            'block_id' => 34
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 271,
+            'src' => ' is ( $x , "perl\\n" ) ;',
+            'start_line' => 271,
+            'indent' => 1,
+            'block_id' => 34
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 272,
+            'src' => ' is ( $e , \'\' , \'__DIE__ handler never called\' ) ;',
+            'start_line' => 272,
+            'indent' => 1,
+            'block_id' => 34
+          },
+          {
+            'token_num' => 153,
+            'has_warnings' => 1,
+            'end_line' => 295,
+            'src' => ' { my $e = \'\' ; local $SIG { __DIE__ } = sub { $e = $_ [ 0 ] } ; sub Ʈ::TIEARRAY { bless [ ] => "Ʈ" } sub Ʈ::STORE { $_ [ 0 ]-> [ $_ [ 1 ] ] = $_ [ 2 ] } sub Ʈ::FETCH { $_ [ 0 ]-> [ $_ [ 1 ] ] } sub Ʈ::FETCHSIZE { @{ $_ [ 0 ] } } tie my @ary => "Ʈ" ; $ary [ 0 ] = * DATA ; is ( $ary [ 0 ] , \'*main::DATA\' ) ; is ( ref \\ tied ( @ary )-> [ 0 ] , \'GLOB\' , \'tied elem assignment preserves globs\' ) ; is ( $e , \'\' , \'__DIE__ handler not called\' ) ; my $x = readline $ary [ 0 ] ; is ( $x , "rocks\\n" ) ; is ( $e , \'\' , \'__DIE__ handler never called\' ) ; }',
+            'start_line' => 275,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 277,
+            'src' => ' my $e = \'\' ;',
+            'start_line' => 277,
+            'indent' => 1,
+            'block_id' => 37
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 279,
+            'src' => ' local $SIG { __DIE__ } = sub { $e = $_ [ 0 ] } ;',
+            'start_line' => 279,
+            'indent' => 1,
+            'block_id' => 37
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 284,
+            'src' => ' tie my @ary => "Ʈ" ;',
+            'start_line' => 284,
+            'indent' => 1,
+            'block_id' => 37
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 285,
+            'src' => ' $ary [ 0 ] = * DATA ;',
+            'start_line' => 285,
+            'indent' => 1,
+            'block_id' => 37
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 286,
+            'src' => ' is ( $ary [ 0 ] , \'*main::DATA\' ) ;',
+            'start_line' => 286,
+            'indent' => 1,
+            'block_id' => 37
+          },
+          {
+            'token_num' => 18,
+            'has_warnings' => 1,
+            'end_line' => 290,
+            'src' => ' is ( ref \\ tied ( @ary )-> [ 0 ] , \'GLOB\' , \'tied elem assignment preserves globs\' ) ;',
+            'start_line' => 287,
+            'indent' => 1,
+            'block_id' => 37
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 291,
+            'src' => ' is ( $e , \'\' , \'__DIE__ handler not called\' ) ;',
+            'start_line' => 291,
+            'indent' => 1,
+            'block_id' => 37
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 292,
+            'src' => ' my $x = readline $ary [ 0 ] ;',
+            'start_line' => 292,
+            'indent' => 1,
+            'block_id' => 37
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 293,
+            'src' => ' is ( $x , "rocks\\n" ) ;',
+            'start_line' => 293,
+            'indent' => 1,
+            'block_id' => 37
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 294,
+            'src' => ' is ( $e , \'\' , \'__DIE__ handler never called\' ) ;',
+            'start_line' => 294,
+            'indent' => 1,
+            'block_id' => 37
+          },
+          {
+            'token_num' => 69,
+            'has_warnings' => 1,
+            'end_line' => 323,
+            'src' => ' { SKIP : { skip_if_miniperl ( \'no dynamic loading on miniperl, no Encode\' , 2 ) ; my $prog = q{            use utf8;
+            use open qw( :utf8 :std );
+            package ᴹ;
+            $| = 1;
+            sub DESTROY {eval {die qq{Farewell $_[0]}}; print $@}
+            package main;
+    
+            bless \\$Ⱥ::ㄅ, q{ᴹ};
+            *Ⱥ:: = \\*ㄅ::;
+} ; utf8::decode ( $prog ) ; my $output = runperl ( prog => $prog ) ; require Encode ; $output = Encode::decode ( "UTF-8" , $output ) ; like ( $output , qr/^Farewell ᴹ=SCALAR/ , "DESTROY was called" ) ; unlike ( $output , qr/global destruction/ , "unreferenced symbol tables should be cleaned up immediately" ) ; } }',
+            'start_line' => 297,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 299,
+            'src' => ' skip_if_miniperl ( \'no dynamic loading on miniperl, no Encode\' , 2 ) ;',
+            'start_line' => 299,
+            'indent' => 2,
+            'block_id' => 44
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 302,
+            'src' => ' my $prog = q{            use utf8;
+            use open qw( :utf8 :std );
+            package ᴹ;
+            $| = 1;
+            sub DESTROY {eval {die qq{Farewell $_[0]}}; print $@}
+            package main;
+    
+            bless \\$Ⱥ::ㄅ, q{ᴹ};
+            *Ⱥ:: = \\*ㄅ::;
+} ;',
+            'start_line' => 302,
+            'indent' => 2,
+            'block_id' => 44
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 314,
+            'src' => ' utf8::decode ( $prog ) ;',
+            'start_line' => 314,
+            'indent' => 2,
+            'block_id' => 44
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 315,
+            'src' => ' my $output = runperl ( prog => $prog ) ;',
+            'start_line' => 315,
+            'indent' => 2,
+            'block_id' => 44
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 317,
+            'src' => ' require Encode ;',
+            'start_line' => 317,
+            'indent' => 2,
+            'block_id' => 44
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 318,
+            'src' => ' $output = Encode::decode ( "UTF-8" , $output ) ;',
+            'start_line' => 318,
+            'indent' => 2,
+            'block_id' => 44
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 319,
+            'src' => ' like ( $output , qr/^Farewell ᴹ=SCALAR/ , "DESTROY was called" ) ;',
+            'start_line' => 319,
+            'indent' => 2,
+            'block_id' => 44
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 321,
+            'src' => ' unlike ( $output , qr/global destruction/ , "unreferenced symbol tables should be cleaned up immediately" ) ;',
+            'start_line' => 320,
+            'indent' => 2,
+            'block_id' => 44
+          },
+          {
+            'token_num' => 168,
+            'has_warnings' => 1,
+            'end_line' => 355,
+            'src' => ' { foreach ( qw(оઓnḲ ga_ㄕƚo잎) ) { ok ( ! exists $: : { $_ } , "no symbols of any sort to start with for $_" ) ; } $: : { оઓnḲ } = "pìè" ; my $proto = eval \'prototype \\&оઓnḲ\' ; die if $@ ; is ( $proto , "pìè" , "String is promoted to prototype" ) ; foreach my $value ( 3 , "Perl rules" , \\ 42 , qr/whatever/ , [ 1 , 2 , 3 ] , { 1 => 2 } , \\ * STDIN , \\ & ok , \\ undef , * STDOUT ) { delete $: : { оઓnḲ } ; $: : { оઓnḲ } = \\ $value ; $proto = eval \'prototype \\&оઓnḲ\' ; die if $@ ; is ( $proto , \'\' , "Prototype for a constant subroutine is empty" ) ; my $got = eval \'оઓnḲ\' ; die if $@ ; is ( ref $got , ref $value , "Correct type of value (" . ref ( $value ) . ")" ) ; is ( $got , $value , "Value is correctly set" ) ; } }',
+            'start_line' => 325,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 22,
+            'has_warnings' => 1,
+            'end_line' => 332,
+            'src' => ' foreach ( qw(оઓnḲ ga_ㄕƚo잎) ) { ok ( ! exists $: : { $_ } , "no symbols of any sort to start with for $_" ) ; }',
+            'start_line' => 330,
+            'indent' => 1,
+            'block_id' => 45
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 331,
+            'src' => ' ok ( ! exists $: : { $_ } , "no symbols of any sort to start with for $_" ) ;',
+            'start_line' => 331,
+            'indent' => 2,
+            'block_id' => 46
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 335,
+            'src' => ' = "pìè" ;',
+            'start_line' => 335,
+            'indent' => 1,
+            'block_id' => 45
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 336,
+            'src' => ' my $proto = eval \'prototype \\&оઓnḲ\' ;',
+            'start_line' => 336,
+            'indent' => 1,
+            'block_id' => 45
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 337,
+            'src' => ' die if $@ ;',
+            'start_line' => 337,
+            'indent' => 1,
+            'block_id' => 45
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 338,
+            'src' => ' is ( $proto , "pìè" , "String is promoted to prototype" ) ;',
+            'start_line' => 338,
+            'indent' => 1,
+            'block_id' => 45
+          },
+          {
+            'token_num' => 117,
+            'has_warnings' => 1,
+            'end_line' => 354,
+            'src' => ' foreach my $value ( 3 , "Perl rules" , \\ 42 , qr/whatever/ , [ 1 , 2 , 3 ] , { 1 => 2 } , \\ * STDIN , \\ & ok , \\ undef , * STDOUT ) { delete $: : { оઓnḲ } ; $: : { оઓnḲ } = \\ $value ; $proto = eval \'prototype \\&оઓnḲ\' ; die if $@ ; is ( $proto , \'\' , "Prototype for a constant subroutine is empty" ) ; my $got = eval \'оઓnḲ\' ; die if $@ ; is ( ref $got , ref $value , "Correct type of value (" . ref ( $value ) . ")" ) ; is ( $got , $value , "Value is correctly set" ) ; }',
+            'start_line' => 342,
+            'indent' => 1,
+            'block_id' => 45
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 344,
+            'src' => ' delete $: : { оઓnḲ } ;',
+            'start_line' => 344,
+            'indent' => 2,
+            'block_id' => 50
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 345,
+            'src' => ' = \\ $value ;',
+            'start_line' => 345,
+            'indent' => 2,
+            'block_id' => 50
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 346,
+            'src' => ' $proto = eval \'prototype \\&оઓnḲ\' ;',
+            'start_line' => 346,
+            'indent' => 2,
+            'block_id' => 50
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 347,
+            'src' => ' die if $@ ;',
+            'start_line' => 347,
+            'indent' => 2,
+            'block_id' => 50
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 348,
+            'src' => ' is ( $proto , \'\' , "Prototype for a constant subroutine is empty" ) ;',
+            'start_line' => 348,
+            'indent' => 2,
+            'block_id' => 50
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 350,
+            'src' => ' my $got = eval \'оઓnḲ\' ;',
+            'start_line' => 350,
+            'indent' => 2,
+            'block_id' => 50
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 351,
+            'src' => ' die if $@ ;',
+            'start_line' => 351,
+            'indent' => 2,
+            'block_id' => 50
+          },
+          {
+            'token_num' => 18,
+            'has_warnings' => 1,
+            'end_line' => 352,
+            'src' => ' is ( ref $got , ref $value , "Correct type of value (" . ref ( $value ) . ")" ) ;',
+            'start_line' => 352,
+            'indent' => 2,
+            'block_id' => 50
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 353,
+            'src' => ' is ( $got , $value , "Value is correctly set" ) ;',
+            'start_line' => 353,
+            'indent' => 2,
+            'block_id' => 50
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 357,
+            'src' => ' delete $: : { оઓnḲ } ;',
+            'start_line' => 357,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 358,
+            'src' => ' = \\ "Value" ;',
+            'start_line' => 358,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 0,
+            'end_line' => 360,
+            'src' => ' * { "ga_ㄕƚo잎" } = \\ & { "оઓnḲ" } ;',
+            'start_line' => 360,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 362,
+            'src' => ' is ( ref $: : { ga_ㄕƚo잎 } , \'SCALAR\' , "Export of proxy constant as is" ) ;',
+            'start_line' => 362,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 363,
+            'src' => ' is ( ref $: : { оઓnḲ } , \'SCALAR\' , "Export doesn\'t affect original" ) ;',
+            'start_line' => 363,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 364,
+            'src' => ' is ( eval \'ga_ㄕƚo잎\' , "Value" , "Constant has correct value" ) ;',
+            'start_line' => 364,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 366,
+            'src' => ' is ( ref $: : { ga_ㄕƚo잎 } , \'SCALAR\' , "Inlining of constant doesn\'t change representation" ) ;',
+            'start_line' => 365,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 368,
+            'src' => ' delete $: : { ga_ㄕƚo잎 } ;',
+            'start_line' => 368,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 370,
+            'src' => ' eval \'sub ga_ㄕƚo잎 (); 1\' or die $@ ;',
+            'start_line' => 370,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 371,
+            'src' => ' is ( $: : { ga_ㄕƚo잎 } , \'\' , "Prototype is stored as an empty string" ) ;',
+            'start_line' => 371,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 0,
+            'end_line' => 374,
+            'src' => ' * { "ga_ㄕƚo잎" } = \\ & { "оઓnḲ" } ;',
+            'start_line' => 374,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 376,
+            'src' => ' is ( ref $: : { оઓnḲ } , \'SCALAR\' , "Export doesn\'t affect original" ) ;',
+            'start_line' => 376,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 377,
+            'src' => ' is ( eval \'ga_ㄕƚo잎\' , "Value" , "Constant has correct value" ) ;',
+            'start_line' => 377,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 378,
+            'src' => ' is ( ref \\ $: : { ga_ㄕƚo잎 } , \'GLOB\' , "Symbol table has full typeglob" ) ;',
+            'start_line' => 378,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 381,
+            'src' => ' @::zᐓｔ = ( \'Zᐓｔ!\' ) ;',
+            'start_line' => 381,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 43,
+            'has_warnings' => 1,
+            'end_line' => 389,
+            'src' => ' { my $w = \'\' ; local $SIG { __WARN__ } = sub { $w = $_ [ 0 ] } ; * { "zᐓｔ" } = \\ & { "оઓnḲ" } ; is ( $w , \'\' , "Should be no warning" ) ; }',
+            'start_line' => 384,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 385,
+            'src' => ' my $w = \'\' ;',
+            'start_line' => 385,
+            'indent' => 1,
+            'block_id' => 64
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 386,
+            'src' => ' local $SIG { __WARN__ } = sub { $w = $_ [ 0 ] } ;',
+            'start_line' => 386,
+            'indent' => 1,
+            'block_id' => 64
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 0,
+            'end_line' => 387,
+            'src' => ' * { "zᐓｔ" } = \\ & { "оઓnḲ" } ;',
+            'start_line' => 387,
+            'indent' => 1,
+            'block_id' => 64
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 388,
+            'src' => ' is ( $w , \'\' , "Should be no warning" ) ;',
+            'start_line' => 388,
+            'indent' => 1,
+            'block_id' => 64
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 391,
+            'src' => ' is ( ref $: : { оઓnḲ } , \'SCALAR\' , "Export doesn\'t affect original" ) ;',
+            'start_line' => 391,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 392,
+            'src' => ' is ( eval \'zᐓｔ\' , "Value" , "Constant has correct value" ) ;',
+            'start_line' => 392,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 393,
+            'src' => ' is ( ref \\ $: : { zᐓｔ } , \'GLOB\' , "Symbol table has full typeglob" ) ;',
+            'start_line' => 393,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 394,
+            'src' => ' is ( join ( \'!\' , @::zᐓｔ ) , \'Zᐓｔ!\' , "Existing array still in typeglob" ) ;',
+            'start_line' => 394,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 0,
+            'end_line' => 398,
+            'src' => ' sub Ṩp맅싵Ş (  ) { "Traditional" ; }',
+            'start_line' => 396,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 2,
+            'has_warnings' => 0,
+            'end_line' => 397,
+            'src' => ' "Traditional" ;',
+            'start_line' => 397,
+            'indent' => 1,
+            'block_id' => 69
+          },
+          {
+            'token_num' => 46,
+            'has_warnings' => 1,
+            'end_line' => 407,
+            'src' => ' { my $w = \'\' ; local $SIG { __WARN__ } = sub { $w = $_ [ 0 ] } ; * { "Ṩp맅싵Ş" } = \\ & { "оઓnḲ" } ; like ( $w , qr/^Constant subroutine main::Ṩp맅싵Ş redefined/ , "Redefining a constant sub should warn" ) ; }',
+            'start_line' => 401,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 402,
+            'src' => ' my $w = \'\' ;',
+            'start_line' => 402,
+            'indent' => 1,
+            'block_id' => 70
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 403,
+            'src' => ' local $SIG { __WARN__ } = sub { $w = $_ [ 0 ] } ;',
+            'start_line' => 403,
+            'indent' => 1,
+            'block_id' => 70
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 0,
+            'end_line' => 404,
+            'src' => ' * { "Ṩp맅싵Ş" } = \\ & { "оઓnḲ" } ;',
+            'start_line' => 404,
+            'indent' => 1,
+            'block_id' => 70
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 406,
+            'src' => ' like ( $w , qr/^Constant subroutine main::Ṩp맅싵Ş redefined/ , "Redefining a constant sub should warn" ) ;',
+            'start_line' => 405,
+            'indent' => 1,
+            'block_id' => 70
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 409,
+            'src' => ' is ( ref $: : { оઓnḲ } , \'SCALAR\' , "Export doesn\'t affect original" ) ;',
+            'start_line' => 409,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 410,
+            'src' => ' is ( eval \'Ṩp맅싵Ş\' , "Value" , "Constant has correct value" ) ;',
+            'start_line' => 410,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 411,
+            'src' => ' is ( ref \\ $: : { Ṩp맅싵Ş } , \'GLOB\' , "Symbol table has full typeglob" ) ;',
+            'start_line' => 411,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 51,
+            'has_warnings' => 1,
+            'end_line' => 420,
+            'src' => ' { my $w = \'\' ; local $SIG { __WARN__ } = sub { $w = $_ [ 0 ] } ; * { "plუᒃ" } = [ ] ; * { "plუᒃ" } = \\ & { "оઓnḲ" } ; is ( $w , \'\' , "Should be no warning" ) ; }',
+            'start_line' => 414,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 415,
+            'src' => ' my $w = \'\' ;',
+            'start_line' => 415,
+            'indent' => 1,
+            'block_id' => 75
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 416,
+            'src' => ' local $SIG { __WARN__ } = sub { $w = $_ [ 0 ] } ;',
+            'start_line' => 416,
+            'indent' => 1,
+            'block_id' => 75
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 0,
+            'end_line' => 417,
+            'src' => ' * { "plუᒃ" } = [ ] ;',
+            'start_line' => 417,
+            'indent' => 1,
+            'block_id' => 75
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 0,
+            'end_line' => 418,
+            'src' => ' * { "plუᒃ" } = \\ & { "оઓnḲ" } ;',
+            'start_line' => 418,
+            'indent' => 1,
+            'block_id' => 75
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 419,
+            'src' => ' is ( $w , \'\' , "Should be no warning" ) ;',
+            'start_line' => 419,
+            'indent' => 1,
+            'block_id' => 75
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 422,
+            'src' => ' is ( ref $: : { оઓnḲ } , \'SCALAR\' , "Export doesn\'t affect original" ) ;',
+            'start_line' => 422,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 423,
+            'src' => ' is ( eval \'plუᒃ\' , "Value" , "Constant has correct value" ) ;',
+            'start_line' => 423,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 424,
+            'src' => ' is ( ref \\ $: : { plუᒃ } , \'GLOB\' , "Symbol table has full typeglob" ) ;',
+            'start_line' => 424,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 0,
+            'end_line' => 426,
+            'src' => ' my $gr = eval \'\\*plუᒃ\' or die ;',
+            'start_line' => 426,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 43,
+            'has_warnings' => 1,
+            'end_line' => 433,
+            'src' => ' { my $w = \'\' ; local $SIG { __WARN__ } = sub { $w = $_ [ 0 ] } ; * { $gr } = \\ & { "оઓnḲ" } ; is ( $w , \'\' , "Redefining a constant sub to another constant sub with the same underlying value should not warn (It\'s just re-exporting, and that was always legal)" ) ; }',
+            'start_line' => 428,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 429,
+            'src' => ' my $w = \'\' ;',
+            'start_line' => 429,
+            'indent' => 1,
+            'block_id' => 80
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 430,
+            'src' => ' local $SIG { __WARN__ } = sub { $w = $_ [ 0 ] } ;',
+            'start_line' => 430,
+            'indent' => 1,
+            'block_id' => 80
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 431,
+            'src' => ' * { $gr } = \\ & { "оઓnḲ" } ;',
+            'start_line' => 431,
+            'indent' => 1,
+            'block_id' => 80
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 432,
+            'src' => ' is ( $w , \'\' , "Redefining a constant sub to another constant sub with the same underlying value should not warn (It\'s just re-exporting, and that was always legal)" ) ;',
+            'start_line' => 432,
+            'indent' => 1,
+            'block_id' => 80
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 435,
+            'src' => ' is ( ref $: : { оઓnḲ } , \'SCALAR\' , "Export doesn\'t affect original" ) ;',
+            'start_line' => 435,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 436,
+            'src' => ' is ( eval \'plუᒃ\' , "Value" , "Constant has correct value" ) ;',
+            'start_line' => 436,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 437,
+            'src' => ' is ( ref \\ $: : { plუᒃ } , \'GLOB\' , "Symbol table has full typeglob" ) ;',
+            'start_line' => 437,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 441,
+            'src' => ' my $result ;',
+            'start_line' => 441,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 45,
+            'has_warnings' => 1,
+            'end_line' => 447,
+            'src' => ' { my $w = \'\' ; local $SIG { __WARN__ } = sub { $w = $_ [ 0 ] } ; $result = * { "aẈʞƙʞƙʞƙ" } = \\ & { "оઓnḲ" } ; is ( $w , \'\' , "Should be no warning" ) ; }',
+            'start_line' => 442,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 443,
+            'src' => ' my $w = \'\' ;',
+            'start_line' => 443,
+            'indent' => 1,
+            'block_id' => 85
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 444,
+            'src' => ' local $SIG { __WARN__ } = sub { $w = $_ [ 0 ] } ;',
+            'start_line' => 444,
+            'indent' => 1,
+            'block_id' => 85
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 445,
+            'src' => ' $result = * { "aẈʞƙʞƙʞƙ" } = \\ & { "оઓnḲ" } ;',
+            'start_line' => 445,
+            'indent' => 1,
+            'block_id' => 85
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 446,
+            'src' => ' is ( $w , \'\' , "Should be no warning" ) ;',
+            'start_line' => 446,
+            'indent' => 1,
+            'block_id' => 85
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 450,
+            'src' => ' is ( ref \\ $result , \'GLOB\' , "Non void assignment should still return a typeglob" ) ;',
+            'start_line' => 449,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 452,
+            'src' => ' is ( ref \\ $: : { оઓnḲ } , \'GLOB\' , "This export does affect original" ) ;',
+            'start_line' => 452,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 453,
+            'src' => ' is ( eval \'plუᒃ\' , "Value" , "Constant has correct value" ) ;',
+            'start_line' => 453,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 454,
+            'src' => ' is ( ref \\ $: : { plუᒃ } , \'GLOB\' , "Symbol table has full typeglob" ) ;',
+            'start_line' => 454,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 456,
+            'src' => ' delete $: : { оઓnḲ } ;',
+            'start_line' => 456,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 457,
+            'src' => ' = \\ "Value" ;',
+            'start_line' => 457,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 45,
+            'has_warnings' => 1,
+            'end_line' => 464,
+            'src' => ' sub non_dangling { my $w = \'\' ; local $SIG { __WARN__ } = sub { $w = $_ [ 0 ] } ; * { "z앞" } = \\ & { "оઓnḲ" } ; is ( $w , \'\' , "Should be no warning" ) ; }',
+            'start_line' => 459,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 460,
+            'src' => ' my $w = \'\' ;',
+            'start_line' => 460,
+            'indent' => 1,
+            'block_id' => 92
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 461,
+            'src' => ' local $SIG { __WARN__ } = sub { $w = $_ [ 0 ] } ;',
+            'start_line' => 461,
+            'indent' => 1,
+            'block_id' => 92
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 0,
+            'end_line' => 462,
+            'src' => ' * { "z앞" } = \\ & { "оઓnḲ" } ;',
+            'start_line' => 462,
+            'indent' => 1,
+            'block_id' => 92
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 463,
+            'src' => ' is ( $w , \'\' , "Should be no warning" ) ;',
+            'start_line' => 463,
+            'indent' => 1,
+            'block_id' => 92
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 466,
+            'src' => ' non_dangling ( ) ;',
+            'start_line' => 466,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 467,
+            'src' => ' is ( ref $: : { оઓnḲ } , \'SCALAR\' , "Export doesn\'t affect original" ) ;',
+            'start_line' => 467,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 468,
+            'src' => ' is ( eval \'z앞\' , "Value" , "Constant has correct value" ) ;',
+            'start_line' => 468,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 469,
+            'src' => ' is ( ref $: : { z앞 } , \'SCALAR\' , "Exported target is also a PCS" ) ;',
+            'start_line' => 469,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 30,
+            'has_warnings' => 1,
+            'end_line' => 474,
+            'src' => ' sub dangling { local $SIG { __WARN__ } = sub { die $_ [ 0 ] } ; * { "ビfᶠ" } = \\ & { "оઓnḲ" } ; }',
+            'start_line' => 471,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 472,
+            'src' => ' local $SIG { __WARN__ } = sub { die $_ [ 0 ] } ;',
+            'start_line' => 472,
+            'indent' => 1,
+            'block_id' => 97
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 0,
+            'end_line' => 473,
+            'src' => ' * { "ビfᶠ" } = \\ & { "оઓnḲ" } ;',
+            'start_line' => 473,
+            'indent' => 1,
+            'block_id' => 97
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 476,
+            'src' => ' dangling ( ) ;',
+            'start_line' => 476,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 477,
+            'src' => ' is ( ref \\ $: : { оઓnḲ } , \'GLOB\' , "This export does affect original" ) ;',
+            'start_line' => 477,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 478,
+            'src' => ' is ( eval \'ビfᶠ\' , "Value" , "Constant has correct value" ) ;',
+            'start_line' => 478,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 479,
+            'src' => ' is ( ref \\ $: : { ビfᶠ } , \'GLOB\' , "Symbol table has full typeglob" ) ;',
+            'start_line' => 479,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 77,
+            'has_warnings' => 1,
+            'end_line' => 498,
+            'src' => ' { use vars qw($gᓙʞ $sምḲ $ᕘf) ; $gᓙʞ = 3 ; $sምḲ = 4 ; $ᕘf = "halt and cool down" ; my $rv = \\ * sምḲ ; is ( $gᓙʞ , 3 ) ; * gᓙʞ = $rv ; is ( $gᓙʞ , 4 ) ; my $pv = "" ; $pv = \\ * sምḲ ; is ( $ᕘf , "halt and cool down" ) ; * ᕘf = $pv ; is ( $ᕘf , 4 ) ; }',
+            'start_line' => 481,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 482,
+            'src' => ' use vars qw($gᓙʞ $sምḲ $ᕘf) ;',
+            'start_line' => 482,
+            'indent' => 1,
+            'block_id' => 102
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 484,
+            'src' => ' $gᓙʞ = 3 ;',
+            'start_line' => 484,
+            'indent' => 1,
+            'block_id' => 102
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 485,
+            'src' => ' $sምḲ = 4 ;',
+            'start_line' => 485,
+            'indent' => 1,
+            'block_id' => 102
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 486,
+            'src' => ' $ᕘf = "halt and cool down" ;',
+            'start_line' => 486,
+            'indent' => 1,
+            'block_id' => 102
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 488,
+            'src' => ' my $rv = \\ * sምḲ ;',
+            'start_line' => 488,
+            'indent' => 1,
+            'block_id' => 102
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 489,
+            'src' => ' is ( $gᓙʞ , 3 ) ;',
+            'start_line' => 489,
+            'indent' => 1,
+            'block_id' => 102
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 490,
+            'src' => ' * gᓙʞ = $rv ;',
+            'start_line' => 490,
+            'indent' => 1,
+            'block_id' => 102
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 491,
+            'src' => ' is ( $gᓙʞ , 4 ) ;',
+            'start_line' => 491,
+            'indent' => 1,
+            'block_id' => 102
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 493,
+            'src' => ' my $pv = "" ;',
+            'start_line' => 493,
+            'indent' => 1,
+            'block_id' => 102
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 494,
+            'src' => ' $pv = \\ * sምḲ ;',
+            'start_line' => 494,
+            'indent' => 1,
+            'block_id' => 102
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 495,
+            'src' => ' is ( $ᕘf , "halt and cool down" ) ;',
+            'start_line' => 495,
+            'indent' => 1,
+            'block_id' => 102
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 496,
+            'src' => ' * ᕘf = $pv ;',
+            'start_line' => 496,
+            'indent' => 1,
+            'block_id' => 102
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 497,
+            'src' => ' is ( $ᕘf , 4 ) ;',
+            'start_line' => 497,
+            'indent' => 1,
+            'block_id' => 102
+          },
+          {
+            'token_num' => 101,
+            'has_warnings' => 1,
+            'end_line' => 516,
+            'src' => ' { no warnings \'once\' ; format =  . foreach my $value ( [ 1 , 2 , 3 ] , { 1 => 2 } , * STDOUT { IO } , \\ & ok , * STDOUT { FORMAT } ) { my $type = $value ; $type =~ s/.*=// ; $type =~ s/\\(.*// ; delete $: : { оઓnḲ } ; $: : { оઓnḲ } = $value ; $proto = eval \'prototype \\&оઓnḲ\' ; like ( $@ , qr/^Cannot convert a reference to $type to typeglob/ , "Cannot upgrade ref-to-$type to typeglob" ) ; } }',
+            'start_line' => 500,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 501,
+            'src' => ' no warnings \'once\' ;',
+            'start_line' => 501,
+            'indent' => 1,
+            'block_id' => 103
+          },
+          {
+            'token_num' => 91,
+            'has_warnings' => 1,
+            'end_line' => 515,
+            'src' => ' foreach my $value ( [ 1 , 2 , 3 ] , { 1 => 2 } , * STDOUT { IO } , \\ & ok , * STDOUT { FORMAT } ) { my $type = $value ; $type =~ s/.*=// ; $type =~ s/\\(.*// ; delete $: : { оઓnḲ } ; $: : { оઓnḲ } = $value ; $proto = eval \'prototype \\&оઓnḲ\' ; like ( $@ , qr/^Cannot convert a reference to $type to typeglob/ , "Cannot upgrade ref-to-$type to typeglob" ) ; }',
+            'start_line' => 504,
+            'indent' => 1,
+            'block_id' => 103
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 507,
+            'src' => ' my $type = $value ;',
+            'start_line' => 507,
+            'indent' => 2,
+            'block_id' => 107
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 508,
+            'src' => ' $type =~ s/.*=// ;',
+            'start_line' => 508,
+            'indent' => 2,
+            'block_id' => 107
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 509,
+            'src' => ' $type =~ s/\\(.*// ;',
+            'start_line' => 509,
+            'indent' => 2,
+            'block_id' => 107
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 510,
+            'src' => ' delete $: : { оઓnḲ } ;',
+            'start_line' => 510,
+            'indent' => 2,
+            'block_id' => 107
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 511,
+            'src' => ' = $value ;',
+            'start_line' => 511,
+            'indent' => 2,
+            'block_id' => 107
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 512,
+            'src' => ' $proto = eval \'prototype \\&оઓnḲ\' ;',
+            'start_line' => 512,
+            'indent' => 2,
+            'block_id' => 107
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 514,
+            'src' => ' like ( $@ , qr/^Cannot convert a reference to $type to typeglob/ , "Cannot upgrade ref-to-$type to typeglob" ) ;',
+            'start_line' => 513,
+            'indent' => 2,
+            'block_id' => 107
+          },
+          {
+            'token_num' => 77,
+            'has_warnings' => 1,
+            'end_line' => 528,
+            'src' => ' { no warnings qw(once uninitialized) ; my $g = \\ * ȼલᑧɹ ; my $r = eval { no strict ; ${ * { $g } { SCALAR } } } ; is ( $@ , \'\' , "PERL_DONT_CREATE_GVSV shouldn\'t affect thingy syntax" ) ; $g = \\ * vȍwɯ ; $r = eval { use strict ; ${ * { $g } { SCALAR } } } ; is ( $@ , \'\' , "PERL_DONT_CREATE_GVSV shouldn\'t affect thingy syntax under strict" ) ; }',
+            'start_line' => 518,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 519,
+            'src' => ' no warnings qw(once uninitialized) ;',
+            'start_line' => 519,
+            'indent' => 1,
+            'block_id' => 110
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 520,
+            'src' => ' my $g = \\ * ȼલᑧɹ ;',
+            'start_line' => 520,
+            'indent' => 1,
+            'block_id' => 110
+          },
+          {
+            'token_num' => 19,
+            'has_warnings' => 1,
+            'end_line' => 521,
+            'src' => ' my $r = eval { no strict ; ${ * { $g } { SCALAR } } } ;',
+            'start_line' => 521,
+            'indent' => 1,
+            'block_id' => 110
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 521,
+            'src' => ' no strict ;',
+            'start_line' => 521,
+            'indent' => 1,
+            'block_id' => 110
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 522,
+            'src' => ' is ( $@ , \'\' , "PERL_DONT_CREATE_GVSV shouldn\'t affect thingy syntax" ) ;',
+            'start_line' => 522,
+            'indent' => 1,
+            'block_id' => 110
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 524,
+            'src' => ' $g = \\ * vȍwɯ ;',
+            'start_line' => 524,
+            'indent' => 1,
+            'block_id' => 110
+          },
+          {
+            'token_num' => 18,
+            'has_warnings' => 1,
+            'end_line' => 525,
+            'src' => ' $r = eval { use strict ; ${ * { $g } { SCALAR } } } ;',
+            'start_line' => 525,
+            'indent' => 1,
+            'block_id' => 110
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 525,
+            'src' => ' use strict ;',
+            'start_line' => 525,
+            'indent' => 1,
+            'block_id' => 110
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 527,
+            'src' => ' is ( $@ , \'\' , "PERL_DONT_CREATE_GVSV shouldn\'t affect thingy syntax under strict" ) ;',
+            'start_line' => 526,
+            'indent' => 1,
+            'block_id' => 110
+          },
+          {
+            'token_num' => 76,
+            'has_warnings' => 1,
+            'end_line' => 549,
+            'src' => ' { * ᔅᓗsḨ:: { HASH }-> { ISA } = [ ] ; ᔅᓗsḨ-> import ; pass ( "gv_fetchmeth coped with the unexpected" ) ; { package ᔅᓗsḨ ; sub 맆 { my $s = shift ; $s-> SUPER::맆 ; } } { eval { ᔅᓗsḨ-> 맆 ; } ; like ( $@ , qr/^Can\'t locate object method "맆"/ , "Even with SUPER" ) ; } is ( ᔅᓗsḨ-> isa ( \'swoosh\' ) , \'\' ) ; }',
+            'start_line' => 530,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 0,
+            'end_line' => 532,
+            'src' => '-> { ISA } = [ ] ;',
+            'start_line' => 532,
+            'indent' => 1,
+            'block_id' => 111
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 533,
+            'src' => ' ᔅᓗsḨ-> import ;',
+            'start_line' => 533,
+            'indent' => 1,
+            'block_id' => 111
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 534,
+            'src' => ' pass ( "gv_fetchmeth coped with the unexpected" ) ;',
+            'start_line' => 534,
+            'indent' => 1,
+            'block_id' => 111
+          },
+          {
+            'token_num' => 18,
+            'has_warnings' => 1,
+            'end_line' => 543,
+            'src' => ' { package ᔅᓗsḨ ; sub 맆 { my $s = shift ; $s-> SUPER::맆 ; } }',
+            'start_line' => 537,
+            'indent' => 1,
+            'block_id' => 111
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 538,
+            'src' => ' package ᔅᓗsḨ ;',
+            'start_line' => 538,
+            'indent' => 2,
+            'block_id' => 113
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 542,
+            'src' => ' sub 맆 { my $s = shift ; $s-> SUPER::맆 ; }',
+            'start_line' => 539,
+            'indent' => 2,
+            'block_id' => 113
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 540,
+            'src' => ' my $s = shift ;',
+            'start_line' => 540,
+            'indent' => 3,
+            'block_id' => 114
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 541,
+            'src' => ' $s-> SUPER::맆 ;',
+            'start_line' => 541,
+            'indent' => 3,
+            'block_id' => 114
+          },
+          {
+            'token_num' => 22,
+            'has_warnings' => 1,
+            'end_line' => 547,
+            'src' => ' { eval { ᔅᓗsḨ-> 맆 ; } ; like ( $@ , qr/^Can\'t locate object method "맆"/ , "Even with SUPER" ) ; }',
+            'start_line' => 544,
+            'indent' => 1,
+            'block_id' => 111
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 545,
+            'src' => ' eval { ᔅᓗsḨ-> 맆 ; } ;',
+            'start_line' => 545,
+            'indent' => 2,
+            'block_id' => 115
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 545,
+            'src' => ' ᔅᓗsḨ-> 맆 ;',
+            'start_line' => 545,
+            'indent' => 2,
+            'block_id' => 115
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 546,
+            'src' => ' like ( $@ , qr/^Can\'t locate object method "맆"/ , "Even with SUPER" ) ;',
+            'start_line' => 546,
+            'indent' => 2,
+            'block_id' => 115
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 548,
+            'src' => ' is ( ᔅᓗsḨ-> isa ( \'swoosh\' ) , \'\' ) ;',
+            'start_line' => 548,
+            'indent' => 1,
+            'block_id' => 111
+          },
+          {
+            'token_num' => 37,
+            'has_warnings' => 1,
+            'end_line' => 558,
+            'src' => ' { die if exists $: : { 본ㄎ } ; $: : { 본ㄎ } = \\ "포ヰｅ" ; * { "본ㄎ" } = \\ & { "본ㄎ" } ; eval \'is(본ㄎ(), "포ヰｅ",
+             "Assignment works when glob created midway (bug 45607)"); 1\' or die $@ ; }',
+            'start_line' => 551,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 552,
+            'src' => ' die if exists $: : { 본ㄎ } ;',
+            'start_line' => 552,
+            'indent' => 1,
+            'block_id' => 116
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 553,
+            'src' => ' = \\ "포ヰｅ" ;',
+            'start_line' => 553,
+            'indent' => 1,
+            'block_id' => 116
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 0,
+            'end_line' => 554,
+            'src' => ' * { "본ㄎ" } = \\ & { "본ㄎ" } ;',
+            'start_line' => 554,
+            'indent' => 1,
+            'block_id' => 116
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 557,
+            'src' => ' eval \'is(본ㄎ(), "포ヰｅ",
+             "Assignment works when glob created midway (bug 45607)"); 1\' or die $@ ;',
+            'start_line' => 555,
+            'indent' => 1,
+            'block_id' => 116
+          },
+          {
+            'token_num' => 125,
+            'has_warnings' => 1,
+            'end_line' => 583,
+            'src' => ' { { package RƬ72740a ; my $f = bless ( { } , RƬ72740b ) ; sub s1 { s2 $f ; } our $s4 ; sub s3 { s4 $f ; } } { package RƬ72740b ; sub s2 { "RƬ72740b::s2" } sub s4 { "RƬ72740b::s4" } } ok ( exists ( $RƬ72740a:: { s1 } ) , "RƬ72740a::s1 exists" ) ; ok ( ! exists ( $RƬ72740a:: { s2 } ) , "RƬ72740a::s2 does not exist" ) ; ok ( exists ( $RƬ72740a:: { s3 } ) , "RƬ72740a::s3 exists" ) ; ok ( exists ( $RƬ72740a:: { s4 } ) , "RƬ72740a::s4 exists" ) ; is ( RƬ72740a::s1 ( ) , "RƬ72740b::s2" , "RƬ72740::s1 parsed correctly" ) ; is ( RƬ72740a::s3 ( ) , "RƬ72740b::s4" , "RƬ72740::s3 parsed correctly" ) ; }',
+            'start_line' => 564,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 566,
+            'src' => ' package RƬ72740a ;',
+            'start_line' => 566,
+            'indent' => 2,
+            'block_id' => 121
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 567,
+            'src' => ' my $f = bless ( { } , RƬ72740b ) ;',
+            'start_line' => 567,
+            'indent' => 2,
+            'block_id' => 121
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 568,
+            'src' => ' sub s1 { s2 $f ; }',
+            'start_line' => 568,
+            'indent' => 2,
+            'block_id' => 121
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 568,
+            'src' => ' s2 $f ;',
+            'start_line' => 568,
+            'indent' => 3,
+            'block_id' => 123
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 569,
+            'src' => ' our $s4 ;',
+            'start_line' => 569,
+            'indent' => 2,
+            'block_id' => 121
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 570,
+            'src' => ' sub s3 { s4 $f ; }',
+            'start_line' => 570,
+            'indent' => 2,
+            'block_id' => 121
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 570,
+            'src' => ' s4 $f ;',
+            'start_line' => 570,
+            'indent' => 3,
+            'block_id' => 124
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 576,
+            'src' => ' { package RƬ72740b ; sub s2 { "RƬ72740b::s2" } sub s4 { "RƬ72740b::s4" } }',
+            'start_line' => 572,
+            'indent' => 1,
+            'block_id' => 120
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 573,
+            'src' => ' package RƬ72740b ;',
+            'start_line' => 573,
+            'indent' => 2,
+            'block_id' => 125
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 574,
+            'src' => ' sub s2 { "RƬ72740b::s2" }',
+            'start_line' => 574,
+            'indent' => 2,
+            'block_id' => 125
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 575,
+            'src' => ' sub s4 { "RƬ72740b::s4" }',
+            'start_line' => 575,
+            'indent' => 2,
+            'block_id' => 125
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 577,
+            'src' => ' ok ( exists ( $RƬ72740a:: { s1 } ) , "RƬ72740a::s1 exists" ) ;',
+            'start_line' => 577,
+            'indent' => 1,
+            'block_id' => 120
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 578,
+            'src' => ' ok ( ! exists ( $RƬ72740a:: { s2 } ) , "RƬ72740a::s2 does not exist" ) ;',
+            'start_line' => 578,
+            'indent' => 1,
+            'block_id' => 120
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 579,
+            'src' => ' ok ( exists ( $RƬ72740a:: { s3 } ) , "RƬ72740a::s3 exists" ) ;',
+            'start_line' => 579,
+            'indent' => 1,
+            'block_id' => 120
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 580,
+            'src' => ' ok ( exists ( $RƬ72740a:: { s4 } ) , "RƬ72740a::s4 exists" ) ;',
+            'start_line' => 580,
+            'indent' => 1,
+            'block_id' => 120
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 581,
+            'src' => ' is ( RƬ72740a::s1 ( ) , "RƬ72740b::s2" , "RƬ72740::s1 parsed correctly" ) ;',
+            'start_line' => 581,
+            'indent' => 1,
+            'block_id' => 120
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 582,
+            'src' => ' is ( RƬ72740a::s3 ( ) , "RƬ72740b::s4" , "RƬ72740::s3 parsed correctly" ) ;',
+            'start_line' => 582,
+            'indent' => 1,
+            'block_id' => 120
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 586,
+            'src' => ' $ŚyṀ = undef ;',
+            'start_line' => 586,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 587,
+            'src' => ' = * ŚyṀ ;',
+            'start_line' => 587,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 589,
+            'src' => ' is ( eval \'local *::Ḟ앜ɞ = \\"chuck"; $Ḟ앜ɞ\' , \'chuck\' , "Localized glob didn\'t coerce into a RV" ) ;',
+            'start_line' => 588,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 590,
+            'src' => ' is ( $@ , \'\' , "Can localize FAKE glob that\'s present in stash" ) ;',
+            'start_line' => 590,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 594,
+            'src' => ' { is ( scalar $: : { Ḟ앜ɞ } , "*main::ŚyṀ" , "Localized FAKE glob\'s value was correctly restored" ) ; }',
+            'start_line' => 591,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 593,
+            'src' => ' is ( scalar $: : { Ḟ앜ɞ } , "*main::ŚyṀ" , "Localized FAKE glob\'s value was correctly restored" ) ;',
+            'start_line' => 592,
+            'indent' => 1,
+            'block_id' => 133
+          },
+          {
+            'token_num' => 67,
+            'has_warnings' => 1,
+            'end_line' => 612,
+            'src' => ' { no warnings \'once\' ; my $x = * _ràndom::glob_that_is_not_used_elsewhere ; * $x = sub { } ; is ( "$x" , \'*_ràndom::glob_that_is_not_used_elsewhere\' , \'[perl #1804] *$x assignment when $x is FAKE\' , ) ; $x = * _ràndom::glob_that_is_not_used_elsewhere ; ( my $dummy , * $x ) = ( undef , [ ] ) ; is ( "$x" , \'*_ràndom::glob_that_is_not_used_elsewhere\' , \'[perl #77508] *$x list assignment when $x is FAKE\' , ) or require Devel::Peek , Devel::Peek::Dump ( $x ) ; }',
+            'start_line' => 598,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 599,
+            'src' => ' no warnings \'once\' ;',
+            'start_line' => 599,
+            'indent' => 1,
+            'block_id' => 135
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 600,
+            'src' => ' my $x = * _ràndom::glob_that_is_not_used_elsewhere ;',
+            'start_line' => 600,
+            'indent' => 1,
+            'block_id' => 135
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 601,
+            'src' => ' * $x = sub { } ;',
+            'start_line' => 601,
+            'indent' => 1,
+            'block_id' => 135
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 605,
+            'src' => ' is ( "$x" , \'*_ràndom::glob_that_is_not_used_elsewhere\' , \'[perl #1804] *$x assignment when $x is FAKE\' , ) ;',
+            'start_line' => 602,
+            'indent' => 1,
+            'block_id' => 135
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 606,
+            'src' => ' $x = * _ràndom::glob_that_is_not_used_elsewhere ;',
+            'start_line' => 606,
+            'indent' => 1,
+            'block_id' => 135
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 607,
+            'src' => ' ( my $dummy , * $x ) = ( undef , [ ] ) ;',
+            'start_line' => 607,
+            'indent' => 1,
+            'block_id' => 135
+          },
+          {
+            'token_num' => 18,
+            'has_warnings' => 1,
+            'end_line' => 611,
+            'src' => ' is ( "$x" , \'*_ràndom::glob_that_is_not_used_elsewhere\' , \'[perl #77508] *$x list assignment when $x is FAKE\' , ) or require Devel::Peek , Devel::Peek::Dump ( $x ) ;',
+            'start_line' => 608,
+            'indent' => 1,
+            'block_id' => 135
+          },
+          {
+            'token_num' => 42,
+            'has_warnings' => 1,
+            'end_line' => 630,
+            'src' => ' { my @warnings ; local $SIG { __WARN__ } = sub { push @warnings , @_ } ; eval q{BEGIN { $::{FÒÒ} = \\\'ᴮᛅ\' }
+die "made it";
+print FÒÒ, "\\n";
+print FÒÒ, "\\n";
+} ; like ( $@ , qr/made it/ , "#76540 - no panic" ) ; ok ( ! @warnings , "#76540 - no \'Attempt to free unreferenced scalar\'" ) ; }',
+            'start_line' => 617,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 618,
+            'src' => ' my @warnings ;',
+            'start_line' => 618,
+            'indent' => 1,
+            'block_id' => 137
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 619,
+            'src' => ' local $SIG { __WARN__ } = sub { push @warnings , @_ } ;',
+            'start_line' => 619,
+            'indent' => 1,
+            'block_id' => 137
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 621,
+            'src' => ' eval q{BEGIN { $::{FÒÒ} = \\\'ᴮᛅ\' }
+die "made it";
+print FÒÒ, "\\n";
+print FÒÒ, "\\n";
+} ;',
+            'start_line' => 621,
+            'indent' => 1,
+            'block_id' => 137
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 628,
+            'src' => ' like ( $@ , qr/made it/ , "#76540 - no panic" ) ;',
+            'start_line' => 628,
+            'indent' => 1,
+            'block_id' => 137
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 629,
+            'src' => ' ok ( ! @warnings , "#76540 - no \'Attempt to free unreferenced scalar\'" ) ;',
+            'start_line' => 629,
+            'indent' => 1,
+            'block_id' => 137
+          },
+          {
+            'token_num' => 508,
+            'has_warnings' => 1,
+            'end_line' => 752,
+            'src' => ' { no warnings qw \'once void\' ; my %h ; sub { for ( shift ) { $_ = * hòn ; is $_ , "*main::hòn" ; ok eval { @$_ ; 1 } , \'PVLV glob slots can be autovivified\' or diag $@ ; { * thèxt::TIEHANDLE = sub { } ; ok eval { tie * $_ , \'thèxt\' ; 1 } , \'PVLV globs can be tied as handles\' or diag $@ ; } { my $w ; local $SIG { __WARN__ } = sub { $w = shift } ; * $_ = undef ; is $_ , "*main::hòn" , \'PVLV: assigning undef to the glob does nothing\' ; like $w , qr\\Undefined value assigned to typeglob\\ , \'PVLV: assigning undef to the glob warns\' ; } * $_ = [ ] ; is $_ , "*main::hòn" , "PVLV: arrayref assignment assigns to the AV slot" ; ok eval { $_ .= \'thlèw\' } , \'PVLV concatenation does not die\' or diag $@ ; is $_ , \'*main::hònthlèw\' , \'PVLV concatenation works\' ; $_ = * hòn ; $_ = \'tzòr\' ; is $_ , \'tzòr\' , \'PVLV: assigning a string over a glob\' ; $_ = * hòn ; $_ = 23 ; is $_ , 23 , \'PVLV: assigning an integer over a glob\' ; $_ = * hòn ; $_ = 23.23 ; is $_ , 23.23 , \'PVLV: assigning a float over a glob\' ; $_ = * hòn ; $_ = \\ my $sthat ; is $_ , \\ $sthat , \'PVLV: assigning a reference over a glob\' ; $_ = * quìn ; open * quìn , "test.pl" ; delete $: : { quìn } ; ok eval { open my $zow , "<&" , $_ } , \'PVLV: sv_2io stringifieth not\' or diag $@ ; * $_ = sub { 1 } ; ok eval { &$_ } , "PVLV glob can be called as a sub" or diag $@ ; * flèlp = sub { 2 } ; $_ = \'flèlp\' ; is eval { &$_ } , 2 , \'PVLV holding a string can be called as a sub\' or diag $@ ; use constant ghèèn => \'quàrè\' ; $_ = * mìng ; delete $: : { mìng } ; * $_ = \\ & ghèèn ; is eval { &$_ } , \'quàrè\' , \'PVLV: constant assignment when the glob is detached from the symtab\' or diag $@ ; $_ = * bèngth ; delete $: : { bèngth } ; * ghèck = sub { \'lon\' } ; * $_ = \\ & ghèck ; is eval { &$_ } , \'lon\' , \'PVLV: coderef assignment when the glob is detached from the symtab\' or diag $@ ; SKIP : { skip_if_miniperl ( "no dynamic loading on miniperl, so can\'t load PerlIO::scalar" , 1 ) ; $_ = * hòn ; ok eval { open $_ , \'<\' , \\ my $thlext } , \'PVLV can be the first arg to open\' or diag $@ ; } $_ = * thlìt ; delete $: : { thlìt } ; * $_ = * STDOUT { IO } ; ok defined -t $_ , \'PVLV: -t does not stringify\' ; my $pass ; ok eval { open my $quìle , "<" , \'test.pl\' ; $_ = * $quìle ; $pass = -T $_ ; 1 } ? $pass : $@ =~/not implemented on filehandles/ , "PVLV: -T does not stringify" ; { my $w ; local $SIG { __WARN__ } = sub { $w .= shift } ; $_ = * vòr ; close $_ ; like $w , qr\\unopened filehandle vòr\\ , \'PVLV globs get their names reported in unopened error messages\' ; } } }-> ( $h { k } ) ; }',
+            'start_line' => 633,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 634,
+            'src' => ' no warnings qw \'once void\' ;',
+            'start_line' => 634,
+            'indent' => 1,
+            'block_id' => 139
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 635,
+            'src' => ' my %h ;',
+            'start_line' => 635,
+            'indent' => 1,
+            'block_id' => 139
+          },
+          {
+            'token_num' => 498,
+            'has_warnings' => 1,
+            'end_line' => 751,
+            'src' => ' sub { for ( shift ) { $_ = * hòn ; is $_ , "*main::hòn" ; ok eval { @$_ ; 1 } , \'PVLV glob slots can be autovivified\' or diag $@ ; { * thèxt::TIEHANDLE = sub { } ; ok eval { tie * $_ , \'thèxt\' ; 1 } , \'PVLV globs can be tied as handles\' or diag $@ ; } { my $w ; local $SIG { __WARN__ } = sub { $w = shift } ; * $_ = undef ; is $_ , "*main::hòn" , \'PVLV: assigning undef to the glob does nothing\' ; like $w , qr\\Undefined value assigned to typeglob\\ , \'PVLV: assigning undef to the glob warns\' ; } * $_ = [ ] ; is $_ , "*main::hòn" , "PVLV: arrayref assignment assigns to the AV slot" ; ok eval { $_ .= \'thlèw\' } , \'PVLV concatenation does not die\' or diag $@ ; is $_ , \'*main::hònthlèw\' , \'PVLV concatenation works\' ; $_ = * hòn ; $_ = \'tzòr\' ; is $_ , \'tzòr\' , \'PVLV: assigning a string over a glob\' ; $_ = * hòn ; $_ = 23 ; is $_ , 23 , \'PVLV: assigning an integer over a glob\' ; $_ = * hòn ; $_ = 23.23 ; is $_ , 23.23 , \'PVLV: assigning a float over a glob\' ; $_ = * hòn ; $_ = \\ my $sthat ; is $_ , \\ $sthat , \'PVLV: assigning a reference over a glob\' ; $_ = * quìn ; open * quìn , "test.pl" ; delete $: : { quìn } ; ok eval { open my $zow , "<&" , $_ } , \'PVLV: sv_2io stringifieth not\' or diag $@ ; * $_ = sub { 1 } ; ok eval { &$_ } , "PVLV glob can be called as a sub" or diag $@ ; * flèlp = sub { 2 } ; $_ = \'flèlp\' ; is eval { &$_ } , 2 , \'PVLV holding a string can be called as a sub\' or diag $@ ; use constant ghèèn => \'quàrè\' ; $_ = * mìng ; delete $: : { mìng } ; * $_ = \\ & ghèèn ; is eval { &$_ } , \'quàrè\' , \'PVLV: constant assignment when the glob is detached from the symtab\' or diag $@ ; $_ = * bèngth ; delete $: : { bèngth } ; * ghèck = sub { \'lon\' } ; * $_ = \\ & ghèck ; is eval { &$_ } , \'lon\' , \'PVLV: coderef assignment when the glob is detached from the symtab\' or diag $@ ; SKIP : { skip_if_miniperl ( "no dynamic loading on miniperl, so can\'t load PerlIO::scalar" , 1 ) ; $_ = * hòn ; ok eval { open $_ , \'<\' , \\ my $thlext } , \'PVLV can be the first arg to open\' or diag $@ ; } $_ = * thlìt ; delete $: : { thlìt } ; * $_ = * STDOUT { IO } ; ok defined -t $_ , \'PVLV: -t does not stringify\' ; my $pass ; ok eval { open my $quìle , "<" , \'test.pl\' ; $_ = * $quìle ; $pass = -T $_ ; 1 } ? $pass : $@ =~/not implemented on filehandles/ , "PVLV: -T does not stringify" ; { my $w ; local $SIG { __WARN__ } = sub { $w .= shift } ; $_ = * vòr ; close $_ ; like $w , qr\\unopened filehandle vòr\\ , \'PVLV globs get their names reported in unopened error messages\' ; } } }-> ( $h { k } ) ;',
+            'start_line' => 636,
+            'indent' => 1,
+            'block_id' => 139
+          },
+          {
+            'token_num' => 487,
+            'has_warnings' => 1,
+            'end_line' => 751,
+            'src' => ' for ( shift ) { $_ = * hòn ; is $_ , "*main::hòn" ; ok eval { @$_ ; 1 } , \'PVLV glob slots can be autovivified\' or diag $@ ; { * thèxt::TIEHANDLE = sub { } ; ok eval { tie * $_ , \'thèxt\' ; 1 } , \'PVLV globs can be tied as handles\' or diag $@ ; } { my $w ; local $SIG { __WARN__ } = sub { $w = shift } ; * $_ = undef ; is $_ , "*main::hòn" , \'PVLV: assigning undef to the glob does nothing\' ; like $w , qr\\Undefined value assigned to typeglob\\ , \'PVLV: assigning undef to the glob warns\' ; } * $_ = [ ] ; is $_ , "*main::hòn" , "PVLV: arrayref assignment assigns to the AV slot" ; ok eval { $_ .= \'thlèw\' } , \'PVLV concatenation does not die\' or diag $@ ; is $_ , \'*main::hònthlèw\' , \'PVLV concatenation works\' ; $_ = * hòn ; $_ = \'tzòr\' ; is $_ , \'tzòr\' , \'PVLV: assigning a string over a glob\' ; $_ = * hòn ; $_ = 23 ; is $_ , 23 , \'PVLV: assigning an integer over a glob\' ; $_ = * hòn ; $_ = 23.23 ; is $_ , 23.23 , \'PVLV: assigning a float over a glob\' ; $_ = * hòn ; $_ = \\ my $sthat ; is $_ , \\ $sthat , \'PVLV: assigning a reference over a glob\' ; $_ = * quìn ; open * quìn , "test.pl" ; delete $: : { quìn } ; ok eval { open my $zow , "<&" , $_ } , \'PVLV: sv_2io stringifieth not\' or diag $@ ; * $_ = sub { 1 } ; ok eval { &$_ } , "PVLV glob can be called as a sub" or diag $@ ; * flèlp = sub { 2 } ; $_ = \'flèlp\' ; is eval { &$_ } , 2 , \'PVLV holding a string can be called as a sub\' or diag $@ ; use constant ghèèn => \'quàrè\' ; $_ = * mìng ; delete $: : { mìng } ; * $_ = \\ & ghèèn ; is eval { &$_ } , \'quàrè\' , \'PVLV: constant assignment when the glob is detached from the symtab\' or diag $@ ; $_ = * bèngth ; delete $: : { bèngth } ; * ghèck = sub { \'lon\' } ; * $_ = \\ & ghèck ; is eval { &$_ } , \'lon\' , \'PVLV: coderef assignment when the glob is detached from the symtab\' or diag $@ ; SKIP : { skip_if_miniperl ( "no dynamic loading on miniperl, so can\'t load PerlIO::scalar" , 1 ) ; $_ = * hòn ; ok eval { open $_ , \'<\' , \\ my $thlext } , \'PVLV can be the first arg to open\' or diag $@ ; } $_ = * thlìt ; delete $: : { thlìt } ; * $_ = * STDOUT { IO } ; ok defined -t $_ , \'PVLV: -t does not stringify\' ; my $pass ; ok eval { open my $quìle , "<" , \'test.pl\' ; $_ = * $quìle ; $pass = -T $_ ; 1 } ? $pass : $@ =~/not implemented on filehandles/ , "PVLV: -T does not stringify" ; { my $w ; local $SIG { __WARN__ } = sub { $w .= shift } ; $_ = * vòr ; close $_ ; like $w , qr\\unopened filehandle vòr\\ , \'PVLV globs get their names reported in unopened error messages\' ; } }',
+            'start_line' => 636,
+            'indent' => 2,
+            'block_id' => 140
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 638,
+            'src' => ' $_ = * hòn ;',
+            'start_line' => 638,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 639,
+            'src' => ' is $_ , "*main::hòn" ;',
+            'start_line' => 639,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 642,
+            'src' => ' ok eval { @$_ ; 1 } , \'PVLV glob slots can be autovivified\' or diag $@ ;',
+            'start_line' => 642,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 2,
+            'has_warnings' => 0,
+            'end_line' => 642,
+            'src' => ' @$_ ;',
+            'start_line' => 642,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 26,
+            'has_warnings' => 1,
+            'end_line' => 649,
+            'src' => ' { * thèxt::TIEHANDLE = sub { } ; ok eval { tie * $_ , \'thèxt\' ; 1 } , \'PVLV globs can be tied as handles\' or diag $@ ; }',
+            'start_line' => 644,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 646,
+            'src' => ' * thèxt::TIEHANDLE = sub { } ;',
+            'start_line' => 646,
+            'indent' => 4,
+            'block_id' => 142
+          },
+          {
+            'token_num' => 17,
+            'has_warnings' => 1,
+            'end_line' => 648,
+            'src' => ' ok eval { tie * $_ , \'thèxt\' ; 1 } , \'PVLV globs can be tied as handles\' or diag $@ ;',
+            'start_line' => 647,
+            'indent' => 4,
+            'block_id' => 142
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 647,
+            'src' => ' tie * $_ , \'thèxt\' ;',
+            'start_line' => 647,
+            'indent' => 4,
+            'block_id' => 143
+          },
+          {
+            'token_num' => 40,
+            'has_warnings' => 1,
+            'end_line' => 658,
+            'src' => ' { my $w ; local $SIG { __WARN__ } = sub { $w = shift } ; * $_ = undef ; is $_ , "*main::hòn" , \'PVLV: assigning undef to the glob does nothing\' ; like $w , qr\\Undefined value assigned to typeglob\\ , \'PVLV: assigning undef to the glob warns\' ; }',
+            'start_line' => 651,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 652,
+            'src' => ' my $w ;',
+            'start_line' => 652,
+            'indent' => 4,
+            'block_id' => 144
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 653,
+            'src' => ' local $SIG { __WARN__ } = sub { $w = shift } ;',
+            'start_line' => 653,
+            'indent' => 4,
+            'block_id' => 144
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 654,
+            'src' => ' * $_ = undef ;',
+            'start_line' => 654,
+            'indent' => 4,
+            'block_id' => 144
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 655,
+            'src' => ' is $_ , "*main::hòn" , \'PVLV: assigning undef to the glob does nothing\' ;',
+            'start_line' => 655,
+            'indent' => 4,
+            'block_id' => 144
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 657,
+            'src' => ' like $w , qr\\Undefined value assigned to typeglob\\ , \'PVLV: assigning undef to the glob warns\' ;',
+            'start_line' => 656,
+            'indent' => 4,
+            'block_id' => 144
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 661,
+            'src' => ' * $_ = [ ] ;',
+            'start_line' => 661,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 662,
+            'src' => ' is $_ , "*main::hòn" , "PVLV: arrayref assignment assigns to the AV slot" ;',
+            'start_line' => 662,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 665,
+            'src' => ' ok eval { $_ .= \'thlèw\' } , \'PVLV concatenation does not die\' or diag $@ ;',
+            'start_line' => 665,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 666,
+            'src' => ' is $_ , \'*main::hònthlèw\' , \'PVLV concatenation works\' ;',
+            'start_line' => 666,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 670,
+            'src' => ' $_ = * hòn ;',
+            'start_line' => 670,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 670,
+            'src' => ' $_ = \'tzòr\' ;',
+            'start_line' => 670,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 671,
+            'src' => ' is $_ , \'tzòr\' , \'PVLV: assigning a string over a glob\' ;',
+            'start_line' => 671,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 672,
+            'src' => ' $_ = * hòn ;',
+            'start_line' => 672,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 672,
+            'src' => ' $_ = 23 ;',
+            'start_line' => 672,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 673,
+            'src' => ' is $_ , 23 , \'PVLV: assigning an integer over a glob\' ;',
+            'start_line' => 673,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 674,
+            'src' => ' $_ = * hòn ;',
+            'start_line' => 674,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 674,
+            'src' => ' $_ = 23.23 ;',
+            'start_line' => 674,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 675,
+            'src' => ' is $_ , 23.23 , \'PVLV: assigning a float over a glob\' ;',
+            'start_line' => 675,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 676,
+            'src' => ' $_ = * hòn ;',
+            'start_line' => 676,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 676,
+            'src' => ' $_ = \\ my $sthat ;',
+            'start_line' => 676,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 677,
+            'src' => ' is $_ , \\ $sthat , \'PVLV: assigning a reference over a glob\' ;',
+            'start_line' => 677,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 684,
+            'src' => ' $_ = * quìn ;',
+            'start_line' => 684,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 685,
+            'src' => ' open * quìn , "test.pl" ;',
+            'start_line' => 685,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 686,
+            'src' => ' delete $: : { quìn } ;',
+            'start_line' => 686,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 17,
+            'has_warnings' => 1,
+            'end_line' => 688,
+            'src' => ' ok eval { open my $zow , "<&" , $_ } , \'PVLV: sv_2io stringifieth not\' or diag $@ ;',
+            'start_line' => 687,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 0,
+            'end_line' => 691,
+            'src' => ' * $_ = sub { 1 } ;',
+            'start_line' => 691,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 692,
+            'src' => ' ok eval { &$_ } , "PVLV glob can be called as a sub" or diag $@ ;',
+            'start_line' => 692,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 693,
+            'src' => ' * flèlp = sub { 2 } ;',
+            'start_line' => 693,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 694,
+            'src' => ' $_ = \'flèlp\' ;',
+            'start_line' => 694,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 696,
+            'src' => ' is eval { &$_ } , 2 , \'PVLV holding a string can be called as a sub\' or diag $@ ;',
+            'start_line' => 695,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 702,
+            'src' => ' use constant ghèèn => \'quàrè\' ;',
+            'start_line' => 702,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 703,
+            'src' => ' $_ = * mìng ;',
+            'start_line' => 703,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 704,
+            'src' => ' delete $: : { mìng } ;',
+            'start_line' => 704,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 705,
+            'src' => ' * $_ = \\ & ghèèn ;',
+            'start_line' => 705,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 708,
+            'src' => ' is eval { &$_ } , \'quàrè\' , \'PVLV: constant assignment when the glob is detached from the symtab\' or diag $@ ;',
+            'start_line' => 706,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 709,
+            'src' => ' $_ = * bèngth ;',
+            'start_line' => 709,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 710,
+            'src' => ' delete $: : { bèngth } ;',
+            'start_line' => 710,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 711,
+            'src' => ' * ghèck = sub { \'lon\' } ;',
+            'start_line' => 711,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 712,
+            'src' => ' * $_ = \\ & ghèck ;',
+            'start_line' => 712,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 715,
+            'src' => ' is eval { &$_ } , \'lon\' , \'PVLV: coderef assignment when the glob is detached from the symtab\' or diag $@ ;',
+            'start_line' => 713,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 718,
+            'src' => ' skip_if_miniperl ( "no dynamic loading on miniperl, so can\'t load PerlIO::scalar" , 1 ) ;',
+            'start_line' => 718,
+            'indent' => 4,
+            'block_id' => 152
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 720,
+            'src' => ' $_ = * hòn ;',
+            'start_line' => 720,
+            'indent' => 4,
+            'block_id' => 152
+          },
+          {
+            'token_num' => 18,
+            'has_warnings' => 1,
+            'end_line' => 722,
+            'src' => ' ok eval { open $_ , \'<\' , \\ my $thlext } , \'PVLV can be the first arg to open\' or diag $@ ;',
+            'start_line' => 721,
+            'indent' => 4,
+            'block_id' => 152
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 726,
+            'src' => ' $_ = * thlìt ;',
+            'start_line' => 726,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 726,
+            'src' => ' delete $: : { thlìt } ;',
+            'start_line' => 726,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 0,
+            'end_line' => 727,
+            'src' => ' * $_ = * STDOUT { IO } ;',
+            'start_line' => 727,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 728,
+            'src' => ' ok defined -t $_ , \'PVLV: -t does not stringify\' ;',
+            'start_line' => 728,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 732,
+            'src' => ' my $pass ;',
+            'start_line' => 732,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 34,
+            'has_warnings' => 1,
+            'end_line' => 740,
+            'src' => ' ok eval { open my $quìle , "<" , \'test.pl\' ; $_ = * $quìle ; $pass = -T $_ ; 1 } ? $pass : $@ =~/not implemented on filehandles/ , "PVLV: -T does not stringify" ;',
+            'start_line' => 734,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 0,
+            'end_line' => 735,
+            'src' => ' open my $quìle , "<" , \'test.pl\' ;',
+            'start_line' => 735,
+            'indent' => 3,
+            'block_id' => 154
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 736,
+            'src' => ' $_ = * $quìle ;',
+            'start_line' => 736,
+            'indent' => 3,
+            'block_id' => 154
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 737,
+            'src' => ' $pass = -T $_ ;',
+            'start_line' => 737,
+            'indent' => 3,
+            'block_id' => 154
+          },
+          {
+            'token_num' => 36,
+            'has_warnings' => 1,
+            'end_line' => 749,
+            'src' => ' { my $w ; local $SIG { __WARN__ } = sub { $w .= shift } ; $_ = * vòr ; close $_ ; like $w , qr\\unopened filehandle vòr\\ , \'PVLV globs get their names reported in unopened error messages\' ; }',
+            'start_line' => 742,
+            'indent' => 3,
+            'block_id' => 141
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 743,
+            'src' => ' my $w ;',
+            'start_line' => 743,
+            'indent' => 4,
+            'block_id' => 155
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 744,
+            'src' => ' local $SIG { __WARN__ } = sub { $w .= shift } ;',
+            'start_line' => 744,
+            'indent' => 4,
+            'block_id' => 155
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 745,
+            'src' => ' $_ = * vòr ;',
+            'start_line' => 745,
+            'indent' => 4,
+            'block_id' => 155
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 746,
+            'src' => ' close $_ ;',
+            'start_line' => 746,
+            'indent' => 4,
+            'block_id' => 155
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 748,
+            'src' => ' like $w , qr\\unopened filehandle vòr\\ , \'PVLV globs get their names reported in unopened error messages\' ;',
+            'start_line' => 747,
+            'indent' => 4,
+            'block_id' => 155
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 754,
+            'src' => ' * àieee = 4 ;',
+            'start_line' => 754,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 755,
+            'src' => ' pass ( \'Can assign integers to typeglobs\' ) ;',
+            'start_line' => 755,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 756,
+            'src' => ' * àieee = 3.14 ;',
+            'start_line' => 756,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 757,
+            'src' => ' pass ( \'Can assign floats to typeglobs\' ) ;',
+            'start_line' => 757,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 758,
+            'src' => ' * àieee = \'pi\' ;',
+            'start_line' => 758,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 759,
+            'src' => ' pass ( \'Can assign strings to typeglobs\' ) ;',
+            'start_line' => 759,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 64,
+            'has_warnings' => 1,
+            'end_line' => 774,
+            'src' => ' { package thrèxt ; sub TIESCALAR { bless [ ] } sub STORE { die "No!" } sub FETCH { no warnings \'once\' ; * thrìt } tie my $a , "thrèxt" ; ( ) = "$a" ; eval { * $a = sub { } } ; untie $a ; eval { $a = "ᴮᛅ" } ;::is $a , "ᴮᛅ" , "[perl #77812] Globs in tied scalars can be reified if STORE dies" }',
+            'start_line' => 762,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 763,
+            'src' => ' package thrèxt ;',
+            'start_line' => 763,
+            'indent' => 1,
+            'block_id' => 157
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 764,
+            'src' => ' sub TIESCALAR { bless [ ] }',
+            'start_line' => 764,
+            'indent' => 1,
+            'block_id' => 157
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 765,
+            'src' => ' sub STORE { die "No!" }',
+            'start_line' => 765,
+            'indent' => 1,
+            'block_id' => 157
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 766,
+            'src' => ' sub FETCH { no warnings \'once\' ; * thrìt }',
+            'start_line' => 766,
+            'indent' => 1,
+            'block_id' => 157
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 766,
+            'src' => ' no warnings \'once\' ;',
+            'start_line' => 766,
+            'indent' => 2,
+            'block_id' => 160
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 767,
+            'src' => ' tie my $a , "thrèxt" ;',
+            'start_line' => 767,
+            'indent' => 1,
+            'block_id' => 157
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 768,
+            'src' => ' ( ) = "$a" ;',
+            'start_line' => 768,
+            'indent' => 1,
+            'block_id' => 157
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 769,
+            'src' => ' eval { * $a = sub { } } ;',
+            'start_line' => 769,
+            'indent' => 1,
+            'block_id' => 157
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 770,
+            'src' => ' untie $a ;',
+            'start_line' => 770,
+            'indent' => 1,
+            'block_id' => 157
+          },
+          {
+            'token_num' => 27,
+            'has_warnings' => 1,
+            'end_line' => 782,
+            'src' => ' ok eval { my $glob = \\ * hèèn::ISA ; delete $: : { "hèèn::" } ; * $glob = * ᴮᛅ ; } , "glob-to-*ISA assignment works when *ISA has lost its stash" ;',
+            'start_line' => 778,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 779,
+            'src' => ' my $glob = \\ * hèèn::ISA ;',
+            'start_line' => 779,
+            'indent' => 0,
+            'block_id' => 161
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 780,
+            'src' => ' delete $: : { "hèèn::" } ;',
+            'start_line' => 780,
+            'indent' => 0,
+            'block_id' => 161
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 781,
+            'src' => ' * $glob = * ᴮᛅ ;',
+            'start_line' => 781,
+            'indent' => 0,
+            'block_id' => 161
+          },
+          {
+            'token_num' => 27,
+            'has_warnings' => 1,
+            'end_line' => 787,
+            'src' => ' ok eval { my $glob = \\ * slàre::ISA ; delete $: : { "slàre::" } ; * $glob = [ ] ; } , "array-to-*ISA assignment works when *ISA has lost its stash" ;',
+            'start_line' => 783,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 784,
+            'src' => ' my $glob = \\ * slàre::ISA ;',
+            'start_line' => 784,
+            'indent' => 0,
+            'block_id' => 162
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 785,
+            'src' => ' delete $: : { "slàre::" } ;',
+            'start_line' => 785,
+            'indent' => 0,
+            'block_id' => 162
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 786,
+            'src' => ' * $glob = [ ] ;',
+            'start_line' => 786,
+            'indent' => 0,
+            'block_id' => 162
+          },
+          {
+            'token_num' => 37,
+            'has_warnings' => 1,
+            'end_line' => 794,
+            'src' => ' ok eval { sub grèck ; my $glob = do { no warnings "once" ; \\ * phìng::ᕘ } ; delete $: : { "phìng::" } ; * $glob = * grèck ; } , "Assigning a glob-with-sub to a glob that has lost its stash warks" ;',
+            'start_line' => 789,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 790,
+            'src' => ' sub grèck ;',
+            'start_line' => 790,
+            'indent' => 0,
+            'block_id' => 163
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 791,
+            'src' => ' my $glob = do { no warnings "once" ; \\ * phìng::ᕘ } ;',
+            'start_line' => 791,
+            'indent' => 0,
+            'block_id' => 163
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 791,
+            'src' => ' do { no warnings "once" ; \\ * phìng::ᕘ }',
+            'start_line' => 791,
+            'indent' => 0,
+            'block_id' => 163
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 791,
+            'src' => ' no warnings "once" ;',
+            'start_line' => 791,
+            'indent' => 1,
+            'block_id' => 164
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 792,
+            'src' => ' delete $: : { "phìng::" } ;',
+            'start_line' => 792,
+            'indent' => 0,
+            'block_id' => 163
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 793,
+            'src' => ' * $glob = * grèck ;',
+            'start_line' => 793,
+            'indent' => 0,
+            'block_id' => 163
+          },
+          {
+            'token_num' => 30,
+            'has_warnings' => 1,
+            'end_line' => 800,
+            'src' => ' ok eval { sub pòn::ᕘ ; my $glob = \\ * pòn::ᕘ ; delete $: : { "pòn::" } ; * $glob = * ᕘ ; } , "Assigning a glob to a glob-with-sub that has lost its stash warks" ;',
+            'start_line' => 795,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 796,
+            'src' => ' sub pòn::ᕘ ;',
+            'start_line' => 796,
+            'indent' => 0,
+            'block_id' => 165
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 797,
+            'src' => ' my $glob = \\ * pòn::ᕘ ;',
+            'start_line' => 797,
+            'indent' => 0,
+            'block_id' => 165
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 798,
+            'src' => ' delete $: : { "pòn::" } ;',
+            'start_line' => 798,
+            'indent' => 0,
+            'block_id' => 165
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 799,
+            'src' => ' * $glob = * ᕘ ;',
+            'start_line' => 799,
+            'indent' => 0,
+            'block_id' => 165
+          },
+          {
+            'token_num' => 81,
+            'has_warnings' => 1,
+            'end_line' => 816,
+            'src' => ' { package Tie::Alias ; sub TIESCALAR { bless \\ \\ pop } sub FETCH { $$ { $_ [ 0 ] } } sub STORE { $$ { $_ [ 0 ] } = $_ [ 1 ] } package main ; tie my $alias , \'Tie::Alias\' , my $var ; no warnings \'once\' ; $var = * gàlobbe ; { local * $alias = [ ] ; $var = 3 ; is $alias , 3 , "[perl #77926] Glob reification during localisation" ; } }',
+            'start_line' => 802,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 803,
+            'src' => ' package Tie::Alias ;',
+            'start_line' => 803,
+            'indent' => 1,
+            'block_id' => 167
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 0,
+            'end_line' => 804,
+            'src' => ' sub TIESCALAR { bless \\ \\ pop }',
+            'start_line' => 804,
+            'indent' => 1,
+            'block_id' => 167
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 0,
+            'end_line' => 805,
+            'src' => ' sub FETCH { $$ { $_ [ 0 ] } }',
+            'start_line' => 805,
+            'indent' => 1,
+            'block_id' => 167
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 0,
+            'end_line' => 806,
+            'src' => ' sub STORE { $$ { $_ [ 0 ] } = $_ [ 1 ] }',
+            'start_line' => 806,
+            'indent' => 1,
+            'block_id' => 167
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 807,
+            'src' => ' package main ;',
+            'start_line' => 807,
+            'indent' => 1,
+            'block_id' => 167
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 0,
+            'end_line' => 808,
+            'src' => ' tie my $alias , \'Tie::Alias\' , my $var ;',
+            'start_line' => 808,
+            'indent' => 1,
+            'block_id' => 167
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 809,
+            'src' => ' no warnings \'once\' ;',
+            'start_line' => 809,
+            'indent' => 1,
+            'block_id' => 167
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 810,
+            'src' => ' $var = * gàlobbe ;',
+            'start_line' => 810,
+            'indent' => 1,
+            'block_id' => 167
+          },
+          {
+            'token_num' => 20,
+            'has_warnings' => 1,
+            'end_line' => 815,
+            'src' => ' { local * $alias = [ ] ; $var = 3 ; is $alias , 3 , "[perl #77926] Glob reification during localisation" ; }',
+            'start_line' => 811,
+            'indent' => 1,
+            'block_id' => 167
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 812,
+            'src' => ' local * $alias = [ ] ;',
+            'start_line' => 812,
+            'indent' => 2,
+            'block_id' => 171
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 813,
+            'src' => ' $var = 3 ;',
+            'start_line' => 813,
+            'indent' => 2,
+            'block_id' => 171
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 814,
+            'src' => ' is $alias , 3 , "[perl #77926] Glob reification during localisation" ;',
+            'start_line' => 814,
+            'indent' => 2,
+            'block_id' => 171
+          },
+          {
+            'token_num' => 44,
+            'has_warnings' => 1,
+            'end_line' => 835,
+            'src' => ' { no warnings \'once\' ; my $survived ; * Trìt::DESTROY = sub { $thwèxt = 42 ; $survived = 1 ; } ; { local * thwèxt = bless [ ] , \'Trìt\' ; ( ) ; } ok $survived , \'no error when gp_free calls a destructor that assigns to the gv\' ; }',
+            'start_line' => 822,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 823,
+            'src' => ' no warnings \'once\' ;',
+            'start_line' => 823,
+            'indent' => 1,
+            'block_id' => 172
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 824,
+            'src' => ' my $survived ;',
+            'start_line' => 824,
+            'indent' => 1,
+            'block_id' => 172
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 828,
+            'src' => ' * Trìt::DESTROY = sub { $thwèxt = 42 ; $survived = 1 ; } ;',
+            'start_line' => 825,
+            'indent' => 1,
+            'block_id' => 172
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 826,
+            'src' => ' $thwèxt = 42 ;',
+            'start_line' => 826,
+            'indent' => 2,
+            'block_id' => 173
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 827,
+            'src' => ' $survived = 1 ;',
+            'start_line' => 827,
+            'indent' => 2,
+            'block_id' => 173
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 832,
+            'src' => ' { local * thwèxt = bless [ ] , \'Trìt\' ; ( ) ; }',
+            'start_line' => 829,
+            'indent' => 1,
+            'block_id' => 172
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 830,
+            'src' => ' local * thwèxt = bless [ ] , \'Trìt\' ;',
+            'start_line' => 830,
+            'indent' => 2,
+            'block_id' => 174
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 831,
+            'src' => ' ( ) ;',
+            'start_line' => 831,
+            'indent' => 2,
+            'block_id' => 174
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 834,
+            'src' => ' ok $survived , \'no error when gp_free calls a destructor that assigns to the gv\' ;',
+            'start_line' => 833,
+            'indent' => 1,
+            'block_id' => 172
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');
@@ -38129,6 +42325,22 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '',
             'name' => 'warnings'
+          },
+          {
+            'args' => '',
+            'name' => 'warnings'
+          },
+          {
+            'args' => '  qw ( $gᓙʞ $sምḲ $ᕘf )',
+            'name' => 'vars'
+          },
+          {
+            'args' => '',
+            'name' => 'strict'
+          },
+          {
+            'args' => '  ghèèn  =>  \'quàrè\'',
+            'name' => 'constant'
           }
         ]
 , 'Compiler::Lexer::get_used_modules');

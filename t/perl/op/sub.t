@@ -3417,15 +3417,6 @@ subtest 'tokenize' => sub {
                    'line' => 62
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
-                   'data' => '',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
-                   'line' => 62
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
@@ -3621,15 +3612,6 @@ subtest 'tokenize' => sub {
                    'name' => 'LeftParenthesis',
                    'data' => '(',
                    'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
-                   'line' => 64
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
-                   'data' => '',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
                    'line' => 64
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4038,10 +4020,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 3
           },
           {
-            'token_num' => 168,
+            'token_num' => 166,
             'has_warnings' => 1,
             'end_line' => 66,
-            'src' => ' { $foo { bar } = 7 ; for my $x ( $foo { bar } ) { isnt \\ sub { delete $foo { bar } }-> ( ) , \\ $x , \'result of delete(helem) is copied when returned\' ; } $foo { bar } = 7 ; for my $x ( $foo { bar } ) { isnt \\ sub { return delete $foo { bar } }-> ( ) , \\ $x , \'result of delete(helem) is copied when explicitly returned\' ; } my $x ; isnt \\ sub { delete $_ [ 0 ] }-> ( $x ) , \\ $x , \'result of delete(aelem) is copied when returned\' ; isnt \\ sub { return delete $_ [ 0 ] }-> ( $x ) , \\ $x , \'result of delete(aelem) is copied when explicitly returned\' ; isnt \\ sub { (  ) = \\ @_ ; shift }-> ( $x ) , \\ $x , \'result of shift is copied when returned\' ; isnt \\ sub { (  ) = \\ @_ ; return shift }-> ( $x ) , \\ $x , \'result of shift is copied when explicitly returned\' ; }',
+            'src' => ' { $foo { bar } = 7 ; for my $x ( $foo { bar } ) { isnt \\ sub { delete $foo { bar } }-> ( ) , \\ $x , \'result of delete(helem) is copied when returned\' ; } $foo { bar } = 7 ; for my $x ( $foo { bar } ) { isnt \\ sub { return delete $foo { bar } }-> ( ) , \\ $x , \'result of delete(helem) is copied when explicitly returned\' ; } my $x ; isnt \\ sub { delete $_ [ 0 ] }-> ( $x ) , \\ $x , \'result of delete(aelem) is copied when returned\' ; isnt \\ sub { return delete $_ [ 0 ] }-> ( $x ) , \\ $x , \'result of delete(aelem) is copied when explicitly returned\' ; isnt \\ sub { ( ) = \\ @_ ; shift }-> ( $x ) , \\ $x , \'result of shift is copied when returned\' ; isnt \\ sub { ( ) = \\ @_ ; return shift }-> ( $x ) , \\ $x , \'result of shift is copied when explicitly returned\' ; }',
             'start_line' => 45,
             'indent' => 0,
             'block_id' => 0
@@ -4128,37 +4110,37 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 6
           },
           {
-            'token_num' => 23,
+            'token_num' => 22,
             'has_warnings' => 1,
             'end_line' => 63,
-            'src' => ' isnt \\ sub { (  ) = \\ @_ ; shift }-> ( $x ) , \\ $x , \'result of shift is copied when returned\' ;',
+            'src' => ' isnt \\ sub { ( ) = \\ @_ ; shift }-> ( $x ) , \\ $x , \'result of shift is copied when returned\' ;',
             'start_line' => 62,
             'indent' => 1,
             'block_id' => 6
           },
           {
-            'token_num' => 7,
+            'token_num' => 6,
             'has_warnings' => 0,
             'end_line' => 62,
-            'src' => ' (  ) = \\ @_ ;',
+            'src' => ' ( ) = \\ @_ ;',
             'start_line' => 62,
             'indent' => 2,
             'block_id' => 13
           },
           {
-            'token_num' => 24,
+            'token_num' => 23,
             'has_warnings' => 1,
             'end_line' => 65,
-            'src' => ' isnt \\ sub { (  ) = \\ @_ ; return shift }-> ( $x ) , \\ $x , \'result of shift is copied when explicitly returned\' ;',
+            'src' => ' isnt \\ sub { ( ) = \\ @_ ; return shift }-> ( $x ) , \\ $x , \'result of shift is copied when explicitly returned\' ;',
             'start_line' => 64,
             'indent' => 1,
             'block_id' => 6
           },
           {
-            'token_num' => 7,
+            'token_num' => 6,
             'has_warnings' => 0,
             'end_line' => 64,
-            'src' => ' (  ) = \\ @_ ;',
+            'src' => ' ( ) = \\ @_ ;',
             'start_line' => 64,
             'indent' => 2,
             'block_id' => 14

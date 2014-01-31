@@ -1161,12 +1161,12 @@ subtest 'tokenize' => sub {
                    'line' => 30
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightParenthesis',
                    'data' => ')',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
                    'line' => 30
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1278,12 +1278,12 @@ subtest 'tokenize' => sub {
                    'line' => 31
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightParenthesis',
                    'data' => ')',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
                    'line' => 31
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1404,12 +1404,12 @@ subtest 'tokenize' => sub {
                    'line' => 33
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightParenthesis',
                    'data' => ')',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
                    'line' => 33
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1557,12 +1557,12 @@ subtest 'tokenize' => sub {
                    'line' => 34
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightParenthesis',
                    'data' => ')',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
                    'line' => 34
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7986,12 +7986,12 @@ subtest 'tokenize' => sub {
                    'line' => 346
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 346
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8679,12 +8679,12 @@ subtest 'tokenize' => sub {
                    'line' => 366
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 366
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8868,12 +8868,12 @@ subtest 'tokenize' => sub {
                    'line' => 373
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 373
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9327,12 +9327,12 @@ subtest 'tokenize' => sub {
                    'line' => 380
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 380
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10290,94 +10290,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 919,
+            'token_num' => 36,
             'has_warnings' => 1,
-            'end_line' => 400,
-            'src' => ' { package New ; use strict ; use warnings ; package Old ; use strict ; use warnings ; { no strict \'refs\' ; * { \'Old::\' } = * { \'New::\' } ; } } ok ( Old-> isa ( New::) , \'Old inherits from New\' ) ; ok ( New-> isa ( Old::) , \'New inherits from Old\' ) ; object_ok ( bless ( { } , Old::) , New::, \'Old object\' ) ; object_ok ( bless ( { } , New::) , Old::, \'New object\' ) ; for ( { name => \'assigning a glob to a glob\' , code => \'$life_raft = $::{"Left::"}; *Left:: = $::{"Right::"}\' , } , { name => \'assigning a string to a glob\' , code => \'$life_raft = $::{"Left::"}; *Left:: = "Right::"\' , } , { name => \'assigning a stashref to a glob\' , code => \'$life_raft = \\%Left::; *Left:: = \\%Right::\' , } , ) { fresh_perl_is q~
-     @Subclass::ISA = "Left";
-     @Left::ISA = "TopLeft";
-
-     sub TopLeft::speak { "Woof!" }
-     sub TopRight::speak { "Bow-wow!" }
-
-     my $thing = bless [], "Subclass";
-
-     # mro_package_moved needs to know to skip non-globs
-     $Right::{"gleck::"} = 3;
-
-     @Right::ISA = \'TopRight\';
-     my $life_raft;
-    __code__;
-
-     print $thing->speak, "\\n";
-
-     undef $life_raft;
-     print $thing->speak, "\\n";
-   ~ =~ s\\__code__\\$$_{code}\\r , "Bow-wow!\\nBow-wow!\\n" , { } , "replacing packages by $$_{name} updates isa caches" ; } for ( { name => \'assigning a glob to a glob\' , code => \'$life_raft = $::{"Left::"}; *Left:: = $::{"Right::"}\' , } , { name => \'assigning a string to a glob\' , code => \'$life_raft = $::{"Left::"}; *Left:: = "Right::"\' , } , { name => \'assigning a stashref to a glob\' , code => \'$life_raft = \\%Left::; *Left:: = \\%Right::\' , } , ) { fresh_perl_is q~
-     @Subclass::ISA = "Left::Side";
-     @Left::Side::ISA = "TopLeft";
-
-     sub TopLeft::speak { "Woof!" }
-     sub TopRight::speak { "Bow-wow!" }
-
-     my $thing = bless [], "Subclass";
-
-     @Right::Side::ISA = \'TopRight\';
-     my $life_raft;
-    __code__;
-
-     print $thing->speak, "\\n";
-
-     undef $life_raft;
-     print $thing->speak, "\\n";
-   ~ =~ s\\__code__\\$$_{code}\\r , "Bow-wow!\\nBow-wow!\\n" , { } , "replacing nested packages by $$_{name} updates isa caches" ; } for ( { name => \'assigning a glob to a glob\' , code => \'*clone:: = *outer::\' , } , { name => \'assigning a string to a glob\' , code => \'*clone:: = "outer::"\' , } , { name => \'assigning a stashref to a glob\' , code => \'*clone:: = \\%outer::\' , } , ) { for my $tail ( \'inner\' , \'inner::\' , \'inner:::\' , \'inner::::\' ) { fresh_perl_is q~
-      my $tail = shift;
-      @left::ISA = "outer::$tail";
-      @right::ISA = "clone::$tail";
-      bless [], "outer::$tail"; # autovivify the stash
-
-     __code__;
-
-      print "ok 1", "\\n" if left->isa("clone::$tail");
-      print "ok 2", "\\n" if right->isa("outer::$tail");
-      print "ok 3", "\\n" if right->isa("clone::$tail");
-      print "ok 4", "\\n" if left->isa("outer::$tail");
-    ~ =~ s\\__code__\\$$_{code}\\r , "ok 1\\nok 2\\nok 3\\nok 4\\n" , { args => [ $tail ] } , "replacing nonexistent nested packages by $$_{name} updates isa caches" . " ($tail)" ; fresh_perl_is q~
-      my $tail = shift;
-      @left::ISA = "outer::$tail";
-      @right::ISA = "clone::$tail";
-
-     __code__;
-
-      bless [], "outer::$tail";
-
-      print "ok 1", "\\n" if left->isa("clone::$tail");
-      print "ok 2", "\\n" if right->isa("outer::$tail");
-      print "ok 3", "\\n" if right->isa("clone::$tail");
-      print "ok 4", "\\n" if left->isa("outer::$tail");
-    ~ =~ s\\__code__\\$$_{code}\\r , "ok 1\\nok 2\\nok 3\\nok 4\\n" , { args => [ $tail ] } , "Giving nonexistent packages multiple effective names by $$_{name}" . " ($tail)" ; } } no warnings ; { @Pet::ISA = ( "Cur" , "Hound" ) ; @Cur::ISA = "Hylactete" ; sub Hylactete::speak { "Arff!" } sub Hound::speak { "Woof!" } my $pet = bless [ ] , "Pet" ; my $life_raft = delete $: : { \'Cur::\' } ; is $pet-> speak , \'Woof!\' , \'deleting a stash from its parent stash invalidates the isa caches\' ; undef $life_raft ; is $pet-> speak , \'Woof!\' , \'the deleted stash is gone completely when freed\' ; } { @Pett::ISA = ( "Curr::Curr::Curr" , "Hownd" ) ; @Curr::Curr::Curr::ISA = "Latrator" ; sub Latrator::speak { "Arff!" } sub Hownd::speak { "Woof!" } my $pet = bless [ ] , "Pett" ; my $life_raft = delete $: : { \'Curr::\' } ; is $pet-> speak , \'Woof!\' , \'deleting a stash from its parent stash resets caches of substashes\' ; undef $life_raft ; is $pet-> speak , \'Woof!\' , \'the deleted substash is gone completely when freed\' ; } fresh_perl_is q~#!perl -w
-     @Pet::ISA = "Tike";
-     @Tike::ISA = "Barker";
-     
-     sub Barker::speak { print "Woof!\\n" }
-     sub Latrator::speak { print "Bow-wow!\\n" }
-     
-     my $pet = bless [], "Pet";
-     
-     $pet->speak;
-     
-     sub Dog::speak { print "Hello.\\n" } # strange dog!
-     @Dog::ISA = \'Latrator\';
-     *Tike:: = delete $::{\'Dog::\'};
-     
-     $pet->speak;
-   ~ , "Woof!\\nHello.\\n" , { stderr => 1 } , "Assigning a nameless package over one w/subclasses updates isa caches" ; no warnings ; { no strict \'refs\' ; sub bar::blonk::blonk::phoo { "bbb" } sub veclum::phoo { "lasrevinu" } @feedlebomp::ISA = qw \'phoo::blonk::blonk veclum\' ; * phoo::baz::= * bar::blonk::; * phoo::= * bar::; * bar::= * boo::; my $accum = \'\' ; $accum .= \'feedlebomp\'-> phoo ; delete ${ "phoo::blonk::" } { "blonk::" } ; $accum .= \'feedlebomp\'-> phoo ; @feedlebomp::ISA = @feedlebomp::ISA ; $accum .= \'feedlebomp\'-> phoo ; is $accum , \'bbblasrevinulasrevinu\' , \'nested classes deleted & added simultaneously\' ; } use warnings ; watchdog 3 ; * foo::= \\ %::; * Acme::META::Acme::= \\ * Acme::; pass ( "mro_package_moved and self-referential packages" ) ; { no strict refs => ; no warnings ; @one::more::ISA = "four" ; sub four::womp { "aoeaa" } * two::= * one::; delete $: : { "one::" } ; @Childclass::ISA = \'two::more\' ; my $accum = \'Childclass\'-> womp . \'-\' ; my $life_raft = delete ${ "two::" } { "more::" } ; $accum .= eval { \'Childclass\'-> womp } // \'<undef>\' ; is $accum , \'aoeaa-<undef>\' , \'Deleting globs whose loc in the symtab differs from gv_fullname\' } * Ghelp::= * Neen::; @Subclass::ISA = \'Ghelp\' ; undef %Ghelp::; sub Frelp::womp { "clumpren" } eval \'
-  $Neen::whatever++;
-  @Neen::ISA = "Frelp";
-\' ; is eval { \'Subclass\'-> womp } , \'clumpren\' , \'Changes to @ISA after undef via original name\' ; undef %Ghelp::; eval \'
-  $Ghelp::whatever++;
-  @Ghelp::ISA = "Frelp";
-\' ; is eval { \'Subclass\'-> womp } , \'clumpren\' , \'Changes to @ISA after undef via alias\' ; { { package smare::baz } * phring::= * smare::; * bonk::= delete $smare::{ "baz::" } ; no strict \'refs\' ; * { "phring::baz::frump" } = sub { "hello" } ; sub frumper::frump { "good bye" } ; @brumkin::ISA = qw "bonk frumper" ; is frump brumkin , "good bye" , \'detached stashes lose all names corresponding to the containing stash\' ; } @Colon::ISA = \'Organ:\' ; bless [ ] , "Organ:" ; ok "Colon"-> isa ( "Organ:" ) , \'class isa "class:"\' ; { no strict \'refs\' ; * { "Organ:::" } = * Organ::} ok "Colon"-> isa ( "Organ" ) , \'isa(foo) when inheriting from "class:" which is an alias for foo\' ; { no warnings ; my $foo = delete $Organ::{ ":" } ; ok ! Colon-> isa ( "Organ" ) , \'class that isa "class:" no longer isa foo if "class:" has been deleted\' ; } @Colon::ISA = \':\' ; bless [ ] , ":" ; ok "Colon"-> isa ( ":" ) , \'class isa ":"\' ; { no strict \'refs\' ; * { ":::" } = * Punctuation::} ok "Colon"-> isa ( "Punctuation" ) , \'isa(foo) when inheriting from ":" which is an alias for foo\' ; @Colon::ISA = \'Organ:\' ; bless [ ] , "Organ:" ; { no strict \'refs\' ; my $life_raft = \\ %{ "Organ:::" } ; * { "Organ:::" } = \\ %Organ::; ok "Colon"-> isa ( "Organ" ) , \'isa(foo) when inheriting from "class:" after hash-to-glob assignment\' ; } @Colon::ISA = \'O:\' ; bless [ ] , "O:" ; { no strict \'refs\' ; my $life_raft = \\ %{ "O:::" } ; * { "O:::" } = "Organ::" ; ok "Colon"-> isa ( "Organ" ) , \'isa(foo) when inheriting from "class:" after string-to-glob assignment\' ; } } ; } ; } ;',
+            'end_line' => 28,
+            'src' => ' { package New ; use strict ; use warnings ; package Old ; use strict ; use warnings ; { no strict \'refs\' ; * { \'Old::\' } = * { \'New::\' } ; } }',
             'start_line' => 15,
             'indent' => 0,
             'block_id' => 0
@@ -10464,319 +10380,40 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 4
           },
           {
-            'token_num' => 879,
-            'has_warnings' => 1,
-            'end_line' => 400,
-            'src' => ' Old-> isa ( New::) , \'Old inherits from New\' ) ; ok ( New-> isa ( Old::) , \'New inherits from Old\' ) ; object_ok ( bless ( { } , Old::) , New::, \'Old object\' ) ; object_ok ( bless ( { } , New::) , Old::, \'New object\' ) ; for ( { name => \'assigning a glob to a glob\' , code => \'$life_raft = $::{"Left::"}; *Left:: = $::{"Right::"}\' , } , { name => \'assigning a string to a glob\' , code => \'$life_raft = $::{"Left::"}; *Left:: = "Right::"\' , } , { name => \'assigning a stashref to a glob\' , code => \'$life_raft = \\%Left::; *Left:: = \\%Right::\' , } , ) { fresh_perl_is q~
-     @Subclass::ISA = "Left";
-     @Left::ISA = "TopLeft";
-
-     sub TopLeft::speak { "Woof!" }
-     sub TopRight::speak { "Bow-wow!" }
-
-     my $thing = bless [], "Subclass";
-
-     # mro_package_moved needs to know to skip non-globs
-     $Right::{"gleck::"} = 3;
-
-     @Right::ISA = \'TopRight\';
-     my $life_raft;
-    __code__;
-
-     print $thing->speak, "\\n";
-
-     undef $life_raft;
-     print $thing->speak, "\\n";
-   ~ =~ s\\__code__\\$$_{code}\\r , "Bow-wow!\\nBow-wow!\\n" , { } , "replacing packages by $$_{name} updates isa caches" ; } for ( { name => \'assigning a glob to a glob\' , code => \'$life_raft = $::{"Left::"}; *Left:: = $::{"Right::"}\' , } , { name => \'assigning a string to a glob\' , code => \'$life_raft = $::{"Left::"}; *Left:: = "Right::"\' , } , { name => \'assigning a stashref to a glob\' , code => \'$life_raft = \\%Left::; *Left:: = \\%Right::\' , } , ) { fresh_perl_is q~
-     @Subclass::ISA = "Left::Side";
-     @Left::Side::ISA = "TopLeft";
-
-     sub TopLeft::speak { "Woof!" }
-     sub TopRight::speak { "Bow-wow!" }
-
-     my $thing = bless [], "Subclass";
-
-     @Right::Side::ISA = \'TopRight\';
-     my $life_raft;
-    __code__;
-
-     print $thing->speak, "\\n";
-
-     undef $life_raft;
-     print $thing->speak, "\\n";
-   ~ =~ s\\__code__\\$$_{code}\\r , "Bow-wow!\\nBow-wow!\\n" , { } , "replacing nested packages by $$_{name} updates isa caches" ; } for ( { name => \'assigning a glob to a glob\' , code => \'*clone:: = *outer::\' , } , { name => \'assigning a string to a glob\' , code => \'*clone:: = "outer::"\' , } , { name => \'assigning a stashref to a glob\' , code => \'*clone:: = \\%outer::\' , } , ) { for my $tail ( \'inner\' , \'inner::\' , \'inner:::\' , \'inner::::\' ) { fresh_perl_is q~
-      my $tail = shift;
-      @left::ISA = "outer::$tail";
-      @right::ISA = "clone::$tail";
-      bless [], "outer::$tail"; # autovivify the stash
-
-     __code__;
-
-      print "ok 1", "\\n" if left->isa("clone::$tail");
-      print "ok 2", "\\n" if right->isa("outer::$tail");
-      print "ok 3", "\\n" if right->isa("clone::$tail");
-      print "ok 4", "\\n" if left->isa("outer::$tail");
-    ~ =~ s\\__code__\\$$_{code}\\r , "ok 1\\nok 2\\nok 3\\nok 4\\n" , { args => [ $tail ] } , "replacing nonexistent nested packages by $$_{name} updates isa caches" . " ($tail)" ; fresh_perl_is q~
-      my $tail = shift;
-      @left::ISA = "outer::$tail";
-      @right::ISA = "clone::$tail";
-
-     __code__;
-
-      bless [], "outer::$tail";
-
-      print "ok 1", "\\n" if left->isa("clone::$tail");
-      print "ok 2", "\\n" if right->isa("outer::$tail");
-      print "ok 3", "\\n" if right->isa("clone::$tail");
-      print "ok 4", "\\n" if left->isa("outer::$tail");
-    ~ =~ s\\__code__\\$$_{code}\\r , "ok 1\\nok 2\\nok 3\\nok 4\\n" , { args => [ $tail ] } , "Giving nonexistent packages multiple effective names by $$_{name}" . " ($tail)" ; } } no warnings ; { @Pet::ISA = ( "Cur" , "Hound" ) ; @Cur::ISA = "Hylactete" ; sub Hylactete::speak { "Arff!" } sub Hound::speak { "Woof!" } my $pet = bless [ ] , "Pet" ; my $life_raft = delete $: : { \'Cur::\' } ; is $pet-> speak , \'Woof!\' , \'deleting a stash from its parent stash invalidates the isa caches\' ; undef $life_raft ; is $pet-> speak , \'Woof!\' , \'the deleted stash is gone completely when freed\' ; } { @Pett::ISA = ( "Curr::Curr::Curr" , "Hownd" ) ; @Curr::Curr::Curr::ISA = "Latrator" ; sub Latrator::speak { "Arff!" } sub Hownd::speak { "Woof!" } my $pet = bless [ ] , "Pett" ; my $life_raft = delete $: : { \'Curr::\' } ; is $pet-> speak , \'Woof!\' , \'deleting a stash from its parent stash resets caches of substashes\' ; undef $life_raft ; is $pet-> speak , \'Woof!\' , \'the deleted substash is gone completely when freed\' ; } fresh_perl_is q~#!perl -w
-     @Pet::ISA = "Tike";
-     @Tike::ISA = "Barker";
-     
-     sub Barker::speak { print "Woof!\\n" }
-     sub Latrator::speak { print "Bow-wow!\\n" }
-     
-     my $pet = bless [], "Pet";
-     
-     $pet->speak;
-     
-     sub Dog::speak { print "Hello.\\n" } # strange dog!
-     @Dog::ISA = \'Latrator\';
-     *Tike:: = delete $::{\'Dog::\'};
-     
-     $pet->speak;
-   ~ , "Woof!\\nHello.\\n" , { stderr => 1 } , "Assigning a nameless package over one w/subclasses updates isa caches" ; no warnings ; { no strict \'refs\' ; sub bar::blonk::blonk::phoo { "bbb" } sub veclum::phoo { "lasrevinu" } @feedlebomp::ISA = qw \'phoo::blonk::blonk veclum\' ; * phoo::baz::= * bar::blonk::; * phoo::= * bar::; * bar::= * boo::; my $accum = \'\' ; $accum .= \'feedlebomp\'-> phoo ; delete ${ "phoo::blonk::" } { "blonk::" } ; $accum .= \'feedlebomp\'-> phoo ; @feedlebomp::ISA = @feedlebomp::ISA ; $accum .= \'feedlebomp\'-> phoo ; is $accum , \'bbblasrevinulasrevinu\' , \'nested classes deleted & added simultaneously\' ; } use warnings ; watchdog 3 ; * foo::= \\ %::; * Acme::META::Acme::= \\ * Acme::; pass ( "mro_package_moved and self-referential packages" ) ; { no strict refs => ; no warnings ; @one::more::ISA = "four" ; sub four::womp { "aoeaa" } * two::= * one::; delete $: : { "one::" } ; @Childclass::ISA = \'two::more\' ; my $accum = \'Childclass\'-> womp . \'-\' ; my $life_raft = delete ${ "two::" } { "more::" } ; $accum .= eval { \'Childclass\'-> womp } // \'<undef>\' ; is $accum , \'aoeaa-<undef>\' , \'Deleting globs whose loc in the symtab differs from gv_fullname\' } * Ghelp::= * Neen::; @Subclass::ISA = \'Ghelp\' ; undef %Ghelp::; sub Frelp::womp { "clumpren" } eval \'
-  $Neen::whatever++;
-  @Neen::ISA = "Frelp";
-\' ; is eval { \'Subclass\'-> womp } , \'clumpren\' , \'Changes to @ISA after undef via original name\' ; undef %Ghelp::; eval \'
-  $Ghelp::whatever++;
-  @Ghelp::ISA = "Frelp";
-\' ; is eval { \'Subclass\'-> womp } , \'clumpren\' , \'Changes to @ISA after undef via alias\' ; { { package smare::baz } * phring::= * smare::; * bonk::= delete $smare::{ "baz::" } ; no strict \'refs\' ; * { "phring::baz::frump" } = sub { "hello" } ; sub frumper::frump { "good bye" } ; @brumkin::ISA = qw "bonk frumper" ; is frump brumkin , "good bye" , \'detached stashes lose all names corresponding to the containing stash\' ; } @Colon::ISA = \'Organ:\' ; bless [ ] , "Organ:" ; ok "Colon"-> isa ( "Organ:" ) , \'class isa "class:"\' ; { no strict \'refs\' ; * { "Organ:::" } = * Organ::} ok "Colon"-> isa ( "Organ" ) , \'isa(foo) when inheriting from "class:" which is an alias for foo\' ; { no warnings ; my $foo = delete $Organ::{ ":" } ; ok ! Colon-> isa ( "Organ" ) , \'class that isa "class:" no longer isa foo if "class:" has been deleted\' ; } @Colon::ISA = \':\' ; bless [ ] , ":" ; ok "Colon"-> isa ( ":" ) , \'class isa ":"\' ; { no strict \'refs\' ; * { ":::" } = * Punctuation::} ok "Colon"-> isa ( "Punctuation" ) , \'isa(foo) when inheriting from ":" which is an alias for foo\' ; @Colon::ISA = \'Organ:\' ; bless [ ] , "Organ:" ; { no strict \'refs\' ; my $life_raft = \\ %{ "Organ:::" } ; * { "Organ:::" } = \\ %Organ::; ok "Colon"-> isa ( "Organ" ) , \'isa(foo) when inheriting from "class:" after hash-to-glob assignment\' ; } @Colon::ISA = \'O:\' ; bless [ ] , "O:" ; { no strict \'refs\' ; my $life_raft = \\ %{ "O:::" } ; * { "O:::" } = "Organ::" ; ok "Colon"-> isa ( "Organ" ) , \'isa(foo) when inheriting from "class:" after string-to-glob assignment\' ; } } ; } ;',
-            'start_line' => 30,
-            'indent' => 0,
-            'block_id' => 4
-          },
-          {
-            'token_num' => 9,
+            'token_num' => 12,
             'has_warnings' => 1,
             'end_line' => 30,
-            'src' => ' Old-> isa ( New::) , \'Old inherits from New\' ) ;',
+            'src' => ' ok ( Old-> isa ( New:: ) , \'Old inherits from New\' ) ;',
             'start_line' => 30,
             'indent' => 0,
-            'block_id' => 4
+            'block_id' => 0
           },
           {
-            'token_num' => 866,
-            'has_warnings' => 1,
-            'end_line' => 400,
-            'src' => ' New-> isa ( Old::) , \'New inherits from Old\' ) ; object_ok ( bless ( { } , Old::) , New::, \'Old object\' ) ; object_ok ( bless ( { } , New::) , Old::, \'New object\' ) ; for ( { name => \'assigning a glob to a glob\' , code => \'$life_raft = $::{"Left::"}; *Left:: = $::{"Right::"}\' , } , { name => \'assigning a string to a glob\' , code => \'$life_raft = $::{"Left::"}; *Left:: = "Right::"\' , } , { name => \'assigning a stashref to a glob\' , code => \'$life_raft = \\%Left::; *Left:: = \\%Right::\' , } , ) { fresh_perl_is q~
-     @Subclass::ISA = "Left";
-     @Left::ISA = "TopLeft";
-
-     sub TopLeft::speak { "Woof!" }
-     sub TopRight::speak { "Bow-wow!" }
-
-     my $thing = bless [], "Subclass";
-
-     # mro_package_moved needs to know to skip non-globs
-     $Right::{"gleck::"} = 3;
-
-     @Right::ISA = \'TopRight\';
-     my $life_raft;
-    __code__;
-
-     print $thing->speak, "\\n";
-
-     undef $life_raft;
-     print $thing->speak, "\\n";
-   ~ =~ s\\__code__\\$$_{code}\\r , "Bow-wow!\\nBow-wow!\\n" , { } , "replacing packages by $$_{name} updates isa caches" ; } for ( { name => \'assigning a glob to a glob\' , code => \'$life_raft = $::{"Left::"}; *Left:: = $::{"Right::"}\' , } , { name => \'assigning a string to a glob\' , code => \'$life_raft = $::{"Left::"}; *Left:: = "Right::"\' , } , { name => \'assigning a stashref to a glob\' , code => \'$life_raft = \\%Left::; *Left:: = \\%Right::\' , } , ) { fresh_perl_is q~
-     @Subclass::ISA = "Left::Side";
-     @Left::Side::ISA = "TopLeft";
-
-     sub TopLeft::speak { "Woof!" }
-     sub TopRight::speak { "Bow-wow!" }
-
-     my $thing = bless [], "Subclass";
-
-     @Right::Side::ISA = \'TopRight\';
-     my $life_raft;
-    __code__;
-
-     print $thing->speak, "\\n";
-
-     undef $life_raft;
-     print $thing->speak, "\\n";
-   ~ =~ s\\__code__\\$$_{code}\\r , "Bow-wow!\\nBow-wow!\\n" , { } , "replacing nested packages by $$_{name} updates isa caches" ; } for ( { name => \'assigning a glob to a glob\' , code => \'*clone:: = *outer::\' , } , { name => \'assigning a string to a glob\' , code => \'*clone:: = "outer::"\' , } , { name => \'assigning a stashref to a glob\' , code => \'*clone:: = \\%outer::\' , } , ) { for my $tail ( \'inner\' , \'inner::\' , \'inner:::\' , \'inner::::\' ) { fresh_perl_is q~
-      my $tail = shift;
-      @left::ISA = "outer::$tail";
-      @right::ISA = "clone::$tail";
-      bless [], "outer::$tail"; # autovivify the stash
-
-     __code__;
-
-      print "ok 1", "\\n" if left->isa("clone::$tail");
-      print "ok 2", "\\n" if right->isa("outer::$tail");
-      print "ok 3", "\\n" if right->isa("clone::$tail");
-      print "ok 4", "\\n" if left->isa("outer::$tail");
-    ~ =~ s\\__code__\\$$_{code}\\r , "ok 1\\nok 2\\nok 3\\nok 4\\n" , { args => [ $tail ] } , "replacing nonexistent nested packages by $$_{name} updates isa caches" . " ($tail)" ; fresh_perl_is q~
-      my $tail = shift;
-      @left::ISA = "outer::$tail";
-      @right::ISA = "clone::$tail";
-
-     __code__;
-
-      bless [], "outer::$tail";
-
-      print "ok 1", "\\n" if left->isa("clone::$tail");
-      print "ok 2", "\\n" if right->isa("outer::$tail");
-      print "ok 3", "\\n" if right->isa("clone::$tail");
-      print "ok 4", "\\n" if left->isa("outer::$tail");
-    ~ =~ s\\__code__\\$$_{code}\\r , "ok 1\\nok 2\\nok 3\\nok 4\\n" , { args => [ $tail ] } , "Giving nonexistent packages multiple effective names by $$_{name}" . " ($tail)" ; } } no warnings ; { @Pet::ISA = ( "Cur" , "Hound" ) ; @Cur::ISA = "Hylactete" ; sub Hylactete::speak { "Arff!" } sub Hound::speak { "Woof!" } my $pet = bless [ ] , "Pet" ; my $life_raft = delete $: : { \'Cur::\' } ; is $pet-> speak , \'Woof!\' , \'deleting a stash from its parent stash invalidates the isa caches\' ; undef $life_raft ; is $pet-> speak , \'Woof!\' , \'the deleted stash is gone completely when freed\' ; } { @Pett::ISA = ( "Curr::Curr::Curr" , "Hownd" ) ; @Curr::Curr::Curr::ISA = "Latrator" ; sub Latrator::speak { "Arff!" } sub Hownd::speak { "Woof!" } my $pet = bless [ ] , "Pett" ; my $life_raft = delete $: : { \'Curr::\' } ; is $pet-> speak , \'Woof!\' , \'deleting a stash from its parent stash resets caches of substashes\' ; undef $life_raft ; is $pet-> speak , \'Woof!\' , \'the deleted substash is gone completely when freed\' ; } fresh_perl_is q~#!perl -w
-     @Pet::ISA = "Tike";
-     @Tike::ISA = "Barker";
-     
-     sub Barker::speak { print "Woof!\\n" }
-     sub Latrator::speak { print "Bow-wow!\\n" }
-     
-     my $pet = bless [], "Pet";
-     
-     $pet->speak;
-     
-     sub Dog::speak { print "Hello.\\n" } # strange dog!
-     @Dog::ISA = \'Latrator\';
-     *Tike:: = delete $::{\'Dog::\'};
-     
-     $pet->speak;
-   ~ , "Woof!\\nHello.\\n" , { stderr => 1 } , "Assigning a nameless package over one w/subclasses updates isa caches" ; no warnings ; { no strict \'refs\' ; sub bar::blonk::blonk::phoo { "bbb" } sub veclum::phoo { "lasrevinu" } @feedlebomp::ISA = qw \'phoo::blonk::blonk veclum\' ; * phoo::baz::= * bar::blonk::; * phoo::= * bar::; * bar::= * boo::; my $accum = \'\' ; $accum .= \'feedlebomp\'-> phoo ; delete ${ "phoo::blonk::" } { "blonk::" } ; $accum .= \'feedlebomp\'-> phoo ; @feedlebomp::ISA = @feedlebomp::ISA ; $accum .= \'feedlebomp\'-> phoo ; is $accum , \'bbblasrevinulasrevinu\' , \'nested classes deleted & added simultaneously\' ; } use warnings ; watchdog 3 ; * foo::= \\ %::; * Acme::META::Acme::= \\ * Acme::; pass ( "mro_package_moved and self-referential packages" ) ; { no strict refs => ; no warnings ; @one::more::ISA = "four" ; sub four::womp { "aoeaa" } * two::= * one::; delete $: : { "one::" } ; @Childclass::ISA = \'two::more\' ; my $accum = \'Childclass\'-> womp . \'-\' ; my $life_raft = delete ${ "two::" } { "more::" } ; $accum .= eval { \'Childclass\'-> womp } // \'<undef>\' ; is $accum , \'aoeaa-<undef>\' , \'Deleting globs whose loc in the symtab differs from gv_fullname\' } * Ghelp::= * Neen::; @Subclass::ISA = \'Ghelp\' ; undef %Ghelp::; sub Frelp::womp { "clumpren" } eval \'
-  $Neen::whatever++;
-  @Neen::ISA = "Frelp";
-\' ; is eval { \'Subclass\'-> womp } , \'clumpren\' , \'Changes to @ISA after undef via original name\' ; undef %Ghelp::; eval \'
-  $Ghelp::whatever++;
-  @Ghelp::ISA = "Frelp";
-\' ; is eval { \'Subclass\'-> womp } , \'clumpren\' , \'Changes to @ISA after undef via alias\' ; { { package smare::baz } * phring::= * smare::; * bonk::= delete $smare::{ "baz::" } ; no strict \'refs\' ; * { "phring::baz::frump" } = sub { "hello" } ; sub frumper::frump { "good bye" } ; @brumkin::ISA = qw "bonk frumper" ; is frump brumkin , "good bye" , \'detached stashes lose all names corresponding to the containing stash\' ; } @Colon::ISA = \'Organ:\' ; bless [ ] , "Organ:" ; ok "Colon"-> isa ( "Organ:" ) , \'class isa "class:"\' ; { no strict \'refs\' ; * { "Organ:::" } = * Organ::} ok "Colon"-> isa ( "Organ" ) , \'isa(foo) when inheriting from "class:" which is an alias for foo\' ; { no warnings ; my $foo = delete $Organ::{ ":" } ; ok ! Colon-> isa ( "Organ" ) , \'class that isa "class:" no longer isa foo if "class:" has been deleted\' ; } @Colon::ISA = \':\' ; bless [ ] , ":" ; ok "Colon"-> isa ( ":" ) , \'class isa ":"\' ; { no strict \'refs\' ; * { ":::" } = * Punctuation::} ok "Colon"-> isa ( "Punctuation" ) , \'isa(foo) when inheriting from ":" which is an alias for foo\' ; @Colon::ISA = \'Organ:\' ; bless [ ] , "Organ:" ; { no strict \'refs\' ; my $life_raft = \\ %{ "Organ:::" } ; * { "Organ:::" } = \\ %Organ::; ok "Colon"-> isa ( "Organ" ) , \'isa(foo) when inheriting from "class:" after hash-to-glob assignment\' ; } @Colon::ISA = \'O:\' ; bless [ ] , "O:" ; { no strict \'refs\' ; my $life_raft = \\ %{ "O:::" } ; * { "O:::" } = "Organ::" ; ok "Colon"-> isa ( "Organ" ) , \'isa(foo) when inheriting from "class:" after string-to-glob assignment\' ; } } ;',
-            'start_line' => 31,
-            'indent' => 0,
-            'block_id' => 4
-          },
-          {
-            'token_num' => 9,
+            'token_num' => 12,
             'has_warnings' => 1,
             'end_line' => 31,
-            'src' => ' New-> isa ( Old::) , \'New inherits from Old\' ) ;',
+            'src' => ' ok ( New-> isa ( Old:: ) , \'New inherits from Old\' ) ;',
             'start_line' => 31,
             'indent' => 0,
-            'block_id' => 4
+            'block_id' => 0
           },
           {
-            'token_num' => 11,
+            'token_num' => 14,
             'has_warnings' => 1,
             'end_line' => 33,
-            'src' => ' bless ( { } , Old::) , New::, \'Old object\' ) ;',
+            'src' => ' object_ok ( bless ( { } , Old:: ) , New::, \'Old object\' ) ;',
             'start_line' => 33,
             'indent' => 0,
-            'block_id' => 4
+            'block_id' => 0
           },
           {
-            'token_num' => 656,
-            'has_warnings' => 1,
-            'end_line' => 363,
-            'src' => ' object_ok ( bless ( { } , New::) , Old::, \'New object\' ) ; for ( { name => \'assigning a glob to a glob\' , code => \'$life_raft = $::{"Left::"}; *Left:: = $::{"Right::"}\' , } , { name => \'assigning a string to a glob\' , code => \'$life_raft = $::{"Left::"}; *Left:: = "Right::"\' , } , { name => \'assigning a stashref to a glob\' , code => \'$life_raft = \\%Left::; *Left:: = \\%Right::\' , } , ) { fresh_perl_is q~
-     @Subclass::ISA = "Left";
-     @Left::ISA = "TopLeft";
-
-     sub TopLeft::speak { "Woof!" }
-     sub TopRight::speak { "Bow-wow!" }
-
-     my $thing = bless [], "Subclass";
-
-     # mro_package_moved needs to know to skip non-globs
-     $Right::{"gleck::"} = 3;
-
-     @Right::ISA = \'TopRight\';
-     my $life_raft;
-    __code__;
-
-     print $thing->speak, "\\n";
-
-     undef $life_raft;
-     print $thing->speak, "\\n";
-   ~ =~ s\\__code__\\$$_{code}\\r , "Bow-wow!\\nBow-wow!\\n" , { } , "replacing packages by $$_{name} updates isa caches" ; } for ( { name => \'assigning a glob to a glob\' , code => \'$life_raft = $::{"Left::"}; *Left:: = $::{"Right::"}\' , } , { name => \'assigning a string to a glob\' , code => \'$life_raft = $::{"Left::"}; *Left:: = "Right::"\' , } , { name => \'assigning a stashref to a glob\' , code => \'$life_raft = \\%Left::; *Left:: = \\%Right::\' , } , ) { fresh_perl_is q~
-     @Subclass::ISA = "Left::Side";
-     @Left::Side::ISA = "TopLeft";
-
-     sub TopLeft::speak { "Woof!" }
-     sub TopRight::speak { "Bow-wow!" }
-
-     my $thing = bless [], "Subclass";
-
-     @Right::Side::ISA = \'TopRight\';
-     my $life_raft;
-    __code__;
-
-     print $thing->speak, "\\n";
-
-     undef $life_raft;
-     print $thing->speak, "\\n";
-   ~ =~ s\\__code__\\$$_{code}\\r , "Bow-wow!\\nBow-wow!\\n" , { } , "replacing nested packages by $$_{name} updates isa caches" ; } for ( { name => \'assigning a glob to a glob\' , code => \'*clone:: = *outer::\' , } , { name => \'assigning a string to a glob\' , code => \'*clone:: = "outer::"\' , } , { name => \'assigning a stashref to a glob\' , code => \'*clone:: = \\%outer::\' , } , ) { for my $tail ( \'inner\' , \'inner::\' , \'inner:::\' , \'inner::::\' ) { fresh_perl_is q~
-      my $tail = shift;
-      @left::ISA = "outer::$tail";
-      @right::ISA = "clone::$tail";
-      bless [], "outer::$tail"; # autovivify the stash
-
-     __code__;
-
-      print "ok 1", "\\n" if left->isa("clone::$tail");
-      print "ok 2", "\\n" if right->isa("outer::$tail");
-      print "ok 3", "\\n" if right->isa("clone::$tail");
-      print "ok 4", "\\n" if left->isa("outer::$tail");
-    ~ =~ s\\__code__\\$$_{code}\\r , "ok 1\\nok 2\\nok 3\\nok 4\\n" , { args => [ $tail ] } , "replacing nonexistent nested packages by $$_{name} updates isa caches" . " ($tail)" ; fresh_perl_is q~
-      my $tail = shift;
-      @left::ISA = "outer::$tail";
-      @right::ISA = "clone::$tail";
-
-     __code__;
-
-      bless [], "outer::$tail";
-
-      print "ok 1", "\\n" if left->isa("clone::$tail");
-      print "ok 2", "\\n" if right->isa("outer::$tail");
-      print "ok 3", "\\n" if right->isa("clone::$tail");
-      print "ok 4", "\\n" if left->isa("outer::$tail");
-    ~ =~ s\\__code__\\$$_{code}\\r , "ok 1\\nok 2\\nok 3\\nok 4\\n" , { args => [ $tail ] } , "Giving nonexistent packages multiple effective names by $$_{name}" . " ($tail)" ; } } no warnings ; { @Pet::ISA = ( "Cur" , "Hound" ) ; @Cur::ISA = "Hylactete" ; sub Hylactete::speak { "Arff!" } sub Hound::speak { "Woof!" } my $pet = bless [ ] , "Pet" ; my $life_raft = delete $: : { \'Cur::\' } ; is $pet-> speak , \'Woof!\' , \'deleting a stash from its parent stash invalidates the isa caches\' ; undef $life_raft ; is $pet-> speak , \'Woof!\' , \'the deleted stash is gone completely when freed\' ; } { @Pett::ISA = ( "Curr::Curr::Curr" , "Hownd" ) ; @Curr::Curr::Curr::ISA = "Latrator" ; sub Latrator::speak { "Arff!" } sub Hownd::speak { "Woof!" } my $pet = bless [ ] , "Pett" ; my $life_raft = delete $: : { \'Curr::\' } ; is $pet-> speak , \'Woof!\' , \'deleting a stash from its parent stash resets caches of substashes\' ; undef $life_raft ; is $pet-> speak , \'Woof!\' , \'the deleted substash is gone completely when freed\' ; } fresh_perl_is q~#!perl -w
-     @Pet::ISA = "Tike";
-     @Tike::ISA = "Barker";
-     
-     sub Barker::speak { print "Woof!\\n" }
-     sub Latrator::speak { print "Bow-wow!\\n" }
-     
-     my $pet = bless [], "Pet";
-     
-     $pet->speak;
-     
-     sub Dog::speak { print "Hello.\\n" } # strange dog!
-     @Dog::ISA = \'Latrator\';
-     *Tike:: = delete $::{\'Dog::\'};
-     
-     $pet->speak;
-   ~ , "Woof!\\nHello.\\n" , { stderr => 1 } , "Assigning a nameless package over one w/subclasses updates isa caches" ; no warnings ; { no strict \'refs\' ; sub bar::blonk::blonk::phoo { "bbb" } sub veclum::phoo { "lasrevinu" } @feedlebomp::ISA = qw \'phoo::blonk::blonk veclum\' ; * phoo::baz::= * bar::blonk::; * phoo::= * bar::; * bar::= * boo::; my $accum = \'\' ; $accum .= \'feedlebomp\'-> phoo ; delete ${ "phoo::blonk::" } { "blonk::" } ; $accum .= \'feedlebomp\'-> phoo ; @feedlebomp::ISA = @feedlebomp::ISA ; $accum .= \'feedlebomp\'-> phoo ; is $accum , \'bbblasrevinulasrevinu\' , \'nested classes deleted & added simultaneously\' ; } use warnings ; watchdog 3 ; * foo::= \\ %::; * Acme::META::Acme::= \\ * Acme::; pass ( "mro_package_moved and self-referential packages" ) ; { no strict refs => ; no warnings ; @one::more::ISA = "four" ; sub four::womp { "aoeaa" } * two::= * one::; delete $: : { "one::" } ; @Childclass::ISA = \'two::more\' ; my $accum = \'Childclass\'-> womp . \'-\' ; my $life_raft = delete ${ "two::" } { "more::" } ; $accum .= eval { \'Childclass\'-> womp } // \'<undef>\' ; is $accum , \'aoeaa-<undef>\' , \'Deleting globs whose loc in the symtab differs from gv_fullname\' } * Ghelp::= * Neen::; @Subclass::ISA = \'Ghelp\' ; undef %Ghelp::; sub Frelp::womp { "clumpren" } eval \'
-  $Neen::whatever++;
-  @Neen::ISA = "Frelp";
-\' ; is eval { \'Subclass\'-> womp } , \'clumpren\' , \'Changes to @ISA after undef via original name\' ; undef %Ghelp::; eval \'
-  $Ghelp::whatever++;
-  @Ghelp::ISA = "Frelp";
-\' ; is eval { \'Subclass\'-> womp } , \'clumpren\' , \'Changes to @ISA after undef via alias\' ; { { package smare::baz } * phring::= * smare::; * bonk::= delete $smare::{ "baz::" } ; no strict \'refs\' ; * { "phring::baz::frump" } = sub { "hello" } ; sub frumper::frump { "good bye" } ; @brumkin::ISA = qw "bonk frumper" ; is frump brumkin , "good bye" , \'detached stashes lose all names corresponding to the containing stash\' ; } @Colon::ISA = \'Organ:\' ;',
-            'start_line' => 34,
-            'indent' => 0,
-            'block_id' => 4
-          },
-          {
-            'token_num' => 11,
+            'token_num' => 14,
             'has_warnings' => 1,
             'end_line' => 34,
-            'src' => ' bless ( { } , New::) , Old::, \'New object\' ) ;',
+            'src' => ' object_ok ( bless ( { } , New:: ) , Old::, \'New object\' ) ;',
             'start_line' => 34,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 59,
@@ -10805,7 +10442,7 @@ subtest 'get_groups_by_syntax_level' => sub {
    ~ =~ s\\__code__\\$$_{code}\\r , "Bow-wow!\\nBow-wow!\\n" , { } , "replacing packages by $$_{name} updates isa caches" ; }',
             'start_line' => 39,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 3,
@@ -10840,7 +10477,7 @@ subtest 'get_groups_by_syntax_level' => sub {
    ~ =~ s\\__code__\\$$_{code}\\r , "Bow-wow!\\nBow-wow!\\n" , { } , "replacing nested packages by $$_{name} updates isa caches" ; }',
             'start_line' => 90,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 3,
@@ -10883,7 +10520,7 @@ subtest 'get_groups_by_syntax_level' => sub {
     ~ =~ s\\__code__\\$$_{code}\\r , "ok 1\\nok 2\\nok 3\\nok 4\\n" , { args => [ $tail ] } , "Giving nonexistent packages multiple effective names by $$_{name}" . " ($tail)" ; } }',
             'start_line' => 143,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 70,
@@ -10969,7 +10606,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' no warnings ;',
             'start_line' => 200,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 64,
@@ -10978,7 +10615,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' { @Pet::ISA = ( "Cur" , "Hound" ) ; @Cur::ISA = "Hylactete" ; sub Hylactete::speak { "Arff!" } sub Hound::speak { "Woof!" } my $pet = bless [ ] , "Pet" ; my $life_raft = delete $: : { \'Cur::\' } ; is $pet-> speak , \'Woof!\' , \'deleting a stash from its parent stash invalidates the isa caches\' ; undef $life_raft ; is $pet-> speak , \'Woof!\' , \'the deleted stash is gone completely when freed\' ; }',
             'start_line' => 207,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 8,
@@ -11050,7 +10687,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' { @Pett::ISA = ( "Curr::Curr::Curr" , "Hownd" ) ; @Curr::Curr::Curr::ISA = "Latrator" ; sub Latrator::speak { "Arff!" } sub Hownd::speak { "Woof!" } my $pet = bless [ ] , "Pett" ; my $life_raft = delete $: : { \'Curr::\' } ; is $pet-> speak , \'Woof!\' , \'deleting a stash from its parent stash resets caches of substashes\' ; undef $life_raft ; is $pet-> speak , \'Woof!\' , \'the deleted substash is gone completely when freed\' ; }',
             'start_line' => 226,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 8,
@@ -11138,7 +10775,7 @@ subtest 'get_groups_by_syntax_level' => sub {
    ~ , "Woof!\\nHello.\\n" , { stderr => 1 } , "Assigning a nameless package over one w/subclasses updates isa caches" ;',
             'start_line' => 247,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 3,
@@ -11147,7 +10784,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' no warnings ;',
             'start_line' => 270,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 75,
@@ -11156,7 +10793,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' { no strict \'refs\' ; sub bar::blonk::blonk::phoo { "bbb" } sub veclum::phoo { "lasrevinu" } @feedlebomp::ISA = qw \'phoo::blonk::blonk veclum\' ; * phoo::baz::= * bar::blonk::; * phoo::= * bar::; * bar::= * boo::; my $accum = \'\' ; $accum .= \'feedlebomp\'-> phoo ; delete ${ "phoo::blonk::" } { "blonk::" } ; $accum .= \'feedlebomp\'-> phoo ; @feedlebomp::ISA = @feedlebomp::ISA ; $accum .= \'feedlebomp\'-> phoo ; is $accum , \'bbblasrevinulasrevinu\' , \'nested classes deleted & added simultaneously\' ; }',
             'start_line' => 270,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 4,
@@ -11246,7 +10883,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' use warnings ;',
             'start_line' => 295,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 3,
@@ -11255,7 +10892,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' watchdog 3 ;',
             'start_line' => 299,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 14,
@@ -11264,7 +10901,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' * foo::= \\ %::; * Acme::META::Acme::= \\ * Acme::; pass ( "mro_package_moved and self-referential packages" ) ;',
             'start_line' => 300,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 71,
@@ -11273,7 +10910,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' { no strict refs => ; no warnings ; @one::more::ISA = "four" ; sub four::womp { "aoeaa" } * two::= * one::; delete $: : { "one::" } ; @Childclass::ISA = \'two::more\' ; my $accum = \'Childclass\'-> womp . \'-\' ; my $life_raft = delete ${ "two::" } { "more::" } ; $accum .= eval { \'Childclass\'-> womp } // \'<undef>\' ; is $accum , \'aoeaa-<undef>\' , \'Deleting globs whose loc in the symtab differs from gv_fullname\' }',
             'start_line' => 306,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -11354,7 +10991,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' * Ghelp::= * Neen::; @Subclass::ISA = \'Ghelp\' ;',
             'start_line' => 322,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 3,
@@ -11366,7 +11003,7 @@ subtest 'get_groups_by_syntax_level' => sub {
 \' ;',
             'start_line' => 326,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 12,
@@ -11375,7 +11012,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is eval { \'Subclass\'-> womp } , \'clumpren\' , \'Changes to @ISA after undef via original name\' ;',
             'start_line' => 330,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -11387,7 +11024,7 @@ subtest 'get_groups_by_syntax_level' => sub {
 \' ;',
             'start_line' => 332,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 12,
@@ -11396,16 +11033,25 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is eval { \'Subclass\'-> womp } , \'clumpren\' , \'Changes to @ISA after undef via alias\' ;',
             'start_line' => 337,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
-            'token_num' => 16,
+            'token_num' => 51,
             'has_warnings' => 1,
-            'end_line' => 346,
-            'src' => ' { { package smare::baz } * phring::= * smare::; * bonk::= delete $smare::{ "baz::" } ;',
+            'end_line' => 360,
+            'src' => ' { { package smare::baz } * phring::= * smare::; * bonk::= delete $smare:: { "baz::" } ; no strict \'refs\' ; * { "phring::baz::frump" } = sub { "hello" } ; sub frumper::frump { "good bye" } ; @brumkin::ISA = qw "bonk frumper" ; is frump brumkin , "good bye" , \'detached stashes lose all names corresponding to the containing stash\' ; }',
             'start_line' => 343,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 346,
+            'src' => ' * phring::= * smare::; * bonk::= delete $smare:: { "baz::" } ;',
+            'start_line' => 345,
+            'indent' => 1,
+            'block_id' => 28
           },
           {
             'token_num' => 4,
@@ -11413,8 +11059,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 352,
             'src' => ' no strict \'refs\' ;',
             'start_line' => 352,
-            'indent' => 0,
-            'block_id' => 5
+            'indent' => 1,
+            'block_id' => 28
           },
           {
             'token_num' => 10,
@@ -11422,8 +11068,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 353,
             'src' => ' * { "phring::baz::frump" } = sub { "hello" } ;',
             'start_line' => 353,
-            'indent' => 0,
-            'block_id' => 5
+            'indent' => 1,
+            'block_id' => 28
           },
           {
             'token_num' => 6,
@@ -11431,8 +11077,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 354,
             'src' => ' sub frumper::frump { "good bye" } ;',
             'start_line' => 354,
-            'indent' => 0,
-            'block_id' => 5
+            'indent' => 1,
+            'block_id' => 28
           },
           {
             'token_num' => 5,
@@ -11440,8 +11086,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 356,
             'src' => ' @brumkin::ISA = qw "bonk frumper" ;',
             'start_line' => 356,
-            'indent' => 0,
-            'block_id' => 5
+            'indent' => 1,
+            'block_id' => 28
           },
           {
             'token_num' => 8,
@@ -11449,8 +11095,17 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 359,
             'src' => ' is frump brumkin , "good bye" , \'detached stashes lose all names corresponding to the containing stash\' ;',
             'start_line' => 358,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 363,
+            'src' => ' @Colon::ISA = \'Organ:\' ;',
+            'start_line' => 363,
             'indent' => 0,
-            'block_id' => 5
+            'block_id' => 0
           },
           {
             'token_num' => 6,
@@ -11459,7 +11114,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' bless [ ] , "Organ:" ;',
             'start_line' => 364,
             'indent' => 0,
-            'block_id' => 4
+            'block_id' => 0
           },
           {
             'token_num' => 10,
@@ -11468,16 +11123,16 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ok "Colon"-> isa ( "Organ:" ) , \'class isa "class:"\' ;',
             'start_line' => 365,
             'indent' => 0,
-            'block_id' => 4
+            'block_id' => 0
           },
           {
-            'token_num' => 46,
+            'token_num' => 13,
             'has_warnings' => 1,
-            'end_line' => 376,
-            'src' => ' { no strict \'refs\' ; * { "Organ:::" } = * Organ::} ok "Colon"-> isa ( "Organ" ) , \'isa(foo) when inheriting from "class:" which is an alias for foo\' ; { no warnings ; my $foo = delete $Organ::{ ":" } ; ok ! Colon-> isa ( "Organ" ) , \'class that isa "class:" no longer isa foo if "class:" has been deleted\' ; }',
+            'end_line' => 366,
+            'src' => ' { no strict \'refs\' ; * { "Organ:::" } = * Organ:: }',
             'start_line' => 366,
             'indent' => 0,
-            'block_id' => 4
+            'block_id' => 0
           },
           {
             'token_num' => 4,
@@ -11486,25 +11141,25 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' no strict \'refs\' ;',
             'start_line' => 366,
             'indent' => 1,
-            'block_id' => 32
+            'block_id' => 33
           },
           {
-            'token_num' => 17,
+            'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 368,
-            'src' => ' * { "Organ:::" } = * Organ::} ok "Colon"-> isa ( "Organ" ) , \'isa(foo) when inheriting from "class:" which is an alias for foo\' ;',
-            'start_line' => 366,
-            'indent' => 1,
-            'block_id' => 32
+            'src' => ' ok "Colon"-> isa ( "Organ" ) , \'isa(foo) when inheriting from "class:" which is an alias for foo\' ;',
+            'start_line' => 367,
+            'indent' => 0,
+            'block_id' => 0
           },
           {
-            'token_num' => 12,
+            'token_num' => 25,
             'has_warnings' => 1,
-            'end_line' => 373,
-            'src' => ' { no warnings ; my $foo = delete $Organ::{ ":" } ;',
+            'end_line' => 376,
+            'src' => ' { no warnings ; my $foo = delete $Organ:: { ":" } ; ok ! Colon-> isa ( "Organ" ) , \'class that isa "class:" no longer isa foo if "class:" has been deleted\' ; }',
             'start_line' => 369,
-            'indent' => 1,
-            'block_id' => 32
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 3,
@@ -11512,8 +11167,17 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 370,
             'src' => ' no warnings ;',
             'start_line' => 370,
-            'indent' => 2,
-            'block_id' => 33
+            'indent' => 1,
+            'block_id' => 34
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 373,
+            'src' => ' my $foo = delete $Organ:: { ":" } ;',
+            'start_line' => 373,
+            'indent' => 1,
+            'block_id' => 34
           },
           {
             'token_num' => 11,
@@ -11522,7 +11186,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ok ! Colon-> isa ( "Organ" ) , \'class that isa "class:" no longer isa foo if "class:" has been deleted\' ;',
             'start_line' => 374,
             'indent' => 1,
-            'block_id' => 32
+            'block_id' => 34
           },
           {
             'token_num' => 4,
@@ -11531,7 +11195,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' @Colon::ISA = \':\' ;',
             'start_line' => 377,
             'indent' => 0,
-            'block_id' => 4
+            'block_id' => 0
           },
           {
             'token_num' => 6,
@@ -11540,7 +11204,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' bless [ ] , ":" ;',
             'start_line' => 378,
             'indent' => 0,
-            'block_id' => 4
+            'block_id' => 0
           },
           {
             'token_num' => 10,
@@ -11549,16 +11213,16 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ok "Colon"-> isa ( ":" ) , \'class isa ":"\' ;',
             'start_line' => 379,
             'indent' => 0,
-            'block_id' => 4
+            'block_id' => 0
           },
           {
-            'token_num' => 104,
+            'token_num' => 13,
             'has_warnings' => 1,
-            'end_line' => 400,
-            'src' => ' { no strict \'refs\' ; * { ":::" } = * Punctuation::} ok "Colon"-> isa ( "Punctuation" ) , \'isa(foo) when inheriting from ":" which is an alias for foo\' ; @Colon::ISA = \'Organ:\' ; bless [ ] , "Organ:" ; { no strict \'refs\' ; my $life_raft = \\ %{ "Organ:::" } ; * { "Organ:::" } = \\ %Organ::; ok "Colon"-> isa ( "Organ" ) , \'isa(foo) when inheriting from "class:" after hash-to-glob assignment\' ; } @Colon::ISA = \'O:\' ; bless [ ] , "O:" ; { no strict \'refs\' ; my $life_raft = \\ %{ "O:::" } ; * { "O:::" } = "Organ::" ; ok "Colon"-> isa ( "Organ" ) , \'isa(foo) when inheriting from "class:" after string-to-glob assignment\' ; }',
+            'end_line' => 380,
+            'src' => ' { no strict \'refs\' ; * { ":::" } = * Punctuation:: }',
             'start_line' => 380,
             'indent' => 0,
-            'block_id' => 4
+            'block_id' => 0
           },
           {
             'token_num' => 4,
@@ -11567,16 +11231,16 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' no strict \'refs\' ;',
             'start_line' => 380,
             'indent' => 1,
-            'block_id' => 34
+            'block_id' => 36
           },
           {
-            'token_num' => 17,
+            'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 382,
-            'src' => ' * { ":::" } = * Punctuation::} ok "Colon"-> isa ( "Punctuation" ) , \'isa(foo) when inheriting from ":" which is an alias for foo\' ;',
-            'start_line' => 380,
-            'indent' => 1,
-            'block_id' => 34
+            'src' => ' ok "Colon"-> isa ( "Punctuation" ) , \'isa(foo) when inheriting from ":" which is an alias for foo\' ;',
+            'start_line' => 381,
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 4,
@@ -11584,8 +11248,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 383,
             'src' => ' @Colon::ISA = \'Organ:\' ;',
             'start_line' => 383,
-            'indent' => 1,
-            'block_id' => 34
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 6,
@@ -11593,8 +11257,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 384,
             'src' => ' bless [ ] , "Organ:" ;',
             'start_line' => 384,
-            'indent' => 1,
-            'block_id' => 34
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 31,
@@ -11602,8 +11266,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 391,
             'src' => ' { no strict \'refs\' ; my $life_raft = \\ %{ "Organ:::" } ; * { "Organ:::" } = \\ %Organ::; ok "Colon"-> isa ( "Organ" ) , \'isa(foo) when inheriting from "class:" after hash-to-glob assignment\' ; }',
             'start_line' => 385,
-            'indent' => 1,
-            'block_id' => 34
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 4,
@@ -11611,8 +11275,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 386,
             'src' => ' no strict \'refs\' ;',
             'start_line' => 386,
-            'indent' => 2,
-            'block_id' => 35
+            'indent' => 1,
+            'block_id' => 37
           },
           {
             'token_num' => 8,
@@ -11620,8 +11284,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 387,
             'src' => ' my $life_raft = \\ %{ "Organ:::" } ;',
             'start_line' => 387,
-            'indent' => 2,
-            'block_id' => 35
+            'indent' => 1,
+            'block_id' => 37
           },
           {
             'token_num' => 17,
@@ -11629,8 +11293,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 390,
             'src' => ' * { "Organ:::" } = \\ %Organ::; ok "Colon"-> isa ( "Organ" ) , \'isa(foo) when inheriting from "class:" after hash-to-glob assignment\' ;',
             'start_line' => 388,
-            'indent' => 2,
-            'block_id' => 35
+            'indent' => 1,
+            'block_id' => 37
           },
           {
             'token_num' => 4,
@@ -11638,8 +11302,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 392,
             'src' => ' @Colon::ISA = \'O:\' ;',
             'start_line' => 392,
-            'indent' => 1,
-            'block_id' => 34
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 6,
@@ -11647,8 +11311,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 393,
             'src' => ' bless [ ] , "O:" ;',
             'start_line' => 393,
-            'indent' => 1,
-            'block_id' => 34
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 31,
@@ -11656,8 +11320,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 400,
             'src' => ' { no strict \'refs\' ; my $life_raft = \\ %{ "O:::" } ; * { "O:::" } = "Organ::" ; ok "Colon"-> isa ( "Organ" ) , \'isa(foo) when inheriting from "class:" after string-to-glob assignment\' ; }',
             'start_line' => 394,
-            'indent' => 1,
-            'block_id' => 34
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 4,
@@ -11665,8 +11329,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 395,
             'src' => ' no strict \'refs\' ;',
             'start_line' => 395,
-            'indent' => 2,
-            'block_id' => 36
+            'indent' => 1,
+            'block_id' => 38
           },
           {
             'token_num' => 8,
@@ -11674,8 +11338,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 396,
             'src' => ' my $life_raft = \\ %{ "O:::" } ;',
             'start_line' => 396,
-            'indent' => 2,
-            'block_id' => 36
+            'indent' => 1,
+            'block_id' => 38
           },
           {
             'token_num' => 7,
@@ -11683,8 +11347,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 397,
             'src' => ' * { "O:::" } = "Organ::" ;',
             'start_line' => 397,
-            'indent' => 2,
-            'block_id' => 36
+            'indent' => 1,
+            'block_id' => 38
           },
           {
             'token_num' => 10,
@@ -11692,8 +11356,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 399,
             'src' => ' ok "Colon"-> isa ( "Organ" ) , \'isa(foo) when inheriting from "class:" after string-to-glob assignment\' ;',
             'start_line' => 398,
-            'indent' => 2,
-            'block_id' => 36
+            'indent' => 1,
+            'block_id' => 38
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

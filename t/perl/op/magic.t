@@ -21521,9 +21521,9 @@ print scalar %${package}::;
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
+                   'name' => 'GlobalVar',
                    'data' => '$arg',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
                    'line' => 627
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -21584,9 +21584,9 @@ print scalar %${package}::;
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'GlobalVar',
+                   'name' => 'Var',
                    'data' => '$arg',
-                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
+                   'type' => Compiler::Lexer::TokenType::T_Var,
                    'line' => 628
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -25726,7 +25726,7 @@ print scalar %${package}::;
           },
           {
             'token_num' => 7,
-            'has_warnings' => 0,
+            'has_warnings' => 1,
             'end_line' => 627,
             'src' => ' my ( $arg ) = shift ;',
             'start_line' => 627,

@@ -987,9 +987,27 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
-                   'data' => '$pid2, $ppid2',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
+                   'name' => 'Var',
+                   'data' => '$pid2',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 31
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'line' => 31
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Var',
+                   'data' => '$ppid2',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
                    'line' => 31
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1920,19 +1938,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 24,
+            'token_num' => 26,
             'has_warnings' => 1,
             'end_line' => 31,
-            'src' => ' new threads ( sub { ( $pid2, $ppid2 ) = ( $$ , getppid ( ) ) ; } )-> join ( ) ;',
+            'src' => ' new threads ( sub { ( $pid2 , $ppid2 ) = ( $$ , getppid ( ) ) ; } )-> join ( ) ;',
             'start_line' => 31,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 12,
-            'has_warnings' => 0,
+            'token_num' => 14,
+            'has_warnings' => 1,
             'end_line' => 31,
-            'src' => ' ( $pid2, $ppid2 ) = ( $$ , getppid ( ) ) ;',
+            'src' => ' ( $pid2 , $ppid2 ) = ( $$ , getppid ( ) ) ;',
             'start_line' => 31,
             'indent' => 1,
             'block_id' => 5

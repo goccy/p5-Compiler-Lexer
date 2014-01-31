@@ -868,12 +868,66 @@ subtest 'tokenize' => sub {
                    'line' => 29
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'MCTest',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 29
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'NamespaceResolver',
+                   'data' => '::',
+                   'type' => Compiler::Lexer::TokenType::T_NamespaceResolver,
+                   'line' => 29
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'Derived',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 29
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Pointer',
+                   'data' => '->',
+                   'type' => Compiler::Lexer::TokenType::T_Pointer,
+                   'line' => 29
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Method',
+                   'data' => 'foo',
+                   'type' => Compiler::Lexer::TokenType::T_Method,
+                   'line' => 29
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 29
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
-                   'data' => 'MCTest::Derived->foo(0',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
+                   'name' => 'Int',
+                   'data' => '0',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 29
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2182,12 +2236,66 @@ subtest 'tokenize' => sub {
                    'line' => 35
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'MCTest',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 35
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'NamespaceResolver',
+                   'data' => '::',
+                   'type' => Compiler::Lexer::TokenType::T_NamespaceResolver,
+                   'line' => 35
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'Derived',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 35
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Pointer',
+                   'data' => '->',
+                   'type' => Compiler::Lexer::TokenType::T_Pointer,
+                   'line' => 35
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Method',
+                   'data' => 'foo',
+                   'type' => Compiler::Lexer::TokenType::T_Method,
+                   'line' => 35
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 35
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
-                   'data' => 'MCTest::Derived->foo(0',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
+                   'name' => 'Int',
+                   'data' => '0',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 35
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2650,12 +2758,66 @@ subtest 'tokenize' => sub {
                    'line' => 37
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'MCTest',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 37
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'NamespaceResolver',
+                   'data' => '::',
+                   'type' => Compiler::Lexer::TokenType::T_NamespaceResolver,
+                   'line' => 37
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'Derived',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 37
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Pointer',
+                   'data' => '->',
+                   'type' => Compiler::Lexer::TokenType::T_Pointer,
+                   'line' => 37
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Method',
+                   'data' => 'foo',
+                   'type' => Compiler::Lexer::TokenType::T_Method,
+                   'line' => 37
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 37
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Prototype',
-                   'data' => 'MCTest::Derived->foo(0',
-                   'type' => Compiler::Lexer::TokenType::T_Prototype,
+                   'name' => 'Int',
+                   'data' => '0',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 37
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4279,12 +4441,12 @@ subtest 'tokenize' => sub {
                    'line' => 42
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 42
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4567,12 +4729,12 @@ subtest 'tokenize' => sub {
                    'line' => 43
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 43
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5710,12 +5872,12 @@ subtest 'tokenize' => sub {
                    'line' => 48
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 48
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6070,12 +6232,12 @@ subtest 'tokenize' => sub {
                    'line' => 50
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 50
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6565,12 +6727,12 @@ subtest 'tokenize' => sub {
                    'line' => 52
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 52
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7051,12 +7213,12 @@ subtest 'tokenize' => sub {
                    'line' => 54
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 54
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7573,12 +7735,12 @@ subtest 'tokenize' => sub {
                    'line' => 57
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 57
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7627,12 +7789,12 @@ subtest 'tokenize' => sub {
                    'line' => 57
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 57
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8806,22 +8968,22 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 3
           },
           {
-            'token_num' => 142,
+            'token_num' => 736,
             'has_warnings' => 1,
-            'end_line' => 35,
-            'src' => ' my @testsubs = ( sub { is ( MCTest::Derived->foo(0 ) , 1 ) ; } , sub { eval \'sub MCTest::Base::foo { return $_[1]+2 }\' ; is ( MCTest::Derived-> foo ( 0 ) , 2 ) ; } , sub { eval \'sub MCTest::Base::foo($) { return $_[1]+3 }\' ; is ( MCTest::Derived-> foo ( 0 ) , 3 ) ; } , sub { eval \'sub MCTest::Base::foo($) { 4 }\' ; is ( MCTest::Derived-> foo ( 0 ) , 4 ) ; } , sub { * MCTest::Base::foo = sub { $_ [ 1 ] + 5 } ; is ( MCTest::Derived-> foo ( 0 ) , 5 ) ; } , sub { local * MCTest::Base::foo = sub { $_ [ 1 ] + 6 } ; is ( MCTest::Derived-> foo ( 0 ) , 6 ) ; } , sub { is ( MCTest::Derived->foo(0 ) , 5 ) ;',
+            'end_line' => 60,
+            'src' => ' my @testsubs = ( sub { is ( MCTest::Derived-> foo ( 0 ) , 1 ) ; } , sub { eval \'sub MCTest::Base::foo { return $_[1]+2 }\' ; is ( MCTest::Derived-> foo ( 0 ) , 2 ) ; } , sub { eval \'sub MCTest::Base::foo($) { return $_[1]+3 }\' ; is ( MCTest::Derived-> foo ( 0 ) , 3 ) ; } , sub { eval \'sub MCTest::Base::foo($) { 4 }\' ; is ( MCTest::Derived-> foo ( 0 ) , 4 ) ; } , sub { * MCTest::Base::foo = sub { $_ [ 1 ] + 5 } ; is ( MCTest::Derived-> foo ( 0 ) , 5 ) ; } , sub { local * MCTest::Base::foo = sub { $_ [ 1 ] + 6 } ; is ( MCTest::Derived-> foo ( 0 ) , 6 ) ; } , sub { is ( MCTest::Derived-> foo ( 0 ) , 5 ) ; } , sub { sub FFF { $_ [ 1 ] + 7 } ; local * MCTest::Base::foo = * FFF ; is ( MCTest::Derived-> foo ( 0 ) , 7 ) ; } , sub { is ( MCTest::Derived-> foo ( 0 ) , 5 ) ; } , sub { sub DDD { $_ [ 1 ] + 8 } ; * MCTest::Base::foo = * DDD ; is ( MCTest::Derived-> foo ( 0 ) , 8 ) ; } , sub { * ASDF::asdf = sub { $_ [ 1 ] + 9 } ; * MCTest::Base::foo = \\ & ASDF::asdf ; is ( MCTest::Derived-> foo ( 0 ) , 9 ) ; } , sub { undef * MCTest::Base::foo ; eval { MCTest::Derived-> foo ( 0 ) } ; like ( $@ , qr/locate object method/ ) ; } , sub { eval "sub MCTest::Base::foo($);" ; * MCTest::Base::foo = \\ & ASDF::asdf ; is ( MCTest::Derived-> foo ( 0 ) , 9 ) ; } , sub { * XYZ = sub { $_ [ 1 ] + 10 } ; ${ MCTest::Base:: } { foo } = \\ & XYZ ; is ( MCTest::Derived-> foo ( 0 ) , 10 ) ; } , sub { ${ MCTest::Base:: } { foo } = sub { $_ [ 1 ] + 11 } ; is ( MCTest::Derived-> foo ( 0 ) , 11 ) ; } , sub { undef * MCTest::Base::foo ; eval { MCTest::Derived-> foo ( 0 ) } ; like ( $@ , qr/locate object method/ ) ; } , sub { eval \'package MCTest::Base; sub foo { $_[1]+12 }\' ; is ( MCTest::Derived-> foo ( 0 ) , 12 ) ; } , sub { eval \'package ZZZ; sub foo { $_[1]+13 }\' ; * MCTest::Base::foo = \\ & ZZZ::foo ; is ( MCTest::Derived-> foo ( 0 ) , 13 ) ; } , sub { ${ MCTest::Base:: } { foo } = sub { $_ [ 1 ] + 14 } ; is ( MCTest::Derived-> foo ( 0 ) , 14 ) ; } , sub { undef * { MCTest::Base:: } ; eval { MCTest::Derived-> foo ( 0 ) } ; like ( $@ , qr/locate object method/ ) ; } , sub { eval \'package MCTest::Base; sub foo { $_[1]+15 }\' ; is ( MCTest::Derived-> foo ( 0 ) , 15 ) ; } , sub { undef %{ MCTest::Base:: } ; eval { MCTest::Derived-> foo ( 0 ) } ; like ( $@ , qr/locate object method/ ) ; } , sub { eval \'package MCTest::Base; sub foo { $_[1]+16 }\' ; is ( MCTest::Derived-> foo ( 0 ) , 16 ) ; } , sub { %{ MCTest::Base:: } = ( ) ; eval { MCTest::Derived-> foo ( 0 ) } ; like ( $@ , qr/locate object method/ ) ; } , sub { eval \'package MCTest::Base; sub foo { $_[1]+17 }\' ; is ( MCTest::Derived-> foo ( 0 ) , 17 ) ; } , sub { * { MCTest::Base:: } = * { Foo:: } ; eval { MCTest::Derived-> foo ( 0 ) } ; like ( $@ , qr/locate object method/ ) ; } , sub { * MCTest::Derived::foo = \\ & MCTest::Base::foo ; eval { MCTest::Derived::foo ( 0 , 0 ) } ; ok ( ! $@ ) ; undef * MCTest::Derived::foo } , sub { eval \'package MCTest::Base; sub foo { $_[1]+18 }\' ; is ( MCTest::Derived-> foo ( 0 ) , 18 ) ; } , ) ;',
             'start_line' => 28,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 10,
+            'token_num' => 12,
             'has_warnings' => 1,
             'end_line' => 29,
-            'src' => ' sub { is ( MCTest::Derived->foo(0 ) , 1 ) ;',
+            'src' => ' is ( MCTest::Derived-> foo ( 0 ) , 1 ) ;',
             'start_line' => 29,
-            'indent' => 0,
-            'block_id' => 4
+            'indent' => 1,
+            'block_id' => 5
           },
           {
             'token_num' => 3,
@@ -8912,6 +9074,537 @@ subtest 'get_groups_by_syntax_level' => sub {
             'start_line' => 34,
             'indent' => 1,
             'block_id' => 11
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 35,
+            'src' => ' is ( MCTest::Derived-> foo ( 0 ) , 5 ) ;',
+            'start_line' => 35,
+            'indent' => 1,
+            'block_id' => 13
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 0,
+            'end_line' => 36,
+            'src' => ' sub FFF { $_ [ 1 ] + 7 } ;',
+            'start_line' => 36,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 0,
+            'end_line' => 36,
+            'src' => ' sub FFF { $_ [ 1 ] + 7 }',
+            'start_line' => 36,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 36,
+            'src' => ' local * MCTest::Base::foo = * FFF ;',
+            'start_line' => 36,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 36,
+            'src' => ' is ( MCTest::Derived-> foo ( 0 ) , 7 ) ;',
+            'start_line' => 36,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 37,
+            'src' => ' is ( MCTest::Derived-> foo ( 0 ) , 5 ) ;',
+            'start_line' => 37,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 0,
+            'end_line' => 38,
+            'src' => ' sub DDD { $_ [ 1 ] + 8 } ;',
+            'start_line' => 38,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 0,
+            'end_line' => 38,
+            'src' => ' sub DDD { $_ [ 1 ] + 8 }',
+            'start_line' => 38,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 38,
+            'src' => ' * MCTest::Base::foo = * DDD ;',
+            'start_line' => 38,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 38,
+            'src' => ' is ( MCTest::Derived-> foo ( 0 ) , 8 ) ;',
+            'start_line' => 38,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 39,
+            'src' => ' * ASDF::asdf = sub { $_ [ 1 ] + 9 } ;',
+            'start_line' => 39,
+            'indent' => 1,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 39,
+            'src' => ' * MCTest::Base::foo = \\ & ASDF::asdf ;',
+            'start_line' => 39,
+            'indent' => 1,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 39,
+            'src' => ' is ( MCTest::Derived-> foo ( 0 ) , 9 ) ;',
+            'start_line' => 39,
+            'indent' => 1,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 40,
+            'src' => ' undef * MCTest::Base::foo ;',
+            'start_line' => 40,
+            'indent' => 1,
+            'block_id' => 21
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 40,
+            'src' => ' eval { MCTest::Derived-> foo ( 0 ) } ;',
+            'start_line' => 40,
+            'indent' => 1,
+            'block_id' => 21
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 40,
+            'src' => ' like ( $@ , qr/locate object method/ ) ;',
+            'start_line' => 40,
+            'indent' => 1,
+            'block_id' => 21
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 41,
+            'src' => ' eval "sub MCTest::Base::foo($);" ;',
+            'start_line' => 41,
+            'indent' => 1,
+            'block_id' => 22
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 41,
+            'src' => ' * MCTest::Base::foo = \\ & ASDF::asdf ;',
+            'start_line' => 41,
+            'indent' => 1,
+            'block_id' => 22
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 41,
+            'src' => ' is ( MCTest::Derived-> foo ( 0 ) , 9 ) ;',
+            'start_line' => 41,
+            'indent' => 1,
+            'block_id' => 22
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 42,
+            'src' => ' * XYZ = sub { $_ [ 1 ] + 10 } ;',
+            'start_line' => 42,
+            'indent' => 1,
+            'block_id' => 23
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 42,
+            'src' => ' ${ MCTest::Base:: } { foo } = \\ & XYZ ;',
+            'start_line' => 42,
+            'indent' => 1,
+            'block_id' => 23
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 42,
+            'src' => ' is ( MCTest::Derived-> foo ( 0 ) , 10 ) ;',
+            'start_line' => 42,
+            'indent' => 1,
+            'block_id' => 23
+          },
+          {
+            'token_num' => 17,
+            'has_warnings' => 1,
+            'end_line' => 43,
+            'src' => ' ${ MCTest::Base:: } { foo } = sub { $_ [ 1 ] + 11 } ;',
+            'start_line' => 43,
+            'indent' => 1,
+            'block_id' => 25
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 43,
+            'src' => ' is ( MCTest::Derived-> foo ( 0 ) , 11 ) ;',
+            'start_line' => 43,
+            'indent' => 1,
+            'block_id' => 25
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 45,
+            'src' => ' undef * MCTest::Base::foo ;',
+            'start_line' => 45,
+            'indent' => 1,
+            'block_id' => 27
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 45,
+            'src' => ' eval { MCTest::Derived-> foo ( 0 ) } ;',
+            'start_line' => 45,
+            'indent' => 1,
+            'block_id' => 27
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 45,
+            'src' => ' like ( $@ , qr/locate object method/ ) ;',
+            'start_line' => 45,
+            'indent' => 1,
+            'block_id' => 27
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 46,
+            'src' => ' eval \'package MCTest::Base; sub foo { $_[1]+12 }\' ;',
+            'start_line' => 46,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 46,
+            'src' => ' is ( MCTest::Derived-> foo ( 0 ) , 12 ) ;',
+            'start_line' => 46,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 47,
+            'src' => ' eval \'package ZZZ; sub foo { $_[1]+13 }\' ;',
+            'start_line' => 47,
+            'indent' => 1,
+            'block_id' => 29
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 47,
+            'src' => ' * MCTest::Base::foo = \\ & ZZZ::foo ;',
+            'start_line' => 47,
+            'indent' => 1,
+            'block_id' => 29
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 47,
+            'src' => ' is ( MCTest::Derived-> foo ( 0 ) , 13 ) ;',
+            'start_line' => 47,
+            'indent' => 1,
+            'block_id' => 29
+          },
+          {
+            'token_num' => 17,
+            'has_warnings' => 1,
+            'end_line' => 48,
+            'src' => ' ${ MCTest::Base:: } { foo } = sub { $_ [ 1 ] + 14 } ;',
+            'start_line' => 48,
+            'indent' => 1,
+            'block_id' => 30
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 48,
+            'src' => ' is ( MCTest::Derived-> foo ( 0 ) , 14 ) ;',
+            'start_line' => 48,
+            'indent' => 1,
+            'block_id' => 30
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 50,
+            'src' => ' undef * { MCTest::Base:: } ;',
+            'start_line' => 50,
+            'indent' => 1,
+            'block_id' => 32
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 50,
+            'src' => ' eval { MCTest::Derived-> foo ( 0 ) } ;',
+            'start_line' => 50,
+            'indent' => 1,
+            'block_id' => 32
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 50,
+            'src' => ' like ( $@ , qr/locate object method/ ) ;',
+            'start_line' => 50,
+            'indent' => 1,
+            'block_id' => 32
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 51,
+            'src' => ' eval \'package MCTest::Base; sub foo { $_[1]+15 }\' ;',
+            'start_line' => 51,
+            'indent' => 1,
+            'block_id' => 33
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 51,
+            'src' => ' is ( MCTest::Derived-> foo ( 0 ) , 15 ) ;',
+            'start_line' => 51,
+            'indent' => 1,
+            'block_id' => 33
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 52,
+            'src' => ' undef %{ MCTest::Base:: } ;',
+            'start_line' => 52,
+            'indent' => 1,
+            'block_id' => 34
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 52,
+            'src' => ' eval { MCTest::Derived-> foo ( 0 ) } ;',
+            'start_line' => 52,
+            'indent' => 1,
+            'block_id' => 34
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 52,
+            'src' => ' like ( $@ , qr/locate object method/ ) ;',
+            'start_line' => 52,
+            'indent' => 1,
+            'block_id' => 34
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 53,
+            'src' => ' eval \'package MCTest::Base; sub foo { $_[1]+16 }\' ;',
+            'start_line' => 53,
+            'indent' => 1,
+            'block_id' => 35
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 53,
+            'src' => ' is ( MCTest::Derived-> foo ( 0 ) , 16 ) ;',
+            'start_line' => 53,
+            'indent' => 1,
+            'block_id' => 35
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 54,
+            'src' => ' %{ MCTest::Base:: } = ( ) ;',
+            'start_line' => 54,
+            'indent' => 1,
+            'block_id' => 36
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 54,
+            'src' => ' eval { MCTest::Derived-> foo ( 0 ) } ;',
+            'start_line' => 54,
+            'indent' => 1,
+            'block_id' => 36
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 54,
+            'src' => ' like ( $@ , qr/locate object method/ ) ;',
+            'start_line' => 54,
+            'indent' => 1,
+            'block_id' => 36
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 55,
+            'src' => ' eval \'package MCTest::Base; sub foo { $_[1]+17 }\' ;',
+            'start_line' => 55,
+            'indent' => 1,
+            'block_id' => 37
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 55,
+            'src' => ' is ( MCTest::Derived-> foo ( 0 ) , 17 ) ;',
+            'start_line' => 55,
+            'indent' => 1,
+            'block_id' => 37
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 57,
+            'src' => ' * { MCTest::Base:: } = * { Foo:: } ;',
+            'start_line' => 57,
+            'indent' => 1,
+            'block_id' => 38
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 57,
+            'src' => ' eval { MCTest::Derived-> foo ( 0 ) } ;',
+            'start_line' => 57,
+            'indent' => 1,
+            'block_id' => 38
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 57,
+            'src' => ' like ( $@ , qr/locate object method/ ) ;',
+            'start_line' => 57,
+            'indent' => 1,
+            'block_id' => 38
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 58,
+            'src' => ' * MCTest::Derived::foo = \\ & MCTest::Base::foo ;',
+            'start_line' => 58,
+            'indent' => 1,
+            'block_id' => 39
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 58,
+            'src' => ' eval { MCTest::Derived::foo ( 0 , 0 ) } ;',
+            'start_line' => 58,
+            'indent' => 1,
+            'block_id' => 39
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 58,
+            'src' => ' ok ( ! $@ ) ;',
+            'start_line' => 58,
+            'indent' => 1,
+            'block_id' => 39
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 59,
+            'src' => ' eval \'package MCTest::Base; sub foo { $_[1]+18 }\' ;',
+            'start_line' => 59,
+            'indent' => 1,
+            'block_id' => 40
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 59,
+            'src' => ' is ( MCTest::Derived-> foo ( 0 ) , 18 ) ;',
+            'start_line' => 59,
+            'indent' => 1,
+            'block_id' => 40
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 62,
+            'src' => ' plan ( tests => scalar ( @testsubs ) ) ;',
+            'start_line' => 62,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 0,
+            'end_line' => 64,
+            'src' => ' $_-> ( ) for ( @testsubs ) ;',
+            'start_line' => 64,
+            'indent' => 0,
+            'block_id' => 0
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');
