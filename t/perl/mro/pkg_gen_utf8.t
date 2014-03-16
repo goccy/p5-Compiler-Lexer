@@ -1154,12 +1154,12 @@ subtest 'tokenize' => sub {
                    'line' => 30
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@ᕘ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 32
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1406,12 +1406,12 @@ subtest 'tokenize' => sub {
                    'line' => 36
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalHashVar',
                    'data' => '%ᕘ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalHashVar,
                    'line' => 36
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1820,12 +1820,12 @@ subtest 'tokenize' => sub {
                    'line' => 43
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@ㄑଊｘ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 43
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2126,10 +2126,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 7,
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 32,
-            'src' => ' @ᕘ::ISA = qw/Bar/ ;',
+            'src' => ' @ᕘ :: ISA = qw/Bar/ ;',
             'start_line' => 32,
             'indent' => 0,
             'block_id' => 0
@@ -2189,10 +2189,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 5,
+            'token_num' => 7,
             'has_warnings' => 1,
             'end_line' => 43,
-            'src' => ' push @ㄑଊｘ::ISA , "Woot" ;',
+            'src' => ' push @ㄑଊｘ :: ISA , "Woot" ;',
             'start_line' => 43,
             'indent' => 0,
             'block_id' => 0

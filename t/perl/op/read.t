@@ -1386,12 +1386,12 @@ subtest 'tokenize' => sub {
                    'line' => 31
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalVar',
                    'data' => '$Config',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
                    'line' => 31
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4695,7 +4695,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' push @values , join "" , map { chr $_ } $_ .. $_ + 4 ;',
             'start_line' => 39,
             'indent' => 1,
-            'block_id' => 3
+            'block_id' => 2
           },
           {
             'token_num' => 19,
@@ -4704,7 +4704,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' push @buffers , join "" , map { chr $_ } $_ + 5 .. $_ + 20 ;',
             'start_line' => 40,
             'indent' => 1,
-            'block_id' => 3
+            'block_id' => 2
           },
           {
             'token_num' => 21,
@@ -4740,7 +4740,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' foreach my $initial_buffer ( @buffers ) { my @utf8 = 1 ; if ( $value !~ tr/\\0-\\377//c ) { unshift @utf8 , 0 ; } SKIP : foreach my $utf8 ( @utf8 ) { skip "Needs :utf8 layer but no perlio" , 2 * @offsets * @lengths if $utf8 and ! $has_perlio ; open FH , ">$tmpfile" or die "Can\'t open $tmpfile: $!" ; binmode FH , "utf8" if $utf8 ; print FH $value ; close FH ; foreach my $offset ( @offsets ) { foreach my $length ( @lengths ) { my $will_read = $value ; if ( $length < length $will_read ) { substr ( $will_read , $length ) = \'\' ; } my $buffer = $initial_buffer ; my $expect = $buffer ; if ( $offset > 0 ) { $expect .= "\\0" x $offset ; substr ( $expect , $offset ) = \'\' ; } substr ( $expect , $offset ) = $will_read ; open FH , $tmpfile or die "Can\'t open $tmpfile: $!" ; binmode FH , "utf8" if $utf8 ; my $what = sprintf "%d into %d l $length o $offset" , ord $value , ord $buffer ; $what .= \' u\' if $utf8 ; $got = read ( FH , $buffer , $length , $offset ) ; is ( $got , length $will_read , "got $what" ) ; is ( $buffer , $expect , "buffer $what" ) ; close FH ; } } } }',
             'start_line' => 46,
             'indent' => 1,
-            'block_id' => 4
+            'block_id' => 3
           },
           {
             'token_num' => 5,
@@ -4749,7 +4749,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my @utf8 = 1 ;',
             'start_line' => 47,
             'indent' => 2,
-            'block_id' => 5
+            'block_id' => 4
           },
           {
             'token_num' => 19,
@@ -4758,7 +4758,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( $value !~ tr/\\0-\\377//c ) { unshift @utf8 , 0 ; }',
             'start_line' => 48,
             'indent' => 2,
-            'block_id' => 5
+            'block_id' => 4
           },
           {
             'token_num' => 5,
@@ -4767,7 +4767,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' unshift @utf8 , 0 ;',
             'start_line' => 50,
             'indent' => 3,
-            'block_id' => 6
+            'block_id' => 5
           },
           {
             'token_num' => 193,
@@ -4776,7 +4776,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' foreach my $utf8 ( @utf8 ) { skip "Needs :utf8 layer but no perlio" , 2 * @offsets * @lengths if $utf8 and ! $has_perlio ; open FH , ">$tmpfile" or die "Can\'t open $tmpfile: $!" ; binmode FH , "utf8" if $utf8 ; print FH $value ; close FH ; foreach my $offset ( @offsets ) { foreach my $length ( @lengths ) { my $will_read = $value ; if ( $length < length $will_read ) { substr ( $will_read , $length ) = \'\' ; } my $buffer = $initial_buffer ; my $expect = $buffer ; if ( $offset > 0 ) { $expect .= "\\0" x $offset ; substr ( $expect , $offset ) = \'\' ; } substr ( $expect , $offset ) = $will_read ; open FH , $tmpfile or die "Can\'t open $tmpfile: $!" ; binmode FH , "utf8" if $utf8 ; my $what = sprintf "%d into %d l $length o $offset" , ord $value , ord $buffer ; $what .= \' u\' if $utf8 ; $got = read ( FH , $buffer , $length , $offset ) ; is ( $got , length $will_read , "got $what" ) ; is ( $buffer , $expect , "buffer $what" ) ; close FH ; } } }',
             'start_line' => 53,
             'indent' => 2,
-            'block_id' => 5
+            'block_id' => 4
           },
           {
             'token_num' => 14,
@@ -4785,7 +4785,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' skip "Needs :utf8 layer but no perlio" , 2 * @offsets * @lengths if $utf8 and ! $has_perlio ;',
             'start_line' => 54,
             'indent' => 3,
-            'block_id' => 7
+            'block_id' => 6
           },
           {
             'token_num' => 8,
@@ -4794,7 +4794,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' open FH , ">$tmpfile" or die "Can\'t open $tmpfile: $!" ;',
             'start_line' => 57,
             'indent' => 3,
-            'block_id' => 7
+            'block_id' => 6
           },
           {
             'token_num' => 7,
@@ -4803,7 +4803,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' binmode FH , "utf8" if $utf8 ;',
             'start_line' => 58,
             'indent' => 3,
-            'block_id' => 7
+            'block_id' => 6
           },
           {
             'token_num' => 4,
@@ -4812,7 +4812,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' print FH $value ;',
             'start_line' => 59,
             'indent' => 3,
-            'block_id' => 7
+            'block_id' => 6
           },
           {
             'token_num' => 3,
@@ -4821,7 +4821,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' close FH ;',
             'start_line' => 60,
             'indent' => 3,
-            'block_id' => 7
+            'block_id' => 6
           },
           {
             'token_num' => 149,
@@ -4830,7 +4830,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' foreach my $offset ( @offsets ) { foreach my $length ( @lengths ) { my $will_read = $value ; if ( $length < length $will_read ) { substr ( $will_read , $length ) = \'\' ; } my $buffer = $initial_buffer ; my $expect = $buffer ; if ( $offset > 0 ) { $expect .= "\\0" x $offset ; substr ( $expect , $offset ) = \'\' ; } substr ( $expect , $offset ) = $will_read ; open FH , $tmpfile or die "Can\'t open $tmpfile: $!" ; binmode FH , "utf8" if $utf8 ; my $what = sprintf "%d into %d l $length o $offset" , ord $value , ord $buffer ; $what .= \' u\' if $utf8 ; $got = read ( FH , $buffer , $length , $offset ) ; is ( $got , length $will_read , "got $what" ) ; is ( $buffer , $expect , "buffer $what" ) ; close FH ; } }',
             'start_line' => 61,
             'indent' => 3,
-            'block_id' => 7
+            'block_id' => 6
           },
           {
             'token_num' => 141,
@@ -4839,7 +4839,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' foreach my $length ( @lengths ) { my $will_read = $value ; if ( $length < length $will_read ) { substr ( $will_read , $length ) = \'\' ; } my $buffer = $initial_buffer ; my $expect = $buffer ; if ( $offset > 0 ) { $expect .= "\\0" x $offset ; substr ( $expect , $offset ) = \'\' ; } substr ( $expect , $offset ) = $will_read ; open FH , $tmpfile or die "Can\'t open $tmpfile: $!" ; binmode FH , "utf8" if $utf8 ; my $what = sprintf "%d into %d l $length o $offset" , ord $value , ord $buffer ; $what .= \' u\' if $utf8 ; $got = read ( FH , $buffer , $length , $offset ) ; is ( $got , length $will_read , "got $what" ) ; is ( $buffer , $expect , "buffer $what" ) ; close FH ; }',
             'start_line' => 62,
             'indent' => 4,
-            'block_id' => 8
+            'block_id' => 7
           },
           {
             'token_num' => 5,
@@ -4848,7 +4848,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $will_read = $value ;',
             'start_line' => 65,
             'indent' => 5,
-            'block_id' => 9
+            'block_id' => 8
           },
           {
             'token_num' => 18,
@@ -4857,7 +4857,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( $length < length $will_read ) { substr ( $will_read , $length ) = \'\' ; }',
             'start_line' => 66,
             'indent' => 5,
-            'block_id' => 9
+            'block_id' => 8
           },
           {
             'token_num' => 9,
@@ -4866,7 +4866,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' substr ( $will_read , $length ) = \'\' ;',
             'start_line' => 67,
             'indent' => 6,
-            'block_id' => 10
+            'block_id' => 9
           },
           {
             'token_num' => 5,
@@ -4875,7 +4875,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $buffer = $initial_buffer ;',
             'start_line' => 70,
             'indent' => 5,
-            'block_id' => 9
+            'block_id' => 8
           },
           {
             'token_num' => 5,
@@ -4884,7 +4884,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $expect = $buffer ;',
             'start_line' => 72,
             'indent' => 5,
-            'block_id' => 9
+            'block_id' => 8
           },
           {
             'token_num' => 23,
@@ -4893,7 +4893,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( $offset > 0 ) { $expect .= "\\0" x $offset ; substr ( $expect , $offset ) = \'\' ; }',
             'start_line' => 73,
             'indent' => 5,
-            'block_id' => 9
+            'block_id' => 8
           },
           {
             'token_num' => 6,
@@ -4902,7 +4902,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $expect .= "\\0" x $offset ;',
             'start_line' => 75,
             'indent' => 6,
-            'block_id' => 11
+            'block_id' => 10
           },
           {
             'token_num' => 9,
@@ -4911,7 +4911,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' substr ( $expect , $offset ) = \'\' ;',
             'start_line' => 76,
             'indent' => 6,
-            'block_id' => 11
+            'block_id' => 10
           },
           {
             'token_num' => 9,
@@ -4920,7 +4920,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' substr ( $expect , $offset ) = $will_read ;',
             'start_line' => 78,
             'indent' => 5,
-            'block_id' => 9
+            'block_id' => 8
           },
           {
             'token_num' => 8,
@@ -4929,7 +4929,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' open FH , $tmpfile or die "Can\'t open $tmpfile: $!" ;',
             'start_line' => 80,
             'indent' => 5,
-            'block_id' => 9
+            'block_id' => 8
           },
           {
             'token_num' => 7,
@@ -4938,7 +4938,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' binmode FH , "utf8" if $utf8 ;',
             'start_line' => 81,
             'indent' => 5,
-            'block_id' => 9
+            'block_id' => 8
           },
           {
             'token_num' => 12,
@@ -4947,7 +4947,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $what = sprintf "%d into %d l $length o $offset" , ord $value , ord $buffer ;',
             'start_line' => 82,
             'indent' => 5,
-            'block_id' => 9
+            'block_id' => 8
           },
           {
             'token_num' => 6,
@@ -4956,7 +4956,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $what .= \' u\' if $utf8 ;',
             'start_line' => 84,
             'indent' => 5,
-            'block_id' => 9
+            'block_id' => 8
           },
           {
             'token_num' => 13,
@@ -4965,7 +4965,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $got = read ( FH , $buffer , $length , $offset ) ;',
             'start_line' => 85,
             'indent' => 5,
-            'block_id' => 9
+            'block_id' => 8
           },
           {
             'token_num' => 10,
@@ -4974,7 +4974,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $got , length $will_read , "got $what" ) ;',
             'start_line' => 86,
             'indent' => 5,
-            'block_id' => 9
+            'block_id' => 8
           },
           {
             'token_num' => 9,
@@ -4983,7 +4983,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $buffer , $expect , "buffer $what" ) ;',
             'start_line' => 87,
             'indent' => 5,
-            'block_id' => 9
+            'block_id' => 8
           },
           {
             'token_num' => 3,
@@ -4992,7 +4992,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' close FH ;',
             'start_line' => 88,
             'indent' => 5,
-            'block_id' => 9
+            'block_id' => 8
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

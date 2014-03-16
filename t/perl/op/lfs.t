@@ -459,12 +459,12 @@ subtest 'tokenize' => sub {
                    'line' => 12
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalVar',
                    'data' => '$Config',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
                    'line' => 12
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7894,11 +7894,11 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 1
           },
           {
-            'token_num' => 3,
-            'has_warnings' => 0,
+            'token_num' => 12,
+            'has_warnings' => 1,
             'end_line' => 12,
-            'src' => ' < 8 ;',
-            'start_line' => 12,
+            'src' => ' skip_all ( \'no 64-bit file offsets\' ) if $Config::Config { lseeksize } < 8 ;',
+            'start_line' => 11,
             'indent' => 1,
             'block_id' => 1
           },
@@ -8000,7 +8000,7 @@ subtest 'get_groups_by_syntax_level' => sub {
 } ; }',
             'start_line' => 26,
             'indent' => 1,
-            'block_id' => 3
+            'block_id' => 2
           },
           {
             'token_num' => 3,
@@ -8023,7 +8023,7 @@ subtest 'get_groups_by_syntax_level' => sub {
 } ;',
             'start_line' => 27,
             'indent' => 2,
-            'block_id' => 4
+            'block_id' => 3
           },
           {
             'token_num' => 11,
@@ -8032,7 +8032,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( @_ ) { skip_all ( @_ ) ; }',
             'start_line' => 44,
             'indent' => 1,
-            'block_id' => 3
+            'block_id' => 2
           },
           {
             'token_num' => 5,
@@ -8041,7 +8041,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' skip_all ( @_ ) ;',
             'start_line' => 45,
             'indent' => 2,
-            'block_id' => 5
+            'block_id' => 4
           },
           {
             'token_num' => 4,
@@ -8077,7 +8077,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' skip_all ( "no sparse files in $^O" ) ;',
             'start_line' => 55,
             'indent' => 1,
-            'block_id' => 6
+            'block_id' => 5
           },
           {
             'token_num' => 13,
@@ -8095,7 +8095,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' skip_all ( "no sparse files in $^O, unable to test large files" ) ;',
             'start_line' => 61,
             'indent' => 1,
-            'block_id' => 7
+            'block_id' => 6
           },
           {
             'token_num' => 8,
@@ -8266,7 +8266,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' skip_all ( "no sparse files?" ) ;',
             'start_line' => 110,
             'indent' => 1,
-            'block_id' => 11
+            'block_id' => 10
           },
           {
             'token_num' => 3,
@@ -8334,7 +8334,7 @@ exit 0;
             'src' => ' my $err = $r ? \'signal \' . ( $r & 0x7f ) : $! ;',
             'start_line' => 132,
             'indent' => 1,
-            'block_id' => 12
+            'block_id' => 11
           },
           {
             'token_num' => 5,
@@ -8343,7 +8343,7 @@ exit 0;
             'src' => ' explain ( "seeking past 2GB failed: $err" ) ;',
             'start_line' => 133,
             'indent' => 1,
-            'block_id' => 12
+            'block_id' => 11
           },
           {
             'token_num' => 7,
@@ -8397,7 +8397,7 @@ exit 0;
             'src' => ' if ( $! =~/too large/i ) { explain ( "writing past 2GB failed: process limits?" ) ; }',
             'start_line' => 143,
             'indent' => 1,
-            'block_id' => 13
+            'block_id' => 12
           },
           {
             'token_num' => 5,
@@ -8406,7 +8406,7 @@ exit 0;
             'src' => ' explain ( "writing past 2GB failed: process limits?" ) ;',
             'start_line' => 144,
             'indent' => 2,
-            'block_id' => 14
+            'block_id' => 13
           },
           {
             'token_num' => 16,
@@ -8415,7 +8415,7 @@ exit 0;
             'src' => ' elsif ( $! =~/quota/i ) { explain ( "filesystem quota limits?" ) ; }',
             'start_line' => 145,
             'indent' => 1,
-            'block_id' => 13
+            'block_id' => 12
           },
           {
             'token_num' => 5,
@@ -8424,7 +8424,7 @@ exit 0;
             'src' => ' explain ( "filesystem quota limits?" ) ;',
             'start_line' => 146,
             'indent' => 2,
-            'block_id' => 15
+            'block_id' => 14
           },
           {
             'token_num' => 8,
@@ -8433,7 +8433,7 @@ exit 0;
             'src' => ' else { explain ( "error: $!" ) ; }',
             'start_line' => 147,
             'indent' => 1,
-            'block_id' => 13
+            'block_id' => 12
           },
           {
             'token_num' => 5,
@@ -8442,7 +8442,7 @@ exit 0;
             'src' => ' explain ( "error: $!" ) ;',
             'start_line' => 148,
             'indent' => 2,
-            'block_id' => 16
+            'block_id' => 15
           },
           {
             'token_num' => 7,
@@ -8478,7 +8478,7 @@ exit 0;
             'src' => ' explain ( "kernel/fs not configured to use large files?" ) ;',
             'start_line' => 157,
             'indent' => 1,
-            'block_id' => 17
+            'block_id' => 16
           },
           {
             'token_num' => 128,
@@ -8496,7 +8496,7 @@ exit 0;
             'src' => ' local $: : Level = $: : Level + 1 ;',
             'start_line' => 161,
             'indent' => 1,
-            'block_id' => 18
+            'block_id' => 17
           },
           {
             'token_num' => 9,
@@ -8505,7 +8505,7 @@ exit 0;
             'src' => ' my ( $offset_will_be , $offset_want ) = @_ ;',
             'start_line' => 162,
             'indent' => 1,
-            'block_id' => 18
+            'block_id' => 17
           },
           {
             'token_num' => 6,
@@ -8514,7 +8514,7 @@ exit 0;
             'src' => ' my $offset_is = eval $offset_will_be ;',
             'start_line' => 163,
             'indent' => 1,
-            'block_id' => 18
+            'block_id' => 17
           },
           {
             'token_num' => 87,
@@ -8523,7 +8523,7 @@ exit 0;
             'src' => ' unless ( $offset_is == $offset_want ) { print "# bad offset $offset_is, want $offset_want\\n" ; my ( $offset_func ) = ( $offset_will_be =~/^(\\w+)/ ) ; if ( unpack ( "L" , pack ( "L" , $offset_want ) ) == $offset_is ) { print "# 32-bit wraparound suspected in $offset_func() since\\n" ; print "# $offset_want cast into 32 bits equals $offset_is.\\n" ; } elsif ( $offset_want - unpack ( "L" , pack ( "L" , $offset_want ) ) - 1 == $offset_is ) { print "# 32-bit wraparound suspected in $offset_func() since\\n" ; printf "# %s - unpack(\'L\', pack(\'L\', %s)) - 1 equals %s.\\n" , $offset_want , $offset_want , $offset_is ; } fail ( $offset_will_be ) ; }',
             'start_line' => 164,
             'indent' => 1,
-            'block_id' => 18
+            'block_id' => 17
           },
           {
             'token_num' => 3,
@@ -8532,7 +8532,7 @@ exit 0;
             'src' => ' print "# bad offset $offset_is, want $offset_want\\n" ;',
             'start_line' => 165,
             'indent' => 2,
-            'block_id' => 19
+            'block_id' => 18
           },
           {
             'token_num' => 13,
@@ -8541,7 +8541,7 @@ exit 0;
             'src' => ' my ( $offset_func ) = ( $offset_will_be =~/^(\\w+)/ ) ;',
             'start_line' => 166,
             'indent' => 2,
-            'block_id' => 19
+            'block_id' => 18
           },
           {
             'token_num' => 24,
@@ -8550,7 +8550,7 @@ exit 0;
             'src' => ' if ( unpack ( "L" , pack ( "L" , $offset_want ) ) == $offset_is ) { print "# 32-bit wraparound suspected in $offset_func() since\\n" ; print "# $offset_want cast into 32 bits equals $offset_is.\\n" ; }',
             'start_line' => 167,
             'indent' => 2,
-            'block_id' => 19
+            'block_id' => 18
           },
           {
             'token_num' => 3,
@@ -8559,7 +8559,7 @@ exit 0;
             'src' => ' print "# 32-bit wraparound suspected in $offset_func() since\\n" ;',
             'start_line' => 168,
             'indent' => 3,
-            'block_id' => 20
+            'block_id' => 19
           },
           {
             'token_num' => 3,
@@ -8568,7 +8568,7 @@ exit 0;
             'src' => ' print "# $offset_want cast into 32 bits equals $offset_is.\\n" ;',
             'start_line' => 169,
             'indent' => 3,
-            'block_id' => 20
+            'block_id' => 19
           },
           {
             'token_num' => 34,
@@ -8577,7 +8577,7 @@ exit 0;
             'src' => ' elsif ( $offset_want - unpack ( "L" , pack ( "L" , $offset_want ) ) - 1 == $offset_is ) { print "# 32-bit wraparound suspected in $offset_func() since\\n" ; printf "# %s - unpack(\'L\', pack(\'L\', %s)) - 1 equals %s.\\n" , $offset_want , $offset_want , $offset_is ; }',
             'start_line' => 170,
             'indent' => 2,
-            'block_id' => 19
+            'block_id' => 18
           },
           {
             'token_num' => 3,
@@ -8586,7 +8586,7 @@ exit 0;
             'src' => ' print "# 32-bit wraparound suspected in $offset_func() since\\n" ;',
             'start_line' => 172,
             'indent' => 3,
-            'block_id' => 21
+            'block_id' => 20
           },
           {
             'token_num' => 9,
@@ -8595,7 +8595,7 @@ exit 0;
             'src' => ' printf "# %s - unpack(\'L\', pack(\'L\', %s)) - 1 equals %s.\\n" , $offset_want , $offset_want , $offset_is ;',
             'start_line' => 173,
             'indent' => 3,
-            'block_id' => 21
+            'block_id' => 20
           },
           {
             'token_num' => 5,
@@ -8604,7 +8604,7 @@ exit 0;
             'src' => ' fail ( $offset_will_be ) ;',
             'start_line' => 178,
             'indent' => 2,
-            'block_id' => 19
+            'block_id' => 18
           },
           {
             'token_num' => 8,
@@ -8613,7 +8613,7 @@ exit 0;
             'src' => ' else { pass ( $offset_will_be ) ; }',
             'start_line' => 179,
             'indent' => 1,
-            'block_id' => 18
+            'block_id' => 17
           },
           {
             'token_num' => 5,
@@ -8622,7 +8622,7 @@ exit 0;
             'src' => ' pass ( $offset_will_be ) ;',
             'start_line' => 180,
             'indent' => 2,
-            'block_id' => 22
+            'block_id' => 21
           },
           {
             'token_num' => 7,
@@ -8838,7 +8838,7 @@ exit 0;
             'src' => ' open ( BIG , ">$big0" ) ;',
             'start_line' => 236,
             'indent' => 1,
-            'block_id' => 23
+            'block_id' => 22
           },
           {
             'token_num' => 5,
@@ -8847,7 +8847,7 @@ exit 0;
             'src' => ' close ( BIG ) ;',
             'start_line' => 237,
             'indent' => 1,
-            'block_id' => 23
+            'block_id' => 22
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

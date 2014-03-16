@@ -45186,12 +45186,12 @@ subtest 'tokenize' => sub {
                    'line' => 682
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalVar',
                    'data' => '$Other',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
                    'line' => 682
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -45528,12 +45528,12 @@ subtest 'tokenize' => sub {
                    'line' => 687
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@Other',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 687
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -55725,10 +55725,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 91
           },
           {
-            'token_num' => 672,
+            'token_num' => 673,
             'has_warnings' => 1,
             'end_line' => 795,
-            'src' => ' is ( $@ , "" ) ; { package Other ; sub f1 { "f1" } sub f2 { "f2" } no warnings "redefine" ; { local * f1 = sub { "g1" } ;::ok ( f1 ( ) eq "g1" , "localised sub via glob" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ; { local $Other:: { "f1" } = sub { "h1" } ;::ok ( f1 ( ) eq "h1" , "localised sub via stash" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ; { local @Other:: { qw/ f1 f2 / } = ( sub { "j1" } , sub { "j2" } ) ;::ok ( f1 ( ) eq "j1" , "localised sub via stash slice" ) ;::ok ( f2 ( ) eq "j2" , "localised sub via stash slice" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ;::ok ( f2 ( ) eq "f2" , "localised sub restored" ) ; } { my %h ; $h { "\\243" } = "pound" ; $h { "\\302\\240" } = "octects" ; is ( scalar keys %h , 2 ) ; { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local $h { $unicode } = 256 ; local $h { $ambigous } = 160 ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; } is ( scalar keys %h , 2 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { "\\302\\240" } , "octects" ) ; } { my %h ; $h { "\\243" } = "pound" ; $h { "\\302\\240" } = "octects" ; is ( scalar keys %h , 2 ) ; { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local @h { $unicode , $ambigous } = ( 256 , 160 ) ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; } is ( scalar keys %h , 2 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { "\\302\\240" } , "octects" ) ; } { my $x ; my $y = bless [ ] , \'X39012\' ; sub X39012::DESTROY { $x ++ } sub { local $_ [ 0 ] ; shift }-> ( $y ) ; ok ( ! $x , \'[perl #39012]\' ) ; } { my %h = ( \'k1\' => 111 ) ; my $k = \'k1\' ; { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; } ok ( ! exists ( $h { \'k2\' } ) ) ; is ( $h { \'k1\' } , 111 ) ; } { my %h = ( \'k1\' => 111 ) ; our $k = \'k1\' ; { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; } ok ( ! exists ( $h { \'k2\' } ) ) ; is ( $h { \'k1\' } , 111 ) ; } like ( runperl ( stderr => 1 , prog => \'use constant foo => q(a);\' . \'index(q(a), foo);\' . \'local *g=${::}{foo};print q(ok);\' ) , "ok" , "[perl #52740]" ) ; { local * @ ; pass ( "Localised *@" ) ; eval { 1 } ; pass ( "Can eval with *@ localised" ) ; local @{ "nugguton" } ; local %{ "netgonch" } ; delete $: : { $_ } for \'nugguton\' , \'netgonch\' ; } pass ( \'localised arrays and hashes do not crash if glob is deleted\' ) ; ; ) ; ) ;',
+            'src' => ' is ( $@ , "" ) ; { package Other ; sub f1 { "f1" } sub f2 { "f2" } no warnings "redefine" ; { local * f1 = sub { "g1" } ;::ok ( f1 ( ) eq "g1" , "localised sub via glob" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ; { local $Other:: { "f1" } = sub { "h1" } ;::ok ( f1 ( ) eq "h1" , "localised sub via stash" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ; { local @Other :: { qw/ f1 f2 / } = ( sub { "j1" } , sub { "j2" } ) ;::ok ( f1 ( ) eq "j1" , "localised sub via stash slice" ) ;::ok ( f2 ( ) eq "j2" , "localised sub via stash slice" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ;::ok ( f2 ( ) eq "f2" , "localised sub restored" ) ; } { my %h ; $h { "\\243" } = "pound" ; $h { "\\302\\240" } = "octects" ; is ( scalar keys %h , 2 ) ; { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local $h { $unicode } = 256 ; local $h { $ambigous } = 160 ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; } is ( scalar keys %h , 2 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { "\\302\\240" } , "octects" ) ; } { my %h ; $h { "\\243" } = "pound" ; $h { "\\302\\240" } = "octects" ; is ( scalar keys %h , 2 ) ; { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local @h { $unicode , $ambigous } = ( 256 , 160 ) ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; } is ( scalar keys %h , 2 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { "\\302\\240" } , "octects" ) ; } { my $x ; my $y = bless [ ] , \'X39012\' ; sub X39012::DESTROY { $x ++ } sub { local $_ [ 0 ] ; shift }-> ( $y ) ; ok ( ! $x , \'[perl #39012]\' ) ; } { my %h = ( \'k1\' => 111 ) ; my $k = \'k1\' ; { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; } ok ( ! exists ( $h { \'k2\' } ) ) ; is ( $h { \'k1\' } , 111 ) ; } { my %h = ( \'k1\' => 111 ) ; our $k = \'k1\' ; { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; } ok ( ! exists ( $h { \'k2\' } ) ) ; is ( $h { \'k1\' } , 111 ) ; } like ( runperl ( stderr => 1 , prog => \'use constant foo => q(a);\' . \'index(q(a), foo);\' . \'local *g=${::}{foo};print q(ok);\' ) , "ok" , "[perl #52740]" ) ; { local * @ ; pass ( "Localised *@" ) ; eval { 1 } ; pass ( "Can eval with *@ localised" ) ; local @{ "nugguton" } ; local %{ "netgonch" } ; delete $: : { $_ } for \'nugguton\' , \'netgonch\' ; } pass ( \'localised arrays and hashes do not crash if glob is deleted\' ) ; ; ) ; ) ;',
             'start_line' => 666,
             'indent' => 0,
             'block_id' => 0
@@ -55743,10 +55743,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 91
           },
           {
-            'token_num' => 664,
+            'token_num' => 665,
             'has_warnings' => 1,
             'end_line' => 795,
-            'src' => ' { package Other ; sub f1 { "f1" } sub f2 { "f2" } no warnings "redefine" ; { local * f1 = sub { "g1" } ;::ok ( f1 ( ) eq "g1" , "localised sub via glob" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ; { local $Other:: { "f1" } = sub { "h1" } ;::ok ( f1 ( ) eq "h1" , "localised sub via stash" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ; { local @Other:: { qw/ f1 f2 / } = ( sub { "j1" } , sub { "j2" } ) ;::ok ( f1 ( ) eq "j1" , "localised sub via stash slice" ) ;::ok ( f2 ( ) eq "j2" , "localised sub via stash slice" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ;::ok ( f2 ( ) eq "f2" , "localised sub restored" ) ; } { my %h ; $h { "\\243" } = "pound" ; $h { "\\302\\240" } = "octects" ; is ( scalar keys %h , 2 ) ; { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local $h { $unicode } = 256 ; local $h { $ambigous } = 160 ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; } is ( scalar keys %h , 2 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { "\\302\\240" } , "octects" ) ; } { my %h ; $h { "\\243" } = "pound" ; $h { "\\302\\240" } = "octects" ; is ( scalar keys %h , 2 ) ; { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local @h { $unicode , $ambigous } = ( 256 , 160 ) ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; } is ( scalar keys %h , 2 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { "\\302\\240" } , "octects" ) ; } { my $x ; my $y = bless [ ] , \'X39012\' ; sub X39012::DESTROY { $x ++ } sub { local $_ [ 0 ] ; shift }-> ( $y ) ; ok ( ! $x , \'[perl #39012]\' ) ; } { my %h = ( \'k1\' => 111 ) ; my $k = \'k1\' ; { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; } ok ( ! exists ( $h { \'k2\' } ) ) ; is ( $h { \'k1\' } , 111 ) ; } { my %h = ( \'k1\' => 111 ) ; our $k = \'k1\' ; { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; } ok ( ! exists ( $h { \'k2\' } ) ) ; is ( $h { \'k1\' } , 111 ) ; } like ( runperl ( stderr => 1 , prog => \'use constant foo => q(a);\' . \'index(q(a), foo);\' . \'local *g=${::}{foo};print q(ok);\' ) , "ok" , "[perl #52740]" ) ; { local * @ ; pass ( "Localised *@" ) ; eval { 1 } ; pass ( "Can eval with *@ localised" ) ; local @{ "nugguton" } ; local %{ "netgonch" } ; delete $: : { $_ } for \'nugguton\' , \'netgonch\' ; } pass ( \'localised arrays and hashes do not crash if glob is deleted\' ) ; ; ) ; )',
+            'src' => ' { package Other ; sub f1 { "f1" } sub f2 { "f2" } no warnings "redefine" ; { local * f1 = sub { "g1" } ;::ok ( f1 ( ) eq "g1" , "localised sub via glob" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ; { local $Other:: { "f1" } = sub { "h1" } ;::ok ( f1 ( ) eq "h1" , "localised sub via stash" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ; { local @Other :: { qw/ f1 f2 / } = ( sub { "j1" } , sub { "j2" } ) ;::ok ( f1 ( ) eq "j1" , "localised sub via stash slice" ) ;::ok ( f2 ( ) eq "j2" , "localised sub via stash slice" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ;::ok ( f2 ( ) eq "f2" , "localised sub restored" ) ; } { my %h ; $h { "\\243" } = "pound" ; $h { "\\302\\240" } = "octects" ; is ( scalar keys %h , 2 ) ; { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local $h { $unicode } = 256 ; local $h { $ambigous } = 160 ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; } is ( scalar keys %h , 2 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { "\\302\\240" } , "octects" ) ; } { my %h ; $h { "\\243" } = "pound" ; $h { "\\302\\240" } = "octects" ; is ( scalar keys %h , 2 ) ; { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local @h { $unicode , $ambigous } = ( 256 , 160 ) ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; } is ( scalar keys %h , 2 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { "\\302\\240" } , "octects" ) ; } { my $x ; my $y = bless [ ] , \'X39012\' ; sub X39012::DESTROY { $x ++ } sub { local $_ [ 0 ] ; shift }-> ( $y ) ; ok ( ! $x , \'[perl #39012]\' ) ; } { my %h = ( \'k1\' => 111 ) ; my $k = \'k1\' ; { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; } ok ( ! exists ( $h { \'k2\' } ) ) ; is ( $h { \'k1\' } , 111 ) ; } { my %h = ( \'k1\' => 111 ) ; our $k = \'k1\' ; { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; } ok ( ! exists ( $h { \'k2\' } ) ) ; is ( $h { \'k1\' } , 111 ) ; } like ( runperl ( stderr => 1 , prog => \'use constant foo => q(a);\' . \'index(q(a), foo);\' . \'local *g=${::}{foo};print q(ok);\' ) , "ok" , "[perl #52740]" ) ; { local * @ ; pass ( "Localised *@" ) ; eval { 1 } ; pass ( "Can eval with *@ localised" ) ; local @{ "nugguton" } ; local %{ "netgonch" } ; delete $: : { $_ } for \'nugguton\' , \'netgonch\' ; } pass ( \'localised arrays and hashes do not crash if glob is deleted\' ) ; ; ) ; )',
             'start_line' => 669,
             'indent' => 0,
             'block_id' => 91
@@ -55779,10 +55779,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 92
           },
           {
-            'token_num' => 649,
+            'token_num' => 650,
             'has_warnings' => 1,
             'end_line' => 795,
-            'src' => ' no warnings "redefine" ; { local * f1 = sub { "g1" } ;::ok ( f1 ( ) eq "g1" , "localised sub via glob" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ; { local $Other:: { "f1" } = sub { "h1" } ;::ok ( f1 ( ) eq "h1" , "localised sub via stash" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ; { local @Other:: { qw/ f1 f2 / } = ( sub { "j1" } , sub { "j2" } ) ;::ok ( f1 ( ) eq "j1" , "localised sub via stash slice" ) ;::ok ( f2 ( ) eq "j2" , "localised sub via stash slice" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ;::ok ( f2 ( ) eq "f2" , "localised sub restored" ) ; } { my %h ; $h { "\\243" } = "pound" ; $h { "\\302\\240" } = "octects" ; is ( scalar keys %h , 2 ) ; { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local $h { $unicode } = 256 ; local $h { $ambigous } = 160 ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; } is ( scalar keys %h , 2 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { "\\302\\240" } , "octects" ) ; } { my %h ; $h { "\\243" } = "pound" ; $h { "\\302\\240" } = "octects" ; is ( scalar keys %h , 2 ) ; { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local @h { $unicode , $ambigous } = ( 256 , 160 ) ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; } is ( scalar keys %h , 2 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { "\\302\\240" } , "octects" ) ; } { my $x ; my $y = bless [ ] , \'X39012\' ; sub X39012::DESTROY { $x ++ } sub { local $_ [ 0 ] ; shift }-> ( $y ) ; ok ( ! $x , \'[perl #39012]\' ) ; } { my %h = ( \'k1\' => 111 ) ; my $k = \'k1\' ; { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; } ok ( ! exists ( $h { \'k2\' } ) ) ; is ( $h { \'k1\' } , 111 ) ; } { my %h = ( \'k1\' => 111 ) ; our $k = \'k1\' ; { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; } ok ( ! exists ( $h { \'k2\' } ) ) ; is ( $h { \'k1\' } , 111 ) ; } like ( runperl ( stderr => 1 , prog => \'use constant foo => q(a);\' . \'index(q(a), foo);\' . \'local *g=${::}{foo};print q(ok);\' ) , "ok" , "[perl #52740]" ) ; { local * @ ; pass ( "Localised *@" ) ; eval { 1 } ; pass ( "Can eval with *@ localised" ) ; local @{ "nugguton" } ; local %{ "netgonch" } ; delete $: : { $_ } for \'nugguton\' , \'netgonch\' ; } pass ( \'localised arrays and hashes do not crash if glob is deleted\' ) ; ; ) ;',
+            'src' => ' no warnings "redefine" ; { local * f1 = sub { "g1" } ;::ok ( f1 ( ) eq "g1" , "localised sub via glob" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ; { local $Other:: { "f1" } = sub { "h1" } ;::ok ( f1 ( ) eq "h1" , "localised sub via stash" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ; { local @Other :: { qw/ f1 f2 / } = ( sub { "j1" } , sub { "j2" } ) ;::ok ( f1 ( ) eq "j1" , "localised sub via stash slice" ) ;::ok ( f2 ( ) eq "j2" , "localised sub via stash slice" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ;::ok ( f2 ( ) eq "f2" , "localised sub restored" ) ; } { my %h ; $h { "\\243" } = "pound" ; $h { "\\302\\240" } = "octects" ; is ( scalar keys %h , 2 ) ; { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local $h { $unicode } = 256 ; local $h { $ambigous } = 160 ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; } is ( scalar keys %h , 2 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { "\\302\\240" } , "octects" ) ; } { my %h ; $h { "\\243" } = "pound" ; $h { "\\302\\240" } = "octects" ; is ( scalar keys %h , 2 ) ; { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local @h { $unicode , $ambigous } = ( 256 , 160 ) ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; } is ( scalar keys %h , 2 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { "\\302\\240" } , "octects" ) ; } { my $x ; my $y = bless [ ] , \'X39012\' ; sub X39012::DESTROY { $x ++ } sub { local $_ [ 0 ] ; shift }-> ( $y ) ; ok ( ! $x , \'[perl #39012]\' ) ; } { my %h = ( \'k1\' => 111 ) ; my $k = \'k1\' ; { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; } ok ( ! exists ( $h { \'k2\' } ) ) ; is ( $h { \'k1\' } , 111 ) ; } { my %h = ( \'k1\' => 111 ) ; our $k = \'k1\' ; { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; } ok ( ! exists ( $h { \'k2\' } ) ) ; is ( $h { \'k1\' } , 111 ) ; } like ( runperl ( stderr => 1 , prog => \'use constant foo => q(a);\' . \'index(q(a), foo);\' . \'local *g=${::}{foo};print q(ok);\' ) , "ok" , "[perl #52740]" ) ; { local * @ ; pass ( "Localised *@" ) ; eval { 1 } ; pass ( "Can eval with *@ localised" ) ; local @{ "nugguton" } ; local %{ "netgonch" } ; delete $: : { $_ } for \'nugguton\' , \'netgonch\' ; } pass ( \'localised arrays and hashes do not crash if glob is deleted\' ) ; ; ) ;',
             'start_line' => 675,
             'indent' => 1,
             'block_id' => 92
@@ -55797,10 +55797,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 94
           },
           {
-            'token_num' => 644,
+            'token_num' => 645,
             'has_warnings' => 1,
             'end_line' => 795,
-            'src' => ' { local * f1 = sub { "g1" } ;::ok ( f1 ( ) eq "g1" , "localised sub via glob" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ; { local $Other:: { "f1" } = sub { "h1" } ;::ok ( f1 ( ) eq "h1" , "localised sub via stash" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ; { local @Other:: { qw/ f1 f2 / } = ( sub { "j1" } , sub { "j2" } ) ;::ok ( f1 ( ) eq "j1" , "localised sub via stash slice" ) ;::ok ( f2 ( ) eq "j2" , "localised sub via stash slice" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ;::ok ( f2 ( ) eq "f2" , "localised sub restored" ) ; } { my %h ; $h { "\\243" } = "pound" ; $h { "\\302\\240" } = "octects" ; is ( scalar keys %h , 2 ) ; { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local $h { $unicode } = 256 ; local $h { $ambigous } = 160 ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; } is ( scalar keys %h , 2 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { "\\302\\240" } , "octects" ) ; } { my %h ; $h { "\\243" } = "pound" ; $h { "\\302\\240" } = "octects" ; is ( scalar keys %h , 2 ) ; { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local @h { $unicode , $ambigous } = ( 256 , 160 ) ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; } is ( scalar keys %h , 2 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { "\\302\\240" } , "octects" ) ; } { my $x ; my $y = bless [ ] , \'X39012\' ; sub X39012::DESTROY { $x ++ } sub { local $_ [ 0 ] ; shift }-> ( $y ) ; ok ( ! $x , \'[perl #39012]\' ) ; } { my %h = ( \'k1\' => 111 ) ; my $k = \'k1\' ; { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; } ok ( ! exists ( $h { \'k2\' } ) ) ; is ( $h { \'k1\' } , 111 ) ; } { my %h = ( \'k1\' => 111 ) ; our $k = \'k1\' ; { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; } ok ( ! exists ( $h { \'k2\' } ) ) ; is ( $h { \'k1\' } , 111 ) ; } like ( runperl ( stderr => 1 , prog => \'use constant foo => q(a);\' . \'index(q(a), foo);\' . \'local *g=${::}{foo};print q(ok);\' ) , "ok" , "[perl #52740]" ) ; { local * @ ; pass ( "Localised *@" ) ; eval { 1 } ; pass ( "Can eval with *@ localised" ) ; local @{ "nugguton" } ; local %{ "netgonch" } ; delete $: : { $_ } for \'nugguton\' , \'netgonch\' ; } pass ( \'localised arrays and hashes do not crash if glob is deleted\' ) ; ; )',
+            'src' => ' { local * f1 = sub { "g1" } ;::ok ( f1 ( ) eq "g1" , "localised sub via glob" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ; { local $Other:: { "f1" } = sub { "h1" } ;::ok ( f1 ( ) eq "h1" , "localised sub via stash" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ; { local @Other :: { qw/ f1 f2 / } = ( sub { "j1" } , sub { "j2" } ) ;::ok ( f1 ( ) eq "j1" , "localised sub via stash slice" ) ;::ok ( f2 ( ) eq "j2" , "localised sub via stash slice" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ;::ok ( f2 ( ) eq "f2" , "localised sub restored" ) ; } { my %h ; $h { "\\243" } = "pound" ; $h { "\\302\\240" } = "octects" ; is ( scalar keys %h , 2 ) ; { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local $h { $unicode } = 256 ; local $h { $ambigous } = 160 ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; } is ( scalar keys %h , 2 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { "\\302\\240" } , "octects" ) ; } { my %h ; $h { "\\243" } = "pound" ; $h { "\\302\\240" } = "octects" ; is ( scalar keys %h , 2 ) ; { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local @h { $unicode , $ambigous } = ( 256 , 160 ) ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; } is ( scalar keys %h , 2 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { "\\302\\240" } , "octects" ) ; } { my $x ; my $y = bless [ ] , \'X39012\' ; sub X39012::DESTROY { $x ++ } sub { local $_ [ 0 ] ; shift }-> ( $y ) ; ok ( ! $x , \'[perl #39012]\' ) ; } { my %h = ( \'k1\' => 111 ) ; my $k = \'k1\' ; { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; } ok ( ! exists ( $h { \'k2\' } ) ) ; is ( $h { \'k1\' } , 111 ) ; } { my %h = ( \'k1\' => 111 ) ; our $k = \'k1\' ; { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; } ok ( ! exists ( $h { \'k2\' } ) ) ; is ( $h { \'k1\' } , 111 ) ; } like ( runperl ( stderr => 1 , prog => \'use constant foo => q(a);\' . \'index(q(a), foo);\' . \'local *g=${::}{foo};print q(ok);\' ) , "ok" , "[perl #52740]" ) ; { local * @ ; pass ( "Localised *@" ) ; eval { 1 } ; pass ( "Can eval with *@ localised" ) ; local @{ "nugguton" } ; local %{ "netgonch" } ; delete $: : { $_ } for \'nugguton\' , \'netgonch\' ; } pass ( \'localised arrays and hashes do not crash if glob is deleted\' ) ; ; )',
             'start_line' => 676,
             'indent' => 1,
             'block_id' => 94
@@ -55815,10 +55815,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 95
           },
           {
-            'token_num' => 623,
+            'token_num' => 624,
             'has_warnings' => 1,
             'end_line' => 795,
-            'src' => ' }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ; { local $Other:: { "f1" } = sub { "h1" } ;::ok ( f1 ( ) eq "h1" , "localised sub via stash" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ; { local @Other:: { qw/ f1 f2 / } = ( sub { "j1" } , sub { "j2" } ) ;::ok ( f1 ( ) eq "j1" , "localised sub via stash slice" ) ;::ok ( f2 ( ) eq "j2" , "localised sub via stash slice" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ;::ok ( f2 ( ) eq "f2" , "localised sub restored" ) ; } { my %h ; $h { "\\243" } = "pound" ; $h { "\\302\\240" } = "octects" ; is ( scalar keys %h , 2 ) ; { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local $h { $unicode } = 256 ; local $h { $ambigous } = 160 ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; } is ( scalar keys %h , 2 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { "\\302\\240" } , "octects" ) ; } { my %h ; $h { "\\243" } = "pound" ; $h { "\\302\\240" } = "octects" ; is ( scalar keys %h , 2 ) ; { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local @h { $unicode , $ambigous } = ( 256 , 160 ) ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; } is ( scalar keys %h , 2 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { "\\302\\240" } , "octects" ) ; } { my $x ; my $y = bless [ ] , \'X39012\' ; sub X39012::DESTROY { $x ++ } sub { local $_ [ 0 ] ; shift }-> ( $y ) ; ok ( ! $x , \'[perl #39012]\' ) ; } { my %h = ( \'k1\' => 111 ) ; my $k = \'k1\' ; { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; } ok ( ! exists ( $h { \'k2\' } ) ) ; is ( $h { \'k1\' } , 111 ) ; } { my %h = ( \'k1\' => 111 ) ; our $k = \'k1\' ; { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; } ok ( ! exists ( $h { \'k2\' } ) ) ; is ( $h { \'k1\' } , 111 ) ; } like ( runperl ( stderr => 1 , prog => \'use constant foo => q(a);\' . \'index(q(a), foo);\' . \'local *g=${::}{foo};print q(ok);\' ) , "ok" , "[perl #52740]" ) ; { local * @ ; pass ( "Localised *@" ) ; eval { 1 } ; pass ( "Can eval with *@ localised" ) ; local @{ "nugguton" } ; local %{ "netgonch" } ; delete $: : { $_ } for \'nugguton\' , \'netgonch\' ; } pass ( \'localised arrays and hashes do not crash if glob is deleted\' ) ; ;',
+            'src' => ' }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ; { local $Other:: { "f1" } = sub { "h1" } ;::ok ( f1 ( ) eq "h1" , "localised sub via stash" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ; { local @Other :: { qw/ f1 f2 / } = ( sub { "j1" } , sub { "j2" } ) ;::ok ( f1 ( ) eq "j1" , "localised sub via stash slice" ) ;::ok ( f2 ( ) eq "j2" , "localised sub via stash slice" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ;::ok ( f2 ( ) eq "f2" , "localised sub restored" ) ; } { my %h ; $h { "\\243" } = "pound" ; $h { "\\302\\240" } = "octects" ; is ( scalar keys %h , 2 ) ; { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local $h { $unicode } = 256 ; local $h { $ambigous } = 160 ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; } is ( scalar keys %h , 2 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { "\\302\\240" } , "octects" ) ; } { my %h ; $h { "\\243" } = "pound" ; $h { "\\302\\240" } = "octects" ; is ( scalar keys %h , 2 ) ; { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local @h { $unicode , $ambigous } = ( 256 , 160 ) ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; } is ( scalar keys %h , 2 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { "\\302\\240" } , "octects" ) ; } { my $x ; my $y = bless [ ] , \'X39012\' ; sub X39012::DESTROY { $x ++ } sub { local $_ [ 0 ] ; shift }-> ( $y ) ; ok ( ! $x , \'[perl #39012]\' ) ; } { my %h = ( \'k1\' => 111 ) ; my $k = \'k1\' ; { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; } ok ( ! exists ( $h { \'k2\' } ) ) ; is ( $h { \'k1\' } , 111 ) ; } { my %h = ( \'k1\' => 111 ) ; our $k = \'k1\' ; { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; } ok ( ! exists ( $h { \'k2\' } ) ) ; is ( $h { \'k1\' } , 111 ) ; } like ( runperl ( stderr => 1 , prog => \'use constant foo => q(a);\' . \'index(q(a), foo);\' . \'local *g=${::}{foo};print q(ok);\' ) , "ok" , "[perl #52740]" ) ; { local * @ ; pass ( "Localised *@" ) ; eval { 1 } ; pass ( "Can eval with *@ localised" ) ; local @{ "nugguton" } ; local %{ "netgonch" } ; delete $: : { $_ } for \'nugguton\' , \'netgonch\' ; } pass ( \'localised arrays and hashes do not crash if glob is deleted\' ) ; ;',
             'start_line' => 679,
             'indent' => 2,
             'block_id' => 95
@@ -55833,19 +55833,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 96
           },
           {
-            'token_num' => 611,
+            'token_num' => 612,
             'has_warnings' => 1,
             'end_line' => 795,
-            'src' => ' { local $Other:: { "f1" } = sub { "h1" } ;::ok ( f1 ( ) eq "h1" , "localised sub via stash" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ; { local @Other:: { qw/ f1 f2 / } = ( sub { "j1" } , sub { "j2" } ) ;::ok ( f1 ( ) eq "j1" , "localised sub via stash slice" ) ;::ok ( f2 ( ) eq "j2" , "localised sub via stash slice" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ;::ok ( f2 ( ) eq "f2" , "localised sub restored" ) ; } { my %h ; $h { "\\243" } = "pound" ; $h { "\\302\\240" } = "octects" ; is ( scalar keys %h , 2 ) ; { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local $h { $unicode } = 256 ; local $h { $ambigous } = 160 ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; } is ( scalar keys %h , 2 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { "\\302\\240" } , "octects" ) ; } { my %h ; $h { "\\243" } = "pound" ; $h { "\\302\\240" } = "octects" ; is ( scalar keys %h , 2 ) ; { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local @h { $unicode , $ambigous } = ( 256 , 160 ) ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; } is ( scalar keys %h , 2 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { "\\302\\240" } , "octects" ) ; } { my $x ; my $y = bless [ ] , \'X39012\' ; sub X39012::DESTROY { $x ++ } sub { local $_ [ 0 ] ; shift }-> ( $y ) ; ok ( ! $x , \'[perl #39012]\' ) ; } { my %h = ( \'k1\' => 111 ) ; my $k = \'k1\' ; { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; } ok ( ! exists ( $h { \'k2\' } ) ) ; is ( $h { \'k1\' } , 111 ) ; } { my %h = ( \'k1\' => 111 ) ; our $k = \'k1\' ; { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; } ok ( ! exists ( $h { \'k2\' } ) ) ; is ( $h { \'k1\' } , 111 ) ; } like ( runperl ( stderr => 1 , prog => \'use constant foo => q(a);\' . \'index(q(a), foo);\' . \'local *g=${::}{foo};print q(ok);\' ) , "ok" , "[perl #52740]" ) ; { local * @ ; pass ( "Localised *@" ) ; eval { 1 } ; pass ( "Can eval with *@ localised" ) ; local @{ "nugguton" } ; local %{ "netgonch" } ; delete $: : { $_ } for \'nugguton\' , \'netgonch\' ; } pass ( \'localised arrays and hashes do not crash if glob is deleted\' ) ;',
+            'src' => ' { local $Other:: { "f1" } = sub { "h1" } ;::ok ( f1 ( ) eq "h1" , "localised sub via stash" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ; { local @Other :: { qw/ f1 f2 / } = ( sub { "j1" } , sub { "j2" } ) ;::ok ( f1 ( ) eq "j1" , "localised sub via stash slice" ) ;::ok ( f2 ( ) eq "j2" , "localised sub via stash slice" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ;::ok ( f2 ( ) eq "f2" , "localised sub restored" ) ; } { my %h ; $h { "\\243" } = "pound" ; $h { "\\302\\240" } = "octects" ; is ( scalar keys %h , 2 ) ; { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local $h { $unicode } = 256 ; local $h { $ambigous } = 160 ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; } is ( scalar keys %h , 2 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { "\\302\\240" } , "octects" ) ; } { my %h ; $h { "\\243" } = "pound" ; $h { "\\302\\240" } = "octects" ; is ( scalar keys %h , 2 ) ; { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local @h { $unicode , $ambigous } = ( 256 , 160 ) ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; } is ( scalar keys %h , 2 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { "\\302\\240" } , "octects" ) ; } { my $x ; my $y = bless [ ] , \'X39012\' ; sub X39012::DESTROY { $x ++ } sub { local $_ [ 0 ] ; shift }-> ( $y ) ; ok ( ! $x , \'[perl #39012]\' ) ; } { my %h = ( \'k1\' => 111 ) ; my $k = \'k1\' ; { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; } ok ( ! exists ( $h { \'k2\' } ) ) ; is ( $h { \'k1\' } , 111 ) ; } { my %h = ( \'k1\' => 111 ) ; our $k = \'k1\' ; { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; } ok ( ! exists ( $h { \'k2\' } ) ) ; is ( $h { \'k1\' } , 111 ) ; } like ( runperl ( stderr => 1 , prog => \'use constant foo => q(a);\' . \'index(q(a), foo);\' . \'local *g=${::}{foo};print q(ok);\' ) , "ok" , "[perl #52740]" ) ; { local * @ ; pass ( "Localised *@" ) ; eval { 1 } ; pass ( "Can eval with *@ localised" ) ; local @{ "nugguton" } ; local %{ "netgonch" } ; delete $: : { $_ } for \'nugguton\' , \'netgonch\' ; } pass ( \'localised arrays and hashes do not crash if glob is deleted\' ) ;',
             'start_line' => 681,
             'indent' => 2,
             'block_id' => 96
           },
           {
-            'token_num' => 16,
+            'token_num' => 21,
             'has_warnings' => 1,
             'end_line' => 683,
-            'src' => ' = sub { "h1" } ;::ok ( f1 ( ) eq "h1" , "localised sub via stash" ) ;',
+            'src' => ' local $Other:: { "f1" } = sub { "h1" } ;::ok ( f1 ( ) eq "h1" , "localised sub via stash" ) ;',
             'start_line' => 682,
             'indent' => 3,
             'block_id' => 97
@@ -55860,10 +55860,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 97
           },
           {
-            'token_num' => 64,
+            'token_num' => 65,
             'has_warnings' => 1,
             'end_line' => 693,
-            'src' => ' { local @Other:: { qw/ f1 f2 / } = ( sub { "j1" } , sub { "j2" } ) ;::ok ( f1 ( ) eq "j1" , "localised sub via stash slice" ) ;::ok ( f2 ( ) eq "j2" , "localised sub via stash slice" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ;::ok ( f2 ( ) eq "f2" , "localised sub restored" ) ; }',
+            'src' => ' { local @Other :: { qw/ f1 f2 / } = ( sub { "j1" } , sub { "j2" } ) ;::ok ( f1 ( ) eq "j1" , "localised sub via stash slice" ) ;::ok ( f2 ( ) eq "j2" , "localised sub via stash slice" ) ; }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ;::ok ( f2 ( ) eq "f2" , "localised sub restored" ) ; }',
             'start_line' => 686,
             'indent' => 3,
             'block_id' => 97
@@ -55875,7 +55875,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' = ( sub { "j1" } , sub { "j2" } ) ;::ok ( f1 ( ) eq "j1" , "localised sub via stash slice" ) ;::ok ( f2 ( ) eq "j2" , "localised sub via stash slice" ) ;',
             'start_line' => 687,
             'indent' => 4,
-            'block_id' => 100
+            'block_id' => 99
           },
           {
             'token_num' => 21,
@@ -55884,7 +55884,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' }::ok ( f1 ( ) eq "f1" , "localised sub restored" ) ;::ok ( f2 ( ) eq "f2" , "localised sub restored" ) ;',
             'start_line' => 690,
             'indent' => 4,
-            'block_id' => 100
+            'block_id' => 99
           },
           {
             'token_num' => 140,
@@ -55902,7 +55902,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my %h ;',
             'start_line' => 697,
             'indent' => 4,
-            'block_id' => 104
+            'block_id' => 103
           },
           {
             'token_num' => 7,
@@ -55911,7 +55911,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $h { "\\243" } = "pound" ;',
             'start_line' => 698,
             'indent' => 4,
-            'block_id' => 104
+            'block_id' => 103
           },
           {
             'token_num' => 7,
@@ -55920,7 +55920,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $h { "\\302\\240" } = "octects" ;',
             'start_line' => 699,
             'indent' => 4,
-            'block_id' => 104
+            'block_id' => 103
           },
           {
             'token_num' => 9,
@@ -55929,7 +55929,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( scalar keys %h , 2 ) ;',
             'start_line' => 700,
             'indent' => 4,
-            'block_id' => 104
+            'block_id' => 103
           },
           {
             'token_num' => 83,
@@ -55938,7 +55938,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local $h { $unicode } = 256 ; local $h { $ambigous } = 160 ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; }',
             'start_line' => 701,
             'indent' => 4,
-            'block_id' => 104
+            'block_id' => 103
           },
           {
             'token_num' => 6,
@@ -55947,7 +55947,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $unicode = chr 256 ;',
             'start_line' => 702,
             'indent' => 5,
-            'block_id' => 105
+            'block_id' => 104
           },
           {
             'token_num' => 7,
@@ -55956,7 +55956,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $ambigous = "\\240" . $unicode ;',
             'start_line' => 703,
             'indent' => 5,
-            'block_id' => 105
+            'block_id' => 104
           },
           {
             'token_num' => 3,
@@ -55965,7 +55965,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' chop $ambigous ;',
             'start_line' => 704,
             'indent' => 5,
-            'block_id' => 105
+            'block_id' => 104
           },
           {
             'token_num' => 8,
@@ -55974,7 +55974,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' local $h { $unicode } = 256 ;',
             'start_line' => 705,
             'indent' => 5,
-            'block_id' => 105
+            'block_id' => 104
           },
           {
             'token_num' => 8,
@@ -55983,7 +55983,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' local $h { $ambigous } = 160 ;',
             'start_line' => 706,
             'indent' => 5,
-            'block_id' => 105
+            'block_id' => 104
           },
           {
             'token_num' => 9,
@@ -55992,7 +55992,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( scalar keys %h , 4 ) ;',
             'start_line' => 708,
             'indent' => 5,
-            'block_id' => 105
+            'block_id' => 104
           },
           {
             'token_num' => 10,
@@ -56001,7 +56001,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $h { "\\243" } , "pound" ) ;',
             'start_line' => 709,
             'indent' => 5,
-            'block_id' => 105
+            'block_id' => 104
           },
           {
             'token_num' => 10,
@@ -56010,7 +56010,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $h { $unicode } , 256 ) ;',
             'start_line' => 710,
             'indent' => 5,
-            'block_id' => 105
+            'block_id' => 104
           },
           {
             'token_num' => 10,
@@ -56019,7 +56019,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $h { $ambigous } , 160 ) ;',
             'start_line' => 711,
             'indent' => 5,
-            'block_id' => 105
+            'block_id' => 104
           },
           {
             'token_num' => 10,
@@ -56028,7 +56028,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $h { "\\302\\240" } , "octects" ) ;',
             'start_line' => 712,
             'indent' => 5,
-            'block_id' => 105
+            'block_id' => 104
           },
           {
             'token_num' => 9,
@@ -56037,7 +56037,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( scalar keys %h , 2 ) ;',
             'start_line' => 714,
             'indent' => 4,
-            'block_id' => 104
+            'block_id' => 103
           },
           {
             'token_num' => 10,
@@ -56046,7 +56046,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $h { "\\243" } , "pound" ) ;',
             'start_line' => 715,
             'indent' => 4,
-            'block_id' => 104
+            'block_id' => 103
           },
           {
             'token_num' => 10,
@@ -56055,7 +56055,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $h { "\\302\\240" } , "octects" ) ;',
             'start_line' => 716,
             'indent' => 4,
-            'block_id' => 104
+            'block_id' => 103
           },
           {
             'token_num' => 138,
@@ -56073,7 +56073,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my %h ;',
             'start_line' => 721,
             'indent' => 4,
-            'block_id' => 106
+            'block_id' => 105
           },
           {
             'token_num' => 7,
@@ -56082,7 +56082,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $h { "\\243" } = "pound" ;',
             'start_line' => 722,
             'indent' => 4,
-            'block_id' => 106
+            'block_id' => 105
           },
           {
             'token_num' => 7,
@@ -56091,7 +56091,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $h { "\\302\\240" } = "octects" ;',
             'start_line' => 723,
             'indent' => 4,
-            'block_id' => 106
+            'block_id' => 105
           },
           {
             'token_num' => 9,
@@ -56100,7 +56100,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( scalar keys %h , 2 ) ;',
             'start_line' => 724,
             'indent' => 4,
-            'block_id' => 106
+            'block_id' => 105
           },
           {
             'token_num' => 81,
@@ -56109,7 +56109,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' { my $unicode = chr 256 ; my $ambigous = "\\240" . $unicode ; chop $ambigous ; local @h { $unicode , $ambigous } = ( 256 , 160 ) ; is ( scalar keys %h , 4 ) ; is ( $h { "\\243" } , "pound" ) ; is ( $h { $unicode } , 256 ) ; is ( $h { $ambigous } , 160 ) ; is ( $h { "\\302\\240" } , "octects" ) ; }',
             'start_line' => 725,
             'indent' => 4,
-            'block_id' => 106
+            'block_id' => 105
           },
           {
             'token_num' => 6,
@@ -56118,7 +56118,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $unicode = chr 256 ;',
             'start_line' => 726,
             'indent' => 5,
-            'block_id' => 107
+            'block_id' => 106
           },
           {
             'token_num' => 7,
@@ -56127,7 +56127,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $ambigous = "\\240" . $unicode ;',
             'start_line' => 727,
             'indent' => 5,
-            'block_id' => 107
+            'block_id' => 106
           },
           {
             'token_num' => 3,
@@ -56136,7 +56136,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' chop $ambigous ;',
             'start_line' => 728,
             'indent' => 5,
-            'block_id' => 107
+            'block_id' => 106
           },
           {
             'token_num' => 14,
@@ -56145,7 +56145,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' local @h { $unicode , $ambigous } = ( 256 , 160 ) ;',
             'start_line' => 729,
             'indent' => 5,
-            'block_id' => 107
+            'block_id' => 106
           },
           {
             'token_num' => 9,
@@ -56154,7 +56154,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( scalar keys %h , 4 ) ;',
             'start_line' => 731,
             'indent' => 5,
-            'block_id' => 107
+            'block_id' => 106
           },
           {
             'token_num' => 10,
@@ -56163,7 +56163,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $h { "\\243" } , "pound" ) ;',
             'start_line' => 732,
             'indent' => 5,
-            'block_id' => 107
+            'block_id' => 106
           },
           {
             'token_num' => 10,
@@ -56172,7 +56172,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $h { $unicode } , 256 ) ;',
             'start_line' => 733,
             'indent' => 5,
-            'block_id' => 107
+            'block_id' => 106
           },
           {
             'token_num' => 10,
@@ -56181,7 +56181,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $h { $ambigous } , 160 ) ;',
             'start_line' => 734,
             'indent' => 5,
-            'block_id' => 107
+            'block_id' => 106
           },
           {
             'token_num' => 10,
@@ -56190,7 +56190,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $h { "\\302\\240" } , "octects" ) ;',
             'start_line' => 735,
             'indent' => 5,
-            'block_id' => 107
+            'block_id' => 106
           },
           {
             'token_num' => 9,
@@ -56199,7 +56199,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( scalar keys %h , 2 ) ;',
             'start_line' => 737,
             'indent' => 4,
-            'block_id' => 106
+            'block_id' => 105
           },
           {
             'token_num' => 10,
@@ -56208,7 +56208,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $h { "\\243" } , "pound" ) ;',
             'start_line' => 738,
             'indent' => 4,
-            'block_id' => 106
+            'block_id' => 105
           },
           {
             'token_num' => 10,
@@ -56217,7 +56217,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $h { "\\302\\240" } , "octects" ) ;',
             'start_line' => 739,
             'indent' => 4,
-            'block_id' => 106
+            'block_id' => 105
           },
           {
             'token_num' => 43,
@@ -56235,7 +56235,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $x ;',
             'start_line' => 745,
             'indent' => 4,
-            'block_id' => 108
+            'block_id' => 107
           },
           {
             'token_num' => 9,
@@ -56244,7 +56244,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $y = bless [ ] , \'X39012\' ;',
             'start_line' => 746,
             'indent' => 4,
-            'block_id' => 108
+            'block_id' => 107
           },
           {
             'token_num' => 15,
@@ -56253,7 +56253,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' sub { local $_ [ 0 ] ; shift }-> ( $y ) ;',
             'start_line' => 748,
             'indent' => 4,
-            'block_id' => 108
+            'block_id' => 107
           },
           {
             'token_num' => 6,
@@ -56262,7 +56262,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' local $_ [ 0 ] ;',
             'start_line' => 748,
             'indent' => 5,
-            'block_id' => 110
+            'block_id' => 109
           },
           {
             'token_num' => 8,
@@ -56271,7 +56271,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ok ( ! $x , \'[perl #39012]\' ) ;',
             'start_line' => 749,
             'indent' => 4,
-            'block_id' => 108
+            'block_id' => 107
           },
           {
             'token_num' => 62,
@@ -56289,7 +56289,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my %h = ( \'k1\' => 111 ) ;',
             'start_line' => 756,
             'indent' => 4,
-            'block_id' => 111
+            'block_id' => 110
           },
           {
             'token_num' => 5,
@@ -56298,7 +56298,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $k = \'k1\' ;',
             'start_line' => 757,
             'indent' => 4,
-            'block_id' => 111
+            'block_id' => 110
           },
           {
             'token_num' => 24,
@@ -56307,7 +56307,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; }',
             'start_line' => 758,
             'indent' => 4,
-            'block_id' => 111
+            'block_id' => 110
           },
           {
             'token_num' => 8,
@@ -56316,7 +56316,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' local $h { $k } = 222 ;',
             'start_line' => 759,
             'indent' => 5,
-            'block_id' => 112
+            'block_id' => 111
           },
           {
             'token_num' => 10,
@@ -56325,7 +56325,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $h { \'k1\' } , 222 ) ;',
             'start_line' => 761,
             'indent' => 5,
-            'block_id' => 112
+            'block_id' => 111
           },
           {
             'token_num' => 4,
@@ -56334,7 +56334,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $k = \'k2\' ;',
             'start_line' => 762,
             'indent' => 5,
-            'block_id' => 112
+            'block_id' => 111
           },
           {
             'token_num' => 12,
@@ -56343,7 +56343,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ok ( ! exists ( $h { \'k2\' } ) ) ;',
             'start_line' => 764,
             'indent' => 4,
-            'block_id' => 111
+            'block_id' => 110
           },
           {
             'token_num' => 10,
@@ -56352,7 +56352,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $h { \'k1\' } , 111 ) ;',
             'start_line' => 765,
             'indent' => 4,
-            'block_id' => 111
+            'block_id' => 110
           },
           {
             'token_num' => 62,
@@ -56370,7 +56370,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my %h = ( \'k1\' => 111 ) ;',
             'start_line' => 768,
             'indent' => 4,
-            'block_id' => 113
+            'block_id' => 112
           },
           {
             'token_num' => 5,
@@ -56379,7 +56379,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' our $k = \'k1\' ;',
             'start_line' => 769,
             'indent' => 4,
-            'block_id' => 113
+            'block_id' => 112
           },
           {
             'token_num' => 24,
@@ -56388,7 +56388,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' { local $h { $k } = 222 ; is ( $h { \'k1\' } , 222 ) ; $k = \'k2\' ; }',
             'start_line' => 770,
             'indent' => 4,
-            'block_id' => 113
+            'block_id' => 112
           },
           {
             'token_num' => 8,
@@ -56397,7 +56397,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' local $h { $k } = 222 ;',
             'start_line' => 771,
             'indent' => 5,
-            'block_id' => 114
+            'block_id' => 113
           },
           {
             'token_num' => 10,
@@ -56406,7 +56406,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $h { \'k1\' } , 222 ) ;',
             'start_line' => 772,
             'indent' => 5,
-            'block_id' => 114
+            'block_id' => 113
           },
           {
             'token_num' => 4,
@@ -56415,7 +56415,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $k = \'k2\' ;',
             'start_line' => 773,
             'indent' => 5,
-            'block_id' => 114
+            'block_id' => 113
           },
           {
             'token_num' => 12,
@@ -56424,7 +56424,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ok ( ! exists ( $h { \'k2\' } ) ) ;',
             'start_line' => 775,
             'indent' => 4,
-            'block_id' => 113
+            'block_id' => 112
           },
           {
             'token_num' => 10,
@@ -56433,7 +56433,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $h { \'k1\' } , 111 ) ;',
             'start_line' => 776,
             'indent' => 4,
-            'block_id' => 113
+            'block_id' => 112
           },
           {
             'token_num' => 22,
@@ -56460,7 +56460,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' local * @ ;',
             'start_line' => 786,
             'indent' => 4,
-            'block_id' => 115
+            'block_id' => 114
           },
           {
             'token_num' => 5,
@@ -56469,7 +56469,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' pass ( "Localised *@" ) ;',
             'start_line' => 787,
             'indent' => 4,
-            'block_id' => 115
+            'block_id' => 114
           },
           {
             'token_num' => 5,
@@ -56478,7 +56478,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' eval { 1 } ;',
             'start_line' => 788,
             'indent' => 4,
-            'block_id' => 115
+            'block_id' => 114
           },
           {
             'token_num' => 5,
@@ -56487,7 +56487,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' pass ( "Can eval with *@ localised" ) ;',
             'start_line' => 789,
             'indent' => 4,
-            'block_id' => 115
+            'block_id' => 114
           },
           {
             'token_num' => 5,
@@ -56496,7 +56496,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' local @{ "nugguton" } ;',
             'start_line' => 791,
             'indent' => 4,
-            'block_id' => 115
+            'block_id' => 114
           },
           {
             'token_num' => 5,
@@ -56505,7 +56505,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' local %{ "netgonch" } ;',
             'start_line' => 792,
             'indent' => 4,
-            'block_id' => 115
+            'block_id' => 114
           },
           {
             'token_num' => 5,
@@ -56514,7 +56514,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' for \'nugguton\' , \'netgonch\' ;',
             'start_line' => 793,
             'indent' => 4,
-            'block_id' => 115
+            'block_id' => 114
           },
           {
             'token_num' => 5,

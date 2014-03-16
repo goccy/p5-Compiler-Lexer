@@ -7077,12 +7077,12 @@ subtest 'tokenize' => sub {
                    'line' => 91
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@Foo',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 91
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8112,10 +8112,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 9,
+            'token_num' => 11,
             'has_warnings' => 1,
             'end_line' => 91,
-            'src' => ' splice @Foo::ISA , 0 , 0 , \'Bar\' ;',
+            'src' => ' splice @Foo :: ISA , 0 , 0 , \'Bar\' ;',
             'start_line' => 91,
             'indent' => 0,
             'block_id' => 0

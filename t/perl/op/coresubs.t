@@ -1493,21 +1493,12 @@ subtest 'tokenize' => sub {
                    'line' => 34
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 34
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 34
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1637,21 +1628,12 @@ subtest 'tokenize' => sub {
                    'line' => 39
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 39
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 39
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1808,21 +1790,12 @@ subtest 'tokenize' => sub {
                    'line' => 42
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Decl,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'CallDecl',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
-                   'line' => 42
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 42
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1880,21 +1853,12 @@ subtest 'tokenize' => sub {
                    'line' => 43
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Decl,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'CallDecl',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
-                   'line' => 43
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 43
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5952,25 +5916,28 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 443,
+            'token_num' => 87,
             'has_warnings' => 1,
-            'end_line' => 109,
-            'src' => ' while ( < $kh > ) { if ( m?__END__? .. ${ \\ 0 } and/^[+-]/ ) { chomp ( my $word = $\' ) ; if ( $& eq \'+\' || $unsupported { $word } ) { $tests ++ ; ok ! defined & { "CORE::$word" } , "no CORE::$word" ; } else { $tests += 4 ; ok defined & { "CORE::$word" } , "defined &{\'CORE::$word\'}" ; my $proto = prototype "CORE::$word" ; * { "my$word" } = \\ & { "CORE::$word" } ; is prototype \\ & { "my$word" } , $proto , "prototype of &CORE::$word" ; CORE::state $protochar = qr/([^\\\\]|\\\\(?:[^[]|\\[[^]]+\\]))/ ; my $numargs = ( ) = $proto =~ s/;.*//r =~/\\G$protochar/g ; my $code = "#line 1 This-line-makes-__FILE__-easier-to-test.
-          sub { () = (my$word(" . ( $args_for { $word } || join "," , map "\\$$_" , 1 .. $numargs ) . "))}" ; my $core = $bd-> coderef2text ( eval $code =~ s/my/CORE::/r or die ) ; my $my = $bd-> coderef2text ( eval $code or die ) ; is $my , $core , "inlinability of CORE::$word with parens" ; $code = "#line 1 This-line-makes-__FILE__-easier-to-test.
-          sub { () = (my$word " . ( $args_for { $word } || join "," , map "\\$$_" , 1 .. $numargs ) . ")}" ; $core = $bd-> coderef2text ( eval $code =~ s/my/CORE::/r or die ) ; $my = $bd-> coderef2text ( eval $code or die ) ; is $my , $core , "inlinability of CORE::$word without parens" ; my $hpcode ; if ( ! $proto && defined $proto ) { $hpcode = "sub { () = my$word + 1 }" ; } elsif ( $proto =~/^;?$protochar\\z/ ) { $hpcode = "sub { () = my$word " . ( $args_for { $word } || \'$a\' ) . \' > $b\' . \'}\' ; } if ( $hpcode ) { $tests ++ ; $core = $bd-> coderef2text ( eval $hpcode =~ s/my/CORE::/r or die ) ; $my = $bd-> coderef2text ( eval $hpcode or die ) ; is $my , $core , "precedence of CORE::$word without parens" ; } next if ( $proto =~/\\@/ ) ; next if $word =~/^(?:chom?p|exec|keys|each|not|read(?:lin|pip)e
-                           |reset|system|values|l?stat)|evalbytes/x ; $tests ++ ; $code = "sub { () = (my$word(" . ( $args_for { $word } ? $args_for { $word } . \',$7\' : join "," , map "\\$$_" , 1 .. $numargs + 5 + ( $proto =~/;/ ? ( ) = $\' =~/\\G$protochar/g : 0 ) ) . "))}" ; eval $code ; like $@ , qr/^Too many arguments for $word/ , "inlined CORE::$word with too many args" or warn $code ; } } }',
+            'end_line' => 42,
+            'src' => ' while ( < $kh > ) { if ( m?__END__? .. ${ \\ 0 } and/^[+-]/ ) { chomp ( my $word = $\' ) ; if ( $& eq \'+\' || $unsupported { $word } ) { $tests ++ ; ok ! defined &{ "CORE::$word" } , "no CORE::$word" ; } else { $tests += 4 ; ok defined &{ "CORE::$word" } , "defined &{\'CORE::$word\'}" ; my $proto = prototype "CORE::$word" ; * { "my$word" } = \\ &{ "CORE::$word" } ;',
             'start_line' => 29,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 435,
+            'token_num' => 86,
             'has_warnings' => 1,
-            'end_line' => 108,
-            'src' => ' if ( m?__END__? .. ${ \\ 0 } and/^[+-]/ ) { chomp ( my $word = $\' ) ; if ( $& eq \'+\' || $unsupported { $word } ) { $tests ++ ; ok ! defined & { "CORE::$word" } , "no CORE::$word" ; } else { $tests += 4 ; ok defined & { "CORE::$word" } , "defined &{\'CORE::$word\'}" ; my $proto = prototype "CORE::$word" ; * { "my$word" } = \\ & { "CORE::$word" } ; is prototype \\ & { "my$word" } , $proto , "prototype of &CORE::$word" ; CORE::state $protochar = qr/([^\\\\]|\\\\(?:[^[]|\\[[^]]+\\]))/ ; my $numargs = ( ) = $proto =~ s/;.*//r =~/\\G$protochar/g ; my $code = "#line 1 This-line-makes-__FILE__-easier-to-test.
-          sub { () = (my$word(" . ( $args_for { $word } || join "," , map "\\$$_" , 1 .. $numargs ) . "))}" ; my $core = $bd-> coderef2text ( eval $code =~ s/my/CORE::/r or die ) ; my $my = $bd-> coderef2text ( eval $code or die ) ; is $my , $core , "inlinability of CORE::$word with parens" ; $code = "#line 1 This-line-makes-__FILE__-easier-to-test.
-          sub { () = (my$word " . ( $args_for { $word } || join "," , map "\\$$_" , 1 .. $numargs ) . ")}" ; $core = $bd-> coderef2text ( eval $code =~ s/my/CORE::/r or die ) ; $my = $bd-> coderef2text ( eval $code or die ) ; is $my , $core , "inlinability of CORE::$word without parens" ; my $hpcode ; if ( ! $proto && defined $proto ) { $hpcode = "sub { () = my$word + 1 }" ; } elsif ( $proto =~/^;?$protochar\\z/ ) { $hpcode = "sub { () = my$word " . ( $args_for { $word } || \'$a\' ) . \' > $b\' . \'}\' ; } if ( $hpcode ) { $tests ++ ; $core = $bd-> coderef2text ( eval $hpcode =~ s/my/CORE::/r or die ) ; $my = $bd-> coderef2text ( eval $hpcode or die ) ; is $my , $core , "precedence of CORE::$word without parens" ; } next if ( $proto =~/\\@/ ) ; next if $word =~/^(?:chom?p|exec|keys|each|not|read(?:lin|pip)e
-                           |reset|system|values|l?stat)|evalbytes/x ; $tests ++ ; $code = "sub { () = (my$word(" . ( $args_for { $word } ? $args_for { $word } . \',$7\' : join "," , map "\\$$_" , 1 .. $numargs + 5 + ( $proto =~/;/ ? ( ) = $\' =~/\\G$protochar/g : 0 ) ) . "))}" ; eval $code ; like $@ , qr/^Too many arguments for $word/ , "inlined CORE::$word with too many args" or warn $code ; } }',
+            'end_line' => 42,
+            'src' => ' while ( < $kh > ) { if ( m?__END__? .. ${ \\ 0 } and/^[+-]/ ) { chomp ( my $word = $\' ) ; if ( $& eq \'+\' || $unsupported { $word } ) { $tests ++ ; ok ! defined &{ "CORE::$word" } , "no CORE::$word" ; } else { $tests += 4 ; ok defined &{ "CORE::$word" } , "defined &{\'CORE::$word\'}" ; my $proto = prototype "CORE::$word" ; * { "my$word" } = \\ &{ "CORE::$word" }',
+            'start_line' => 29,
+            'indent' => 0,
+            'block_id' => 1
+          },
+          {
+            'token_num' => 50,
+            'has_warnings' => 1,
+            'end_line' => 35,
+            'src' => ' if ( m?__END__? .. ${ \\ 0 } and/^[+-]/ ) { chomp ( my $word = $\' ) ; if ( $& eq \'+\' || $unsupported { $word } ) { $tests ++ ; ok ! defined &{ "CORE::$word" } , "no CORE::$word" ; }',
             'start_line' => 30,
             'indent' => 1,
             'block_id' => 2
@@ -5985,10 +5952,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 3
           },
           {
-            'token_num' => 26,
+            'token_num' => 21,
             'has_warnings' => 1,
-            'end_line' => 35,
-            'src' => ' if ( $& eq \'+\' || $unsupported { $word } ) { $tests ++ ; ok ! defined & { "CORE::$word" } , "no CORE::$word" ; }',
+            'end_line' => 34,
+            'src' => ' if ( $& eq \'+\' || $unsupported { $word } ) { $tests ++ ; ok ! defined &{ "CORE::$word" }',
             'start_line' => 32,
             'indent' => 2,
             'block_id' => 3
@@ -6008,20 +5975,17 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 34,
             'src' => ' , "no CORE::$word" ;',
             'start_line' => 34,
-            'indent' => 3,
-            'block_id' => 4
-          },
-          {
-            'token_num' => 383,
-            'has_warnings' => 1,
-            'end_line' => 107,
-            'src' => ' else { $tests += 4 ; ok defined & { "CORE::$word" } , "defined &{\'CORE::$word\'}" ; my $proto = prototype "CORE::$word" ; * { "my$word" } = \\ & { "CORE::$word" } ; is prototype \\ & { "my$word" } , $proto , "prototype of &CORE::$word" ; CORE::state $protochar = qr/([^\\\\]|\\\\(?:[^[]|\\[[^]]+\\]))/ ; my $numargs = ( ) = $proto =~ s/;.*//r =~/\\G$protochar/g ; my $code = "#line 1 This-line-makes-__FILE__-easier-to-test.
-          sub { () = (my$word(" . ( $args_for { $word } || join "," , map "\\$$_" , 1 .. $numargs ) . "))}" ; my $core = $bd-> coderef2text ( eval $code =~ s/my/CORE::/r or die ) ; my $my = $bd-> coderef2text ( eval $code or die ) ; is $my , $core , "inlinability of CORE::$word with parens" ; $code = "#line 1 This-line-makes-__FILE__-easier-to-test.
-          sub { () = (my$word " . ( $args_for { $word } || join "," , map "\\$$_" , 1 .. $numargs ) . ")}" ; $core = $bd-> coderef2text ( eval $code =~ s/my/CORE::/r or die ) ; $my = $bd-> coderef2text ( eval $code or die ) ; is $my , $core , "inlinability of CORE::$word without parens" ; my $hpcode ; if ( ! $proto && defined $proto ) { $hpcode = "sub { () = my$word + 1 }" ; } elsif ( $proto =~/^;?$protochar\\z/ ) { $hpcode = "sub { () = my$word " . ( $args_for { $word } || \'$a\' ) . \' > $b\' . \'}\' ; } if ( $hpcode ) { $tests ++ ; $core = $bd-> coderef2text ( eval $hpcode =~ s/my/CORE::/r or die ) ; $my = $bd-> coderef2text ( eval $hpcode or die ) ; is $my , $core , "precedence of CORE::$word without parens" ; } next if ( $proto =~/\\@/ ) ; next if $word =~/^(?:chom?p|exec|keys|each|not|read(?:lin|pip)e
-                           |reset|system|values|l?stat)|evalbytes/x ; $tests ++ ; $code = "sub { () = (my$word(" . ( $args_for { $word } ? $args_for { $word } . \',$7\' : join "," , map "\\$$_" , 1 .. $numargs + 5 + ( $proto =~/;/ ? ( ) = $\' =~/\\G$protochar/g : 0 ) ) . "))}" ; eval $code ; like $@ , qr/^Too many arguments for $word/ , "inlined CORE::$word with too many args" or warn $code ; }',
-            'start_line' => 36,
             'indent' => 2,
             'block_id' => 3
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 39,
+            'src' => ' else { $tests += 4 ; ok defined &{ "CORE::$word" }',
+            'start_line' => 36,
+            'indent' => 1,
+            'block_id' => 2
           },
           {
             'token_num' => 4,
@@ -6029,8 +5993,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 37,
             'src' => ' $tests += 4 ;',
             'start_line' => 37,
-            'indent' => 3,
-            'block_id' => 6
+            'indent' => 2,
+            'block_id' => 5
           },
           {
             'token_num' => 3,
@@ -6038,8 +6002,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 39,
             'src' => ' , "defined &{\'CORE::$word\'}" ;',
             'start_line' => 39,
-            'indent' => 3,
-            'block_id' => 6
+            'indent' => 1,
+            'block_id' => 2
           },
           {
             'token_num' => 6,
@@ -6047,362 +6011,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 41,
             'src' => ' my $proto = prototype "CORE::$word" ;',
             'start_line' => 41,
-            'indent' => 3,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 0,
-            'end_line' => 42,
-            'src' => ' * { "my$word" } = \\ & { "CORE::$word" } ;',
-            'start_line' => 42,
-            'indent' => 3,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 1,
-            'end_line' => 43,
-            'src' => ' , $proto , "prototype of &CORE::$word" ;',
-            'start_line' => 43,
-            'indent' => 3,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 45,
-            'src' => ' CORE::state $protochar = qr/([^\\\\]|\\\\(?:[^[]|\\[[^]]+\\]))/ ;',
-            'start_line' => 45,
-            'indent' => 3,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 21,
-            'has_warnings' => 1,
-            'end_line' => 47,
-            'src' => ' my $numargs = ( ) = $proto =~ s/;.*//r =~/\\G$protochar/g ;',
-            'start_line' => 46,
-            'indent' => 3,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 24,
-            'has_warnings' => 1,
-            'end_line' => 52,
-            'src' => ' my $code = "#line 1 This-line-makes-__FILE__-easier-to-test.
-          sub { () = (my$word(" . ( $args_for { $word } || join "," , map "\\$$_" , 1 .. $numargs ) . "))}" ;',
-            'start_line' => 48,
-            'indent' => 3,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 21,
-            'has_warnings' => 1,
-            'end_line' => 53,
-            'src' => ' my $core = $bd-> coderef2text ( eval $code =~ s/my/CORE::/r or die ) ;',
-            'start_line' => 53,
-            'indent' => 3,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 13,
-            'has_warnings' => 1,
-            'end_line' => 54,
-            'src' => ' my $my = $bd-> coderef2text ( eval $code or die ) ;',
-            'start_line' => 54,
-            'indent' => 3,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 55,
-            'src' => ' is $my , $core , "inlinability of CORE::$word with parens" ;',
-            'start_line' => 55,
-            'indent' => 3,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 23,
-            'has_warnings' => 1,
-            'end_line' => 61,
-            'src' => ' $code = "#line 1 This-line-makes-__FILE__-easier-to-test.
-          sub { () = (my$word " . ( $args_for { $word } || join "," , map "\\$$_" , 1 .. $numargs ) . ")}" ;',
-            'start_line' => 57,
-            'indent' => 3,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 20,
-            'has_warnings' => 1,
-            'end_line' => 62,
-            'src' => ' $core = $bd-> coderef2text ( eval $code =~ s/my/CORE::/r or die ) ;',
-            'start_line' => 62,
-            'indent' => 3,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 63,
-            'src' => ' $my = $bd-> coderef2text ( eval $code or die ) ;',
-            'start_line' => 63,
-            'indent' => 3,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 64,
-            'src' => ' is $my , $core , "inlinability of CORE::$word without parens" ;',
-            'start_line' => 64,
-            'indent' => 3,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 67,
-            'src' => ' my $hpcode ;',
-            'start_line' => 67,
-            'indent' => 3,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 14,
-            'has_warnings' => 1,
-            'end_line' => 70,
-            'src' => ' if ( ! $proto && defined $proto ) { $hpcode = "sub { () = my$word + 1 }" ; }',
-            'start_line' => 68,
-            'indent' => 3,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 69,
-            'src' => ' $hpcode = "sub { () = my$word + 1 }" ;',
-            'start_line' => 69,
-            'indent' => 4,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 27,
-            'has_warnings' => 1,
-            'end_line' => 75,
-            'src' => ' elsif ( $proto =~/^;?$protochar\\z/ ) { $hpcode = "sub { () = my$word " . ( $args_for { $word } || \'$a\' ) . \' > $b\' . \'}\' ; }',
-            'start_line' => 71,
-            'indent' => 3,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 17,
-            'has_warnings' => 1,
-            'end_line' => 74,
-            'src' => ' $hpcode = "sub { () = my$word " . ( $args_for { $word } || \'$a\' ) . \' > $b\' . \'}\' ;',
-            'start_line' => 72,
-            'indent' => 4,
-            'block_id' => 11
-          },
-          {
-            'token_num' => 48,
-            'has_warnings' => 1,
-            'end_line' => 81,
-            'src' => ' if ( $hpcode ) { $tests ++ ; $core = $bd-> coderef2text ( eval $hpcode =~ s/my/CORE::/r or die ) ; $my = $bd-> coderef2text ( eval $hpcode or die ) ; is $my , $core , "precedence of CORE::$word without parens" ; }',
-            'start_line' => 76,
-            'indent' => 3,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 77,
-            'src' => ' $tests ++ ;',
-            'start_line' => 77,
-            'indent' => 4,
-            'block_id' => 12
-          },
-          {
-            'token_num' => 20,
-            'has_warnings' => 1,
-            'end_line' => 78,
-            'src' => ' $core = $bd-> coderef2text ( eval $hpcode =~ s/my/CORE::/r or die ) ;',
-            'start_line' => 78,
-            'indent' => 4,
-            'block_id' => 12
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 79,
-            'src' => ' $my = $bd-> coderef2text ( eval $hpcode or die ) ;',
-            'start_line' => 79,
-            'indent' => 4,
-            'block_id' => 12
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 80,
-            'src' => ' is $my , $core , "precedence of CORE::$word without parens" ;',
-            'start_line' => 80,
-            'indent' => 4,
-            'block_id' => 12
-          },
-          {
-            'token_num' => 10,
-            'has_warnings' => 1,
-            'end_line' => 83,
-            'src' => ' next if ( $proto =~/\\@/ ) ;',
-            'start_line' => 83,
-            'indent' => 3,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 9,
-            'has_warnings' => 1,
-            'end_line' => 87,
-            'src' => ' next if $word =~/^(?:chom?p|exec|keys|each|not|read(?:lin|pip)e
-                           |reset|system|values|l?stat)|evalbytes/x ;',
-            'start_line' => 86,
-            'indent' => 3,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 89,
-            'src' => ' $tests ++ ;',
-            'start_line' => 89,
-            'indent' => 3,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 52,
-            'has_warnings' => 1,
-            'end_line' => 101,
-            'src' => ' $code = "sub { () = (my$word(" . ( $args_for { $word } ? $args_for { $word } . \',$7\' : join "," , map "\\$$_" , 1 .. $numargs + 5 + ( $proto =~/;/ ? ( ) = $\' =~/\\G$protochar/g : 0 ) ) . "))}" ;',
-            'start_line' => 90,
-            'indent' => 3,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 102,
-            'src' => ' eval $code ;',
-            'start_line' => 102,
-            'indent' => 3,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 13,
-            'has_warnings' => 1,
-            'end_line' => 105,
-            'src' => ' like $@ , qr/^Too many arguments for $word/ , "inlined CORE::$word with too many args" or warn $code ;',
-            'start_line' => 103,
-            'indent' => 3,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 111,
-            'src' => ' $tests ++ ;',
-            'start_line' => 111,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 113,
-            'src' => ' sub foo { goto & CORE::abs }',
-            'start_line' => 113,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 114,
-            'src' => ' use warnings ;',
-            'start_line' => 114,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 16,
-            'has_warnings' => 1,
-            'end_line' => 115,
-            'src' => ' $SIG { __WARN__ } = sub { like shift , qr\\^Use of uninitialized\\ } ;',
-            'start_line' => 115,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 116,
-            'src' => ' foo ( undef ) ;',
-            'start_line' => 116,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 118,
-            'src' => ' $tests += 2 ;',
-            'start_line' => 118,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 120,
-            'src' => ' is runperl ( prog => \'print CORE->lc, qq-\\n-\' ) , "core\\n" , \'methods calls autovivify coresubs\' ;',
-            'start_line' => 119,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 122,
-            'src' => ' is runperl ( prog => \'@ISA=CORE; print main->uc, qq-\\n-\' ) , "MAIN\\n" , \'inherted method calls autovivify coresubs\' ;',
-            'start_line' => 121,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 124,
-            'src' => ' $tests ++ ;',
-            'start_line' => 124,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 126,
-            'src' => ' ok eval { * CORE::exit = \\ 42 } , \'[rt.cpan.org #74289] *CORE::foo is not accidentally made read-only\' ;',
-            'start_line' => 125,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 128,
-            'src' => ' done_testing $tests ;',
-            'start_line' => 128,
-            'indent' => 0,
-            'block_id' => 0
+            'indent' => 1,
+            'block_id' => 2
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');
@@ -6418,10 +6028,6 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '',
             'name' => 'File::Spec::Functions'
-          },
-          {
-            'args' => '',
-            'name' => 'warnings'
           }
         ]
 , 'Compiler::Lexer::get_used_modules');

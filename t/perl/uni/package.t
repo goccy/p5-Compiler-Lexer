@@ -906,12 +906,12 @@ subtest 'tokenize' => sub {
                    'line' => 40
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalHashVar',
                    'data' => '%ꑭʑ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalHashVar,
                    'line' => 40
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1032,12 +1032,12 @@ subtest 'tokenize' => sub {
                    'line' => 41
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalHashVar',
                    'data' => '%압Ƈ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalHashVar,
                    'line' => 41
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2049,12 +2049,12 @@ subtest 'tokenize' => sub {
                    'line' => 69
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'HashVar',
                    'data' => '%ꑭʑ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_HashVar,
                    'line' => 69
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3741,7 +3741,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 243,
+            'token_num' => 245,
             'has_warnings' => 1,
             'end_line' => 86,
             'src' => ' { $ㄅĽuṞfⳐ = 123 ; package ꑭʑ ; sub ニュー { bless [ ] ; } $bar = 4 ; { package 압Ƈ ; $ㄅĽuṞfⳐ = 5 ; } \'$압Ƈd읯ⱪ = 6;        #\' $ꑭʑ = 2 ; $ꑭʑ = join ( \':\' , sort ( keys %ꑭʑ:: ) ) ; $압Ƈ = join ( \':\' , sort ( keys %압Ƈ:: ) ) ;::is $ꑭʑ , \'bar:ニュー:ꑭʑ:압Ƈ\' , "comp/stash.t test 1" ;::is $압Ƈ , "d읯ⱪ:ㄅĽuṞfⳐ" , "comp/stash.t test 2" ;::is \'$mainㄅĽuṞfⳐ, 123, "comp/stash.t test 3";
@@ -3753,7 +3753,7 @@ subtest 'get_groups_by_syntax_level' => sub {
     eval \' package main ; is $ㄅĽuṞfⳐ , 123 , "comp/stash.t test 6" ; \';
     ::is $ㄅĽuṞfⳐ, 5, "comp/stash.t test 7";
 
-    #This is actually pretty bad, as caller() wasn\' t clean to begin with . package main ; sub ㄘ { caller ( 0 ) } sub ƒஓ { my $s = shift ; if ( $s ) { package ᛔQR ; main::ㄘ ( ) ; } } is ( ( ƒஓ ( 1 ) ) [ 0 ] , \'ᛔQR\' , "comp/stash.t test 8" ) ; my $Q = ꑭʑ-> ニュー ( ) ; undef %ꑭʑ::; eval { $a = * ꑭʑ::ニュー { PACKAGE } ; } ; is $a , "__ANON__" , "comp/stash.t test 9" ; { local $@ ; eval { $Q-> param ; } ; like $@ , qr/^Can\'t use anonymous symbol table for method lookup/ , "comp/stash.t test 10" ; } like "$Q" , qr/^__ANON__=/ , "comp/stash.t test 11" ; is ref $Q , "__ANON__" , "comp/stash.t test 12" ; package bugⅲⅱⅴⅵⅱ {::is ( __PACKAGE__ , \'bugⅲⅱⅴⅵⅱ\' , "comp/stash.t test 13" ) ;::is ( eval ( \'__PACKAGE__\' ) , \'bugⅲⅱⅴⅵⅱ\' , "comp/stash.t test 14" ) ; }',
+    #This is actually pretty bad, as caller() wasn\' t clean to begin with . package main ; sub ㄘ { caller ( 0 ) } sub ƒஓ { my $s = shift ; if ( $s ) { package ᛔQR ; main::ㄘ ( ) ; } } is ( ( ƒஓ ( 1 ) ) [ 0 ] , \'ᛔQR\' , "comp/stash.t test 8" ) ; my $Q = ꑭʑ-> ニュー ( ) ; undef %ꑭʑ :: ; eval { $a = * ꑭʑ::ニュー { PACKAGE } ; } ; is $a , "__ANON__" , "comp/stash.t test 9" ; { local $@ ; eval { $Q-> param ; } ; like $@ , qr/^Can\'t use anonymous symbol table for method lookup/ , "comp/stash.t test 10" ; } like "$Q" , qr/^__ANON__=/ , "comp/stash.t test 11" ; is ref $Q , "__ANON__" , "comp/stash.t test 12" ; package bugⅲⅱⅴⅵⅱ {::is ( __PACKAGE__ , \'bugⅲⅱⅴⅵⅱ\' , "comp/stash.t test 13" ) ;::is ( eval ( \'__PACKAGE__\' ) , \'bugⅲⅱⅴⅵⅱ\' , "comp/stash.t test 14" ) ; }',
             'start_line' => 23,
             'indent' => 0,
             'block_id' => 0
@@ -3966,10 +3966,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 5
           },
           {
-            'token_num' => 14,
+            'token_num' => 16,
             'has_warnings' => 1,
             'end_line' => 70,
-            'src' => ' undef %ꑭʑ::; eval { $a = * ꑭʑ::ニュー { PACKAGE } ; } ;',
+            'src' => ' undef %ꑭʑ :: ; eval { $a = * ꑭʑ::ニュー { PACKAGE } ; } ;',
             'start_line' => 69,
             'indent' => 1,
             'block_id' => 5

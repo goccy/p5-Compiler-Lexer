@@ -350,21 +350,12 @@ subtest 'tokenize' => sub {
                    'line' => 17
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 17
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 17
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -440,21 +431,12 @@ subtest 'tokenize' => sub {
                    'line' => 21
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 21
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 21
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1133,148 +1115,22 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 2
           },
           {
-            'token_num' => 10,
+            'token_num' => 8,
             'has_warnings' => 0,
-            'end_line' => 18,
-            'src' => ' sub goto_softref { goto & { "問題の原因" } ; }',
+            'end_line' => 17,
+            'src' => ' sub goto_softref { goto &{ "問題の原因" } ;',
             'start_line' => 16,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 6,
+            'token_num' => 7,
             'has_warnings' => 0,
             'end_line' => 17,
-            'src' => ' goto & { "問題の原因" } ;',
-            'start_line' => 17,
-            'indent' => 1,
-            'block_id' => 3
-          },
-          {
-            'token_num' => 10,
-            'has_warnings' => 0,
-            'end_line' => 22,
-            'src' => ' sub goto_softref_octal { goto & { "\\345\\225\\217\\351\\241\\214\\343\\201\\256\\345\\216\\237\\345\\233\\240" } ; }',
-            'start_line' => 20,
+            'src' => ' sub goto_softref { goto &{ "問題の原因" }',
+            'start_line' => 16,
             'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 0,
-            'end_line' => 21,
-            'src' => ' goto & { "\\345\\225\\217\\351\\241\\214\\343\\201\\256\\345\\216\\237\\345\\233\\240" } ;',
-            'start_line' => 21,
-            'indent' => 1,
-            'block_id' => 5
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 0,
-            'end_line' => 26,
-            'src' => ' sub 問題の原因 { 1 ; }',
-            'start_line' => 24,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 2,
-            'has_warnings' => 0,
-            'end_line' => 25,
-            'src' => ' 1 ;',
-            'start_line' => 25,
-            'indent' => 1,
-            'block_id' => 7
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 28,
-            'src' => ' ok goto_baresub ( ) , "Magical goto works on an UTF-8 sub," ;',
-            'start_line' => 28,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 29,
-            'src' => ' ok goto_softref ( ) , "..and an UTF-8 softref sub," ;',
-            'start_line' => 29,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 22,
-            'has_warnings' => 1,
-            'end_line' => 35,
-            'src' => ' { local $@ ; eval { goto_softref_octal ( ) } ; like $@ , qr/Goto undefined subroutine &main::\\345\\225\\217\\351\\241\\214\\343\\201\\256\\345\\216\\237\\345\\233\\240/ , "But does NOT find the softref sub when it\'s lacking the UTF-8 flag" ; }',
-            'start_line' => 31,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 32,
-            'src' => ' local $@ ;',
-            'start_line' => 32,
-            'indent' => 1,
-            'block_id' => 8
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 0,
-            'end_line' => 33,
-            'src' => ' eval { goto_softref_octal ( ) } ;',
-            'start_line' => 33,
-            'indent' => 1,
-            'block_id' => 8
-          },
-          {
-            'token_num' => 10,
-            'has_warnings' => 1,
-            'end_line' => 34,
-            'src' => ' like $@ , qr/Goto undefined subroutine &main::\\345\\225\\217\\351\\241\\214\\343\\201\\256\\345\\216\\237\\345\\233\\240/ , "But does NOT find the softref sub when it\'s lacking the UTF-8 flag" ;',
-            'start_line' => 34,
-            'indent' => 1,
-            'block_id' => 8
-          },
-          {
-            'token_num' => 22,
-            'has_warnings' => 1,
-            'end_line' => 41,
-            'src' => ' { local $@ ; eval { goto & 因 } ; like $@ , qr/Goto undefined subroutine &main::因/ , "goto undefined sub gets the right error message" ; }',
-            'start_line' => 37,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 38,
-            'src' => ' local $@ ;',
-            'start_line' => 38,
-            'indent' => 1,
-            'block_id' => 9
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 39,
-            'src' => ' eval { goto & 因 } ;',
-            'start_line' => 39,
-            'indent' => 1,
-            'block_id' => 9
-          },
-          {
-            'token_num' => 10,
-            'has_warnings' => 1,
-            'end_line' => 40,
-            'src' => ' like $@ , qr/Goto undefined subroutine &main::因/ , "goto undefined sub gets the right error message" ;',
-            'start_line' => 40,
-            'indent' => 1,
-            'block_id' => 9
+            'block_id' => 2
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

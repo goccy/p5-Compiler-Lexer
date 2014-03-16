@@ -13956,12 +13956,12 @@ subtest 'tokenize' => sub {
                    'line' => 293
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 295
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -14280,12 +14280,12 @@ subtest 'tokenize' => sub {
                    'line' => 301
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 303
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -16188,10 +16188,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 180,
+            'token_num' => 184,
             'has_warnings' => 1,
             'end_line' => 309,
-            'src' => ' if ( $can_fork ) { require PerlIO::scalar ; my $use_filter_too ; push @INC , sub { return unless $_ [ 1 ] =~/^BBBLPLAST(\\d+)\\.pm/ ; my $pid = open my $fh , "-|" ; if ( $pid ) { return $fh unless $use_filter_too ; return ( $fh , sub { s/$_[1]/pass/ ; return } , "die" ) } die "Can\'t fork self: $!" unless defined $pid ; my $count = $1 ; $| = 1 ; print \'push @main::bbblplast, \' ; print "$count;\\n" ; if ( $count -- ) { print "use BBBLPLAST$count;\\n" ; } if ( $use_filter_too ) { print "die(\'In $_[1]\');" ; } else { print "pass(\'In $_[1]\');" ; } print \'"Truth"\' ; POSIX::_exit ( 0 ) ; die "Can\'t get here: $!" ; } ; @::bbblplast = ( ) ; require BBBLPLAST5 ; is ( "@::bbblplast" , "0 1 2 3 4 5" , "All ran" ) ; foreach ( keys %INC ) { delete $INC { $_ } if/^BBBLPLAST/ ; } @::bbblplast = ( ) ; $use_filter_too = 1 ; require BBBLPLAST5 ; is ( "@::bbblplast" , "0 1 2 3 4 5" , "All ran with a filter" ) ; }',
+            'src' => ' if ( $can_fork ) { require PerlIO::scalar ; my $use_filter_too ; push @INC , sub { return unless $_ [ 1 ] =~/^BBBLPLAST(\\d+)\\.pm/ ; my $pid = open my $fh , "-|" ; if ( $pid ) { return $fh unless $use_filter_too ; return ( $fh , sub { s/$_[1]/pass/ ; return } , "die" ) } die "Can\'t fork self: $!" unless defined $pid ; my $count = $1 ; $| = 1 ; print \'push @main::bbblplast, \' ; print "$count;\\n" ; if ( $count -- ) { print "use BBBLPLAST$count;\\n" ; } if ( $use_filter_too ) { print "die(\'In $_[1]\');" ; } else { print "pass(\'In $_[1]\');" ; } print \'"Truth"\' ; POSIX::_exit ( 0 ) ; die "Can\'t get here: $!" ; } ; @ :: bbblplast = ( ) ; require BBBLPLAST5 ; is ( "@::bbblplast" , "0 1 2 3 4 5" , "All ran" ) ; foreach ( keys %INC ) { delete $INC { $_ } if/^BBBLPLAST/ ; } @ :: bbblplast = ( ) ; $use_filter_too = 1 ; require BBBLPLAST5 ; is ( "@::bbblplast" , "0 1 2 3 4 5" , "All ran with a filter" ) ; }',
             'start_line' => 259,
             'indent' => 0,
             'block_id' => 0
@@ -16395,10 +16395,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 32
           },
           {
-            'token_num' => 5,
+            'token_num' => 7,
             'has_warnings' => 1,
             'end_line' => 295,
-            'src' => ' @::bbblplast = ( ) ;',
+            'src' => ' @ :: bbblplast = ( ) ;',
             'start_line' => 295,
             'indent' => 1,
             'block_id' => 31
@@ -16440,10 +16440,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 38
           },
           {
-            'token_num' => 5,
+            'token_num' => 7,
             'has_warnings' => 1,
             'end_line' => 303,
-            'src' => ' @::bbblplast = ( ) ;',
+            'src' => ' @ :: bbblplast = ( ) ;',
             'start_line' => 303,
             'indent' => 1,
             'block_id' => 31

@@ -334,6 +334,7 @@ ReservedKeyword;
 "@{", {Enum::Token::Type::ArrayDereference, Enum::Token::Kind::Modifier, "ArrayDereference", "@{"}
 "%{", {Enum::Token::Type::HashDereference, Enum::Token::Kind::Modifier, "HashDereference", "%{"}
 "${", {Enum::Token::Type::ScalarDereference, Enum::Token::Kind::Modifier, "ScalarDereference", "${"}
+"&{", {Enum::Token::Type::CodeDereference, Enum::Token::Kind::Modifier, "CodeDereference", "&{"}
 "@$", {Enum::Token::Type::ShortArrayDereference, Enum::Token::Kind::Modifier, "ShortArrayDereference", "@$"}
 "%$", {Enum::Token::Type::ShortHashDereference, Enum::Token::Kind::Modifier, "ShortHashDereference", "%$"}
 "&$", {Enum::Token::Type::ShortCodeDereference, Enum::Token::Kind::Modifier, "ShortCodeDereference", "&$"}

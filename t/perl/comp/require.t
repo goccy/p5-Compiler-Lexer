@@ -9543,12 +9543,12 @@ print "ok $i - require() context\\n";
                    'line' => 219
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalVar',
                    'data' => '$Config',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
                    'line' => 219
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9633,12 +9633,12 @@ print "ok $i - require() context\\n";
                    'line' => 220
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'Var',
                    'data' => '$Config',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_Var,
                    'line' => 220
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -12567,12 +12567,12 @@ print "ok $i - require() context\\n";
                    'line' => 285
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalVar',
                    'data' => '$F',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
                    'line' => 285
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -15786,7 +15786,7 @@ print "ok $i - require() context\\n";
             'src' => ' print "# .pmc files are ignored, so test that\\n" ;',
             'start_line' => 227,
             'indent' => 2,
-            'block_id' => 16
+            'block_id' => 14
           },
           {
             'token_num' => 9,
@@ -15795,7 +15795,7 @@ print "ok $i - require() context\\n";
             'src' => ' write_file_not_thing ( \'krunch.pmc\' , \'.pmc\' , $pmc_older ) ;',
             'start_line' => 228,
             'indent' => 2,
-            'block_id' => 16
+            'block_id' => 14
           },
           {
             'token_num' => 10,
@@ -15804,7 +15804,7 @@ print "ok $i - require() context\\n";
             'src' => ' write_file ( \'urkkk.pm\' , qq(print "ok $simple\\n") ) ;',
             'start_line' => 229,
             'indent' => 2,
-            'block_id' => 16
+            'block_id' => 14
           },
           {
             'token_num' => 10,
@@ -15813,7 +15813,7 @@ print "ok $i - require() context\\n";
             'src' => ' write_file ( \'whap.pmc\' , qq(die "This is not an expected error") ) ;',
             'start_line' => 230,
             'indent' => 2,
-            'block_id' => 16
+            'block_id' => 14
           },
           {
             'token_num' => 3,
@@ -15822,7 +15822,7 @@ print "ok $i - require() context\\n";
             'src' => ' print "# Sleeping for 2 seconds before creating some more files\\n" ;',
             'start_line' => 232,
             'indent' => 2,
-            'block_id' => 16
+            'block_id' => 14
           },
           {
             'token_num' => 3,
@@ -15831,7 +15831,7 @@ print "ok $i - require() context\\n";
             'src' => ' sleep 2 ;',
             'start_line' => 233,
             'indent' => 2,
-            'block_id' => 16
+            'block_id' => 14
           },
           {
             'token_num' => 10,
@@ -15840,7 +15840,7 @@ print "ok $i - require() context\\n";
             'src' => ' write_file ( \'krunch.pm\' , qq(print "ok $pmc_older\\n") ) ;',
             'start_line' => 235,
             'indent' => 2,
-            'block_id' => 16
+            'block_id' => 14
           },
           {
             'token_num' => 9,
@@ -15849,7 +15849,7 @@ print "ok $i - require() context\\n";
             'src' => ' write_file_not_thing ( \'urkkk.pmc\' , \'.pmc\' , $simple ) ;',
             'start_line' => 236,
             'indent' => 2,
-            'block_id' => 16
+            'block_id' => 14
           },
           {
             'token_num' => 10,
@@ -15858,7 +15858,7 @@ print "ok $i - require() context\\n";
             'src' => ' write_file ( \'whap.pm\' , qq(die "This is an expected error") ) ;',
             'start_line' => 237,
             'indent' => 2,
-            'block_id' => 16
+            'block_id' => 14
           },
           {
             'token_num' => 69,
@@ -15876,7 +15876,7 @@ print "ok $i - require() context\\n";
             'src' => ' print "# .pmc files should be loaded, so test that\\n" ;',
             'start_line' => 239,
             'indent' => 2,
-            'block_id' => 17
+            'block_id' => 15
           },
           {
             'token_num' => 10,
@@ -15885,7 +15885,7 @@ print "ok $i - require() context\\n";
             'src' => ' write_file ( \'krunch.pmc\' , qq(print "ok $pmc_older\\n";) ) ;',
             'start_line' => 240,
             'indent' => 2,
-            'block_id' => 17
+            'block_id' => 15
           },
           {
             'token_num' => 9,
@@ -15894,7 +15894,7 @@ print "ok $i - require() context\\n";
             'src' => ' write_file_not_thing ( \'urkkk.pm\' , \'.pm\' , $simple ) ;',
             'start_line' => 241,
             'indent' => 2,
-            'block_id' => 17
+            'block_id' => 15
           },
           {
             'token_num' => 10,
@@ -15903,7 +15903,7 @@ print "ok $i - require() context\\n";
             'src' => ' write_file ( \'whap.pmc\' , qq(die "This is an expected error") ) ;',
             'start_line' => 242,
             'indent' => 2,
-            'block_id' => 17
+            'block_id' => 15
           },
           {
             'token_num' => 3,
@@ -15912,7 +15912,7 @@ print "ok $i - require() context\\n";
             'src' => ' print "# Sleeping for 2 seconds before creating some more files\\n" ;',
             'start_line' => 244,
             'indent' => 2,
-            'block_id' => 17
+            'block_id' => 15
           },
           {
             'token_num' => 3,
@@ -15921,7 +15921,7 @@ print "ok $i - require() context\\n";
             'src' => ' sleep 2 ;',
             'start_line' => 245,
             'indent' => 2,
-            'block_id' => 17
+            'block_id' => 15
           },
           {
             'token_num' => 9,
@@ -15930,7 +15930,7 @@ print "ok $i - require() context\\n";
             'src' => ' write_file_not_thing ( \'krunch.pm\' , \'.pm\' , $pmc_older ) ;',
             'start_line' => 247,
             'indent' => 2,
-            'block_id' => 17
+            'block_id' => 15
           },
           {
             'token_num' => 10,
@@ -15939,7 +15939,7 @@ print "ok $i - require() context\\n";
             'src' => ' write_file ( \'urkkk.pmc\' , qq(print "ok $simple\\n";) ) ;',
             'start_line' => 248,
             'indent' => 2,
-            'block_id' => 17
+            'block_id' => 15
           },
           {
             'token_num' => 9,
@@ -15948,7 +15948,7 @@ print "ok $i - require() context\\n";
             'src' => ' write_file_not_thing ( \'whap.pm\' , \'.pm\' , $pmc_dies ) ;',
             'start_line' => 249,
             'indent' => 2,
-            'block_id' => 17
+            'block_id' => 15
           },
           {
             'token_num' => 3,
@@ -15984,7 +15984,7 @@ print "ok $i - require() context\\n";
             'src' => ' CORE::require whap ;',
             'start_line' => 253,
             'indent' => 1,
-            'block_id' => 17
+            'block_id' => 15
           },
           {
             'token_num' => 13,
@@ -16002,7 +16002,7 @@ print "ok $i - require() context\\n";
             'src' => ' print "ok $pmc_dies\\n" ;',
             'start_line' => 256,
             'indent' => 2,
-            'block_id' => 18
+            'block_id' => 16
           },
           {
             'token_num' => 6,
@@ -16020,7 +16020,7 @@ print "ok $i - require() context\\n";
             'src' => ' print "not ok $pmc_dies\\n" ;',
             'start_line' => 258,
             'indent' => 2,
-            'block_id' => 19
+            'block_id' => 17
           },
           {
             'token_num' => 5,
@@ -16047,7 +16047,7 @@ print "ok $i - require() context\\n";
             'src' => ' require Cwd ;',
             'start_line' => 265,
             'indent' => 1,
-            'block_id' => 20
+            'block_id' => 18
           },
           {
             'token_num' => 3,
@@ -16056,7 +16056,7 @@ print "ok $i - require() context\\n";
             'src' => ' require File::Spec::Functions ;',
             'start_line' => 266,
             'indent' => 1,
-            'block_id' => 20
+            'block_id' => 18
           },
           {
             'token_num' => 16,
@@ -16065,7 +16065,7 @@ print "ok $i - require() context\\n";
             'src' => ' eval { CORE::require ( File::Spec::Functions::catfile ( Cwd::getcwd ( ) , "bleah.pm" ) ) ; } ;',
             'start_line' => 267,
             'indent' => 1,
-            'block_id' => 20
+            'block_id' => 18
           },
           {
             'token_num' => 12,
@@ -16074,7 +16074,7 @@ print "ok $i - require() context\\n";
             'src' => ' CORE::require ( File::Spec::Functions::catfile ( Cwd::getcwd ( ) , "bleah.pm" ) ) ;',
             'start_line' => 268,
             'indent' => 1,
-            'block_id' => 20
+            'block_id' => 18
           },
           {
             'token_num' => 13,
@@ -16083,7 +16083,7 @@ print "ok $i - require() context\\n";
             'src' => ' if ( $@ =~/^This is an expected error/ ) { print "ok $i\\n" ; }',
             'start_line' => 270,
             'indent' => 1,
-            'block_id' => 20
+            'block_id' => 18
           },
           {
             'token_num' => 3,
@@ -16092,7 +16092,7 @@ print "ok $i - require() context\\n";
             'src' => ' print "ok $i\\n" ;',
             'start_line' => 271,
             'indent' => 2,
-            'block_id' => 21
+            'block_id' => 19
           },
           {
             'token_num' => 6,
@@ -16101,7 +16101,7 @@ print "ok $i - require() context\\n";
             'src' => ' else { print "not ok $i\\n" ; }',
             'start_line' => 272,
             'indent' => 1,
-            'block_id' => 20
+            'block_id' => 18
           },
           {
             'token_num' => 3,
@@ -16110,7 +16110,7 @@ print "ok $i - require() context\\n";
             'src' => ' print "not ok $i\\n" ;',
             'start_line' => 273,
             'indent' => 2,
-            'block_id' => 22
+            'block_id' => 20
           },
           {
             'token_num' => 6,
@@ -16128,7 +16128,7 @@ print "ok $i - require() context\\n";
             'src' => ' print "ok $i # SKIP Cwd may not be available in miniperl\\n" ;',
             'start_line' => 276,
             'indent' => 1,
-            'block_id' => 23
+            'block_id' => 21
           },
           {
             'token_num' => 47,
@@ -16146,7 +16146,7 @@ print "ok $i - require() context\\n";
             'src' => ' ${ ^ OPEN } = ":utf8\\0" ;',
             'start_line' => 280,
             'indent' => 2,
-            'block_id' => 25
+            'block_id' => 23
           },
           {
             'token_num' => 5,
@@ -16155,7 +16155,7 @@ print "ok $i - require() context\\n";
             'src' => ' %INC = ( ) ;',
             'start_line' => 281,
             'indent' => 1,
-            'block_id' => 24
+            'block_id' => 22
           },
           {
             'token_num' => 7,
@@ -16164,7 +16164,7 @@ print "ok $i - require() context\\n";
             'src' => ' write_file ( \'bleah.pm\' , "package F; \\$x = \'\\xD1\\x9E\';\\n" ) ;',
             'start_line' => 282,
             'indent' => 1,
-            'block_id' => 24
+            'block_id' => 22
           },
           {
             'token_num' => 6,
@@ -16173,7 +16173,7 @@ print "ok $i - require() context\\n";
             'src' => ' eval { require "bleah.pm" } ;',
             'start_line' => 283,
             'indent' => 1,
-            'block_id' => 24
+            'block_id' => 22
           },
           {
             'token_num' => 3,
@@ -16182,7 +16182,7 @@ print "ok $i - require() context\\n";
             'src' => ' $i ++ ;',
             'start_line' => 284,
             'indent' => 1,
-            'block_id' => 24
+            'block_id' => 22
           },
           {
             'token_num' => 11,
@@ -16191,7 +16191,7 @@ print "ok $i - require() context\\n";
             'src' => ' my $not = $F::x eq "\\xD1\\x9E" ? "" : "not " ;',
             'start_line' => 285,
             'indent' => 1,
-            'block_id' => 24
+            'block_id' => 22
           },
           {
             'token_num' => 3,
@@ -16200,7 +16200,7 @@ print "ok $i - require() context\\n";
             'src' => ' print "${not}ok $i - require ignores I/O layers\\n" ;',
             'start_line' => 286,
             'indent' => 1,
-            'block_id' => 24
+            'block_id' => 22
           },
           {
             'token_num' => 40,
@@ -16218,7 +16218,7 @@ print "ok $i - require() context\\n";
             'src' => ' ${ ^ OPEN } = ":utf8\\0" ;',
             'start_line' => 290,
             'indent' => 2,
-            'block_id' => 27
+            'block_id' => 25
           },
           {
             'token_num' => 5,
@@ -16227,7 +16227,7 @@ print "ok $i - require() context\\n";
             'src' => ' %INC = ( ) ;',
             'start_line' => 291,
             'indent' => 1,
-            'block_id' => 26
+            'block_id' => 24
           },
           {
             'token_num' => 7,
@@ -16236,7 +16236,7 @@ print "ok $i - require() context\\n";
             'src' => ' write_file ( \'bleah.pm\' , "require re; re->import(\'/x\'); 1;\\n" ) ;',
             'start_line' => 292,
             'indent' => 1,
-            'block_id' => 26
+            'block_id' => 24
           },
           {
             'token_num' => 10,
@@ -16245,7 +16245,7 @@ print "ok $i - require() context\\n";
             'src' => ' my $not = eval \'use bleah; "ab" =~ /a b/\' ? "" : "not " ;',
             'start_line' => 293,
             'indent' => 1,
-            'block_id' => 26
+            'block_id' => 24
           },
           {
             'token_num' => 3,
@@ -16254,7 +16254,7 @@ print "ok $i - require() context\\n";
             'src' => ' $i ++ ;',
             'start_line' => 294,
             'indent' => 1,
-            'block_id' => 26
+            'block_id' => 24
           },
           {
             'token_num' => 3,
@@ -16263,7 +16263,7 @@ print "ok $i - require() context\\n";
             'src' => ' print "${not}ok $i - require does not localise %^H at run time\\n" ;',
             'start_line' => 295,
             'indent' => 1,
-            'block_id' => 26
+            'block_id' => 24
           },
           {
             'token_num' => 10,
@@ -16281,7 +16281,7 @@ print "ok $i - require() context\\n";
             'src' => ' exit ;',
             'start_line' => 305,
             'indent' => 1,
-            'block_id' => 28
+            'block_id' => 26
           },
           {
             'token_num' => 18,
@@ -16308,7 +16308,7 @@ print "ok $i - require() context\\n";
             'src' => ' my ( $enc , $content , $do_bom ) = @_ ;',
             'start_line' => 314,
             'indent' => 1,
-            'block_id' => 29
+            'block_id' => 27
           },
           {
             'token_num' => 8,
@@ -16317,7 +16317,7 @@ print "ok $i - require() context\\n";
             'src' => ' my $template = $templates { $enc } ;',
             'start_line' => 315,
             'indent' => 1,
-            'block_id' => 29
+            'block_id' => 27
           },
           {
             'token_num' => 5,
@@ -16326,7 +16326,7 @@ print "ok $i - require() context\\n";
             'src' => ' die "Unsupported encoding $enc" unless $template ;',
             'start_line' => 316,
             'indent' => 1,
-            'block_id' => 29
+            'block_id' => 27
           },
           {
             'token_num' => 18,
@@ -16335,7 +16335,7 @@ print "ok $i - require() context\\n";
             'src' => ' return pack "$template*" , ( $do_bom ? 0xFEFF : ( ) ) , unpack "C*" , $content ;',
             'start_line' => 317,
             'indent' => 1,
-            'block_id' => 29
+            'block_id' => 27
           },
           {
             'token_num' => 39,
@@ -16353,7 +16353,7 @@ print "ok $i - require() context\\n";
             'src' => ' $i ++ ;',
             'start_line' => 321,
             'indent' => 1,
-            'block_id' => 30
+            'block_id' => 28
           },
           {
             'token_num' => 15,
@@ -16362,7 +16362,7 @@ print "ok $i - require() context\\n";
             'src' => ' do_require ( bytes_to_utf ( $_ , qq(print "ok $i # $_\\\\n"; 1;\\n) , 1 ) ) ;',
             'start_line' => 321,
             'indent' => 1,
-            'block_id' => 30
+            'block_id' => 28
           },
           {
             'token_num' => 13,
@@ -16371,7 +16371,7 @@ print "ok $i - require() context\\n";
             'src' => ' if ( $@ =~/^(Unsupported script encoding \\Q$_\\E)/ ) { print "ok $i # skip $1\\n" ; }',
             'start_line' => 322,
             'indent' => 1,
-            'block_id' => 30
+            'block_id' => 28
           },
           {
             'token_num' => 3,
@@ -16380,7 +16380,7 @@ print "ok $i - require() context\\n";
             'src' => ' print "ok $i # skip $1\\n" ;',
             'start_line' => 323,
             'indent' => 2,
-            'block_id' => 31
+            'block_id' => 29
           },
           {
             'token_num' => 13,
@@ -16389,7 +16389,7 @@ print "ok $i - require() context\\n";
             'src' => ' foreach my $file ( @fjles_to_delete ) { 1 while unlink $file ; }',
             'start_line' => 328,
             'indent' => 1,
-            'block_id' => 32
+            'block_id' => 30
           },
           {
             'token_num' => 5,
@@ -16398,7 +16398,7 @@ print "ok $i - require() context\\n";
             'src' => ' 1 while unlink $file ;',
             'start_line' => 329,
             'indent' => 2,
-            'block_id' => 33
+            'block_id' => 31
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

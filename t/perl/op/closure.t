@@ -4019,21 +4019,12 @@ subtest 'tokenize' => sub {
                    'line' => 78
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 78
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 78
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4154,21 +4145,12 @@ subtest 'tokenize' => sub {
                    'line' => 79
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 79
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 79
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4289,21 +4271,12 @@ subtest 'tokenize' => sub {
                    'line' => 80
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 80
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 80
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4424,21 +4397,12 @@ subtest 'tokenize' => sub {
                    'line' => 81
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 81
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 81
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4559,21 +4523,12 @@ subtest 'tokenize' => sub {
                    'line' => 82
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 82
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 82
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4739,21 +4694,12 @@ subtest 'tokenize' => sub {
                    'line' => 84
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 85
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 85
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4883,21 +4829,12 @@ subtest 'tokenize' => sub {
                    'line' => 88
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 88
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 88
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5018,21 +4955,12 @@ subtest 'tokenize' => sub {
                    'line' => 89
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 89
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 89
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5153,21 +5081,12 @@ subtest 'tokenize' => sub {
                    'line' => 90
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 90
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 90
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5288,21 +5207,12 @@ subtest 'tokenize' => sub {
                    'line' => 91
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 91
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 91
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5423,21 +5333,12 @@ subtest 'tokenize' => sub {
                    'line' => 92
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 92
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 92
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5963,21 +5864,12 @@ subtest 'tokenize' => sub {
                    'line' => 104
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 104
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 104
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6098,21 +5990,12 @@ subtest 'tokenize' => sub {
                    'line' => 105
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 105
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 105
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6233,21 +6116,12 @@ subtest 'tokenize' => sub {
                    'line' => 106
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 106
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 106
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6368,21 +6242,12 @@ subtest 'tokenize' => sub {
                    'line' => 107
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 107
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 107
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6503,21 +6368,12 @@ subtest 'tokenize' => sub {
                    'line' => 108
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 108
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 108
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6683,21 +6539,12 @@ subtest 'tokenize' => sub {
                    'line' => 110
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 111
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 111
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6827,21 +6674,12 @@ subtest 'tokenize' => sub {
                    'line' => 114
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 114
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 114
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6962,21 +6800,12 @@ subtest 'tokenize' => sub {
                    'line' => 115
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 115
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 115
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7097,21 +6926,12 @@ subtest 'tokenize' => sub {
                    'line' => 116
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 116
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 116
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7232,21 +7052,12 @@ subtest 'tokenize' => sub {
                    'line' => 117
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 117
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 117
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7367,21 +7178,12 @@ subtest 'tokenize' => sub {
                    'line' => 118
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 118
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 118
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7754,21 +7556,12 @@ subtest 'tokenize' => sub {
                    'line' => 127
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 127
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 127
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7880,21 +7673,12 @@ subtest 'tokenize' => sub {
                    'line' => 128
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 128
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 128
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8006,21 +7790,12 @@ subtest 'tokenize' => sub {
                    'line' => 129
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 129
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 129
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8132,21 +7907,12 @@ subtest 'tokenize' => sub {
                    'line' => 130
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 130
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 130
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8258,21 +8024,12 @@ subtest 'tokenize' => sub {
                    'line' => 131
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 131
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 131
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8609,21 +8366,12 @@ subtest 'tokenize' => sub {
                    'line' => 137
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 137
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 137
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8735,21 +8483,12 @@ subtest 'tokenize' => sub {
                    'line' => 138
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 138
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 138
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8861,21 +8600,12 @@ subtest 'tokenize' => sub {
                    'line' => 139
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 139
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 139
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8987,21 +8717,12 @@ subtest 'tokenize' => sub {
                    'line' => 140
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 140
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 140
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9113,21 +8834,12 @@ subtest 'tokenize' => sub {
                    'line' => 141
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 141
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 141
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -27767,2903 +27479,6 @@ subtest 'get_groups_by_syntax_level' => sub {
             'start_line' => 75,
             'indent' => 2,
             'block_id' => 13
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 78,
-            'src' => ' is ( & { $foo [ 0 ] } ( ) , 0 ) ;',
-            'start_line' => 78,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 79,
-            'src' => ' is ( & { $foo [ 1 ] } ( ) , 1 ) ;',
-            'start_line' => 79,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 80,
-            'src' => ' is ( & { $foo [ 2 ] } ( ) , 2 ) ;',
-            'start_line' => 80,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 81,
-            'src' => ' is ( & { $foo [ 3 ] } ( ) , 3 ) ;',
-            'start_line' => 81,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 82,
-            'src' => ' is ( & { $foo [ 4 ] } ( ) , 4 ) ;',
-            'start_line' => 82,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 21,
-            'has_warnings' => 1,
-            'end_line' => 86,
-            'src' => ' for ( 0 .. 4 ) { & { $foo [ $_ ] } ( 4 - $_ ) ; }',
-            'start_line' => 84,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 0,
-            'end_line' => 85,
-            'src' => ' ( 4 - $_ ) ;',
-            'start_line' => 85,
-            'indent' => 1,
-            'block_id' => 19
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 88,
-            'src' => ' is ( & { $foo [ 0 ] } ( ) , 4 ) ;',
-            'start_line' => 88,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 89,
-            'src' => ' is ( & { $foo [ 1 ] } ( ) , 3 ) ;',
-            'start_line' => 89,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 90,
-            'src' => ' is ( & { $foo [ 2 ] } ( ) , 2 ) ;',
-            'start_line' => 90,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 91,
-            'src' => ' is ( & { $foo [ 3 ] } ( ) , 1 ) ;',
-            'start_line' => 91,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 92,
-            'src' => ' is ( & { $foo [ 4 ] } ( ) , 0 ) ;',
-            'start_line' => 92,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 39,
-            'has_warnings' => 1,
-            'end_line' => 101,
-            'src' => ' sub barf { my @foo ; for ( qw(0 1 2 3 4) ) { my $i = $_ ; $foo [ $_ ] = sub { $i = shift if @_ ; $i } ; } @foo ; }',
-            'start_line' => 94,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 95,
-            'src' => ' my @foo ;',
-            'start_line' => 95,
-            'indent' => 1,
-            'block_id' => 26
-          },
-          {
-            'token_num' => 30,
-            'has_warnings' => 1,
-            'end_line' => 99,
-            'src' => ' for ( qw(0 1 2 3 4) ) { my $i = $_ ; $foo [ $_ ] = sub { $i = shift if @_ ; $i } ; }',
-            'start_line' => 96,
-            'indent' => 1,
-            'block_id' => 26
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 97,
-            'src' => ' my $i = $_ ;',
-            'start_line' => 97,
-            'indent' => 2,
-            'block_id' => 27
-          },
-          {
-            'token_num' => 16,
-            'has_warnings' => 1,
-            'end_line' => 98,
-            'src' => ' $foo [ $_ ] = sub { $i = shift if @_ ; $i } ;',
-            'start_line' => 98,
-            'indent' => 2,
-            'block_id' => 27
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 1,
-            'end_line' => 98,
-            'src' => ' $i = shift if @_ ;',
-            'start_line' => 98,
-            'indent' => 3,
-            'block_id' => 28
-          },
-          {
-            'token_num' => 2,
-            'has_warnings' => 0,
-            'end_line' => 100,
-            'src' => ' @foo ;',
-            'start_line' => 100,
-            'indent' => 1,
-            'block_id' => 26
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 0,
-            'end_line' => 103,
-            'src' => ' @foo = barf ( ) ;',
-            'start_line' => 103,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 104,
-            'src' => ' is ( & { $foo [ 0 ] } ( ) , 0 ) ;',
-            'start_line' => 104,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 105,
-            'src' => ' is ( & { $foo [ 1 ] } ( ) , 1 ) ;',
-            'start_line' => 105,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 106,
-            'src' => ' is ( & { $foo [ 2 ] } ( ) , 2 ) ;',
-            'start_line' => 106,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 107,
-            'src' => ' is ( & { $foo [ 3 ] } ( ) , 3 ) ;',
-            'start_line' => 107,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 108,
-            'src' => ' is ( & { $foo [ 4 ] } ( ) , 4 ) ;',
-            'start_line' => 108,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 21,
-            'has_warnings' => 1,
-            'end_line' => 112,
-            'src' => ' for ( 0 .. 4 ) { & { $foo [ $_ ] } ( 4 - $_ ) ; }',
-            'start_line' => 110,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 0,
-            'end_line' => 111,
-            'src' => ' ( 4 - $_ ) ;',
-            'start_line' => 111,
-            'indent' => 1,
-            'block_id' => 34
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 114,
-            'src' => ' is ( & { $foo [ 0 ] } ( ) , 4 ) ;',
-            'start_line' => 114,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 115,
-            'src' => ' is ( & { $foo [ 1 ] } ( ) , 3 ) ;',
-            'start_line' => 115,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 116,
-            'src' => ' is ( & { $foo [ 2 ] } ( ) , 2 ) ;',
-            'start_line' => 116,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 117,
-            'src' => ' is ( & { $foo [ 3 ] } ( ) , 1 ) ;',
-            'start_line' => 117,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 118,
-            'src' => ' is ( & { $foo [ 4 ] } ( ) , 0 ) ;',
-            'start_line' => 118,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 122,
-            'src' => ' my %foo ;',
-            'start_line' => 122,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 25,
-            'has_warnings' => 1,
-            'end_line' => 125,
-            'src' => ' for my $n ( \'A\' .. \'E\' ) { $foo { $n } = sub { $n eq $_ [ 0 ] } ; }',
-            'start_line' => 123,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 124,
-            'src' => ' $foo { $n } = sub { $n eq $_ [ 0 ] } ;',
-            'start_line' => 124,
-            'indent' => 1,
-            'block_id' => 41
-          },
-          {
-            'token_num' => 14,
-            'has_warnings' => 1,
-            'end_line' => 127,
-            'src' => ' ok ( & { $foo { A } } ( \'A\' ) ) ;',
-            'start_line' => 127,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 14,
-            'has_warnings' => 1,
-            'end_line' => 128,
-            'src' => ' ok ( & { $foo { B } } ( \'B\' ) ) ;',
-            'start_line' => 128,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 14,
-            'has_warnings' => 1,
-            'end_line' => 129,
-            'src' => ' ok ( & { $foo { C } } ( \'C\' ) ) ;',
-            'start_line' => 129,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 14,
-            'has_warnings' => 1,
-            'end_line' => 130,
-            'src' => ' ok ( & { $foo { D } } ( \'D\' ) ) ;',
-            'start_line' => 130,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 14,
-            'has_warnings' => 1,
-            'end_line' => 131,
-            'src' => ' ok ( & { $foo { E } } ( \'E\' ) ) ;',
-            'start_line' => 131,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 25,
-            'has_warnings' => 1,
-            'end_line' => 135,
-            'src' => ' for my $n ( 0 .. 4 ) { $foo [ $n ] = sub { $n == $_ [ 0 ] } ; }',
-            'start_line' => 133,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 134,
-            'src' => ' $foo [ $n ] = sub { $n == $_ [ 0 ] } ;',
-            'start_line' => 134,
-            'indent' => 1,
-            'block_id' => 48
-          },
-          {
-            'token_num' => 14,
-            'has_warnings' => 1,
-            'end_line' => 137,
-            'src' => ' ok ( & { $foo [ 0 ] } ( 0 ) ) ;',
-            'start_line' => 137,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 14,
-            'has_warnings' => 1,
-            'end_line' => 138,
-            'src' => ' ok ( & { $foo [ 1 ] } ( 1 ) ) ;',
-            'start_line' => 138,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 14,
-            'has_warnings' => 1,
-            'end_line' => 139,
-            'src' => ' ok ( & { $foo [ 2 ] } ( 2 ) ) ;',
-            'start_line' => 139,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 14,
-            'has_warnings' => 1,
-            'end_line' => 140,
-            'src' => ' ok ( & { $foo [ 3 ] } ( 3 ) ) ;',
-            'start_line' => 140,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 14,
-            'has_warnings' => 1,
-            'end_line' => 141,
-            'src' => ' ok ( & { $foo [ 4 ] } ( 4 ) ) ;',
-            'start_line' => 141,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 28,
-            'has_warnings' => 1,
-            'end_line' => 148,
-            'src' => ' for my $n ( 0 .. 4 ) { $foo [ $n ] = sub { sub { $n == $_ [ 0 ] } } ; }',
-            'start_line' => 143,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 18,
-            'has_warnings' => 1,
-            'end_line' => 147,
-            'src' => ' $foo [ $n ] = sub { sub { $n == $_ [ 0 ] } } ;',
-            'start_line' => 144,
-            'indent' => 1,
-            'block_id' => 55
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 150,
-            'src' => ' ok ( $foo [ 0 ]-> ( )-> ( 0 ) ) ;',
-            'start_line' => 150,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 151,
-            'src' => ' ok ( $foo [ 1 ]-> ( )-> ( 1 ) ) ;',
-            'start_line' => 151,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 152,
-            'src' => ' ok ( $foo [ 2 ]-> ( )-> ( 2 ) ) ;',
-            'start_line' => 152,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 153,
-            'src' => ' ok ( $foo [ 3 ]-> ( )-> ( 3 ) ) ;',
-            'start_line' => 153,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 154,
-            'src' => ' ok ( $foo [ 4 ]-> ( )-> ( 4 ) ) ;',
-            'start_line' => 154,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 36,
-            'has_warnings' => 1,
-            'end_line' => 164,
-            'src' => ' { my $w ; $w = sub { my ( $i ) = @_ ; is ( $i , 10 ) ; sub { $w } ; } ; $w-> ( 10 ) ; }',
-            'start_line' => 156,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 157,
-            'src' => ' my $w ;',
-            'start_line' => 157,
-            'indent' => 1,
-            'block_id' => 58
-          },
-          {
-            'token_num' => 25,
-            'has_warnings' => 1,
-            'end_line' => 162,
-            'src' => ' $w = sub { my ( $i ) = @_ ; is ( $i , 10 ) ; sub { $w } ; } ;',
-            'start_line' => 158,
-            'indent' => 1,
-            'block_id' => 58
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 159,
-            'src' => ' my ( $i ) = @_ ;',
-            'start_line' => 159,
-            'indent' => 2,
-            'block_id' => 59
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 160,
-            'src' => ' is ( $i , 10 ) ;',
-            'start_line' => 160,
-            'indent' => 2,
-            'block_id' => 59
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 1,
-            'end_line' => 161,
-            'src' => ' sub { $w } ;',
-            'start_line' => 161,
-            'indent' => 2,
-            'block_id' => 59
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 1,
-            'end_line' => 163,
-            'src' => ' $w-> ( 10 ) ;',
-            'start_line' => 163,
-            'indent' => 1,
-            'block_id' => 58
-          },
-          {
-            'token_num' => 1104,
-            'has_warnings' => 1,
-            'end_line' => 482,
-            'src' => ' { use strict ; use vars qw!$test! ; my ( $debugging , %expected , $inner_type , $where_declared , $within ) ; my ( $nc_attempt , $call_outer , $call_inner , $undef_outer ) ; my ( $code , $inner_sub_test , $expected , $line , $errors , $output ) ; my ( @inners , $sub_test , $pid ) ; $debugging = 1 if defined ( $ARGV [ 0 ] ) and $ARGV [ 0 ] eq \'-debug\' ; %expected = ( \'global_scalar\' => 1001 , \'global_array\' => 2101 , \'global_hash\' => 3004 , \'fs_scalar\' => 4001 , \'fs_array\' => 5101 , \'fs_hash\' => 6004 , \'sub_scalar\' => 7001 , \'sub_array\' => 8101 , \'sub_hash\' => 9004 , \'foreach\' => 10011 , ) ; for $inner_type ( qw!named anon! ) { for $where_declared ( qw!filescope in_named in_anon! ) { for $within ( qw!foreach naked other_sub! ) { my $test = curr_test ( ) ; $nc_attempt = 0 + ( ( $inner_type eq \'named\' ) || ( $within eq \'other_sub\' ) ) ; $call_inner = 0 + ( ( $inner_type eq \'anon\' ) && ( $within eq \'other_sub\' ) ) ; $call_outer = 0 + ( ( $inner_type eq \'anon\' ) && ( $within ne \'other_sub\' ) ) ; $undef_outer = 0 + ( ( $where_declared eq \'in_anon\' ) && ( not $call_outer ) ) ; $code = "# This is a test script built by t/op/closure.t\\n\\n" ; print qq{# inner_type:     $inner_type 
-# where_declared: $where_declared 
-# within:         $within
-# nc_attempt:     $nc_attempt
-# call_inner:     $call_inner
-# call_outer:     $call_outer
-# undef_outer:    $undef_outer
-} if $debugging ; $code .= qq{
-BEGIN { \\$SIG{__WARN__} = sub { 
-    my \\$msg = \\$_[0];
-} ; $code .= qq{    return if index(\\$msg, \'will not stay shared\') != -1;
-    return if index(\\$msg, \'is not available\') != -1;
-} if $nc_attempt ; $code .= qq{} }
-
-require \'./test.pl\';
-curr_test($test);
-
-# some of the variables which the closure will access
-\\$global_scalar = 1000;
-\\@global_array = (2000, 2100, 2200, 2300);
-%global_hash = 3000..3009;
-
-my \\$fs_scalar = 4000;
-my \\@fs_array = (5000, 5100, 5200, 5300);
-my %fs_hash = 6000..6009;
-
-} ; print "not ok: got unexpected warning \\$msg\\\\n" ; if ( $where_declared eq \'filescope\' ) { } elsif ( $where_declared eq \'in_named\' ) { $code .= q{sub outer {
-  my $sub_scalar = 7000;
-  my @sub_array = (8000, 8100, 8200, 8300);
-  my %sub_hash = 9000..9009;
-} ; } elsif ( $where_declared eq \'in_anon\' ) { $code .= q{$outer = sub {
-  my $sub_scalar = 7000;
-  my @sub_array = (8000, 8100, 8200, 8300);
-  my %sub_hash = 9000..9009;
-} ; } else { die "What was $where_declared?" } if ( $within eq \'foreach\' ) { $code .= "
-      my \\$foreach = 12000;
-      my \\@list = (10000, 10010);
-      foreach \\$foreach (\\@list) {
-    " } elsif ( $within eq \'naked\' ) { $code .= "  { # naked block\\n" } elsif ( $within eq \'other_sub\' ) { $code .= "  sub inner_sub {\\n" } else { die "What was $within?" } $sub_test = $test ; @inners = ( qw!global_scalar global_array global_hash! , qw!fs_scalar fs_array fs_hash! ) ; push @inners , \'foreach\' if $within eq \'foreach\' ; if ( $where_declared ne \'filescope\' ) { push @inners , qw!sub_scalar sub_array sub_hash! ; } for $inner_sub_test ( @inners ) { if ( $inner_type eq \'named\' ) { $code .= "    sub named_$sub_test " } elsif ( $inner_type eq \'anon\' ) { $code .= "    \\$anon_$sub_test = sub " } else { die "What was $inner_type?" } if ( $inner_sub_test eq \'global_scalar\' ) { $code .= \'{ ++$global_scalar }\' } elsif ( $inner_sub_test eq \'fs_scalar\' ) { $code .= \'{ ++$fs_scalar }\' } elsif ( $inner_sub_test eq \'sub_scalar\' ) { $code .= \'{ ++$sub_scalar }\' } elsif ( $inner_sub_test eq \'global_array\' ) { $code .= \'{ ++$global_array[1] }\' } elsif ( $inner_sub_test eq \'fs_array\' ) { $code .= \'{ ++$fs_array[1] }\' } elsif ( $inner_sub_test eq \'sub_array\' ) { $code .= \'{ ++$sub_array[1] }\' } elsif ( $inner_sub_test eq \'global_hash\' ) { $code .= \'{ ++$global_hash{3002} }\' } elsif ( $inner_sub_test eq \'fs_hash\' ) { $code .= \'{ ++$fs_hash{6002} }\' } elsif ( $inner_sub_test eq \'sub_hash\' ) { $code .= \'{ ++$sub_hash{9002} }\' } elsif ( $inner_sub_test eq \'foreach\' ) { $code .= \'{ ++$foreach }\' } else { die "What was $inner_sub_test?" } if ( $inner_type eq \'anon\' ) { $code .= \';\' } $code .= "\\n" ; $sub_test ++ ; } $code .= "  }\\n\\n" ; if ( $where_declared eq \'in_named\' ) { $code .= "}\\n\\n" ; } elsif ( $where_declared eq \'in_anon\' ) { $code .= "};\\n\\n" ; } $code .= "undef \\$outer;\\n" if $undef_outer ; $code .= "&inner_sub;\\n" if $call_inner ; if ( $call_outer ) { if ( $where_declared eq \'in_named\' ) { $code .= "&outer;\\n\\n" ; } elsif ( $where_declared eq \'in_anon\' ) { $code .= "&\\$outer;\\n\\n" } } for $inner_sub_test ( @inners ) { $expected = $expected { $inner_sub_test } or die "expected $inner_sub_test missing" ; if ( $nc_attempt and substr ( $inner_sub_test , 0 , 4 ) eq "sub_" ) { $expected = 1 ; } if ( $inner_sub_test eq \'foreach\' ) { if ( $inner_type eq \'named\' ) { if ( $call_outer || ( $where_declared eq \'filescope\' ) ) { $expected = 12001 } else { $expected = 1 } } } my $desc = "$inner_type $where_declared $within $inner_sub_test" ; if ( $inner_type eq \'anon\' ) { $code .= "is(&\\$anon_$test, $expected, \'$desc\');\\n" } else { $code .= "is(&named_$test, $expected, \'$desc\');\\n" } $test ++ ; } if ( $Config { d_fork } and $^O ne \'VMS\' and $^O ne \'MSWin32\' and $^O ne \'NetWare\' ) { $| = 1 ; print "" ; $| = 0 ; pipe READ , WRITE or die "Can\'t make pipe: $!" ; pipe READ2 , WRITE2 or die "Can\'t make second pipe: $!" ; die "Can\'t fork: $!" unless defined ( $pid = open PERL , "|-" ) ; unless ( $pid ) { close READ ; close READ2 ; open STDOUT , ">&WRITE" or die "Can\'t redirect STDOUT: $!" ; open STDERR , ">&WRITE2" or die "Can\'t redirect STDERR: $!" ; exec which_perl ( ) , \'-w\' , \'-\' or die "Can\'t exec perl: $!" ; } else { close WRITE ; close WRITE2 ; print PERL $code ; close PERL ; { local $/ ; $output = join \'\' , < READ > ; $errors = join \'\' , < READ2 > ; } close READ ; close READ2 ; } } else { my $cmdfile = tempfile ( ) ; my $errfile = tempfile ( ) ; open CMD , ">$cmdfile" ; print CMD $code ; close CMD ; my $cmd = which_perl ( ) ; $cmd .= " -w $cmdfile 2>$errfile" ; if ( $^O eq \'VMS\' or $^O eq \'MSWin32\' or $^O eq \'NetWare\' ) { open PERL , "$cmd |" or die "Can\'t open pipe: $!\\n" ; { local $/ ; $output = join \'\' , < PERL > } close PERL ; } else { my $outfile = tempfile ( ) ; system "$cmd >$outfile" ; { local $/ ; open IN , $outfile ; $output = < IN > ; close IN } } if ( $? ) { printf "not ok: exited with error code %04X\\n" , $? ; exit ; } { local $/ ; open IN , $errfile ; $errors = < IN > ; close IN } } print $output ; curr_test ( $test ) ; print STDERR $errors ; unlike ( $output , qr/not ok/ , \'All good\' ) ; is ( $errors , \'\' , \'STDERR is silent\' ) ; if ( $debugging && ( $errors || $? || ( $output =~/not ok/ ) ) ) { my $lnum = 0 ; for $line ( split \'\\n\' , $code ) { printf "%3d:  %s\\n" , ++ $lnum , $line ; } } is ( $? , 0 , \'exited cleanly\' ) or diag ( sprintf "Error code $? = 0x%X" , $? ) ; print \'#\' , "-" x 30 , "\\n" if $debugging ; } } } }',
-            'start_line' => 168,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 169,
-            'src' => ' use strict ;',
-            'start_line' => 169,
-            'indent' => 1,
-            'block_id' => 61
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 0,
-            'end_line' => 171,
-            'src' => ' use vars qw!$test! ;',
-            'start_line' => 171,
-            'indent' => 1,
-            'block_id' => 61
-          },
-          {
-            'token_num' => 13,
-            'has_warnings' => 1,
-            'end_line' => 172,
-            'src' => ' my ( $debugging , %expected , $inner_type , $where_declared , $within ) ;',
-            'start_line' => 172,
-            'indent' => 1,
-            'block_id' => 61
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 173,
-            'src' => ' my ( $nc_attempt , $call_outer , $call_inner , $undef_outer ) ;',
-            'start_line' => 173,
-            'indent' => 1,
-            'block_id' => 61
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 174,
-            'src' => ' my ( $code , $inner_sub_test , $expected , $line , $errors , $output ) ;',
-            'start_line' => 174,
-            'indent' => 1,
-            'block_id' => 61
-          },
-          {
-            'token_num' => 9,
-            'has_warnings' => 1,
-            'end_line' => 175,
-            'src' => ' my ( @inners , $sub_test , $pid ) ;',
-            'start_line' => 175,
-            'indent' => 1,
-            'block_id' => 61
-          },
-          {
-            'token_num' => 19,
-            'has_warnings' => 1,
-            'end_line' => 176,
-            'src' => ' $debugging = 1 if defined ( $ARGV [ 0 ] ) and $ARGV [ 0 ] eq \'-debug\' ;',
-            'start_line' => 176,
-            'indent' => 1,
-            'block_id' => 61
-          },
-          {
-            'token_num' => 45,
-            'has_warnings' => 0,
-            'end_line' => 190,
-            'src' => ' %expected = ( \'global_scalar\' => 1001 , \'global_array\' => 2101 , \'global_hash\' => 3004 , \'fs_scalar\' => 4001 , \'fs_array\' => 5101 , \'fs_hash\' => 6004 , \'sub_scalar\' => 7001 , \'sub_array\' => 8101 , \'sub_hash\' => 9004 , \'foreach\' => 10011 , ) ;',
-            'start_line' => 179,
-            'indent' => 1,
-            'block_id' => 61
-          },
-          {
-            'token_num' => 980,
-            'has_warnings' => 1,
-            'end_line' => 480,
-            'src' => ' for $inner_type ( qw!named anon! ) { for $where_declared ( qw!filescope in_named in_anon! ) { for $within ( qw!foreach naked other_sub! ) { my $test = curr_test ( ) ; $nc_attempt = 0 + ( ( $inner_type eq \'named\' ) || ( $within eq \'other_sub\' ) ) ; $call_inner = 0 + ( ( $inner_type eq \'anon\' ) && ( $within eq \'other_sub\' ) ) ; $call_outer = 0 + ( ( $inner_type eq \'anon\' ) && ( $within ne \'other_sub\' ) ) ; $undef_outer = 0 + ( ( $where_declared eq \'in_anon\' ) && ( not $call_outer ) ) ; $code = "# This is a test script built by t/op/closure.t\\n\\n" ; print qq{# inner_type:     $inner_type 
-# where_declared: $where_declared 
-# within:         $within
-# nc_attempt:     $nc_attempt
-# call_inner:     $call_inner
-# call_outer:     $call_outer
-# undef_outer:    $undef_outer
-} if $debugging ; $code .= qq{
-BEGIN { \\$SIG{__WARN__} = sub { 
-    my \\$msg = \\$_[0];
-} ; $code .= qq{    return if index(\\$msg, \'will not stay shared\') != -1;
-    return if index(\\$msg, \'is not available\') != -1;
-} if $nc_attempt ; $code .= qq{} }
-
-require \'./test.pl\';
-curr_test($test);
-
-# some of the variables which the closure will access
-\\$global_scalar = 1000;
-\\@global_array = (2000, 2100, 2200, 2300);
-%global_hash = 3000..3009;
-
-my \\$fs_scalar = 4000;
-my \\@fs_array = (5000, 5100, 5200, 5300);
-my %fs_hash = 6000..6009;
-
-} ; print "not ok: got unexpected warning \\$msg\\\\n" ; if ( $where_declared eq \'filescope\' ) { } elsif ( $where_declared eq \'in_named\' ) { $code .= q{sub outer {
-  my $sub_scalar = 7000;
-  my @sub_array = (8000, 8100, 8200, 8300);
-  my %sub_hash = 9000..9009;
-} ; } elsif ( $where_declared eq \'in_anon\' ) { $code .= q{$outer = sub {
-  my $sub_scalar = 7000;
-  my @sub_array = (8000, 8100, 8200, 8300);
-  my %sub_hash = 9000..9009;
-} ; } else { die "What was $where_declared?" } if ( $within eq \'foreach\' ) { $code .= "
-      my \\$foreach = 12000;
-      my \\@list = (10000, 10010);
-      foreach \\$foreach (\\@list) {
-    " } elsif ( $within eq \'naked\' ) { $code .= "  { # naked block\\n" } elsif ( $within eq \'other_sub\' ) { $code .= "  sub inner_sub {\\n" } else { die "What was $within?" } $sub_test = $test ; @inners = ( qw!global_scalar global_array global_hash! , qw!fs_scalar fs_array fs_hash! ) ; push @inners , \'foreach\' if $within eq \'foreach\' ; if ( $where_declared ne \'filescope\' ) { push @inners , qw!sub_scalar sub_array sub_hash! ; } for $inner_sub_test ( @inners ) { if ( $inner_type eq \'named\' ) { $code .= "    sub named_$sub_test " } elsif ( $inner_type eq \'anon\' ) { $code .= "    \\$anon_$sub_test = sub " } else { die "What was $inner_type?" } if ( $inner_sub_test eq \'global_scalar\' ) { $code .= \'{ ++$global_scalar }\' } elsif ( $inner_sub_test eq \'fs_scalar\' ) { $code .= \'{ ++$fs_scalar }\' } elsif ( $inner_sub_test eq \'sub_scalar\' ) { $code .= \'{ ++$sub_scalar }\' } elsif ( $inner_sub_test eq \'global_array\' ) { $code .= \'{ ++$global_array[1] }\' } elsif ( $inner_sub_test eq \'fs_array\' ) { $code .= \'{ ++$fs_array[1] }\' } elsif ( $inner_sub_test eq \'sub_array\' ) { $code .= \'{ ++$sub_array[1] }\' } elsif ( $inner_sub_test eq \'global_hash\' ) { $code .= \'{ ++$global_hash{3002} }\' } elsif ( $inner_sub_test eq \'fs_hash\' ) { $code .= \'{ ++$fs_hash{6002} }\' } elsif ( $inner_sub_test eq \'sub_hash\' ) { $code .= \'{ ++$sub_hash{9002} }\' } elsif ( $inner_sub_test eq \'foreach\' ) { $code .= \'{ ++$foreach }\' } else { die "What was $inner_sub_test?" } if ( $inner_type eq \'anon\' ) { $code .= \';\' } $code .= "\\n" ; $sub_test ++ ; } $code .= "  }\\n\\n" ; if ( $where_declared eq \'in_named\' ) { $code .= "}\\n\\n" ; } elsif ( $where_declared eq \'in_anon\' ) { $code .= "};\\n\\n" ; } $code .= "undef \\$outer;\\n" if $undef_outer ; $code .= "&inner_sub;\\n" if $call_inner ; if ( $call_outer ) { if ( $where_declared eq \'in_named\' ) { $code .= "&outer;\\n\\n" ; } elsif ( $where_declared eq \'in_anon\' ) { $code .= "&\\$outer;\\n\\n" } } for $inner_sub_test ( @inners ) { $expected = $expected { $inner_sub_test } or die "expected $inner_sub_test missing" ; if ( $nc_attempt and substr ( $inner_sub_test , 0 , 4 ) eq "sub_" ) { $expected = 1 ; } if ( $inner_sub_test eq \'foreach\' ) { if ( $inner_type eq \'named\' ) { if ( $call_outer || ( $where_declared eq \'filescope\' ) ) { $expected = 12001 } else { $expected = 1 } } } my $desc = "$inner_type $where_declared $within $inner_sub_test" ; if ( $inner_type eq \'anon\' ) { $code .= "is(&\\$anon_$test, $expected, \'$desc\');\\n" } else { $code .= "is(&named_$test, $expected, \'$desc\');\\n" } $test ++ ; } if ( $Config { d_fork } and $^O ne \'VMS\' and $^O ne \'MSWin32\' and $^O ne \'NetWare\' ) { $| = 1 ; print "" ; $| = 0 ; pipe READ , WRITE or die "Can\'t make pipe: $!" ; pipe READ2 , WRITE2 or die "Can\'t make second pipe: $!" ; die "Can\'t fork: $!" unless defined ( $pid = open PERL , "|-" ) ; unless ( $pid ) { close READ ; close READ2 ; open STDOUT , ">&WRITE" or die "Can\'t redirect STDOUT: $!" ; open STDERR , ">&WRITE2" or die "Can\'t redirect STDERR: $!" ; exec which_perl ( ) , \'-w\' , \'-\' or die "Can\'t exec perl: $!" ; } else { close WRITE ; close WRITE2 ; print PERL $code ; close PERL ; { local $/ ; $output = join \'\' , < READ > ; $errors = join \'\' , < READ2 > ; } close READ ; close READ2 ; } } else { my $cmdfile = tempfile ( ) ; my $errfile = tempfile ( ) ; open CMD , ">$cmdfile" ; print CMD $code ; close CMD ; my $cmd = which_perl ( ) ; $cmd .= " -w $cmdfile 2>$errfile" ; if ( $^O eq \'VMS\' or $^O eq \'MSWin32\' or $^O eq \'NetWare\' ) { open PERL , "$cmd |" or die "Can\'t open pipe: $!\\n" ; { local $/ ; $output = join \'\' , < PERL > } close PERL ; } else { my $outfile = tempfile ( ) ; system "$cmd >$outfile" ; { local $/ ; open IN , $outfile ; $output = < IN > ; close IN } } if ( $? ) { printf "not ok: exited with error code %04X\\n" , $? ; exit ; } { local $/ ; open IN , $errfile ; $errors = < IN > ; close IN } } print $output ; curr_test ( $test ) ; print STDERR $errors ; unlike ( $output , qr/not ok/ , \'All good\' ) ; is ( $errors , \'\' , \'STDERR is silent\' ) ; if ( $debugging && ( $errors || $? || ( $output =~/not ok/ ) ) ) { my $lnum = 0 ; for $line ( split \'\\n\' , $code ) { printf "%3d:  %s\\n" , ++ $lnum , $line ; } } is ( $? , 0 , \'exited cleanly\' ) or diag ( sprintf "Error code $? = 0x%X" , $? ) ; print \'#\' , "-" x 30 , "\\n" if $debugging ; } } }',
-            'start_line' => 193,
-            'indent' => 1,
-            'block_id' => 61
-          },
-          {
-            'token_num' => 970,
-            'has_warnings' => 1,
-            'end_line' => 479,
-            'src' => ' for $where_declared ( qw!filescope in_named in_anon! ) { for $within ( qw!foreach naked other_sub! ) { my $test = curr_test ( ) ; $nc_attempt = 0 + ( ( $inner_type eq \'named\' ) || ( $within eq \'other_sub\' ) ) ; $call_inner = 0 + ( ( $inner_type eq \'anon\' ) && ( $within eq \'other_sub\' ) ) ; $call_outer = 0 + ( ( $inner_type eq \'anon\' ) && ( $within ne \'other_sub\' ) ) ; $undef_outer = 0 + ( ( $where_declared eq \'in_anon\' ) && ( not $call_outer ) ) ; $code = "# This is a test script built by t/op/closure.t\\n\\n" ; print qq{# inner_type:     $inner_type 
-# where_declared: $where_declared 
-# within:         $within
-# nc_attempt:     $nc_attempt
-# call_inner:     $call_inner
-# call_outer:     $call_outer
-# undef_outer:    $undef_outer
-} if $debugging ; $code .= qq{
-BEGIN { \\$SIG{__WARN__} = sub { 
-    my \\$msg = \\$_[0];
-} ; $code .= qq{    return if index(\\$msg, \'will not stay shared\') != -1;
-    return if index(\\$msg, \'is not available\') != -1;
-} if $nc_attempt ; $code .= qq{} }
-
-require \'./test.pl\';
-curr_test($test);
-
-# some of the variables which the closure will access
-\\$global_scalar = 1000;
-\\@global_array = (2000, 2100, 2200, 2300);
-%global_hash = 3000..3009;
-
-my \\$fs_scalar = 4000;
-my \\@fs_array = (5000, 5100, 5200, 5300);
-my %fs_hash = 6000..6009;
-
-} ; print "not ok: got unexpected warning \\$msg\\\\n" ; if ( $where_declared eq \'filescope\' ) { } elsif ( $where_declared eq \'in_named\' ) { $code .= q{sub outer {
-  my $sub_scalar = 7000;
-  my @sub_array = (8000, 8100, 8200, 8300);
-  my %sub_hash = 9000..9009;
-} ; } elsif ( $where_declared eq \'in_anon\' ) { $code .= q{$outer = sub {
-  my $sub_scalar = 7000;
-  my @sub_array = (8000, 8100, 8200, 8300);
-  my %sub_hash = 9000..9009;
-} ; } else { die "What was $where_declared?" } if ( $within eq \'foreach\' ) { $code .= "
-      my \\$foreach = 12000;
-      my \\@list = (10000, 10010);
-      foreach \\$foreach (\\@list) {
-    " } elsif ( $within eq \'naked\' ) { $code .= "  { # naked block\\n" } elsif ( $within eq \'other_sub\' ) { $code .= "  sub inner_sub {\\n" } else { die "What was $within?" } $sub_test = $test ; @inners = ( qw!global_scalar global_array global_hash! , qw!fs_scalar fs_array fs_hash! ) ; push @inners , \'foreach\' if $within eq \'foreach\' ; if ( $where_declared ne \'filescope\' ) { push @inners , qw!sub_scalar sub_array sub_hash! ; } for $inner_sub_test ( @inners ) { if ( $inner_type eq \'named\' ) { $code .= "    sub named_$sub_test " } elsif ( $inner_type eq \'anon\' ) { $code .= "    \\$anon_$sub_test = sub " } else { die "What was $inner_type?" } if ( $inner_sub_test eq \'global_scalar\' ) { $code .= \'{ ++$global_scalar }\' } elsif ( $inner_sub_test eq \'fs_scalar\' ) { $code .= \'{ ++$fs_scalar }\' } elsif ( $inner_sub_test eq \'sub_scalar\' ) { $code .= \'{ ++$sub_scalar }\' } elsif ( $inner_sub_test eq \'global_array\' ) { $code .= \'{ ++$global_array[1] }\' } elsif ( $inner_sub_test eq \'fs_array\' ) { $code .= \'{ ++$fs_array[1] }\' } elsif ( $inner_sub_test eq \'sub_array\' ) { $code .= \'{ ++$sub_array[1] }\' } elsif ( $inner_sub_test eq \'global_hash\' ) { $code .= \'{ ++$global_hash{3002} }\' } elsif ( $inner_sub_test eq \'fs_hash\' ) { $code .= \'{ ++$fs_hash{6002} }\' } elsif ( $inner_sub_test eq \'sub_hash\' ) { $code .= \'{ ++$sub_hash{9002} }\' } elsif ( $inner_sub_test eq \'foreach\' ) { $code .= \'{ ++$foreach }\' } else { die "What was $inner_sub_test?" } if ( $inner_type eq \'anon\' ) { $code .= \';\' } $code .= "\\n" ; $sub_test ++ ; } $code .= "  }\\n\\n" ; if ( $where_declared eq \'in_named\' ) { $code .= "}\\n\\n" ; } elsif ( $where_declared eq \'in_anon\' ) { $code .= "};\\n\\n" ; } $code .= "undef \\$outer;\\n" if $undef_outer ; $code .= "&inner_sub;\\n" if $call_inner ; if ( $call_outer ) { if ( $where_declared eq \'in_named\' ) { $code .= "&outer;\\n\\n" ; } elsif ( $where_declared eq \'in_anon\' ) { $code .= "&\\$outer;\\n\\n" } } for $inner_sub_test ( @inners ) { $expected = $expected { $inner_sub_test } or die "expected $inner_sub_test missing" ; if ( $nc_attempt and substr ( $inner_sub_test , 0 , 4 ) eq "sub_" ) { $expected = 1 ; } if ( $inner_sub_test eq \'foreach\' ) { if ( $inner_type eq \'named\' ) { if ( $call_outer || ( $where_declared eq \'filescope\' ) ) { $expected = 12001 } else { $expected = 1 } } } my $desc = "$inner_type $where_declared $within $inner_sub_test" ; if ( $inner_type eq \'anon\' ) { $code .= "is(&\\$anon_$test, $expected, \'$desc\');\\n" } else { $code .= "is(&named_$test, $expected, \'$desc\');\\n" } $test ++ ; } if ( $Config { d_fork } and $^O ne \'VMS\' and $^O ne \'MSWin32\' and $^O ne \'NetWare\' ) { $| = 1 ; print "" ; $| = 0 ; pipe READ , WRITE or die "Can\'t make pipe: $!" ; pipe READ2 , WRITE2 or die "Can\'t make second pipe: $!" ; die "Can\'t fork: $!" unless defined ( $pid = open PERL , "|-" ) ; unless ( $pid ) { close READ ; close READ2 ; open STDOUT , ">&WRITE" or die "Can\'t redirect STDOUT: $!" ; open STDERR , ">&WRITE2" or die "Can\'t redirect STDERR: $!" ; exec which_perl ( ) , \'-w\' , \'-\' or die "Can\'t exec perl: $!" ; } else { close WRITE ; close WRITE2 ; print PERL $code ; close PERL ; { local $/ ; $output = join \'\' , < READ > ; $errors = join \'\' , < READ2 > ; } close READ ; close READ2 ; } } else { my $cmdfile = tempfile ( ) ; my $errfile = tempfile ( ) ; open CMD , ">$cmdfile" ; print CMD $code ; close CMD ; my $cmd = which_perl ( ) ; $cmd .= " -w $cmdfile 2>$errfile" ; if ( $^O eq \'VMS\' or $^O eq \'MSWin32\' or $^O eq \'NetWare\' ) { open PERL , "$cmd |" or die "Can\'t open pipe: $!\\n" ; { local $/ ; $output = join \'\' , < PERL > } close PERL ; } else { my $outfile = tempfile ( ) ; system "$cmd >$outfile" ; { local $/ ; open IN , $outfile ; $output = < IN > ; close IN } } if ( $? ) { printf "not ok: exited with error code %04X\\n" , $? ; exit ; } { local $/ ; open IN , $errfile ; $errors = < IN > ; close IN } } print $output ; curr_test ( $test ) ; print STDERR $errors ; unlike ( $output , qr/not ok/ , \'All good\' ) ; is ( $errors , \'\' , \'STDERR is silent\' ) ; if ( $debugging && ( $errors || $? || ( $output =~/not ok/ ) ) ) { my $lnum = 0 ; for $line ( split \'\\n\' , $code ) { printf "%3d:  %s\\n" , ++ $lnum , $line ; } } is ( $? , 0 , \'exited cleanly\' ) or diag ( sprintf "Error code $? = 0x%X" , $? ) ; print \'#\' , "-" x 30 , "\\n" if $debugging ; } }',
-            'start_line' => 196,
-            'indent' => 2,
-            'block_id' => 62
-          },
-          {
-            'token_num' => 960,
-            'has_warnings' => 1,
-            'end_line' => 478,
-            'src' => ' for $within ( qw!foreach naked other_sub! ) { my $test = curr_test ( ) ; $nc_attempt = 0 + ( ( $inner_type eq \'named\' ) || ( $within eq \'other_sub\' ) ) ; $call_inner = 0 + ( ( $inner_type eq \'anon\' ) && ( $within eq \'other_sub\' ) ) ; $call_outer = 0 + ( ( $inner_type eq \'anon\' ) && ( $within ne \'other_sub\' ) ) ; $undef_outer = 0 + ( ( $where_declared eq \'in_anon\' ) && ( not $call_outer ) ) ; $code = "# This is a test script built by t/op/closure.t\\n\\n" ; print qq{# inner_type:     $inner_type 
-# where_declared: $where_declared 
-# within:         $within
-# nc_attempt:     $nc_attempt
-# call_inner:     $call_inner
-# call_outer:     $call_outer
-# undef_outer:    $undef_outer
-} if $debugging ; $code .= qq{
-BEGIN { \\$SIG{__WARN__} = sub { 
-    my \\$msg = \\$_[0];
-} ; $code .= qq{    return if index(\\$msg, \'will not stay shared\') != -1;
-    return if index(\\$msg, \'is not available\') != -1;
-} if $nc_attempt ; $code .= qq{} }
-
-require \'./test.pl\';
-curr_test($test);
-
-# some of the variables which the closure will access
-\\$global_scalar = 1000;
-\\@global_array = (2000, 2100, 2200, 2300);
-%global_hash = 3000..3009;
-
-my \\$fs_scalar = 4000;
-my \\@fs_array = (5000, 5100, 5200, 5300);
-my %fs_hash = 6000..6009;
-
-} ; print "not ok: got unexpected warning \\$msg\\\\n" ; if ( $where_declared eq \'filescope\' ) { } elsif ( $where_declared eq \'in_named\' ) { $code .= q{sub outer {
-  my $sub_scalar = 7000;
-  my @sub_array = (8000, 8100, 8200, 8300);
-  my %sub_hash = 9000..9009;
-} ; } elsif ( $where_declared eq \'in_anon\' ) { $code .= q{$outer = sub {
-  my $sub_scalar = 7000;
-  my @sub_array = (8000, 8100, 8200, 8300);
-  my %sub_hash = 9000..9009;
-} ; } else { die "What was $where_declared?" } if ( $within eq \'foreach\' ) { $code .= "
-      my \\$foreach = 12000;
-      my \\@list = (10000, 10010);
-      foreach \\$foreach (\\@list) {
-    " } elsif ( $within eq \'naked\' ) { $code .= "  { # naked block\\n" } elsif ( $within eq \'other_sub\' ) { $code .= "  sub inner_sub {\\n" } else { die "What was $within?" } $sub_test = $test ; @inners = ( qw!global_scalar global_array global_hash! , qw!fs_scalar fs_array fs_hash! ) ; push @inners , \'foreach\' if $within eq \'foreach\' ; if ( $where_declared ne \'filescope\' ) { push @inners , qw!sub_scalar sub_array sub_hash! ; } for $inner_sub_test ( @inners ) { if ( $inner_type eq \'named\' ) { $code .= "    sub named_$sub_test " } elsif ( $inner_type eq \'anon\' ) { $code .= "    \\$anon_$sub_test = sub " } else { die "What was $inner_type?" } if ( $inner_sub_test eq \'global_scalar\' ) { $code .= \'{ ++$global_scalar }\' } elsif ( $inner_sub_test eq \'fs_scalar\' ) { $code .= \'{ ++$fs_scalar }\' } elsif ( $inner_sub_test eq \'sub_scalar\' ) { $code .= \'{ ++$sub_scalar }\' } elsif ( $inner_sub_test eq \'global_array\' ) { $code .= \'{ ++$global_array[1] }\' } elsif ( $inner_sub_test eq \'fs_array\' ) { $code .= \'{ ++$fs_array[1] }\' } elsif ( $inner_sub_test eq \'sub_array\' ) { $code .= \'{ ++$sub_array[1] }\' } elsif ( $inner_sub_test eq \'global_hash\' ) { $code .= \'{ ++$global_hash{3002} }\' } elsif ( $inner_sub_test eq \'fs_hash\' ) { $code .= \'{ ++$fs_hash{6002} }\' } elsif ( $inner_sub_test eq \'sub_hash\' ) { $code .= \'{ ++$sub_hash{9002} }\' } elsif ( $inner_sub_test eq \'foreach\' ) { $code .= \'{ ++$foreach }\' } else { die "What was $inner_sub_test?" } if ( $inner_type eq \'anon\' ) { $code .= \';\' } $code .= "\\n" ; $sub_test ++ ; } $code .= "  }\\n\\n" ; if ( $where_declared eq \'in_named\' ) { $code .= "}\\n\\n" ; } elsif ( $where_declared eq \'in_anon\' ) { $code .= "};\\n\\n" ; } $code .= "undef \\$outer;\\n" if $undef_outer ; $code .= "&inner_sub;\\n" if $call_inner ; if ( $call_outer ) { if ( $where_declared eq \'in_named\' ) { $code .= "&outer;\\n\\n" ; } elsif ( $where_declared eq \'in_anon\' ) { $code .= "&\\$outer;\\n\\n" } } for $inner_sub_test ( @inners ) { $expected = $expected { $inner_sub_test } or die "expected $inner_sub_test missing" ; if ( $nc_attempt and substr ( $inner_sub_test , 0 , 4 ) eq "sub_" ) { $expected = 1 ; } if ( $inner_sub_test eq \'foreach\' ) { if ( $inner_type eq \'named\' ) { if ( $call_outer || ( $where_declared eq \'filescope\' ) ) { $expected = 12001 } else { $expected = 1 } } } my $desc = "$inner_type $where_declared $within $inner_sub_test" ; if ( $inner_type eq \'anon\' ) { $code .= "is(&\\$anon_$test, $expected, \'$desc\');\\n" } else { $code .= "is(&named_$test, $expected, \'$desc\');\\n" } $test ++ ; } if ( $Config { d_fork } and $^O ne \'VMS\' and $^O ne \'MSWin32\' and $^O ne \'NetWare\' ) { $| = 1 ; print "" ; $| = 0 ; pipe READ , WRITE or die "Can\'t make pipe: $!" ; pipe READ2 , WRITE2 or die "Can\'t make second pipe: $!" ; die "Can\'t fork: $!" unless defined ( $pid = open PERL , "|-" ) ; unless ( $pid ) { close READ ; close READ2 ; open STDOUT , ">&WRITE" or die "Can\'t redirect STDOUT: $!" ; open STDERR , ">&WRITE2" or die "Can\'t redirect STDERR: $!" ; exec which_perl ( ) , \'-w\' , \'-\' or die "Can\'t exec perl: $!" ; } else { close WRITE ; close WRITE2 ; print PERL $code ; close PERL ; { local $/ ; $output = join \'\' , < READ > ; $errors = join \'\' , < READ2 > ; } close READ ; close READ2 ; } } else { my $cmdfile = tempfile ( ) ; my $errfile = tempfile ( ) ; open CMD , ">$cmdfile" ; print CMD $code ; close CMD ; my $cmd = which_perl ( ) ; $cmd .= " -w $cmdfile 2>$errfile" ; if ( $^O eq \'VMS\' or $^O eq \'MSWin32\' or $^O eq \'NetWare\' ) { open PERL , "$cmd |" or die "Can\'t open pipe: $!\\n" ; { local $/ ; $output = join \'\' , < PERL > } close PERL ; } else { my $outfile = tempfile ( ) ; system "$cmd >$outfile" ; { local $/ ; open IN , $outfile ; $output = < IN > ; close IN } } if ( $? ) { printf "not ok: exited with error code %04X\\n" , $? ; exit ; } { local $/ ; open IN , $errfile ; $errors = < IN > ; close IN } } print $output ; curr_test ( $test ) ; print STDERR $errors ; unlike ( $output , qr/not ok/ , \'All good\' ) ; is ( $errors , \'\' , \'STDERR is silent\' ) ; if ( $debugging && ( $errors || $? || ( $output =~/not ok/ ) ) ) { my $lnum = 0 ; for $line ( split \'\\n\' , $code ) { printf "%3d:  %s\\n" , ++ $lnum , $line ; } } is ( $? , 0 , \'exited cleanly\' ) or diag ( sprintf "Error code $? = 0x%X" , $? ) ; print \'#\' , "-" x 30 , "\\n" if $debugging ; }',
-            'start_line' => 199,
-            'indent' => 3,
-            'block_id' => 63
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 201,
-            'src' => ' my $test = curr_test ( ) ;',
-            'start_line' => 201,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 18,
-            'has_warnings' => 1,
-            'end_line' => 206,
-            'src' => ' $nc_attempt = 0 + ( ( $inner_type eq \'named\' ) || ( $within eq \'other_sub\' ) ) ;',
-            'start_line' => 204,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 18,
-            'has_warnings' => 1,
-            'end_line' => 209,
-            'src' => ' $call_inner = 0 + ( ( $inner_type eq \'anon\' ) && ( $within eq \'other_sub\' ) ) ;',
-            'start_line' => 207,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 18,
-            'has_warnings' => 1,
-            'end_line' => 212,
-            'src' => ' $call_outer = 0 + ( ( $inner_type eq \'anon\' ) && ( $within ne \'other_sub\' ) ) ;',
-            'start_line' => 210,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 17,
-            'has_warnings' => 1,
-            'end_line' => 215,
-            'src' => ' $undef_outer = 0 + ( ( $where_declared eq \'in_anon\' ) && ( not $call_outer ) ) ;',
-            'start_line' => 213,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 217,
-            'src' => ' $code = "# This is a test script built by t/op/closure.t\\n\\n" ;',
-            'start_line' => 217,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 1,
-            'end_line' => 219,
-            'src' => ' print qq{# inner_type:     $inner_type 
-# where_declared: $where_declared 
-# within:         $within
-# nc_attempt:     $nc_attempt
-# call_inner:     $call_inner
-# call_outer:     $call_outer
-# undef_outer:    $undef_outer
-} if $debugging ;',
-            'start_line' => 219,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 229,
-            'src' => ' $code .= qq{
-BEGIN { \\$SIG{__WARN__} = sub { 
-    my \\$msg = \\$_[0];
-} ;',
-            'start_line' => 229,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 1,
-            'end_line' => 235,
-            'src' => ' $code .= qq{    return if index(\\$msg, \'will not stay shared\') != -1;
-    return if index(\\$msg, \'is not available\') != -1;
-} if $nc_attempt ;',
-            'start_line' => 235,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 240,
-            'src' => ' $code .= qq{} }
-
-require \'./test.pl\';
-curr_test($test);
-
-# some of the variables which the closure will access
-\\$global_scalar = 1000;
-\\@global_array = (2000, 2100, 2200, 2300);
-%global_hash = 3000..3009;
-
-my \\$fs_scalar = 4000;
-my \\@fs_array = (5000, 5100, 5200, 5300);
-my %fs_hash = 6000..6009;
-
-} ;',
-            'start_line' => 240,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 241,
-            'src' => ' print "not ok: got unexpected warning \\$msg\\\\n" ;',
-            'start_line' => 241,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 260,
-            'src' => ' if ( $where_declared eq \'filescope\' ) { }',
-            'start_line' => 258,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 268,
-            'src' => ' elsif ( $where_declared eq \'in_named\' ) { $code .= q{sub outer {
-  my $sub_scalar = 7000;
-  my @sub_array = (8000, 8100, 8200, 8300);
-  my %sub_hash = 9000..9009;
-} ; }',
-            'start_line' => 260,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 261,
-            'src' => ' $code .= q{sub outer {
-  my $sub_scalar = 7000;
-  my @sub_array = (8000, 8100, 8200, 8300);
-  my %sub_hash = 9000..9009;
-} ;',
-            'start_line' => 261,
-            'indent' => 5,
-            'block_id' => 66
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 276,
-            'src' => ' elsif ( $where_declared eq \'in_anon\' ) { $code .= q{$outer = sub {
-  my $sub_scalar = 7000;
-  my @sub_array = (8000, 8100, 8200, 8300);
-  my %sub_hash = 9000..9009;
-} ; }',
-            'start_line' => 268,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 269,
-            'src' => ' $code .= q{$outer = sub {
-  my $sub_scalar = 7000;
-  my @sub_array = (8000, 8100, 8200, 8300);
-  my %sub_hash = 9000..9009;
-} ;',
-            'start_line' => 269,
-            'indent' => 5,
-            'block_id' => 67
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 278,
-            'src' => ' else { die "What was $where_declared?" }',
-            'start_line' => 276,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 286,
-            'src' => ' if ( $within eq \'foreach\' ) { $code .= "
-      my \\$foreach = 12000;
-      my \\@list = (10000, 10010);
-      foreach \\$foreach (\\@list) {
-    " }',
-            'start_line' => 280,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 288,
-            'src' => ' elsif ( $within eq \'naked\' ) { $code .= "  { # naked block\\n" }',
-            'start_line' => 286,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 290,
-            'src' => ' elsif ( $within eq \'other_sub\' ) { $code .= "  sub inner_sub {\\n" }',
-            'start_line' => 288,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 292,
-            'src' => ' else { die "What was $within?" }',
-            'start_line' => 290,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 294,
-            'src' => ' $sub_test = $test ;',
-            'start_line' => 294,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 14,
-            'has_warnings' => 0,
-            'end_line' => 296,
-            'src' => ' @inners = ( qw!global_scalar global_array global_hash! , qw!fs_scalar fs_array fs_hash! ) ;',
-            'start_line' => 295,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 9,
-            'has_warnings' => 1,
-            'end_line' => 297,
-            'src' => ' push @inners , \'foreach\' if $within eq \'foreach\' ;',
-            'start_line' => 297,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 16,
-            'has_warnings' => 1,
-            'end_line' => 300,
-            'src' => ' if ( $where_declared ne \'filescope\' ) { push @inners , qw!sub_scalar sub_array sub_hash! ; }',
-            'start_line' => 298,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 0,
-            'end_line' => 299,
-            'src' => ' push @inners , qw!sub_scalar sub_array sub_hash! ;',
-            'start_line' => 299,
-            'indent' => 5,
-            'block_id' => 73
-          },
-          {
-            'token_num' => 167,
-            'has_warnings' => 1,
-            'end_line' => 343,
-            'src' => ' for $inner_sub_test ( @inners ) { if ( $inner_type eq \'named\' ) { $code .= "    sub named_$sub_test " } elsif ( $inner_type eq \'anon\' ) { $code .= "    \\$anon_$sub_test = sub " } else { die "What was $inner_type?" } if ( $inner_sub_test eq \'global_scalar\' ) { $code .= \'{ ++$global_scalar }\' } elsif ( $inner_sub_test eq \'fs_scalar\' ) { $code .= \'{ ++$fs_scalar }\' } elsif ( $inner_sub_test eq \'sub_scalar\' ) { $code .= \'{ ++$sub_scalar }\' } elsif ( $inner_sub_test eq \'global_array\' ) { $code .= \'{ ++$global_array[1] }\' } elsif ( $inner_sub_test eq \'fs_array\' ) { $code .= \'{ ++$fs_array[1] }\' } elsif ( $inner_sub_test eq \'sub_array\' ) { $code .= \'{ ++$sub_array[1] }\' } elsif ( $inner_sub_test eq \'global_hash\' ) { $code .= \'{ ++$global_hash{3002} }\' } elsif ( $inner_sub_test eq \'fs_hash\' ) { $code .= \'{ ++$fs_hash{6002} }\' } elsif ( $inner_sub_test eq \'sub_hash\' ) { $code .= \'{ ++$sub_hash{9002} }\' } elsif ( $inner_sub_test eq \'foreach\' ) { $code .= \'{ ++$foreach }\' } else { die "What was $inner_sub_test?" } if ( $inner_type eq \'anon\' ) { $code .= \';\' } $code .= "\\n" ; $sub_test ++ ; }',
-            'start_line' => 301,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 305,
-            'src' => ' if ( $inner_type eq \'named\' ) { $code .= "    sub named_$sub_test " }',
-            'start_line' => 303,
-            'indent' => 5,
-            'block_id' => 74
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 307,
-            'src' => ' elsif ( $inner_type eq \'anon\' ) { $code .= "    \\$anon_$sub_test = sub " }',
-            'start_line' => 305,
-            'indent' => 5,
-            'block_id' => 74
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 309,
-            'src' => ' else { die "What was $inner_type?" }',
-            'start_line' => 307,
-            'indent' => 5,
-            'block_id' => 74
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 314,
-            'src' => ' if ( $inner_sub_test eq \'global_scalar\' ) { $code .= \'{ ++$global_scalar }\' }',
-            'start_line' => 312,
-            'indent' => 5,
-            'block_id' => 74
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 316,
-            'src' => ' elsif ( $inner_sub_test eq \'fs_scalar\' ) { $code .= \'{ ++$fs_scalar }\' }',
-            'start_line' => 314,
-            'indent' => 5,
-            'block_id' => 74
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 318,
-            'src' => ' elsif ( $inner_sub_test eq \'sub_scalar\' ) { $code .= \'{ ++$sub_scalar }\' }',
-            'start_line' => 316,
-            'indent' => 5,
-            'block_id' => 74
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 320,
-            'src' => ' elsif ( $inner_sub_test eq \'global_array\' ) { $code .= \'{ ++$global_array[1] }\' }',
-            'start_line' => 318,
-            'indent' => 5,
-            'block_id' => 74
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 322,
-            'src' => ' elsif ( $inner_sub_test eq \'fs_array\' ) { $code .= \'{ ++$fs_array[1] }\' }',
-            'start_line' => 320,
-            'indent' => 5,
-            'block_id' => 74
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 324,
-            'src' => ' elsif ( $inner_sub_test eq \'sub_array\' ) { $code .= \'{ ++$sub_array[1] }\' }',
-            'start_line' => 322,
-            'indent' => 5,
-            'block_id' => 74
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 326,
-            'src' => ' elsif ( $inner_sub_test eq \'global_hash\' ) { $code .= \'{ ++$global_hash{3002} }\' }',
-            'start_line' => 324,
-            'indent' => 5,
-            'block_id' => 74
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 328,
-            'src' => ' elsif ( $inner_sub_test eq \'fs_hash\' ) { $code .= \'{ ++$fs_hash{6002} }\' }',
-            'start_line' => 326,
-            'indent' => 5,
-            'block_id' => 74
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 330,
-            'src' => ' elsif ( $inner_sub_test eq \'sub_hash\' ) { $code .= \'{ ++$sub_hash{9002} }\' }',
-            'start_line' => 328,
-            'indent' => 5,
-            'block_id' => 74
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 332,
-            'src' => ' elsif ( $inner_sub_test eq \'foreach\' ) { $code .= \'{ ++$foreach }\' }',
-            'start_line' => 330,
-            'indent' => 5,
-            'block_id' => 74
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 334,
-            'src' => ' else { die "What was $inner_sub_test?" }',
-            'start_line' => 332,
-            'indent' => 5,
-            'block_id' => 74
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 339,
-            'src' => ' if ( $inner_type eq \'anon\' ) { $code .= \';\' }',
-            'start_line' => 337,
-            'indent' => 5,
-            'block_id' => 74
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 340,
-            'src' => ' $code .= "\\n" ;',
-            'start_line' => 340,
-            'indent' => 5,
-            'block_id' => 74
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 341,
-            'src' => ' $sub_test ++ ;',
-            'start_line' => 341,
-            'indent' => 5,
-            'block_id' => 74
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 346,
-            'src' => ' $code .= "  }\\n\\n" ;',
-            'start_line' => 346,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 351,
-            'src' => ' if ( $where_declared eq \'in_named\' ) { $code .= "}\\n\\n" ; }',
-            'start_line' => 349,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 350,
-            'src' => ' $code .= "}\\n\\n" ;',
-            'start_line' => 350,
-            'indent' => 5,
-            'block_id' => 90
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 353,
-            'src' => ' elsif ( $where_declared eq \'in_anon\' ) { $code .= "};\\n\\n" ; }',
-            'start_line' => 351,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 352,
-            'src' => ' $code .= "};\\n\\n" ;',
-            'start_line' => 352,
-            'indent' => 5,
-            'block_id' => 91
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 1,
-            'end_line' => 356,
-            'src' => ' $code .= "undef \\$outer;\\n" if $undef_outer ;',
-            'start_line' => 356,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 1,
-            'end_line' => 357,
-            'src' => ' $code .= "&inner_sub;\\n" if $call_inner ;',
-            'start_line' => 357,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 29,
-            'has_warnings' => 1,
-            'end_line' => 364,
-            'src' => ' if ( $call_outer ) { if ( $where_declared eq \'in_named\' ) { $code .= "&outer;\\n\\n" ; } elsif ( $where_declared eq \'in_anon\' ) { $code .= "&\\$outer;\\n\\n" } }',
-            'start_line' => 358,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 361,
-            'src' => ' if ( $where_declared eq \'in_named\' ) { $code .= "&outer;\\n\\n" ; }',
-            'start_line' => 359,
-            'indent' => 5,
-            'block_id' => 92
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 360,
-            'src' => ' $code .= "&outer;\\n\\n" ;',
-            'start_line' => 360,
-            'indent' => 6,
-            'block_id' => 93
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 363,
-            'src' => ' elsif ( $where_declared eq \'in_anon\' ) { $code .= "&\\$outer;\\n\\n" }',
-            'start_line' => 361,
-            'indent' => 5,
-            'block_id' => 92
-          },
-          {
-            'token_num' => 100,
-            'has_warnings' => 1,
-            'end_line' => 406,
-            'src' => ' for $inner_sub_test ( @inners ) { $expected = $expected { $inner_sub_test } or die "expected $inner_sub_test missing" ; if ( $nc_attempt and substr ( $inner_sub_test , 0 , 4 ) eq "sub_" ) { $expected = 1 ; } if ( $inner_sub_test eq \'foreach\' ) { if ( $inner_type eq \'named\' ) { if ( $call_outer || ( $where_declared eq \'filescope\' ) ) { $expected = 12001 } else { $expected = 1 } } } my $desc = "$inner_type $where_declared $within $inner_sub_test" ; if ( $inner_type eq \'anon\' ) { $code .= "is(&\\$anon_$test, $expected, \'$desc\');\\n" } else { $code .= "is(&named_$test, $expected, \'$desc\');\\n" } $test ++ ; }',
-            'start_line' => 367,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 10,
-            'has_warnings' => 1,
-            'end_line' => 369,
-            'src' => ' $expected = $expected { $inner_sub_test } or die "expected $inner_sub_test missing" ;',
-            'start_line' => 368,
-            'indent' => 5,
-            'block_id' => 95
-          },
-          {
-            'token_num' => 21,
-            'has_warnings' => 1,
-            'end_line' => 375,
-            'src' => ' if ( $nc_attempt and substr ( $inner_sub_test , 0 , 4 ) eq "sub_" ) { $expected = 1 ; }',
-            'start_line' => 372,
-            'indent' => 5,
-            'block_id' => 95
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 374,
-            'src' => ' $expected = 1 ;',
-            'start_line' => 374,
-            'indent' => 6,
-            'block_id' => 96
-          },
-          {
-            'token_num' => 37,
-            'has_warnings' => 1,
-            'end_line' => 396,
-            'src' => ' if ( $inner_sub_test eq \'foreach\' ) { if ( $inner_type eq \'named\' ) { if ( $call_outer || ( $where_declared eq \'filescope\' ) ) { $expected = 12001 } else { $expected = 1 } } }',
-            'start_line' => 388,
-            'indent' => 5,
-            'block_id' => 95
-          },
-          {
-            'token_num' => 29,
-            'has_warnings' => 1,
-            'end_line' => 395,
-            'src' => ' if ( $inner_type eq \'named\' ) { if ( $call_outer || ( $where_declared eq \'filescope\' ) ) { $expected = 12001 } else { $expected = 1 } }',
-            'start_line' => 389,
-            'indent' => 6,
-            'block_id' => 97
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 392,
-            'src' => ' if ( $call_outer || ( $where_declared eq \'filescope\' ) ) { $expected = 12001 }',
-            'start_line' => 390,
-            'indent' => 7,
-            'block_id' => 98
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 1,
-            'end_line' => 394,
-            'src' => ' else { $expected = 1 }',
-            'start_line' => 392,
-            'indent' => 7,
-            'block_id' => 98
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 399,
-            'src' => ' my $desc = "$inner_type $where_declared $within $inner_sub_test" ;',
-            'start_line' => 399,
-            'indent' => 5,
-            'block_id' => 95
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 402,
-            'src' => ' if ( $inner_type eq \'anon\' ) { $code .= "is(&\\$anon_$test, $expected, \'$desc\');\\n" }',
-            'start_line' => 400,
-            'indent' => 5,
-            'block_id' => 95
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 1,
-            'end_line' => 404,
-            'src' => ' else { $code .= "is(&named_$test, $expected, \'$desc\');\\n" }',
-            'start_line' => 402,
-            'indent' => 5,
-            'block_id' => 95
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 405,
-            'src' => ' $test ++ ;',
-            'start_line' => 405,
-            'indent' => 5,
-            'block_id' => 95
-          },
-          {
-            'token_num' => 146,
-            'has_warnings' => 1,
-            'end_line' => 436,
-            'src' => ' if ( $Config { d_fork } and $^O ne \'VMS\' and $^O ne \'MSWin32\' and $^O ne \'NetWare\' ) { $| = 1 ; print "" ; $| = 0 ; pipe READ , WRITE or die "Can\'t make pipe: $!" ; pipe READ2 , WRITE2 or die "Can\'t make second pipe: $!" ; die "Can\'t fork: $!" unless defined ( $pid = open PERL , "|-" ) ; unless ( $pid ) { close READ ; close READ2 ; open STDOUT , ">&WRITE" or die "Can\'t redirect STDOUT: $!" ; open STDERR , ">&WRITE2" or die "Can\'t redirect STDERR: $!" ; exec which_perl ( ) , \'-w\' , \'-\' or die "Can\'t exec perl: $!" ; } else { close WRITE ; close WRITE2 ; print PERL $code ; close PERL ; { local $/ ; $output = join \'\' , < READ > ; $errors = join \'\' , < READ2 > ; } close READ ; close READ2 ; } }',
-            'start_line' => 408,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 0,
-            'end_line' => 411,
-            'src' => ' $| = 1 ;',
-            'start_line' => 411,
-            'indent' => 5,
-            'block_id' => 103
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 411,
-            'src' => ' print "" ;',
-            'start_line' => 411,
-            'indent' => 5,
-            'block_id' => 103
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 0,
-            'end_line' => 411,
-            'src' => ' $| = 0 ;',
-            'start_line' => 411,
-            'indent' => 5,
-            'block_id' => 103
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 412,
-            'src' => ' pipe READ , WRITE or die "Can\'t make pipe: $!" ;',
-            'start_line' => 412,
-            'indent' => 5,
-            'block_id' => 103
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 413,
-            'src' => ' pipe READ2 , WRITE2 or die "Can\'t make second pipe: $!" ;',
-            'start_line' => 413,
-            'indent' => 5,
-            'block_id' => 103
-          },
-          {
-            'token_num' => 13,
-            'has_warnings' => 1,
-            'end_line' => 414,
-            'src' => ' die "Can\'t fork: $!" unless defined ( $pid = open PERL , "|-" ) ;',
-            'start_line' => 414,
-            'indent' => 5,
-            'block_id' => 103
-          },
-          {
-            'token_num' => 40,
-            'has_warnings' => 1,
-            'end_line' => 424,
-            'src' => ' unless ( $pid ) { close READ ; close READ2 ; open STDOUT , ">&WRITE" or die "Can\'t redirect STDOUT: $!" ; open STDERR , ">&WRITE2" or die "Can\'t redirect STDERR: $!" ; exec which_perl ( ) , \'-w\' , \'-\' or die "Can\'t exec perl: $!" ; }',
-            'start_line' => 415,
-            'indent' => 5,
-            'block_id' => 103
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 418,
-            'src' => ' close READ ;',
-            'start_line' => 418,
-            'indent' => 6,
-            'block_id' => 104
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 419,
-            'src' => ' close READ2 ;',
-            'start_line' => 419,
-            'indent' => 6,
-            'block_id' => 104
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 0,
-            'end_line' => 420,
-            'src' => ' open STDOUT , ">&WRITE" or die "Can\'t redirect STDOUT: $!" ;',
-            'start_line' => 420,
-            'indent' => 6,
-            'block_id' => 104
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 0,
-            'end_line' => 421,
-            'src' => ' open STDERR , ">&WRITE2" or die "Can\'t redirect STDERR: $!" ;',
-            'start_line' => 421,
-            'indent' => 6,
-            'block_id' => 104
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 423,
-            'src' => ' exec which_perl ( ) , \'-w\' , \'-\' or die "Can\'t exec perl: $!" ;',
-            'start_line' => 422,
-            'indent' => 6,
-            'block_id' => 104
-          },
-          {
-            'token_num' => 45,
-            'has_warnings' => 1,
-            'end_line' => 435,
-            'src' => ' else { close WRITE ; close WRITE2 ; print PERL $code ; close PERL ; { local $/ ; $output = join \'\' , < READ > ; $errors = join \'\' , < READ2 > ; } close READ ; close READ2 ; }',
-            'start_line' => 424,
-            'indent' => 5,
-            'block_id' => 103
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 426,
-            'src' => ' close WRITE ;',
-            'start_line' => 426,
-            'indent' => 6,
-            'block_id' => 105
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 427,
-            'src' => ' close WRITE2 ;',
-            'start_line' => 427,
-            'indent' => 6,
-            'block_id' => 105
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 428,
-            'src' => ' print PERL $code ;',
-            'start_line' => 428,
-            'indent' => 6,
-            'block_id' => 105
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 429,
-            'src' => ' close PERL ;',
-            'start_line' => 429,
-            'indent' => 6,
-            'block_id' => 105
-          },
-          {
-            'token_num' => 23,
-            'has_warnings' => 1,
-            'end_line' => 432,
-            'src' => ' { local $/ ; $output = join \'\' , < READ > ; $errors = join \'\' , < READ2 > ; }',
-            'start_line' => 430,
-            'indent' => 6,
-            'block_id' => 105
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 430,
-            'src' => ' local $/ ;',
-            'start_line' => 430,
-            'indent' => 7,
-            'block_id' => 106
-          },
-          {
-            'token_num' => 9,
-            'has_warnings' => 1,
-            'end_line' => 431,
-            'src' => ' $output = join \'\' , < READ > ;',
-            'start_line' => 431,
-            'indent' => 7,
-            'block_id' => 106
-          },
-          {
-            'token_num' => 9,
-            'has_warnings' => 1,
-            'end_line' => 432,
-            'src' => ' $errors = join \'\' , < READ2 > ;',
-            'start_line' => 432,
-            'indent' => 7,
-            'block_id' => 106
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 433,
-            'src' => ' close READ ;',
-            'start_line' => 433,
-            'indent' => 6,
-            'block_id' => 105
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 434,
-            'src' => ' close READ2 ;',
-            'start_line' => 434,
-            'indent' => 6,
-            'block_id' => 105
-          },
-          {
-            'token_num' => 142,
-            'has_warnings' => 1,
-            'end_line' => 460,
-            'src' => ' else { my $cmdfile = tempfile ( ) ; my $errfile = tempfile ( ) ; open CMD , ">$cmdfile" ; print CMD $code ; close CMD ; my $cmd = which_perl ( ) ; $cmd .= " -w $cmdfile 2>$errfile" ; if ( $^O eq \'VMS\' or $^O eq \'MSWin32\' or $^O eq \'NetWare\' ) { open PERL , "$cmd |" or die "Can\'t open pipe: $!\\n" ; { local $/ ; $output = join \'\' , < PERL > } close PERL ; } else { my $outfile = tempfile ( ) ; system "$cmd >$outfile" ; { local $/ ; open IN , $outfile ; $output = < IN > ; close IN } } if ( $? ) { printf "not ok: exited with error code %04X\\n" , $? ; exit ; } { local $/ ; open IN , $errfile ; $errors = < IN > ; close IN } }',
-            'start_line' => 436,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 438,
-            'src' => ' my $cmdfile = tempfile ( ) ;',
-            'start_line' => 438,
-            'indent' => 5,
-            'block_id' => 107
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 439,
-            'src' => ' my $errfile = tempfile ( ) ;',
-            'start_line' => 439,
-            'indent' => 5,
-            'block_id' => 107
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 1,
-            'end_line' => 440,
-            'src' => ' open CMD , ">$cmdfile" ;',
-            'start_line' => 440,
-            'indent' => 5,
-            'block_id' => 107
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 440,
-            'src' => ' print CMD $code ;',
-            'start_line' => 440,
-            'indent' => 5,
-            'block_id' => 107
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 440,
-            'src' => ' close CMD ;',
-            'start_line' => 440,
-            'indent' => 5,
-            'block_id' => 107
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 441,
-            'src' => ' my $cmd = which_perl ( ) ;',
-            'start_line' => 441,
-            'indent' => 5,
-            'block_id' => 107
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 442,
-            'src' => ' $cmd .= " -w $cmdfile 2>$errfile" ;',
-            'start_line' => 442,
-            'indent' => 5,
-            'block_id' => 107
-          },
-          {
-            'token_num' => 40,
-            'has_warnings' => 1,
-            'end_line' => 450,
-            'src' => ' if ( $^O eq \'VMS\' or $^O eq \'MSWin32\' or $^O eq \'NetWare\' ) { open PERL , "$cmd |" or die "Can\'t open pipe: $!\\n" ; { local $/ ; $output = join \'\' , < PERL > } close PERL ; }',
-            'start_line' => 443,
-            'indent' => 5,
-            'block_id' => 107
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 447,
-            'src' => ' open PERL , "$cmd |" or die "Can\'t open pipe: $!\\n" ;',
-            'start_line' => 447,
-            'indent' => 6,
-            'block_id' => 108
-          },
-          {
-            'token_num' => 13,
-            'has_warnings' => 1,
-            'end_line' => 448,
-            'src' => ' { local $/ ; $output = join \'\' , < PERL > }',
-            'start_line' => 448,
-            'indent' => 6,
-            'block_id' => 108
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 448,
-            'src' => ' local $/ ;',
-            'start_line' => 448,
-            'indent' => 7,
-            'block_id' => 109
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 449,
-            'src' => ' close PERL ;',
-            'start_line' => 449,
-            'indent' => 6,
-            'block_id' => 108
-          },
-          {
-            'token_num' => 31,
-            'has_warnings' => 1,
-            'end_line' => 454,
-            'src' => ' else { my $outfile = tempfile ( ) ; system "$cmd >$outfile" ; { local $/ ; open IN , $outfile ; $output = < IN > ; close IN } }',
-            'start_line' => 450,
-            'indent' => 5,
-            'block_id' => 107
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 451,
-            'src' => ' my $outfile = tempfile ( ) ;',
-            'start_line' => 451,
-            'indent' => 6,
-            'block_id' => 110
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 452,
-            'src' => ' system "$cmd >$outfile" ;',
-            'start_line' => 452,
-            'indent' => 6,
-            'block_id' => 110
-          },
-          {
-            'token_num' => 18,
-            'has_warnings' => 1,
-            'end_line' => 453,
-            'src' => ' { local $/ ; open IN , $outfile ; $output = < IN > ; close IN }',
-            'start_line' => 453,
-            'indent' => 6,
-            'block_id' => 110
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 453,
-            'src' => ' local $/ ;',
-            'start_line' => 453,
-            'indent' => 7,
-            'block_id' => 111
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 1,
-            'end_line' => 453,
-            'src' => ' open IN , $outfile ;',
-            'start_line' => 453,
-            'indent' => 7,
-            'block_id' => 111
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 1,
-            'end_line' => 453,
-            'src' => ' $output = < IN > ;',
-            'start_line' => 453,
-            'indent' => 7,
-            'block_id' => 111
-          },
-          {
-            'token_num' => 13,
-            'has_warnings' => 0,
-            'end_line' => 458,
-            'src' => ' if ( $? ) { printf "not ok: exited with error code %04X\\n" , $? ; exit ; }',
-            'start_line' => 455,
-            'indent' => 5,
-            'block_id' => 107
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 456,
-            'src' => ' printf "not ok: exited with error code %04X\\n" , $? ;',
-            'start_line' => 456,
-            'indent' => 6,
-            'block_id' => 112
-          },
-          {
-            'token_num' => 2,
-            'has_warnings' => 0,
-            'end_line' => 457,
-            'src' => ' exit ;',
-            'start_line' => 457,
-            'indent' => 6,
-            'block_id' => 112
-          },
-          {
-            'token_num' => 18,
-            'has_warnings' => 1,
-            'end_line' => 459,
-            'src' => ' { local $/ ; open IN , $errfile ; $errors = < IN > ; close IN }',
-            'start_line' => 459,
-            'indent' => 5,
-            'block_id' => 107
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 459,
-            'src' => ' local $/ ;',
-            'start_line' => 459,
-            'indent' => 6,
-            'block_id' => 113
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 1,
-            'end_line' => 459,
-            'src' => ' open IN , $errfile ;',
-            'start_line' => 459,
-            'indent' => 6,
-            'block_id' => 113
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 1,
-            'end_line' => 459,
-            'src' => ' $errors = < IN > ;',
-            'start_line' => 459,
-            'indent' => 6,
-            'block_id' => 113
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 461,
-            'src' => ' print $output ;',
-            'start_line' => 461,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 1,
-            'end_line' => 462,
-            'src' => ' curr_test ( $test ) ;',
-            'start_line' => 462,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 463,
-            'src' => ' print STDERR $errors ;',
-            'start_line' => 463,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 467,
-            'src' => ' unlike ( $output , qr/not ok/ , \'All good\' ) ;',
-            'start_line' => 467,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 9,
-            'has_warnings' => 1,
-            'end_line' => 468,
-            'src' => ' is ( $errors , \'\' , \'STDERR is silent\' ) ;',
-            'start_line' => 468,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 43,
-            'has_warnings' => 1,
-            'end_line' => 474,
-            'src' => ' if ( $debugging && ( $errors || $? || ( $output =~/not ok/ ) ) ) { my $lnum = 0 ; for $line ( split \'\\n\' , $code ) { printf "%3d:  %s\\n" , ++ $lnum , $line ; } }',
-            'start_line' => 469,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 470,
-            'src' => ' my $lnum = 0 ;',
-            'start_line' => 470,
-            'indent' => 5,
-            'block_id' => 114
-          },
-          {
-            'token_num' => 18,
-            'has_warnings' => 1,
-            'end_line' => 473,
-            'src' => ' for $line ( split \'\\n\' , $code ) { printf "%3d:  %s\\n" , ++ $lnum , $line ; }',
-            'start_line' => 471,
-            'indent' => 5,
-            'block_id' => 114
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 472,
-            'src' => ' printf "%3d:  %s\\n" , ++ $lnum , $line ;',
-            'start_line' => 472,
-            'indent' => 6,
-            'block_id' => 115
-          },
-          {
-            'token_num' => 17,
-            'has_warnings' => 1,
-            'end_line' => 475,
-            'src' => ' is ( $? , 0 , \'exited cleanly\' ) or diag ( sprintf "Error code $? = 0x%X" , $? ) ;',
-            'start_line' => 475,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 476,
-            'src' => ' print \'#\' , "-" x 30 , "\\n" if $debugging ;',
-            'start_line' => 476,
-            'indent' => 4,
-            'block_id' => 64
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 486,
-            'src' => ' $some_var = 123 ;',
-            'start_line' => 486,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 13,
-            'has_warnings' => 1,
-            'end_line' => 487,
-            'src' => ' is ( $vanishing_pad-> ( \'$some_var\' ) , 123 , \'RT #9535\' ) ;',
-            'start_line' => 487,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 492,
-            'src' => ' sub deleteme { $a = sub { eval \'$newvar\' } }',
-            'start_line' => 492,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 0,
-            'end_line' => 493,
-            'src' => ' deleteme ( ) ;',
-            'start_line' => 493,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 0,
-            'end_line' => 494,
-            'src' => ' * deleteme = sub { } ;',
-            'start_line' => 494,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 495,
-            'src' => ' $newvar = 123 ;',
-            'start_line' => 495,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 496,
-            'src' => ' is ( $a-> ( ) , 123 , \'RT #9535\' ) ;',
-            'start_line' => 496,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 502,
-            'src' => ' $x = 123 ;',
-            'start_line' => 502,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 507,
-            'src' => ' $a = eval q(
-    eval q[
-	sub { eval \'$x\' }
-    ]
-) ;',
-            'start_line' => 503,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 0,
-            'end_line' => 508,
-            'src' => ' @a = ( \'\\1\\1\\1\\1\\1\\1\\1\' ) x 100 ;',
-            'start_line' => 508,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 509,
-            'src' => ' is ( $a-> ( ) , 123 , \'RT #9535\' ) ;',
-            'start_line' => 509,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 513,
-            'src' => ' my $outer ;',
-            'start_line' => 513,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 31,
-            'has_warnings' => 1,
-            'end_line' => 520,
-            'src' => ' sub { my $x ; $x = eval \'sub { $outer }\' ; $x-> ( ) ; $a = [ 99 ] ; $x-> ( ) ; }-> ( ) ;',
-            'start_line' => 514,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 515,
-            'src' => ' my $x ;',
-            'start_line' => 515,
-            'indent' => 1,
-            'block_id' => 121
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 1,
-            'end_line' => 516,
-            'src' => ' $x = eval \'sub { $outer }\' ;',
-            'start_line' => 516,
-            'indent' => 1,
-            'block_id' => 121
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 1,
-            'end_line' => 517,
-            'src' => ' $x-> ( ) ;',
-            'start_line' => 517,
-            'indent' => 1,
-            'block_id' => 121
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 1,
-            'end_line' => 518,
-            'src' => ' $a = [ 99 ] ;',
-            'start_line' => 518,
-            'indent' => 1,
-            'block_id' => 121
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 1,
-            'end_line' => 519,
-            'src' => ' $x-> ( ) ;',
-            'start_line' => 519,
-            'indent' => 1,
-            'block_id' => 121
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 521,
-            'src' => ' pass ( ) ;',
-            'start_line' => 521,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 26,
-            'has_warnings' => 1,
-            'end_line' => 529,
-            'src' => ' { my $x = "foooobar" ; $x =~ s/o//eg ; is ( $x , \'fbar\' , \'RT #17605\' ) ; }',
-            'start_line' => 525,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 526,
-            'src' => ' my $x = "foooobar" ;',
-            'start_line' => 526,
-            'indent' => 1,
-            'block_id' => 122
-          },
-          {
-            'token_num' => 10,
-            'has_warnings' => 1,
-            'end_line' => 527,
-            'src' => ' $x =~ s/o//eg ;',
-            'start_line' => 527,
-            'indent' => 1,
-            'block_id' => 122
-          },
-          {
-            'token_num' => 9,
-            'has_warnings' => 1,
-            'end_line' => 528,
-            'src' => ' is ( $x , \'fbar\' , \'RT #17605\' ) ;',
-            'start_line' => 528,
-            'indent' => 1,
-            'block_id' => 122
-          },
-          {
-            'token_num' => 60,
-            'has_warnings' => 1,
-            'end_line' => 542,
-            'src' => ' { my $x = 1 ; sub fake { is ( sub { \'eval$x\' }-> ( ) , 1 , \'RT #18286\' ) ; { $x ; is ( sub { \'eval$x\' }-> ( ) , 1 , \'RT #18286\' ) ; } is ( sub { \'eval$x\' }-> ( ) , 1 , \'RT #18286\' ) ; } }',
-            'start_line' => 535,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 536,
-            'src' => ' my $x = 1 ;',
-            'start_line' => 536,
-            'indent' => 1,
-            'block_id' => 123
-          },
-          {
-            'token_num' => 53,
-            'has_warnings' => 1,
-            'end_line' => 541,
-            'src' => ' sub fake { is ( sub { \'eval$x\' }-> ( ) , 1 , \'RT #18286\' ) ; { $x ; is ( sub { \'eval$x\' }-> ( ) , 1 , \'RT #18286\' ) ; } is ( sub { \'eval$x\' }-> ( ) , 1 , \'RT #18286\' ) ; }',
-            'start_line' => 537,
-            'indent' => 1,
-            'block_id' => 123
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 538,
-            'src' => ' is ( sub { \'eval$x\' }-> ( ) , 1 , \'RT #18286\' ) ;',
-            'start_line' => 538,
-            'indent' => 2,
-            'block_id' => 124
-          },
-          {
-            'token_num' => 19,
-            'has_warnings' => 1,
-            'end_line' => 539,
-            'src' => ' { $x ; is ( sub { \'eval$x\' }-> ( ) , 1 , \'RT #18286\' ) ; }',
-            'start_line' => 539,
-            'indent' => 2,
-            'block_id' => 124
-          },
-          {
-            'token_num' => 2,
-            'has_warnings' => 1,
-            'end_line' => 539,
-            'src' => ' $x ;',
-            'start_line' => 539,
-            'indent' => 3,
-            'block_id' => 126
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 539,
-            'src' => ' is ( sub { \'eval$x\' }-> ( ) , 1 , \'RT #18286\' ) ;',
-            'start_line' => 539,
-            'indent' => 3,
-            'block_id' => 126
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 540,
-            'src' => ' is ( sub { \'eval$x\' }-> ( ) , 1 , \'RT #18286\' ) ;',
-            'start_line' => 540,
-            'indent' => 2,
-            'block_id' => 124
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 0,
-            'end_line' => 543,
-            'src' => ' fake ( ) ;',
-            'start_line' => 543,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 43,
-            'has_warnings' => 1,
-            'end_line' => 553,
-            'src' => ' { $x = 1 ; my $x = 2 ; sub tmp { sub { eval \'$x\' } } my $a = tmp ( ) ; undef & tmp ; is ( $a-> ( ) , 2 , "undefining a sub shouldn\'t alter visibility of outer lexicals" ) ; }',
-            'start_line' => 545,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 546,
-            'src' => ' $x = 1 ;',
-            'start_line' => 546,
-            'indent' => 1,
-            'block_id' => 129
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 547,
-            'src' => ' my $x = 2 ;',
-            'start_line' => 547,
-            'indent' => 1,
-            'block_id' => 129
-          },
-          {
-            'token_num' => 9,
-            'has_warnings' => 0,
-            'end_line' => 548,
-            'src' => ' sub tmp { sub { eval \'$x\' } }',
-            'start_line' => 548,
-            'indent' => 1,
-            'block_id' => 129
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 0,
-            'end_line' => 549,
-            'src' => ' my $a = tmp ( ) ;',
-            'start_line' => 549,
-            'indent' => 1,
-            'block_id' => 129
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 0,
-            'end_line' => 550,
-            'src' => ' undef & tmp ;',
-            'start_line' => 550,
-            'indent' => 1,
-            'block_id' => 129
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 552,
-            'src' => ' is ( $a-> ( ) , 2 , "undefining a sub shouldn\'t alter visibility of outer lexicals" ) ;',
-            'start_line' => 551,
-            'indent' => 1,
-            'block_id' => 129
-          },
-          {
-            'token_num' => 34,
-            'has_warnings' => 1,
-            'end_line' => 570,
-            'src' => ' sub linger { my $x = Watch-> new ( $_ [ 0 ] , \'2\' ) ; sub { $x ; my $y ; sub { $y ; } ; } ; }',
-            'start_line' => 563,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 564,
-            'src' => ' my $x = Watch-> new ( $_ [ 0 ] , \'2\' ) ;',
-            'start_line' => 564,
-            'indent' => 1,
-            'block_id' => 134
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 569,
-            'src' => ' sub { $x ; my $y ; sub { $y ; } ; } ;',
-            'start_line' => 565,
-            'indent' => 1,
-            'block_id' => 134
-          },
-          {
-            'token_num' => 2,
-            'has_warnings' => 1,
-            'end_line' => 566,
-            'src' => ' $x ;',
-            'start_line' => 566,
-            'indent' => 2,
-            'block_id' => 135
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 567,
-            'src' => ' my $y ;',
-            'start_line' => 567,
-            'indent' => 2,
-            'block_id' => 135
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 1,
-            'end_line' => 568,
-            'src' => ' sub { $y ; } ;',
-            'start_line' => 568,
-            'indent' => 2,
-            'block_id' => 135
-          },
-          {
-            'token_num' => 2,
-            'has_warnings' => 1,
-            'end_line' => 568,
-            'src' => ' $y ;',
-            'start_line' => 568,
-            'indent' => 3,
-            'block_id' => 136
-          },
-          {
-            'token_num' => 22,
-            'has_warnings' => 1,
-            'end_line' => 575,
-            'src' => ' { my $watch = \'1\' ; linger ( \\ $watch ) ; is ( $watch , \'12\' , \'RT #1028\' ) ; }',
-            'start_line' => 571,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 572,
-            'src' => ' my $watch = \'1\' ;',
-            'start_line' => 572,
-            'indent' => 1,
-            'block_id' => 137
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 1,
-            'end_line' => 573,
-            'src' => ' linger ( \\ $watch ) ;',
-            'start_line' => 573,
-            'indent' => 1,
-            'block_id' => 137
-          },
-          {
-            'token_num' => 9,
-            'has_warnings' => 1,
-            'end_line' => 574,
-            'src' => ' is ( $watch , \'12\' , \'RT #1028\' ) ;',
-            'start_line' => 574,
-            'indent' => 1,
-            'block_id' => 137
-          },
-          {
-            'token_num' => 27,
-            'has_warnings' => 1,
-            'end_line' => 583,
-            'src' => ' sub linger2 { my $obj = Watch-> new ( $_ [ 0 ] , \'2\' ) ; sub { sub { $obj } } ; }',
-            'start_line' => 580,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 581,
-            'src' => ' my $obj = Watch-> new ( $_ [ 0 ] , \'2\' ) ;',
-            'start_line' => 581,
-            'indent' => 1,
-            'block_id' => 138
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 582,
-            'src' => ' sub { sub { $obj } } ;',
-            'start_line' => 582,
-            'indent' => 1,
-            'block_id' => 138
-          },
-          {
-            'token_num' => 22,
-            'has_warnings' => 1,
-            'end_line' => 588,
-            'src' => ' { my $watch = \'1\' ; linger2 ( \\ $watch ) ; is ( $watch , 12 , \'RT #10085\' ) ; }',
-            'start_line' => 584,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 585,
-            'src' => ' my $watch = \'1\' ;',
-            'start_line' => 585,
-            'indent' => 1,
-            'block_id' => 141
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 1,
-            'end_line' => 586,
-            'src' => ' linger2 ( \\ $watch ) ;',
-            'start_line' => 586,
-            'indent' => 1,
-            'block_id' => 141
-          },
-          {
-            'token_num' => 9,
-            'has_warnings' => 1,
-            'end_line' => 587,
-            'src' => ' is ( $watch , 12 , \'RT #10085\' ) ;',
-            'start_line' => 587,
-            'indent' => 1,
-            'block_id' => 141
-          },
-          {
-            'token_num' => 27,
-            'has_warnings' => 1,
-            'end_line' => 599,
-            'src' => ' { my $x = 1 ; sub f16302 { sub { is ( $x , 1 , \'RT #16302\' ) ; }-> ( ) ; } }',
-            'start_line' => 592,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 593,
-            'src' => ' my $x = 1 ;',
-            'start_line' => 593,
-            'indent' => 1,
-            'block_id' => 142
-          },
-          {
-            'token_num' => 20,
-            'has_warnings' => 1,
-            'end_line' => 598,
-            'src' => ' sub f16302 { sub { is ( $x , 1 , \'RT #16302\' ) ; }-> ( ) ; }',
-            'start_line' => 594,
-            'indent' => 1,
-            'block_id' => 142
-          },
-          {
-            'token_num' => 16,
-            'has_warnings' => 1,
-            'end_line' => 597,
-            'src' => ' sub { is ( $x , 1 , \'RT #16302\' ) ; }-> ( ) ;',
-            'start_line' => 595,
-            'indent' => 2,
-            'block_id' => 143
-          },
-          {
-            'token_num' => 9,
-            'has_warnings' => 1,
-            'end_line' => 596,
-            'src' => ' is ( $x , 1 , \'RT #16302\' ) ;',
-            'start_line' => 596,
-            'indent' => 3,
-            'block_id' => 144
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 0,
-            'end_line' => 600,
-            'src' => ' f16302 ( ) ;',
-            'start_line' => 600,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 60,
-            'has_warnings' => 1,
-            'end_line' => 611,
-            'src' => ' { my %a ; for my $x ( 7 , 11 ) { $a { $x } = sub { $x = $x ; sub { eval \'$x\' } } ; } is ( $a { 7 }-> ( )-> ( ) + $a { 11 }-> ( )-> ( ) , 18 ) ; }',
-            'start_line' => 605,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 606,
-            'src' => ' my %a ;',
-            'start_line' => 606,
-            'indent' => 1,
-            'block_id' => 145
-          },
-          {
-            'token_num' => 28,
-            'has_warnings' => 1,
-            'end_line' => 609,
-            'src' => ' for my $x ( 7 , 11 ) { $a { $x } = sub { $x = $x ; sub { eval \'$x\' } } ; }',
-            'start_line' => 607,
-            'indent' => 1,
-            'block_id' => 145
-          },
-          {
-            'token_num' => 18,
-            'has_warnings' => 1,
-            'end_line' => 608,
-            'src' => ' $a { $x } = sub { $x = $x ; sub { eval \'$x\' } } ;',
-            'start_line' => 608,
-            'indent' => 2,
-            'block_id' => 146
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 608,
-            'src' => ' $x = $x ;',
-            'start_line' => 608,
-            'indent' => 3,
-            'block_id' => 147
-          },
-          {
-            'token_num' => 27,
-            'has_warnings' => 1,
-            'end_line' => 610,
-            'src' => ' is ( $a { 7 }-> ( )-> ( ) + $a { 11 }-> ( )-> ( ) , 18 ) ;',
-            'start_line' => 610,
-            'indent' => 1,
-            'block_id' => 145
-          },
-          {
-            'token_num' => 17,
-            'has_warnings' => 1,
-            'end_line' => 630,
-            'src' => ' { fresh_perl_is ( q{        print
-            sub {$_[0]->(@_)} -> (
-                sub {
-                    $_[1]
-                        ?  $_[0]->($_[0], $_[1] - 1) .  sub {"x"}->()
-                        : "y"
-                },   
-                2
-            )
-            , "\\n"
-        ;
-} , "yxx\\n" , { stderr => 1 } , \'RT #23265\' ) ; }',
-            'start_line' => 613,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 617,
-            'src' => ' fresh_perl_is ( q{        print
-            sub {$_[0]->(@_)} -> (
-                sub {
-                    $_[1]
-                        ?  $_[0]->($_[0], $_[1] - 1) .  sub {"x"}->()
-                        : "y"
-                },   
-                2
-            )
-            , "\\n"
-        ;
-} , "yxx\\n" , { stderr => 1 } , \'RT #23265\' ) ;',
-            'start_line' => 617,
-            'indent' => 1,
-            'block_id' => 149
-          },
-          {
-            'token_num' => 17,
-            'has_warnings' => 1,
-            'end_line' => 638,
-            'src' => ' { fresh_perl_is ( \'sub d {die} my $f; $f = sub {my $x=1; $f = 0; d}; eval{$f->()}; print qq(ok\\n)\' , "ok\\n" , { stderr => 1 } , \'RT #24914\' ) ; }',
-            'start_line' => 632,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 637,
-            'src' => ' fresh_perl_is ( \'sub d {die} my $f; $f = sub {my $x=1; $f = 0; d}; eval{$f->()}; print qq(ok\\n)\' , "ok\\n" , { stderr => 1 } , \'RT #24914\' ) ;',
-            'start_line' => 636,
-            'indent' => 1,
-            'block_id' => 150
-          },
-          {
-            'token_num' => 47,
-            'has_warnings' => 1,
-            'end_line' => 654,
-            'src' => ' { my $flag = 0 ; sub X::DESTROY { $flag = 1 } { my $x ; BEGIN { $x = \\ & newsub } sub newsub { } ; $x = bless { } , \'X\' ; } is ( $flag , 1 ) ; }',
-            'start_line' => 644,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 645,
-            'src' => ' my $flag = 0 ;',
-            'start_line' => 645,
-            'indent' => 1,
-            'block_id' => 151
-          },
-          {
-            'token_num' => 26,
-            'has_warnings' => 1,
-            'end_line' => 652,
-            'src' => ' { my $x ; BEGIN { $x = \\ & newsub } sub newsub { } ; $x = bless { } , \'X\' ; }',
-            'start_line' => 647,
-            'indent' => 1,
-            'block_id' => 151
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 648,
-            'src' => ' my $x ;',
-            'start_line' => 648,
-            'indent' => 2,
-            'block_id' => 153
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 650,
-            'src' => ' sub newsub { } ;',
-            'start_line' => 650,
-            'indent' => 2,
-            'block_id' => 153
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 0,
-            'end_line' => 650,
-            'src' => ' sub newsub { }',
-            'start_line' => 650,
-            'indent' => 2,
-            'block_id' => 154
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 651,
-            'src' => ' $x = bless { } , \'X\' ;',
-            'start_line' => 651,
-            'indent' => 2,
-            'block_id' => 153
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 653,
-            'src' => ' is ( $flag , 1 ) ;',
-            'start_line' => 653,
-            'indent' => 1,
-            'block_id' => 151
-          },
-          {
-            'token_num' => 17,
-            'has_warnings' => 1,
-            'end_line' => 659,
-            'src' => ' sub f { my $x if $_ [ 0 ] ; sub { \\ $x } }',
-            'start_line' => 656,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 0,
-            'end_line' => 657,
-            'src' => ' my $x if $_ [ 0 ] ;',
-            'start_line' => 657,
-            'indent' => 1,
-            'block_id' => 156
-          },
-          {
-            'token_num' => 48,
-            'has_warnings' => 1,
-            'end_line' => 670,
-            'src' => ' { f ( 1 ) ; my $c1 = f ( 0 ) ; my $c2 = f ( 0 ) ; my $r1 = $c1-> ( ) ; my $r2 = $c2-> ( ) ; isnt ( $r1 , $r2 , "don\'t copy a stale lexical; crate a fresh undef one instead" ) ; }',
-            'start_line' => 661,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 662,
-            'src' => ' f ( 1 ) ;',
-            'start_line' => 662,
-            'indent' => 1,
-            'block_id' => 158
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 0,
-            'end_line' => 663,
-            'src' => ' my $c1 = f ( 0 ) ;',
-            'start_line' => 663,
-            'indent' => 1,
-            'block_id' => 158
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 0,
-            'end_line' => 664,
-            'src' => ' my $c2 = f ( 0 ) ;',
-            'start_line' => 664,
-            'indent' => 1,
-            'block_id' => 158
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 666,
-            'src' => ' my $r1 = $c1-> ( ) ;',
-            'start_line' => 666,
-            'indent' => 1,
-            'block_id' => 158
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 667,
-            'src' => ' my $r2 = $c2-> ( ) ;',
-            'start_line' => 667,
-            'indent' => 1,
-            'block_id' => 158
-          },
-          {
-            'token_num' => 9,
-            'has_warnings' => 1,
-            'end_line' => 669,
-            'src' => ' isnt ( $r1 , $r2 , "don\'t copy a stale lexical; crate a fresh undef one instead" ) ;',
-            'start_line' => 668,
-            'indent' => 1,
-            'block_id' => 158
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 675,
-            'src' => ' my $x = 7 ;',
-            'start_line' => 675,
-            'indent' => 1,
-            'block_id' => 159
-          },
-          {
-            'token_num' => 18,
-            'has_warnings' => 1,
-            'end_line' => 676,
-            'src' => ' { if ( $x ) { ( ) = "tralala" ; blonk ( ) } ; 0 }',
-            'start_line' => 676,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 676,
-            'src' => ' if ( $x ) { ( ) = "tralala" ; blonk ( ) } ;',
-            'start_line' => 676,
-            'indent' => 1,
-            'block_id' => 160
-          },
-          {
-            'token_num' => 14,
-            'has_warnings' => 1,
-            'end_line' => 676,
-            'src' => ' if ( $x ) { ( ) = "tralala" ; blonk ( ) }',
-            'start_line' => 676,
-            'indent' => 1,
-            'block_id' => 160
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 676,
-            'src' => ' ( ) = "tralala" ;',
-            'start_line' => 676,
-            'indent' => 2,
-            'block_id' => 161
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');
@@ -30675,14 +27490,6 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '',
             'name' => 'Config'
-          },
-          {
-            'args' => '',
-            'name' => 'strict'
-          },
-          {
-            'args' => '  qw ! $test !',
-            'name' => 'vars'
           }
         ]
 , 'Compiler::Lexer::get_used_modules');

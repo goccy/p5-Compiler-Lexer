@@ -394,12 +394,12 @@ subtest 'tokenize' => sub {
                    'line' => 13
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalVar',
                    'data' => '$Config',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
                    'line' => 13
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2970,7 +2970,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $perl = shift ;',
             'start_line' => 121,
             'indent' => 1,
-            'block_id' => 3
+            'block_id' => 2
           },
           {
             'token_num' => 5,
@@ -2979,7 +2979,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $probes = shift ;',
             'start_line' => 122,
             'indent' => 1,
-            'block_id' => 3
+            'block_id' => 2
           },
           {
             'token_num' => 5,
@@ -2988,7 +2988,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $expected = shift ;',
             'start_line' => 123,
             'indent' => 1,
-            'block_id' => 3
+            'block_id' => 2
           },
           {
             'token_num' => 5,
@@ -2997,7 +2997,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $name = shift ;',
             'start_line' => 124,
             'indent' => 1,
-            'block_id' => 3
+            'block_id' => 2
           },
           {
             'token_num' => 7,
@@ -3006,7 +3006,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my ( $reader , $writer ) ;',
             'start_line' => 126,
             'indent' => 1,
-            'block_id' => 3
+            'block_id' => 2
           },
           {
             'token_num' => 27,
@@ -3015,7 +3015,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $pid = open2 ( $reader , $writer , $dtrace , \'-q\' , \'-n\' , \'BEGIN { trace("ready!\\n") }\' , \'-n\' , $probes , \'-c\' , $Perl , ) ;',
             'start_line' => 128,
             'indent' => 1,
-            'block_id' => 3
+            'block_id' => 2
           },
           {
             'token_num' => 10,
@@ -3024,7 +3024,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' chomp ( my $throwaway = < $reader > ) ;',
             'start_line' => 138,
             'indent' => 1,
-            'block_id' => 3
+            'block_id' => 2
           },
           {
             'token_num' => 7,
@@ -3033,7 +3033,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $throwaway eq "ready!" or die "Unexpected \'ready!\' result from DTrace: $throwaway" ;',
             'start_line' => 139,
             'indent' => 1,
-            'block_id' => 3
+            'block_id' => 2
           },
           {
             'token_num' => 4,
@@ -3042,7 +3042,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' print $writer $perl ;',
             'start_line' => 142,
             'indent' => 1,
-            'block_id' => 3
+            'block_id' => 2
           },
           {
             'token_num' => 3,
@@ -3051,7 +3051,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' close $writer ;',
             'start_line' => 143,
             'indent' => 1,
-            'block_id' => 3
+            'block_id' => 2
           },
           {
             'token_num' => 3,
@@ -3060,7 +3060,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' local $/ ;',
             'start_line' => 146,
             'indent' => 1,
-            'block_id' => 3
+            'block_id' => 2
           },
           {
             'token_num' => 7,
@@ -3069,7 +3069,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $result = < $reader > ;',
             'start_line' => 147,
             'indent' => 1,
-            'block_id' => 3
+            'block_id' => 2
           },
           {
             'token_num' => 7,
@@ -3078,7 +3078,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' waitpid ( $pid , 0 ) ;',
             'start_line' => 150,
             'indent' => 1,
-            'block_id' => 3
+            'block_id' => 2
           },
           {
             'token_num' => 7,
@@ -3087,7 +3087,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $child_exit_status = $? >> 8 ;',
             'start_line' => 151,
             'indent' => 1,
-            'block_id' => 3
+            'block_id' => 2
           },
           {
             'token_num' => 7,
@@ -3096,7 +3096,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' die "Unexpected error from DTrace: $result" if $child_exit_status != 0 ;',
             'start_line' => 152,
             'indent' => 1,
-            'block_id' => 3
+            'block_id' => 2
           },
           {
             'token_num' => 9,
@@ -3105,7 +3105,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' like ( $result , $expected , $name ) ;',
             'start_line' => 155,
             'indent' => 1,
-            'block_id' => 3
+            'block_id' => 2
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

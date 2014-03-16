@@ -23552,12 +23552,12 @@ subtest 'tokenize' => sub {
                    'line' => 355
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalVar',
                    'data' => '$Config',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
                    'line' => 355
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -36815,7 +36815,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $a = "aa" ;',
             'start_line' => 361,
             'indent' => 1,
-            'block_id' => 32
+            'block_id' => 31
           },
           {
             'token_num' => 4,
@@ -36824,7 +36824,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $a &= "a" ;',
             'start_line' => 362,
             'indent' => 1,
-            'block_id' => 32
+            'block_id' => 31
           },
           {
             'token_num' => 11,
@@ -36833,7 +36833,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ok ( $a =~/a+$/ , \'ASCII "a" is NUL-terminated\' ) ;',
             'start_line' => 363,
             'indent' => 1,
-            'block_id' => 32
+            'block_id' => 31
           },
           {
             'token_num' => 4,
@@ -36842,7 +36842,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $b = "bb\\x{100}" ;',
             'start_line' => 365,
             'indent' => 1,
-            'block_id' => 32
+            'block_id' => 31
           },
           {
             'token_num' => 4,
@@ -36851,7 +36851,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $b &= "b" ;',
             'start_line' => 366,
             'indent' => 1,
-            'block_id' => 32
+            'block_id' => 31
           },
           {
             'token_num' => 11,
@@ -36860,7 +36860,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ok ( $b =~/b+$/ , \'Unicode "b" is NUL-terminated\' ) ;',
             'start_line' => 367,
             'indent' => 1,
-            'block_id' => 32
+            'block_id' => 31
           },
           {
             'token_num' => 156,
@@ -36878,7 +36878,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $a = chr ( 0x101 ) x 0x101 ;',
             'start_line' => 371,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 32
           },
           {
             'token_num' => 9,
@@ -36887,7 +36887,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $b = chr ( 0x0FF ) x 0x0FF ;',
             'start_line' => 372,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 32
           },
           {
             'token_num' => 6,
@@ -36896,7 +36896,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $c = $a | $b ;',
             'start_line' => 374,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 32
           },
           {
             'token_num' => 19,
@@ -36905,7 +36905,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $c , chr ( 0x1FF ) x 0xFF . chr ( 0x101 ) x 2 ) ;',
             'start_line' => 375,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 32
           },
           {
             'token_num' => 6,
@@ -36914,7 +36914,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $c = $b | $a ;',
             'start_line' => 377,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 32
           },
           {
             'token_num' => 19,
@@ -36923,7 +36923,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $c , chr ( 0x1FF ) x 0xFF . chr ( 0x101 ) x 2 ) ;',
             'start_line' => 378,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 32
           },
           {
             'token_num' => 6,
@@ -36932,7 +36932,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $c = $a & $b ;',
             'start_line' => 380,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 32
           },
           {
             'token_num' => 12,
@@ -36941,7 +36941,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $c , chr ( 0x001 ) x 0x0FF ) ;',
             'start_line' => 381,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 32
           },
           {
             'token_num' => 6,
@@ -36950,7 +36950,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $c = $b & $a ;',
             'start_line' => 383,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 32
           },
           {
             'token_num' => 12,
@@ -36959,7 +36959,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $c , chr ( 0x001 ) x 0x0FF ) ;',
             'start_line' => 384,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 32
           },
           {
             'token_num' => 6,
@@ -36968,7 +36968,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $c = $a ^ $b ;',
             'start_line' => 386,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 32
           },
           {
             'token_num' => 19,
@@ -36977,7 +36977,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $c , chr ( 0x1FE ) x 0x0FF . chr ( 0x101 ) x 2 ) ;',
             'start_line' => 387,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 32
           },
           {
             'token_num' => 6,
@@ -36986,7 +36986,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $c = $b ^ $a ;',
             'start_line' => 389,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 32
           },
           {
             'token_num' => 19,
@@ -36995,7 +36995,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $c , chr ( 0x1FE ) x 0x0FF . chr ( 0x101 ) x 2 ) ;',
             'start_line' => 390,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 32
           },
           {
             'token_num' => 43,
@@ -37013,7 +37013,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $a = chr ( 0x101 ) x 0x101 ;',
             'start_line' => 394,
             'indent' => 1,
-            'block_id' => 34
+            'block_id' => 33
           },
           {
             'token_num' => 9,
@@ -37022,7 +37022,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $b = chr ( 0x0FF ) x 0x0FF ;',
             'start_line' => 395,
             'indent' => 1,
-            'block_id' => 34
+            'block_id' => 33
           },
           {
             'token_num' => 4,
@@ -37031,7 +37031,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $a |= $b ;',
             'start_line' => 397,
             'indent' => 1,
-            'block_id' => 34
+            'block_id' => 33
           },
           {
             'token_num' => 19,
@@ -37040,7 +37040,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $a , chr ( 0x1FF ) x 0xFF . chr ( 0x101 ) x 2 ) ;',
             'start_line' => 398,
             'indent' => 1,
-            'block_id' => 34
+            'block_id' => 33
           },
           {
             'token_num' => 43,
@@ -37058,7 +37058,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $a = chr ( 0x101 ) x 0x101 ;',
             'start_line' => 402,
             'indent' => 1,
-            'block_id' => 35
+            'block_id' => 34
           },
           {
             'token_num' => 9,
@@ -37067,7 +37067,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $b = chr ( 0x0FF ) x 0x0FF ;',
             'start_line' => 403,
             'indent' => 1,
-            'block_id' => 35
+            'block_id' => 34
           },
           {
             'token_num' => 4,
@@ -37076,7 +37076,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $b |= $a ;',
             'start_line' => 405,
             'indent' => 1,
-            'block_id' => 35
+            'block_id' => 34
           },
           {
             'token_num' => 19,
@@ -37085,7 +37085,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $b , chr ( 0x1FF ) x 0xFF . chr ( 0x101 ) x 2 ) ;',
             'start_line' => 406,
             'indent' => 1,
-            'block_id' => 35
+            'block_id' => 34
           },
           {
             'token_num' => 36,
@@ -37103,7 +37103,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $a = chr ( 0x101 ) x 0x101 ;',
             'start_line' => 410,
             'indent' => 1,
-            'block_id' => 36
+            'block_id' => 35
           },
           {
             'token_num' => 9,
@@ -37112,7 +37112,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $b = chr ( 0x0FF ) x 0x0FF ;',
             'start_line' => 411,
             'indent' => 1,
-            'block_id' => 36
+            'block_id' => 35
           },
           {
             'token_num' => 4,
@@ -37121,7 +37121,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $a &= $b ;',
             'start_line' => 413,
             'indent' => 1,
-            'block_id' => 36
+            'block_id' => 35
           },
           {
             'token_num' => 12,
@@ -37130,7 +37130,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $a , chr ( 0x001 ) x 0x0FF ) ;',
             'start_line' => 414,
             'indent' => 1,
-            'block_id' => 36
+            'block_id' => 35
           },
           {
             'token_num' => 36,
@@ -37148,7 +37148,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $a = chr ( 0x101 ) x 0x101 ;',
             'start_line' => 418,
             'indent' => 1,
-            'block_id' => 37
+            'block_id' => 36
           },
           {
             'token_num' => 9,
@@ -37157,7 +37157,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $b = chr ( 0x0FF ) x 0x0FF ;',
             'start_line' => 419,
             'indent' => 1,
-            'block_id' => 37
+            'block_id' => 36
           },
           {
             'token_num' => 4,
@@ -37166,7 +37166,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $b &= $a ;',
             'start_line' => 421,
             'indent' => 1,
-            'block_id' => 37
+            'block_id' => 36
           },
           {
             'token_num' => 12,
@@ -37175,7 +37175,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $b , chr ( 0x001 ) x 0x0FF ) ;',
             'start_line' => 422,
             'indent' => 1,
-            'block_id' => 37
+            'block_id' => 36
           },
           {
             'token_num' => 43,
@@ -37193,7 +37193,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $a = chr ( 0x101 ) x 0x101 ;',
             'start_line' => 426,
             'indent' => 1,
-            'block_id' => 38
+            'block_id' => 37
           },
           {
             'token_num' => 9,
@@ -37202,7 +37202,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $b = chr ( 0x0FF ) x 0x0FF ;',
             'start_line' => 427,
             'indent' => 1,
-            'block_id' => 38
+            'block_id' => 37
           },
           {
             'token_num' => 4,
@@ -37211,7 +37211,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $a ^= $b ;',
             'start_line' => 429,
             'indent' => 1,
-            'block_id' => 38
+            'block_id' => 37
           },
           {
             'token_num' => 19,
@@ -37220,7 +37220,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $a , chr ( 0x1FE ) x 0x0FF . chr ( 0x101 ) x 2 ) ;',
             'start_line' => 430,
             'indent' => 1,
-            'block_id' => 38
+            'block_id' => 37
           },
           {
             'token_num' => 43,
@@ -37238,7 +37238,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $a = chr ( 0x101 ) x 0x101 ;',
             'start_line' => 434,
             'indent' => 1,
-            'block_id' => 39
+            'block_id' => 38
           },
           {
             'token_num' => 9,
@@ -37247,7 +37247,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $b = chr ( 0x0FF ) x 0x0FF ;',
             'start_line' => 435,
             'indent' => 1,
-            'block_id' => 39
+            'block_id' => 38
           },
           {
             'token_num' => 4,
@@ -37256,7 +37256,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $b ^= $a ;',
             'start_line' => 437,
             'indent' => 1,
-            'block_id' => 39
+            'block_id' => 38
           },
           {
             'token_num' => 19,
@@ -37265,7 +37265,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $b , chr ( 0x1FE ) x 0x0FF . chr ( 0x101 ) x 2 ) ;',
             'start_line' => 438,
             'indent' => 1,
-            'block_id' => 39
+            'block_id' => 38
           },
           {
             'token_num' => 5,
@@ -37274,7 +37274,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' skip "EBCDIC" if $Is_EBCDIC ;',
             'start_line' => 444,
             'indent' => 1,
-            'block_id' => 40
+            'block_id' => 39
           },
           {
             'token_num' => 5,
@@ -37283,7 +37283,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $str = "\\x{10000}\\x{800}" ;',
             'start_line' => 446,
             'indent' => 1,
-            'block_id' => 40
+            'block_id' => 39
           },
           {
             'token_num' => 4,
@@ -37292,7 +37292,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' no warnings "utf8" ;',
             'start_line' => 450,
             'indent' => 1,
-            'block_id' => 40
+            'block_id' => 39
           },
           {
             'token_num' => 14,
@@ -37301,7 +37301,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' { use bytes ; $str =~ s/\\C\\C\\z// ; }',
             'start_line' => 451,
             'indent' => 1,
-            'block_id' => 40
+            'block_id' => 39
           },
           {
             'token_num' => 3,
@@ -37310,7 +37310,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' use bytes ;',
             'start_line' => 451,
             'indent' => 2,
-            'block_id' => 41
+            'block_id' => 40
           },
           {
             'token_num' => 9,
@@ -37319,7 +37319,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $str =~ s/\\C\\C\\z// ;',
             'start_line' => 451,
             'indent' => 2,
-            'block_id' => 41
+            'block_id' => 40
           },
           {
             'token_num' => 5,
@@ -37328,7 +37328,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $ref = "\\x{10000}\\0" ;',
             'start_line' => 454,
             'indent' => 1,
-            'block_id' => 40
+            'block_id' => 39
           },
           {
             'token_num' => 8,
@@ -37337,7 +37337,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( ~~ $str , $ref ) ;',
             'start_line' => 455,
             'indent' => 1,
-            'block_id' => 40
+            'block_id' => 39
           },
           {
             'token_num' => 4,
@@ -37346,7 +37346,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $str = "\\x{10000}\\x{800}" ;',
             'start_line' => 460,
             'indent' => 1,
-            'block_id' => 40
+            'block_id' => 39
           },
           {
             'token_num' => 14,
@@ -37355,7 +37355,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' { use bytes ; $str =~ s/\\C\\C\\z/\\0\\0\\0/ ; }',
             'start_line' => 461,
             'indent' => 1,
-            'block_id' => 40
+            'block_id' => 39
           },
           {
             'token_num' => 3,
@@ -37364,7 +37364,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' use bytes ;',
             'start_line' => 461,
             'indent' => 2,
-            'block_id' => 42
+            'block_id' => 41
           },
           {
             'token_num' => 9,
@@ -37373,7 +37373,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $str =~ s/\\C\\C\\z/\\0\\0\\0/ ;',
             'start_line' => 461,
             'indent' => 2,
-            'block_id' => 42
+            'block_id' => 41
           },
           {
             'token_num' => 5,
@@ -37382,7 +37382,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $ref = "\\x{10000}\\0\\0\\0\\0" ;',
             'start_line' => 464,
             'indent' => 1,
-            'block_id' => 40
+            'block_id' => 39
           },
           {
             'token_num' => 10,
@@ -37391,7 +37391,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( ~~ $str , $ref , "use bytes with long replacement" ) ;',
             'start_line' => 465,
             'indent' => 1,
-            'block_id' => 40
+            'block_id' => 39
           },
           {
             'token_num' => 3,
@@ -37418,7 +37418,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' for my $chr ( qw/S A H G X ( * F/ ) { for my $op ( qw/| & ^/ ) { my $co = ord $chr ; my $so = ord $str ; $res { "$chr$op$str" } = eval qq/chr($co $op $so)/ ; } }',
             'start_line' => 473,
             'indent' => 1,
-            'block_id' => 43
+            'block_id' => 42
           },
           {
             'token_num' => 34,
@@ -37427,7 +37427,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' for my $op ( qw/| & ^/ ) { my $co = ord $chr ; my $so = ord $str ; $res { "$chr$op$str" } = eval qq/chr($co $op $so)/ ; }',
             'start_line' => 474,
             'indent' => 2,
-            'block_id' => 44
+            'block_id' => 43
           },
           {
             'token_num' => 6,
@@ -37436,7 +37436,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $co = ord $chr ;',
             'start_line' => 475,
             'indent' => 3,
-            'block_id' => 45
+            'block_id' => 44
           },
           {
             'token_num' => 6,
@@ -37445,7 +37445,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $so = ord $str ;',
             'start_line' => 476,
             'indent' => 3,
-            'block_id' => 45
+            'block_id' => 44
           },
           {
             'token_num' => 11,
@@ -37454,7 +37454,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $res { "$chr$op$str" } = eval qq/chr($co $op $so)/ ;',
             'start_line' => 477,
             'indent' => 3,
-            'block_id' => 45
+            'block_id' => 44
           },
           {
             'token_num' => 7,
@@ -37463,7 +37463,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $res { "undef|$str" } = $str ;',
             'start_line' => 480,
             'indent' => 1,
-            'block_id' => 43
+            'block_id' => 42
           },
           {
             'token_num' => 7,
@@ -37472,7 +37472,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $res { "undef&$str" } = "" ;',
             'start_line' => 481,
             'indent' => 1,
-            'block_id' => 43
+            'block_id' => 42
           },
           {
             'token_num' => 7,
@@ -37481,7 +37481,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $res { "undef^$str" } = $str ;',
             'start_line' => 482,
             'indent' => 1,
-            'block_id' => 43
+            'block_id' => 42
           },
           {
             'token_num' => 8,
@@ -37544,7 +37544,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my ( $got , $orig , $op , $str , $name ) = @_ ;',
             'start_line' => 493,
             'indent' => 1,
-            'block_id' => 48
+            'block_id' => 47
           },
           {
             'token_num' => 19,
@@ -37553,7 +37553,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( substr ( $got , 0 , 1 ) , $res { "$orig$op$str" } , $name ) ;',
             'start_line' => 494,
             'indent' => 1,
-            'block_id' => 48
+            'block_id' => 47
           },
           {
             'token_num' => 389,
@@ -37571,7 +37571,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my ( $val , $orig , $type ) = @$_ ;',
             'start_line' => 510,
             'indent' => 1,
-            'block_id' => 50
+            'block_id' => 49
           },
           {
             'token_num' => 277,
@@ -37580,7 +37580,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' for ( [ "x" , "string" ] , [ "\\x{100}" , "utf8" ] ) { my ( $str , $desc ) = @$_ ; $warn = 0 ; is_first ( $val | $str , $orig , "|" , $str , "$type | $desc" ) ; is_first ( $val & $str , $orig , "&" , $str , "$type & $desc" ) ; is_first ( $val ^ $str , $orig , "^" , $str , "$type ^ $desc" ) ; is_first ( $str | $val , $orig , "|" , $str , "$desc | $type" ) ; is_first ( $str & $val , $orig , "&" , $str , "$desc & $type" ) ; is_first ( $str ^ $val , $orig , "^" , $str , "$desc ^ $type" ) ; my $new ; ( $new = $val ) |= $str ; is_first ( $new , $orig , "|" , $str , "$type |= $desc" ) ; ( $new = $val ) &= $str ; is_first ( $new , $orig , "&" , $str , "$type &= $desc" ) ; ( $new = $val ) ^= $str ; is_first ( $new , $orig , "^" , $str , "$type ^= $desc" ) ; ( $new = $str ) |= $val ; is_first ( $new , $orig , "|" , $str , "$desc |= $type" ) ; ( $new = $str ) &= $val ; is_first ( $new , $orig , "&" , $str , "$desc &= $type" ) ; ( $new = $str ) ^= $val ; is_first ( $new , $orig , "^" , $str , "$desc ^= $type" ) ; if ( $orig eq "undef" ) { is ( $warn , 10 , "no duplicate warnings" ) ; } else { is ( $warn , 0 , "no warnings" ) ; } }',
             'start_line' => 512,
             'indent' => 1,
-            'block_id' => 50
+            'block_id' => 49
           },
           {
             'token_num' => 9,
@@ -37589,7 +37589,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my ( $str , $desc ) = @$_ ;',
             'start_line' => 513,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 50
           },
           {
             'token_num' => 4,
@@ -37598,7 +37598,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $warn = 0 ;',
             'start_line' => 515,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 50
           },
           {
             'token_num' => 15,
@@ -37607,7 +37607,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is_first ( $val | $str , $orig , "|" , $str , "$type | $desc" ) ;',
             'start_line' => 517,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 50
           },
           {
             'token_num' => 15,
@@ -37616,7 +37616,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is_first ( $val & $str , $orig , "&" , $str , "$type & $desc" ) ;',
             'start_line' => 518,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 50
           },
           {
             'token_num' => 15,
@@ -37625,7 +37625,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is_first ( $val ^ $str , $orig , "^" , $str , "$type ^ $desc" ) ;',
             'start_line' => 519,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 50
           },
           {
             'token_num' => 15,
@@ -37634,7 +37634,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is_first ( $str | $val , $orig , "|" , $str , "$desc | $type" ) ;',
             'start_line' => 521,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 50
           },
           {
             'token_num' => 15,
@@ -37643,7 +37643,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is_first ( $str & $val , $orig , "&" , $str , "$desc & $type" ) ;',
             'start_line' => 522,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 50
           },
           {
             'token_num' => 15,
@@ -37652,7 +37652,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is_first ( $str ^ $val , $orig , "^" , $str , "$desc ^ $type" ) ;',
             'start_line' => 523,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 50
           },
           {
             'token_num' => 3,
@@ -37661,7 +37661,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $new ;',
             'start_line' => 525,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 50
           },
           {
             'token_num' => 8,
@@ -37670,7 +37670,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ( $new = $val ) |= $str ;',
             'start_line' => 526,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 50
           },
           {
             'token_num' => 13,
@@ -37679,7 +37679,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is_first ( $new , $orig , "|" , $str , "$type |= $desc" ) ;',
             'start_line' => 527,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 50
           },
           {
             'token_num' => 8,
@@ -37688,7 +37688,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ( $new = $val ) &= $str ;',
             'start_line' => 528,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 50
           },
           {
             'token_num' => 13,
@@ -37697,7 +37697,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is_first ( $new , $orig , "&" , $str , "$type &= $desc" ) ;',
             'start_line' => 529,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 50
           },
           {
             'token_num' => 8,
@@ -37706,7 +37706,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ( $new = $val ) ^= $str ;',
             'start_line' => 530,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 50
           },
           {
             'token_num' => 13,
@@ -37715,7 +37715,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is_first ( $new , $orig , "^" , $str , "$type ^= $desc" ) ;',
             'start_line' => 531,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 50
           },
           {
             'token_num' => 8,
@@ -37724,7 +37724,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ( $new = $str ) |= $val ;',
             'start_line' => 533,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 50
           },
           {
             'token_num' => 13,
@@ -37733,7 +37733,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is_first ( $new , $orig , "|" , $str , "$desc |= $type" ) ;',
             'start_line' => 534,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 50
           },
           {
             'token_num' => 8,
@@ -37742,7 +37742,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ( $new = $str ) &= $val ;',
             'start_line' => 535,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 50
           },
           {
             'token_num' => 13,
@@ -37751,7 +37751,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is_first ( $new , $orig , "&" , $str , "$desc &= $type" ) ;',
             'start_line' => 536,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 50
           },
           {
             'token_num' => 8,
@@ -37760,7 +37760,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ( $new = $str ) ^= $val ;',
             'start_line' => 537,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 50
           },
           {
             'token_num' => 13,
@@ -37769,7 +37769,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is_first ( $new , $orig , "^" , $str , "$desc ^= $type" ) ;',
             'start_line' => 538,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 50
           },
           {
             'token_num' => 17,
@@ -37778,7 +37778,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( $orig eq "undef" ) { is ( $warn , 10 , "no duplicate warnings" ) ; }',
             'start_line' => 540,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 50
           },
           {
             'token_num' => 9,
@@ -37787,7 +37787,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $warn , 10 , "no duplicate warnings" ) ;',
             'start_line' => 542,
             'indent' => 3,
-            'block_id' => 52
+            'block_id' => 51
           },
           {
             'token_num' => 12,
@@ -37796,7 +37796,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' else { is ( $warn , 0 , "no warnings" ) ; }',
             'start_line' => 544,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 50
           },
           {
             'token_num' => 9,
@@ -37805,7 +37805,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $warn , 0 , "no warnings" ) ;',
             'start_line' => 545,
             'indent' => 3,
-            'block_id' => 53
+            'block_id' => 52
           },
           {
             'token_num' => 3,
@@ -37832,7 +37832,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' package Bar ;',
             'start_line' => 553,
             'indent' => 1,
-            'block_id' => 54
+            'block_id' => 53
           },
           {
             'token_num' => 12,
@@ -37841,7 +37841,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' use overload q/""/ => sub { $strval } ;',
             'start_line' => 554,
             'indent' => 1,
-            'block_id' => 54
+            'block_id' => 53
           },
           {
             'token_num' => 3,
@@ -37850,7 +37850,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' package Baz ;',
             'start_line' => 556,
             'indent' => 1,
-            'block_id' => 54
+            'block_id' => 53
           },
           {
             'token_num' => 12,
@@ -37859,7 +37859,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' use overload q/|/ => sub { "y" } ;',
             'start_line' => 557,
             'indent' => 1,
-            'block_id' => 54
+            'block_id' => 53
           },
           {
             'token_num' => 21,
@@ -37877,7 +37877,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' bless ( [ ] , "Bar" ) | "x" ;',
             'start_line' => 560,
             'indent' => 0,
-            'block_id' => 56
+            'block_id' => 55
           },
           {
             'token_num' => 12,

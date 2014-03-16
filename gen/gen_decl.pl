@@ -490,6 +490,7 @@ Symbol          	RightBracket        	]
 Modifier        	ArrayDereference    	@{
 Modifier        	HashDereference     	%{
 Modifier        	ScalarDereference   	${
+Modifier            CodeDereference         &{
 Modifier        	ShortScalarDereference	
 Modifier        	ShortArrayDereference	@$
 Modifier        	ShortHashDereference	%$

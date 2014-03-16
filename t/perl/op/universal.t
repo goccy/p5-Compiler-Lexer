@@ -1161,12 +1161,12 @@ subtest 'tokenize' => sub {
                    'line' => 29
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalVar',
                    'data' => '$Alice',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
                    'line' => 31
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3294,12 +3294,12 @@ subtest 'tokenize' => sub {
                    'line' => 85
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@Cedric',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 85
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3708,12 +3708,12 @@ subtest 'tokenize' => sub {
                    'line' => 95
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@Cedric',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 97
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5850,12 +5850,12 @@ subtest 'tokenize' => sub {
                    'line' => 126
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalVar',
                    'data' => '$aversion',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
                    'line' => 128
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6192,21 +6192,12 @@ subtest 'tokenize' => sub {
                    'line' => 132
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 132
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 132
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6246,12 +6237,12 @@ subtest 'tokenize' => sub {
                    'line' => 132
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalHashVar',
                    'data' => '%UNIVERSAL',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalHashVar,
                    'line' => 132
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7191,21 +7182,12 @@ subtest 'tokenize' => sub {
                    'line' => 156
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 156
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 156
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7245,12 +7227,12 @@ subtest 'tokenize' => sub {
                    'line' => 156
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'HashVar',
                    'data' => '%UNIVERSAL',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_HashVar,
                    'line' => 156
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8793,12 +8775,12 @@ subtest 'tokenize' => sub {
                    'line' => 193
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@X',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 198
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9477,12 +9459,12 @@ subtest 'tokenize' => sub {
                    'line' => 220
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@Bar',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 222
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -11115,12 +11097,12 @@ subtest 'tokenize' => sub {
                    'line' => 252
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@splatt',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 254
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -11358,12 +11340,12 @@ subtest 'tokenize' => sub {
                    'line' => 256
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@splatt',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 259
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -12591,12 +12573,12 @@ subtest 'tokenize' => sub {
                    'line' => 295
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@RT66112',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 296
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -12861,12 +12843,12 @@ subtest 'tokenize' => sub {
                    'line' => 302
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@RT66112',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 304
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -12960,12 +12942,12 @@ subtest 'tokenize' => sub {
                    'line' => 304
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@RT66112',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 305
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -13059,12 +13041,12 @@ subtest 'tokenize' => sub {
                    'line' => 305
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@RT66112',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 306
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -13284,12 +13266,12 @@ subtest 'tokenize' => sub {
                    'line' => 307
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@RT66112',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 309
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -13383,12 +13365,12 @@ subtest 'tokenize' => sub {
                    'line' => 309
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@RT66112',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 310
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -13482,12 +13464,12 @@ subtest 'tokenize' => sub {
                    'line' => 310
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@RT66112',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 311
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -13707,12 +13689,12 @@ subtest 'tokenize' => sub {
                    'line' => 312
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@RT66112',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 314
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -13806,12 +13788,12 @@ subtest 'tokenize' => sub {
                    'line' => 314
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@RT66112',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 315
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -13905,12 +13887,12 @@ subtest 'tokenize' => sub {
                    'line' => 315
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@RT66112',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 316
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -14184,12 +14166,12 @@ subtest 'tokenize' => sub {
                    'line' => 317
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@RT66112',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 319
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -14283,12 +14265,12 @@ subtest 'tokenize' => sub {
                    'line' => 319
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@RT66112',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 320
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -14508,12 +14490,12 @@ subtest 'tokenize' => sub {
                    'line' => 321
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@RT66112',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 323
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -14607,12 +14589,12 @@ subtest 'tokenize' => sub {
                    'line' => 323
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@RT66112',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 324
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -14841,12 +14823,12 @@ subtest 'tokenize' => sub {
                    'line' => 325
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@RT66112',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 327
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -14940,12 +14922,12 @@ subtest 'tokenize' => sub {
                    'line' => 327
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@RT66112',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 328
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -15624,10 +15606,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 7,
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 85,
-            'src' => ' push ( @Cedric::ISA , \'Programmer\' ) ;',
+            'src' => ' push ( @Cedric :: ISA , \'Programmer\' ) ;',
             'start_line' => 85,
             'indent' => 0,
             'block_id' => 0
@@ -15687,10 +15669,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 7,
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 97,
-            'src' => ' @Cedric::ISA = qw(Bob) ;',
+            'src' => ' @Cedric :: ISA = qw(Bob) ;',
             'start_line' => 97,
             'indent' => 0,
             'block_id' => 0
@@ -15955,1023 +15937,6 @@ subtest 'get_groups_by_syntax_level' => sub {
             'start_line' => 130,
             'indent' => 0,
             'block_id' => 0
-          },
-          {
-            'token_num' => 13,
-            'has_warnings' => 1,
-            'end_line' => 137,
-            'src' => ' if ( \'a\' lt \'A\' ) { is $subs , "can import isa DOES VERSION" ; }',
-            'start_line' => 135,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 1,
-            'end_line' => 136,
-            'src' => ' is $subs , "can import isa DOES VERSION" ;',
-            'start_line' => 136,
-            'indent' => 1,
-            'block_id' => 15
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 139,
-            'src' => ' else { is $subs , "DOES VERSION can import isa" ; }',
-            'start_line' => 137,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 1,
-            'end_line' => 138,
-            'src' => ' is $subs , "DOES VERSION can import isa" ;',
-            'start_line' => 138,
-            'indent' => 1,
-            'block_id' => 16
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 141,
-            'src' => ' ok $a-> isa ( "UNIVERSAL" ) ;',
-            'start_line' => 141,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 10,
-            'has_warnings' => 1,
-            'end_line' => 143,
-            'src' => ' ok ! UNIVERSAL::isa ( [ ] , "UNIVERSAL" ) ;',
-            'start_line' => 143,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 10,
-            'has_warnings' => 1,
-            'end_line' => 145,
-            'src' => ' ok ! UNIVERSAL::can ( { } , "can" ) ;',
-            'start_line' => 145,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 147,
-            'src' => ' ok UNIVERSAL::isa ( Alice => "UNIVERSAL" ) ;',
-            'start_line' => 147,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 14,
-            'has_warnings' => 1,
-            'end_line' => 149,
-            'src' => ' cmp_ok UNIVERSAL::can ( Alice => "can" ) , \'==\' , \\ & UNIVERSAL::can ;',
-            'start_line' => 149,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 152,
-            'src' => ' eval "use UNIVERSAL" ;',
-            'start_line' => 152,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 154,
-            'src' => ' ok $a-> isa ( "UNIVERSAL" ) ;',
-            'start_line' => 154,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 13,
-            'has_warnings' => 1,
-            'end_line' => 160,
-            'src' => ' if ( \'a\' lt \'A\' ) { is $sub2 , "can import isa DOES VERSION" ; }',
-            'start_line' => 158,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 1,
-            'end_line' => 159,
-            'src' => ' is $sub2 , "can import isa DOES VERSION" ;',
-            'start_line' => 159,
-            'indent' => 1,
-            'block_id' => 19
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 162,
-            'src' => ' else { is $sub2 , "DOES VERSION can import isa" ; }',
-            'start_line' => 160,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 1,
-            'end_line' => 161,
-            'src' => ' is $sub2 , "DOES VERSION can import isa" ;',
-            'start_line' => 161,
-            'indent' => 1,
-            'block_id' => 20
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 164,
-            'src' => ' eval \'sub UNIVERSAL::sleep {}\' ;',
-            'start_line' => 164,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 165,
-            'src' => ' ok $a-> can ( "sleep" ) ;',
-            'start_line' => 165,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 9,
-            'has_warnings' => 1,
-            'end_line' => 167,
-            'src' => ' ok ! UNIVERSAL::can ( $b , "can" ) ;',
-            'start_line' => 167,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 9,
-            'has_warnings' => 1,
-            'end_line' => 169,
-            'src' => ' ok ! $a-> can ( "export_tags" ) ;',
-            'start_line' => 169,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 9,
-            'has_warnings' => 1,
-            'end_line' => 171,
-            'src' => ' ok ! UNIVERSAL::isa ( "\\xff\\xff\\xff\\0" , \'HASH\' ) ;',
-            'start_line' => 171,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 33,
-            'has_warnings' => 1,
-            'end_line' => 180,
-            'src' => ' { package Pickup ; use UNIVERSAL qw( isa can VERSION ) ;::ok isa "Pickup" , UNIVERSAL ;::cmp_ok can ( "Pickup" , "can" ) , \'==\' , \\ & UNIVERSAL::can ;::ok VERSION "UNIVERSAL" ; }',
-            'start_line' => 173,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 174,
-            'src' => ' package Pickup ;',
-            'start_line' => 174,
-            'indent' => 1,
-            'block_id' => 21
-          },
-          {
-            'token_num' => 28,
-            'has_warnings' => 1,
-            'end_line' => 179,
-            'src' => ' use UNIVERSAL qw( isa can VERSION ) ;::ok isa "Pickup" , UNIVERSAL ;::cmp_ok can ( "Pickup" , "can" ) , \'==\' , \\ & UNIVERSAL::can ;::ok VERSION "UNIVERSAL" ;',
-            'start_line' => 175,
-            'indent' => 1,
-            'block_id' => 21
-          },
-          {
-            'token_num' => 61,
-            'has_warnings' => 1,
-            'end_line' => 193,
-            'src' => ' { "Human" =~/(.*)/ ; ok $1-> isa ( "Human" ) ; ok $1-> can ( "eat" ) ; package HumanTie ; sub TIESCALAR { bless { } } sub FETCH { "Human" } tie my ( $x ) , "HumanTie" ;::ok $x-> isa ( "Human" ) ;::ok $x-> can ( "eat" ) ; }',
-            'start_line' => 182,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 0,
-            'end_line' => 184,
-            'src' => ' "Human" =~/(.*)/ ;',
-            'start_line' => 184,
-            'indent' => 1,
-            'block_id' => 22
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 185,
-            'src' => ' ok $1-> isa ( "Human" ) ;',
-            'start_line' => 185,
-            'indent' => 1,
-            'block_id' => 22
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 186,
-            'src' => ' ok $1-> can ( "eat" ) ;',
-            'start_line' => 186,
-            'indent' => 1,
-            'block_id' => 22
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 187,
-            'src' => ' package HumanTie ;',
-            'start_line' => 187,
-            'indent' => 1,
-            'block_id' => 22
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 0,
-            'end_line' => 188,
-            'src' => ' sub TIESCALAR { bless { } }',
-            'start_line' => 188,
-            'indent' => 1,
-            'block_id' => 22
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 189,
-            'src' => ' sub FETCH { "Human" }',
-            'start_line' => 189,
-            'indent' => 1,
-            'block_id' => 22
-          },
-          {
-            'token_num' => 22,
-            'has_warnings' => 1,
-            'end_line' => 192,
-            'src' => ' tie my ( $x ) , "HumanTie" ;::ok $x-> isa ( "Human" ) ;::ok $x-> can ( "eat" ) ;',
-            'start_line' => 190,
-            'indent' => 1,
-            'block_id' => 22
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 1,
-            'end_line' => 198,
-            'src' => ' @X::ISA = ( ) ;',
-            'start_line' => 198,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 0,
-            'end_line' => 199,
-            'src' => ' my $x = { } ;',
-            'start_line' => 199,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 1,
-            'end_line' => 199,
-            'src' => ' bless $x , \'X\' ;',
-            'start_line' => 199,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 200,
-            'src' => ' ok $x-> isa ( \'UNIVERSAL\' ) ;',
-            'start_line' => 200,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 201,
-            'src' => ' ok $x-> isa ( \'UNIVERSAL\' ) ;',
-            'start_line' => 201,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 10,
-            'has_warnings' => 1,
-            'end_line' => 206,
-            'src' => ' eval { Some::Package-> import ( "bar" ) } ;',
-            'start_line' => 206,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 1,
-            'end_line' => 207,
-            'src' => ' is $@ , \'\' ;',
-            'start_line' => 207,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 211,
-            'src' => ' fresh_perl_is ( \'package Foo; Foo->VERSION;  print "ok"\' , \'ok\' ) ;',
-            'start_line' => 211,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 214,
-            'src' => ' fresh_perl_is ( \'$:; UNIVERSAL::isa(":","Unicode::String");print "ok"\' , \'ok\' ) ;',
-            'start_line' => 214,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 216,
-            'src' => ' package Foo ;',
-            'start_line' => 216,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 218,
-            'src' => ' sub DOES { 1 }',
-            'start_line' => 218,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 220,
-            'src' => ' package Bar ;',
-            'start_line' => 220,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 222,
-            'src' => ' @Bar::ISA = \'Foo\' ;',
-            'start_line' => 222,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 224,
-            'src' => ' package Baz ;',
-            'start_line' => 224,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 226,
-            'src' => ' package main ;',
-            'start_line' => 226,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 227,
-            'src' => ' ok ( Foo-> DOES ( \'bar\' ) , \'DOES() should call DOES() on class\' ) ;',
-            'start_line' => 227,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 228,
-            'src' => ' ok ( Bar-> DOES ( \'Bar\' ) , \'... and should fall back to isa()\' ) ;',
-            'start_line' => 228,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 229,
-            'src' => ' ok ( Bar-> DOES ( \'Foo\' ) , \'... even when inherited\' ) ;',
-            'start_line' => 229,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 230,
-            'src' => ' ok ( Baz-> DOES ( \'Baz\' ) , \'... even without inheriting any other DOES()\' ) ;',
-            'start_line' => 230,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 13,
-            'has_warnings' => 1,
-            'end_line' => 231,
-            'src' => ' ok ( ! Baz-> DOES ( \'Foo\' ) , \'... returning true or false appropriately\' ) ;',
-            'start_line' => 231,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 13,
-            'has_warnings' => 1,
-            'end_line' => 233,
-            'src' => ' ok ( ! "T"-> DOES ( "T\\0" ) , \'DOES() is nul-clean\' ) ;',
-            'start_line' => 233,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 13,
-            'has_warnings' => 1,
-            'end_line' => 234,
-            'src' => ' ok ( ! Baz-> DOES ( "Baz\\0Boy howdy" ) , \'DOES() is nul-clean\' ) ;',
-            'start_line' => 234,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 236,
-            'src' => ' package Pig ;',
-            'start_line' => 236,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 237,
-            'src' => ' package Bodine ;',
-            'start_line' => 237,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 238,
-            'src' => ' Bodine-> isa ( \'Pig\' ) ;',
-            'start_line' => 238,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 239,
-            'src' => ' * isa = \\ & UNIVERSAL::isa ;',
-            'start_line' => 239,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 19,
-            'has_warnings' => 1,
-            'end_line' => 241,
-            'src' => ' eval { isa ( { } , \'HASH\' ) } ;::is ( $@ , \'\' , "*isa correctly found" ) ;',
-            'start_line' => 240,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 243,
-            'src' => ' package main ;',
-            'start_line' => 243,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 244,
-            'src' => ' eval { UNIVERSAL::DOES ( [ ] , "foo" ) } ;',
-            'start_line' => 244,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 246,
-            'src' => ' like ( $@ , qr/Can\'t call method "DOES" on unblessed reference/ , \'DOES call error message says DOES, not isa\' ) ;',
-            'start_line' => 245,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 252,
-            'src' => ' is ( UNIVERSAL-> can ( "NoSuchPackage::foo" ) , undef ) ;',
-            'start_line' => 252,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 254,
-            'src' => ' @splatt::ISA = \'zlopp\' ;',
-            'start_line' => 254,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 10,
-            'has_warnings' => 1,
-            'end_line' => 255,
-            'src' => ' ok ( splatt-> isa ( \'zlopp\' ) ) ;',
-            'start_line' => 255,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 256,
-            'src' => ' ok ( ! splatt-> isa ( \'plop\' ) ) ;',
-            'start_line' => 256,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 259,
-            'src' => ' @splatt::ISA = \'plop\' ;',
-            'start_line' => 259,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 261,
-            'src' => ' ok ( ! splatt-> isa ( \'zlopp\' ) ) ;',
-            'start_line' => 261,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 10,
-            'has_warnings' => 1,
-            'end_line' => 262,
-            'src' => ' ok ( splatt-> isa ( \'plop\' ) ) ;',
-            'start_line' => 262,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 0,
-            'end_line' => 264,
-            'src' => ' use warnings "deprecated" ;',
-            'start_line' => 264,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 51,
-            'has_warnings' => 1,
-            'end_line' => 276,
-            'src' => ' { my $m ; local $SIG { __WARN__ } = sub { $m = $_ [ 0 ] } ; eval "use UNIVERSAL \'can\'" ; like ( $m , qr/^UNIVERSAL->import is deprecated/ , "deprecation warning for UNIVERSAL->import(\'can\')" ) ; undef $m ; eval "use UNIVERSAL" ; is ( $m , undef , "no deprecation warning for UNIVERSAL->import" ) ; }',
-            'start_line' => 265,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 266,
-            'src' => ' my $m ;',
-            'start_line' => 266,
-            'indent' => 1,
-            'block_id' => 28
-          },
-          {
-            'token_num' => 16,
-            'has_warnings' => 1,
-            'end_line' => 267,
-            'src' => ' local $SIG { __WARN__ } = sub { $m = $_ [ 0 ] } ;',
-            'start_line' => 267,
-            'indent' => 1,
-            'block_id' => 28
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 268,
-            'src' => ' eval "use UNIVERSAL \'can\'" ;',
-            'start_line' => 268,
-            'indent' => 1,
-            'block_id' => 28
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 270,
-            'src' => ' like ( $m , qr/^UNIVERSAL->import is deprecated/ , "deprecation warning for UNIVERSAL->import(\'can\')" ) ;',
-            'start_line' => 269,
-            'indent' => 1,
-            'block_id' => 28
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 272,
-            'src' => ' undef $m ;',
-            'start_line' => 272,
-            'indent' => 1,
-            'block_id' => 28
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 273,
-            'src' => ' eval "use UNIVERSAL" ;',
-            'start_line' => 273,
-            'indent' => 1,
-            'block_id' => 28
-          },
-          {
-            'token_num' => 9,
-            'has_warnings' => 1,
-            'end_line' => 275,
-            'src' => ' is ( $m , undef , "no deprecation warning for UNIVERSAL->import" ) ;',
-            'start_line' => 274,
-            'indent' => 1,
-            'block_id' => 28
-          },
-          {
-            'token_num' => 252,
-            'has_warnings' => 1,
-            'end_line' => 330,
-            'src' => ' { package RT66112::A ; package RT66112::B ; sub isa { my $self = shift ; @ISA = qw/RT66112::A/ ; return $self-> SUPER::isa ( @_ ) ; } package RT66112::C ; package RT66112::D ; sub isa { my $self = shift ; @RT66112::E::ISA = qw/RT66112::A/ ; return $self-> SUPER::isa ( @_ ) ; } package RT66112::E ; package main ; @RT66112::B::ISA = qw// ; @RT66112::C::ISA = qw/RT66112::B/ ; @RT66112::T1::ISA = qw/RT66112::C/ ; ok ( RT66112::T1-> isa ( \'RT66112::C\' ) , "modify \\@ISA in isa (RT66112::T1 isa RT66112::C)" ) ; @RT66112::B::ISA = qw// ; @RT66112::C::ISA = qw/RT66112::B/ ; @RT66112::T2::ISA = qw/RT66112::C/ ; ok ( RT66112::T2-> isa ( \'RT66112::B\' ) , "modify \\@ISA in isa (RT66112::T2 isa RT66112::B)" ) ; @RT66112::B::ISA = qw// ; @RT66112::C::ISA = qw/RT66112::B/ ; @RT66112::T3::ISA = qw/RT66112::C/ ; ok ( RT66112::T3-> isa ( \'RT66112::A\' ) , "modify \\@ISA in isa (RT66112::T3 isa RT66112::A)" ) or require mro , diag "@{mro::get_linear_isa(\'RT66112::T3\')}" ; @RT66112::E::ISA = qw/RT66112::D/ ; @RT66112::T4::ISA = qw/RT66112::E/ ; ok ( RT66112::T4-> isa ( \'RT66112::E\' ) , "modify \\@ISA in isa (RT66112::T4 isa RT66112::E)" ) ; @RT66112::E::ISA = qw/RT66112::D/ ; @RT66112::T5::ISA = qw/RT66112::E/ ; ok ( ! RT66112::T5-> isa ( \'RT66112::D\' ) , "modify \\@ISA in isa (RT66112::T5 not isa RT66112::D)" ) ; @RT66112::E::ISA = qw/RT66112::D/ ; @RT66112::T6::ISA = qw/RT66112::E/ ; ok ( RT66112::T6-> isa ( \'RT66112::A\' ) , "modify \\@ISA in isa (RT66112::T6 isa RT66112::A)" ) ; }',
-            'start_line' => 279,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 280,
-            'src' => ' package RT66112::A ;',
-            'start_line' => 280,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 282,
-            'src' => ' package RT66112::B ;',
-            'start_line' => 282,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 24,
-            'has_warnings' => 1,
-            'end_line' => 288,
-            'src' => ' sub isa { my $self = shift ; @ISA = qw/RT66112::A/ ; return $self-> SUPER::isa ( @_ ) ; }',
-            'start_line' => 284,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 285,
-            'src' => ' my $self = shift ;',
-            'start_line' => 285,
-            'indent' => 2,
-            'block_id' => 31
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 0,
-            'end_line' => 286,
-            'src' => ' @ISA = qw/RT66112::A/ ;',
-            'start_line' => 286,
-            'indent' => 2,
-            'block_id' => 31
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 287,
-            'src' => ' return $self-> SUPER::isa ( @_ ) ;',
-            'start_line' => 287,
-            'indent' => 2,
-            'block_id' => 31
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 290,
-            'src' => ' package RT66112::C ;',
-            'start_line' => 290,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 292,
-            'src' => ' package RT66112::D ;',
-            'start_line' => 292,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 24,
-            'has_warnings' => 1,
-            'end_line' => 298,
-            'src' => ' sub isa { my $self = shift ; @RT66112::E::ISA = qw/RT66112::A/ ; return $self-> SUPER::isa ( @_ ) ; }',
-            'start_line' => 294,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 295,
-            'src' => ' my $self = shift ;',
-            'start_line' => 295,
-            'indent' => 2,
-            'block_id' => 32
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 296,
-            'src' => ' @RT66112::E::ISA = qw/RT66112::A/ ;',
-            'start_line' => 296,
-            'indent' => 2,
-            'block_id' => 32
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 297,
-            'src' => ' return $self-> SUPER::isa ( @_ ) ;',
-            'start_line' => 297,
-            'indent' => 2,
-            'block_id' => 32
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 300,
-            'src' => ' package RT66112::E ;',
-            'start_line' => 300,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 302,
-            'src' => ' package main ;',
-            'start_line' => 302,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 304,
-            'src' => ' @RT66112::B::ISA = qw// ;',
-            'start_line' => 304,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 305,
-            'src' => ' @RT66112::C::ISA = qw/RT66112::B/ ;',
-            'start_line' => 305,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 306,
-            'src' => ' @RT66112::T1::ISA = qw/RT66112::C/ ;',
-            'start_line' => 306,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 307,
-            'src' => ' ok ( RT66112::T1-> isa ( \'RT66112::C\' ) , "modify \\@ISA in isa (RT66112::T1 isa RT66112::C)" ) ;',
-            'start_line' => 307,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 309,
-            'src' => ' @RT66112::B::ISA = qw// ;',
-            'start_line' => 309,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 310,
-            'src' => ' @RT66112::C::ISA = qw/RT66112::B/ ;',
-            'start_line' => 310,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 311,
-            'src' => ' @RT66112::T2::ISA = qw/RT66112::C/ ;',
-            'start_line' => 311,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 312,
-            'src' => ' ok ( RT66112::T2-> isa ( \'RT66112::B\' ) , "modify \\@ISA in isa (RT66112::T2 isa RT66112::B)" ) ;',
-            'start_line' => 312,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 314,
-            'src' => ' @RT66112::B::ISA = qw// ;',
-            'start_line' => 314,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 315,
-            'src' => ' @RT66112::C::ISA = qw/RT66112::B/ ;',
-            'start_line' => 315,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 316,
-            'src' => ' @RT66112::T3::ISA = qw/RT66112::C/ ;',
-            'start_line' => 316,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 18,
-            'has_warnings' => 1,
-            'end_line' => 317,
-            'src' => ' ok ( RT66112::T3-> isa ( \'RT66112::A\' ) , "modify \\@ISA in isa (RT66112::T3 isa RT66112::A)" ) or require mro , diag "@{mro::get_linear_isa(\'RT66112::T3\')}" ;',
-            'start_line' => 317,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 319,
-            'src' => ' @RT66112::E::ISA = qw/RT66112::D/ ;',
-            'start_line' => 319,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 320,
-            'src' => ' @RT66112::T4::ISA = qw/RT66112::E/ ;',
-            'start_line' => 320,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 321,
-            'src' => ' ok ( RT66112::T4-> isa ( \'RT66112::E\' ) , "modify \\@ISA in isa (RT66112::T4 isa RT66112::E)" ) ;',
-            'start_line' => 321,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 323,
-            'src' => ' @RT66112::E::ISA = qw/RT66112::D/ ;',
-            'start_line' => 323,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 324,
-            'src' => ' @RT66112::T5::ISA = qw/RT66112::E/ ;',
-            'start_line' => 324,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 13,
-            'has_warnings' => 1,
-            'end_line' => 325,
-            'src' => ' ok ( ! RT66112::T5-> isa ( \'RT66112::D\' ) , "modify \\@ISA in isa (RT66112::T5 not isa RT66112::D)" ) ;',
-            'start_line' => 325,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 327,
-            'src' => ' @RT66112::E::ISA = qw/RT66112::D/ ;',
-            'start_line' => 327,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 328,
-            'src' => ' @RT66112::T6::ISA = qw/RT66112::E/ ;',
-            'start_line' => 328,
-            'indent' => 1,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 329,
-            'src' => ' ok ( RT66112::T6-> isa ( \'RT66112::A\' ) , "modify \\@ISA in isa (RT66112::T6 isa RT66112::A)" ) ;',
-            'start_line' => 329,
-            'indent' => 1,
-            'block_id' => 30
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');
@@ -16983,14 +15948,6 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '  qw ( Human )',
             'name' => 'base'
-          },
-          {
-            'args' => '  qw (  isa can VERSION  )  ;::ok  isa  "Pickup"  ,  UNIVERSAL  ;::cmp_ok  can  ( "Pickup" , "can" )  ,  \'==\'  ,  \\  &  UNIVERSAL::can  ;::ok  VERSION  "UNIVERSAL"',
-            'name' => 'UNIVERSAL'
-          },
-          {
-            'args' => '  "deprecated"',
-            'name' => 'warnings'
           }
         ]
 , 'Compiler::Lexer::get_used_modules');

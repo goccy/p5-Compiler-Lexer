@@ -1193,12 +1193,12 @@ subtest 'tokenize' => sub {
                    'line' => 59
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalVar',
                    'data' => '$Config',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
                    'line' => 59
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9884,7 +9884,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' skip_all ( \'this perl stringifies large unsigned integers using E notation\' ) ;',
             'start_line' => 63,
             'indent' => 1,
-            'block_id' => 5
+            'block_id' => 4
           },
           {
             'token_num' => 7,
@@ -10127,7 +10127,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' use integer ;',
             'start_line' => 107,
             'indent' => 1,
-            'block_id' => 6
+            'block_id' => 5
           },
           {
             'token_num' => 10,
@@ -10181,7 +10181,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my @ops = map [ split // ] , grep/[4-9]/ , map { sprintf "%0${num_chain}d" , $_ } 0 .. 10 ** $num_chain - 1 ;',
             'start_line' => 117,
             'indent' => 1,
-            'block_id' => 7
+            'block_id' => 6
           },
           {
             'token_num' => 570,
@@ -10190,7 +10190,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' for my $op ( @ops ) { for my $first ( 2 .. 5 ) { for my $last ( 2 .. 5 ) { $nok = 0 ; my @otherops = grep $_ <= 3 , @$op ; my @curops = ( $op , \\ @otherops ) ; for my $num ( @list ) { my $inpt ; my @ans ; for my $short ( 0 , 1 ) { $inpt = $num ; $inpt = "$inpt" ; if ( $first == 2 ) { $inpt = $max_uv & $inpt ; } elsif ( $first == 3 ) { use integer ; $inpt += $zero ; } elsif ( $first == 4 ) { $inpt += $zero ; } else { $inpt = "$inpt" ; } for my $curop ( @{ $curops [ $short ] } ) { if ( $curop < 5 ) { if ( $curop < 3 ) { if ( $curop == 0 ) { -- $inpt ; } elsif ( $curop == 1 ) { ++ $inpt ; } else { $inpt = $max_uv & $inpt ; } } elsif ( $curop == 3 ) { use integer ; $inpt += $zero ; } else { $inpt += $zero ; } } elsif ( $curop < 8 ) { if ( $curop == 5 ) { $inpt = "$inpt" ; } elsif ( $curop == 6 ) { my $dummy = $max_uv & $inpt ; } else { use integer ; my $dummy = $inpt + $zero ; } } elsif ( $curop == 8 ) { my $dummy = $inpt + $zero ; } else { my $dummy = $inpt . "" ; } } if ( $last == 2 ) { $inpt = sprintf "%u" , $inpt ; } elsif ( $last == 3 ) { $inpt = sprintf "%d" , $inpt ; } elsif ( $last == 4 ) { $inpt = sprintf "%g" , $inpt ; } else { $inpt = "$inpt" ; } push @ans , $inpt ; } if ( $ans [ 0 ] ne $ans [ 1 ] ) { my $diag = "\'$ans[0]\' ne \'$ans[1]\',\\t$num\\t=> @opnames[$first,@{$curops[0]},$last] vs @opnames[$first,@{$curops[1]},$last]" ; my $excuse ; if ( ( ( $ans [ 0 ] eq $max_uv_pp ) and ( $ans [ 1 ] eq $max_uv_p1 ) ) or ( ( $ans [ 1 ] eq $max_uv_pp ) and ( $ans [ 0 ] eq $max_uv_p1 ) ) ) { $excuse = "ok, as string ++ of max_uv is \\"$max_uv_pp\\", numeric is $max_uv_p1" ; } elsif ( $opnames [ $last ] eq \'I\' and $ans [ 1 ] eq "-1" and $ans [ 0 ] eq $max_uv_p1_as_iv ) { $excuse = "ok, \\"$max_uv_p1\\" correctly converts to IV \\"$max_uv_p1_as_iv\\"" ; } elsif ( $opnames [ $last ] eq \'U\' and $ans [ 1 ] eq ~ 0 and $ans [ 0 ] eq $max_uv_p1_as_uv ) { $excuse = "ok, \\"$max_uv_p1\\" correctly converts to UV \\"$max_uv_p1_as_uv\\"" ; } elsif ( grep { defined $_ &&/^N$/ } @opnames [ @{ $curops [ 0 ] } ] and $ans [ 0 ] == $ans [ 1 ] and $ans [ 0 ] <= ~ 0 and $ans [ 0 ] !=/^-?\\d+$/ and $ans [ 1 ] !~/^-?\\d+$/ ) { $excuse = "ok, numerically equal - notation changed due to adding zero" ; } else { $nok ++ , diag ( $diag ) ; } if ( $excuse ) { note ( $diag ) ; note ( $excuse ) ; } } } ok ( $nok == 0 ) ; } } }',
             'start_line' => 123,
             'indent' => 1,
-            'block_id' => 7
+            'block_id' => 6
           },
           {
             'token_num' => 562,
@@ -10199,7 +10199,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' for my $first ( 2 .. 5 ) { for my $last ( 2 .. 5 ) { $nok = 0 ; my @otherops = grep $_ <= 3 , @$op ; my @curops = ( $op , \\ @otherops ) ; for my $num ( @list ) { my $inpt ; my @ans ; for my $short ( 0 , 1 ) { $inpt = $num ; $inpt = "$inpt" ; if ( $first == 2 ) { $inpt = $max_uv & $inpt ; } elsif ( $first == 3 ) { use integer ; $inpt += $zero ; } elsif ( $first == 4 ) { $inpt += $zero ; } else { $inpt = "$inpt" ; } for my $curop ( @{ $curops [ $short ] } ) { if ( $curop < 5 ) { if ( $curop < 3 ) { if ( $curop == 0 ) { -- $inpt ; } elsif ( $curop == 1 ) { ++ $inpt ; } else { $inpt = $max_uv & $inpt ; } } elsif ( $curop == 3 ) { use integer ; $inpt += $zero ; } else { $inpt += $zero ; } } elsif ( $curop < 8 ) { if ( $curop == 5 ) { $inpt = "$inpt" ; } elsif ( $curop == 6 ) { my $dummy = $max_uv & $inpt ; } else { use integer ; my $dummy = $inpt + $zero ; } } elsif ( $curop == 8 ) { my $dummy = $inpt + $zero ; } else { my $dummy = $inpt . "" ; } } if ( $last == 2 ) { $inpt = sprintf "%u" , $inpt ; } elsif ( $last == 3 ) { $inpt = sprintf "%d" , $inpt ; } elsif ( $last == 4 ) { $inpt = sprintf "%g" , $inpt ; } else { $inpt = "$inpt" ; } push @ans , $inpt ; } if ( $ans [ 0 ] ne $ans [ 1 ] ) { my $diag = "\'$ans[0]\' ne \'$ans[1]\',\\t$num\\t=> @opnames[$first,@{$curops[0]},$last] vs @opnames[$first,@{$curops[1]},$last]" ; my $excuse ; if ( ( ( $ans [ 0 ] eq $max_uv_pp ) and ( $ans [ 1 ] eq $max_uv_p1 ) ) or ( ( $ans [ 1 ] eq $max_uv_pp ) and ( $ans [ 0 ] eq $max_uv_p1 ) ) ) { $excuse = "ok, as string ++ of max_uv is \\"$max_uv_pp\\", numeric is $max_uv_p1" ; } elsif ( $opnames [ $last ] eq \'I\' and $ans [ 1 ] eq "-1" and $ans [ 0 ] eq $max_uv_p1_as_iv ) { $excuse = "ok, \\"$max_uv_p1\\" correctly converts to IV \\"$max_uv_p1_as_iv\\"" ; } elsif ( $opnames [ $last ] eq \'U\' and $ans [ 1 ] eq ~ 0 and $ans [ 0 ] eq $max_uv_p1_as_uv ) { $excuse = "ok, \\"$max_uv_p1\\" correctly converts to UV \\"$max_uv_p1_as_uv\\"" ; } elsif ( grep { defined $_ &&/^N$/ } @opnames [ @{ $curops [ 0 ] } ] and $ans [ 0 ] == $ans [ 1 ] and $ans [ 0 ] <= ~ 0 and $ans [ 0 ] !=/^-?\\d+$/ and $ans [ 1 ] !~/^-?\\d+$/ ) { $excuse = "ok, numerically equal - notation changed due to adding zero" ; } else { $nok ++ , diag ( $diag ) ; } if ( $excuse ) { note ( $diag ) ; note ( $excuse ) ; } } } ok ( $nok == 0 ) ; } }',
             'start_line' => 124,
             'indent' => 2,
-            'block_id' => 8
+            'block_id' => 7
           },
           {
             'token_num' => 552,
@@ -10208,7 +10208,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' for my $last ( 2 .. 5 ) { $nok = 0 ; my @otherops = grep $_ <= 3 , @$op ; my @curops = ( $op , \\ @otherops ) ; for my $num ( @list ) { my $inpt ; my @ans ; for my $short ( 0 , 1 ) { $inpt = $num ; $inpt = "$inpt" ; if ( $first == 2 ) { $inpt = $max_uv & $inpt ; } elsif ( $first == 3 ) { use integer ; $inpt += $zero ; } elsif ( $first == 4 ) { $inpt += $zero ; } else { $inpt = "$inpt" ; } for my $curop ( @{ $curops [ $short ] } ) { if ( $curop < 5 ) { if ( $curop < 3 ) { if ( $curop == 0 ) { -- $inpt ; } elsif ( $curop == 1 ) { ++ $inpt ; } else { $inpt = $max_uv & $inpt ; } } elsif ( $curop == 3 ) { use integer ; $inpt += $zero ; } else { $inpt += $zero ; } } elsif ( $curop < 8 ) { if ( $curop == 5 ) { $inpt = "$inpt" ; } elsif ( $curop == 6 ) { my $dummy = $max_uv & $inpt ; } else { use integer ; my $dummy = $inpt + $zero ; } } elsif ( $curop == 8 ) { my $dummy = $inpt + $zero ; } else { my $dummy = $inpt . "" ; } } if ( $last == 2 ) { $inpt = sprintf "%u" , $inpt ; } elsif ( $last == 3 ) { $inpt = sprintf "%d" , $inpt ; } elsif ( $last == 4 ) { $inpt = sprintf "%g" , $inpt ; } else { $inpt = "$inpt" ; } push @ans , $inpt ; } if ( $ans [ 0 ] ne $ans [ 1 ] ) { my $diag = "\'$ans[0]\' ne \'$ans[1]\',\\t$num\\t=> @opnames[$first,@{$curops[0]},$last] vs @opnames[$first,@{$curops[1]},$last]" ; my $excuse ; if ( ( ( $ans [ 0 ] eq $max_uv_pp ) and ( $ans [ 1 ] eq $max_uv_p1 ) ) or ( ( $ans [ 1 ] eq $max_uv_pp ) and ( $ans [ 0 ] eq $max_uv_p1 ) ) ) { $excuse = "ok, as string ++ of max_uv is \\"$max_uv_pp\\", numeric is $max_uv_p1" ; } elsif ( $opnames [ $last ] eq \'I\' and $ans [ 1 ] eq "-1" and $ans [ 0 ] eq $max_uv_p1_as_iv ) { $excuse = "ok, \\"$max_uv_p1\\" correctly converts to IV \\"$max_uv_p1_as_iv\\"" ; } elsif ( $opnames [ $last ] eq \'U\' and $ans [ 1 ] eq ~ 0 and $ans [ 0 ] eq $max_uv_p1_as_uv ) { $excuse = "ok, \\"$max_uv_p1\\" correctly converts to UV \\"$max_uv_p1_as_uv\\"" ; } elsif ( grep { defined $_ &&/^N$/ } @opnames [ @{ $curops [ 0 ] } ] and $ans [ 0 ] == $ans [ 1 ] and $ans [ 0 ] <= ~ 0 and $ans [ 0 ] !=/^-?\\d+$/ and $ans [ 1 ] !~/^-?\\d+$/ ) { $excuse = "ok, numerically equal - notation changed due to adding zero" ; } else { $nok ++ , diag ( $diag ) ; } if ( $excuse ) { note ( $diag ) ; note ( $excuse ) ; } } } ok ( $nok == 0 ) ; }',
             'start_line' => 125,
             'indent' => 3,
-            'block_id' => 9
+            'block_id' => 8
           },
           {
             'token_num' => 4,
@@ -10217,7 +10217,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $nok = 0 ;',
             'start_line' => 126,
             'indent' => 4,
-            'block_id' => 10
+            'block_id' => 9
           },
           {
             'token_num' => 10,
@@ -10226,7 +10226,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my @otherops = grep $_ <= 3 , @$op ;',
             'start_line' => 127,
             'indent' => 4,
-            'block_id' => 10
+            'block_id' => 9
           },
           {
             'token_num' => 10,
@@ -10235,7 +10235,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my @curops = ( $op , \\ @otherops ) ;',
             'start_line' => 128,
             'indent' => 4,
-            'block_id' => 10
+            'block_id' => 9
           },
           {
             'token_num' => 511,
@@ -10244,7 +10244,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' for my $num ( @list ) { my $inpt ; my @ans ; for my $short ( 0 , 1 ) { $inpt = $num ; $inpt = "$inpt" ; if ( $first == 2 ) { $inpt = $max_uv & $inpt ; } elsif ( $first == 3 ) { use integer ; $inpt += $zero ; } elsif ( $first == 4 ) { $inpt += $zero ; } else { $inpt = "$inpt" ; } for my $curop ( @{ $curops [ $short ] } ) { if ( $curop < 5 ) { if ( $curop < 3 ) { if ( $curop == 0 ) { -- $inpt ; } elsif ( $curop == 1 ) { ++ $inpt ; } else { $inpt = $max_uv & $inpt ; } } elsif ( $curop == 3 ) { use integer ; $inpt += $zero ; } else { $inpt += $zero ; } } elsif ( $curop < 8 ) { if ( $curop == 5 ) { $inpt = "$inpt" ; } elsif ( $curop == 6 ) { my $dummy = $max_uv & $inpt ; } else { use integer ; my $dummy = $inpt + $zero ; } } elsif ( $curop == 8 ) { my $dummy = $inpt + $zero ; } else { my $dummy = $inpt . "" ; } } if ( $last == 2 ) { $inpt = sprintf "%u" , $inpt ; } elsif ( $last == 3 ) { $inpt = sprintf "%d" , $inpt ; } elsif ( $last == 4 ) { $inpt = sprintf "%g" , $inpt ; } else { $inpt = "$inpt" ; } push @ans , $inpt ; } if ( $ans [ 0 ] ne $ans [ 1 ] ) { my $diag = "\'$ans[0]\' ne \'$ans[1]\',\\t$num\\t=> @opnames[$first,@{$curops[0]},$last] vs @opnames[$first,@{$curops[1]},$last]" ; my $excuse ; if ( ( ( $ans [ 0 ] eq $max_uv_pp ) and ( $ans [ 1 ] eq $max_uv_p1 ) ) or ( ( $ans [ 1 ] eq $max_uv_pp ) and ( $ans [ 0 ] eq $max_uv_p1 ) ) ) { $excuse = "ok, as string ++ of max_uv is \\"$max_uv_pp\\", numeric is $max_uv_p1" ; } elsif ( $opnames [ $last ] eq \'I\' and $ans [ 1 ] eq "-1" and $ans [ 0 ] eq $max_uv_p1_as_iv ) { $excuse = "ok, \\"$max_uv_p1\\" correctly converts to IV \\"$max_uv_p1_as_iv\\"" ; } elsif ( $opnames [ $last ] eq \'U\' and $ans [ 1 ] eq ~ 0 and $ans [ 0 ] eq $max_uv_p1_as_uv ) { $excuse = "ok, \\"$max_uv_p1\\" correctly converts to UV \\"$max_uv_p1_as_uv\\"" ; } elsif ( grep { defined $_ &&/^N$/ } @opnames [ @{ $curops [ 0 ] } ] and $ans [ 0 ] == $ans [ 1 ] and $ans [ 0 ] <= ~ 0 and $ans [ 0 ] !=/^-?\\d+$/ and $ans [ 1 ] !~/^-?\\d+$/ ) { $excuse = "ok, numerically equal - notation changed due to adding zero" ; } else { $nok ++ , diag ( $diag ) ; } if ( $excuse ) { note ( $diag ) ; note ( $excuse ) ; } } }',
             'start_line' => 130,
             'indent' => 4,
-            'block_id' => 10
+            'block_id' => 9
           },
           {
             'token_num' => 3,
@@ -10253,7 +10253,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $inpt ;',
             'start_line' => 131,
             'indent' => 5,
-            'block_id' => 11
+            'block_id' => 10
           },
           {
             'token_num' => 3,
@@ -10262,7 +10262,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my @ans ;',
             'start_line' => 132,
             'indent' => 5,
-            'block_id' => 11
+            'block_id' => 10
           },
           {
             'token_num' => 278,
@@ -10271,7 +10271,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' for my $short ( 0 , 1 ) { $inpt = $num ; $inpt = "$inpt" ; if ( $first == 2 ) { $inpt = $max_uv & $inpt ; } elsif ( $first == 3 ) { use integer ; $inpt += $zero ; } elsif ( $first == 4 ) { $inpt += $zero ; } else { $inpt = "$inpt" ; } for my $curop ( @{ $curops [ $short ] } ) { if ( $curop < 5 ) { if ( $curop < 3 ) { if ( $curop == 0 ) { -- $inpt ; } elsif ( $curop == 1 ) { ++ $inpt ; } else { $inpt = $max_uv & $inpt ; } } elsif ( $curop == 3 ) { use integer ; $inpt += $zero ; } else { $inpt += $zero ; } } elsif ( $curop < 8 ) { if ( $curop == 5 ) { $inpt = "$inpt" ; } elsif ( $curop == 6 ) { my $dummy = $max_uv & $inpt ; } else { use integer ; my $dummy = $inpt + $zero ; } } elsif ( $curop == 8 ) { my $dummy = $inpt + $zero ; } else { my $dummy = $inpt . "" ; } } if ( $last == 2 ) { $inpt = sprintf "%u" , $inpt ; } elsif ( $last == 3 ) { $inpt = sprintf "%d" , $inpt ; } elsif ( $last == 4 ) { $inpt = sprintf "%g" , $inpt ; } else { $inpt = "$inpt" ; } push @ans , $inpt ; }',
             'start_line' => 134,
             'indent' => 5,
-            'block_id' => 11
+            'block_id' => 10
           },
           {
             'token_num' => 4,
@@ -10280,7 +10280,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $inpt = $num ;',
             'start_line' => 137,
             'indent' => 6,
-            'block_id' => 12
+            'block_id' => 11
           },
           {
             'token_num' => 4,
@@ -10289,7 +10289,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $inpt = "$inpt" ;',
             'start_line' => 138,
             'indent' => 6,
-            'block_id' => 12
+            'block_id' => 11
           },
           {
             'token_num' => 14,
@@ -10298,7 +10298,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( $first == 2 ) { $inpt = $max_uv & $inpt ; }',
             'start_line' => 139,
             'indent' => 6,
-            'block_id' => 12
+            'block_id' => 11
           },
           {
             'token_num' => 6,
@@ -10307,7 +10307,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $inpt = $max_uv & $inpt ;',
             'start_line' => 140,
             'indent' => 7,
-            'block_id' => 13
+            'block_id' => 12
           },
           {
             'token_num' => 15,
@@ -10316,7 +10316,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' elsif ( $first == 3 ) { use integer ; $inpt += $zero ; }',
             'start_line' => 141,
             'indent' => 6,
-            'block_id' => 12
+            'block_id' => 11
           },
           {
             'token_num' => 3,
@@ -10325,7 +10325,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' use integer ;',
             'start_line' => 142,
             'indent' => 7,
-            'block_id' => 14
+            'block_id' => 13
           },
           {
             'token_num' => 4,
@@ -10334,7 +10334,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $inpt += $zero ;',
             'start_line' => 142,
             'indent' => 7,
-            'block_id' => 14
+            'block_id' => 13
           },
           {
             'token_num' => 12,
@@ -10343,7 +10343,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' elsif ( $first == 4 ) { $inpt += $zero ; }',
             'start_line' => 143,
             'indent' => 6,
-            'block_id' => 12
+            'block_id' => 11
           },
           {
             'token_num' => 4,
@@ -10352,7 +10352,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $inpt += $zero ;',
             'start_line' => 144,
             'indent' => 7,
-            'block_id' => 15
+            'block_id' => 14
           },
           {
             'token_num' => 7,
@@ -10361,7 +10361,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' else { $inpt = "$inpt" ; }',
             'start_line' => 145,
             'indent' => 6,
-            'block_id' => 12
+            'block_id' => 11
           },
           {
             'token_num' => 4,
@@ -10370,7 +10370,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $inpt = "$inpt" ;',
             'start_line' => 146,
             'indent' => 7,
-            'block_id' => 16
+            'block_id' => 15
           },
           {
             'token_num' => 155,
@@ -10379,7 +10379,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' for my $curop ( @{ $curops [ $short ] } ) { if ( $curop < 5 ) { if ( $curop < 3 ) { if ( $curop == 0 ) { -- $inpt ; } elsif ( $curop == 1 ) { ++ $inpt ; } else { $inpt = $max_uv & $inpt ; } } elsif ( $curop == 3 ) { use integer ; $inpt += $zero ; } else { $inpt += $zero ; } } elsif ( $curop < 8 ) { if ( $curop == 5 ) { $inpt = "$inpt" ; } elsif ( $curop == 6 ) { my $dummy = $max_uv & $inpt ; } else { use integer ; my $dummy = $inpt + $zero ; } } elsif ( $curop == 8 ) { my $dummy = $inpt + $zero ; } else { my $dummy = $inpt . "" ; } }',
             'start_line' => 155,
             'indent' => 6,
-            'block_id' => 12
+            'block_id' => 11
           },
           {
             'token_num' => 69,
@@ -10388,7 +10388,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( $curop < 5 ) { if ( $curop < 3 ) { if ( $curop == 0 ) { -- $inpt ; } elsif ( $curop == 1 ) { ++ $inpt ; } else { $inpt = $max_uv & $inpt ; } } elsif ( $curop == 3 ) { use integer ; $inpt += $zero ; } else { $inpt += $zero ; } }',
             'start_line' => 156,
             'indent' => 7,
-            'block_id' => 17
+            'block_id' => 16
           },
           {
             'token_num' => 39,
@@ -10397,7 +10397,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( $curop < 3 ) { if ( $curop == 0 ) { -- $inpt ; } elsif ( $curop == 1 ) { ++ $inpt ; } else { $inpt = $max_uv & $inpt ; } }',
             'start_line' => 157,
             'indent' => 8,
-            'block_id' => 18
+            'block_id' => 17
           },
           {
             'token_num' => 11,
@@ -10406,7 +10406,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( $curop == 0 ) { -- $inpt ; }',
             'start_line' => 158,
             'indent' => 9,
-            'block_id' => 19
+            'block_id' => 18
           },
           {
             'token_num' => 3,
@@ -10415,7 +10415,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' -- $inpt ;',
             'start_line' => 159,
             'indent' => 10,
-            'block_id' => 20
+            'block_id' => 19
           },
           {
             'token_num' => 11,
@@ -10424,7 +10424,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' elsif ( $curop == 1 ) { ++ $inpt ; }',
             'start_line' => 160,
             'indent' => 9,
-            'block_id' => 19
+            'block_id' => 18
           },
           {
             'token_num' => 3,
@@ -10433,7 +10433,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ++ $inpt ;',
             'start_line' => 161,
             'indent' => 10,
-            'block_id' => 21
+            'block_id' => 20
           },
           {
             'token_num' => 9,
@@ -10442,7 +10442,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' else { $inpt = $max_uv & $inpt ; }',
             'start_line' => 162,
             'indent' => 9,
-            'block_id' => 19
+            'block_id' => 18
           },
           {
             'token_num' => 6,
@@ -10451,7 +10451,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $inpt = $max_uv & $inpt ;',
             'start_line' => 163,
             'indent' => 10,
-            'block_id' => 22
+            'block_id' => 21
           },
           {
             'token_num' => 15,
@@ -10460,7 +10460,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' elsif ( $curop == 3 ) { use integer ; $inpt += $zero ; }',
             'start_line' => 165,
             'indent' => 8,
-            'block_id' => 18
+            'block_id' => 17
           },
           {
             'token_num' => 3,
@@ -10469,7 +10469,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' use integer ;',
             'start_line' => 166,
             'indent' => 9,
-            'block_id' => 23
+            'block_id' => 22
           },
           {
             'token_num' => 4,
@@ -10478,7 +10478,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $inpt += $zero ;',
             'start_line' => 166,
             'indent' => 9,
-            'block_id' => 23
+            'block_id' => 22
           },
           {
             'token_num' => 7,
@@ -10487,7 +10487,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' else { $inpt += $zero ; }',
             'start_line' => 167,
             'indent' => 8,
-            'block_id' => 18
+            'block_id' => 17
           },
           {
             'token_num' => 4,
@@ -10496,7 +10496,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $inpt += $zero ;',
             'start_line' => 168,
             'indent' => 9,
-            'block_id' => 24
+            'block_id' => 23
           },
           {
             'token_num' => 48,
@@ -10505,7 +10505,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' elsif ( $curop < 8 ) { if ( $curop == 5 ) { $inpt = "$inpt" ; } elsif ( $curop == 6 ) { my $dummy = $max_uv & $inpt ; } else { use integer ; my $dummy = $inpt + $zero ; } }',
             'start_line' => 170,
             'indent' => 7,
-            'block_id' => 17
+            'block_id' => 16
           },
           {
             'token_num' => 12,
@@ -10514,7 +10514,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( $curop == 5 ) { $inpt = "$inpt" ; }',
             'start_line' => 171,
             'indent' => 8,
-            'block_id' => 25
+            'block_id' => 24
           },
           {
             'token_num' => 4,
@@ -10523,7 +10523,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $inpt = "$inpt" ;',
             'start_line' => 172,
             'indent' => 9,
-            'block_id' => 26
+            'block_id' => 25
           },
           {
             'token_num' => 15,
@@ -10532,7 +10532,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' elsif ( $curop == 6 ) { my $dummy = $max_uv & $inpt ; }',
             'start_line' => 173,
             'indent' => 8,
-            'block_id' => 25
+            'block_id' => 24
           },
           {
             'token_num' => 7,
@@ -10541,7 +10541,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $dummy = $max_uv & $inpt ;',
             'start_line' => 174,
             'indent' => 9,
-            'block_id' => 27
+            'block_id' => 26
           },
           {
             'token_num' => 13,
@@ -10550,7 +10550,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' else { use integer ; my $dummy = $inpt + $zero ; }',
             'start_line' => 175,
             'indent' => 8,
-            'block_id' => 25
+            'block_id' => 24
           },
           {
             'token_num' => 3,
@@ -10559,7 +10559,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' use integer ;',
             'start_line' => 176,
             'indent' => 9,
-            'block_id' => 28
+            'block_id' => 27
           },
           {
             'token_num' => 7,
@@ -10568,7 +10568,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $dummy = $inpt + $zero ;',
             'start_line' => 176,
             'indent' => 9,
-            'block_id' => 28
+            'block_id' => 27
           },
           {
             'token_num' => 15,
@@ -10577,7 +10577,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' elsif ( $curop == 8 ) { my $dummy = $inpt + $zero ; }',
             'start_line' => 178,
             'indent' => 7,
-            'block_id' => 17
+            'block_id' => 16
           },
           {
             'token_num' => 7,
@@ -10586,7 +10586,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $dummy = $inpt + $zero ;',
             'start_line' => 179,
             'indent' => 8,
-            'block_id' => 29
+            'block_id' => 28
           },
           {
             'token_num' => 10,
@@ -10595,7 +10595,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' else { my $dummy = $inpt . "" ; }',
             'start_line' => 180,
             'indent' => 7,
-            'block_id' => 17
+            'block_id' => 16
           },
           {
             'token_num' => 7,
@@ -10604,7 +10604,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $dummy = $inpt . "" ;',
             'start_line' => 181,
             'indent' => 8,
-            'block_id' => 30
+            'block_id' => 29
           },
           {
             'token_num' => 15,
@@ -10613,7 +10613,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( $last == 2 ) { $inpt = sprintf "%u" , $inpt ; }',
             'start_line' => 185,
             'indent' => 6,
-            'block_id' => 12
+            'block_id' => 11
           },
           {
             'token_num' => 7,
@@ -10622,7 +10622,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $inpt = sprintf "%u" , $inpt ;',
             'start_line' => 186,
             'indent' => 7,
-            'block_id' => 31
+            'block_id' => 30
           },
           {
             'token_num' => 15,
@@ -10631,7 +10631,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' elsif ( $last == 3 ) { $inpt = sprintf "%d" , $inpt ; }',
             'start_line' => 187,
             'indent' => 6,
-            'block_id' => 12
+            'block_id' => 11
           },
           {
             'token_num' => 7,
@@ -10640,7 +10640,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $inpt = sprintf "%d" , $inpt ;',
             'start_line' => 188,
             'indent' => 7,
-            'block_id' => 32
+            'block_id' => 31
           },
           {
             'token_num' => 15,
@@ -10649,7 +10649,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' elsif ( $last == 4 ) { $inpt = sprintf "%g" , $inpt ; }',
             'start_line' => 189,
             'indent' => 6,
-            'block_id' => 12
+            'block_id' => 11
           },
           {
             'token_num' => 7,
@@ -10658,7 +10658,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $inpt = sprintf "%g" , $inpt ;',
             'start_line' => 190,
             'indent' => 7,
-            'block_id' => 33
+            'block_id' => 32
           },
           {
             'token_num' => 7,
@@ -10667,7 +10667,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' else { $inpt = "$inpt" ; }',
             'start_line' => 191,
             'indent' => 6,
-            'block_id' => 12
+            'block_id' => 11
           },
           {
             'token_num' => 4,
@@ -10676,7 +10676,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $inpt = "$inpt" ;',
             'start_line' => 192,
             'indent' => 7,
-            'block_id' => 34
+            'block_id' => 33
           },
           {
             'token_num' => 5,
@@ -10685,7 +10685,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' push @ans , $inpt ;',
             'start_line' => 194,
             'indent' => 6,
-            'block_id' => 12
+            'block_id' => 11
           },
           {
             'token_num' => 219,
@@ -10694,7 +10694,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( $ans [ 0 ] ne $ans [ 1 ] ) { my $diag = "\'$ans[0]\' ne \'$ans[1]\',\\t$num\\t=> @opnames[$first,@{$curops[0]},$last] vs @opnames[$first,@{$curops[1]},$last]" ; my $excuse ; if ( ( ( $ans [ 0 ] eq $max_uv_pp ) and ( $ans [ 1 ] eq $max_uv_p1 ) ) or ( ( $ans [ 1 ] eq $max_uv_pp ) and ( $ans [ 0 ] eq $max_uv_p1 ) ) ) { $excuse = "ok, as string ++ of max_uv is \\"$max_uv_pp\\", numeric is $max_uv_p1" ; } elsif ( $opnames [ $last ] eq \'I\' and $ans [ 1 ] eq "-1" and $ans [ 0 ] eq $max_uv_p1_as_iv ) { $excuse = "ok, \\"$max_uv_p1\\" correctly converts to IV \\"$max_uv_p1_as_iv\\"" ; } elsif ( $opnames [ $last ] eq \'U\' and $ans [ 1 ] eq ~ 0 and $ans [ 0 ] eq $max_uv_p1_as_uv ) { $excuse = "ok, \\"$max_uv_p1\\" correctly converts to UV \\"$max_uv_p1_as_uv\\"" ; } elsif ( grep { defined $_ &&/^N$/ } @opnames [ @{ $curops [ 0 ] } ] and $ans [ 0 ] == $ans [ 1 ] and $ans [ 0 ] <= ~ 0 and $ans [ 0 ] !=/^-?\\d+$/ and $ans [ 1 ] !~/^-?\\d+$/ ) { $excuse = "ok, numerically equal - notation changed due to adding zero" ; } else { $nok ++ , diag ( $diag ) ; } if ( $excuse ) { note ( $diag ) ; note ( $excuse ) ; } }',
             'start_line' => 196,
             'indent' => 5,
-            'block_id' => 11
+            'block_id' => 10
           },
           {
             'token_num' => 5,
@@ -10703,7 +10703,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $diag = "\'$ans[0]\' ne \'$ans[1]\',\\t$num\\t=> @opnames[$first,@{$curops[0]},$last] vs @opnames[$first,@{$curops[1]},$last]" ;',
             'start_line' => 197,
             'indent' => 6,
-            'block_id' => 35
+            'block_id' => 34
           },
           {
             'token_num' => 3,
@@ -10712,7 +10712,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $excuse ;',
             'start_line' => 198,
             'indent' => 6,
-            'block_id' => 35
+            'block_id' => 34
           },
           {
             'token_num' => 48,
@@ -10721,7 +10721,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( ( ( $ans [ 0 ] eq $max_uv_pp ) and ( $ans [ 1 ] eq $max_uv_p1 ) ) or ( ( $ans [ 1 ] eq $max_uv_pp ) and ( $ans [ 0 ] eq $max_uv_p1 ) ) ) { $excuse = "ok, as string ++ of max_uv is \\"$max_uv_pp\\", numeric is $max_uv_p1" ; }',
             'start_line' => 200,
             'indent' => 6,
-            'block_id' => 35
+            'block_id' => 34
           },
           {
             'token_num' => 4,
@@ -10730,7 +10730,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $excuse = "ok, as string ++ of max_uv is \\"$max_uv_pp\\", numeric is $max_uv_p1" ;',
             'start_line' => 204,
             'indent' => 7,
-            'block_id' => 36
+            'block_id' => 35
           },
           {
             'token_num' => 29,
@@ -10739,7 +10739,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' elsif ( $opnames [ $last ] eq \'I\' and $ans [ 1 ] eq "-1" and $ans [ 0 ] eq $max_uv_p1_as_iv ) { $excuse = "ok, \\"$max_uv_p1\\" correctly converts to IV \\"$max_uv_p1_as_iv\\"" ; }',
             'start_line' => 205,
             'indent' => 6,
-            'block_id' => 35
+            'block_id' => 34
           },
           {
             'token_num' => 4,
@@ -10748,7 +10748,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $excuse = "ok, \\"$max_uv_p1\\" correctly converts to IV \\"$max_uv_p1_as_iv\\"" ;',
             'start_line' => 218,
             'indent' => 7,
-            'block_id' => 37
+            'block_id' => 36
           },
           {
             'token_num' => 30,
@@ -10757,7 +10757,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' elsif ( $opnames [ $last ] eq \'U\' and $ans [ 1 ] eq ~ 0 and $ans [ 0 ] eq $max_uv_p1_as_uv ) { $excuse = "ok, \\"$max_uv_p1\\" correctly converts to UV \\"$max_uv_p1_as_uv\\"" ; }',
             'start_line' => 219,
             'indent' => 6,
-            'block_id' => 35
+            'block_id' => 34
           },
           {
             'token_num' => 4,
@@ -10766,7 +10766,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $excuse = "ok, \\"$max_uv_p1\\" correctly converts to UV \\"$max_uv_p1_as_uv\\"" ;',
             'start_line' => 222,
             'indent' => 7,
-            'block_id' => 38
+            'block_id' => 37
           },
           {
             'token_num' => 63,
@@ -10775,7 +10775,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' elsif ( grep { defined $_ &&/^N$/ } @opnames [ @{ $curops [ 0 ] } ] and $ans [ 0 ] == $ans [ 1 ] and $ans [ 0 ] <= ~ 0 and $ans [ 0 ] !=/^-?\\d+$/ and $ans [ 1 ] !~/^-?\\d+$/ ) { $excuse = "ok, numerically equal - notation changed due to adding zero" ; }',
             'start_line' => 223,
             'indent' => 6,
-            'block_id' => 35
+            'block_id' => 34
           },
           {
             'token_num' => 4,
@@ -10784,7 +10784,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $excuse = "ok, numerically equal - notation changed due to adding zero" ;',
             'start_line' => 236,
             'indent' => 7,
-            'block_id' => 39
+            'block_id' => 38
           },
           {
             'token_num' => 11,
@@ -10793,7 +10793,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' else { $nok ++ , diag ( $diag ) ; }',
             'start_line' => 237,
             'indent' => 6,
-            'block_id' => 35
+            'block_id' => 34
           },
           {
             'token_num' => 8,
@@ -10802,7 +10802,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $nok ++ , diag ( $diag ) ;',
             'start_line' => 238,
             'indent' => 7,
-            'block_id' => 40
+            'block_id' => 39
           },
           {
             'token_num' => 16,
@@ -10811,7 +10811,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( $excuse ) { note ( $diag ) ; note ( $excuse ) ; }',
             'start_line' => 241,
             'indent' => 6,
-            'block_id' => 35
+            'block_id' => 34
           },
           {
             'token_num' => 5,
@@ -10820,7 +10820,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' note ( $diag ) ;',
             'start_line' => 242,
             'indent' => 7,
-            'block_id' => 41
+            'block_id' => 40
           },
           {
             'token_num' => 5,
@@ -10829,7 +10829,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' note ( $excuse ) ;',
             'start_line' => 243,
             'indent' => 7,
-            'block_id' => 41
+            'block_id' => 40
           },
           {
             'token_num' => 7,
@@ -10838,7 +10838,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ok ( $nok == 0 ) ;',
             'start_line' => 247,
             'indent' => 4,
-            'block_id' => 10
+            'block_id' => 9
           },
           {
             'token_num' => 9,
@@ -10883,7 +10883,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $dummy = "$nz" ;',
             'start_line' => 259,
             'indent' => 1,
-            'block_id' => 43
+            'block_id' => 42
           },
           {
             'token_num' => 8,

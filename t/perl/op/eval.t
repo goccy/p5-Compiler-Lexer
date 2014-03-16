@@ -4812,12 +4812,12 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
                    'line' => 132
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalVar',
                    'data' => '$main',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
                    'line' => 136
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6172,12 +6172,12 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
                    'line' => 182
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'Var',
                    'data' => '$main',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_Var,
                    'line' => 184
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -14922,12 +14922,12 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
                    'line' => 476
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalVar',
                    'data' => '$Config',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
                    'line' => 476
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -21140,11 +21140,11 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
             'block_id' => 50
           },
           {
-            'token_num' => 5,
-            'has_warnings' => 0,
+            'token_num' => 16,
+            'has_warnings' => 1,
             'end_line' => 476,
-            'src' => ' =~/\\bDevel\\/Peek\\b/ ;',
-            'start_line' => 476,
+            'src' => ' skip ( \'Devel::Peek was not built\' , 2 ) unless $Config::Config { extensions } =~/\\bDevel\\/Peek\\b/ ;',
+            'start_line' => 475,
             'indent' => 1,
             'block_id' => 50
           },
@@ -21283,7 +21283,7 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
             'src' => ' use feature qw(:5.10) ;',
             'start_line' => 512,
             'indent' => 1,
-            'block_id' => 52
+            'block_id' => 51
           },
           {
             'token_num' => 13,
@@ -21292,7 +21292,7 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
             'src' => ' my $count_expected = ( $^H & 0x20000 ) ? 2 : 1 ;',
             'start_line' => 513,
             'indent' => 1,
-            'block_id' => 52
+            'block_id' => 51
           },
           {
             'token_num' => 3,
@@ -21301,7 +21301,7 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
             'src' => ' my $t ;',
             'start_line' => 514,
             'indent' => 1,
-            'block_id' => 52
+            'block_id' => 51
           },
           {
             'token_num' => 5,
@@ -21310,7 +21310,7 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
             'src' => ' my $s = "a" ;',
             'start_line' => 515,
             'indent' => 1,
-            'block_id' => 52
+            'block_id' => 51
           },
           {
             'token_num' => 10,
@@ -21319,7 +21319,7 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
             'src' => ' $s =~ s/a/$t = \\%^H;  qq( qq() );/ee ;',
             'start_line' => 516,
             'indent' => 1,
-            'block_id' => 52
+            'block_id' => 51
           },
           {
             'token_num' => 12,
@@ -21328,7 +21328,7 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
             'src' => ' is ( Internals::SvREFCNT ( %$t ) , $count_expected , \'RT 63110\' ) ;',
             'start_line' => 517,
             'indent' => 1,
-            'block_id' => 52
+            'block_id' => 51
           },
           {
             'token_num' => 32,
@@ -21346,7 +21346,7 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
             'src' => ' my $x ;',
             'start_line' => 523,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 52
           },
           {
             'token_num' => 12,
@@ -21355,7 +21355,7 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
             'src' => ' is ( Internals::SvREFCNT ( $x ) , 1 , "originally only 1 reference" ) ;',
             'start_line' => 524,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 52
           },
           {
             'token_num' => 3,
@@ -21364,7 +21364,7 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
             'src' => ' eval \'$x\' ;',
             'start_line' => 525,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 52
           },
           {
             'token_num' => 12,
@@ -21373,7 +21373,7 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
             'src' => ' is ( Internals::SvREFCNT ( $x ) , 1 , "execution eval doesn\'t create new references" ) ;',
             'start_line' => 526,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 52
           },
           {
             'token_num' => 11,
@@ -21467,7 +21467,7 @@ print "ok\\n";
             'src' => ' eval \'my $do_something_with = $k\' ;',
             'start_line' => 570,
             'indent' => 1,
-            'block_id' => 54
+            'block_id' => 53
           },
           {
             'token_num' => 7,
@@ -21476,7 +21476,7 @@ print "ok\\n";
             'src' => ' eval { $k = \'mon\' } ;',
             'start_line' => 571,
             'indent' => 1,
-            'block_id' => 54
+            'block_id' => 53
           },
           {
             'token_num' => 11,
@@ -21485,7 +21485,7 @@ print "ok\\n";
             'src' => ' is "a" =~/a/ , "1" , "string eval leaves readonly lexicals readonly [perl #19135]" ;',
             'start_line' => 572,
             'indent' => 1,
-            'block_id' => 54
+            'block_id' => 53
           },
           {
             'token_num' => 11,
@@ -21521,7 +21521,7 @@ print "ok\\n";
             'src' => ' ok "ab" =~/a b/ , \'eval does not localise %^H at run time\' ;',
             'start_line' => 592,
             'indent' => 1,
-            'block_id' => 55
+            'block_id' => 54
           },
           {
             'token_num' => 8,
@@ -21557,7 +21557,7 @@ print "ok\\n";
             'src' => ' local $ENV { PERL_DESTRUCT_LEVEL } = 1 ;',
             'start_line' => 602,
             'indent' => 1,
-            'block_id' => 57
+            'block_id' => 56
           },
           {
             'token_num' => 22,
@@ -21566,7 +21566,7 @@ print "ok\\n";
             'src' => ' unlike runperl ( prog => \'BEGIN { $^H{foo} = bar }\' . \'our %FIELDS; my main $x; eval q[$x->{foo}]\' , stderr => 1 , ) , qr/Unbalanced string table/ , \'Errors in finalize_optree do not leak string eval op tree\' ;',
             'start_line' => 604,
             'indent' => 1,
-            'block_id' => 57
+            'block_id' => 56
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

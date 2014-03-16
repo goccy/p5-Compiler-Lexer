@@ -1055,12 +1055,12 @@ subtest 'tokenize' => sub {
                    'line' => 29
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalVar',
                    'data' => '$ｍａｉｎ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
                    'line' => 29
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2918,12 +2918,12 @@ subtest 'tokenize' => sub {
                    'line' => 58
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'Var',
                    'data' => '$ｍａｉｎ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_Var,
                    'line' => 58
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3851,7 +3851,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ｆ ( ) ;',
             'start_line' => 38,
             'indent' => 1,
-            'block_id' => 7
+            'block_id' => 6
           },
           {
             'token_num' => 24,
@@ -3932,7 +3932,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $fooref2-> ( ) ;::is ( $c [ 3 ] , "ｍａｉｎ::__ANON__" , "deleted subroutine name" ) ;::ok ( $c [ 4 ] , "hasargs true with deleted sub" ) ;',
             'start_line' => 59,
             'indent' => 0,
-            'block_id' => 10
+            'block_id' => 8
           },
           {
             'token_num' => 45,
@@ -3941,7 +3941,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' sub ｐｂ { return ( caller ( 0 ) ) [ 3 ] }::is ( eval \'ｐｂ()\' , \'ｍａｉｎ::ｐｂ\' , "actually return the right function name" ) ; my $saved_perldb = $^P ; $^P = 16 ; $^P = $saved_perldb ;::is ( eval \'ｐｂ()\' , \'ｍａｉｎ::ｐｂ\' , \'actually return the right function name even if $^P had been on at some point\' ) ;',
             'start_line' => 63,
             'indent' => 0,
-            'block_id' => 10
+            'block_id' => 8
           },
           {
             'token_num' => 20,
@@ -3950,7 +3950,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' return ( caller ( 0 ) ) [ 3 ] }::is ( eval \'ｐｂ()\' , \'ｍａｉｎ::ｐｂ\' , "actually return the right function name" ) ;',
             'start_line' => 63,
             'indent' => 1,
-            'block_id' => 11
+            'block_id' => 9
           },
           {
             'token_num' => 5,
@@ -3959,7 +3959,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $saved_perldb = $^P ;',
             'start_line' => 67,
             'indent' => 1,
-            'block_id' => 11
+            'block_id' => 9
           },
           {
             'token_num' => 4,
@@ -3968,7 +3968,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $^P = 16 ;',
             'start_line' => 68,
             'indent' => 1,
-            'block_id' => 11
+            'block_id' => 9
           },
           {
             'token_num' => 13,
@@ -3977,7 +3977,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $^P = $saved_perldb ;::is ( eval \'ｐｂ()\' , \'ｍａｉｎ::ｐｂ\' , \'actually return the right function name even if $^P had been on at some point\' ) ;',
             'start_line' => 69,
             'indent' => 1,
-            'block_id' => 11
+            'block_id' => 9
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

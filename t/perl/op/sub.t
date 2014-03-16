@@ -1698,21 +1698,12 @@ subtest 'tokenize' => sub {
                    'line' => 36
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 36
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 36
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2067,21 +2058,12 @@ subtest 'tokenize' => sub {
                    'line' => 40
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 40
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 40
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3894,10 +3876,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 153,
+            'token_num' => 92,
             'has_warnings' => 1,
-            'end_line' => 42,
-            'src' => ' { my @a ; push @a , 4 , 5 , main-> import ( 6 , 7 ) ; ok ( eq_array ( \\ @a , [ 4 , 5 ] ) , "import with args" ) ; @a = ( ) ; push @a , 14 , 15 , main-> import ; ok ( eq_array ( \\ @a , [ 14 , 15 ] ) , "import without args" ) ; my $x = 1 ; @a = ( ) ; push @a , 24 , 25 , & { $x == $x } ( 26 , 27 ) ; ok ( eq_array ( \\ @a , [ 24 , 25 ] ) , "yes with args" ) ; @a = ( ) ; push @a , 34 , 35 , & { $x == $x } ; ok ( eq_array ( \\ @a , [ 34 , 35 ] ) , "yes without args" ) ; }',
+            'end_line' => 36,
+            'src' => ' { my @a ; push @a , 4 , 5 , main-> import ( 6 , 7 ) ; ok ( eq_array ( \\ @a , [ 4 , 5 ] ) , "import with args" ) ; @a = ( ) ; push @a , 14 , 15 , main-> import ; ok ( eq_array ( \\ @a , [ 14 , 15 ] ) , "import without args" ) ; my $x = 1 ; @a = ( ) ; push @a , 24 , 25 , &{ $x == $x }',
             'start_line' => 24,
             'indent' => 0,
             'block_id' => 0
@@ -3980,8 +3962,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 36,
             'src' => ' ( 26 , 27 ) ;',
             'start_line' => 36,
-            'indent' => 1,
-            'block_id' => 3
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 17,
@@ -3989,8 +3971,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 37,
             'src' => ' ok ( eq_array ( \\ @a , [ 24 , 25 ] ) , "yes with args" ) ;',
             'start_line' => 37,
-            'indent' => 1,
-            'block_id' => 3
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -3998,152 +3980,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 39,
             'src' => ' @a = ( ) ;',
             'start_line' => 39,
-            'indent' => 1,
-            'block_id' => 3
-          },
-          {
-            'token_num' => 14,
-            'has_warnings' => 1,
-            'end_line' => 40,
-            'src' => ' push @a , 34 , 35 , & { $x == $x } ;',
-            'start_line' => 40,
-            'indent' => 1,
-            'block_id' => 3
-          },
-          {
-            'token_num' => 17,
-            'has_warnings' => 1,
-            'end_line' => 41,
-            'src' => ' ok ( eq_array ( \\ @a , [ 34 , 35 ] ) , "yes without args" ) ;',
-            'start_line' => 41,
-            'indent' => 1,
-            'block_id' => 3
-          },
-          {
-            'token_num' => 166,
-            'has_warnings' => 1,
-            'end_line' => 66,
-            'src' => ' { $foo { bar } = 7 ; for my $x ( $foo { bar } ) { isnt \\ sub { delete $foo { bar } }-> ( ) , \\ $x , \'result of delete(helem) is copied when returned\' ; } $foo { bar } = 7 ; for my $x ( $foo { bar } ) { isnt \\ sub { return delete $foo { bar } }-> ( ) , \\ $x , \'result of delete(helem) is copied when explicitly returned\' ; } my $x ; isnt \\ sub { delete $_ [ 0 ] }-> ( $x ) , \\ $x , \'result of delete(aelem) is copied when returned\' ; isnt \\ sub { return delete $_ [ 0 ] }-> ( $x ) , \\ $x , \'result of delete(aelem) is copied when explicitly returned\' ; isnt \\ sub { ( ) = \\ @_ ; shift }-> ( $x ) , \\ $x , \'result of shift is copied when returned\' ; isnt \\ sub { ( ) = \\ @_ ; return shift }-> ( $x ) , \\ $x , \'result of shift is copied when explicitly returned\' ; }',
-            'start_line' => 45,
             'indent' => 0,
             'block_id' => 0
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 46,
-            'src' => ' $foo { bar } = 7 ;',
-            'start_line' => 46,
-            'indent' => 1,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 30,
-            'has_warnings' => 1,
-            'end_line' => 51,
-            'src' => ' for my $x ( $foo { bar } ) { isnt \\ sub { delete $foo { bar } }-> ( ) , \\ $x , \'result of delete(helem) is copied when returned\' ; }',
-            'start_line' => 47,
-            'indent' => 1,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 19,
-            'has_warnings' => 1,
-            'end_line' => 50,
-            'src' => ' isnt \\ sub { delete $foo { bar } }-> ( ) , \\ $x , \'result of delete(helem) is copied when returned\' ;',
-            'start_line' => 49,
-            'indent' => 2,
-            'block_id' => 7
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 52,
-            'src' => ' $foo { bar } = 7 ;',
-            'start_line' => 52,
-            'indent' => 1,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 31,
-            'has_warnings' => 1,
-            'end_line' => 56,
-            'src' => ' for my $x ( $foo { bar } ) { isnt \\ sub { return delete $foo { bar } }-> ( ) , \\ $x , \'result of delete(helem) is copied when explicitly returned\' ; }',
-            'start_line' => 53,
-            'indent' => 1,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 20,
-            'has_warnings' => 1,
-            'end_line' => 55,
-            'src' => ' isnt \\ sub { return delete $foo { bar } }-> ( ) , \\ $x , \'result of delete(helem) is copied when explicitly returned\' ;',
-            'start_line' => 54,
-            'indent' => 2,
-            'block_id' => 9
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 57,
-            'src' => ' my $x ;',
-            'start_line' => 57,
-            'indent' => 1,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 20,
-            'has_warnings' => 1,
-            'end_line' => 59,
-            'src' => ' isnt \\ sub { delete $_ [ 0 ] }-> ( $x ) , \\ $x , \'result of delete(aelem) is copied when returned\' ;',
-            'start_line' => 58,
-            'indent' => 1,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 21,
-            'has_warnings' => 1,
-            'end_line' => 61,
-            'src' => ' isnt \\ sub { return delete $_ [ 0 ] }-> ( $x ) , \\ $x , \'result of delete(aelem) is copied when explicitly returned\' ;',
-            'start_line' => 60,
-            'indent' => 1,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 22,
-            'has_warnings' => 1,
-            'end_line' => 63,
-            'src' => ' isnt \\ sub { ( ) = \\ @_ ; shift }-> ( $x ) , \\ $x , \'result of shift is copied when returned\' ;',
-            'start_line' => 62,
-            'indent' => 1,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 0,
-            'end_line' => 62,
-            'src' => ' ( ) = \\ @_ ;',
-            'start_line' => 62,
-            'indent' => 2,
-            'block_id' => 13
-          },
-          {
-            'token_num' => 23,
-            'has_warnings' => 1,
-            'end_line' => 65,
-            'src' => ' isnt \\ sub { ( ) = \\ @_ ; return shift }-> ( $x ) , \\ $x , \'result of shift is copied when explicitly returned\' ;',
-            'start_line' => 64,
-            'indent' => 1,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 0,
-            'end_line' => 64,
-            'src' => ' ( ) = \\ @_ ;',
-            'start_line' => 64,
-            'indent' => 2,
-            'block_id' => 14
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

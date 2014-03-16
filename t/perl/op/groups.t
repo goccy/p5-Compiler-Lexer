@@ -7057,12 +7057,12 @@ subtest 'tokenize' => sub {
                    'line' => 282
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalVar',
                    'data' => '$Config',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
                    'line' => 282
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7201,12 +7201,12 @@ subtest 'tokenize' => sub {
                    'line' => 287
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'Var',
                    'data' => '$Config',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_Var,
                    'line' => 287
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -11311,10 +11311,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 5,
-            'has_warnings' => 0,
+            'token_num' => 10,
+            'has_warnings' => 1,
             'end_line' => 282,
-            'src' => ' =~/^darwin/ ;',
+            'src' => ' return $Config::Config { myuname } =~/^darwin/ ;',
             'start_line' => 282,
             'indent' => 1,
             'block_id' => 29
@@ -11329,13 +11329,13 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 6,
-            'has_warnings' => 0,
+            'token_num' => 11,
+            'has_warnings' => 1,
             'end_line' => 287,
-            'src' => ' =~/^cygwin_nt/i ;',
+            'src' => ' return $Config::Config { myuname } =~/^cygwin_nt/i ;',
             'start_line' => 287,
             'indent' => 1,
-            'block_id' => 31
+            'block_id' => 30
           },
           {
             'token_num' => 70,
@@ -11353,7 +11353,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my @gids = split \' \' , $( ;',
             'start_line' => 294,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 31
           },
           {
             'token_num' => 3,
@@ -11362,7 +11362,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my %gid_count ;',
             'start_line' => 295,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 31
           },
           {
             'token_num' => 3,
@@ -11371,7 +11371,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my @gr_name ;',
             'start_line' => 296,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 31
           },
           {
             'token_num' => 33,
@@ -11380,7 +11380,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' for my $gid ( @gids ) { ++ $gid_count { $gid } ; my ( $group ) = getgrgid $gid ; next if ! defined $group ; push @gr_name , $group ; }',
             'start_line' => 297,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 31
           },
           {
             'token_num' => 6,
@@ -11389,7 +11389,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ++ $gid_count { $gid } ;',
             'start_line' => 298,
             'indent' => 2,
-            'block_id' => 34
+            'block_id' => 32
           },
           {
             'token_num' => 8,
@@ -11398,7 +11398,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my ( $group ) = getgrgid $gid ;',
             'start_line' => 300,
             'indent' => 2,
-            'block_id' => 34
+            'block_id' => 32
           },
           {
             'token_num' => 6,
@@ -11407,7 +11407,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' next if ! defined $group ;',
             'start_line' => 306,
             'indent' => 2,
-            'block_id' => 34
+            'block_id' => 32
           },
           {
             'token_num' => 5,
@@ -11416,7 +11416,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' push @gr_name , $group ;',
             'start_line' => 309,
             'indent' => 2,
-            'block_id' => 34
+            'block_id' => 32
           },
           {
             'token_num' => 10,
@@ -11425,7 +11425,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' diag_variable ( gr_name => join \',\' , @gr_name ) ;',
             'start_line' => 312,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 31
           },
           {
             'token_num' => 9,
@@ -11434,7 +11434,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' return ( \\ %gid_count , \\ @gr_name ) ;',
             'start_line' => 314,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 31
           },
           {
             'token_num' => 34,
@@ -11452,7 +11452,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my ( $extracted_groups , $perl_groups ) = @_ ;',
             'start_line' => 320,
             'indent' => 1,
-            'block_id' => 35
+            'block_id' => 33
           },
           {
             'token_num' => 11,
@@ -11461,7 +11461,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my %was_extracted = map { $_ => 1 } @$extracted_groups ;',
             'start_line' => 322,
             'indent' => 1,
-            'block_id' => 35
+            'block_id' => 33
           },
           {
             'token_num' => 10,
@@ -11470,7 +11470,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' return grep { $was_extracted { $_ } } @$perl_groups ;',
             'start_line' => 327,
             'indent' => 1,
-            'block_id' => 35
+            'block_id' => 33
           },
           {
             'token_num' => 38,
@@ -11488,7 +11488,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my ( $pwgid , $pwgnam ) = @_ ;',
             'start_line' => 334,
             'indent' => 1,
-            'block_id' => 36
+            'block_id' => 34
           },
           {
             'token_num' => 10,
@@ -11497,7 +11497,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( cygwin_nt ( ) ) { return ; }',
             'start_line' => 336,
             'indent' => 1,
-            'block_id' => 36
+            'block_id' => 34
           },
           {
             'token_num' => 2,
@@ -11506,7 +11506,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' return ;',
             'start_line' => 337,
             'indent' => 2,
-            'block_id' => 37
+            'block_id' => 35
           },
           {
             'token_num' => 15,
@@ -11515,7 +11515,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' else { return ( $pwgid => 1 , $pwgnam => 1 , ) ; }',
             'start_line' => 339,
             'indent' => 1,
-            'block_id' => 36
+            'block_id' => 34
           },
           {
             'token_num' => 12,
@@ -11524,7 +11524,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' return ( $pwgid => 1 , $pwgnam => 1 , ) ;',
             'start_line' => 340,
             'indent' => 2,
-            'block_id' => 38
+            'block_id' => 36
           },
           {
             'token_num' => 25,
@@ -11542,7 +11542,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my ( $pwgid , $pwgnam ) = @_ ;',
             'start_line' => 349,
             'indent' => 1,
-            'block_id' => 39
+            'block_id' => 37
           },
           {
             'token_num' => 12,
@@ -11551,7 +11551,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' return ( $pwgid => 1 , $pwgnam => 1 , ) ;',
             'start_line' => 350,
             'indent' => 1,
-            'block_id' => 39
+            'block_id' => 37
           },
           {
             'token_num' => 25,
@@ -11569,7 +11569,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my ( $basegroups , $groups ) = @_ ;',
             'start_line' => 359,
             'indent' => 1,
-            'block_id' => 40
+            'block_id' => 38
           },
           {
             'token_num' => 12,
@@ -11578,7 +11578,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' return grep { ! $basegroups-> { $_ } } @$groups ;',
             'start_line' => 362,
             'indent' => 1,
-            'block_id' => 40
+            'block_id' => 38
           },
           {
             'token_num' => 91,
@@ -11596,7 +11596,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my ( $supplementary_groups , $extracted_supplementary_groups , $pwgid ) = @_ ;',
             'start_line' => 370,
             'indent' => 1,
-            'block_id' => 41
+            'block_id' => 39
           },
           {
             'token_num' => 3,
@@ -11605,7 +11605,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my %g ;',
             'start_line' => 373,
             'indent' => 1,
-            'block_id' => 41
+            'block_id' => 39
           },
           {
             'token_num' => 12,
@@ -11614,7 +11614,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $g { $_ } [ 0 ] = 1 for @$supplementary_groups ;',
             'start_line' => 374,
             'indent' => 1,
-            'block_id' => 41
+            'block_id' => 39
           },
           {
             'token_num' => 12,
@@ -11623,7 +11623,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $g { $_ } [ 1 ] = 1 for @$extracted_supplementary_groups ;',
             'start_line' => 375,
             'indent' => 1,
-            'block_id' => 41
+            'block_id' => 39
           },
           {
             'token_num' => 28,
@@ -11632,7 +11632,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my @misses = grep { ! ( $g { $_ } [ 0 ] && $g { $_ } [ 1 ] ) } sort keys %g ;',
             'start_line' => 378,
             'indent' => 1,
-            'block_id' => 41
+            'block_id' => 39
           },
           {
             'token_num' => 21,
@@ -11641,7 +11641,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' return ! @misses || ( ! @$supplementary_groups && 1 == @$extracted_supplementary_groups && $pwgid == $extracted_supplementary_groups-> [ 0 ] ) ;',
             'start_line' => 383,
             'indent' => 1,
-            'block_id' => 41
+            'block_id' => 39
           },
           {
             'token_num' => 22,
@@ -11659,7 +11659,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my ( $label , $content ) = @_ ;',
             'start_line' => 391,
             'indent' => 1,
-            'block_id' => 42
+            'block_id' => 40
           },
           {
             'token_num' => 7,
@@ -11668,7 +11668,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' printf "# %-11s=%s\\n" , $label , $content ;',
             'start_line' => 393,
             'indent' => 1,
-            'block_id' => 42
+            'block_id' => 40
           },
           {
             'token_num' => 2,
@@ -11677,7 +11677,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' return ;',
             'start_line' => 394,
             'indent' => 1,
-            'block_id' => 42
+            'block_id' => 40
           },
           {
             'token_num' => 19,
@@ -11695,7 +11695,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my %seen ;',
             'start_line' => 399,
             'indent' => 1,
-            'block_id' => 43
+            'block_id' => 41
           },
           {
             'token_num' => 12,
@@ -11704,7 +11704,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' return grep { ! $seen { $_ } ++ } @_ ;',
             'start_line' => 401,
             'indent' => 1,
-            'block_id' => 43
+            'block_id' => 41
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

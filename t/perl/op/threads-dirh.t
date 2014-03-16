@@ -1170,12 +1170,12 @@ subtest 'tokenize' => sub {
                    'line' => 43
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalVar',
                    'data' => '$Config',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
                    'line' => 43
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4767,7 +4767,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $: : TODO = \'dir handle cloning currently requires fchdir on non-Windows platforms\' ;',
             'start_line' => 44,
             'indent' => 2,
-            'block_id' => 6
+            'block_id' => 5
           },
           {
             'token_num' => 5,
@@ -4920,7 +4920,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ;',
             'start_line' => 79,
             'indent' => 1,
-            'block_id' => 10
+            'block_id' => 9
           },
           {
             'token_num' => 6,
@@ -4983,7 +4983,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' local $: : TODO ;',
             'start_line' => 91,
             'indent' => 2,
-            'block_id' => 11
+            'block_id' => 10
           },
           {
             'token_num' => 15,
@@ -4992,7 +4992,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is async { readdir $toberead // \'undef\' }-> join , \'undef\' , \'cloned dir iterator that points to the end of the directory\' ;',
             'start_line' => 93,
             'indent' => 2,
-            'block_id' => 11
+            'block_id' => 10
           },
           {
             'token_num' => 3,
@@ -5001,7 +5001,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' chdir \'toberead\' ;',
             'start_line' => 100,
             'indent' => 2,
-            'block_id' => 12
+            'block_id' => 11
           },
           {
             'token_num' => 24,
@@ -5010,7 +5010,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' open my $fh , ">floccipaucinihilopilification-" . "pneumonoultramicroscopicsilicovolcanoconiosis-" . "lopadotemachoselachogaleokranioleipsanodrimypotrimmatosilphiokarabo" . "melitokatakechymenokichlepikossyphophattoperisteralektryonoptokephal" . "liokinklopeleiolagoiosiraiobaphetraganopterygon" or chdir updir , skip ( "OS does not support long file names (and I mean *long*)" , 1 ) ;',
             'start_line' => 101,
             'indent' => 2,
-            'block_id' => 12
+            'block_id' => 11
           },
           {
             'token_num' => 3,
@@ -5019,7 +5019,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' chdir updir ;',
             'start_line' => 110,
             'indent' => 2,
-            'block_id' => 12
+            'block_id' => 11
           },
           {
             'token_num' => 6,
@@ -5028,7 +5028,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' opendir my $dirh , "toberead" ;',
             'start_line' => 111,
             'indent' => 2,
-            'block_id' => 12
+            'block_id' => 11
           },
           {
             'token_num' => 5,
@@ -5037,7 +5037,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $test_name = "dir iterators can be cloned when the next fn > 255 chars" ;',
             'start_line' => 112,
             'indent' => 2,
-            'block_id' => 12
+            'block_id' => 11
           },
           {
             'token_num' => 50,
@@ -5046,7 +5046,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' while ( ) { my $pos = telldir $dirh ; my $fn = readdir ( $dirh ) ; if ( ! defined $fn ) { fail ( $test_name ) ; last SKIP ; } if ( $fn =~ \'lagoio\' ) { seekdir $dirh , $pos ; last ; } }',
             'start_line' => 114,
             'indent' => 2,
-            'block_id' => 12
+            'block_id' => 11
           },
           {
             'token_num' => 6,
@@ -5055,7 +5055,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $pos = telldir $dirh ;',
             'start_line' => 115,
             'indent' => 3,
-            'block_id' => 13
+            'block_id' => 12
           },
           {
             'token_num' => 8,
@@ -5064,7 +5064,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $fn = readdir ( $dirh ) ;',
             'start_line' => 116,
             'indent' => 3,
-            'block_id' => 13
+            'block_id' => 12
           },
           {
             'token_num' => 16,
@@ -5073,7 +5073,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( ! defined $fn ) { fail ( $test_name ) ; last SKIP ; }',
             'start_line' => 117,
             'indent' => 3,
-            'block_id' => 13
+            'block_id' => 12
           },
           {
             'token_num' => 5,
@@ -5082,7 +5082,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' fail ( $test_name ) ;',
             'start_line' => 117,
             'indent' => 4,
-            'block_id' => 14
+            'block_id' => 13
           },
           {
             'token_num' => 3,
@@ -5091,7 +5091,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' last SKIP ;',
             'start_line' => 117,
             'indent' => 4,
-            'block_id' => 14
+            'block_id' => 13
           },
           {
             'token_num' => 15,
@@ -5100,7 +5100,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( $fn =~ \'lagoio\' ) { seekdir $dirh , $pos ; last ; }',
             'start_line' => 118,
             'indent' => 3,
-            'block_id' => 13
+            'block_id' => 12
           },
           {
             'token_num' => 5,
@@ -5109,7 +5109,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' seekdir $dirh , $pos ;',
             'start_line' => 119,
             'indent' => 4,
-            'block_id' => 15
+            'block_id' => 14
           },
           {
             'token_num' => 2,
@@ -5118,7 +5118,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' last ;',
             'start_line' => 120,
             'indent' => 4,
-            'block_id' => 15
+            'block_id' => 14
           },
           {
             'token_num' => 15,
@@ -5127,7 +5127,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is length async { scalar readdir $dirh }-> join , 258 , $test_name ;',
             'start_line' => 123,
             'indent' => 2,
-            'block_id' => 12
+            'block_id' => 11
           },
           {
             'token_num' => 11,

@@ -579,21 +579,12 @@ subtest 'tokenize' => sub {
                    'line' => 16
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'BitAnd',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
-                   'line' => 16
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 16
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -867,10 +858,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 45,
+            'token_num' => 28,
             'has_warnings' => 1,
-            'end_line' => 18,
-            'src' => ' while ( my ( $index , $sub ) = each @to_check ) { my $got = join \' \' , sort & { Config-> can ( $sub ) } ( ) ; is ( $got , $V [ $index ] , "C source code has $sub in sorted order" ) ; }',
+            'end_line' => 16,
+            'src' => ' while ( my ( $index , $sub ) = each @to_check ) { my $got = join \' \' , sort &{ Config-> can ( $sub ) }',
             'start_line' => 15,
             'indent' => 0,
             'block_id' => 0
@@ -881,8 +872,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 16,
             'src' => ' ( ) ;',
             'start_line' => 16,
-            'indent' => 1,
-            'block_id' => 1
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 12,
@@ -890,8 +881,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 17,
             'src' => ' is ( $got , $V [ $index ] , "C source code has $sub in sorted order" ) ;',
             'start_line' => 17,
-            'indent' => 1,
-            'block_id' => 1
+            'indent' => 0,
+            'block_id' => 0
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

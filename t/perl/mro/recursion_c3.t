@@ -2146,12 +2146,12 @@ subtest 'tokenize' => sub {
                    'line' => 68
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@E',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 68
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2254,12 +2254,12 @@ subtest 'tokenize' => sub {
                    'line' => 69
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@E',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 69
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2335,12 +2335,12 @@ subtest 'tokenize' => sub {
                    'line' => 69
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@C',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 69
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2443,12 +2443,12 @@ subtest 'tokenize' => sub {
                    'line' => 70
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@C',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 70
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2524,12 +2524,12 @@ subtest 'tokenize' => sub {
                    'line' => 70
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@A',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 70
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2632,12 +2632,12 @@ subtest 'tokenize' => sub {
                    'line' => 71
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@A',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 71
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2713,12 +2713,12 @@ subtest 'tokenize' => sub {
                    'line' => 71
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@J',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 71
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2821,12 +2821,12 @@ subtest 'tokenize' => sub {
                    'line' => 72
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@J',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 72
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2902,12 +2902,12 @@ subtest 'tokenize' => sub {
                    'line' => 72
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@H',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 72
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3010,12 +3010,12 @@ subtest 'tokenize' => sub {
                    'line' => 73
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@H',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 73
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3091,12 +3091,12 @@ subtest 'tokenize' => sub {
                    'line' => 73
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@B',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 73
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3199,12 +3199,12 @@ subtest 'tokenize' => sub {
                    'line' => 74
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@B',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 74
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3280,12 +3280,12 @@ subtest 'tokenize' => sub {
                    'line' => 74
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@K',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 74
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3388,12 +3388,12 @@ subtest 'tokenize' => sub {
                    'line' => 75
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@K',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 75
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3469,12 +3469,12 @@ subtest 'tokenize' => sub {
                    'line' => 75
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@D',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 75
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4927,73 +4927,73 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 3
           },
           {
-            'token_num' => 135,
+            'token_num' => 165,
             'has_warnings' => 1,
             'end_line' => 76,
-            'src' => ' my @loopies = ( sub { @E::ISA = qw/F/ } , sub { @E::ISA = qw/D/ ; @C::ISA = qw/F/ } , sub { @C::ISA = qw// ; @A::ISA = qw/K/ } , sub { @A::ISA = qw// ; @J::ISA = qw/F K/ } , sub { @J::ISA = qw/F/ ; @H::ISA = qw/K G/ } , sub { @H::ISA = qw/G/ ; @B::ISA = qw/B/ } , sub { @B::ISA = qw// ; @K::ISA = qw/K J I/ } , sub { @K::ISA = qw/J I/ ; @D::ISA = qw/A H B C/ } , ) ;',
+            'src' => ' my @loopies = ( sub { @E :: ISA = qw/F/ } , sub { @E :: ISA = qw/D/ ; @C :: ISA = qw/F/ } , sub { @C :: ISA = qw// ; @A :: ISA = qw/K/ } , sub { @A :: ISA = qw// ; @J :: ISA = qw/F K/ } , sub { @J :: ISA = qw/F/ ; @H :: ISA = qw/K G/ } , sub { @H :: ISA = qw/G/ ; @B :: ISA = qw/B/ } , sub { @B :: ISA = qw// ; @K :: ISA = qw/K J I/ } , sub { @K :: ISA = qw/J I/ ; @D :: ISA = qw/A H B C/ } , ) ;',
             'start_line' => 67,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 7,
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 69,
-            'src' => ' @E::ISA = qw/D/ ;',
+            'src' => ' @E :: ISA = qw/D/ ;',
             'start_line' => 69,
             'indent' => 1,
             'block_id' => 5
           },
           {
-            'token_num' => 7,
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 70,
-            'src' => ' @C::ISA = qw// ;',
+            'src' => ' @C :: ISA = qw// ;',
             'start_line' => 70,
             'indent' => 1,
             'block_id' => 6
           },
           {
-            'token_num' => 7,
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 71,
-            'src' => ' @A::ISA = qw// ;',
+            'src' => ' @A :: ISA = qw// ;',
             'start_line' => 71,
             'indent' => 1,
             'block_id' => 7
           },
           {
-            'token_num' => 7,
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 72,
-            'src' => ' @J::ISA = qw/F/ ;',
+            'src' => ' @J :: ISA = qw/F/ ;',
             'start_line' => 72,
             'indent' => 1,
             'block_id' => 8
           },
           {
-            'token_num' => 7,
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 73,
-            'src' => ' @H::ISA = qw/G/ ;',
+            'src' => ' @H :: ISA = qw/G/ ;',
             'start_line' => 73,
             'indent' => 1,
             'block_id' => 9
           },
           {
-            'token_num' => 7,
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 74,
-            'src' => ' @B::ISA = qw// ;',
+            'src' => ' @B :: ISA = qw// ;',
             'start_line' => 74,
             'indent' => 1,
             'block_id' => 10
           },
           {
-            'token_num' => 7,
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 75,
-            'src' => ' @K::ISA = qw/J I/ ;',
+            'src' => ' @K :: ISA = qw/J I/ ;',
             'start_line' => 75,
             'indent' => 1,
             'block_id' => 11

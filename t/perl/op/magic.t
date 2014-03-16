@@ -13848,12 +13848,12 @@ print "\\$DB::single \\$DB::trace \\$DB::signal";
                    'line' => 408
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalHashVar',
                    'data' => '%Errno',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalHashVar,
                    'line' => 408
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -14076,12 +14076,12 @@ print "\\$DB::single \\$DB::trace \\$DB::signal";
                    'line' => 422
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'HashVar',
                    'data' => '%Errno',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_HashVar,
                    'line' => 422
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -24795,10 +24795,10 @@ print "\\$DB::single \\$DB::trace \\$DB::signal";
             'block_id' => 47
           },
           {
-            'token_num' => 8,
+            'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 423,
-            'src' => ' undef %Errno::; delete $INC { "Errno.pm" } ;',
+            'src' => ' undef %Errno :: ; delete $INC { "Errno.pm" } ;',
             'start_line' => 422,
             'indent' => 1,
             'block_id' => 47

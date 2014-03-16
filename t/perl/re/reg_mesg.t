@@ -701,12 +701,12 @@ subtest 'tokenize' => sub {
                    'line' => 26
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalVar',
                    'data' => '$Config',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
                    'line' => 26
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4253,7 +4253,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $expect = fixup_expect ( $expect ) ;',
             'start_line' => 129,
             'indent' => 1,
-            'block_id' => 4
+            'block_id' => 3
           },
           {
             'token_num' => 12,
@@ -4262,7 +4262,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' next if $: : IS_EBCDIC && $regex =~/utf8/ ;',
             'start_line' => 131,
             'indent' => 1,
-            'block_id' => 4
+            'block_id' => 3
           },
           {
             'token_num' => 28,
@@ -4271,7 +4271,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' warning_is ( sub { $_ = "x" ; eval $regex ; like ( $@ , qr/\\Q$expect/ ) ; } , undef , "$regex died without any other warnings" ) ;',
             'start_line' => 133,
             'indent' => 1,
-            'block_id' => 4
+            'block_id' => 3
           },
           {
             'token_num' => 4,
@@ -4280,7 +4280,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $_ = "x" ;',
             'start_line' => 134,
             'indent' => 2,
-            'block_id' => 5
+            'block_id' => 4
           },
           {
             'token_num' => 3,
@@ -4289,7 +4289,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' eval $regex ;',
             'start_line' => 135,
             'indent' => 2,
-            'block_id' => 5
+            'block_id' => 4
           },
           {
             'token_num' => 10,
@@ -4298,7 +4298,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' like ( $@ , qr/\\Q$expect/ ) ;',
             'start_line' => 136,
             'indent' => 2,
-            'block_id' => 5
+            'block_id' => 4
           },
           {
             'token_num' => 54,
@@ -4316,7 +4316,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $expect = fixup_expect ( $expect ) ;',
             'start_line' => 141,
             'indent' => 1,
-            'block_id' => 6
+            'block_id' => 5
           },
           {
             'token_num' => 28,
@@ -4325,7 +4325,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' warning_like ( sub { $_ = "x" ; eval $regex ; is ( $@ , \'\' , "$regex did not die" ) ; } , qr/\\Q$expect/ ) ;',
             'start_line' => 142,
             'indent' => 1,
-            'block_id' => 6
+            'block_id' => 5
           },
           {
             'token_num' => 4,
@@ -4334,7 +4334,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $_ = "x" ;',
             'start_line' => 143,
             'indent' => 2,
-            'block_id' => 7
+            'block_id' => 6
           },
           {
             'token_num' => 3,
@@ -4343,7 +4343,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' eval $regex ;',
             'start_line' => 144,
             'indent' => 2,
-            'block_id' => 7
+            'block_id' => 6
           },
           {
             'token_num' => 9,
@@ -4352,7 +4352,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' is ( $@ , \'\' , "$regex did not die" ) ;',
             'start_line' => 145,
             'indent' => 2,
-            'block_id' => 7
+            'block_id' => 6
           },
           {
             'token_num' => 4,

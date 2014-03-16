@@ -329,12 +329,12 @@ subtest 'tokenize' => sub {
                    'line' => 19
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@urkkk',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 22
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -410,12 +410,12 @@ subtest 'tokenize' => sub {
                    'line' => 24
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@urkkk',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 27
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -527,12 +527,12 @@ subtest 'tokenize' => sub {
                    'line' => 29
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@thwacke',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 32
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -617,12 +617,12 @@ subtest 'tokenize' => sub {
                    'line' => 34
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@zzzzzwap',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 36
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -734,12 +734,12 @@ subtest 'tokenize' => sub {
                    'line' => 38
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@whamm',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 40
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2102,10 +2102,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 4,
+            'token_num' => 6,
             'has_warnings' => 1,
             'end_line' => 22,
-            'src' => ' @urkkk::ISA = \'klonk\' ;',
+            'src' => ' @urkkk :: ISA = \'klonk\' ;',
             'start_line' => 22,
             'indent' => 0,
             'block_id' => 0
@@ -2120,10 +2120,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 8,
+            'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 27,
-            'src' => ' @urkkk::ISA = ( \'klonk\' , \'kapow\' ) ;',
+            'src' => ' @urkkk :: ISA = ( \'klonk\' , \'kapow\' ) ;',
             'start_line' => 27,
             'indent' => 0,
             'block_id' => 0
@@ -2138,10 +2138,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 5,
+            'token_num' => 7,
             'has_warnings' => 1,
             'end_line' => 32,
-            'src' => ' @thwacke::ISA = ( ) ;',
+            'src' => ' @thwacke :: ISA = ( ) ;',
             'start_line' => 32,
             'indent' => 0,
             'block_id' => 0
@@ -2156,10 +2156,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 8,
+            'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 36,
-            'src' => ' @zzzzzwap::ISA = ( \'thwacke\' , \'kapow\' ) ;',
+            'src' => ' @zzzzzwap :: ISA = ( \'thwacke\' , \'kapow\' ) ;',
             'start_line' => 36,
             'indent' => 0,
             'block_id' => 0
@@ -2174,10 +2174,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 8,
+            'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 40,
-            'src' => ' @whamm::ISA = ( \'kapow\' , \'thwacke\' ) ;',
+            'src' => ' @whamm :: ISA = ( \'kapow\' , \'thwacke\' ) ;',
             'start_line' => 40,
             'indent' => 0,
             'block_id' => 0

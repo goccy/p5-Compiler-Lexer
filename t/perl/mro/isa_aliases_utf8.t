@@ -283,12 +283,12 @@ subtest 'tokenize' => sub {
                    'line' => 8
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@ฟ옥ʮ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 10
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -427,12 +427,12 @@ subtest 'tokenize' => sub {
                    'line' => 11
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@ฟ옥ʮ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 12
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -859,12 +859,12 @@ subtest 'tokenize' => sub {
                    'line' => 21
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@ฟ옥ʮ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 23
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1372,12 +1372,12 @@ subtest 'tokenize' => sub {
                    'line' => 33
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@ᕘ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 35
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1480,12 +1480,12 @@ subtest 'tokenize' => sub {
                    'line' => 36
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@ᕘ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 36
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1516,12 +1516,12 @@ subtest 'tokenize' => sub {
                    'line' => 36
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@ᕘ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 37
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2002,10 +2002,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 4,
+            'token_num' => 6,
             'has_warnings' => 1,
             'end_line' => 10,
-            'src' => ' @ฟ옥ʮ::ISA = "ᶶ" ;',
+            'src' => ' @ฟ옥ʮ :: ISA = "ᶶ" ;',
             'start_line' => 10,
             'indent' => 0,
             'block_id' => 0
@@ -2020,10 +2020,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 4,
+            'token_num' => 6,
             'has_warnings' => 1,
             'end_line' => 12,
-            'src' => ' @ฟ옥ʮ::ISA = "Ｂᐊㄗ" ;',
+            'src' => ' @ฟ옥ʮ :: ISA = "Ｂᐊㄗ" ;',
             'start_line' => 12,
             'indent' => 0,
             'block_id' => 0
@@ -2065,10 +2065,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 4,
+            'token_num' => 6,
             'has_warnings' => 1,
             'end_line' => 23,
-            'src' => ' @ฟ옥ʮ::ISA = "ᶶ" ;',
+            'src' => ' @ฟ옥ʮ :: ISA = "ᶶ" ;',
             'start_line' => 23,
             'indent' => 0,
             'block_id' => 0
@@ -2119,28 +2119,28 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 4,
+            'token_num' => 6,
             'has_warnings' => 1,
             'end_line' => 35,
-            'src' => ' @ᕘ::ISA = "ᶶ" ;',
+            'src' => ' @ᕘ :: ISA = "ᶶ" ;',
             'start_line' => 35,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 36,
+            'src' => ' * ጶ::ISA = \\ @ᕘ :: ISA ;',
+            'start_line' => 36,
             'indent' => 0,
             'block_id' => 0
           },
           {
             'token_num' => 6,
             'has_warnings' => 1,
-            'end_line' => 36,
-            'src' => ' * ጶ::ISA = \\ @ᕘ::ISA ;',
-            'start_line' => 36,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
             'end_line' => 37,
-            'src' => ' @ᕘ::ISA = "Ｂᐊㄗ" ;',
+            'src' => ' @ᕘ :: ISA = "Ｂᐊㄗ" ;',
             'start_line' => 37,
             'indent' => 0,
             'block_id' => 0

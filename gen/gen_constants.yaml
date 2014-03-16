@@ -54,20 +54,20 @@ token_type:
   T_And: 49
   T_AndBitEqual: 51
   T_AndEqual: 55
-  T_Annotation: 131
-  T_Argument: 200
-  T_ArgumentArray: 132
-  T_Array: 183
-  T_ArrayAt: 194
+  T_Annotation: 132
+  T_Argument: 201
+  T_ArgumentArray: 133
+  T_Array: 184
+  T_ArrayAt: 195
   T_ArrayDereference: 110
-  T_ArrayRef: 192
-  T_ArraySet: 196
+  T_ArrayRef: 193
+  T_ArraySet: 197
   T_ArraySize: 63
-  T_ArraySizeDereference: 117
-  T_ArrayVar: 164
-  T_Arrow: 120
+  T_ArraySizeDereference: 118
+  T_ArrayVar: 165
+  T_Arrow: 121
   T_Assign: 62
-  T_BareWord: 119
+  T_BareWord: 120
   T_BitAnd: 15
   T_BitNot: 12
   T_BitOr: 13
@@ -75,21 +75,22 @@ token_type:
   T_Break: 85
   T_BuiltinFunc: 67
   T_CORE: 74
-  T_Call: 199
-  T_CallDecl: 126
-  T_Class: 125
-  T_CodeRef: 127
-  T_CodeVar: 163
+  T_Call: 200
+  T_CallDecl: 127
+  T_Class: 126
+  T_CodeDereference: 113
+  T_CodeRef: 128
+  T_CodeVar: 164
   T_Colon: 102
   T_Comma: 101
-  T_Comment: 204
+  T_Comment: 205
   T_Compare: 30
-  T_ConstValue: 134
+  T_ConstValue: 135
   T_Continue: 83
   T_DESTROY: 75
   T_DataWord: 71
   T_Dec: 43
-  T_Default: 202
+  T_Default: 203
   T_DefaultEqual: 46
   T_DefaultOperator: 57
   T_DefaultStmt: 100
@@ -97,51 +98,51 @@ token_type:
   T_Div: 4
   T_DivEqual: 23
   T_Do: 84
-  T_Double: 167
+  T_Double: 168
   T_ElseStmt: 94
   T_ElsifStmt: 95
-  T_Environment: 137
+  T_Environment: 138
   T_EqualEqual: 28
-  T_ExecString: 170
+  T_ExecString: 171
   T_Exp: 44
-  T_FieldDecl: 154
-  T_ForStmt: 129
-  T_ForeachStmt: 130
-  T_Format: 179
-  T_FormatDecl: 178
-  T_FormatEnd: 180
-  T_Function: 198
+  T_FieldDecl: 155
+  T_ForStmt: 130
+  T_ForeachStmt: 131
+  T_Format: 180
+  T_FormatDecl: 179
+  T_FormatEnd: 181
+  T_Function: 199
   T_FunctionDecl: 60
   T_GivenStmt: 99
   T_Glob: 11
-  T_GlobalArrayVar: 190
-  T_GlobalHashVar: 191
-  T_GlobalVar: 189
-  T_GlobalVarDecl: 158
+  T_GlobalArrayVar: 191
+  T_GlobalHashVar: 192
+  T_GlobalVar: 190
+  T_GlobalVarDecl: 159
   T_Goto: 82
   T_Greater: 7
   T_GreaterEqual: 26
   T_Handle: 86
-  T_HandleDelim: 148
-  T_Hash: 184
-  T_HashAt: 195
+  T_HandleDelim: 149
+  T_Hash: 185
+  T_HashAt: 196
   T_HashDereference: 111
-  T_HashRef: 193
-  T_HashSet: 197
-  T_HashVar: 165
-  T_HereDocument: 176
-  T_HereDocumentEnd: 177
-  T_HereDocumentExecTag: 174
-  T_HereDocumentRawTag: 173
-  T_HereDocumentTag: 172
+  T_HashRef: 194
+  T_HashSet: 198
+  T_HashVar: 166
+  T_HereDocument: 177
+  T_HereDocumentEnd: 178
+  T_HereDocumentExecTag: 175
+  T_HereDocumentRawTag: 174
+  T_HereDocumentTag: 173
   T_IfStmt: 93
   T_Import: 69
   T_Inc: 42
-  T_Include: 138
-  T_Int: 166
+  T_Include: 139
+  T_Int: 167
   T_Is: 64
-  T_Key: 118
-  T_LabelRef: 156
+  T_Key: 119
+  T_LabelRef: 157
   T_Last: 81
   T_LeftBrace: 106
   T_LeftBracket: 108
@@ -149,60 +150,60 @@ token_type:
   T_LeftShift: 47
   T_Less: 8
   T_LessEqual: 27
-  T_LibraryDirectories: 136
-  T_List: 201
-  T_LocalArrayVar: 187
+  T_LibraryDirectories: 137
+  T_List: 202
+  T_LocalArrayVar: 188
   T_LocalDecl: 87
-  T_LocalHashVar: 188
-  T_LocalVar: 186
-  T_LocalVarDecl: 157
+  T_LocalHashVar: 189
+  T_LocalVar: 187
+  T_LocalVarDecl: 158
   T_Method: 61
   T_Mod: 5
   T_ModEqual: 24
   T_ModWord: 72
   T_Mul: 3
   T_MulEqual: 22
-  T_MultiGlobalVarDecl: 160
-  T_MultiLocalVarDecl: 159
-  T_Namespace: 123
-  T_NamespaceResolver: 122
+  T_MultiGlobalVarDecl: 161
+  T_MultiLocalVarDecl: 160
+  T_Namespace: 124
+  T_NamespaceResolver: 123
   T_Next: 80
   T_Not: 65
   T_NotBitEqual: 53
   T_NotEqual: 34
-  T_Object: 181
-  T_Operator: 185
+  T_Object: 182
+  T_Operator: 186
   T_Or: 50
   T_OrBitEqual: 52
   T_OrEqual: 54
   T_OurDecl: 88
-  T_Package: 124
-  T_Pod: 203
-  T_Pointer: 121
+  T_Package: 125
+  T_Pod: 204
+  T_Pointer: 122
   T_PolymorphicCompare: 31
   T_PowerEqual: 45
-  T_ProgramArgument: 135
-  T_Prototype: 161
-  T_RawHereDocument: 175
-  T_RawString: 169
+  T_ProgramArgument: 136
+  T_Prototype: 162
+  T_RawHereDocument: 176
+  T_RawString: 170
   T_Redo: 79
   T_Ref: 10
-  T_RegAllReplace: 150
-  T_RegDecl: 145
-  T_RegDelim: 147
-  T_RegDoubleQuote: 142
-  T_RegExec: 144
-  T_RegExp: 182
-  T_RegList: 143
-  T_RegMatch: 146
-  T_RegMiddleDelim: 149
+  T_RegAllReplace: 151
+  T_RegDecl: 146
+  T_RegDelim: 148
+  T_RegDoubleQuote: 143
+  T_RegExec: 145
+  T_RegExp: 183
+  T_RegList: 144
+  T_RegMatch: 147
+  T_RegMiddleDelim: 150
   T_RegNot: 33
   T_RegOK: 32
-  T_RegOpt: 140
-  T_RegQuote: 141
-  T_RegReplace: 151
-  T_RegReplaceFrom: 152
-  T_RegReplaceTo: 153
+  T_RegOpt: 141
+  T_RegQuote: 142
+  T_RegReplace: 152
+  T_RegReplaceFrom: 153
+  T_RegReplaceTo: 154
   T_RequireDecl: 68
   T_RequiredName: 92
   T_Return: 0
@@ -215,16 +216,16 @@ token_type:
   T_STDOUT: 77
   T_ScalarDereference: 112
   T_SemiColon: 103
-  T_ShortArrayDereference: 114
-  T_ShortCodeDereference: 116
-  T_ShortHashDereference: 115
-  T_ShortScalarDereference: 113
-  T_Signal: 139
+  T_ShortArrayDereference: 115
+  T_ShortCodeDereference: 117
+  T_ShortHashDereference: 116
+  T_ShortScalarDereference: 114
+  T_Signal: 140
   T_Slice: 56
   T_SpecificKeyword: 70
-  T_SpecificValue: 133
+  T_SpecificValue: 134
   T_StateDecl: 89
-  T_String: 168
+  T_String: 169
   T_StringAdd: 9
   T_StringAddEqual: 25
   T_StringCompare: 41
@@ -239,15 +240,15 @@ token_type:
   T_SubEqual: 21
   T_ThreeTermOperator: 6
   T_ToDo: 58
-  T_TypeRef: 155
-  T_Undefined: 206
+  T_TypeRef: 156
+  T_Undefined: 207
   T_UnlessStmt: 96
   T_UntilStmt: 97
   T_UseDecl: 90
   T_UsedName: 91
-  T_Var: 162
+  T_Var: 163
   T_VarDecl: 59
-  T_VersionString: 171
+  T_VersionString: 172
   T_WhenStmt: 98
-  T_WhileStmt: 128
-  T_WhiteSpace: 205
+  T_WhileStmt: 129
+  T_WhiteSpace: 206

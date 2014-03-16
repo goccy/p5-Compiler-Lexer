@@ -743,12 +743,12 @@ subtest 'tokenize' => sub {
                    'line' => 22
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalHashVar',
                    'data' => '%Bar',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalHashVar,
                    'line' => 22
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -779,12 +779,12 @@ subtest 'tokenize' => sub {
                    'line' => 23
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@Foo',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 23
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2491,19 +2491,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 16,
+            'token_num' => 18,
             'has_warnings' => 1,
             'end_line' => 25,
-            'src' => ' { local %Bar::; local @Foo::ISA = \'Bar\' ; isa_ok ( "Foo" , "Bar" ) ; }',
+            'src' => ' { local %Bar::; local @Foo :: ISA = \'Bar\' ; isa_ok ( "Foo" , "Bar" ) ; }',
             'start_line' => 21,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 7,
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 23,
-            'src' => ' local %Bar::; local @Foo::ISA = \'Bar\' ;',
+            'src' => ' local %Bar::; local @Foo :: ISA = \'Bar\' ;',
             'start_line' => 22,
             'indent' => 1,
             'block_id' => 3

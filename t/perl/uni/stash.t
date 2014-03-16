@@ -1263,12 +1263,12 @@ subtest 'tokenize' => sub {
                    'line' => 44
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalHashVar',
                    'data' => '%왿ퟀⲺa',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalHashVar,
                    'line' => 44
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1506,12 +1506,12 @@ subtest 'tokenize' => sub {
                    'line' => 47
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalHashVar',
                    'data' => '%ᛐⲞɲe',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalHashVar,
                    'line' => 47
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1749,12 +1749,12 @@ subtest 'tokenize' => sub {
                    'line' => 50
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalHashVar',
                    'data' => '%본go',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalHashVar,
                    'line' => 50
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2019,12 +2019,12 @@ subtest 'tokenize' => sub {
                    'line' => 55
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalVar',
                    'data' => '$본go',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
                    'line' => 56
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2199,12 +2199,12 @@ subtest 'tokenize' => sub {
                    'line' => 62
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalHashVar',
                    'data' => '%앛hȚꟻࡃҥ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalHashVar,
                    'line' => 62
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2460,12 +2460,12 @@ subtest 'tokenize' => sub {
                    'line' => 70
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalHashVar',
                    'data' => '%piƓ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalHashVar,
                    'line' => 70
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2577,12 +2577,12 @@ subtest 'tokenize' => sub {
                    'line' => 71
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalVar',
                    'data' => '$piƓ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
                    'line' => 71
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3081,21 +3081,12 @@ subtest 'tokenize' => sub {
                    'line' => 82
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Decl,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'CallDecl',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
-                   'line' => 82
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 82
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3153,12 +3144,12 @@ subtest 'tokenize' => sub {
                    'line' => 84
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalVar',
                    'data' => '$온ꪵ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
                    'line' => 84
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3864,21 +3855,12 @@ subtest 'tokenize' => sub {
                    'line' => 94
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Decl,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'CallDecl',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
-                   'line' => 94
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 94
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3927,12 +3909,12 @@ subtest 'tokenize' => sub {
                    'line' => 95
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalHashVar',
                    'data' => '%tꖿ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalHashVar,
                    'line' => 96
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4629,21 +4611,12 @@ subtest 'tokenize' => sub {
                    'line' => 106
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Decl,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'CallDecl',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
-                   'line' => 106
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 106
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4701,12 +4674,12 @@ subtest 'tokenize' => sub {
                    'line' => 108
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalHashVar',
                    'data' => '%ᖟ레ￇ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalHashVar,
                    'line' => 108
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5439,12 +5412,12 @@ subtest 'tokenize' => sub {
                    'line' => 119
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalHashVar',
                    'data' => '%ꃖᚢ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalHashVar,
                    'line' => 120
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6087,12 +6060,12 @@ subtest 'tokenize' => sub {
                    'line' => 132
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalHashVar',
                    'data' => '%fꢄᶹᵌ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalHashVar,
                    'line' => 132
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6690,21 +6663,12 @@ subtest 'tokenize' => sub {
                    'line' => 145
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Decl,
+                   'kind' => Compiler::Lexer::Kind::T_Modifier,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'CallDecl',
-                   'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
-                   'line' => 145
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Symbol,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'LeftBrace',
-                   'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'name' => 'CodeDereference',
+                   'data' => '&{',
+                   'type' => Compiler::Lexer::TokenType::T_CodeDereference,
                    'line' => 145
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7829,12 +7793,12 @@ subtest 'tokenize' => sub {
                    'line' => 180
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalVar',
                    'data' => '$ＦŌŌ௨',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
                    'line' => 180
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8540,12 +8504,12 @@ subtest 'tokenize' => sub {
                    'line' => 195
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalVar',
                    'data' => '$ＦŌŌ３',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
                    'line' => 195
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8603,12 +8567,12 @@ subtest 'tokenize' => sub {
                    'line' => 197
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'Var',
                    'data' => '$ＦŌŌ３',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_Var,
                    'line' => 197
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -11654,12 +11618,12 @@ subtest 'tokenize' => sub {
                    'line' => 277
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalHashVar',
                    'data' => '%slìn',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalHashVar,
                    'line' => 277
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -12527,12 +12491,12 @@ subtest 'tokenize' => sub {
                    'line' => 299
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalHashVar',
                    'data' => '%Phòò',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalHashVar,
                    'line' => 299
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -13184,15 +13148,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 5
           },
           {
-            'token_num' => 1210,
+            'token_num' => 276,
             'has_warnings' => 1,
-            'end_line' => 316,
-            'src' => ' { { no warnings \'deprecated\' ; ok ( defined %왿ퟀⲺa::ᒫṡ::, q(stashes happen to be defined if not used) ) ; ok ( defined %{ "왿ퟀⲺa::ᒫṡ::" } , q(- work with hard refs too) ) ; ok ( defined %ᛐⲞɲe::Šꇇᚽṙᆂṗ::, q(stashes are defined if seen at compile time) ) ; ok ( defined %{ "ᛐⲞɲe::Šꇇᚽṙᆂṗ::" } , q(- work with hard refs too) ) ; ok ( defined %본go::ଶfʦbᚒƴ::, q(stashes are defined if a var is seen at compile time) ) ; ok ( defined %{ "본go::ଶfʦbᚒƴ::" } , q(- work with hard refs too) ) ; } package ᛐⲞɲe::Šꇇᚽṙᆂṗ ; $본go::ଶfʦbᚒƴ::scalar = 1 ; package main ; ok ( eval { no warnings \'deprecated\' ; defined %앛hȚꟻࡃҥ:: } , \'works in eval{}\' ) ; ok ( eval q{ no warnings \'deprecated\'; defined %Ṧㄘㇹen맠ㄦ:: } , \'works in eval("")\' ) ; { use strict ; no warnings \'deprecated\' ; ok ( defined %piƓ::, q(referencing a non-existent stash doesn\'t produce stricture errors) ) ; ok ( ! exists $piƓ:: { bodine } , q(referencing a non-existent stash element doesn\'t produce stricture errors) ) ; } SKIP : { eval { require B ; 1 } or skip "no B" , 28 ; * b = \\ & B::svref_2object ; my $CVf_ANON = B::CVf_ANON ( ) ; my $sub = do { package 온ꪵ ; \\ & { "온ꪵ" } ; } ; delete $온ꪵ:: { 온ꪵ } ; my $gv = b ( $sub )-> GV ; object_ok ( $gv , "B::GV" , "deleted stash entry leaves CV with valid GV" ) ; is ( b ( $sub )-> CvFLAGS & $CVf_ANON , $CVf_ANON , "...and CVf_ANON set" ) ; is ( eval { $gv-> NAME } , "__ANON__" , "...and an __ANON__ name" ) ; is ( eval { $gv-> STASH-> NAME } , "온ꪵ" , "...but leaves stash intact" ) ; $sub = do { package tꖿ ; \\ & { "tꖿ" } ; } ; %tꖿ::= ( ) ; $gv = b ( $sub )-> GV ; object_ok ( $gv , "B::GV" , "cleared stash leaves CV with valid GV" ) ; is ( b ( $sub )-> CvFLAGS & $CVf_ANON , $CVf_ANON , "...and CVf_ANON set" ) ; is ( eval { $gv-> NAME } , "__ANON__" , "...and an __ANON__ name" ) ; is ( eval { $gv-> STASH-> NAME } , "tꖿ" , "...but leaves stash intact" ) ; $sub = do { package ᖟ레ￇ ; \\ & { "ᖟ레ￇ" } ; } ; undef %ᖟ레ￇ::; $gv = b ( $sub )-> GV ; object_ok ( $gv , "B::GV" , "undefed stash leaves CV with valid GV" ) ; is ( b ( $sub )-> CvFLAGS & $CVf_ANON , $CVf_ANON , "...and CVf_ANON set" ) ; is ( eval { $gv-> NAME } , "__ANON__" , "...and an __ANON__ name" ) ; is ( eval { $gv-> STASH-> NAME } , "__ANON__" , "...and an __ANON__ stash" ) ; my $sub = do { package ꃖᚢ ; sub { 1 } ; } ; %ꃖᚢ::= ( ) ; my $gv = B::svref_2object ( $sub )-> GV ; ok ( $gv-> isa ( q/B::GV/ ) , "cleared stash leaves anon CV with valid GV" ) ; my $st = eval { $gv-> STASH-> NAME } ; is ( $st , q/ꃖᚢ/ , "...but leaves the stash intact" ) ; $sub = do { package fꢄᶹᵌ ; sub { 1 } ; } ; undef %fꢄᶹᵌ::; $gv = B::svref_2object ( $sub )-> GV ; ok ( $gv-> isa ( q/B::GV/ ) , "undefed stash leaves anon CV with valid GV" ) ; $st = eval { $gv-> STASH-> NAME } ; { local $TODO = \'STASHES not anonymized\' ; is ( $st , q/__ANON__/ , "...and an __ANON__ stash" ) ; } $sub = do { package sӥㄒ ; \\ & { "sӥㄒ" } } ; my $stash_glob = delete $: : { "sӥㄒ::" } ; delete $$stash_glob { "sӥㄒ" } ; $gv = B::svref_2object ( $sub )-> GV ; ok ( $gv-> isa ( q/B::GV/ ) , \'anonymised CV whose stash is detached still has a GV\' ) ; is $gv-> STASH-> NAME , \'__ANON__\' , \'CV anonymised when its stash is detached becomes __ANON__::__ANON__\' ; { package ＦŌŌ ; sub Ƒಓ { } my $rfoo = \\ & Ƒಓ ; package main ; delete $: : { \'ＦŌŌ::\' } ; my $cv = B::svref_2object ( $rfoo ) ; my $stash = $cv-> STASH ; like ( $stash , qr/B::SPECIAL/ , "NULL CvSTASH on named sub" ) ; } { my $r ; eval q[
-                package ＦŌŌ௨;
-                sub Ƒ{};
-                $r = \\&Ƒ;
-                *Ƒ = sub {};
-            ] ; delete $ＦŌŌ௨:: { Ƒ } ; my $cv = B::svref_2object ( $r ) ; my $gv = $cv-> GV ; ok ( $gv-> isa ( q/B::GV/ ) , "orphaned CV has valid GV" ) ; is ( $gv-> NAME , \'__ANON__\' , "orphaned CV has anon GV" ) ; } { package ＦŌŌ３ ; sub 남えㄉ { } ; my $anon = sub { } ; my $남えㄉ = eval q[\\&남えㄉ] ; package main ; delete $ＦŌŌ３:: { 남えㄉ } ; delete $ＦŌŌ３:: { __ANON__ } ; my ( $cv , $gv ) ; $cv = B::svref_2object ( $남えㄉ ) ; $gv = $cv-> GV ; ok ( $gv-> isa ( q/B::GV/ ) , "ex-named CV has valid GV" ) ; is ( $gv-> NAME , \'__ANON__\' , "ex-named CV has anon GV" ) ; $cv = B::svref_2object ( $anon ) ; $gv = $cv-> GV ; ok ( $gv-> isa ( q/B::GV/ ) , "anon CV has valid GV" ) ; is ( $gv-> NAME , \'__ANON__\' , "anon CV has anon GV" ) ; } { my $r ; { package bᓙṗ ; BEGIN { $r = \\ & main::Ẃⱒcᴷ ; } } my $br = B::svref_2object ( $r ) ; is ( $br-> STASH-> NAME , \'bᓙṗ\' , \'stub records the package it was compiled in\' ) ; $br = B::svref_2object ( eval \'sub Ẃⱒcᴷ {}; \\&Ẃⱒcᴷ\' ) ; die $@ if $@ ; is ( $br-> STASH-> NAME , \'main\' , \'definition overrides the package it was compiled in\' ) ; like ( $br-> FILE , qr/eval/ , \'definition overrides the file it was compiled in\' ) ; } } { package クラス ; my $c ; sub __ANON__ { $c = ( caller ( 0 ) ) [ 3 ] ; } { local $@ ; eval { ok ( 1 ) ; } ;::like ( $@ , qr/^Undefined subroutine &クラス::ok/ ) ; } __ANON__ ( ) ;::is ( $c , \'クラス::__ANON__\' , \'__ANON__ sub called ok\' ) ; } { package rìle ; use Config ; my $obj = bless [ ] ; my $globref = \\ * tàt ; * slìn::= * rìle::; * rìle::= * zòr::;::is * $globref , "*rìle::tàt" , \'globs stringify the same way when stashes are moved\' ;::is ref $obj , "rìle" , \'ref() returns the same thing when an object’s stash is moved\' ;::like "$obj" , qr "^rìle=ARRAY\\(0x[\\da-f]+\\)\\z" , \'objects stringify the same way when their stashes are moved\' ; { local $: : TODO = $Config { useithreads } ? "fails under threads" : undef ;::is eval \'__PACKAGE__\' , \'rìle\' , \'__PACKAGE__ returns the same when the current stash is moved\' ; } my $life_raft = \\ %slìn::; * slìn::= * zòr::;::is * $globref , "*rìle::tàt" , \'globs stringify the same way when stashes are detached\' ;::is ref $obj , "rìle" , \'ref() returns the same thing when an object’s stash is detached\' ;::like "$obj" , qr "^rìle=ARRAY\\(0x[\\da-f]+\\)\\z" , \'objects stringify the same way when their stashes are detached\' ; { local $: : TODO = $Config { useithreads } ? "fails under threads" : undef ;::is eval \'__PACKAGE__\' , \'rìle\' , \'__PACKAGE__ returns the same when the current stash is detached\' ; } } { my $glob = \\ * Phòò::glòb ; sub ò::DESTROY { eval \'++$Phòò::bòr\' } no strict \'refs\' ; ${ "Phòò::thòng1" } = bless [ ] , "ò" ; undef %Phòò::; is "$$glob" , "*__ANON__::glòb" , "setting stash name during undef has no effect" ; } { package Bèàr::; sub bàz { 1 } package main ; ok eval { Bèàr::::bàz ( ) } , \'packages ending with :: are self-consistent\' ; } ${ "à\'\\0b" } = "c" ; is ${ "à::\\0b" } , "c" , "\' is equivalent to :: before a null" ; }',
+            'end_line' => 95,
+            'src' => ' { { no warnings \'deprecated\' ; ok ( defined %왿ퟀⲺa::ᒫṡ::, q(stashes happen to be defined if not used) ) ; ok ( defined %{ "왿ퟀⲺa::ᒫṡ::" } , q(- work with hard refs too) ) ; ok ( defined %ᛐⲞɲe::Šꇇᚽṙᆂṗ::, q(stashes are defined if seen at compile time) ) ; ok ( defined %{ "ᛐⲞɲe::Šꇇᚽṙᆂṗ::" } , q(- work with hard refs too) ) ; ok ( defined %본go::ଶfʦbᚒƴ::, q(stashes are defined if a var is seen at compile time) ) ; ok ( defined %{ "본go::ଶfʦbᚒƴ::" } , q(- work with hard refs too) ) ; } package ᛐⲞɲe::Šꇇᚽṙᆂṗ ; $본go::ଶfʦbᚒƴ::scalar = 1 ; package main ; ok ( eval { no warnings \'deprecated\' ; defined %앛hȚꟻࡃҥ:: } , \'works in eval{}\' ) ; ok ( eval q{ no warnings \'deprecated\'; defined %Ṧㄘㇹen맠ㄦ:: } , \'works in eval("")\' ) ; { use strict ; no warnings \'deprecated\' ; ok ( defined %piƓ::, q(referencing a non-existent stash doesn\'t produce stricture errors) ) ; ok ( ! exists $piƓ:: { bodine } , q(referencing a non-existent stash element doesn\'t produce stricture errors) ) ; } SKIP : { eval { require B ; 1 } or skip "no B" , 28 ; * b = \\ & B::svref_2object ; my $CVf_ANON = B::CVf_ANON ( ) ; my $sub = do { package 온ꪵ ; \\ &{ "온ꪵ" } ; } ; delete $온ꪵ:: { 온ꪵ } ; my $gv = b ( $sub )-> GV ; object_ok ( $gv , "B::GV" , "deleted stash entry leaves CV with valid GV" ) ; is ( b ( $sub )-> CvFLAGS & $CVf_ANON , $CVf_ANON , "...and CVf_ANON set" ) ; is ( eval { $gv-> NAME } , "__ANON__" , "...and an __ANON__ name" ) ; is ( eval { $gv-> STASH-> NAME } , "온ꪵ" , "...but leaves stash intact" ) ; $sub = do { package tꖿ ; \\ &{ "tꖿ" } ; } ;',
             'start_line' => 41,
             'indent' => 0,
             'block_id' => 0
@@ -13360,13 +13319,22 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 8
           },
           {
+            'token_num' => 45,
+            'has_warnings' => 1,
+            'end_line' => 83,
+            'src' => ' SKIP : { eval { require B ; 1 } or skip "no B" , 28 ; * b = \\ & B::svref_2object ; my $CVf_ANON = B::CVf_ANON ( ) ; my $sub = do { package 온ꪵ ; \\ &{ "온ꪵ" } ; } ;',
+            'start_line' => 74,
+            'indent' => 1,
+            'block_id' => 6
+          },
+          {
             'token_num' => 13,
             'has_warnings' => 1,
             'end_line' => 75,
             'src' => ' eval { require B ; 1 } or skip "no B" , 28 ;',
             'start_line' => 75,
             'indent' => 2,
-            'block_id' => 10
+            'block_id' => 9
           },
           {
             'token_num' => 3,
@@ -13375,7 +13343,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' require B ;',
             'start_line' => 75,
             'indent' => 2,
-            'block_id' => 10
+            'block_id' => 9
           },
           {
             'token_num' => 7,
@@ -13384,7 +13352,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' * b = \\ & B::svref_2object ;',
             'start_line' => 77,
             'indent' => 2,
-            'block_id' => 10
+            'block_id' => 9
           },
           {
             'token_num' => 7,
@@ -13393,25 +13361,25 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $CVf_ANON = B::CVf_ANON ( ) ;',
             'start_line' => 78,
             'indent' => 2,
-            'block_id' => 10
+            'block_id' => 9
           },
           {
-            'token_num' => 16,
+            'token_num' => 13,
             'has_warnings' => 1,
-            'end_line' => 83,
-            'src' => ' my $sub = do { package 온ꪵ ; \\ & { "온ꪵ" } ; } ;',
+            'end_line' => 82,
+            'src' => ' my $sub = do { package 온ꪵ ; \\ &{ "온ꪵ" } ;',
             'start_line' => 80,
             'indent' => 2,
-            'block_id' => 10
+            'block_id' => 9
           },
           {
-            'token_num' => 12,
+            'token_num' => 9,
             'has_warnings' => 1,
-            'end_line' => 83,
-            'src' => ' do { package 온ꪵ ; \\ & { "온ꪵ" } ; }',
+            'end_line' => 82,
+            'src' => ' do { package 온ꪵ ; \\ &{ "온ꪵ" }',
             'start_line' => 80,
             'indent' => 2,
-            'block_id' => 10
+            'block_id' => 9
           },
           {
             'token_num' => 3,
@@ -13420,16 +13388,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' package 온ꪵ ;',
             'start_line' => 81,
             'indent' => 3,
-            'block_id' => 11
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 0,
-            'end_line' => 82,
-            'src' => ' \\ & { "온ꪵ" } ;',
-            'start_line' => 82,
-            'indent' => 3,
-            'block_id' => 11
+            'block_id' => 10
           },
           {
             'token_num' => 6,
@@ -13437,8 +13396,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 84,
             'src' => ' delete $온ꪵ:: { 온ꪵ } ;',
             'start_line' => 84,
-            'indent' => 2,
-            'block_id' => 10
+            'indent' => 1,
+            'block_id' => 6
           },
           {
             'token_num' => 10,
@@ -13446,8 +13405,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 85,
             'src' => ' my $gv = b ( $sub )-> GV ;',
             'start_line' => 85,
-            'indent' => 2,
-            'block_id' => 10
+            'indent' => 1,
+            'block_id' => 6
           },
           {
             'token_num' => 9,
@@ -13455,8 +13414,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 87,
             'src' => ' object_ok ( $gv , "B::GV" , "deleted stash entry leaves CV with valid GV" ) ;',
             'start_line' => 87,
-            'indent' => 2,
-            'block_id' => 10
+            'indent' => 1,
+            'block_id' => 6
           },
           {
             'token_num' => 16,
@@ -13464,8 +13423,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 88,
             'src' => ' is ( b ( $sub )-> CvFLAGS & $CVf_ANON , $CVf_ANON , "...and CVf_ANON set" ) ;',
             'start_line' => 88,
-            'indent' => 2,
-            'block_id' => 10
+            'indent' => 1,
+            'block_id' => 6
           },
           {
             'token_num' => 14,
@@ -13473,8 +13432,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 89,
             'src' => ' is ( eval { $gv-> NAME } , "__ANON__" , "...and an __ANON__ name" ) ;',
             'start_line' => 89,
-            'indent' => 2,
-            'block_id' => 10
+            'indent' => 1,
+            'block_id' => 6
           },
           {
             'token_num' => 16,
@@ -13482,26 +13441,26 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 90,
             'src' => ' is ( eval { $gv-> STASH-> NAME } , "온ꪵ" , "...but leaves stash intact" ) ;',
             'start_line' => 90,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 95,
-            'src' => ' $sub = do { package tꖿ ; \\ & { "tꖿ" } ; } ;',
-            'start_line' => 92,
-            'indent' => 2,
-            'block_id' => 10
+            'indent' => 1,
+            'block_id' => 6
           },
           {
             'token_num' => 12,
             'has_warnings' => 1,
-            'end_line' => 95,
-            'src' => ' do { package tꖿ ; \\ & { "tꖿ" } ; }',
+            'end_line' => 94,
+            'src' => ' $sub = do { package tꖿ ; \\ &{ "tꖿ" } ;',
             'start_line' => 92,
-            'indent' => 2,
-            'block_id' => 13
+            'indent' => 1,
+            'block_id' => 6
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 94,
+            'src' => ' do { package tꖿ ; \\ &{ "tꖿ" }',
+            'start_line' => 92,
+            'indent' => 1,
+            'block_id' => 10
           },
           {
             'token_num' => 3,
@@ -13509,17 +13468,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 93,
             'src' => ' package tꖿ ;',
             'start_line' => 93,
-            'indent' => 3,
-            'block_id' => 14
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 0,
-            'end_line' => 94,
-            'src' => ' \\ & { "tꖿ" } ;',
-            'start_line' => 94,
-            'indent' => 3,
-            'block_id' => 14
+            'indent' => 2,
+            'block_id' => 11
           },
           {
             'token_num' => 4,
@@ -13527,8 +13477,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 96,
             'src' => ' %tꖿ::= ( ) ;',
             'start_line' => 96,
-            'indent' => 2,
-            'block_id' => 10
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 9,
@@ -13536,8 +13486,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 97,
             'src' => ' $gv = b ( $sub )-> GV ;',
             'start_line' => 97,
-            'indent' => 2,
-            'block_id' => 10
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 9,
@@ -13545,8 +13495,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 99,
             'src' => ' object_ok ( $gv , "B::GV" , "cleared stash leaves CV with valid GV" ) ;',
             'start_line' => 99,
-            'indent' => 2,
-            'block_id' => 10
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 16,
@@ -13554,8 +13504,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 100,
             'src' => ' is ( b ( $sub )-> CvFLAGS & $CVf_ANON , $CVf_ANON , "...and CVf_ANON set" ) ;',
             'start_line' => 100,
-            'indent' => 2,
-            'block_id' => 10
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 14,
@@ -13563,8 +13513,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 101,
             'src' => ' is ( eval { $gv-> NAME } , "__ANON__" , "...and an __ANON__ name" ) ;',
             'start_line' => 101,
-            'indent' => 2,
-            'block_id' => 10
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 16,
@@ -13572,26 +13522,26 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 102,
             'src' => ' is ( eval { $gv-> STASH-> NAME } , "tꖿ" , "...but leaves stash intact" ) ;',
             'start_line' => 102,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 107,
-            'src' => ' $sub = do { package ᖟ레ￇ ; \\ & { "ᖟ레ￇ" } ; } ;',
-            'start_line' => 104,
-            'indent' => 2,
-            'block_id' => 10
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 12,
             'has_warnings' => 1,
-            'end_line' => 107,
-            'src' => ' do { package ᖟ레ￇ ; \\ & { "ᖟ레ￇ" } ; }',
+            'end_line' => 106,
+            'src' => ' $sub = do { package ᖟ레ￇ ; \\ &{ "ᖟ레ￇ" } ;',
             'start_line' => 104,
-            'indent' => 2,
-            'block_id' => 15
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 106,
+            'src' => ' do { package ᖟ레ￇ ; \\ &{ "ᖟ레ￇ" }',
+            'start_line' => 104,
+            'indent' => 0,
+            'block_id' => 11
           },
           {
             'token_num' => 3,
@@ -13599,1017 +13549,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 105,
             'src' => ' package ᖟ레ￇ ;',
             'start_line' => 105,
-            'indent' => 3,
-            'block_id' => 16
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 0,
-            'end_line' => 106,
-            'src' => ' \\ & { "ᖟ레ￇ" } ;',
-            'start_line' => 106,
-            'indent' => 3,
-            'block_id' => 16
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 109,
-            'src' => ' undef %ᖟ레ￇ::; $gv = b ( $sub )-> GV ;',
-            'start_line' => 108,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 9,
-            'has_warnings' => 1,
-            'end_line' => 111,
-            'src' => ' object_ok ( $gv , "B::GV" , "undefed stash leaves CV with valid GV" ) ;',
-            'start_line' => 111,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 16,
-            'has_warnings' => 1,
-            'end_line' => 112,
-            'src' => ' is ( b ( $sub )-> CvFLAGS & $CVf_ANON , $CVf_ANON , "...and CVf_ANON set" ) ;',
-            'start_line' => 112,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 14,
-            'has_warnings' => 1,
-            'end_line' => 113,
-            'src' => ' is ( eval { $gv-> NAME } , "__ANON__" , "...and an __ANON__ name" ) ;',
-            'start_line' => 113,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 16,
-            'has_warnings' => 1,
-            'end_line' => 114,
-            'src' => ' is ( eval { $gv-> STASH-> NAME } , "__ANON__" , "...and an __ANON__ stash" ) ;',
-            'start_line' => 114,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 119,
-            'src' => ' my $sub = do { package ꃖᚢ ; sub { 1 } ; } ;',
-            'start_line' => 116,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 119,
-            'src' => ' do { package ꃖᚢ ; sub { 1 } ; }',
-            'start_line' => 116,
-            'indent' => 2,
-            'block_id' => 17
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 117,
-            'src' => ' package ꃖᚢ ;',
-            'start_line' => 117,
-            'indent' => 3,
-            'block_id' => 18
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 118,
-            'src' => ' sub { 1 } ;',
-            'start_line' => 118,
-            'indent' => 3,
-            'block_id' => 18
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 120,
-            'src' => ' %ꃖᚢ::= ( ) ;',
-            'start_line' => 120,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 10,
-            'has_warnings' => 1,
-            'end_line' => 122,
-            'src' => ' my $gv = B::svref_2object ( $sub )-> GV ;',
-            'start_line' => 122,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 123,
-            'src' => ' ok ( $gv-> isa ( q/B::GV/ ) , "cleared stash leaves anon CV with valid GV" ) ;',
-            'start_line' => 123,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 125,
-            'src' => ' my $st = eval { $gv-> STASH-> NAME } ;',
-            'start_line' => 125,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 126,
-            'src' => ' is ( $st , q/ꃖᚢ/ , "...but leaves the stash intact" ) ;',
-            'start_line' => 126,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 14,
-            'has_warnings' => 1,
-            'end_line' => 131,
-            'src' => ' $sub = do { package fꢄᶹᵌ ; sub { 1 } ; } ;',
-            'start_line' => 128,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 131,
-            'src' => ' do { package fꢄᶹᵌ ; sub { 1 } ; }',
-            'start_line' => 128,
-            'indent' => 2,
-            'block_id' => 19
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 129,
-            'src' => ' package fꢄᶹᵌ ;',
-            'start_line' => 129,
-            'indent' => 3,
-            'block_id' => 20
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 130,
-            'src' => ' sub { 1 } ;',
-            'start_line' => 130,
-            'indent' => 3,
-            'block_id' => 20
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 134,
-            'src' => ' undef %fꢄᶹᵌ::; $gv = B::svref_2object ( $sub )-> GV ;',
-            'start_line' => 132,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 135,
-            'src' => ' ok ( $gv-> isa ( q/B::GV/ ) , "undefed stash leaves anon CV with valid GV" ) ;',
-            'start_line' => 135,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 137,
-            'src' => ' $st = eval { $gv-> STASH-> NAME } ;',
-            'start_line' => 137,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 19,
-            'has_warnings' => 1,
-            'end_line' => 141,
-            'src' => ' { local $TODO = \'STASHES not anonymized\' ; is ( $st , q/__ANON__/ , "...and an __ANON__ stash" ) ; }',
-            'start_line' => 139,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 1,
-            'end_line' => 139,
-            'src' => ' local $TODO = \'STASHES not anonymized\' ;',
-            'start_line' => 139,
-            'indent' => 3,
-            'block_id' => 22
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 140,
-            'src' => ' is ( $st , q/__ANON__/ , "...and an __ANON__ stash" ) ;',
-            'start_line' => 140,
-            'indent' => 3,
-            'block_id' => 22
-          },
-          {
-            'token_num' => 14,
-            'has_warnings' => 1,
-            'end_line' => 146,
-            'src' => ' $sub = do { package sӥㄒ ; \\ & { "sӥㄒ" } } ;',
-            'start_line' => 143,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 146,
-            'src' => ' do { package sӥㄒ ; \\ & { "sӥㄒ" } }',
-            'start_line' => 143,
-            'indent' => 2,
-            'block_id' => 22
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 144,
-            'src' => ' package sӥㄒ ;',
-            'start_line' => 144,
-            'indent' => 3,
-            'block_id' => 23
-          },
-          {
-            'token_num' => 10,
-            'has_warnings' => 0,
-            'end_line' => 147,
-            'src' => ' my $stash_glob = delete $: : { "sӥㄒ::" } ;',
-            'start_line' => 147,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 0,
-            'end_line' => 149,
-            'src' => ' delete $$stash_glob { "sӥㄒ" } ;',
-            'start_line' => 149,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 9,
-            'has_warnings' => 1,
-            'end_line' => 150,
-            'src' => ' $gv = B::svref_2object ( $sub )-> GV ;',
-            'start_line' => 150,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 152,
-            'src' => ' ok ( $gv-> isa ( q/B::GV/ ) , \'anonymised CV whose stash is detached still has a GV\' ) ;',
-            'start_line' => 151,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 155,
-            'src' => ' is $gv-> STASH-> NAME , \'__ANON__\' , \'CV anonymised when its stash is detached becomes __ANON__::__ANON__\' ;',
-            'start_line' => 154,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 53,
-            'has_warnings' => 1,
-            'end_line' => 168,
-            'src' => ' { package ＦŌŌ ; sub Ƒಓ { } my $rfoo = \\ & Ƒಓ ; package main ; delete $: : { \'ＦŌŌ::\' } ; my $cv = B::svref_2object ( $rfoo ) ; my $stash = $cv-> STASH ; like ( $stash , qr/B::SPECIAL/ , "NULL CvSTASH on named sub" ) ; }',
-            'start_line' => 158,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 159,
-            'src' => ' package ＦŌŌ ;',
-            'start_line' => 159,
-            'indent' => 3,
-            'block_id' => 27
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 0,
-            'end_line' => 160,
-            'src' => ' sub Ƒಓ { }',
-            'start_line' => 160,
-            'indent' => 3,
-            'block_id' => 27
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 0,
-            'end_line' => 161,
-            'src' => ' my $rfoo = \\ & Ƒಓ ;',
-            'start_line' => 161,
-            'indent' => 3,
-            'block_id' => 27
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 162,
-            'src' => ' package main ;',
-            'start_line' => 162,
-            'indent' => 3,
-            'block_id' => 27
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 0,
-            'end_line' => 163,
-            'src' => ' delete $: : { \'ＦŌŌ::\' } ;',
-            'start_line' => 163,
-            'indent' => 3,
-            'block_id' => 27
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 164,
-            'src' => ' my $cv = B::svref_2object ( $rfoo ) ;',
-            'start_line' => 164,
-            'indent' => 3,
-            'block_id' => 27
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 166,
-            'src' => ' my $stash = $cv-> STASH ;',
-            'start_line' => 166,
-            'indent' => 3,
-            'block_id' => 27
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 167,
-            'src' => ' like ( $stash , qr/B::SPECIAL/ , "NULL CvSTASH on named sub" ) ;',
-            'start_line' => 167,
-            'indent' => 3,
-            'block_id' => 27
-          },
-          {
-            'token_num' => 58,
-            'has_warnings' => 1,
-            'end_line' => 185,
-            'src' => ' { my $r ; eval q[
-                package ＦŌŌ௨;
-                sub Ƒ{};
-                $r = \\&Ƒ;
-                *Ƒ = sub {};
-            ] ; delete $ＦŌŌ௨:: { Ƒ } ; my $cv = B::svref_2object ( $r ) ; my $gv = $cv-> GV ; ok ( $gv-> isa ( q/B::GV/ ) , "orphaned CV has valid GV" ) ; is ( $gv-> NAME , \'__ANON__\' , "orphaned CV has anon GV" ) ; }',
-            'start_line' => 172,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 173,
-            'src' => ' my $r ;',
-            'start_line' => 173,
-            'indent' => 3,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 0,
-            'end_line' => 179,
-            'src' => ' eval q[
-                package ＦŌŌ௨;
-                sub Ƒ{};
-                $r = \\&Ƒ;
-                *Ƒ = sub {};
-            ] ;',
-            'start_line' => 174,
-            'indent' => 3,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 1,
-            'end_line' => 180,
-            'src' => ' delete $ＦŌŌ௨:: { Ƒ } ;',
-            'start_line' => 180,
-            'indent' => 3,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 181,
-            'src' => ' my $cv = B::svref_2object ( $r ) ;',
-            'start_line' => 181,
-            'indent' => 3,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 182,
-            'src' => ' my $gv = $cv-> GV ;',
-            'start_line' => 182,
-            'indent' => 3,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 183,
-            'src' => ' ok ( $gv-> isa ( q/B::GV/ ) , "orphaned CV has valid GV" ) ;',
-            'start_line' => 183,
-            'indent' => 3,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 184,
-            'src' => ' is ( $gv-> NAME , \'__ANON__\' , "orphaned CV has anon GV" ) ;',
-            'start_line' => 184,
-            'indent' => 3,
-            'block_id' => 30
-          },
-          {
-            'token_num' => 126,
-            'has_warnings' => 1,
-            'end_line' => 208,
-            'src' => ' { package ＦŌŌ３ ; sub 남えㄉ { } ; my $anon = sub { } ; my $남えㄉ = eval q[\\&남えㄉ] ; package main ; delete $ＦŌŌ３:: { 남えㄉ } ; delete $ＦŌŌ３:: { __ANON__ } ; my ( $cv , $gv ) ; $cv = B::svref_2object ( $남えㄉ ) ; $gv = $cv-> GV ; ok ( $gv-> isa ( q/B::GV/ ) , "ex-named CV has valid GV" ) ; is ( $gv-> NAME , \'__ANON__\' , "ex-named CV has anon GV" ) ; $cv = B::svref_2object ( $anon ) ; $gv = $cv-> GV ; ok ( $gv-> isa ( q/B::GV/ ) , "anon CV has valid GV" ) ; is ( $gv-> NAME , \'__ANON__\' , "anon CV has anon GV" ) ; }',
-            'start_line' => 189,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 190,
-            'src' => ' package ＦŌŌ３ ;',
-            'start_line' => 190,
-            'indent' => 3,
-            'block_id' => 32
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 191,
-            'src' => ' sub 남えㄉ { } ;',
-            'start_line' => 191,
-            'indent' => 3,
-            'block_id' => 32
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 0,
-            'end_line' => 191,
-            'src' => ' sub 남えㄉ { }',
-            'start_line' => 191,
-            'indent' => 3,
-            'block_id' => 32
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 0,
-            'end_line' => 192,
-            'src' => ' my $anon = sub { } ;',
-            'start_line' => 192,
-            'indent' => 3,
-            'block_id' => 32
-          },
-          {
-            'token_num' => 9,
-            'has_warnings' => 0,
-            'end_line' => 193,
-            'src' => ' my $남えㄉ = eval q[\\&남えㄉ] ;',
-            'start_line' => 193,
-            'indent' => 3,
-            'block_id' => 32
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 194,
-            'src' => ' package main ;',
-            'start_line' => 194,
-            'indent' => 3,
-            'block_id' => 32
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 1,
-            'end_line' => 195,
-            'src' => ' delete $ＦŌŌ３:: { 남えㄉ } ;',
-            'start_line' => 195,
-            'indent' => 3,
-            'block_id' => 32
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 1,
-            'end_line' => 197,
-            'src' => ' delete $ＦŌŌ３:: { __ANON__ } ;',
-            'start_line' => 197,
-            'indent' => 3,
-            'block_id' => 32
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 198,
-            'src' => ' my ( $cv , $gv ) ;',
-            'start_line' => 198,
-            'indent' => 3,
-            'block_id' => 32
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 199,
-            'src' => ' $cv = B::svref_2object ( $남えㄉ ) ;',
-            'start_line' => 199,
-            'indent' => 3,
-            'block_id' => 32
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 1,
-            'end_line' => 200,
-            'src' => ' $gv = $cv-> GV ;',
-            'start_line' => 200,
-            'indent' => 3,
-            'block_id' => 32
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 201,
-            'src' => ' ok ( $gv-> isa ( q/B::GV/ ) , "ex-named CV has valid GV" ) ;',
-            'start_line' => 201,
-            'indent' => 3,
-            'block_id' => 32
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 202,
-            'src' => ' is ( $gv-> NAME , \'__ANON__\' , "ex-named CV has anon GV" ) ;',
-            'start_line' => 202,
-            'indent' => 3,
-            'block_id' => 32
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 204,
-            'src' => ' $cv = B::svref_2object ( $anon ) ;',
-            'start_line' => 204,
-            'indent' => 3,
-            'block_id' => 32
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 1,
-            'end_line' => 205,
-            'src' => ' $gv = $cv-> GV ;',
-            'start_line' => 205,
-            'indent' => 3,
-            'block_id' => 32
-          },
-          {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 206,
-            'src' => ' ok ( $gv-> isa ( q/B::GV/ ) , "anon CV has valid GV" ) ;',
-            'start_line' => 206,
-            'indent' => 3,
-            'block_id' => 32
-          },
-          {
-            'token_num' => 11,
-            'has_warnings' => 1,
-            'end_line' => 207,
-            'src' => ' is ( $gv-> NAME , \'__ANON__\' , "anon CV has anon GV" ) ;',
-            'start_line' => 207,
-            'indent' => 3,
-            'block_id' => 32
-          },
-          {
-            'token_num' => 80,
-            'has_warnings' => 1,
-            'end_line' => 233,
-            'src' => ' { my $r ; { package bᓙṗ ; BEGIN { $r = \\ & main::Ẃⱒcᴷ ; } } my $br = B::svref_2object ( $r ) ; is ( $br-> STASH-> NAME , \'bᓙṗ\' , \'stub records the package it was compiled in\' ) ; $br = B::svref_2object ( eval \'sub Ẃⱒcᴷ {}; \\&Ẃⱒcᴷ\' ) ; die $@ if $@ ; is ( $br-> STASH-> NAME , \'main\' , \'definition overrides the package it was compiled in\' ) ; like ( $br-> FILE , qr/eval/ , \'definition overrides the file it was compiled in\' ) ; }',
-            'start_line' => 210,
-            'indent' => 2,
-            'block_id' => 10
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 211,
-            'src' => ' my $r ;',
-            'start_line' => 211,
-            'indent' => 3,
-            'block_id' => 37
-          },
-          {
-            'token_num' => 14,
-            'has_warnings' => 1,
-            'end_line' => 218,
-            'src' => ' { package bᓙṗ ; BEGIN { $r = \\ & main::Ẃⱒcᴷ ; } }',
-            'start_line' => 212,
-            'indent' => 3,
-            'block_id' => 37
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 213,
-            'src' => ' package bᓙṗ ;',
-            'start_line' => 213,
-            'indent' => 4,
-            'block_id' => 38
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 1,
-            'end_line' => 216,
-            'src' => ' $r = \\ & main::Ẃⱒcᴷ ;',
-            'start_line' => 216,
-            'indent' => 5,
-            'block_id' => 39
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 220,
-            'src' => ' my $br = B::svref_2object ( $r ) ;',
-            'start_line' => 220,
-            'indent' => 3,
-            'block_id' => 37
-          },
-          {
-            'token_num' => 13,
-            'has_warnings' => 1,
-            'end_line' => 222,
-            'src' => ' is ( $br-> STASH-> NAME , \'bᓙṗ\' , \'stub records the package it was compiled in\' ) ;',
-            'start_line' => 221,
-            'indent' => 3,
-            'block_id' => 37
-          },
-          {
-            'token_num' => 8,
-            'has_warnings' => 1,
-            'end_line' => 226,
-            'src' => ' $br = B::svref_2object ( eval \'sub Ẃⱒcᴷ {}; \\&Ẃⱒcᴷ\' ) ;',
-            'start_line' => 226,
-            'indent' => 3,
-            'block_id' => 37
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 227,
-            'src' => ' die $@ if $@ ;',
-            'start_line' => 227,
-            'indent' => 3,
-            'block_id' => 37
-          },
-          {
-            'token_num' => 13,
-            'has_warnings' => 1,
-            'end_line' => 230,
-            'src' => ' is ( $br-> STASH-> NAME , \'main\' , \'definition overrides the package it was compiled in\' ) ;',
-            'start_line' => 229,
-            'indent' => 3,
-            'block_id' => 37
-          },
-          {
-            'token_num' => 14,
-            'has_warnings' => 1,
-            'end_line' => 232,
-            'src' => ' like ( $br-> FILE , qr/eval/ , \'definition overrides the file it was compiled in\' ) ;',
-            'start_line' => 231,
-            'indent' => 3,
-            'block_id' => 37
-          },
-          {
-            'token_num' => 59,
-            'has_warnings' => 1,
-            'end_line' => 249,
-            'src' => ' { package クラス ; my $c ; sub __ANON__ { $c = ( caller ( 0 ) ) [ 3 ] ; } { local $@ ; eval { ok ( 1 ) ; } ;::like ( $@ , qr/^Undefined subroutine &クラス::ok/ ) ; } __ANON__ ( ) ;::is ( $c , \'クラス::__ANON__\' , \'__ANON__ sub called ok\' ) ; }',
-            'start_line' => 238,
             'indent' => 1,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 239,
-            'src' => ' package クラス ;',
-            'start_line' => 239,
-            'indent' => 2,
-            'block_id' => 40
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 240,
-            'src' => ' my $c ;',
-            'start_line' => 240,
-            'indent' => 2,
-            'block_id' => 40
-          },
-          {
-            'token_num' => 16,
-            'has_warnings' => 1,
-            'end_line' => 241,
-            'src' => ' sub __ANON__ { $c = ( caller ( 0 ) ) [ 3 ] ; }',
-            'start_line' => 241,
-            'indent' => 2,
-            'block_id' => 40
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 241,
-            'src' => ' $c = ( caller ( 0 ) ) [ 3 ] ;',
-            'start_line' => 241,
-            'indent' => 3,
-            'block_id' => 41
-          },
-          {
-            'token_num' => 23,
-            'has_warnings' => 1,
-            'end_line' => 246,
-            'src' => ' { local $@ ; eval { ok ( 1 ) ; } ;::like ( $@ , qr/^Undefined subroutine &クラス::ok/ ) ; }',
-            'start_line' => 242,
-            'indent' => 2,
-            'block_id' => 40
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 243,
-            'src' => ' local $@ ;',
-            'start_line' => 243,
-            'indent' => 3,
-            'block_id' => 42
-          },
-          {
-            'token_num' => 18,
-            'has_warnings' => 1,
-            'end_line' => 245,
-            'src' => ' eval { ok ( 1 ) ; } ;::like ( $@ , qr/^Undefined subroutine &クラス::ok/ ) ;',
-            'start_line' => 244,
-            'indent' => 3,
-            'block_id' => 42
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 1,
-            'end_line' => 244,
-            'src' => ' ok ( 1 ) ;',
-            'start_line' => 244,
-            'indent' => 3,
-            'block_id' => 42
-          },
-          {
-            'token_num' => 12,
-            'has_warnings' => 1,
-            'end_line' => 248,
-            'src' => ' __ANON__ ( ) ;::is ( $c , \'クラス::__ANON__\' , \'__ANON__ sub called ok\' ) ;',
-            'start_line' => 247,
-            'indent' => 2,
-            'block_id' => 40
-          },
-          {
-            'token_num' => 127,
-            'has_warnings' => 1,
-            'end_line' => 291,
-            'src' => ' { package rìle ; use Config ; my $obj = bless [ ] ; my $globref = \\ * tàt ; * slìn::= * rìle::; * rìle::= * zòr::;::is * $globref , "*rìle::tàt" , \'globs stringify the same way when stashes are moved\' ;::is ref $obj , "rìle" , \'ref() returns the same thing when an object’s stash is moved\' ;::like "$obj" , qr "^rìle=ARRAY\\(0x[\\da-f]+\\)\\z" , \'objects stringify the same way when their stashes are moved\' ; { local $: : TODO = $Config { useithreads } ? "fails under threads" : undef ;::is eval \'__PACKAGE__\' , \'rìle\' , \'__PACKAGE__ returns the same when the current stash is moved\' ; } my $life_raft = \\ %slìn::; * slìn::= * zòr::;::is * $globref , "*rìle::tàt" , \'globs stringify the same way when stashes are detached\' ;::is ref $obj , "rìle" , \'ref() returns the same thing when an object’s stash is detached\' ;::like "$obj" , qr "^rìle=ARRAY\\(0x[\\da-f]+\\)\\z" , \'objects stringify the same way when their stashes are detached\' ; { local $: : TODO = $Config { useithreads } ? "fails under threads" : undef ;::is eval \'__PACKAGE__\' , \'rìle\' , \'__PACKAGE__ returns the same when the current stash is detached\' ; } }',
-            'start_line' => 252,
-            'indent' => 1,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 253,
-            'src' => ' package rìle ;',
-            'start_line' => 253,
-            'indent' => 2,
-            'block_id' => 43
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 0,
-            'end_line' => 255,
-            'src' => ' use Config ;',
-            'start_line' => 255,
-            'indent' => 2,
-            'block_id' => 43
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 0,
-            'end_line' => 257,
-            'src' => ' my $obj = bless [ ] ;',
-            'start_line' => 257,
-            'indent' => 2,
-            'block_id' => 43
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 258,
-            'src' => ' my $globref = \\ * tàt ;',
-            'start_line' => 258,
-            'indent' => 2,
-            'block_id' => 43
-          },
-          {
-            'token_num' => 29,
-            'has_warnings' => 1,
-            'end_line' => 268,
-            'src' => ' * slìn::= * rìle::; * rìle::= * zòr::;::is * $globref , "*rìle::tàt" , \'globs stringify the same way when stashes are moved\' ;::is ref $obj , "rìle" , \'ref() returns the same thing when an object’s stash is moved\' ;::like "$obj" , qr "^rìle=ARRAY\\(0x[\\da-f]+\\)\\z" , \'objects stringify the same way when their stashes are moved\' ;',
-            'start_line' => 261,
-            'indent' => 2,
-            'block_id' => 43
-          },
-          {
-            'token_num' => 23,
-            'has_warnings' => 1,
-            'end_line' => 273,
-            'src' => ' { local $: : TODO = $Config { useithreads } ? "fails under threads" : undef ;::is eval \'__PACKAGE__\' , \'rìle\' , \'__PACKAGE__ returns the same when the current stash is moved\' ; }',
-            'start_line' => 269,
-            'indent' => 2,
-            'block_id' => 43
-          },
-          {
-            'token_num' => 21,
-            'has_warnings' => 1,
-            'end_line' => 272,
-            'src' => ' local $: : TODO = $Config { useithreads } ? "fails under threads" : undef ;::is eval \'__PACKAGE__\' , \'rìle\' , \'__PACKAGE__ returns the same when the current stash is moved\' ;',
-            'start_line' => 270,
-            'indent' => 3,
-            'block_id' => 44
-          },
-          {
-            'token_num' => 30,
-            'has_warnings' => 1,
-            'end_line' => 285,
-            'src' => ' my $life_raft = \\ %slìn::; * slìn::= * zòr::;::is * $globref , "*rìle::tàt" , \'globs stringify the same way when stashes are detached\' ;::is ref $obj , "rìle" , \'ref() returns the same thing when an object’s stash is detached\' ;::like "$obj" , qr "^rìle=ARRAY\\(0x[\\da-f]+\\)\\z" , \'objects stringify the same way when their stashes are detached\' ;',
-            'start_line' => 277,
-            'indent' => 2,
-            'block_id' => 43
-          },
-          {
-            'token_num' => 23,
-            'has_warnings' => 1,
-            'end_line' => 290,
-            'src' => ' { local $: : TODO = $Config { useithreads } ? "fails under threads" : undef ;::is eval \'__PACKAGE__\' , \'rìle\' , \'__PACKAGE__ returns the same when the current stash is detached\' ; }',
-            'start_line' => 286,
-            'indent' => 2,
-            'block_id' => 43
-          },
-          {
-            'token_num' => 21,
-            'has_warnings' => 1,
-            'end_line' => 289,
-            'src' => ' local $: : TODO = $Config { useithreads } ? "fails under threads" : undef ;::is eval \'__PACKAGE__\' , \'rìle\' , \'__PACKAGE__ returns the same when the current stash is detached\' ;',
-            'start_line' => 287,
-            'indent' => 3,
-            'block_id' => 45
-          },
-          {
-            'token_num' => 38,
-            'has_warnings' => 1,
-            'end_line' => 302,
-            'src' => ' { my $glob = \\ * Phòò::glòb ; sub ò::DESTROY { eval \'++$Phòò::bòr\' } no strict \'refs\' ; ${ "Phòò::thòng1" } = bless [ ] , "ò" ; undef %Phòò::; is "$$glob" , "*__ANON__::glòb" , "setting stash name during undef has no effect" ; }',
-            'start_line' => 294,
-            'indent' => 1,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 7,
-            'has_warnings' => 1,
-            'end_line' => 295,
-            'src' => ' my $glob = \\ * Phòò::glòb ;',
-            'start_line' => 295,
-            'indent' => 2,
-            'block_id' => 46
-          },
-          {
-            'token_num' => 4,
-            'has_warnings' => 1,
-            'end_line' => 297,
-            'src' => ' no strict \'refs\' ;',
-            'start_line' => 297,
-            'indent' => 2,
-            'block_id' => 46
-          },
-          {
-            'token_num' => 10,
-            'has_warnings' => 0,
-            'end_line' => 298,
-            'src' => ' ${ "Phòò::thòng1" } = bless [ ] , "ò" ;',
-            'start_line' => 298,
-            'indent' => 2,
-            'block_id' => 46
-          },
-          {
-            'token_num' => 9,
-            'has_warnings' => 1,
-            'end_line' => 301,
-            'src' => ' undef %Phòò::; is "$$glob" , "*__ANON__::glòb" , "setting stash name during undef has no effect" ;',
-            'start_line' => 299,
-            'indent' => 2,
-            'block_id' => 46
-          },
-          {
-            'token_num' => 22,
-            'has_warnings' => 1,
-            'end_line' => 311,
-            'src' => ' { package Bèàr::; sub bàz { 1 } package main ; ok eval { Bèàr::::bàz ( ) } , \'packages ending with :: are self-consistent\' ; }',
-            'start_line' => 305,
-            'indent' => 1,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 5,
-            'has_warnings' => 0,
-            'end_line' => 307,
-            'src' => ' sub bàz { 1 }',
-            'start_line' => 307,
-            'indent' => 2,
-            'block_id' => 48
-          },
-          {
-            'token_num' => 3,
-            'has_warnings' => 1,
-            'end_line' => 308,
-            'src' => ' package main ;',
-            'start_line' => 308,
-            'indent' => 2,
-            'block_id' => 48
-          },
-          {
-            'token_num' => 10,
-            'has_warnings' => 1,
-            'end_line' => 310,
-            'src' => ' ok eval { Bèàr::::bàz ( ) } , \'packages ending with :: are self-consistent\' ;',
-            'start_line' => 309,
-            'indent' => 2,
-            'block_id' => 48
-          },
-          {
-            'token_num' => 6,
-            'has_warnings' => 0,
-            'end_line' => 314,
-            'src' => ' ${ "à\'\\0b" } = "c" ;',
-            'start_line' => 314,
-            'indent' => 1,
-            'block_id' => 6
-          },
-          {
-            'token_num' => 9,
-            'has_warnings' => 1,
-            'end_line' => 315,
-            'src' => ' is ${ "à::\\0b" } , "c" , "\' is equivalent to :: before a null" ;',
-            'start_line' => 315,
-            'indent' => 1,
-            'block_id' => 6
+            'block_id' => 12
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');
@@ -14637,10 +13578,6 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '',
             'name' => 'strict'
-          },
-          {
-            'args' => '',
-            'name' => 'Config'
           }
         ]
 , 'Compiler::Lexer::get_used_modules');

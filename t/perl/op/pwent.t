@@ -1581,12 +1581,12 @@ subtest 'tokenize' => sub {
                    'line' => 39
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalVar',
                    'data' => '$Config',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
                    'line' => 39
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4471,12 +4471,12 @@ subtest 'tokenize' => sub {
                    'line' => 111
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'Var',
                    'data' => '$Config',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_Var,
                    'line' => 111
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5830,12 +5830,12 @@ subtest 'tokenize' => sub {
                    'line' => 150
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'Var',
                    'data' => '$Config',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_Var,
                    'line' => 150
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9702,7 +9702,7 @@ subtest 'get_groups_by_syntax_level' => sub {
 	       RealName NFSHomeDirectory UserShell} ; } ;',
             'start_line' => 42,
             'indent' => 1,
-            'block_id' => 5
+            'block_id' => 4
           },
           {
             'token_num' => 34,
@@ -9712,7 +9712,7 @@ subtest 'get_groups_by_syntax_level' => sub {
 	       RealName NFSHomeDirectory UserShell} ; }',
             'start_line' => 42,
             'indent' => 1,
-            'block_id' => 5
+            'block_id' => 4
           },
           {
             'token_num' => 5,
@@ -9721,7 +9721,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $inx = 0 ;',
             'start_line' => 43,
             'indent' => 2,
-            'block_id' => 6
+            'block_id' => 5
           },
           {
             'token_num' => 26,
@@ -9731,7 +9731,7 @@ subtest 'get_groups_by_syntax_level' => sub {
 	       RealName NFSHomeDirectory UserShell} ;',
             'start_line' => 44,
             'indent' => 2,
-            'block_id' => 6
+            'block_id' => 5
           },
           {
             'token_num' => 26,
@@ -9740,7 +9740,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $want { RecordName } { mung } = sub { ( split \'\\s+\' , $_ [ 0 ] , 2 ) [ 0 ] } ;',
             'start_line' => 53,
             'indent' => 1,
-            'block_id' => 5
+            'block_id' => 4
           },
           {
             'token_num' => 30,
@@ -9749,7 +9749,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $want { UniqueID } { mung } = $want { PrimaryGroupID } { mung } = sub { unpack \'L\' , pack \'l\' , $_ [ 0 ] } ;',
             'start_line' => 65,
             'indent' => 1,
-            'block_id' => 5
+            'block_id' => 4
           },
           {
             'token_num' => 207,
@@ -9758,7 +9758,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' foreach my $dscl ( qw(/usr/bin/dscl) ) { next unless -x $dscl ; next unless open my $fh , \'-|\' , "$dscl . -readall /Users @{[keys %want]} 2>/dev/null" ; my @lines ; my @rec ; while ( < $fh > ) { chomp ; if ( $_ eq \'-\' ) { if ( @rec ) { no warnings \'uninitialized\' ; push @lines , join ( \':\' , @rec ) . "\\n" ; @rec = ( ) ; } next ; } my ( $name , $value ) = split \':\\s+\' , $_ , 2 ; unless ( defined $value ) { s/:$// ; $name = $_ ; $value = < $fh > ; chomp $value ; $value =~ s/^\\s+// ; } if ( defined ( my $info = $want { $name } ) ) { $rec [ $info-> { inx } ] = $info-> { mung }-> ( $value ) ; } } if ( @rec ) { push @lines , join ( \':\' , @rec ) . "\\n" ; } my $data = join \'\' , @lines ; if ( open PW , \'<\' , \\ $data ) { $where = "dscl . -readall /Users" ; last ; } }',
             'start_line' => 68,
             'indent' => 1,
-            'block_id' => 5
+            'block_id' => 4
           },
           {
             'token_num' => 5,
@@ -9767,7 +9767,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' next unless -x $dscl ;',
             'start_line' => 69,
             'indent' => 2,
-            'block_id' => 10
+            'block_id' => 9
           },
           {
             'token_num' => 10,
@@ -9776,7 +9776,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' next unless open my $fh , \'-|\' , "$dscl . -readall /Users @{[keys %want]} 2>/dev/null" ;',
             'start_line' => 70,
             'indent' => 2,
-            'block_id' => 10
+            'block_id' => 9
           },
           {
             'token_num' => 3,
@@ -9785,7 +9785,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my @lines ;',
             'start_line' => 71,
             'indent' => 2,
-            'block_id' => 10
+            'block_id' => 9
           },
           {
             'token_num' => 3,
@@ -9794,7 +9794,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my @rec ;',
             'start_line' => 72,
             'indent' => 2,
-            'block_id' => 10
+            'block_id' => 9
           },
           {
             'token_num' => 131,
@@ -9803,7 +9803,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' while ( < $fh > ) { chomp ; if ( $_ eq \'-\' ) { if ( @rec ) { no warnings \'uninitialized\' ; push @lines , join ( \':\' , @rec ) . "\\n" ; @rec = ( ) ; } next ; } my ( $name , $value ) = split \':\\s+\' , $_ , 2 ; unless ( defined $value ) { s/:$// ; $name = $_ ; $value = < $fh > ; chomp $value ; $value =~ s/^\\s+// ; } if ( defined ( my $info = $want { $name } ) ) { $rec [ $info-> { inx } ] = $info-> { mung }-> ( $value ) ; } }',
             'start_line' => 73,
             'indent' => 2,
-            'block_id' => 10
+            'block_id' => 9
           },
           {
             'token_num' => 2,
@@ -9812,7 +9812,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' chomp ;',
             'start_line' => 74,
             'indent' => 3,
-            'block_id' => 11
+            'block_id' => 10
           },
           {
             'token_num' => 37,
@@ -9821,7 +9821,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( $_ eq \'-\' ) { if ( @rec ) { no warnings \'uninitialized\' ; push @lines , join ( \':\' , @rec ) . "\\n" ; @rec = ( ) ; } next ; }',
             'start_line' => 75,
             'indent' => 3,
-            'block_id' => 11
+            'block_id' => 10
           },
           {
             'token_num' => 27,
@@ -9830,7 +9830,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( @rec ) { no warnings \'uninitialized\' ; push @lines , join ( \':\' , @rec ) . "\\n" ; @rec = ( ) ; }',
             'start_line' => 76,
             'indent' => 4,
-            'block_id' => 12
+            'block_id' => 11
           },
           {
             'token_num' => 4,
@@ -9839,7 +9839,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' no warnings \'uninitialized\' ;',
             'start_line' => 80,
             'indent' => 5,
-            'block_id' => 13
+            'block_id' => 12
           },
           {
             'token_num' => 12,
@@ -9848,7 +9848,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' push @lines , join ( \':\' , @rec ) . "\\n" ;',
             'start_line' => 81,
             'indent' => 5,
-            'block_id' => 13
+            'block_id' => 12
           },
           {
             'token_num' => 5,
@@ -9857,7 +9857,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' @rec = ( ) ;',
             'start_line' => 82,
             'indent' => 5,
-            'block_id' => 13
+            'block_id' => 12
           },
           {
             'token_num' => 2,
@@ -9866,7 +9866,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' next ;',
             'start_line' => 84,
             'indent' => 4,
-            'block_id' => 12
+            'block_id' => 11
           },
           {
             'token_num' => 14,
@@ -9875,7 +9875,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my ( $name , $value ) = split \':\\s+\' , $_ , 2 ;',
             'start_line' => 86,
             'indent' => 3,
-            'block_id' => 11
+            'block_id' => 10
           },
           {
             'token_num' => 36,
@@ -9884,7 +9884,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' unless ( defined $value ) { s/:$// ; $name = $_ ; $value = < $fh > ; chomp $value ; $value =~ s/^\\s+// ; }',
             'start_line' => 87,
             'indent' => 3,
-            'block_id' => 11
+            'block_id' => 10
           },
           {
             'token_num' => 7,
@@ -9893,7 +9893,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' s/:$// ;',
             'start_line' => 88,
             'indent' => 4,
-            'block_id' => 14
+            'block_id' => 13
           },
           {
             'token_num' => 4,
@@ -9902,7 +9902,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $name = $_ ;',
             'start_line' => 89,
             'indent' => 4,
-            'block_id' => 14
+            'block_id' => 13
           },
           {
             'token_num' => 6,
@@ -9911,7 +9911,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $value = < $fh > ;',
             'start_line' => 90,
             'indent' => 4,
-            'block_id' => 14
+            'block_id' => 13
           },
           {
             'token_num' => 3,
@@ -9920,7 +9920,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' chomp $value ;',
             'start_line' => 91,
             'indent' => 4,
-            'block_id' => 14
+            'block_id' => 13
           },
           {
             'token_num' => 9,
@@ -9929,7 +9929,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $value =~ s/^\\s+// ;',
             'start_line' => 92,
             'indent' => 4,
-            'block_id' => 14
+            'block_id' => 13
           },
           {
             'token_num' => 34,
@@ -9938,7 +9938,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( defined ( my $info = $want { $name } ) ) { $rec [ $info-> { inx } ] = $info-> { mung }-> ( $value ) ; }',
             'start_line' => 94,
             'indent' => 3,
-            'block_id' => 11
+            'block_id' => 10
           },
           {
             'token_num' => 19,
@@ -9947,7 +9947,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $rec [ $info-> { inx } ] = $info-> { mung }-> ( $value ) ;',
             'start_line' => 95,
             'indent' => 4,
-            'block_id' => 15
+            'block_id' => 14
           },
           {
             'token_num' => 18,
@@ -9956,7 +9956,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( @rec ) { push @lines , join ( \':\' , @rec ) . "\\n" ; }',
             'start_line' => 98,
             'indent' => 2,
-            'block_id' => 10
+            'block_id' => 9
           },
           {
             'token_num' => 12,
@@ -9965,7 +9965,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' push @lines , join ( \':\' , @rec ) . "\\n" ;',
             'start_line' => 99,
             'indent' => 3,
-            'block_id' => 16
+            'block_id' => 15
           },
           {
             'token_num' => 8,
@@ -9974,7 +9974,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $data = join \'\' , @lines ;',
             'start_line' => 101,
             'indent' => 2,
-            'block_id' => 10
+            'block_id' => 9
           },
           {
             'token_num' => 18,
@@ -9983,7 +9983,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( open PW , \'<\' , \\ $data ) { $where = "dscl . -readall /Users" ; last ; }',
             'start_line' => 102,
             'indent' => 2,
-            'block_id' => 10
+            'block_id' => 9
           },
           {
             'token_num' => 4,
@@ -9992,7 +9992,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $where = "dscl . -readall /Users" ;',
             'start_line' => 103,
             'indent' => 3,
-            'block_id' => 17
+            'block_id' => 16
           },
           {
             'token_num' => 2,
@@ -10001,7 +10001,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' last ;',
             'start_line' => 104,
             'indent' => 3,
-            'block_id' => 17
+            'block_id' => 16
           },
           {
             'token_num' => 87,
@@ -10013,13 +10013,13 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 3,
-            'has_warnings' => 0,
+            'token_num' => 11,
+            'has_warnings' => 1,
             'end_line' => 111,
-            'src' => ' && \'$Config{i_pwd} undefined\' ;',
+            'src' => ' my $no_i_pwd = ! $Config::Config { i_pwd } && \'$Config{i_pwd} undefined\' ;',
             'start_line' => 111,
             'indent' => 1,
-            'block_id' => 18
+            'block_id' => 17
           },
           {
             'token_num' => 5,
@@ -10028,7 +10028,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $PW = "/etc/passwd" ;',
             'start_line' => 113,
             'indent' => 1,
-            'block_id' => 18
+            'block_id' => 17
           },
           {
             'token_num' => 20,
@@ -10037,7 +10037,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( ! -f $PW ) { skip_all ( $no_i_pwd ) if $no_i_pwd ; skip_all ( "no $PW file" ) ; }',
             'start_line' => 114,
             'indent' => 1,
-            'block_id' => 18
+            'block_id' => 17
           },
           {
             'token_num' => 7,
@@ -10046,7 +10046,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' skip_all ( $no_i_pwd ) if $no_i_pwd ;',
             'start_line' => 115,
             'indent' => 2,
-            'block_id' => 20
+            'block_id' => 18
           },
           {
             'token_num' => 5,
@@ -10055,7 +10055,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' skip_all ( "no $PW file" ) ;',
             'start_line' => 116,
             'indent' => 2,
-            'block_id' => 20
+            'block_id' => 18
           },
           {
             'token_num' => 37,
@@ -10064,7 +10064,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' elsif ( open PW , \'<\' , $PW ) { if ( defined < PW > ) { $where = $PW ; } else { skip_all ( $no_i_pwd ) if $no_i_pwd ; die "\\$Config{i_pwd} is defined, $PW exists but has no entries, all other approaches failed, giving up" ; } }',
             'start_line' => 117,
             'indent' => 1,
-            'block_id' => 18
+            'block_id' => 17
           },
           {
             'token_num' => 13,
@@ -10073,7 +10073,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( defined < PW > ) { $where = $PW ; }',
             'start_line' => 118,
             'indent' => 2,
-            'block_id' => 21
+            'block_id' => 19
           },
           {
             'token_num' => 4,
@@ -10082,7 +10082,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $where = $PW ;',
             'start_line' => 119,
             'indent' => 3,
-            'block_id' => 22
+            'block_id' => 20
           },
           {
             'token_num' => 13,
@@ -10091,7 +10091,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' else { skip_all ( $no_i_pwd ) if $no_i_pwd ; die "\\$Config{i_pwd} is defined, $PW exists but has no entries, all other approaches failed, giving up" ; }',
             'start_line' => 120,
             'indent' => 2,
-            'block_id' => 21
+            'block_id' => 19
           },
           {
             'token_num' => 7,
@@ -10100,7 +10100,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' skip_all ( $no_i_pwd ) if $no_i_pwd ;',
             'start_line' => 121,
             'indent' => 3,
-            'block_id' => 23
+            'block_id' => 21
           },
           {
             'token_num' => 3,
@@ -10109,7 +10109,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' die "\\$Config{i_pwd} is defined, $PW exists but has no entries, all other approaches failed, giving up" ;',
             'start_line' => 122,
             'indent' => 3,
-            'block_id' => 23
+            'block_id' => 21
           },
           {
             'token_num' => 6,
@@ -10118,7 +10118,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' else { die "Can\'t open $PW: $!" ; }',
             'start_line' => 124,
             'indent' => 1,
-            'block_id' => 18
+            'block_id' => 17
           },
           {
             'token_num' => 3,
@@ -10127,7 +10127,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' die "Can\'t open $PW: $!" ;',
             'start_line' => 125,
             'indent' => 2,
-            'block_id' => 24
+            'block_id' => 22
           },
           {
             'token_num' => 7,
@@ -10208,7 +10208,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' chomp ;',
             'start_line' => 146,
             'indent' => 1,
-            'block_id' => 25
+            'block_id' => 23
           },
           {
             'token_num' => 12,
@@ -10217,7 +10217,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my @s = split/:/ , $_ , -1 ;',
             'start_line' => 148,
             'indent' => 1,
-            'block_id' => 25
+            'block_id' => 23
           },
           {
             'token_num' => 17,
@@ -10226,16 +10226,16 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my ( $name_s , $passwd_s , $uid_s , $gid_s , $gcos_s , $home_s , $shell_s ) ;',
             'start_line' => 149,
             'indent' => 1,
-            'block_id' => 25
+            'block_id' => 23
           },
           {
-            'token_num' => 5,
-            'has_warnings' => 0,
+            'token_num' => 14,
+            'has_warnings' => 1,
             'end_line' => 150,
-            'src' => ' =~/^(\\d+)/ ;',
+            'src' => ' ( my $v ) = $Config::Config { osvers } =~/^(\\d+)/ ;',
             'start_line' => 150,
             'indent' => 1,
-            'block_id' => 25
+            'block_id' => 23
           },
           {
             'token_num' => 45,
@@ -10244,7 +10244,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( $^O eq \'darwin\' && $v < 9 ) { ( $name_s , $passwd_s , $uid_s , $gid_s , $gcos_s , $home_s , $shell_s ) = @s [ 0 , 1 , 2 , 3 , 7 , 8 , 9 ] ; }',
             'start_line' => 151,
             'indent' => 1,
-            'block_id' => 25
+            'block_id' => 23
           },
           {
             'token_num' => 33,
@@ -10253,7 +10253,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ( $name_s , $passwd_s , $uid_s , $gid_s , $gcos_s , $home_s , $shell_s ) = @s [ 0 , 1 , 2 , 3 , 7 , 8 , 9 ] ;',
             'start_line' => 152,
             'indent' => 2,
-            'block_id' => 27
+            'block_id' => 24
           },
           {
             'token_num' => 21,
@@ -10262,7 +10262,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' else { ( $name_s , $passwd_s , $uid_s , $gid_s , $gcos_s , $home_s , $shell_s ) = @s ; }',
             'start_line' => 153,
             'indent' => 1,
-            'block_id' => 25
+            'block_id' => 23
           },
           {
             'token_num' => 18,
@@ -10271,7 +10271,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ( $name_s , $passwd_s , $uid_s , $gid_s , $gcos_s , $home_s , $shell_s ) = @s ;',
             'start_line' => 154,
             'indent' => 2,
-            'block_id' => 28
+            'block_id' => 25
           },
           {
             'token_num' => 6,
@@ -10280,7 +10280,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' next if/^\\+/ ;',
             'start_line' => 156,
             'indent' => 1,
-            'block_id' => 25
+            'block_id' => 23
           },
           {
             'token_num' => 16,
@@ -10289,7 +10289,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( @s ) { push @{ $seen { $name_s } } , $. ; }',
             'start_line' => 157,
             'indent' => 1,
-            'block_id' => 25
+            'block_id' => 23
           },
           {
             'token_num' => 10,
@@ -10298,7 +10298,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' push @{ $seen { $name_s } } , $. ;',
             'start_line' => 158,
             'indent' => 2,
-            'block_id' => 29
+            'block_id' => 26
           },
           {
             'token_num' => 8,
@@ -10307,7 +10307,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' else { warn "# Your $where line $. is empty.\\n" ; next ; }',
             'start_line' => 159,
             'indent' => 1,
-            'block_id' => 25
+            'block_id' => 23
           },
           {
             'token_num' => 3,
@@ -10316,7 +10316,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' warn "# Your $where line $. is empty.\\n" ;',
             'start_line' => 160,
             'indent' => 2,
-            'block_id' => 30
+            'block_id' => 27
           },
           {
             'token_num' => 2,
@@ -10325,7 +10325,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' next ;',
             'start_line' => 161,
             'indent' => 2,
-            'block_id' => 30
+            'block_id' => 27
           },
           {
             'token_num' => 20,
@@ -10334,7 +10334,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( $n == $max ) { local $/ ; my $junk = < PW > ; last ; }',
             'start_line' => 163,
             'indent' => 1,
-            'block_id' => 25
+            'block_id' => 23
           },
           {
             'token_num' => 3,
@@ -10343,7 +10343,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' local $/ ;',
             'start_line' => 164,
             'indent' => 2,
-            'block_id' => 31
+            'block_id' => 28
           },
           {
             'token_num' => 7,
@@ -10352,7 +10352,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $junk = < PW > ;',
             'start_line' => 165,
             'indent' => 2,
-            'block_id' => 31
+            'block_id' => 28
           },
           {
             'token_num' => 2,
@@ -10361,7 +10361,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' last ;',
             'start_line' => 166,
             'indent' => 2,
-            'block_id' => 31
+            'block_id' => 28
           },
           {
             'token_num' => 126,
@@ -10370,7 +10370,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( @s == 7 || ( $^O eq \'darwin\' && @s == 10 ) ) { my @n = getpwuid ( $uid_s ) ; next unless @n ; my ( $name , $passwd , $uid , $gid , $quota , $comment , $gcos , $home , $shell ) = @n ; if ( $name_s ne $name ) { @n = getpwnam ( $name_s ) ; ( $name , $passwd , $uid , $gid , $quota , $comment , $gcos , $home , $shell ) = @n ; next if $name_s ne $name ; } $perfect { $name_s } ++ if $name eq $name_s and $uid eq $uid_s and $gid eq $gid_s and $gcos eq $gcos_s and $home eq $home_s and $shell eq $shell_s ; }',
             'start_line' => 170,
             'indent' => 1,
-            'block_id' => 25
+            'block_id' => 23
           },
           {
             'token_num' => 8,
@@ -10379,7 +10379,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my @n = getpwuid ( $uid_s ) ;',
             'start_line' => 171,
             'indent' => 2,
-            'block_id' => 32
+            'block_id' => 29
           },
           {
             'token_num' => 4,
@@ -10388,7 +10388,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' next unless @n ;',
             'start_line' => 173,
             'indent' => 2,
-            'block_id' => 32
+            'block_id' => 29
           },
           {
             'token_num' => 23,
@@ -10397,7 +10397,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my ( $name , $passwd , $uid , $gid , $quota , $comment , $gcos , $home , $shell ) = @n ;',
             'start_line' => 174,
             'indent' => 2,
-            'block_id' => 32
+            'block_id' => 29
           },
           {
             'token_num' => 43,
@@ -10406,7 +10406,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' if ( $name_s ne $name ) { @n = getpwnam ( $name_s ) ; ( $name , $passwd , $uid , $gid , $quota , $comment , $gcos , $home , $shell ) = @n ; next if $name_s ne $name ; }',
             'start_line' => 176,
             'indent' => 2,
-            'block_id' => 32
+            'block_id' => 29
           },
           {
             'token_num' => 7,
@@ -10415,7 +10415,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' @n = getpwnam ( $name_s ) ;',
             'start_line' => 177,
             'indent' => 3,
-            'block_id' => 33
+            'block_id' => 30
           },
           {
             'token_num' => 22,
@@ -10424,7 +10424,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' ( $name , $passwd , $uid , $gid , $quota , $comment , $gcos , $home , $shell ) = @n ;',
             'start_line' => 178,
             'indent' => 3,
-            'block_id' => 33
+            'block_id' => 30
           },
           {
             'token_num' => 6,
@@ -10433,7 +10433,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' next if $name_s ne $name ;',
             'start_line' => 179,
             'indent' => 3,
-            'block_id' => 33
+            'block_id' => 30
           },
           {
             'token_num' => 30,
@@ -10442,7 +10442,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $perfect { $name_s } ++ if $name eq $name_s and $uid eq $uid_s and $gid eq $gid_s and $gcos eq $gcos_s and $home eq $home_s and $shell eq $shell_s ;',
             'start_line' => 181,
             'indent' => 2,
-            'block_id' => 32
+            'block_id' => 29
           },
           {
             'token_num' => 3,
@@ -10451,7 +10451,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $n ++ ;',
             'start_line' => 190,
             'indent' => 1,
-            'block_id' => 25
+            'block_id' => 23
           },
           {
             'token_num' => 4,
@@ -10478,7 +10478,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' skip ( "Found no password entries" , 1 ) unless $n ;',
             'start_line' => 198,
             'indent' => 1,
-            'block_id' => 34
+            'block_id' => 31
           },
           {
             'token_num' => 15,
@@ -10499,7 +10499,7 @@ subtest 'get_groups_by_syntax_level' => sub {
 } ; }',
             'start_line' => 200,
             'indent' => 1,
-            'block_id' => 34
+            'block_id' => 31
           },
           {
             'token_num' => 3,
@@ -10508,7 +10508,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' $max ++ ;',
             'start_line' => 201,
             'indent' => 2,
-            'block_id' => 35
+            'block_id' => 32
           },
           {
             'token_num' => 3,
@@ -10529,7 +10529,7 @@ subtest 'get_groups_by_syntax_level' => sub {
 } ;',
             'start_line' => 202,
             'indent' => 2,
-            'block_id' => 35
+            'block_id' => 32
           },
           {
             'token_num' => 15,
@@ -10538,7 +10538,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' cmp_ok ( keys %perfect , \'>\' , 0 ) or note ( "(not necessarily serious: run t/op/pwent.t by itself)" ) ;',
             'start_line' => 218,
             'indent' => 1,
-            'block_id' => 34
+            'block_id' => 31
           },
           {
             'token_num' => 3,
@@ -10574,7 +10574,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my $pw = scalar getpwent ( ) ;',
             'start_line' => 228,
             'indent' => 1,
-            'block_id' => 36
+            'block_id' => 33
           },
           {
             'token_num' => 5,
@@ -10583,7 +10583,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' last unless defined $pw ;',
             'start_line' => 229,
             'indent' => 1,
-            'block_id' => 36
+            'block_id' => 33
           },
           {
             'token_num' => 5,
@@ -10592,7 +10592,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' push @pw1 , $pw ;',
             'start_line' => 230,
             'indent' => 1,
-            'block_id' => 36
+            'block_id' => 33
           },
           {
             'token_num' => 4,
@@ -10637,7 +10637,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my ( $pw ) = ( getpwent ( ) ) ;',
             'start_line' => 238,
             'indent' => 1,
-            'block_id' => 37
+            'block_id' => 34
           },
           {
             'token_num' => 5,
@@ -10646,7 +10646,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' last unless defined $pw ;',
             'start_line' => 239,
             'indent' => 1,
-            'block_id' => 37
+            'block_id' => 34
           },
           {
             'token_num' => 5,
@@ -10655,7 +10655,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' push @pw2 , $pw ;',
             'start_line' => 240,
             'indent' => 1,
-            'block_id' => 37
+            'block_id' => 34
           },
           {
             'token_num' => 4,

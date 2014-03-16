@@ -421,12 +421,12 @@ subtest 'tokenize' => sub {
                    'line' => 21
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@urḲḵｋ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 24
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -502,12 +502,12 @@ subtest 'tokenize' => sub {
                    'line' => 26
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'ArrayVar',
                    'data' => '@urḲḵｋ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
                    'line' => 29
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -619,12 +619,12 @@ subtest 'tokenize' => sub {
                    'line' => 31
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@ṭ화ckэ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 34
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -709,12 +709,12 @@ subtest 'tokenize' => sub {
                    'line' => 36
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@Źzzzዟᑉ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 38
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -826,12 +826,12 @@ subtest 'tokenize' => sub {
                    'line' => 40
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalArrayVar',
                    'data' => '@Ẁ함Ｍ',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
                    'line' => 42
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2212,10 +2212,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 4,
+            'token_num' => 6,
             'has_warnings' => 1,
             'end_line' => 24,
-            'src' => ' @urḲḵｋ::ISA = \'kഌoんḰ\' ;',
+            'src' => ' @urḲḵｋ :: ISA = \'kഌoんḰ\' ;',
             'start_line' => 24,
             'indent' => 0,
             'block_id' => 0
@@ -2230,10 +2230,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 8,
+            'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 29,
-            'src' => ' @urḲḵｋ::ISA = ( \'kഌoんḰ\' , \'캎oẃ\' ) ;',
+            'src' => ' @urḲḵｋ :: ISA = ( \'kഌoんḰ\' , \'캎oẃ\' ) ;',
             'start_line' => 29,
             'indent' => 0,
             'block_id' => 0
@@ -2248,10 +2248,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 5,
+            'token_num' => 7,
             'has_warnings' => 1,
             'end_line' => 34,
-            'src' => ' @ṭ화ckэ::ISA = ( ) ;',
+            'src' => ' @ṭ화ckэ :: ISA = ( ) ;',
             'start_line' => 34,
             'indent' => 0,
             'block_id' => 0
@@ -2266,10 +2266,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 8,
+            'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 38,
-            'src' => ' @Źzzzዟᑉ::ISA = ( \'ṭ화ckэ\' , \'캎oẃ\' ) ;',
+            'src' => ' @Źzzzዟᑉ :: ISA = ( \'ṭ화ckэ\' , \'캎oẃ\' ) ;',
             'start_line' => 38,
             'indent' => 0,
             'block_id' => 0
@@ -2284,10 +2284,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 8,
+            'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 42,
-            'src' => ' @Ẁ함Ｍ::ISA = ( \'캎oẃ\' , \'ṭ화ckэ\' ) ;',
+            'src' => ' @Ẁ함Ｍ :: ISA = ( \'캎oẃ\' , \'ṭ화ckэ\' ) ;',
             'start_line' => 42,
             'indent' => 0,
             'block_id' => 0

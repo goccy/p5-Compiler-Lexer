@@ -2941,12 +2941,12 @@ subtest 'tokenize' => sub {
                    'line' => 51
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalHashVar',
                    'data' => '%File',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalHashVar,
                    'line' => 51
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3139,12 +3139,12 @@ subtest 'tokenize' => sub {
                    'line' => 58
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'HashVar',
                    'data' => '%File',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_HashVar,
                    'line' => 58
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3193,12 +3193,12 @@ subtest 'tokenize' => sub {
                    'line' => 59
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalHashVar',
                    'data' => '%CORE',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalHashVar,
                    'line' => 59
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3598,12 +3598,12 @@ subtest 'tokenize' => sub {
                    'line' => 72
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'HashVar',
                    'data' => '%CORE',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_HashVar,
                    'line' => 72
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5245,19 +5245,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 20,
+            'token_num' => 22,
             'has_warnings' => 1,
             'end_line' => 62,
-            'src' => ' { local %File::Glob::; local %CORE::GLOBAL::; eval "<.>" ; ok ( ! length ( $@ ) , "remove File::Glob stash *and* CORE::GLOBAL::glob" ) ; }',
+            'src' => ' { local %File :: Glob::; local %CORE::GLOBAL::; eval "<.>" ; ok ( ! length ( $@ ) , "remove File::Glob stash *and* CORE::GLOBAL::glob" ) ; }',
             'start_line' => 57,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 7,
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 60,
-            'src' => ' local %File::Glob::; local %CORE::GLOBAL::; eval "<.>" ;',
+            'src' => ' local %File :: Glob::; local %CORE::GLOBAL::; eval "<.>" ;',
             'start_line' => 58,
             'indent' => 1,
             'block_id' => 7
@@ -5308,19 +5308,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 8
           },
           {
-            'token_num' => 13,
+            'token_num' => 15,
             'has_warnings' => 1,
             'end_line' => 75,
-            'src' => ' { local %CORE::GLOBAL::; ok eval q{ glob("0"); 1 } , \'undefined *CORE::GLOBAL::glob{CODE} at compile time\' ; }',
+            'src' => ' { local %CORE :: GLOBAL::; ok eval q{ glob("0"); 1 } , \'undefined *CORE::GLOBAL::glob{CODE} at compile time\' ; }',
             'start_line' => 71,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 11,
+            'token_num' => 13,
             'has_warnings' => 1,
             'end_line' => 74,
-            'src' => ' local %CORE::GLOBAL::; ok eval q{ glob("0"); 1 } , \'undefined *CORE::GLOBAL::glob{CODE} at compile time\' ;',
+            'src' => ' local %CORE :: GLOBAL::; ok eval q{ glob("0"); 1 } , \'undefined *CORE::GLOBAL::glob{CODE} at compile time\' ;',
             'start_line' => 72,
             'indent' => 1,
             'block_id' => 9

@@ -79,11 +79,20 @@ void Annotator::annotateRegOpt(LexContext *ctx, const string &data, Token *tk, T
 	}
 }
 
-void Annotator::annotateNamespace(LexContext *ctx, const string &, Token *tk, TokenInfo *info)
+void Annotator::annotateNamespace(LexContext *ctx, const string &data, Token *tk, TokenInfo *info)
 {
 	Token *next_tk = ctx->tmgr->nextToken(tk);
 	if (next_tk && next_tk->_data[0] == ':' && next_tk->_data[1] == ':' &&
 		next_tk->info.type != String && next_tk->info.type != RawString) {
+		char data_front = tk->_data[0];
+		if (data_front == '$' || data_front == '@' || data_front == '%') {
+			annotateLocalVariable(ctx, data, tk, info);
+			if (info->type != Undefined) return;
+			annotateVariable(ctx, data, tk, info);
+			if (info->type != Undefined) return;
+			annotateGlobalVariable(ctx, data, tk, info);
+			if (info->type != Undefined) return;
+		}
 		*info = ctx->tmgr->getTokenInfo(Namespace);
 	} else if (ctx->prev_type == NamespaceResolver) {
 		TokenInfo tk_info = ctx->tmgr->getTokenInfo(tk->_data);
@@ -169,7 +178,9 @@ void Annotator::annotateGlobOrMul(LexContext *ctx, const string &, Token *tk, To
 	Token *prev_tk = ctx->tmgr->previousToken(tk);
 	TokenType::Type prev_type = (prev_tk) ? prev_tk->info.type : TokenType::Undefined;
 	TokenKind::Kind prev_kind = (prev_tk) ? prev_tk->info.kind : TokenKind::Undefined;
-	if (prev_type == SemiColon || prev_type == LeftParenthesis || prev_type == LeftBrace || prev_type == Comma ||
+	if (prev_type == SemiColon || prev_type == LeftParenthesis ||
+		prev_type == LeftBrace || prev_type == Comma ||
+		prev_type == ScalarDereference ||
 		prev_kind == TokenKind::Assign ||
 		(prev_type != Inc && prev_type != Dec && prev_kind == TokenKind::Operator) ||
 		prev_kind == TokenKind::Decl) {

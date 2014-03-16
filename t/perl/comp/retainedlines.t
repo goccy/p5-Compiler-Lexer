@@ -1570,12 +1570,12 @@ subtest 'tokenize' => sub {
                    'line' => 47
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'GlobalHashVar',
                    'data' => '%',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_GlobalHashVar,
                    'line' => 47
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2200,12 +2200,12 @@ subtest 'tokenize' => sub {
                    'line' => 58
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'HashVar',
                    'data' => '%',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_HashVar,
                    'line' => 58
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4188,12 +4188,12 @@ subtest 'tokenize' => sub {
                    'line' => 117
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'HashVar',
                    'data' => '%',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_HashVar,
                    'line' => 117
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4701,12 +4701,12 @@ subtest 'tokenize' => sub {
                    'line' => 128
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'HashVar',
                    'data' => '%',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_HashVar,
                    'line' => 128
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5268,12 +5268,12 @@ subtest 'tokenize' => sub {
                    'line' => 145
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'HashVar',
                    'data' => '%',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_HashVar,
                    'line' => 145
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6159,10 +6159,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 127,
+            'token_num' => 129,
             'has_warnings' => 1,
             'end_line' => 71,
-            'src' => ' sub check_retained_lines { my ( $prog , $name ) = @_ ; my @expect_lines = ( undef , map ( { "$_\\n" } split "\\n" , $prog ) , "\\n" , \';\' ) ; my @keys = grep { ! $seen { $_ } } grep {/eval/ } keys %::; is ( ( scalar @keys ) , 1 , "1 new eval" ) ; my @got_lines = @{ $: : { $keys [ 0 ] } } ; is ( ( scalar @got_lines ) , ( scalar @expect_lines ) , "Right number of lines for $name" ) ; for ( 0 .. $#expect_lines ) { is ( $got_lines [ $_ ] , $expect_lines [ $_ ] , "Line $_ is correct" ) ; } $seen { $keys [ 0 ] } ++ ; }',
+            'src' => ' sub check_retained_lines { my ( $prog , $name ) = @_ ; my @expect_lines = ( undef , map ( { "$_\\n" } split "\\n" , $prog ) , "\\n" , \';\' ) ; my @keys = grep { ! $seen { $_ } } grep {/eval/ } keys % :: ; is ( ( scalar @keys ) , 1 , "1 new eval" ) ; my @got_lines = @{ $: : { $keys [ 0 ] } } ; is ( ( scalar @got_lines ) , ( scalar @expect_lines ) , "Right number of lines for $name" ) ; for ( 0 .. $#expect_lines ) { is ( $got_lines [ $_ ] , $expect_lines [ $_ ] , "Line $_ is correct" ) ; } $seen { $keys [ 0 ] } ++ ; }',
             'start_line' => 53,
             'indent' => 0,
             'block_id' => 0
@@ -6186,10 +6186,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 9
           },
           {
-            'token_num' => 31,
+            'token_num' => 33,
             'has_warnings' => 1,
             'end_line' => 60,
-            'src' => ' my @keys = grep { ! $seen { $_ } } grep {/eval/ } keys %::; is ( ( scalar @keys ) , 1 , "1 new eval" ) ;',
+            'src' => ' my @keys = grep { ! $seen { $_ } } grep {/eval/ } keys % :: ; is ( ( scalar @keys ) , 1 , "1 new eval" ) ;',
             'start_line' => 58,
             'indent' => 1,
             'block_id' => 9
@@ -6364,10 +6364,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 14
           },
           {
-            'token_num' => 141,
+            'token_num' => 145,
             'has_warnings' => 1,
             'end_line' => 133,
-            'src' => ' foreach my $flags ( 0x0 , 0x800 , 0x1000 , 0x1800 ) { local $^P = $^P | $flags ; my $prog = "1 + 1 + 1\\n" ; my $fail = "1 + \\n" ; is ( eval $prog , 3 , \'String eval works\' ) ; if ( $flags & 0x800 ) { check_retained_lines ( $prog , sprintf "%#X" , $^P ) ; } else { my @after = grep {/eval/ } keys %::; is ( scalar @after , 0 + keys %seen , "evals that don\'t define subroutines are correctly cleaned up" ) ; } is ( eval $fail , undef , \'Failed string eval fails\' ) ; if ( $flags & 0x1000 ) { check_retained_lines ( $fail , sprintf "%#X" , $^P ) ; } else { my @after = grep {/eval/ } keys %::; is ( scalar @after , 0 + keys %seen , "evals that fail are correctly cleaned up" ) ; } }',
+            'src' => ' foreach my $flags ( 0x0 , 0x800 , 0x1000 , 0x1800 ) { local $^P = $^P | $flags ; my $prog = "1 + 1 + 1\\n" ; my $fail = "1 + \\n" ; is ( eval $prog , 3 , \'String eval works\' ) ; if ( $flags & 0x800 ) { check_retained_lines ( $prog , sprintf "%#X" , $^P ) ; } else { my @after = grep {/eval/ } keys % :: ; is ( scalar @after , 0 + keys %seen , "evals that don\'t define subroutines are correctly cleaned up" ) ; } is ( eval $fail , undef , \'Failed string eval fails\' ) ; if ( $flags & 0x1000 ) { check_retained_lines ( $fail , sprintf "%#X" , $^P ) ; } else { my @after = grep {/eval/ } keys % :: ; is ( scalar @after , 0 + keys %seen , "evals that fail are correctly cleaned up" ) ; } }',
             'start_line' => 106,
             'indent' => 0,
             'block_id' => 0
@@ -6427,19 +6427,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 16
           },
           {
-            'token_num' => 27,
+            'token_num' => 29,
             'has_warnings' => 1,
             'end_line' => 121,
-            'src' => ' else { my @after = grep {/eval/ } keys %::; is ( scalar @after , 0 + keys %seen , "evals that don\'t define subroutines are correctly cleaned up" ) ; }',
+            'src' => ' else { my @after = grep {/eval/ } keys % :: ; is ( scalar @after , 0 + keys %seen , "evals that don\'t define subroutines are correctly cleaned up" ) ; }',
             'start_line' => 116,
             'indent' => 1,
             'block_id' => 15
           },
           {
-            'token_num' => 24,
+            'token_num' => 26,
             'has_warnings' => 1,
             'end_line' => 120,
-            'src' => ' my @after = grep {/eval/ } keys %::; is ( scalar @after , 0 + keys %seen , "evals that don\'t define subroutines are correctly cleaned up" ) ;',
+            'src' => ' my @after = grep {/eval/ } keys % :: ; is ( scalar @after , 0 + keys %seen , "evals that don\'t define subroutines are correctly cleaned up" ) ;',
             'start_line' => 117,
             'indent' => 2,
             'block_id' => 17
@@ -6472,28 +6472,28 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 18
           },
           {
-            'token_num' => 27,
+            'token_num' => 29,
             'has_warnings' => 1,
             'end_line' => 132,
-            'src' => ' else { my @after = grep {/eval/ } keys %::; is ( scalar @after , 0 + keys %seen , "evals that fail are correctly cleaned up" ) ; }',
+            'src' => ' else { my @after = grep {/eval/ } keys % :: ; is ( scalar @after , 0 + keys %seen , "evals that fail are correctly cleaned up" ) ; }',
             'start_line' => 127,
             'indent' => 1,
             'block_id' => 15
           },
           {
-            'token_num' => 24,
+            'token_num' => 26,
             'has_warnings' => 1,
             'end_line' => 131,
-            'src' => ' my @after = grep {/eval/ } keys %::; is ( scalar @after , 0 + keys %seen , "evals that fail are correctly cleaned up" ) ;',
+            'src' => ' my @after = grep {/eval/ } keys % :: ; is ( scalar @after , 0 + keys %seen , "evals that fail are correctly cleaned up" ) ;',
             'start_line' => 128,
             'indent' => 2,
             'block_id' => 19
           },
           {
-            'token_num' => 61,
+            'token_num' => 63,
             'has_warnings' => 1,
             'end_line' => 150,
-            'src' => ' for ( 0xA , 0 ) { local $^P = $_ ; eval ( my $prog = "BEGIN{die}\\n" ) ; if ( $_ ) { check_retained_lines ( $prog , \'eval that defines BEGIN that dies\' ) ; } else { my @after = grep {/eval/ } keys %::; is ( scalar @after , 0 + keys %seen , "evals with BEGIN{die} are correctly cleaned up" ) ; } }',
+            'src' => ' for ( 0xA , 0 ) { local $^P = $_ ; eval ( my $prog = "BEGIN{die}\\n" ) ; if ( $_ ) { check_retained_lines ( $prog , \'eval that defines BEGIN that dies\' ) ; } else { my @after = grep {/eval/ } keys % :: ; is ( scalar @after , 0 + keys %seen , "evals with BEGIN{die} are correctly cleaned up" ) ; } }',
             'start_line' => 136,
             'indent' => 0,
             'block_id' => 0
@@ -6535,19 +6535,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 21
           },
           {
-            'token_num' => 27,
+            'token_num' => 29,
             'has_warnings' => 1,
             'end_line' => 149,
-            'src' => ' else { my @after = grep {/eval/ } keys %::; is ( scalar @after , 0 + keys %seen , "evals with BEGIN{die} are correctly cleaned up" ) ; }',
+            'src' => ' else { my @after = grep {/eval/ } keys % :: ; is ( scalar @after , 0 + keys %seen , "evals with BEGIN{die} are correctly cleaned up" ) ; }',
             'start_line' => 144,
             'indent' => 1,
             'block_id' => 20
           },
           {
-            'token_num' => 24,
+            'token_num' => 26,
             'has_warnings' => 1,
             'end_line' => 148,
-            'src' => ' my @after = grep {/eval/ } keys %::; is ( scalar @after , 0 + keys %seen , "evals with BEGIN{die} are correctly cleaned up" ) ;',
+            'src' => ' my @after = grep {/eval/ } keys % :: ; is ( scalar @after , 0 + keys %seen , "evals with BEGIN{die} are correctly cleaned up" ) ;',
             'start_line' => 145,
             'indent' => 2,
             'block_id' => 22
