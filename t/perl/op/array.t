@@ -26279,7 +26279,11 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '  \'@array\'',
             'name' => 'vars'
-          }
+          },
+          {
+            'args' => '',
+            'name' => 'Scalar::Util'
+          },
         ]
 , 'Compiler::Lexer::get_used_modules');
 };

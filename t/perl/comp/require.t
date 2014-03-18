@@ -16406,8 +16406,64 @@ print "ok $i - require() context\\n";
 
 subtest 'get_used_modules' => sub {
     my $modules = Compiler::Lexer->new('')->get_used_modules($script);
-    is_deeply($modules, []
-, 'Compiler::Lexer::get_used_modules');
+    is_deeply($modules, [
+        {
+            args => "  }",
+            name => "5.005"
+        },
+        {
+            args => "  }",
+            name => "5.005"
+        },
+        {
+            args => "",
+            name => "5.005"
+        },
+        {
+            args => "  }",
+            name => "5.005"
+        },
+        {
+            args => "",
+            name => "v5.5.630"
+        },
+        {
+            args => "  .2",
+            name => "10.0"
+        },
+        {
+            args => "  }",
+            name => "bleah"
+        },
+        {
+            args => "  }",
+            name => "bleah"
+        },
+        {
+            args => "  }",
+            name => "bleah"
+        },
+        {
+            args => "",
+            name => "Config"
+        },
+        {
+            args => "",
+            name => "urkkk"
+        },
+        {
+            args => "",
+            name => "krunch"
+        },
+        {
+            args => "",
+            name => "Cwd"
+        },
+        {
+            args => "",
+            name => "File::Spec::Functions"
+        }
+    ], 'Compiler::Lexer::get_used_modules');
 };
 
 done_testing;

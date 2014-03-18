@@ -10698,7 +10698,11 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '',
             'name' => 'warnings'
-          }
+          },
+          {
+            'args' => '',
+            'name' => 'Config'
+          },
         ]
 , 'Compiler::Lexer::get_used_modules');
 };

@@ -4349,6 +4349,10 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '',
             'name' => 'Config'
+          },
+          {
+            'args' => '',
+            'name' => 'PerlIO::scalar'
           }
         ]
 , 'Compiler::Lexer::get_used_modules');

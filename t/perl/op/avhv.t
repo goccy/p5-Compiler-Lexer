@@ -12514,7 +12514,16 @@ subtest 'get_groups_by_syntax_level' => sub {
 
 subtest 'get_used_modules' => sub {
     my $modules = Compiler::Lexer->new('')->get_used_modules($script);
-    is_deeply($modules, []
+    is_deeply($modules, [
+        {
+            args => '',
+            name => 'Tie::Array',
+        },
+        {
+            args => '',
+            name => 'Tie::Hash',
+        },
+    ]
 , 'Compiler::Lexer::get_used_modules');
 };
 

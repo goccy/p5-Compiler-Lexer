@@ -658,13 +658,19 @@ Modules *Lexer::getUsedModules(Token *root)
 	Modules *ret = new Modules();
 	for (size_t i = 0; i < root->token_num; i++) {
 		Token **tks = root->tks;
-		if (tks[i]->info.type == UseDecl && i + 1 < root->token_num) {
-			const char *module_name = tks[i+1]->_data;
-			string args;
-			for (i += 2; i < root->token_num && tks[i]->info.type != SemiColon; i++) {
-				args += " " + string(tks[i]->deparse());
+		if ((tks[i]->info.type == UseDecl || tks[i]->info.type == RequireDecl) && i + 1 < root->token_num) {
+			if (
+				tks[i+1]->info.type != Enum::Token::Type::String &&
+				tks[i+1]->info.type != Enum::Token::Type::RawString &&
+				tks[i+1]->info.type != Enum::Token::Type::Var
+			) {
+				const char *module_name = tks[i+1]->_data;
+				string args;
+				for (i += 2; i < root->token_num && tks[i]->info.type != SemiColon; i++) {
+					args += " " + string(tks[i]->deparse());
+				}
+				ret->push_back(new Module(module_name, (new string(args))->c_str()));
 			}
-			ret->push_back(new Module(module_name, (new string(args))->c_str()));
 		}
 		if (i < root->token_num && tks[i]->token_num > 0) {
 			Modules *new_mds = getUsedModules(tks[i]);

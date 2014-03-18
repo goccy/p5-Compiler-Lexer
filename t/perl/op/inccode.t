@@ -16489,7 +16489,59 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '',
             'name' => 'strict'
-          }
+          },
+          {
+            'args' => '',
+            'name' => 'Bar'
+          },
+          {
+            'args' => '',
+            'name' => 'Foo'
+          },
+          {
+            'args' => '',
+            'name' => 'Foo'
+          },
+          {
+            'args' => '',
+            'name' => 'Foo3'
+          },
+          {
+            'args' => '',
+            'name' => 'Bar'
+          },
+          {
+            'args' => '',
+            'name' => 'Quux'
+          },
+          {
+            'args' => '',
+            'name' => 'Quux1'
+          },
+          {
+            'args' => '',
+            'name' => 'Quux2'
+          },
+          {
+            'args' => '',
+            'name' => 'Toto'
+          },
+          {
+            'args' => '',
+            'name' => 'Publius::Vergilius::Maro'
+          },
+          {
+            'args' => '',
+            'name' => 'PerlIO::scalar'
+          },
+          {
+            'args' => '',
+            'name' => 'BBBLPLAST5'
+          },
+          {
+            'args' => '',
+            'name' => 'BBBLPLAST5'
+          },
         ]
 , 'Compiler::Lexer::get_used_modules');
 };

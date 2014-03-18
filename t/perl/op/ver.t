@@ -14663,7 +14663,11 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '',
             'name' => 'bytes'
-          }
+          },
+          {
+            'args' => '',
+            'name' => 'Socket'
+          },
         ]
 , 'Compiler::Lexer::get_used_modules');
 };

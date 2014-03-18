@@ -39508,6 +39508,10 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '  qw ( refs subs )',
             'name' => 'strict'
+          },
+          {
+            'args' => '',
+            'name' => 're'
           }
         ]
 , 'Compiler::Lexer::get_used_modules');

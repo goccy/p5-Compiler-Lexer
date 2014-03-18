@@ -21576,6 +21576,10 @@ subtest 'get_used_modules' => sub {
     my $modules = Compiler::Lexer->new('')->get_used_modules($script);
     is_deeply($modules, [
           {
+            'args' => '',
+            'name' => 'Config'
+          },
+          {
             'args' => '  qw ( :5.10 )',
             'name' => 'feature'
           }

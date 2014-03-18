@@ -8085,6 +8085,10 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '  qw ( $qr $skip_amp $qr_embed $qr_embed_thr )',
             'name' => 'vars'
+          },
+          {
+            'args' => '  }',
+            'name' => 'Data::Dumper'
           }
         ]
 , 'Compiler::Lexer::get_used_modules');

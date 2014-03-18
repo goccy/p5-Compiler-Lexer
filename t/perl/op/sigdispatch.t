@@ -7860,6 +7860,10 @@ subtest 'get_used_modules' => sub {
           },
           {
             'args' => '',
+            'name' => 'POSIX'
+          },
+          {
+            'args' => '',
             'name' => 'warnings'
           }
         ]

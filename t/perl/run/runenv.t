@@ -10221,7 +10221,12 @@ Use of uninitialized value \\$x in print at -e line 1.
 
 subtest 'get_used_modules' => sub {
     my $modules = Compiler::Lexer->new('')->get_used_modules($script);
-    is_deeply($modules, []
+    is_deeply($modules, [
+        {
+            args => '',
+            name => 'Config'
+        }
+    ]
 , 'Compiler::Lexer::get_used_modules');
 };
 

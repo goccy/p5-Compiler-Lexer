@@ -29045,7 +29045,15 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '',
             'name' => 'Config'
-          }
+          },
+          {
+            'args' => '',
+            'name' => 'File::Spec'
+          },
+          {
+            'args' => '',
+            'name' => 'Win32'
+          },
         ]
 , 'Compiler::Lexer::get_used_modules');
 };

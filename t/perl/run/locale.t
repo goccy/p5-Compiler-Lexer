@@ -4960,12 +4960,16 @@ subtest 'get_used_modules' => sub {
           },
           {
             'args' => '',
+            'name' => 'POSIX'
+          },
+          {
+            'args' => '',
             'name' => 'Config'
           },
           {
             'args' => '',
             'name' => 'locale'
-          }
+          },
         ]
 , 'Compiler::Lexer::get_used_modules');
 };
