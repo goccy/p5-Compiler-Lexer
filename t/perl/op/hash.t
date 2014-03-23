@@ -5442,12 +5442,12 @@ subtest 'tokenize' => sub {
                    'line' => 155
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'Glob',
                    'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_Glob,
                    'line' => 155
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5910,12 +5910,12 @@ subtest 'tokenize' => sub {
                    'line' => 167
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'Glob',
                    'data' => '*',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_Glob,
                    'line' => 167
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8898,10 +8898,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 13
           },
           {
-            'token_num' => 42,
+            'token_num' => 44,
             'has_warnings' => 1,
             'end_line' => 160,
-            'src' => ' { my $gone ; no warnings \'once\' ; local *::DESTROY = sub { ++ $gone } ; my %a = ( a => bless [ ] ) ; each %a ; delete $a { a } ; ok $gone , \'deleting the current iterator in void context frees the val\' }',
+            'src' => ' { my $gone ; no warnings \'once\' ; local * :: DESTROY = sub { ++ $gone } ; my %a = ( a => bless [ ] ) ; each %a ; delete $a { a } ; ok $gone , \'deleting the current iterator in void context frees the val\' }',
             'start_line' => 152,
             'indent' => 0,
             'block_id' => 0
@@ -8925,10 +8925,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 16
           },
           {
-            'token_num' => 9,
+            'token_num' => 11,
             'has_warnings' => 1,
             'end_line' => 155,
-            'src' => ' local *::DESTROY = sub { ++ $gone } ;',
+            'src' => ' local * :: DESTROY = sub { ++ $gone } ;',
             'start_line' => 155,
             'indent' => 1,
             'block_id' => 16
@@ -8961,10 +8961,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 16
           },
           {
-            'token_num' => 45,
+            'token_num' => 47,
             'has_warnings' => 1,
             'end_line' => 170,
-            'src' => ' { my %h ; $h { k } = bless [ ] ; my $normal_exit ; local *::DESTROY = sub { my $x = $h { k } ; ++ $normal_exit } ; delete $h { k } ; ok $normal_exit , \'freed hash elems are not visible to DESTROY\' ; }',
+            'src' => ' { my %h ; $h { k } = bless [ ] ; my $normal_exit ; local * :: DESTROY = sub { my $x = $h { k } ; ++ $normal_exit } ; delete $h { k } ; ok $normal_exit , \'freed hash elems are not visible to DESTROY\' ; }',
             'start_line' => 163,
             'indent' => 0,
             'block_id' => 0
@@ -8997,10 +8997,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 18
           },
           {
-            'token_num' => 17,
+            'token_num' => 19,
             'has_warnings' => 1,
             'end_line' => 167,
-            'src' => ' local *::DESTROY = sub { my $x = $h { k } ; ++ $normal_exit } ;',
+            'src' => ' local * :: DESTROY = sub { my $x = $h { k } ; ++ $normal_exit } ;',
             'start_line' => 167,
             'indent' => 1,
             'block_id' => 18

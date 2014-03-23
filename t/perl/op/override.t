@@ -3502,12 +3502,12 @@ subtest 'tokenize' => sub {
                    'line' => 94
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 94
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3592,12 +3592,12 @@ subtest 'tokenize' => sub {
                    'line' => 95
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 95
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3682,12 +3682,12 @@ subtest 'tokenize' => sub {
                    'line' => 96
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 96
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4366,12 +4366,12 @@ subtest 'tokenize' => sub {
                    'line' => 108
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 108
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4456,12 +4456,12 @@ subtest 'tokenize' => sub {
                    'line' => 109
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 109
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4663,12 +4663,12 @@ subtest 'tokenize' => sub {
                    'line' => 116
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 116
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5266,12 +5266,12 @@ subtest 'tokenize' => sub {
                    'line' => 125
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 125
                  }, 'Compiler::Lexer::Token' ),
           bless( {

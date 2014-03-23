@@ -15349,12 +15349,12 @@ subtest 'tokenize' => sub {
                    'line' => 253
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 253
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -15448,12 +15448,12 @@ subtest 'tokenize' => sub {
                    'line' => 254
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 255
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -17680,10 +17680,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 25
           },
           {
-            'token_num' => 106,
+            'token_num' => 66,
             'has_warnings' => 1,
-            'end_line' => 271,
-            'src' => ' { package Single ; my $c = 0 ; sub DESTROY { $c ++ } ; { my %h = ( "a" => bless [ ] ) ; my ( $k , $v ) = each %h ; delete $h { $k } ;::is ( $c , 0 , "single key not yet freed" ) ; }::is ( $c , 1 , "single key now freed" ) ; } { my %h ; $h { 1 } = 2 ; each %h ; delete $h { 1 } ; each %h ; $h { 1 } = 2 ; is join ( "-" , each %h ) , \'1-2\' , \'each on apparently empty hash does not leave RITER set\' ; }',
+            'end_line' => 257,
+            'src' => ' { package Single ; my $c = 0 ; sub DESTROY { $c ++ } ; { my %h = ( "a" => bless [ ] ) ; my ( $k , $v ) = each %h ; delete $h { $k } ; :: is ( $c , 0 , "single key not yet freed" ) ; } :: is ( $c , 1 , "single key now freed" ) ; }',
             'start_line' => 241,
             'indent' => 0,
             'block_id' => 0
@@ -17725,10 +17725,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 28
           },
           {
-            'token_num' => 46,
+            'token_num' => 39,
             'has_warnings' => 1,
-            'end_line' => 257,
-            'src' => ' { my %h = ( "a" => bless [ ] ) ; my ( $k , $v ) = each %h ; delete $h { $k } ;::is ( $c , 0 , "single key not yet freed" ) ; }::is ( $c , 1 , "single key now freed" ) ; }',
+            'end_line' => 255,
+            'src' => ' { my %h = ( "a" => bless [ ] ) ; my ( $k , $v ) = each %h ; delete $h { $k } ; :: is ( $c , 0 , "single key not yet freed" ) ; }',
             'start_line' => 250,
             'indent' => 1,
             'block_id' => 28
@@ -17752,22 +17752,31 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 30
           },
           {
-            'token_num' => 14,
+            'token_num' => 6,
             'has_warnings' => 1,
-            'end_line' => 254,
-            'src' => ' delete $h { $k } ;::is ( $c , 0 , "single key not yet freed" ) ;',
+            'end_line' => 253,
+            'src' => ' delete $h { $k } ;',
             'start_line' => 253,
             'indent' => 2,
             'block_id' => 30
           },
           {
-            'token_num' => 9,
+            'token_num' => 10,
             'has_warnings' => 1,
-            'end_line' => 256,
-            'src' => ' }::is ( $c , 1 , "single key now freed" ) ;',
-            'start_line' => 255,
+            'end_line' => 254,
+            'src' => ' :: is ( $c , 0 , "single key not yet freed" ) ;',
+            'start_line' => 254,
             'indent' => 2,
             'block_id' => 30
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 256,
+            'src' => ' :: is ( $c , 1 , "single key now freed" ) ;',
+            'start_line' => 256,
+            'indent' => 1,
+            'block_id' => 28
           },
           {
             'token_num' => 44,
@@ -17775,8 +17784,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 271,
             'src' => ' { my %h ; $h { 1 } = 2 ; each %h ; delete $h { 1 } ; each %h ; $h { 1 } = 2 ; is join ( "-" , each %h ) , \'1-2\' , \'each on apparently empty hash does not leave RITER set\' ; }',
             'start_line' => 259,
-            'indent' => 1,
-            'block_id' => 28
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 3,
@@ -17784,7 +17793,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 263,
             'src' => ' my %h ;',
             'start_line' => 263,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 31
           },
           {
@@ -17793,7 +17802,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 264,
             'src' => ' $h { 1 } = 2 ;',
             'start_line' => 264,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 31
           },
           {
@@ -17802,7 +17811,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 265,
             'src' => ' each %h ;',
             'start_line' => 265,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 31
           },
           {
@@ -17811,7 +17820,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 266,
             'src' => ' delete $h { 1 } ;',
             'start_line' => 266,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 31
           },
           {
@@ -17820,7 +17829,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 267,
             'src' => ' each %h ;',
             'start_line' => 267,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 31
           },
           {
@@ -17829,7 +17838,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 268,
             'src' => ' $h { 1 } = 2 ;',
             'start_line' => 268,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 31
           },
           {
@@ -17838,7 +17847,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 270,
             'src' => ' is join ( "-" , each %h ) , \'1-2\' , \'each on apparently empty hash does not leave RITER set\' ;',
             'start_line' => 269,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 31
           }
         ]

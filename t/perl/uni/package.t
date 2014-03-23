@@ -1068,12 +1068,12 @@ subtest 'tokenize' => sub {
                    'line' => 41
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 41
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1140,12 +1140,12 @@ subtest 'tokenize' => sub {
                    'line' => 43
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 43
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1212,12 +1212,12 @@ subtest 'tokenize' => sub {
                    'line' => 44
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 44
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2652,12 +2652,12 @@ subtest 'tokenize' => sub {
                    'line' => 83
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 83
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2742,12 +2742,12 @@ subtest 'tokenize' => sub {
                    'line' => 84
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 84
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3741,10 +3741,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 245,
+            'token_num' => 256,
             'has_warnings' => 1,
-            'end_line' => 86,
-            'src' => ' { $ㄅĽuṞfⳐ = 123 ; package ꑭʑ ; sub ニュー { bless [ ] ; } $bar = 4 ; { package 압Ƈ ; $ㄅĽuṞfⳐ = 5 ; } \'$압Ƈd읯ⱪ = 6;        #\' $ꑭʑ = 2 ; $ꑭʑ = join ( \':\' , sort ( keys %ꑭʑ:: ) ) ; $압Ƈ = join ( \':\' , sort ( keys %압Ƈ:: ) ) ;::is $ꑭʑ , \'bar:ニュー:ꑭʑ:압Ƈ\' , "comp/stash.t test 1" ;::is $압Ƈ , "d읯ⱪ:ㄅĽuṞfⳐ" , "comp/stash.t test 2" ;::is \'$mainㄅĽuṞfⳐ, 123, "comp/stash.t test 3";
+            'end_line' => 87,
+            'src' => ' { $ㄅĽuṞfⳐ = 123 ; package ꑭʑ ; sub ニュー { bless [ ] ; } $bar = 4 ; { package 압Ƈ ; $ㄅĽuṞfⳐ = 5 ; } \'$압Ƈd읯ⱪ = 6;        #\' $ꑭʑ = 2 ; $ꑭʑ = join ( \':\' , sort ( keys %ꑭʑ:: ) ) ; $압Ƈ = join ( \':\' , sort ( keys %압Ƈ:: ) ) ; :: is $ꑭʑ , \'bar:ニュー:ꑭʑ:압Ƈ\' , "comp/stash.t test 1" ; :: is $압Ƈ , "d읯ⱪ:ㄅĽuṞfⳐ" , "comp/stash.t test 2" ; :: is \'$mainㄅĽuṞfⳐ, 123, "comp/stash.t test 3";
 
     package 압Ƈ;
 
@@ -3753,7 +3753,7 @@ subtest 'get_groups_by_syntax_level' => sub {
     eval \' package main ; is $ㄅĽuṞfⳐ , 123 , "comp/stash.t test 6" ; \';
     ::is $ㄅĽuṞfⳐ, 5, "comp/stash.t test 7";
 
-    #This is actually pretty bad, as caller() wasn\' t clean to begin with . package main ; sub ㄘ { caller ( 0 ) } sub ƒஓ { my $s = shift ; if ( $s ) { package ᛔQR ; main::ㄘ ( ) ; } } is ( ( ƒஓ ( 1 ) ) [ 0 ] , \'ᛔQR\' , "comp/stash.t test 8" ) ; my $Q = ꑭʑ-> ニュー ( ) ; undef %ꑭʑ :: ; eval { $a = * ꑭʑ::ニュー { PACKAGE } ; } ; is $a , "__ANON__" , "comp/stash.t test 9" ; { local $@ ; eval { $Q-> param ; } ; like $@ , qr/^Can\'t use anonymous symbol table for method lookup/ , "comp/stash.t test 10" ; } like "$Q" , qr/^__ANON__=/ , "comp/stash.t test 11" ; is ref $Q , "__ANON__" , "comp/stash.t test 12" ; package bugⅲⅱⅴⅵⅱ {::is ( __PACKAGE__ , \'bugⅲⅱⅴⅵⅱ\' , "comp/stash.t test 13" ) ;::is ( eval ( \'__PACKAGE__\' ) , \'bugⅲⅱⅴⅵⅱ\' , "comp/stash.t test 14" ) ; }',
+    #This is actually pretty bad, as caller() wasn\' t clean to begin with . package main ; sub ㄘ { caller ( 0 ) } sub ƒஓ { my $s = shift ; if ( $s ) { package ᛔQR ; main::ㄘ ( ) ; } } is ( ( ƒஓ ( 1 ) ) [ 0 ] , \'ᛔQR\' , "comp/stash.t test 8" ) ; my $Q = ꑭʑ-> ニュー ( ) ; undef %ꑭʑ :: ; eval { $a = * ꑭʑ::ニュー { PACKAGE } ; } ; is $a , "__ANON__" , "comp/stash.t test 9" ; { local $@ ; eval { $Q-> param ; } ; like $@ , qr/^Can\'t use anonymous symbol table for method lookup/ , "comp/stash.t test 10" ; } like "$Q" , qr/^__ANON__=/ , "comp/stash.t test 11" ; is ref $Q , "__ANON__" , "comp/stash.t test 12" ; package bugⅲⅱⅴⅵⅱ { :: is ( __PACKAGE__ , \'bugⅲⅱⅴⅵⅱ\' , "comp/stash.t test 13" ) ; :: is ( eval ( \'__PACKAGE__\' ) , \'bugⅲⅱⅴⅵⅱ\' , "comp/stash.t test 14" ) ; } }',
             'start_line' => 23,
             'indent' => 0,
             'block_id' => 0
@@ -3849,16 +3849,43 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 5
           },
           {
-            'token_num' => 34,
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 41,
+            'src' => ' $압Ƈ = join ( \':\' , sort ( keys %압Ƈ:: ) ) ;',
+            'start_line' => 41,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 43,
+            'src' => ' :: is $ꑭʑ , \'bar:ニュー:ꑭʑ:압Ƈ\' , "comp/stash.t test 1" ;',
+            'start_line' => 43,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 44,
+            'src' => ' :: is $압Ƈ , "d읯ⱪ:ㄅĽuṞfⳐ" , "comp/stash.t test 2" ;',
+            'start_line' => 44,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 11,
             'has_warnings' => 1,
             'end_line' => 50,
-            'src' => ' $압Ƈ = join ( \':\' , sort ( keys %압Ƈ:: ) ) ;::is $ꑭʑ , \'bar:ニュー:ꑭʑ:압Ƈ\' , "comp/stash.t test 1" ;::is $압Ƈ , "d읯ⱪ:ㄅĽuṞfⳐ" , "comp/stash.t test 2" ;::is \'$mainㄅĽuṞfⳐ, 123, "comp/stash.t test 3";
+            'src' => ' :: is \'$mainㄅĽuṞfⳐ, 123, "comp/stash.t test 3";
 
     package 압Ƈ;
 
     ::is $ㄅĽuṞfⳐ, 5, "comp/stash.t test 4";
     eval \' :: is $ㄅĽuṞfⳐ , 5 , "comp/stash.t test 5" ;',
-            'start_line' => 41,
+            'start_line' => 45,
             'indent' => 1,
             'block_id' => 5
           },
@@ -4056,13 +4083,157 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 5
           },
           {
-            'token_num' => 22,
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 84,
+            'src' => ' :: is ( __PACKAGE__ , \'bugⅲⅱⅴⅵⅱ\' , "comp/stash.t test 13" ) ;',
+            'start_line' => 84,
+            'indent' => 2,
+            'block_id' => 13
+          },
+          {
+            'token_num' => 13,
             'has_warnings' => 1,
             'end_line' => 85,
-            'src' => ' package bugⅲⅱⅴⅵⅱ {::is ( __PACKAGE__ , \'bugⅲⅱⅴⅵⅱ\' , "comp/stash.t test 13" ) ;::is ( eval ( \'__PACKAGE__\' ) , \'bugⅲⅱⅴⅵⅱ\' , "comp/stash.t test 14" ) ;',
-            'start_line' => 83,
+            'src' => ' :: is ( eval ( \'__PACKAGE__\' ) , \'bugⅲⅱⅴⅵⅱ\' , "comp/stash.t test 14" ) ;',
+            'start_line' => 85,
+            'indent' => 2,
+            'block_id' => 13
+          },
+          {
+            'token_num' => 21,
+            'has_warnings' => 1,
+            'end_line' => 94,
+            'src' => ' { local $@ ; eval q[package ᕘ {] ; like $@ , qr/\\AMissing right curly / , "comp/package_block.t test" ; }',
+            'start_line' => 90,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 91,
+            'src' => ' local $@ ;',
+            'start_line' => 91,
             'indent' => 1,
-            'block_id' => 5
+            'block_id' => 14
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 92,
+            'src' => ' eval q[package ᕘ {] ;',
+            'start_line' => 92,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 93,
+            'src' => ' like $@ , qr/\\AMissing right curly / , "comp/package_block.t test" ;',
+            'start_line' => 93,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 64,
+            'has_warnings' => 1,
+            'end_line' => 111,
+            'src' => ' { my $latin_1 = "þackage" ; my $utf8 = "þackage" ; utf8::downgrade ( $latin_1 ) ; utf8::upgrade ( $utf8 ) ; local $@ ; eval { $latin_1-> can ( "yadda" ) } ; ok ( ! $@ , "latin1->meth works" ) ; local $@ ; eval { $utf8-> can ( "yadda" ) } ; ok ( ! $@ , "utf8->meth works" ) ; }',
+            'start_line' => 98,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 99,
+            'src' => ' my $latin_1 = "þackage" ;',
+            'start_line' => 99,
+            'indent' => 1,
+            'block_id' => 15
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 100,
+            'src' => ' my $utf8 = "þackage" ;',
+            'start_line' => 100,
+            'indent' => 1,
+            'block_id' => 15
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 101,
+            'src' => ' utf8::downgrade ( $latin_1 ) ;',
+            'start_line' => 101,
+            'indent' => 1,
+            'block_id' => 15
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 102,
+            'src' => ' utf8::upgrade ( $utf8 ) ;',
+            'start_line' => 102,
+            'indent' => 1,
+            'block_id' => 15
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 104,
+            'src' => ' local $@ ;',
+            'start_line' => 104,
+            'indent' => 1,
+            'block_id' => 15
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 105,
+            'src' => ' eval { $latin_1-> can ( "yadda" ) } ;',
+            'start_line' => 105,
+            'indent' => 1,
+            'block_id' => 15
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 106,
+            'src' => ' ok ( ! $@ , "latin1->meth works" ) ;',
+            'start_line' => 106,
+            'indent' => 1,
+            'block_id' => 15
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 108,
+            'src' => ' local $@ ;',
+            'start_line' => 108,
+            'indent' => 1,
+            'block_id' => 15
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 109,
+            'src' => ' eval { $utf8-> can ( "yadda" ) } ;',
+            'start_line' => 109,
+            'indent' => 1,
+            'block_id' => 15
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 110,
+            'src' => ' ok ( ! $@ , "utf8->meth works" ) ;',
+            'start_line' => 110,
+            'indent' => 1,
+            'block_id' => 15
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

@@ -6132,12 +6132,12 @@ subtest 'tokenize' => sub {
                    'line' => 153
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 153
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6276,12 +6276,12 @@ subtest 'tokenize' => sub {
                    'line' => 155
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 155
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6429,12 +6429,12 @@ subtest 'tokenize' => sub {
                    'line' => 156
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 156
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6573,12 +6573,12 @@ subtest 'tokenize' => sub {
                    'line' => 158
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 158
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -51266,13 +51266,13 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 5472,
+            'token_num' => 5480,
             'has_warnings' => 1,
             'end_line' => 1138,
             'src' => ' sub run_tests { like ( "A \\x{263a} B z C" , qr/A . B (??{ "z" }) C/ , "Match UTF-8 char in presence of (??{ }); Bug 20000731.001" ) ; { no warnings \'uninitialized\' ; ok ( undef =~/^([^\\/]*)(.*)$/ , "Used to cause a SEGV; Bug 20001021.005" ) ; } { my $message = \'bug id 20001008.001\' ; my @x = ( "stra\\337e 138" , "stra\\337e 138" ) ; for ( @x ) { ok ( s/(\\d+)\\s*([\\w\\-]+)/$1 . uc $2/e , $message ) ; ok ( my ( $latin ) =/^(.+)(?:\\s+\\d)/ , $message ) ; is ( $latin , "stra\\337e" , $message ) ; ok ( $latin =~ s/stra\\337e/straße/ , $message ) ; } } { my $message = \'HEBREW ACCENT QADMA matched by .*; Bug 20001028.003\' ; my $X = chr ( 1448 ) ; ok ( my ( $Y ) = $X =~/(.*)/ , $message ) ; is ( $Y , v1448 , $message ) ; is ( length $Y , 1 , $message ) ; $message = \'HEBREW ACCENT QADMA in replacement; Bug 20001028.003\' ; $X = \'\' ; $X =~ s/^/chr(1488)/e ; is ( length $X , 1 , $message ) ; is ( ord $X , 1488 , $message ) ; } { my $message = \'Repeated s///; Bug 20001108.001\' ; my $X = "Szab\\x{f3},Bal\\x{e1}zs" ; my $Y = $X ; $Y =~ s/(B)/$1/ for 0 .. 3 ; is ( $Y , $X , $message ) ; is ( $X , "Szab\\x{f3},Bal\\x{e1}zs" , $message ) ; } { my $message = \'s/// on UTF-8 string; Bug 20000517.001\' ; my $x = "\\x{100}A" ; $x =~ s/A/B/ ; is ( $x , "\\x{100}B" , $message ) ; is ( length $x , 2 , $message ) ; } { my $message = \'\\C and É; Bug 20001230.002\' ; ok ( "École" =~/^\\C\\C(.)/ && $1 eq \'c\' , $message ) ; like ( "École" , qr/^\\C\\C(c)/ , $message ) ; } { my $message = "Don\'t dump core; Bug 20010306.008" ; my $a = "a\\x{1234}" ; like ( $a , qr/\\w/ , $message ) ; } { my $message = \'/g in scalar context; Bug 20010410.006\' ; for my $rx ( \'/(.*?)\\{(.*?)\\}/csg\' , \'/(.*?)\\{(.*?)\\}/cg\' , \'/(.*?)\\{(.*?)\\}/sg\' , \'/(.*?)\\{(.*?)\\}/g\' , \'/(.+?)\\{(.+?)\\}/csg\' , ) { my $i = 0 ; my $input = "a{b}c{d}" ; eval qq{                while (eval \\$input =~ $rx) {
                     \\$i ++;
                 }
-} ; is ( $i , 2 , $message ) ; } } { for ( "\\n" , "\\t" , "\\014" , "\\r" ) { unlike ( $_ , qr/[[:print:]]/ , sprintf "\\\\%03o not in [[:print:]]; Bug 20010619.003" , ord $_ ) ; } for ( " " ) { like ( $_ , qr/[[:print:]]/ , "\'$_\' in [[:print:]]; Bug 20010619.003" ) ; } } { $_ = "ababacadaea" ; my $a = join ":" ,/b./gc ; my $b = join ":" ,/a./gc ; my $c = pos ; is ( "$a $b $c" , \'ba:ba ad:ae 10\' , "pos() works with () = m//; Bug 20010814.004" ) ; } { my $message = \'UTF-8 return values from functions; Bug 20010407.006\' ; package ID_20010407_006 ; sub x { "a\\x{1234}" } my $x = x ; my $y ;::ok ( $x =~/(..)/ , $message ) ; $y = $1 ;::ok ( length ( $y ) == 2 && $y eq $x , $message ) ;::ok ( x =~/(..)/ , $message ) ; $y = $1 ;::ok ( length ( $y ) == 2 && $y eq $x , $message ) ; } { my $x = "ab\\200d" ; ok $x =~/.*?\\200/ , "High bit fine" ; } { my $message = \'UTF-8 hash keys and /$/\' ; my $u = "a\\x{100}" ; my $v = substr ( $u , 0 , 1 ) ; my $w = substr ( $u , 1 , 1 ) ; my %u = ( $u => $u , $v => $v , $w => $w ) ; for ( keys %u ) { my $m1 =/^\\w*$/ ? 1 : 0 ; my $m2 = $u { $_ } =~/^\\w*$/ ? 1 : 0 ; is ( $m1 , $m2 , $message ) ; } } { my $message = "s///eg [change 13f46d054db22cf4]; Bug 20020124.005" ; for my $char ( "a" , "\\x{df}" , "\\x{100}" ) { my $x = "$char b $char" ; $x =~ s{($char)}{
+} ; is ( $i , 2 , $message ) ; } } { for ( "\\n" , "\\t" , "\\014" , "\\r" ) { unlike ( $_ , qr/[[:print:]]/ , sprintf "\\\\%03o not in [[:print:]]; Bug 20010619.003" , ord $_ ) ; } for ( " " ) { like ( $_ , qr/[[:print:]]/ , "\'$_\' in [[:print:]]; Bug 20010619.003" ) ; } } { $_ = "ababacadaea" ; my $a = join ":" ,/b./gc ; my $b = join ":" ,/a./gc ; my $c = pos ; is ( "$a $b $c" , \'ba:ba ad:ae 10\' , "pos() works with () = m//; Bug 20010814.004" ) ; } { my $message = \'UTF-8 return values from functions; Bug 20010407.006\' ; package ID_20010407_006 ; sub x { "a\\x{1234}" } my $x = x ; my $y ; :: ok ( $x =~/(..)/ , $message ) ; $y = $1 ; :: ok ( length ( $y ) == 2 && $y eq $x , $message ) ; :: ok ( x =~/(..)/ , $message ) ; $y = $1 ; :: ok ( length ( $y ) == 2 && $y eq $x , $message ) ; } { my $x = "ab\\200d" ; ok $x =~/.*?\\200/ , "High bit fine" ; } { my $message = \'UTF-8 hash keys and /$/\' ; my $u = "a\\x{100}" ; my $v = substr ( $u , 0 , 1 ) ; my $w = substr ( $u , 1 , 1 ) ; my %u = ( $u => $u , $v => $v , $w => $w ) ; for ( keys %u ) { my $m1 =/^\\w*$/ ? 1 : 0 ; my $m2 = $u { $_ } =~/^\\w*$/ ? 1 : 0 ; is ( $m1 , $m2 , $message ) ; } } { my $message = "s///eg [change 13f46d054db22cf4]; Bug 20020124.005" ; for my $char ( "a" , "\\x{df}" , "\\x{100}" ) { my $x = "$char b $char" ; $x =~ s{($char)}{
                   "c" =~ /c/;
                   "x";
             }ge ; is ( substr ( $x , 0 , 1 ) , substr ( $x , -1 , 1 ) , $message ) ; } } { my $message = "Correct pmop flags checked when empty pattern; Bug 20020412.005" ; my $num = 123 ; $num =~/\\d/ ; for ( 0 .. 1 ) { my $match = m?? + 0 ; ok ( $match != $_ , $message ) or diag ( sprintf "\'match one\' %s on %s iteration" => $match ? \'succeeded\' : \'failed\' , $_ ? \'second\' : \'first\' ) ; } $num =~/(\\d)/ ; my $result = join "" => $num =~ // g ; is ( $result , $num , $message ) ; } { my $message = \'UTF-8 regex matches above 32k; Bug 20020630.002\' ; for ( [ \'byte\' , "\\x{ff}" ] , [ \'utf8\' , "\\x{1ff}" ] ) { my ( $type , $char ) = @$_ ; for my $len ( 32000 , 32768 , 33000 ) { my $s = $char . "f" x $len ; my $r = $s =~/$char([f]*)/gc ; ok ( $r , $message ) or diag ( "<$type x $len>" ) ; ok ( ! $r || pos ( $s ) == $len + 1 , $message ) or diag ( "<$type x $len>; pos = @{[pos $s]}" ) ; } } } { my $s = "\\x{100}" x 5 ; my $ok = $s =~/(\\x{100}{4})/ ; my ( $ord , $len ) = ( ord $1 , length $1 ) ; ok $ok && $ord == 0x100 && $len == 4 , "No panic: end_shift [change 0e933229fa758625]" ; } { our $a = "x\\x{100}" ; chop $a ; $a .= "y" ; like ( $a , qr/^\\C/ , \'match one \\C on 1-byte UTF-8; Bug 15763\' ) ; like ( $a , qr/^\\C{1}/ , \'match \\C{1}; Bug 15763\' ) ; like ( $a , qr/^\\Cy/ , \'match \\Cy; Bug 15763\' ) ; like ( $a , qr/^\\C{1}y/ , \'match \\C{1}y; Bug 15763\' ) ; unlike ( $a , qr/^\\C\\Cy/ , q{don\'t match two \\Cy; Bug 15763} ) ; unlike ( $a , qr/^\\C{2}y/ , q{don\'t match \\C{2}y; Bug 15763} ) ; $a = "\\x{100}y" ; like ( $a , qr/^\\C/ , \'match one \\C on 2-byte UTF-8; Bug 15763\' ) ; like ( $a , qr/^\\C{1}/ , \'match \\C{1}; Bug 15763\' ) ; like ( $a , qr/^\\C\\C/ , \'match two \\C; Bug 15763\' ) ; like ( $a , qr/^\\C{2}/ , \'match \\C{2}; Bug 15763\' ) ; like ( $a , qr/^\\C\\C\\C/ , \'match three \\C on 2-byte UTF-8 and a byte; Bug 15763\' ) ; like ( $a , qr/^\\C{3}/ , \'match \\C{3}; Bug 15763\' ) ; like ( $a , qr/^\\C\\Cy/ , \'match two \\C; Bug 15763\' ) ; like ( $a , qr/^\\C{2}y/ , \'match \\C{2}; Bug 15763\' ) ; unlike ( $a , qr/^\\C\\C\\Cy/ , q{don\'t match three \\Cy; Bug 15763} ) ; unlike ( $a , qr/^\\C{2}\\Cy/ , q{don\'t match \\C{2}\\Cy; Bug 15763} ) ; unlike ( $a , qr/^\\C{3}y/ , q{don\'t match \\C{3}y; Bug 15763} ) ; $a = "\\x{1000}y" ; like ( $a , qr/^\\C/ , \'match one \\C on three-byte UTF-8; Bug 15763\' ) ; like ( $a , qr/^\\C{1}/ , \'match \\C{1}; Bug 15763\' ) ; like ( $a , qr/^\\C\\C/ , \'match two \\C; Bug 15763\' ) ; like ( $a , qr/^\\C{2}/ , \'match \\C{2}; Bug 15763\' ) ; like ( $a , qr/^\\C\\C\\C/ , \'match three \\C; Bug 15763\' ) ; like ( $a , qr/^\\C{3}/ , \'match \\C{3}; Bug 15763\' ) ; like ( $a , qr/^\\C\\C\\C\\C/ , \'match four \\C on three-byte UTF-8 and a byte; Bug 15763\' ) ; like ( $a , qr/^\\C{4}/ , \'match \\C{4}; Bug 15763\' ) ; like ( $a , qr/^\\C\\C\\Cy/ , \'match three \\Cy; Bug 15763\' ) ; like ( $a , qr/^\\C{3}y/ , \'match \\C{3}y; Bug 15763\' ) ; unlike ( $a , qr/^\\C\\C\\C\\Cy/ , q{don\'t match four \\Cy; Bug 15763} ) ; unlike ( $a , qr/^\\C{4}y/ , q{don\'t match \\C{4}y; Bug 15763} ) ; } { my $message = \'UTF-8 matching; Bug 15397\' ; like ( "\\x{100}" , qr/\\x{100}/ , $message ) ; like ( "\\x{100}" , qr/(\\x{100})/ , $message ) ; like ( "\\x{100}" , qr/(\\x{100}){1}/ , $message ) ; like ( "\\x{100}\\x{100}" , qr/(\\x{100}){2}/ , $message ) ; like ( "\\x{100}\\x{100}" , qr/(\\x{100})(\\x{100})/ , $message ) ; } { my $message = \'Neither ()* nor ()*? sets $1 when matched 0 times; Bug 7471\' ; local $_ = \'CD\' ; ok (/(AB)*?CD/ && ! defined $1 , $message ) ; ok (/(AB)*CD/ && ! defined $1 , $message ) ; } { my $message = "Caching shouldn\'t prevent match; Bug 3547" ; my $pattern = "^(b+?|a){1,2}c" ; ok ( "bac" =~/$pattern/ && $1 eq \'a\' , $message ) ; ok ( "bbac" =~/$pattern/ && $1 eq \'a\' , $message ) ; ok ( "bbbac" =~/$pattern/ && $1 eq \'a\' , $message ) ; ok ( "bbbbac" =~/$pattern/ && $1 eq \'a\' , $message ) ; } { ok ( "\\x{100}" =~/(.)/ , \'$1 should keep UTF-8 ness; Bug 18232\' ) ; is ( $1 , "\\x{100}" , \'$1 is UTF-8; Bug 18232\' ) ; { \'a\' =~/./ ; } is ( $1 , "\\x{100}" , \'$1 is still UTF-8; Bug 18232\' ) ; isnt ( $1 , "\\xC4\\x80" , \'$1 is not non-UTF-8; Bug 18232\' ) ; } { my $message = "Optimizer doesn\'t prematurely reject match; Bug 19767" ; use utf8 ; my $attr = \'Name-1\' ; my $NormalChar = qr/[\\p{IsDigit}\\p{IsLower}\\p{IsUpper}]/ ; my $NormalWord = qr/${NormalChar}+?/ ; my $PredNameHyphen = qr/^${NormalWord}(\\-${NormalWord})*?$/ ; $attr =~/^$/ ; like ( $attr , $PredNameHyphen , $message ) ; "a" =~ m/[b]/ ; like ( "0" , qr/\\p{N}+\\z/ , $message ) ; } { my $message = "(??{ }) doesn\'t return stale values; Bug 20683" ; our $p = 1 ; foreach ( 1 , 2 , 3 , 4 ) { $p ++ if/(??{ $p })/ } is ( $p , 5 , $message ) ; { package P ; $a = 1 ; sub TIESCALAR { bless [ ] } sub FETCH { $a ++ } } tie $p , "P" ; foreach ( 1 , 2 , 3 , 4 ) {/(??{ $p })/ } is ( $p , 5 , $message ) ; } { my $message = \'Markus Kuhn 2003-02-26\' ; my $x = "\\x{2019}\\nk" ; ok ( $x =~ s/(\\S)\\n(\\S)/$1 $2/sg , $message ) ; is ( $x , "\\x{2019} k" , $message ) ; $x = "b\\nk" ; ok ( $x =~ s/(\\S)\\n(\\S)/$1 $2/sg , $message ) ; is ( $x , "b k" , $message ) ; like ( "\\x{2019}" , qr/\\S/ , $message ) ; } { my $message = "(??{ .. }) in split doesn\'t corrupt its stack; Bug 21411" ; our $i ; is ( \'-1-3-5-\' , join ( \'\' , split/((??{$i++}))/ , \'-1-3-5-\' ) , $message ) ; no warnings \'syntax\' ; @_ = split/(?{\'WOW\'})/ , \'abc\' ; local $" = "|" ; is ( "@_" , "a|b|c" , $message ) ; } { local $: : TODO = "Recursive split is still broken" ; ok 0 , \'cache_re & "(?{": it dumps core in 5.6.1 & 5.8.0\' ; } { $_ = "code:   \'x\' { \'...\' }\\n" ; study ; my @x ; push @x , $& while m/\'[^\\\']*\'/gx ; local $" = ":" ; is ( "@x" , "\'x\':\'...\'" , "Parse::RecDescent triggered infinite loop; Bug 17757" ) ; } { sub func ( $ ) { ok ( "a\\nb" !~/^b/ , "Propagated modifier; $_[0]; Bug 22354" ) ; ok ( "a\\nb" =~/^b/m , "Propagated modifier; $_[0] - with /m; Bug 22354" ) ; } func "standalone" ; $_ = "x" ; s/x/func "in subst"/e ; $_ = "x" ; s/x/func "in multiline subst"/em ; $_ = "x" ;/x(?{func "in regexp"})/ ; $_ = "x" ;/x(?{func "in multiline regexp"})/m;
@@ -51880,10 +51880,10 @@ $t =~ s/([^a])//ge;
             'block_id' => 16
           },
           {
-            'token_num' => 81,
+            'token_num' => 89,
             'has_warnings' => 1,
             'end_line' => 160,
-            'src' => ' { my $message = \'UTF-8 return values from functions; Bug 20010407.006\' ; package ID_20010407_006 ; sub x { "a\\x{1234}" } my $x = x ; my $y ;::ok ( $x =~/(..)/ , $message ) ; $y = $1 ;::ok ( length ( $y ) == 2 && $y eq $x , $message ) ;::ok ( x =~/(..)/ , $message ) ; $y = $1 ;::ok ( length ( $y ) == 2 && $y eq $x , $message ) ; }',
+            'src' => ' { my $message = \'UTF-8 return values from functions; Bug 20010407.006\' ; package ID_20010407_006 ; sub x { "a\\x{1234}" } my $x = x ; my $y ; :: ok ( $x =~/(..)/ , $message ) ; $y = $1 ; :: ok ( length ( $y ) == 2 && $y eq $x , $message ) ; :: ok ( x =~/(..)/ , $message ) ; $y = $1 ; :: ok ( length ( $y ) == 2 && $y eq $x , $message ) ; }',
             'start_line' => 145,
             'indent' => 1,
             'block_id' => 2
@@ -51925,29 +51925,65 @@ $t =~ s/([^a])//ge;
             'block_id' => 17
           },
           {
-            'token_num' => 13,
-            'has_warnings' => 1,
-            'end_line' => 154,
-            'src' => ' my $y ;::ok ( $x =~/(..)/ , $message ) ;',
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 153,
+            'src' => ' my $y ;',
             'start_line' => 153,
             'indent' => 2,
             'block_id' => 17
           },
           {
-            'token_num' => 29,
+            'token_num' => 12,
             'has_warnings' => 1,
-            'end_line' => 157,
-            'src' => ' $y = $1 ;::ok ( length ( $y ) == 2 && $y eq $x , $message ) ;::ok ( x =~/(..)/ , $message ) ;',
+            'end_line' => 154,
+            'src' => ' :: ok ( $x =~/(..)/ , $message ) ;',
+            'start_line' => 154,
+            'indent' => 2,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 155,
+            'src' => ' $y = $1 ;',
             'start_line' => 155,
             'indent' => 2,
             'block_id' => 17
           },
           {
-            'token_num' => 19,
+            'token_num' => 17,
+            'has_warnings' => 1,
+            'end_line' => 156,
+            'src' => ' :: ok ( length ( $y ) == 2 && $y eq $x , $message ) ;',
+            'start_line' => 156,
+            'indent' => 2,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 157,
+            'src' => ' :: ok ( x =~/(..)/ , $message ) ;',
+            'start_line' => 157,
+            'indent' => 2,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 158,
+            'src' => ' $y = $1 ;',
+            'start_line' => 158,
+            'indent' => 2,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 17,
             'has_warnings' => 1,
             'end_line' => 159,
-            'src' => ' $y = $1 ;::ok ( length ( $y ) == 2 && $y eq $x , $message ) ;',
-            'start_line' => 158,
+            'src' => ' :: ok ( length ( $y ) == 2 && $y eq $x , $message ) ;',
+            'start_line' => 159,
             'indent' => 2,
             'block_id' => 17
           },

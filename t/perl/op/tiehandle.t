@@ -1136,12 +1136,12 @@ subtest 'tokenize' => sub {
                    'line' => 23
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 24
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1244,12 +1244,12 @@ subtest 'tokenize' => sub {
                    'line' => 32
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 32
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1496,12 +1496,12 @@ subtest 'tokenize' => sub {
                    'line' => 38
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 38
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1622,12 +1622,12 @@ subtest 'tokenize' => sub {
                    'line' => 43
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 43
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1748,12 +1748,12 @@ subtest 'tokenize' => sub {
                    'line' => 48
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 48
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1919,12 +1919,12 @@ subtest 'tokenize' => sub {
                    'line' => 53
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 53
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2108,12 +2108,12 @@ subtest 'tokenize' => sub {
                    'line' => 58
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 58
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2477,12 +2477,12 @@ subtest 'tokenize' => sub {
                    'line' => 64
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 64
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2639,12 +2639,12 @@ subtest 'tokenize' => sub {
                    'line' => 69
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 69
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2990,12 +2990,12 @@ subtest 'tokenize' => sub {
                    'line' => 75
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 75
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8579,12 +8579,12 @@ subtest 'tokenize' => sub {
                    'line' => 191
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 191
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8867,12 +8867,12 @@ subtest 'tokenize' => sub {
                    'line' => 195
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 195
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8984,12 +8984,12 @@ subtest 'tokenize' => sub {
                    'line' => 196
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 196
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9056,12 +9056,12 @@ subtest 'tokenize' => sub {
                    'line' => 197
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 197
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9173,12 +9173,12 @@ subtest 'tokenize' => sub {
                    'line' => 199
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 199
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9263,12 +9263,12 @@ subtest 'tokenize' => sub {
                    'line' => 200
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 200
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9803,12 +9803,12 @@ subtest 'tokenize' => sub {
                    'line' => 216
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 216
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10019,12 +10019,12 @@ subtest 'tokenize' => sub {
                    'line' => 221
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 221
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -13160,10 +13160,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 83,
+            'token_num' => 56,
             'has_warnings' => 1,
-            'end_line' => 36,
-            'src' => ' sub compare { local $Level = $Level + 1 ; return unless @expect ; return::fail ( ) unless ( @_ == @expect ) ; for my $i ( 0 .. $#_ ) { next if $_ [ $i ] eq $expect [ $i ] ; return::fail ( ) ; }::pass ( ) ; } package Implement ; sub TIEHANDLE {::compare ( TIEHANDLE => @_ ) ; my ( $class , @val ) = @_ ; return bless \\ @val , $class ; }',
+            'end_line' => 27,
+            'src' => ' sub compare { local $Level = $Level + 1 ; return unless @expect ; return::fail ( ) unless ( @_ == @expect ) ; for my $i ( 0 .. $#_ ) { next if $_ [ $i ] eq $expect [ $i ] ; return::fail ( ) ; } :: pass ( ) ; }',
             'start_line' => 15,
             'indent' => 0,
             'block_id' => 0
@@ -13196,10 +13196,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 2
           },
           {
-            'token_num' => 30,
+            'token_num' => 26,
             'has_warnings' => 1,
-            'end_line' => 27,
-            'src' => ' for my $i ( 0 .. $#_ ) { next if $_ [ $i ] eq $expect [ $i ] ; return::fail ( ) ; }::pass ( ) ; }',
+            'end_line' => 24,
+            'src' => ' for my $i ( 0 .. $#_ ) { next if $_ [ $i ] eq $expect [ $i ] ; return::fail ( ) ; }',
             'start_line' => 21,
             'indent' => 1,
             'block_id' => 2
@@ -13223,13 +13223,13 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 3
           },
           {
-            'token_num' => 4,
+            'token_num' => 5,
             'has_warnings' => 1,
             'end_line' => 26,
-            'src' => ' }::pass ( ) ;',
-            'start_line' => 24,
-            'indent' => 2,
-            'block_id' => 3
+            'src' => ' :: pass ( ) ;',
+            'start_line' => 26,
+            'indent' => 1,
+            'block_id' => 2
           },
           {
             'token_num' => 3,
@@ -13237,17 +13237,26 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 30,
             'src' => ' package Implement ;',
             'start_line' => 30,
-            'indent' => 1,
-            'block_id' => 2
+            'indent' => 0,
+            'block_id' => 0
           },
           {
-            'token_num' => 9,
+            'token_num' => 28,
+            'has_warnings' => 1,
+            'end_line' => 36,
+            'src' => ' sub TIEHANDLE { :: compare ( TIEHANDLE => @_ ) ; my ( $class , @val ) = @_ ; return bless \\ @val , $class ; }',
+            'start_line' => 32,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
             'has_warnings' => 1,
             'end_line' => 33,
-            'src' => ' sub TIEHANDLE {::compare ( TIEHANDLE => @_ ) ;',
-            'start_line' => 32,
+            'src' => ' :: compare ( TIEHANDLE => @_ ) ;',
+            'start_line' => 33,
             'indent' => 1,
-            'block_id' => 2
+            'block_id' => 4
           },
           {
             'token_num' => 9,
@@ -13256,7 +13265,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' my ( $class , @val ) = @_ ;',
             'start_line' => 34,
             'indent' => 1,
-            'block_id' => 2
+            'block_id' => 4
           },
           {
             'token_num' => 7,
@@ -13265,16 +13274,25 @@ subtest 'get_groups_by_syntax_level' => sub {
             'src' => ' return bless \\ @val , $class ;',
             'start_line' => 35,
             'indent' => 1,
-            'block_id' => 2
+            'block_id' => 4
           },
           {
-            'token_num' => 9,
+            'token_num' => 14,
             'has_warnings' => 1,
-            'end_line' => 39,
-            'src' => ' sub PRINT {::compare ( PRINT => @_ ) ;',
+            'end_line' => 41,
+            'src' => ' sub PRINT { :: compare ( PRINT => @_ ) ; 1 ; }',
             'start_line' => 38,
             'indent' => 0,
             'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 39,
+            'src' => ' :: compare ( PRINT => @_ ) ;',
+            'start_line' => 39,
+            'indent' => 1,
+            'block_id' => 5
           },
           {
             'token_num' => 2,
@@ -13282,8 +13300,1673 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 40,
             'src' => ' 1 ;',
             'start_line' => 40,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 46,
+            'src' => ' sub PRINTF { :: compare ( PRINTF => @_ ) ; 2 ; }',
+            'start_line' => 43,
             'indent' => 0,
             'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 44,
+            'src' => ' :: compare ( PRINTF => @_ ) ;',
+            'start_line' => 44,
+            'indent' => 1,
+            'block_id' => 6
+          },
+          {
+            'token_num' => 2,
+            'has_warnings' => 0,
+            'end_line' => 45,
+            'src' => ' 2 ;',
+            'start_line' => 45,
+            'indent' => 1,
+            'block_id' => 6
+          },
+          {
+            'token_num' => 19,
+            'has_warnings' => 1,
+            'end_line' => 51,
+            'src' => ' sub READLINE { :: compare ( READLINE => @_ ) ; wantarray ? @data : shift @data ; }',
+            'start_line' => 48,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 49,
+            'src' => ' :: compare ( READLINE => @_ ) ;',
+            'start_line' => 49,
+            'indent' => 1,
+            'block_id' => 7
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 50,
+            'src' => ' wantarray ? @data : shift @data ;',
+            'start_line' => 50,
+            'indent' => 1,
+            'block_id' => 7
+          },
+          {
+            'token_num' => 21,
+            'has_warnings' => 1,
+            'end_line' => 56,
+            'src' => ' sub GETC { :: compare ( GETC => @_ ) ; substr ( $data , 0 , 1 ) ; }',
+            'start_line' => 53,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 54,
+            'src' => ' :: compare ( GETC => @_ ) ;',
+            'start_line' => 54,
+            'indent' => 1,
+            'block_id' => 8
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 55,
+            'src' => ' substr ( $data , 0 , 1 ) ;',
+            'start_line' => 55,
+            'indent' => 1,
+            'block_id' => 8
+          },
+          {
+            'token_num' => 41,
+            'has_warnings' => 1,
+            'end_line' => 62,
+            'src' => ' sub READ { :: compare ( READ => @_ ) ; substr ( $_ [ 1 ] , $_ [ 3 ] || 0 ) = substr ( $data , 0 , $_ [ 2 ] ) ; 3 ; }',
+            'start_line' => 58,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 59,
+            'src' => ' :: compare ( READ => @_ ) ;',
+            'start_line' => 59,
+            'indent' => 1,
+            'block_id' => 9
+          },
+          {
+            'token_num' => 27,
+            'has_warnings' => 1,
+            'end_line' => 60,
+            'src' => ' substr ( $_ [ 1 ] , $_ [ 3 ] || 0 ) = substr ( $data , 0 , $_ [ 2 ] ) ;',
+            'start_line' => 60,
+            'indent' => 1,
+            'block_id' => 9
+          },
+          {
+            'token_num' => 2,
+            'has_warnings' => 0,
+            'end_line' => 61,
+            'src' => ' 3 ;',
+            'start_line' => 61,
+            'indent' => 1,
+            'block_id' => 9
+          },
+          {
+            'token_num' => 18,
+            'has_warnings' => 1,
+            'end_line' => 67,
+            'src' => ' sub EOF { :: compare ( EOF => @_ ) ; @data ? \'\' : 1 ; }',
+            'start_line' => 64,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 65,
+            'src' => ' :: compare ( EOF => @_ ) ;',
+            'start_line' => 65,
+            'indent' => 1,
+            'block_id' => 10
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 66,
+            'src' => ' @data ? \'\' : 1 ;',
+            'start_line' => 66,
+            'indent' => 1,
+            'block_id' => 10
+          },
+          {
+            'token_num' => 39,
+            'has_warnings' => 1,
+            'end_line' => 73,
+            'src' => ' sub WRITE { :: compare ( WRITE => @_ ) ; $data = substr ( $_ [ 1 ] , $_ [ 3 ] || 0 , $_ [ 2 ] ) ; length ( $data ) ; }',
+            'start_line' => 69,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 70,
+            'src' => ' :: compare ( WRITE => @_ ) ;',
+            'start_line' => 70,
+            'indent' => 1,
+            'block_id' => 11
+          },
+          {
+            'token_num' => 22,
+            'has_warnings' => 1,
+            'end_line' => 71,
+            'src' => ' $data = substr ( $_ [ 1 ] , $_ [ 3 ] || 0 , $_ [ 2 ] ) ;',
+            'start_line' => 71,
+            'indent' => 1,
+            'block_id' => 11
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 72,
+            'src' => ' length ( $data ) ;',
+            'start_line' => 72,
+            'indent' => 1,
+            'block_id' => 11
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 78,
+            'src' => ' sub CLOSE { :: compare ( CLOSE => @_ ) ; 5 ; }',
+            'start_line' => 75,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 76,
+            'src' => ' :: compare ( CLOSE => @_ ) ;',
+            'start_line' => 76,
+            'indent' => 1,
+            'block_id' => 12
+          },
+          {
+            'token_num' => 2,
+            'has_warnings' => 0,
+            'end_line' => 77,
+            'src' => ' 5 ;',
+            'start_line' => 77,
+            'indent' => 1,
+            'block_id' => 12
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 80,
+            'src' => ' package main ;',
+            'start_line' => 80,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 82,
+            'src' => ' use Symbol ;',
+            'start_line' => 82,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 84,
+            'src' => ' my $fh = gensym ;',
+            'start_line' => 84,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 0,
+            'end_line' => 86,
+            'src' => ' @expect = ( TIEHANDLE => \'Implement\' ) ;',
+            'start_line' => 86,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 87,
+            'src' => ' my $ob = tie * $fh , \'Implement\' ;',
+            'start_line' => 87,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 88,
+            'src' => ' is ( ref ( $ob ) , \'Implement\' ) ;',
+            'start_line' => 88,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 89,
+            'src' => ' is ( tied ( * $fh ) , $ob ) ;',
+            'start_line' => 89,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 91,
+            'src' => ' @expect = ( PRINT => $ob , "some" , "text" ) ;',
+            'start_line' => 91,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 92,
+            'src' => ' $r = print $fh @expect [ 2 , 3 ] ;',
+            'start_line' => 92,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 93,
+            'src' => ' is ( $r , 1 ) ;',
+            'start_line' => 93,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 95,
+            'src' => ' @expect = ( PRINTF => $ob , "%s" , "text" ) ;',
+            'start_line' => 95,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 96,
+            'src' => ' $r = printf $fh @expect [ 2 , 3 ] ;',
+            'start_line' => 96,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 97,
+            'src' => ' is ( $r , 2 ) ;',
+            'start_line' => 97,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 99,
+            'src' => ' @data = ( "the line\\n" ) ;',
+            'start_line' => 99,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 100,
+            'src' => ' @expect = ( EOF => $ob , 1 ) ;',
+            'start_line' => 100,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 101,
+            'src' => ' is ( eof ( $fh ) , \'\' ) ;',
+            'start_line' => 101,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 103,
+            'src' => ' $text = $data [ 0 ] ;',
+            'start_line' => 103,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 104,
+            'src' => ' @expect = ( READLINE => $ob ) ;',
+            'start_line' => 104,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 105,
+            'src' => ' $ln = < $fh > ;',
+            'start_line' => 105,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 106,
+            'src' => ' is ( $ln , $text ) ;',
+            'start_line' => 106,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 108,
+            'src' => ' @expect = ( EOF => $ob , 0 ) ;',
+            'start_line' => 108,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 109,
+            'src' => ' is ( eof , 1 ) ;',
+            'start_line' => 109,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 111,
+            'src' => ' @expect = ( ) ;',
+            'start_line' => 111,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 0,
+            'end_line' => 112,
+            'src' => ' @in = @data = qw(a line at a time) ;',
+            'start_line' => 112,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 113,
+            'src' => ' @line = < $fh > ;',
+            'start_line' => 113,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 114,
+            'src' => ' @expect = @in ;',
+            'start_line' => 114,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 115,
+            'src' => ' compare ( @line ) ;',
+            'start_line' => 115,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 117,
+            'src' => ' @expect = ( GETC => $ob ) ;',
+            'start_line' => 117,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 118,
+            'src' => ' $data = "abc" ;',
+            'start_line' => 118,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 119,
+            'src' => ' $ch = getc $fh ;',
+            'start_line' => 119,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 120,
+            'src' => ' is ( $ch , "a" ) ;',
+            'start_line' => 120,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 122,
+            'src' => ' $buf = "xyz" ;',
+            'start_line' => 122,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 123,
+            'src' => ' @expect = ( READ => $ob , $buf , 3 ) ;',
+            'start_line' => 123,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 124,
+            'src' => ' $data = "abc" ;',
+            'start_line' => 124,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 125,
+            'src' => ' $r = read $fh , $buf , 3 ;',
+            'start_line' => 125,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 126,
+            'src' => ' is ( $r , 3 ) ;',
+            'start_line' => 126,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 127,
+            'src' => ' is ( $buf , "abc" ) ;',
+            'start_line' => 127,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 130,
+            'src' => ' $buf = "xyzasd" ;',
+            'start_line' => 130,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 131,
+            'src' => ' @expect = ( READ => $ob , $buf , 3 , 3 ) ;',
+            'start_line' => 131,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 132,
+            'src' => ' $data = "abc" ;',
+            'start_line' => 132,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 133,
+            'src' => ' $r = sysread $fh , $buf , 3 , 3 ;',
+            'start_line' => 133,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 134,
+            'src' => ' is ( $r , 3 ) ;',
+            'start_line' => 134,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 135,
+            'src' => ' is ( $buf , "xyzabc" ) ;',
+            'start_line' => 135,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 137,
+            'src' => ' $buf = "qwerty" ;',
+            'start_line' => 137,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 138,
+            'src' => ' @expect = ( WRITE => $ob , $buf , 4 , 1 ) ;',
+            'start_line' => 138,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 139,
+            'src' => ' $data = "" ;',
+            'start_line' => 139,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 140,
+            'src' => ' $r = syswrite $fh , $buf , 4 , 1 ;',
+            'start_line' => 140,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 141,
+            'src' => ' is ( $r , 4 ) ;',
+            'start_line' => 141,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 142,
+            'src' => ' is ( $data , "wert" ) ;',
+            'start_line' => 142,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 144,
+            'src' => ' $buf = "qwerty" ;',
+            'start_line' => 144,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 145,
+            'src' => ' @expect = ( WRITE => $ob , $buf , 4 ) ;',
+            'start_line' => 145,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 146,
+            'src' => ' $data = "" ;',
+            'start_line' => 146,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 147,
+            'src' => ' $r = syswrite $fh , $buf , 4 ;',
+            'start_line' => 147,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 148,
+            'src' => ' is ( $r , 4 ) ;',
+            'start_line' => 148,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 149,
+            'src' => ' is ( $data , "qwer" ) ;',
+            'start_line' => 149,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 151,
+            'src' => ' $buf = "qwerty" ;',
+            'start_line' => 151,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 152,
+            'src' => ' @expect = ( WRITE => $ob , $buf , 6 ) ;',
+            'start_line' => 152,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 153,
+            'src' => ' $data = "" ;',
+            'start_line' => 153,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 154,
+            'src' => ' $r = syswrite $fh , $buf ;',
+            'start_line' => 154,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 155,
+            'src' => ' is ( $r , 6 ) ;',
+            'start_line' => 155,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 156,
+            'src' => ' is ( $data , "qwerty" ) ;',
+            'start_line' => 156,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 158,
+            'src' => ' @expect = ( CLOSE => $ob ) ;',
+            'start_line' => 158,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 159,
+            'src' => ' $r = close $fh ;',
+            'start_line' => 159,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 160,
+            'src' => ' is ( $r , 5 ) ;',
+            'start_line' => 160,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 163,
+            'src' => ' * ALIAS = * $fh ;',
+            'start_line' => 163,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 164,
+            'src' => ' @expect = ( PRINT => $ob , "some" , "text" ) ;',
+            'start_line' => 164,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 165,
+            'src' => ' $r = print ALIAS @expect [ 2 , 3 ] ;',
+            'start_line' => 165,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 166,
+            'src' => ' is ( $r , 1 ) ;',
+            'start_line' => 166,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 42,
+            'has_warnings' => 1,
+            'end_line' => 176,
+            'src' => ' { use warnings ; local * STDERR = * $fh ; @expect = ( PRINT => $ob , "some" , "text" ) ; $r = print STDERR @expect [ 2 , 3 ] ; is ( $r , 1 ) ; }',
+            'start_line' => 168,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 169,
+            'src' => ' use warnings ;',
+            'start_line' => 169,
+            'indent' => 1,
+            'block_id' => 13
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 172,
+            'src' => ' local * STDERR = * $fh ;',
+            'start_line' => 172,
+            'indent' => 1,
+            'block_id' => 13
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 173,
+            'src' => ' @expect = ( PRINT => $ob , "some" , "text" ) ;',
+            'start_line' => 173,
+            'indent' => 1,
+            'block_id' => 13
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 174,
+            'src' => ' $r = print STDERR @expect [ 2 , 3 ] ;',
+            'start_line' => 174,
+            'indent' => 1,
+            'block_id' => 13
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 175,
+            'src' => ' is ( $r , 1 ) ;',
+            'start_line' => 175,
+            'indent' => 1,
+            'block_id' => 13
+          },
+          {
+            'token_num' => 139,
+            'has_warnings' => 1,
+            'end_line' => 202,
+            'src' => ' { package Bar::Say ; use feature \'say\' ; use base qw(Implement) ; my $ors ; sub PRINT { $ors = $\\ ; my $self = shift ; return $self-> SUPER::PRINT ( @_ ) ; } my $fh = Symbol::gensym ; @expect = ( TIEHANDLE => \'Bar::Say\' ) ; :: ok ( my $obj = tie * $fh , \'Bar::Say\' ) ; local $\\ = \'something\' ; @expect = ( PRINT => $obj , "stuff" , "and" , "things" ) ; :: ok ( print $fh @expect [ 2 .. 4 ] ) ; :: is ( $ors , \'something\' ) ; :: ok ( say $fh @expect [ 2 .. 4 ] ) ; :: is ( $ors , "\\n" , \'say sets $\\ to \\n in PRINT\' ) ; :: is ( $\\ , "something" , "  and it\'s localized" ) ; }',
+            'start_line' => 178,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 179,
+            'src' => ' package Bar::Say ;',
+            'start_line' => 179,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 180,
+            'src' => ' use feature \'say\' ;',
+            'start_line' => 180,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 181,
+            'src' => ' use base qw(Implement) ;',
+            'start_line' => 181,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 183,
+            'src' => ' my $ors ;',
+            'start_line' => 183,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 21,
+            'has_warnings' => 1,
+            'end_line' => 188,
+            'src' => ' sub PRINT { $ors = $\\ ; my $self = shift ; return $self-> SUPER::PRINT ( @_ ) ; }',
+            'start_line' => 184,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 185,
+            'src' => ' $ors = $\\ ;',
+            'start_line' => 185,
+            'indent' => 2,
+            'block_id' => 15
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 186,
+            'src' => ' my $self = shift ;',
+            'start_line' => 186,
+            'indent' => 2,
+            'block_id' => 15
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 187,
+            'src' => ' return $self-> SUPER::PRINT ( @_ ) ;',
+            'start_line' => 187,
+            'indent' => 2,
+            'block_id' => 15
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 190,
+            'src' => ' my $fh = Symbol::gensym ;',
+            'start_line' => 190,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 0,
+            'end_line' => 191,
+            'src' => ' @expect = ( TIEHANDLE => \'Bar::Say\' ) ;',
+            'start_line' => 191,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 192,
+            'src' => ' :: ok ( my $obj = tie * $fh , \'Bar::Say\' ) ;',
+            'start_line' => 192,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 194,
+            'src' => ' local $\\ = \'something\' ;',
+            'start_line' => 194,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 195,
+            'src' => ' @expect = ( PRINT => $obj , "stuff" , "and" , "things" ) ;',
+            'start_line' => 195,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 196,
+            'src' => ' :: ok ( print $fh @expect [ 2 .. 4 ] ) ;',
+            'start_line' => 196,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 197,
+            'src' => ' :: is ( $ors , \'something\' ) ;',
+            'start_line' => 197,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 199,
+            'src' => ' :: ok ( say $fh @expect [ 2 .. 4 ] ) ;',
+            'start_line' => 199,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 200,
+            'src' => ' :: is ( $ors , "\\n" , \'say sets $\\ to \\n in PRINT\' ) ;',
+            'start_line' => 200,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 201,
+            'src' => ' :: is ( $\\ , "something" , "  and it\'s localized" ) ;',
+            'start_line' => 201,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 90,
+            'has_warnings' => 1,
+            'end_line' => 225,
+            'src' => ' { package Foo ; use strict ; sub TIEHANDLE { bless { } } my $cnt = \'a\' ; sub READ { $_ [ 1 ] = $cnt ++ ; 1 ; } sub do_read { my $fh = shift ; read $fh , my $buff , 1 ; :: pass ( ) ; } $| = 1 ; tie * STDIN , \'Foo\' ; read STDIN , my $buff , 1 ; :: pass ( ) ; do_read ( \\ * STDIN ) ; untie * STDIN ; }',
+            'start_line' => 204,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 206,
+            'src' => ' package Foo ;',
+            'start_line' => 206,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 207,
+            'src' => ' use strict ;',
+            'start_line' => 207,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 208,
+            'src' => ' sub TIEHANDLE { bless { } }',
+            'start_line' => 208,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 209,
+            'src' => ' my $cnt = \'a\' ;',
+            'start_line' => 209,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 213,
+            'src' => ' sub READ { $_ [ 1 ] = $cnt ++ ; 1 ; }',
+            'start_line' => 210,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 211,
+            'src' => ' $_ [ 1 ] = $cnt ++ ;',
+            'start_line' => 211,
+            'indent' => 2,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 2,
+            'has_warnings' => 0,
+            'end_line' => 212,
+            'src' => ' 1 ;',
+            'start_line' => 212,
+            'indent' => 2,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 22,
+            'has_warnings' => 1,
+            'end_line' => 218,
+            'src' => ' sub do_read { my $fh = shift ; read $fh , my $buff , 1 ; :: pass ( ) ; }',
+            'start_line' => 214,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 215,
+            'src' => ' my $fh = shift ;',
+            'start_line' => 215,
+            'indent' => 2,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 216,
+            'src' => ' read $fh , my $buff , 1 ;',
+            'start_line' => 216,
+            'indent' => 2,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 217,
+            'src' => ' :: pass ( ) ;',
+            'start_line' => 217,
+            'indent' => 2,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 219,
+            'src' => ' $| = 1 ;',
+            'start_line' => 219,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 220,
+            'src' => ' tie * STDIN , \'Foo\' ;',
+            'start_line' => 220,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 0,
+            'end_line' => 221,
+            'src' => ' read STDIN , my $buff , 1 ;',
+            'start_line' => 221,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 222,
+            'src' => ' :: pass ( ) ;',
+            'start_line' => 222,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 223,
+            'src' => ' do_read ( \\ * STDIN ) ;',
+            'start_line' => 223,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 224,
+            'src' => ' untie * STDIN ;',
+            'start_line' => 224,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 82,
+            'has_warnings' => 1,
+            'end_line' => 253,
+            'src' => ' { { local * foo ; tie %foo , \'Blah\' ; } ok ( ! tied %foo ) ; { local * bar ; tie @bar , \'Blah\' ; } ok ( ! tied @bar ) ; { local * BAZ ; tie * BAZ , \'Blah\' ; } ok ( ! tied * BAZ ) ; package Blah ; sub TIEHANDLE { bless { } } sub TIEHASH { bless { } } sub TIEARRAY { bless { } } }',
+            'start_line' => 228,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 231,
+            'src' => ' local * foo ;',
+            'start_line' => 231,
+            'indent' => 2,
+            'block_id' => 21
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 232,
+            'src' => ' tie %foo , \'Blah\' ;',
+            'start_line' => 232,
+            'indent' => 2,
+            'block_id' => 21
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 234,
+            'src' => ' ok ( ! tied %foo ) ;',
+            'start_line' => 234,
+            'indent' => 1,
+            'block_id' => 20
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 239,
+            'src' => ' { local * bar ; tie @bar , \'Blah\' ; }',
+            'start_line' => 236,
+            'indent' => 1,
+            'block_id' => 20
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 237,
+            'src' => ' local * bar ;',
+            'start_line' => 237,
+            'indent' => 2,
+            'block_id' => 22
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 238,
+            'src' => ' tie @bar , \'Blah\' ;',
+            'start_line' => 238,
+            'indent' => 2,
+            'block_id' => 22
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 240,
+            'src' => ' ok ( ! tied @bar ) ;',
+            'start_line' => 240,
+            'indent' => 1,
+            'block_id' => 20
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 245,
+            'src' => ' { local * BAZ ; tie * BAZ , \'Blah\' ; }',
+            'start_line' => 242,
+            'indent' => 1,
+            'block_id' => 20
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 243,
+            'src' => ' local * BAZ ;',
+            'start_line' => 243,
+            'indent' => 2,
+            'block_id' => 23
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 244,
+            'src' => ' tie * BAZ , \'Blah\' ;',
+            'start_line' => 244,
+            'indent' => 2,
+            'block_id' => 23
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 246,
+            'src' => ' ok ( ! tied * BAZ ) ;',
+            'start_line' => 246,
+            'indent' => 1,
+            'block_id' => 20
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 248,
+            'src' => ' package Blah ;',
+            'start_line' => 248,
+            'indent' => 1,
+            'block_id' => 20
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 250,
+            'src' => ' sub TIEHANDLE { bless { } }',
+            'start_line' => 250,
+            'indent' => 1,
+            'block_id' => 20
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 251,
+            'src' => ' sub TIEHASH { bless { } }',
+            'start_line' => 251,
+            'indent' => 1,
+            'block_id' => 20
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 252,
+            'src' => ' sub TIEARRAY { bless { } }',
+            'start_line' => 252,
+            'indent' => 1,
+            'block_id' => 20
+          },
+          {
+            'token_num' => 74,
+            'has_warnings' => 1,
+            'end_line' => 272,
+            'src' => ' { my @received ; local * STDERR = * $fh ; no warnings \'redefine\' ; local * Implement::PRINT = sub { @received = @_ } ; $r = warn ( "some" , "text" , "\\n" ) ; @expect = ( PRINT => $ob , "sometext\\n" ) ; compare ( PRINT => @received ) ; use warnings ; print undef ; like ( $received [ 1 ] , qr/Use of uninitialized value/ ) ; }',
+            'start_line' => 255,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 257,
+            'src' => ' my @received ;',
+            'start_line' => 257,
+            'indent' => 1,
+            'block_id' => 27
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 259,
+            'src' => ' local * STDERR = * $fh ;',
+            'start_line' => 259,
+            'indent' => 1,
+            'block_id' => 27
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 260,
+            'src' => ' no warnings \'redefine\' ;',
+            'start_line' => 260,
+            'indent' => 1,
+            'block_id' => 27
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 261,
+            'src' => ' local * Implement::PRINT = sub { @received = @_ } ;',
+            'start_line' => 261,
+            'indent' => 1,
+            'block_id' => 27
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 263,
+            'src' => ' $r = warn ( "some" , "text" , "\\n" ) ;',
+            'start_line' => 263,
+            'indent' => 1,
+            'block_id' => 27
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 264,
+            'src' => ' @expect = ( PRINT => $ob , "sometext\\n" ) ;',
+            'start_line' => 264,
+            'indent' => 1,
+            'block_id' => 27
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 266,
+            'src' => ' compare ( PRINT => @received ) ;',
+            'start_line' => 266,
+            'indent' => 1,
+            'block_id' => 27
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 268,
+            'src' => ' use warnings ;',
+            'start_line' => 268,
+            'indent' => 1,
+            'block_id' => 27
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 269,
+            'src' => ' print undef ;',
+            'start_line' => 269,
+            'indent' => 1,
+            'block_id' => 27
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 271,
+            'src' => ' like ( $received [ 1 ] , qr/Use of uninitialized value/ ) ;',
+            'start_line' => 271,
+            'indent' => 1,
+            'block_id' => 27
+          },
+          {
+            'token_num' => 51,
+            'has_warnings' => 1,
+            'end_line' => 285,
+            'src' => ' { local * TEST ; tie * TEST , \'CHOMP\' ; my $data ; chomp ( $data = < TEST > ) ; is ( $data , \'foobar\' ) ; package CHOMP ; sub TIEHANDLE { bless { } , $_ [ 0 ] } sub READLINE { "foobar\\n" } }',
+            'start_line' => 274,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 276,
+            'src' => ' local * TEST ;',
+            'start_line' => 276,
+            'indent' => 1,
+            'block_id' => 29
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 277,
+            'src' => ' tie * TEST , \'CHOMP\' ;',
+            'start_line' => 277,
+            'indent' => 1,
+            'block_id' => 29
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 278,
+            'src' => ' my $data ;',
+            'start_line' => 278,
+            'indent' => 1,
+            'block_id' => 29
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 279,
+            'src' => ' chomp ( $data = < TEST > ) ;',
+            'start_line' => 279,
+            'indent' => 1,
+            'block_id' => 29
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 280,
+            'src' => ' is ( $data , \'foobar\' ) ;',
+            'start_line' => 280,
+            'indent' => 1,
+            'block_id' => 29
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 282,
+            'src' => ' package CHOMP ;',
+            'start_line' => 282,
+            'indent' => 1,
+            'block_id' => 29
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 0,
+            'end_line' => 283,
+            'src' => ' sub TIEHANDLE { bless { } , $_ [ 0 ] }',
+            'start_line' => 283,
+            'indent' => 1,
+            'block_id' => 29
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 284,
+            'src' => ' sub READLINE { "foobar\\n" }',
+            'start_line' => 284,
+            'indent' => 1,
+            'block_id' => 29
+          },
+          {
+            'token_num' => 114,
+            'has_warnings' => 1,
+            'end_line' => 305,
+            'src' => ' { local * ARGV ; @ARGV = ( \'haha\' ) ; @expect = ( TIEHANDLE => \'Implement\' ) ; $ob = tie * ARGV , \'Implement\' ; is ( ref ( $ob ) , \'Implement\' ) ; is ( tied ( * ARGV ) , $ob ) ; @data = ( "stuff\\n" ) ; @expect = ( EOF => $ob , 1 ) ; is ( eof ( ARGV ) , \'\' ) ; @expect = ( EOF => $ob , 2 ) ; is ( eof ( ) , \'\' ) ; shift @data ; @expect = ( EOF => $ob , 0 ) ; is ( eof , 1 ) ; }',
+            'start_line' => 287,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 289,
+            'src' => ' local * ARGV ;',
+            'start_line' => 289,
+            'indent' => 1,
+            'block_id' => 32
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 290,
+            'src' => ' @ARGV = ( \'haha\' ) ;',
+            'start_line' => 290,
+            'indent' => 1,
+            'block_id' => 32
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 0,
+            'end_line' => 292,
+            'src' => ' @expect = ( TIEHANDLE => \'Implement\' ) ;',
+            'start_line' => 292,
+            'indent' => 1,
+            'block_id' => 32
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 293,
+            'src' => ' $ob = tie * ARGV , \'Implement\' ;',
+            'start_line' => 293,
+            'indent' => 1,
+            'block_id' => 32
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 294,
+            'src' => ' is ( ref ( $ob ) , \'Implement\' ) ;',
+            'start_line' => 294,
+            'indent' => 1,
+            'block_id' => 32
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 295,
+            'src' => ' is ( tied ( * ARGV ) , $ob ) ;',
+            'start_line' => 295,
+            'indent' => 1,
+            'block_id' => 32
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 297,
+            'src' => ' @data = ( "stuff\\n" ) ;',
+            'start_line' => 297,
+            'indent' => 1,
+            'block_id' => 32
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 298,
+            'src' => ' @expect = ( EOF => $ob , 1 ) ;',
+            'start_line' => 298,
+            'indent' => 1,
+            'block_id' => 32
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 299,
+            'src' => ' is ( eof ( ARGV ) , \'\' ) ;',
+            'start_line' => 299,
+            'indent' => 1,
+            'block_id' => 32
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 300,
+            'src' => ' @expect = ( EOF => $ob , 2 ) ;',
+            'start_line' => 300,
+            'indent' => 1,
+            'block_id' => 32
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 301,
+            'src' => ' is ( eof ( ) , \'\' ) ;',
+            'start_line' => 301,
+            'indent' => 1,
+            'block_id' => 32
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 302,
+            'src' => ' shift @data ;',
+            'start_line' => 302,
+            'indent' => 1,
+            'block_id' => 32
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 303,
+            'src' => ' @expect = ( EOF => $ob , 0 ) ;',
+            'start_line' => 303,
+            'indent' => 1,
+            'block_id' => 32
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 304,
+            'src' => ' is ( eof , 1 ) ;',
+            'start_line' => 304,
+            'indent' => 1,
+            'block_id' => 32
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');
@@ -13291,7 +14974,32 @@ subtest 'get_groups_by_syntax_level' => sub {
 
 subtest 'get_used_modules' => sub {
     my $modules = Compiler::Lexer->new('')->get_used_modules($script);
-    is_deeply($modules, []
+    is_deeply($modules, [
+          {
+            'args' => '',
+            'name' => 'Symbol'
+          },
+          {
+            'args' => '',
+            'name' => 'warnings'
+          },
+          {
+            'args' => '  \'say\'',
+            'name' => 'feature'
+          },
+          {
+            'args' => '  qw ( Implement )',
+            'name' => 'base'
+          },
+          {
+            'args' => '',
+            'name' => 'strict'
+          },
+          {
+            'args' => '',
+            'name' => 'warnings'
+          }
+        ]
 , 'Compiler::Lexer::get_used_modules');
 };
 

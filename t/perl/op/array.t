@@ -22874,12 +22874,12 @@ subtest 'tokenize' => sub {
                    'line' => 459
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 459
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -23252,12 +23252,12 @@ subtest 'tokenize' => sub {
                    'line' => 468
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 468
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -26127,15 +26127,6 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 92,
-            'has_warnings' => 1,
-            'end_line' => 475,
-            'src' => ' { skip "no Scalar::Util::weaken on miniperl" , 1 , if is_miniperl ; require Scalar::Util ; package glelp { Scalar::Util::weaken ( $a = \\ @ISA ) ; @ISA = qw(Foo) ; Scalar::Util::weaken ( $a = \\ $ISA [ 0 ] ) ;::is @ISA , 1 , \'backref magic is not copied to elements\' ; } } package peen { $#ISA = -1 ; @ISA = qw(Foo) ; $ISA [ 0 ] = qw(Sphare) ; sub Sphare::pling { \'pling\' }::is eval { pling peen } , \'pling\' , \'arylen_p magic does not stop isa magic from being copied\' ; } "We\'re included by lib/Tie/Array/std.t so we need to return something true" ; ;',
-            'start_line' => 453,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
             'token_num' => 8,
             'has_warnings' => 1,
             'end_line' => 454,
@@ -26172,11 +26163,20 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 43
           },
           {
-            'token_num' => 17,
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 459,
+            'src' => ' Scalar::Util::weaken ( $a = \\ $ISA [ 0 ] ) ;',
+            'start_line' => 459,
+            'indent' => 2,
+            'block_id' => 43
+          },
+          {
+            'token_num' => 8,
             'has_warnings' => 1,
             'end_line' => 460,
-            'src' => ' Scalar::Util::weaken ( $a = \\ $ISA [ 0 ] ) ;::is @ISA , 1 , \'backref magic is not copied to elements\' ;',
-            'start_line' => 459,
+            'src' => ' :: is @ISA , 1 , \'backref magic is not copied to elements\' ;',
+            'start_line' => 460,
             'indent' => 2,
             'block_id' => 43
           },
@@ -26211,17 +26211,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 12,
             'has_warnings' => 1,
             'end_line' => 471,
-            'src' => ' \'pling\' }::is eval { pling peen } , \'pling\' , \'arylen_p magic does not stop isa magic from being copied\' ;',
-            'start_line' => 468,
-            'indent' => 2,
-            'block_id' => 45
-          },
-          {
-            'token_num' => 2,
-            'has_warnings' => 0,
-            'end_line' => 475,
-            'src' => ' "We\'re included by lib/Tie/Array/std.t so we need to return something true" ;',
-            'start_line' => 475,
+            'src' => ' :: is eval { pling peen } , \'pling\' , \'arylen_p magic does not stop isa magic from being copied\' ;',
+            'start_line' => 470,
             'indent' => 1,
             'block_id' => 44
           },
@@ -26231,33 +26222,6 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 475,
             'src' => ' "We\'re included by lib/Tie/Array/std.t so we need to return something true" ;',
             'start_line' => 475,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 1,
-            'has_warnings' => 0,
-            'end_line' => 475,
-            'src' => ' ;',
-            'start_line' => 475,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 2,
-            'has_warnings' => 0,
-            'end_line' => 475,
-            'src' => ' "We\'re included by lib/Tie/Array/std.t so we need to return something true" ;',
-            'start_line' => 475,
-            'indent' => 0,
-            'block_id' => 0
-          },
-          {
-            'token_num' => 1,
-            'has_warnings' => 0,
-            'end_line' => 471,
-            'src' => ' ;',
-            'start_line' => 471,
             'indent' => 0,
             'block_id' => 0
           }

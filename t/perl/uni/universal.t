@@ -5421,12 +5421,12 @@ subtest 'tokenize' => sub {
                    'line' => 122
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 122
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5484,12 +5484,12 @@ subtest 'tokenize' => sub {
                    'line' => 124
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 124
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5637,12 +5637,12 @@ subtest 'tokenize' => sub {
                    'line' => 125
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 125
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8148,10 +8148,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 33,
+            'token_num' => 39,
             'has_warnings' => 1,
             'end_line' => 127,
-            'src' => ' { package Pìckùp ; use UNIVERSAL qw( isa can VERSION ) ;::ok isa "Pìckùp" , UNIVERSAL ;::cmp_ok can ( "Pìckùp" , "can" ) , \'==\' , \\ & UNIVERSAL::can ;::ok VERSION "UNIVERSAL" ; }',
+            'src' => ' { package Pìckùp ; use UNIVERSAL qw( isa can VERSION ) ; :: ok isa "Pìckùp" , UNIVERSAL ; :: cmp_ok can ( "Pìckùp" , "can" ) , \'==\' , \\ & UNIVERSAL::can ; :: ok VERSION "UNIVERSAL" ; }',
             'start_line' => 120,
             'indent' => 0,
             'block_id' => 0
@@ -8166,11 +8166,38 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 14
           },
           {
-            'token_num' => 28,
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 122,
+            'src' => ' use UNIVERSAL qw( isa can VERSION ) ;',
+            'start_line' => 122,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 124,
+            'src' => ' :: ok isa "Pìckùp" , UNIVERSAL ;',
+            'start_line' => 124,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 125,
+            'src' => ' :: cmp_ok can ( "Pìckùp" , "can" ) , \'==\' , \\ & UNIVERSAL::can ;',
+            'start_line' => 125,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 5,
             'has_warnings' => 1,
             'end_line' => 126,
-            'src' => ' use UNIVERSAL qw( isa can VERSION ) ;::ok isa "Pìckùp" , UNIVERSAL ;::cmp_ok can ( "Pìckùp" , "can" ) , \'==\' , \\ & UNIVERSAL::can ;::ok VERSION "UNIVERSAL" ;',
-            'start_line' => 122,
+            'src' => ' :: ok VERSION "UNIVERSAL" ;',
+            'start_line' => 126,
             'indent' => 1,
             'block_id' => 14
           },
@@ -8410,7 +8437,7 @@ subtest 'get_used_modules' => sub {
             'name' => 'base'
           },
           {
-            'args' => '  qw (  isa can VERSION  )  ;::ok  isa  "Pìckùp"  ,  UNIVERSAL  ;::cmp_ok  can  ( "Pìckùp" , "can" )  ,  \'==\'  ,  \\  &  UNIVERSAL::can  ;::ok  VERSION  "UNIVERSAL"',
+            'args' => '  qw (  isa can VERSION  )',
             'name' => 'UNIVERSAL'
           }
         ]

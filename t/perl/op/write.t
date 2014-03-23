@@ -18903,12 +18903,12 @@ $test
                    'line' => 618
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 618
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -19164,12 +19164,12 @@ $test
                    'line' => 624
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 624
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -19416,12 +19416,12 @@ $test
                    'line' => 630
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 630
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -19515,12 +19515,12 @@ $test
                    'line' => 631
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 631
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -19614,12 +19614,12 @@ $test
                    'line' => 632
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 632
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -19920,12 +19920,12 @@ $test
                    'line' => 641
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 641
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -21387,12 +21387,12 @@ $test
                    'line' => 662
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 662
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -30791,10 +30791,10 @@ $test
             'block_id' => 0
           },
           {
-            'token_num' => 324,
+            'token_num' => 338,
             'has_warnings' => 1,
             'end_line' => 667,
-            'src' => ' { package RT91032 ; sub TIESCALAR { bless [ ] } my $i = 0 ; sub FETCH { $i ++ ; "A$i @> Z\\n" } use overload \'""\' => \\ & FETCH ; tie my $f , \'RT91032\' ; formline $f , "a" ; formline $f , "bc" ;::is $^A , "A1  a Z\\nA2 bc Z\\n" , "RT 91032: tied" ; $^A = \'\' ; my $g = bless [ ] ; formline $g , "de" ; formline $g , "f" ;::is $^A , "A3 de Z\\nA4  f Z\\n" , "RT 91032: overloaded" ; $^A = \'\' ; my $h = [ ] ; formline $h , "junk1" ; formline $h , "junk2" ;::is ref ( $h ) , \'ARRAY\' , "RT 91032: array ref still a ref" ;::like "$h" , qr/^ARRAY\\(0x[0-9a-f]+\\)$/ , "RT 91032: array stringifies ok" ;::is $^A , "$h$h" , "RT 91032: stringified array" ; $^A = \'\' ; my $orig = my $format = "^<<<<< ~~\\n" ; my $abc = "abc" ; formline $format , $abc ; $^A = \'\' ;::is $format , $orig , "RT91032: don\'t overwrite orig format string" ; for my $n ( 1 , 2 ) { for my $lhs ( \' \' , \'Y\' , \'^<<<\' , \'^|||\' , \'^>>>\' ) { for my $rhs ( \'\' , \' \' , \'Z\' , \'^<<<\' , \'^|||\' , \'^>>>\' ) { my $fmt = "^<B$lhs" . ( \'~\' x $n ) . "$rhs\\n" ; my $sfmt = ( $fmt =~ s/~/ /gr ) ; my ( $a , $bc , $stop ) ; ( $a , $bc , $stop ) = ( \'a\' , \'bc\' , \'s\' ) ; formline $sfmt , $stop , $a , $bc ; my $exp = $^A ; $^A = \'\' ; ( $a , $bc , $stop ) = ( \'a\' , \'bc\' , \'s\' ) ; formline $fmt , $stop , $a , $bc ; my $got = $^A ; $^A = \'\' ; $fmt =~ s/\\n/\\\\n/ ;::is ( $got , $exp , "chop munging: [$fmt]" ) ; } } } }',
+            'src' => ' { package RT91032 ; sub TIESCALAR { bless [ ] } my $i = 0 ; sub FETCH { $i ++ ; "A$i @> Z\\n" } use overload \'""\' => \\ & FETCH ; tie my $f , \'RT91032\' ; formline $f , "a" ; formline $f , "bc" ; :: is $^A , "A1  a Z\\nA2 bc Z\\n" , "RT 91032: tied" ; $^A = \'\' ; my $g = bless [ ] ; formline $g , "de" ; formline $g , "f" ; :: is $^A , "A3 de Z\\nA4  f Z\\n" , "RT 91032: overloaded" ; $^A = \'\' ; my $h = [ ] ; formline $h , "junk1" ; formline $h , "junk2" ; :: is ref ( $h ) , \'ARRAY\' , "RT 91032: array ref still a ref" ; :: like "$h" , qr/^ARRAY\\(0x[0-9a-f]+\\)$/ , "RT 91032: array stringifies ok" ; :: is $^A , "$h$h" , "RT 91032: stringified array" ; $^A = \'\' ; my $orig = my $format = "^<<<<< ~~\\n" ; my $abc = "abc" ; formline $format , $abc ; $^A = \'\' ; :: is $format , $orig , "RT91032: don\'t overwrite orig format string" ; for my $n ( 1 , 2 ) { for my $lhs ( \' \' , \'Y\' , \'^<<<\' , \'^|||\' , \'^>>>\' ) { for my $rhs ( \'\' , \' \' , \'Z\' , \'^<<<\' , \'^|||\' , \'^>>>\' ) { my $fmt = "^<B$lhs" . ( \'~\' x $n ) . "$rhs\\n" ; my $sfmt = ( $fmt =~ s/~/ /gr ) ; my ( $a , $bc , $stop ) ; ( $a , $bc , $stop ) = ( \'a\' , \'bc\' , \'s\' ) ; formline $sfmt , $stop , $a , $bc ; my $exp = $^A ; $^A = \'\' ; ( $a , $bc , $stop ) = ( \'a\' , \'bc\' , \'s\' ) ; formline $fmt , $stop , $a , $bc ; my $got = $^A ; $^A = \'\' ; $fmt =~ s/\\n/\\\\n/ ; :: is ( $got , $exp , "chop munging: [$fmt]" ) ; } } } }',
             'start_line' => 606,
             'indent' => 0,
             'block_id' => 0
@@ -30872,11 +30872,20 @@ $test
             'block_id' => 40
           },
           {
-            'token_num' => 11,
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 618,
+            'src' => ' formline $f , "bc" ;',
+            'start_line' => 618,
+            'indent' => 1,
+            'block_id' => 40
+          },
+          {
+            'token_num' => 8,
             'has_warnings' => 1,
             'end_line' => 619,
-            'src' => ' formline $f , "bc" ;::is $^A , "A1  a Z\\nA2 bc Z\\n" , "RT 91032: tied" ;',
-            'start_line' => 618,
+            'src' => ' :: is $^A , "A1  a Z\\nA2 bc Z\\n" , "RT 91032: tied" ;',
+            'start_line' => 619,
             'indent' => 1,
             'block_id' => 40
           },
@@ -30908,11 +30917,20 @@ $test
             'block_id' => 40
           },
           {
-            'token_num' => 11,
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 624,
+            'src' => ' formline $g , "f" ;',
+            'start_line' => 624,
+            'indent' => 1,
+            'block_id' => 40
+          },
+          {
+            'token_num' => 8,
             'has_warnings' => 1,
             'end_line' => 625,
-            'src' => ' formline $g , "f" ;::is $^A , "A3 de Z\\nA4  f Z\\n" , "RT 91032: overloaded" ;',
-            'start_line' => 624,
+            'src' => ' :: is $^A , "A3 de Z\\nA4  f Z\\n" , "RT 91032: overloaded" ;',
+            'start_line' => 625,
             'indent' => 1,
             'block_id' => 40
           },
@@ -30944,11 +30962,38 @@ $test
             'block_id' => 40
           },
           {
-            'token_num' => 29,
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 630,
+            'src' => ' formline $h , "junk2" ;',
+            'start_line' => 630,
+            'indent' => 1,
+            'block_id' => 40
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 631,
+            'src' => ' :: is ref ( $h ) , \'ARRAY\' , "RT 91032: array ref still a ref" ;',
+            'start_line' => 631,
+            'indent' => 1,
+            'block_id' => 40
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 632,
+            'src' => ' :: like "$h" , qr/^ARRAY\\(0x[0-9a-f]+\\)$/ , "RT 91032: array stringifies ok" ;',
+            'start_line' => 632,
+            'indent' => 1,
+            'block_id' => 40
+          },
+          {
+            'token_num' => 8,
             'has_warnings' => 1,
             'end_line' => 633,
-            'src' => ' formline $h , "junk2" ;::is ref ( $h ) , \'ARRAY\' , "RT 91032: array ref still a ref" ;::like "$h" , qr/^ARRAY\\(0x[0-9a-f]+\\)$/ , "RT 91032: array stringifies ok" ;::is $^A , "$h$h" , "RT 91032: stringified array" ;',
-            'start_line' => 630,
+            'src' => ' :: is $^A , "$h$h" , "RT 91032: stringified array" ;',
+            'start_line' => 633,
             'indent' => 1,
             'block_id' => 40
           },
@@ -30989,37 +31034,46 @@ $test
             'block_id' => 40
           },
           {
-            'token_num' => 10,
-            'has_warnings' => 1,
-            'end_line' => 642,
-            'src' => ' $^A = \'\' ;::is $format , $orig , "RT91032: don\'t overwrite orig format string" ;',
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 641,
+            'src' => ' $^A = \'\' ;',
             'start_line' => 641,
             'indent' => 1,
             'block_id' => 40
           },
           {
-            'token_num' => 166,
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 642,
+            'src' => ' :: is $format , $orig , "RT91032: don\'t overwrite orig format string" ;',
+            'start_line' => 642,
+            'indent' => 1,
+            'block_id' => 40
+          },
+          {
+            'token_num' => 168,
             'has_warnings' => 1,
             'end_line' => 666,
-            'src' => ' for my $n ( 1 , 2 ) { for my $lhs ( \' \' , \'Y\' , \'^<<<\' , \'^|||\' , \'^>>>\' ) { for my $rhs ( \'\' , \' \' , \'Z\' , \'^<<<\' , \'^|||\' , \'^>>>\' ) { my $fmt = "^<B$lhs" . ( \'~\' x $n ) . "$rhs\\n" ; my $sfmt = ( $fmt =~ s/~/ /gr ) ; my ( $a , $bc , $stop ) ; ( $a , $bc , $stop ) = ( \'a\' , \'bc\' , \'s\' ) ; formline $sfmt , $stop , $a , $bc ; my $exp = $^A ; $^A = \'\' ; ( $a , $bc , $stop ) = ( \'a\' , \'bc\' , \'s\' ) ; formline $fmt , $stop , $a , $bc ; my $got = $^A ; $^A = \'\' ; $fmt =~ s/\\n/\\\\n/ ;::is ( $got , $exp , "chop munging: [$fmt]" ) ; } } }',
+            'src' => ' for my $n ( 1 , 2 ) { for my $lhs ( \' \' , \'Y\' , \'^<<<\' , \'^|||\' , \'^>>>\' ) { for my $rhs ( \'\' , \' \' , \'Z\' , \'^<<<\' , \'^|||\' , \'^>>>\' ) { my $fmt = "^<B$lhs" . ( \'~\' x $n ) . "$rhs\\n" ; my $sfmt = ( $fmt =~ s/~/ /gr ) ; my ( $a , $bc , $stop ) ; ( $a , $bc , $stop ) = ( \'a\' , \'bc\' , \'s\' ) ; formline $sfmt , $stop , $a , $bc ; my $exp = $^A ; $^A = \'\' ; ( $a , $bc , $stop ) = ( \'a\' , \'bc\' , \'s\' ) ; formline $fmt , $stop , $a , $bc ; my $got = $^A ; $^A = \'\' ; $fmt =~ s/\\n/\\\\n/ ; :: is ( $got , $exp , "chop munging: [$fmt]" ) ; } } }',
             'start_line' => 647,
             'indent' => 1,
             'block_id' => 40
           },
           {
-            'token_num' => 156,
+            'token_num' => 158,
             'has_warnings' => 1,
             'end_line' => 665,
-            'src' => ' for my $lhs ( \' \' , \'Y\' , \'^<<<\' , \'^|||\' , \'^>>>\' ) { for my $rhs ( \'\' , \' \' , \'Z\' , \'^<<<\' , \'^|||\' , \'^>>>\' ) { my $fmt = "^<B$lhs" . ( \'~\' x $n ) . "$rhs\\n" ; my $sfmt = ( $fmt =~ s/~/ /gr ) ; my ( $a , $bc , $stop ) ; ( $a , $bc , $stop ) = ( \'a\' , \'bc\' , \'s\' ) ; formline $sfmt , $stop , $a , $bc ; my $exp = $^A ; $^A = \'\' ; ( $a , $bc , $stop ) = ( \'a\' , \'bc\' , \'s\' ) ; formline $fmt , $stop , $a , $bc ; my $got = $^A ; $^A = \'\' ; $fmt =~ s/\\n/\\\\n/ ;::is ( $got , $exp , "chop munging: [$fmt]" ) ; } }',
+            'src' => ' for my $lhs ( \' \' , \'Y\' , \'^<<<\' , \'^|||\' , \'^>>>\' ) { for my $rhs ( \'\' , \' \' , \'Z\' , \'^<<<\' , \'^|||\' , \'^>>>\' ) { my $fmt = "^<B$lhs" . ( \'~\' x $n ) . "$rhs\\n" ; my $sfmt = ( $fmt =~ s/~/ /gr ) ; my ( $a , $bc , $stop ) ; ( $a , $bc , $stop ) = ( \'a\' , \'bc\' , \'s\' ) ; formline $sfmt , $stop , $a , $bc ; my $exp = $^A ; $^A = \'\' ; ( $a , $bc , $stop ) = ( \'a\' , \'bc\' , \'s\' ) ; formline $fmt , $stop , $a , $bc ; my $got = $^A ; $^A = \'\' ; $fmt =~ s/\\n/\\\\n/ ; :: is ( $got , $exp , "chop munging: [$fmt]" ) ; } }',
             'start_line' => 648,
             'indent' => 2,
             'block_id' => 43
           },
           {
-            'token_num' => 140,
+            'token_num' => 142,
             'has_warnings' => 1,
             'end_line' => 664,
-            'src' => ' for my $rhs ( \'\' , \' \' , \'Z\' , \'^<<<\' , \'^|||\' , \'^>>>\' ) { my $fmt = "^<B$lhs" . ( \'~\' x $n ) . "$rhs\\n" ; my $sfmt = ( $fmt =~ s/~/ /gr ) ; my ( $a , $bc , $stop ) ; ( $a , $bc , $stop ) = ( \'a\' , \'bc\' , \'s\' ) ; formline $sfmt , $stop , $a , $bc ; my $exp = $^A ; $^A = \'\' ; ( $a , $bc , $stop ) = ( \'a\' , \'bc\' , \'s\' ) ; formline $fmt , $stop , $a , $bc ; my $got = $^A ; $^A = \'\' ; $fmt =~ s/\\n/\\\\n/ ;::is ( $got , $exp , "chop munging: [$fmt]" ) ; }',
+            'src' => ' for my $rhs ( \'\' , \' \' , \'Z\' , \'^<<<\' , \'^|||\' , \'^>>>\' ) { my $fmt = "^<B$lhs" . ( \'~\' x $n ) . "$rhs\\n" ; my $sfmt = ( $fmt =~ s/~/ /gr ) ; my ( $a , $bc , $stop ) ; ( $a , $bc , $stop ) = ( \'a\' , \'bc\' , \'s\' ) ; formline $sfmt , $stop , $a , $bc ; my $exp = $^A ; $^A = \'\' ; ( $a , $bc , $stop ) = ( \'a\' , \'bc\' , \'s\' ) ; formline $fmt , $stop , $a , $bc ; my $got = $^A ; $^A = \'\' ; $fmt =~ s/\\n/\\\\n/ ; :: is ( $got , $exp , "chop munging: [$fmt]" ) ; }',
             'start_line' => 649,
             'indent' => 3,
             'block_id' => 44
@@ -31124,11 +31178,20 @@ $test
             'block_id' => 45
           },
           {
-            'token_num' => 17,
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 662,
+            'src' => ' $fmt =~ s/\\n/\\\\n/ ;',
+            'start_line' => 662,
+            'indent' => 4,
+            'block_id' => 45
+          },
+          {
+            'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 663,
-            'src' => ' $fmt =~ s/\\n/\\\\n/ ;::is ( $got , $exp , "chop munging: [$fmt]" ) ;',
-            'start_line' => 662,
+            'src' => ' :: is ( $got , $exp , "chop munging: [$fmt]" ) ;',
+            'start_line' => 663,
             'indent' => 4,
             'block_id' => 45
           },

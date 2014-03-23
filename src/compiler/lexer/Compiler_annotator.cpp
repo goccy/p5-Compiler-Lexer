@@ -92,6 +92,8 @@ void Annotator::annotateNamespace(LexContext *ctx, const string &data, Token *tk
 			if (info->type != Undefined) return;
 			annotateGlobalVariable(ctx, data, tk, info);
 			if (info->type != Undefined) return;
+		} else if (data_front > 0 && !isalnum(data_front) && data_front != '_') {
+			return;
 		}
 		*info = ctx->tmgr->getTokenInfo(Namespace);
 	} else if (ctx->prev_type == NamespaceResolver) {

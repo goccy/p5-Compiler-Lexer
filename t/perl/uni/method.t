@@ -640,12 +640,12 @@ subtest 'tokenize' => sub {
                    'line' => 22
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 22
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -757,12 +757,12 @@ subtest 'tokenize' => sub {
                    'line' => 23
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 23
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -874,12 +874,12 @@ subtest 'tokenize' => sub {
                    'line' => 24
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 24
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10270,12 +10270,12 @@ subtest 'tokenize' => sub {
                    'line' => 188
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 188
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10495,12 +10495,12 @@ subtest 'tokenize' => sub {
                    'line' => 198
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 198
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10621,12 +10621,12 @@ subtest 'tokenize' => sub {
                    'line' => 200
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 200
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10747,12 +10747,12 @@ subtest 'tokenize' => sub {
                    'line' => 201
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 201
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10918,11 +10918,1055 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 7,
+            'token_num' => 6,
             'has_warnings' => 1,
             'end_line' => 22,
-            'src' => ' sub F::ｂ {::is shift , "F" ;',
+            'src' => ' :: is shift , "F" ;',
             'start_line' => 22,
+            'indent' => 1,
+            'block_id' => 2
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 23,
+            'src' => ' :: is shift , "Ｆ" ;',
+            'start_line' => 23,
+            'indent' => 1,
+            'block_id' => 3
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 24,
+            'src' => ' :: is shift , "Ｆ" ;',
+            'start_line' => 24,
+            'indent' => 1,
+            'block_id' => 4
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 26,
+            'src' => ' is ( F-> ｂ , "UTF8 meth" , "If the method is in UTF-8, lookup works through explicitly named methods" ) ;',
+            'start_line' => 26,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 27,
+            'src' => ' is ( F-> ${ \\ "ｂ" } , "UTF8 meth" , \'..as does for ->${\\""}\' ) ;',
+            'start_line' => 27,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 28,
+            'src' => ' eval { F-> ${ \\ "ｂ\\0nul" } } ;',
+            'start_line' => 28,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 29,
+            'src' => ' ok $@ , "If the method is in UTF-8, lookup is nul-clean" ;',
+            'start_line' => 29,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 31,
+            'src' => ' is ( Ｆ-> b , "UTF8 Stash" , "If the stash is in UTF-8, lookup works through explicitly named methods" ) ;',
+            'start_line' => 31,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 32,
+            'src' => ' is ( Ｆ-> ${ \\ "b" } , "UTF8 Stash" , \'..as does for ->${\\""}\' ) ;',
+            'start_line' => 32,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 33,
+            'src' => ' eval { Ｆ-> ${ \\ "b\\0nul" } } ;',
+            'start_line' => 33,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 34,
+            'src' => ' ok $@ , "If the stash is in UTF-8, lookup is nul-clean" ;',
+            'start_line' => 34,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 36,
+            'src' => ' is ( Ｆ-> ｂ , "UTF8 Stash&meth" , "If both stash and method are in UTF-8, lookup works through explicitly named methods" ) ;',
+            'start_line' => 36,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 37,
+            'src' => ' is ( Ｆ-> ${ \\ "ｂ" } , "UTF8 Stash&meth" , \'..as does for ->${\\""}\' ) ;',
+            'start_line' => 37,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 38,
+            'src' => ' eval { Ｆ-> ${ \\ "ｂ\\0nul" } } ;',
+            'start_line' => 38,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 39,
+            'src' => ' ok $@ , "Even if both stash and method are in UTF-8, lookup is nul-clean" ;',
+            'start_line' => 39,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 41,
+            'src' => ' eval { my $ref = \\ my $var ; $ref-> ｍｅｔｈｏｄ } ;',
+            'start_line' => 41,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 41,
+            'src' => ' my $ref = \\ my $var ;',
+            'start_line' => 41,
+            'indent' => 0,
+            'block_id' => 4
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 42,
+            'src' => ' like $@ , qr/Can\'t call method "ｍｅｔｈｏｄ" on unblessed reference /u ;',
+            'start_line' => 42,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 121,
+            'has_warnings' => 1,
+            'end_line' => 67,
+            'src' => ' { use utf8 ; use open qw( :utf8 :std ) ; my $e ; eval \'$e = bless {}, "Ｅ::Ａ"; Ｅ::Ａ->ｆｏｏ()\' ; like ( $@ , qr/^\\QCan\'t locate object method "ｆｏｏ" via package "Ｅ::Ａ" at/u ) ; eval \'$e = bless {}, "Ｅ::Ｂ"; $e->ｆｏｏ()\' ; like ( $@ , qr/^\\QCan\'t locate object method "ｆｏｏ" via package "Ｅ::Ｂ" at/u ) ; eval \'Ｅ::Ｃ->ｆｏｏ()\' ; like ( $@ , qr/^\\QCan\'t locate object method "ｆｏｏ" via package "Ｅ::Ｃ" (perhaps /u ) ; eval \'UNIVERSAL->Ｅ::Ｄ::ｆｏｏ()\' ; like ( $@ , qr/^\\QCan\'t locate object method "ｆｏｏ" via package "Ｅ::Ｄ" (perhaps /u ) ; eval \'my $e = bless {}, "UNIVERSAL"; $e->Ｅ::Ｅ::ｆｏｏ()\' ; like ( $@ , qr/^\\QCan\'t locate object method "ｆｏｏ" via package "Ｅ::Ｅ" (perhaps /u ) ; $e = bless { } , "Ｅ::Ｆ" ; eval \'UNIVERSAL->Ｅ::Ｆ::ｆｏｏ()\' ; like ( $@ , qr/^\\QCan\'t locate object method "ｆｏｏ" via package "Ｅ::Ｆ" at/u ) ; eval \'$e = bless {}, "UNIVERSAL"; $e->Ｅ::Ｆ::ｆｏｏ()\' ; like ( $@ , qr/^\\QCan\'t locate object method "ｆｏｏ" via package "Ｅ::Ｆ" at/u ) ; }',
+            'start_line' => 44,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 45,
+            'src' => ' use utf8 ;',
+            'start_line' => 45,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 46,
+            'src' => ' use open qw( :utf8 :std ) ;',
+            'start_line' => 46,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 48,
+            'src' => ' my $e ;',
+            'start_line' => 48,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 50,
+            'src' => ' eval \'$e = bless {}, "Ｅ::Ａ"; Ｅ::Ａ->ｆｏｏ()\' ;',
+            'start_line' => 50,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 51,
+            'src' => ' like ( $@ , qr/^\\QCan\'t locate object method "ｆｏｏ" via package "Ｅ::Ａ" at/u ) ;',
+            'start_line' => 51,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 52,
+            'src' => ' eval \'$e = bless {}, "Ｅ::Ｂ"; $e->ｆｏｏ()\' ;',
+            'start_line' => 52,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 53,
+            'src' => ' like ( $@ , qr/^\\QCan\'t locate object method "ｆｏｏ" via package "Ｅ::Ｂ" at/u ) ;',
+            'start_line' => 53,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 54,
+            'src' => ' eval \'Ｅ::Ｃ->ｆｏｏ()\' ;',
+            'start_line' => 54,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 55,
+            'src' => ' like ( $@ , qr/^\\QCan\'t locate object method "ｆｏｏ" via package "Ｅ::Ｃ" (perhaps /u ) ;',
+            'start_line' => 55,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 57,
+            'src' => ' eval \'UNIVERSAL->Ｅ::Ｄ::ｆｏｏ()\' ;',
+            'start_line' => 57,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 58,
+            'src' => ' like ( $@ , qr/^\\QCan\'t locate object method "ｆｏｏ" via package "Ｅ::Ｄ" (perhaps /u ) ;',
+            'start_line' => 58,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 59,
+            'src' => ' eval \'my $e = bless {}, "UNIVERSAL"; $e->Ｅ::Ｅ::ｆｏｏ()\' ;',
+            'start_line' => 59,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 60,
+            'src' => ' like ( $@ , qr/^\\QCan\'t locate object method "ｆｏｏ" via package "Ｅ::Ｅ" (perhaps /u ) ;',
+            'start_line' => 60,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 62,
+            'src' => ' $e = bless { } , "Ｅ::Ｆ" ;',
+            'start_line' => 62,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 63,
+            'src' => ' eval \'UNIVERSAL->Ｅ::Ｆ::ｆｏｏ()\' ;',
+            'start_line' => 63,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 64,
+            'src' => ' like ( $@ , qr/^\\QCan\'t locate object method "ｆｏｏ" via package "Ｅ::Ｆ" at/u ) ;',
+            'start_line' => 64,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 65,
+            'src' => ' eval \'$e = bless {}, "UNIVERSAL"; $e->Ｅ::Ｆ::ｆｏｏ()\' ;',
+            'start_line' => 65,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 66,
+            'src' => ' like ( $@ , qr/^\\QCan\'t locate object method "ｆｏｏ" via package "Ｅ::Ｆ" at/u ) ;',
+            'start_line' => 66,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 32,
+            'has_warnings' => 1,
+            'end_line' => 70,
+            'src' => ' is ( do { use utf8 ; use open qw( :utf8 :std ) ; eval \'Ｆｏｏ->ｂｏｏｇｉｅ()\' ; $@ =~/^\\QCan\'t locate object method "ｂｏｏｇｉｅ" via package "Ｆｏｏ" (perhaps /u ? 1 : $@ } , 1 ) ;',
+            'start_line' => 69,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 26,
+            'has_warnings' => 0,
+            'end_line' => 70,
+            'src' => ' do { use utf8 ; use open qw( :utf8 :std ) ; eval \'Ｆｏｏ->ｂｏｏｇｉｅ()\' ; $@ =~/^\\QCan\'t locate object method "ｂｏｏｇｉｅ" via package "Ｆｏｏ" (perhaps /u ? 1 : $@ }',
+            'start_line' => 69,
+            'indent' => 0,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 69,
+            'src' => ' use utf8 ;',
+            'start_line' => 69,
+            'indent' => 1,
+            'block_id' => 6
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 69,
+            'src' => ' use open qw( :utf8 :std ) ;',
+            'start_line' => 69,
+            'indent' => 1,
+            'block_id' => 6
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 69,
+            'src' => ' eval \'Ｆｏｏ->ｂｏｏｇｉｅ()\' ;',
+            'start_line' => 69,
+            'indent' => 1,
+            'block_id' => 6
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 75,
+            'src' => ' skip_if_miniperl ( \'no dynamic loading on miniperl, no Encode\' ) ;',
+            'start_line' => 75,
+            'indent' => 1,
+            'block_id' => 7
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 0,
+            'end_line' => 77,
+            'src' => ' my $prog = q!use utf8; use open qw( :utf8 :std ); sub Ｔ::DESTROY { $x = $_[0]; } bless [], "Ｔ";! ;',
+            'start_line' => 77,
+            'indent' => 1,
+            'block_id' => 7
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 78,
+            'src' => ' utf8::decode ( $prog ) ;',
+            'start_line' => 78,
+            'indent' => 1,
+            'block_id' => 7
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 80,
+            'src' => ' my $tmpfile = tempfile ( ) ;',
+            'start_line' => 80,
+            'indent' => 1,
+            'block_id' => 7
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 81,
+            'src' => ' my $runperl_args = { } ;',
+            'start_line' => 81,
+            'indent' => 1,
+            'block_id' => 7
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 82,
+            'src' => ' $runperl_args-> { progfile } = $tmpfile ;',
+            'start_line' => 82,
+            'indent' => 1,
+            'block_id' => 7
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 83,
+            'src' => ' $runperl_args-> { stderr } = 1 ;',
+            'start_line' => 83,
+            'indent' => 1,
+            'block_id' => 7
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 85,
+            'src' => ' open TEST , \'>\' , $tmpfile or die "Cannot open $tmpfile: $!" ;',
+            'start_line' => 85,
+            'indent' => 1,
+            'block_id' => 7
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 87,
+            'src' => ' print TEST $prog ;',
+            'start_line' => 87,
+            'indent' => 1,
+            'block_id' => 7
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 88,
+            'src' => ' close TEST or die "Cannot close $tmpfile: $!" ;',
+            'start_line' => 88,
+            'indent' => 1,
+            'block_id' => 7
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 90,
+            'src' => ' my $results = runperl ( %$runperl_args ) ;',
+            'start_line' => 90,
+            'indent' => 1,
+            'block_id' => 7
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 92,
+            'src' => ' require Encode ;',
+            'start_line' => 92,
+            'indent' => 1,
+            'block_id' => 7
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 93,
+            'src' => ' $results = Encode::decode ( "UTF-8" , $results ) ;',
+            'start_line' => 93,
+            'indent' => 1,
+            'block_id' => 7
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 97,
+            'src' => ' like ( $results , qr/DESTROY created new reference to dead object \'Ｔ\' during global destruction./u , "DESTROY creating a new reference to the object generates a warning in UTF-8." ) ;',
+            'start_line' => 95,
+            'indent' => 1,
+            'block_id' => 7
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 0,
+            'end_line' => 101,
+            'src' => ' sub new { bless { } , shift }',
+            'start_line' => 101,
+            'indent' => 1,
+            'block_id' => 9
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 0,
+            'end_line' => 102,
+            'src' => ' sub nèw { bless { } , shift }',
+            'start_line' => 102,
+            'indent' => 1,
+            'block_id' => 9
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 105,
+            'src' => ' like ( Føø::Bær::new ( "Føø::Bær" ) , qr/Føø::Bær=HASH/u , \'Can access new directly through a UTF-8 package.\' ) ;',
+            'start_line' => 105,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 106,
+            'src' => ' like ( Føø::Bær-> new , qr/Føø::Bær=HASH/u , \'Can access new as a method through a UTF-8 package.\' ) ;',
+            'start_line' => 106,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 107,
+            'src' => ' like ( Føø::Bær::nèw ( "Føø::Bær" ) , qr/Føø::Bær=HASH/u , \'Can access nèw directly through a UTF-8 package.\' ) ;',
+            'start_line' => 107,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 108,
+            'src' => ' like ( Føø::Bær-> nèw , qr/Føø::Bær=HASH/u , \'Can access nèw as a method through a UTF-8 package.\' ) ;',
+            'start_line' => 108,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 110,
+            'src' => ' is ( ref Føø::Bær-> new , \'Føø::Bær\' ) ;',
+            'start_line' => 110,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 112,
+            'src' => ' my $new_ascii = "new" ;',
+            'start_line' => 112,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 113,
+            'src' => ' my $new_latin = "nèw" ;',
+            'start_line' => 113,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 114,
+            'src' => ' my $new_utf8 = "n\\303\\250w" ;',
+            'start_line' => 114,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 115,
+            'src' => ' my $newoct = "n\\303\\250w" ;',
+            'start_line' => 115,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 116,
+            'src' => ' utf8::decode ( $new_utf8 ) ;',
+            'start_line' => 116,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 118,
+            'src' => ' like ( Føø::Bær-> $new_ascii , qr/Føø::Bær=HASH/u , "Can access \\$new_ascii, [$new_ascii], stored in a scalar, as a method, through a UTF-8 package." ) ;',
+            'start_line' => 118,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 119,
+            'src' => ' like ( Føø::Bær-> $new_latin , qr/Føø::Bær=HASH/u , "Can access \\$new_latin, [$new_latin], stored in a scalar, as a method, through a UTF-8 package." ) ;',
+            'start_line' => 119,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 120,
+            'src' => ' like ( Føø::Bær-> $new_utf8 , qr/Føø::Bær=HASH/u , "Can access \\$new_utf8, [$new_utf8], stored in a scalar, as a method, through a UTF-8 package." ) ;',
+            'start_line' => 120,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 25,
+            'has_warnings' => 1,
+            'end_line' => 125,
+            'src' => ' { local $@ ; eval { Føø::Bær-> $newoct } ; like ( $@ , qr/Can\'t locate object method "n\\303\\250w" via package "Føø::Bær"/u , "Can\'t access [$newoct], stored in a scalar, as a method through a UTF-8 package." ) ; }',
+            'start_line' => 121,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 122,
+            'src' => ' local $@ ;',
+            'start_line' => 122,
+            'indent' => 1,
+            'block_id' => 12
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 123,
+            'src' => ' eval { Føø::Bær-> $newoct } ;',
+            'start_line' => 123,
+            'indent' => 1,
+            'block_id' => 12
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 124,
+            'src' => ' like ( $@ , qr/Can\'t locate object method "n\\303\\250w" via package "Føø::Bær"/u , "Can\'t access [$newoct], stored in a scalar, as a method through a UTF-8 package." ) ;',
+            'start_line' => 124,
+            'indent' => 1,
+            'block_id' => 12
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 128,
+            'src' => ' like ( nèw Føø::Bær , qr/Føø::Bær=HASH/u , "Can access [nèw] as a method through a UTF-8 indirect object package." ) ;',
+            'start_line' => 128,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 130,
+            'src' => ' my $pkg_latin_1 = \'Føø::Bær\' ;',
+            'start_line' => 130,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 132,
+            'src' => ' like ( $pkg_latin_1-> new , qr/Føø::Bær=HASH/u , \'Can access new as a method when the UTF-8 package name is in a scalar.\' ) ;',
+            'start_line' => 132,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 133,
+            'src' => ' like ( $pkg_latin_1-> nèw , qr/Føø::Bær=HASH/u , \'Can access nèw as a method when the UTF-8 package name is in a scalar.\' ) ;',
+            'start_line' => 133,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 135,
+            'src' => ' like ( $pkg_latin_1-> $new_ascii , qr/Føø::Bær=HASH/u , "Can access \\$new_ascii, [$new_ascii], stored in a scalar, as a method, when the UTF-8 package name is also in a scalar." ) ;',
+            'start_line' => 135,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 136,
+            'src' => ' like ( $pkg_latin_1-> $new_latin , qr/Føø::Bær=HASH/u , "Can access \\$new_latin, [$new_latin], stored in a scalar, as a method, when the UTF-8 package name is also in a scalar." ) ;',
+            'start_line' => 136,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 137,
+            'src' => ' like ( $pkg_latin_1-> $new_utf8 , qr/Føø::Bær=HASH/u , "Can access \\$new_utf8, [$new_utf8], stored in a scalar, as a method, when the UTF-8 package name is also in a scalar." ) ;',
+            'start_line' => 137,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 25,
+            'has_warnings' => 1,
+            'end_line' => 142,
+            'src' => ' { local $@ ; eval { $pkg_latin_1-> $newoct } ; like ( $@ , qr/Can\'t locate object method "n\\303\\250w" via package "Føø::Bær"/u , "Can\'t access [$newoct], stored in a scalar, as a method, when the UTF-8 package name is also in a scalar." ) ; }',
+            'start_line' => 138,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 139,
+            'src' => ' local $@ ;',
+            'start_line' => 139,
+            'indent' => 1,
+            'block_id' => 13
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 140,
+            'src' => ' eval { $pkg_latin_1-> $newoct } ;',
+            'start_line' => 140,
+            'indent' => 1,
+            'block_id' => 13
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 141,
+            'src' => ' like ( $@ , qr/Can\'t locate object method "n\\303\\250w" via package "Føø::Bær"/u , "Can\'t access [$newoct], stored in a scalar, as a method, when the UTF-8 package name is also in a scalar." ) ;',
+            'start_line' => 141,
+            'indent' => 1,
+            'block_id' => 13
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 144,
+            'src' => ' ok ! ! Føø::Bær-> can ( $new_ascii ) , "->can works for [$new_ascii]" ;',
+            'start_line' => 144,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 145,
+            'src' => ' ok ! ! Føø::Bær-> can ( $new_latin ) , "->can works for [$new_latin]" ;',
+            'start_line' => 145,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 17,
+            'has_warnings' => 1,
+            'end_line' => 146,
+            'src' => ' ok ( ( not ! ! Føø::Bær-> can ( $newoct ) ) , "->can doesn\'t work for [$newoct]" ) ;',
+            'start_line' => 146,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 0,
+            'end_line' => 149,
+            'src' => ' sub new { bless { } , shift }',
+            'start_line' => 149,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 0,
+            'end_line' => 150,
+            'src' => ' sub ニュー { bless { } , shift }',
+            'start_line' => 150,
+            'indent' => 1,
+            'block_id' => 14
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 153,
+            'src' => ' like ( クラス::new ( "クラス" ) , qr/クラス=HASH/u ) ;',
+            'start_line' => 153,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 154,
+            'src' => ' like ( クラス-> new , qr/クラス=HASH/u ) ;',
+            'start_line' => 154,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 156,
+            'src' => ' like ( クラス::ニュー ( "クラス" ) , qr/クラス=HASH/u ) ;',
+            'start_line' => 156,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 157,
+            'src' => ' like ( クラス-> ニュー , qr/クラス=HASH/u ) ;',
+            'start_line' => 157,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 159,
+            'src' => ' like ( ニュー クラス , qr/クラス=HASH/u , "Indirect object is UTF-8, as is the class." ) ;',
+            'start_line' => 159,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 161,
+            'src' => ' is ( ref クラス-> new , \'クラス\' ) ;',
+            'start_line' => 161,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 162,
+            'src' => ' is ( ref クラス-> ニュー , \'クラス\' ) ;',
+            'start_line' => 162,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 0,
+            'end_line' => 165,
+            'src' => ' our @ISA = qw( Føø::Bær ) ;',
+            'start_line' => 165,
+            'indent' => 1,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 169,
+            'src' => ' use parent qw( -norequire Føø::Bær ) ;',
+            'start_line' => 169,
+            'indent' => 1,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 173,
+            'src' => ' use parent qw( -norequire Føø::Bær クラス ) ;',
+            'start_line' => 173,
+            'indent' => 1,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 176,
+            'src' => ' ok ( Foo::Bar-> new , \'Simple inheritance works by pushing into @ISA,\' ) ;',
+            'start_line' => 176,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 177,
+            'src' => ' ok ( Foo::Bar-> nèw , \'Even with UTF-8 methods\' ) ;',
+            'start_line' => 177,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 179,
+            'src' => ' ok ( Foo::Bàz-> new , \'Simple inheritance works with parent using -norequire,\' ) ;',
+            'start_line' => 179,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 180,
+            'src' => ' ok ( Foo::Bàz-> nèw , \'Even with UTF-8 methods\' ) ;',
+            'start_line' => 180,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 182,
+            'src' => ' ok ( ฟọ::バッズ-> new , \'parent using -norequire, in a UTF-8 package.\' ) ;',
+            'start_line' => 182,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 183,
+            'src' => ' ok ( ฟọ::バッズ-> nèw , \'Also works with UTF-8 methods\' ) ;',
+            'start_line' => 183,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 184,
+            'src' => ' ok ( ฟọ::バッズ-> ニュー , \'Even methods from an UTF-8 parent\' ) ;',
+            'start_line' => 184,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 186,
+            'src' => ' no strict \'refs\' ;',
+            'start_line' => 186,
+            'indent' => 1,
+            'block_id' => 20
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 191,
+            'src' => ' sub AUTOLOAD { :: is our $AUTOLOAD , "\\xff::\\x{100}" , \'$AUTOLOAD made from Latin1 package + UTF8 sub\' ; }',
+            'start_line' => 188,
+            'indent' => 1,
+            'block_id' => 21
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 190,
+            'src' => ' :: is our $AUTOLOAD , "\\xff::\\x{100}" , \'$AUTOLOAD made from Latin1 package + UTF8 sub\' ;',
+            'start_line' => 189,
+            'indent' => 2,
+            'block_id' => 22
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 193,
+            'src' => ' ÿ-> ${ \\ "\\x{100}" } ;',
+            'start_line' => 193,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 197,
+            'src' => ' package ʑ ;',
+            'start_line' => 197,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 198,
+            'src' => ' no strict \'refs\' ;',
+            'start_line' => 198,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 200,
+            'src' => ' :: ok ( * { "ʑ::DATA" } { IO } , "DATA is generated in the right glob" ) ;',
+            'start_line' => 200,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 201,
+            'src' => ' :: ok ! defined ( * { "main::DATA" } { IO } ) ;',
+            'start_line' => 201,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 202,
+            'src' => ' :: is scalar < DATA > , "Some data\\n" ;',
+            'start_line' => 202,
             'indent' => 0,
             'block_id' => 0
           }
@@ -10944,6 +11988,30 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '  qw (  :utf8 :std  )',
             'name' => 'open'
+          },
+          {
+            'args' => '',
+            'name' => 'utf8'
+          },
+          {
+            'args' => '  qw (  :utf8 :std  )',
+            'name' => 'open'
+          },
+          {
+            'args' => '',
+            'name' => 'utf8'
+          },
+          {
+            'args' => '  qw (  :utf8 :std  )',
+            'name' => 'open'
+          },
+          {
+            'args' => '  qw (  -norequire Føø::Bær  )',
+            'name' => 'parent'
+          },
+          {
+            'args' => '  qw (  -norequire Føø::Bær クラス  )',
+            'name' => 'parent'
           }
         ]
 , 'Compiler::Lexer::get_used_modules');

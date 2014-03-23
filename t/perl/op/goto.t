@@ -10740,12 +10740,12 @@ YYY: print "OK\\n";
                    'line' => 310
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 310
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10902,12 +10902,12 @@ YYY: print "OK\\n";
                    'line' => 311
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 311
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -24081,10 +24081,10 @@ YYY: print "OK\\n";
             'block_id' => 39
           },
           {
-            'token_num' => 42,
+            'token_num' => 89,
             'has_warnings' => 1,
-            'end_line' => 311,
-            'src' => ' { my $i ; package Foo ; sub DESTROY { my $s = shift ;::is ( $s-> [ 0 ] , $i , "destroy $i" ) ; } sub show {::is ( + @_ , 5 , "show $i" , ) ; }',
+            'end_line' => 314,
+            'src' => ' { my $i ; package Foo ; sub DESTROY { my $s = shift ; :: is ( $s-> [ 0 ] , $i , "destroy $i" ) ; } sub show { :: is ( + @_ , 5 , "show $i" , ) ; } sub start { push @_ , 1 , "foo" , { } ; goto & show ; } for ( 1 .. 3 ) { $i = $_ ; start ( bless ( [ $_ ] ) , \'bar\' ) ; } }',
             'start_line' => 307,
             'indent' => 0,
             'block_id' => 0
@@ -24108,31 +24108,49 @@ YYY: print "OK\\n";
             'block_id' => 40
           },
           {
-            'token_num' => 21,
+            'token_num' => 23,
             'has_warnings' => 1,
             'end_line' => 310,
-            'src' => ' sub DESTROY { my $s = shift ;::is ( $s-> [ 0 ] , $i , "destroy $i" ) ; }',
+            'src' => ' sub DESTROY { my $s = shift ; :: is ( $s-> [ 0 ] , $i , "destroy $i" ) ; }',
             'start_line' => 310,
             'indent' => 1,
             'block_id' => 40
           },
           {
-            'token_num' => 17,
-            'has_warnings' => 1,
+            'token_num' => 5,
+            'has_warnings' => 0,
             'end_line' => 310,
-            'src' => ' my $s = shift ;::is ( $s-> [ 0 ] , $i , "destroy $i" ) ;',
+            'src' => ' my $s = shift ;',
             'start_line' => 310,
             'indent' => 2,
             'block_id' => 41
           },
           {
-            'token_num' => 13,
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 310,
+            'src' => ' :: is ( $s-> [ 0 ] , $i , "destroy $i" ) ;',
+            'start_line' => 310,
+            'indent' => 2,
+            'block_id' => 41
+          },
+          {
+            'token_num' => 16,
             'has_warnings' => 1,
             'end_line' => 311,
-            'src' => ' sub show {::is ( + @_ , 5 , "show $i" , ) ;',
+            'src' => ' sub show { :: is ( + @_ , 5 , "show $i" , ) ; }',
             'start_line' => 311,
             'indent' => 1,
             'block_id' => 40
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 311,
+            'src' => ' :: is ( + @_ , 5 , "show $i" , ) ;',
+            'start_line' => 311,
+            'indent' => 2,
+            'block_id' => 42
           },
           {
             'token_num' => 18,
@@ -24140,8 +24158,8 @@ YYY: print "OK\\n";
             'end_line' => 312,
             'src' => ' sub start { push @_ , 1 , "foo" , { } ; goto & show ; }',
             'start_line' => 312,
-            'indent' => 0,
-            'block_id' => 0
+            'indent' => 1,
+            'block_id' => 40
           },
           {
             'token_num' => 10,
@@ -24149,8 +24167,8 @@ YYY: print "OK\\n";
             'end_line' => 312,
             'src' => ' push @_ , 1 , "foo" , { } ;',
             'start_line' => 312,
-            'indent' => 1,
-            'block_id' => 42
+            'indent' => 2,
+            'block_id' => 43
           },
           {
             'token_num' => 4,
@@ -24158,8 +24176,8 @@ YYY: print "OK\\n";
             'end_line' => 312,
             'src' => ' goto & show ;',
             'start_line' => 312,
-            'indent' => 1,
-            'block_id' => 42
+            'indent' => 2,
+            'block_id' => 43
           },
           {
             'token_num' => 24,
@@ -24167,8 +24185,8 @@ YYY: print "OK\\n";
             'end_line' => 313,
             'src' => ' for ( 1 .. 3 ) { $i = $_ ; start ( bless ( [ $_ ] ) , \'bar\' ) ; }',
             'start_line' => 313,
-            'indent' => 0,
-            'block_id' => 0
+            'indent' => 1,
+            'block_id' => 40
           },
           {
             'token_num' => 4,
@@ -24176,8 +24194,8 @@ YYY: print "OK\\n";
             'end_line' => 313,
             'src' => ' $i = $_ ;',
             'start_line' => 313,
-            'indent' => 1,
-            'block_id' => 44
+            'indent' => 2,
+            'block_id' => 45
           },
           {
             'token_num' => 12,
@@ -24185,8 +24203,1728 @@ YYY: print "OK\\n";
             'end_line' => 313,
             'src' => ' start ( bless ( [ $_ ] ) , \'bar\' ) ;',
             'start_line' => 313,
+            'indent' => 2,
+            'block_id' => 45
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 318,
+            'src' => ' sub auto { goto & loadit ; }',
+            'start_line' => 316,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 317,
+            'src' => ' goto & loadit ;',
+            'start_line' => 317,
             'indent' => 1,
-            'block_id' => 44
+            'block_id' => 46
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 320,
+            'src' => ' sub AUTOLOAD { $ok = 1 if "@_" eq "foo" }',
+            'start_line' => 320,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 322,
+            'src' => ' $ok = 0 ;',
+            'start_line' => 322,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 323,
+            'src' => ' auto ( "foo" ) ;',
+            'start_line' => 323,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 324,
+            'src' => ' ok ( $ok , \'autoload\' ) ;',
+            'start_line' => 324,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 329,
+            'src' => ' { my $wherever = \'FINALE\' ; goto $wherever ; }',
+            'start_line' => 326,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 327,
+            'src' => ' my $wherever = \'FINALE\' ;',
+            'start_line' => 327,
+            'indent' => 1,
+            'block_id' => 48
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 328,
+            'src' => ' goto $wherever ;',
+            'start_line' => 328,
+            'indent' => 1,
+            'block_id' => 48
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 330,
+            'src' => ' fail ( \'goto $wherever\' ) ;',
+            'start_line' => 330,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 335,
+            'src' => ' my $z = 0 ;',
+            'start_line' => 335,
+            'indent' => 1,
+            'block_id' => 49
+          },
+          {
+            'token_num' => 33,
+            'has_warnings' => 1,
+            'end_line' => 345,
+            'src' => ' eval { $z = 0 ; for ( 0 .. 1 ) { L4 : $z += 10 ; last ; } goto L4 if $z == 10 ; last ; } ;',
+            'start_line' => 336,
+            'indent' => 1,
+            'block_id' => 49
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 337,
+            'src' => ' $z = 0 ;',
+            'start_line' => 337,
+            'indent' => 1,
+            'block_id' => 49
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 342,
+            'src' => ' for ( 0 .. 1 ) { L4 : $z += 10 ; last ; }',
+            'start_line' => 338,
+            'indent' => 1,
+            'block_id' => 49
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 340,
+            'src' => ' L4 : $z += 10 ;',
+            'start_line' => 339,
+            'indent' => 2,
+            'block_id' => 50
+          },
+          {
+            'token_num' => 2,
+            'has_warnings' => 0,
+            'end_line' => 341,
+            'src' => ' last ;',
+            'start_line' => 341,
+            'indent' => 2,
+            'block_id' => 50
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 343,
+            'src' => ' goto L4 if $z == 10 ;',
+            'start_line' => 343,
+            'indent' => 1,
+            'block_id' => 49
+          },
+          {
+            'token_num' => 2,
+            'has_warnings' => 0,
+            'end_line' => 344,
+            'src' => ' last ;',
+            'start_line' => 344,
+            'indent' => 1,
+            'block_id' => 49
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 347,
+            'src' => ' like ( $@ , qr/Can\'t "goto" into the middle of a foreach loop/ , \'catch goto middle of foreach\' ) ;',
+            'start_line' => 346,
+            'indent' => 1,
+            'block_id' => 49
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 349,
+            'src' => ' $z = 0 ;',
+            'start_line' => 349,
+            'indent' => 1,
+            'block_id' => 49
+          },
+          {
+            'token_num' => 45,
+            'has_warnings' => 1,
+            'end_line' => 360,
+            'src' => ' for my $x ( 0 .. 1 ) { $z += 10 ; is ( $z , 10 , \'prefer same scope (loop body) to outer scope (loop entry)\' ) ; goto L1 unless $x ; $z += 10 ; L1 : is ( $z , 10 , \'prefer same scope: second\' ) ; last ; }',
+            'start_line' => 352,
+            'indent' => 1,
+            'block_id' => 49
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 353,
+            'src' => ' $z += 10 ;',
+            'start_line' => 353,
+            'indent' => 2,
+            'block_id' => 51
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 354,
+            'src' => ' is ( $z , 10 , \'prefer same scope (loop body) to outer scope (loop entry)\' ) ;',
+            'start_line' => 354,
+            'indent' => 2,
+            'block_id' => 51
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 355,
+            'src' => ' goto L1 unless $x ;',
+            'start_line' => 355,
+            'indent' => 2,
+            'block_id' => 51
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 356,
+            'src' => ' $z += 10 ;',
+            'start_line' => 356,
+            'indent' => 2,
+            'block_id' => 51
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 358,
+            'src' => ' L1 : is ( $z , 10 , \'prefer same scope: second\' ) ;',
+            'start_line' => 357,
+            'indent' => 2,
+            'block_id' => 51
+          },
+          {
+            'token_num' => 2,
+            'has_warnings' => 0,
+            'end_line' => 359,
+            'src' => ' last ;',
+            'start_line' => 359,
+            'indent' => 2,
+            'block_id' => 51
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 362,
+            'src' => ' $z = 0 ;',
+            'start_line' => 362,
+            'indent' => 1,
+            'block_id' => 49
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 365,
+            'src' => ' $z += 10 ;',
+            'start_line' => 365,
+            'indent' => 2,
+            'block_id' => 52
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 366,
+            'src' => ' is ( $z , 10 , \'prefer this scope (block body) to outer scope (block entry)\' ) ;',
+            'start_line' => 366,
+            'indent' => 2,
+            'block_id' => 52
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 367,
+            'src' => ' goto L2 if $z == 10 ;',
+            'start_line' => 367,
+            'indent' => 2,
+            'block_id' => 52
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 368,
+            'src' => ' $z += 10 ;',
+            'start_line' => 368,
+            'indent' => 2,
+            'block_id' => 52
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 370,
+            'src' => ' L2 : is ( $z , 10 , \'prefer this scope: second\' ) ;',
+            'start_line' => 369,
+            'indent' => 2,
+            'block_id' => 52
+          },
+          {
+            'token_num' => 51,
+            'has_warnings' => 1,
+            'end_line' => 386,
+            'src' => ' { $z = 0 ; while ( 1 ) { L3 : $z += 10 ; last ; } is ( $z , 10 , \'prefer this scope to inner scope\' ) ; goto L3 if $z == 10 ; $z += 10 ; L3 : is ( $z , 10 , \'prefer this scope to inner scope: second\' ) ; }',
+            'start_line' => 374,
+            'indent' => 1,
+            'block_id' => 49
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 375,
+            'src' => ' $z = 0 ;',
+            'start_line' => 375,
+            'indent' => 2,
+            'block_id' => 53
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 380,
+            'src' => ' while ( 1 ) { L3 : $z += 10 ; last ; }',
+            'start_line' => 376,
+            'indent' => 2,
+            'block_id' => 53
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 378,
+            'src' => ' L3 : $z += 10 ;',
+            'start_line' => 377,
+            'indent' => 3,
+            'block_id' => 54
+          },
+          {
+            'token_num' => 2,
+            'has_warnings' => 0,
+            'end_line' => 379,
+            'src' => ' last ;',
+            'start_line' => 379,
+            'indent' => 3,
+            'block_id' => 54
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 381,
+            'src' => ' is ( $z , 10 , \'prefer this scope to inner scope\' ) ;',
+            'start_line' => 381,
+            'indent' => 2,
+            'block_id' => 53
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 382,
+            'src' => ' goto L3 if $z == 10 ;',
+            'start_line' => 382,
+            'indent' => 2,
+            'block_id' => 53
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 383,
+            'src' => ' $z += 10 ;',
+            'start_line' => 383,
+            'indent' => 2,
+            'block_id' => 53
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 385,
+            'src' => ' L3 : is ( $z , 10 , \'prefer this scope to inner scope: second\' ) ;',
+            'start_line' => 384,
+            'indent' => 2,
+            'block_id' => 53
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 390,
+            'src' => ' $z = 0 ;',
+            'start_line' => 390,
+            'indent' => 2,
+            'block_id' => 55
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 395,
+            'src' => ' while ( 1 ) { L4 : $z += 1 ; last ; }',
+            'start_line' => 391,
+            'indent' => 2,
+            'block_id' => 55
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 393,
+            'src' => ' L4 : $z += 1 ;',
+            'start_line' => 392,
+            'indent' => 3,
+            'block_id' => 56
+          },
+          {
+            'token_num' => 2,
+            'has_warnings' => 0,
+            'end_line' => 394,
+            'src' => ' last ;',
+            'start_line' => 394,
+            'indent' => 3,
+            'block_id' => 56
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 396,
+            'src' => ' is ( $z , 1 , \'prefer this scope to inner,outer scopes\' ) ;',
+            'start_line' => 396,
+            'indent' => 2,
+            'block_id' => 55
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 397,
+            'src' => ' goto L4 if $z == 1 ;',
+            'start_line' => 397,
+            'indent' => 2,
+            'block_id' => 55
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 398,
+            'src' => ' $z += 10 ;',
+            'start_line' => 398,
+            'indent' => 2,
+            'block_id' => 55
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 400,
+            'src' => ' L4 : is ( $z , 1 , \'prefer this scope to inner,outer scopes: second\' ) ;',
+            'start_line' => 399,
+            'indent' => 2,
+            'block_id' => 55
+          },
+          {
+            'token_num' => 49,
+            'has_warnings' => 1,
+            'end_line' => 414,
+            'src' => ' { my $loop = 0 ; for my $x ( 0 .. 1 ) { L2 : $z = 0 ; L2 : $z += 10 ; is ( $z , 10 , "same label, multiple times in same scope (choose 1st) $loop" ) ; goto L2 if $z == 10 and not $loop ++ ; } }',
+            'start_line' => 403,
+            'indent' => 1,
+            'block_id' => 49
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 404,
+            'src' => ' my $loop = 0 ;',
+            'start_line' => 404,
+            'indent' => 2,
+            'block_id' => 57
+          },
+          {
+            'token_num' => 42,
+            'has_warnings' => 1,
+            'end_line' => 413,
+            'src' => ' for my $x ( 0 .. 1 ) { L2 : $z = 0 ; L2 : $z += 10 ; is ( $z , 10 , "same label, multiple times in same scope (choose 1st) $loop" ) ; goto L2 if $z == 10 and not $loop ++ ; }',
+            'start_line' => 405,
+            'indent' => 2,
+            'block_id' => 57
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 407,
+            'src' => ' L2 : $z = 0 ;',
+            'start_line' => 406,
+            'indent' => 3,
+            'block_id' => 58
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 409,
+            'src' => ' L2 : $z += 10 ;',
+            'start_line' => 408,
+            'indent' => 3,
+            'block_id' => 58
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 411,
+            'src' => ' is ( $z , 10 , "same label, multiple times in same scope (choose 1st) $loop" ) ;',
+            'start_line' => 410,
+            'indent' => 3,
+            'block_id' => 58
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 412,
+            'src' => ' goto L2 if $z == 10 and not $loop ++ ;',
+            'start_line' => 412,
+            'indent' => 3,
+            'block_id' => 58
+          },
+          {
+            'token_num' => 17,
+            'has_warnings' => 1,
+            'end_line' => 424,
+            'src' => ' sub recurse1 { unshift @_ , "x" ; no warnings \'recursion\' ; goto & recurse2 ; }',
+            'start_line' => 420,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 421,
+            'src' => ' unshift @_ , "x" ;',
+            'start_line' => 421,
+            'indent' => 1,
+            'block_id' => 59
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 422,
+            'src' => ' no warnings \'recursion\' ;',
+            'start_line' => 422,
+            'indent' => 1,
+            'block_id' => 59
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 423,
+            'src' => ' goto & recurse2 ;',
+            'start_line' => 423,
+            'indent' => 1,
+            'block_id' => 59
+          },
+          {
+            'token_num' => 28,
+            'has_warnings' => 0,
+            'end_line' => 428,
+            'src' => ' sub recurse2 { my $x = shift ; $_ [ 0 ] ? + 1 + recurse1 ( $_ [ 0 ] - 1 ) : 0 }',
+            'start_line' => 425,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 426,
+            'src' => ' my $x = shift ;',
+            'start_line' => 426,
+            'indent' => 1,
+            'block_id' => 60
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 429,
+            'src' => ' my $w = 0 ;',
+            'start_line' => 429,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 430,
+            'src' => ' $SIG { __WARN__ } = sub { ++ $w } ;',
+            'start_line' => 430,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 431,
+            'src' => ' is ( recurse1 ( 500 ) , 500 , \'recursive goto &foo\' ) ;',
+            'start_line' => 431,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 432,
+            'src' => ' is $w , 0 , \'no recursion warnings for "no warnings; goto &sub"\' ;',
+            'start_line' => 432,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 433,
+            'src' => ' delete $SIG { __WARN__ } ;',
+            'start_line' => 433,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 437,
+            'src' => ' sub a32039 { @_ = ( "foo" ) ; goto & b32039 ; }',
+            'start_line' => 437,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 437,
+            'src' => ' @_ = ( "foo" ) ;',
+            'start_line' => 437,
+            'indent' => 1,
+            'block_id' => 62
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 437,
+            'src' => ' goto & b32039 ;',
+            'start_line' => 437,
+            'indent' => 1,
+            'block_id' => 62
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 438,
+            'src' => ' sub b32039 { goto & c32039 ; }',
+            'start_line' => 438,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 438,
+            'src' => ' goto & c32039 ;',
+            'start_line' => 438,
+            'indent' => 1,
+            'block_id' => 63
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 439,
+            'src' => ' sub c32039 { is ( $_ [ 0 ] , \'foo\' , \'chained &goto\' ) }',
+            'start_line' => 439,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 440,
+            'src' => ' a32039 ( ) ;',
+            'start_line' => 440,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 47,
+            'has_warnings' => 1,
+            'end_line' => 459,
+            'src' => ' { my $r = runperl ( stderr => 1 , prog => \'for ($_=0;$_<3;$_++){A: if($_==1){next} if($_==2){$_++;goto A}}print qq(ok\\n)\' ) ; is ( $r , "ok\\n" , \'next and goto\' ) ; $r = runperl ( stderr => 1 , prog => \'for ($_=0;$_<3;$_++){A: if($_==1){$_++;redo} if($_==2){$_++;goto A}}print qq(ok\\n)\' ) ; is ( $r , "ok\\n" , \'redo and goto\' ) ; }',
+            'start_line' => 445,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 450,
+            'src' => ' my $r = runperl ( stderr => 1 , prog => \'for ($_=0;$_<3;$_++){A: if($_==1){next} if($_==2){$_++;goto A}}print qq(ok\\n)\' ) ;',
+            'start_line' => 446,
+            'indent' => 1,
+            'block_id' => 65
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 451,
+            'src' => ' is ( $r , "ok\\n" , \'next and goto\' ) ;',
+            'start_line' => 451,
+            'indent' => 1,
+            'block_id' => 65
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 457,
+            'src' => ' $r = runperl ( stderr => 1 , prog => \'for ($_=0;$_<3;$_++){A: if($_==1){$_++;redo} if($_==2){$_++;goto A}}print qq(ok\\n)\' ) ;',
+            'start_line' => 453,
+            'indent' => 1,
+            'block_id' => 65
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 458,
+            'src' => ' is ( $r , "ok\\n" , \'redo and goto\' ) ;',
+            'start_line' => 458,
+            'indent' => 1,
+            'block_id' => 65
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 464,
+            'src' => ' sub null { 1 } ;',
+            'start_line' => 464,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 464,
+            'src' => ' sub null { 1 }',
+            'start_line' => 464,
+            'indent' => 0,
+            'block_id' => 65
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 465,
+            'src' => ' eval \'goto &null\' ;',
+            'start_line' => 465,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 466,
+            'src' => ' like ( $@ , qr/Can\'t goto subroutine from an eval-string/ , \'eval string\' ) ;',
+            'start_line' => 466,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 467,
+            'src' => ' eval { goto & null } ;',
+            'start_line' => 467,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 468,
+            'src' => ' like ( $@ , qr/Can\'t goto subroutine from an eval-block/ , \'eval block\' ) ;',
+            'start_line' => 468,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 28,
+            'has_warnings' => 1,
+            'end_line' => 478,
+            'src' => ' { my $r = runperl ( stderr => 1 , prog => \'my $d; my $w = sub { return if $d++; warn q(bar)}; local $SIG{__WARN__} = sub { goto &$w; }; warn q(foo);\' ) ; like ( $r , qr/bar/ , "goto &foo in warn" ) ; }',
+            'start_line' => 472,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 476,
+            'src' => ' my $r = runperl ( stderr => 1 , prog => \'my $d; my $w = sub { return if $d++; warn q(bar)}; local $SIG{__WARN__} = sub { goto &$w; }; warn q(foo);\' ) ;',
+            'start_line' => 473,
+            'indent' => 1,
+            'block_id' => 67
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 477,
+            'src' => ' like ( $r , qr/bar/ , "goto &foo in warn" ) ;',
+            'start_line' => 477,
+            'indent' => 1,
+            'block_id' => 67
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 481,
+            'src' => ' local $TODO = "[perl #43403] goto() from an if to an else doesn\'t undo local () changes" ;',
+            'start_line' => 481,
+            'indent' => 1,
+            'block_id' => 68
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 482,
+            'src' => ' our $global = "unmodified" ;',
+            'start_line' => 482,
+            'indent' => 1,
+            'block_id' => 68
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 486,
+            'src' => ' if ( $global ) { local $global = "modified" ; goto ELSE ; }',
+            'start_line' => 483,
+            'indent' => 1,
+            'block_id' => 68
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 484,
+            'src' => ' local $global = "modified" ;',
+            'start_line' => 484,
+            'indent' => 2,
+            'block_id' => 69
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 485,
+            'src' => ' goto ELSE ;',
+            'start_line' => 485,
+            'indent' => 2,
+            'block_id' => 69
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 488,
+            'src' => ' else { ELSE : is ( $global , "unmodified" ) ; }',
+            'start_line' => 486,
+            'indent' => 1,
+            'block_id' => 68
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 487,
+            'src' => ' ELSE : is ( $global , "unmodified" ) ;',
+            'start_line' => 487,
+            'indent' => 2,
+            'block_id' => 70
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 491,
+            'src' => ' is ( $deprecated , 0 ) ;',
+            'start_line' => 491,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 25,
+            'has_warnings' => 1,
+            'end_line' => 500,
+            'src' => ' { my $x ; my $y ; F1 : ++ $x and eval \'return if ++$y == 10; goto F1;\' ; is ( $x , 10 , \'labels outside evals can be distinguished from the start of the eval\' ) ; }',
+            'start_line' => 494,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 495,
+            'src' => ' my $x ;',
+            'start_line' => 495,
+            'indent' => 1,
+            'block_id' => 71
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 496,
+            'src' => ' my $y ;',
+            'start_line' => 496,
+            'indent' => 1,
+            'block_id' => 71
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 497,
+            'src' => ' F1 : ++ $x and eval \'return if ++$y == 10; goto F1;\' ;',
+            'start_line' => 497,
+            'indent' => 1,
+            'block_id' => 71
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 499,
+            'src' => ' is ( $x , 10 , \'labels outside evals can be distinguished from the start of the eval\' ) ;',
+            'start_line' => 498,
+            'indent' => 1,
+            'block_id' => 71
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 502,
+            'src' => ' goto wham_eth ;',
+            'start_line' => 502,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 503,
+            'src' => ' die "You can\'t get here" ;',
+            'start_line' => 503,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 505,
+            'src' => ' wham_eth : 1 if 0 ;',
+            'start_line' => 505,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 506,
+            'src' => ' ouch_eth : pass ( \'labels persist even if their statement is optimised away\' ) ;',
+            'start_line' => 506,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 508,
+            'src' => ' $foo = "(0)" ;',
+            'start_line' => 508,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 511,
+            'src' => ' if ( $foo eq $foo ) { goto bungo ; }',
+            'start_line' => 509,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 510,
+            'src' => ' goto bungo ;',
+            'start_line' => 510,
+            'indent' => 1,
+            'block_id' => 72
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 512,
+            'src' => ' $foo .= "(9)" ;',
+            'start_line' => 512,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 516,
+            'src' => ' bungo : format CHOLET = wellington
+ . $foo .= "(1)" ;',
+            'start_line' => 513,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 518,
+            'src' => ' skip_if_miniperl ( "no dynamic loading on miniperl, so can\'t load PerlIO::scalar" , 1 ) ;',
+            'start_line' => 518,
+            'indent' => 1,
+            'block_id' => 73
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 519,
+            'src' => ' my $cholet ;',
+            'start_line' => 519,
+            'indent' => 1,
+            'block_id' => 73
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 520,
+            'src' => ' open ( CHOLET , ">" , \\ $cholet ) ;',
+            'start_line' => 520,
+            'indent' => 1,
+            'block_id' => 73
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 521,
+            'src' => ' write CHOLET ;',
+            'start_line' => 521,
+            'indent' => 1,
+            'block_id' => 73
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 522,
+            'src' => ' close CHOLET ;',
+            'start_line' => 522,
+            'indent' => 1,
+            'block_id' => 73
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 523,
+            'src' => ' $foo .= "(" . $cholet . ")" ;',
+            'start_line' => 523,
+            'indent' => 1,
+            'block_id' => 73
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 524,
+            'src' => ' is ( $foo , "(0)(1)(wellington\\n)" , "label before format decl" ) ;',
+            'start_line' => 524,
+            'indent' => 1,
+            'block_id' => 73
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 527,
+            'src' => ' $foo = "(A)" ;',
+            'start_line' => 527,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 530,
+            'src' => ' if ( $foo eq $foo ) { goto orinoco ; }',
+            'start_line' => 528,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 529,
+            'src' => ' goto orinoco ;',
+            'start_line' => 529,
+            'indent' => 1,
+            'block_id' => 74
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 531,
+            'src' => ' $foo .= "(X)" ;',
+            'start_line' => 531,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 533,
+            'src' => ' sub alderney { return "tobermory" ; }',
+            'start_line' => 533,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 533,
+            'src' => ' return "tobermory" ;',
+            'start_line' => 533,
+            'indent' => 1,
+            'block_id' => 75
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 534,
+            'src' => ' $foo .= "(B)" ;',
+            'start_line' => 534,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 535,
+            'src' => ' $foo .= "(" . alderney ( ) . ")" ;',
+            'start_line' => 535,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 536,
+            'src' => ' is ( $foo , "(A)(B)(tobermory)" , "label before sub decl" ) ;',
+            'start_line' => 536,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 538,
+            'src' => ' $foo = "[0:" . __PACKAGE__ . "]" ;',
+            'start_line' => 538,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 541,
+            'src' => ' if ( $foo eq $foo ) { goto bulgaria ; }',
+            'start_line' => 539,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 540,
+            'src' => ' goto bulgaria ;',
+            'start_line' => 540,
+            'indent' => 1,
+            'block_id' => 76
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 542,
+            'src' => ' $foo .= "[9]" ;',
+            'start_line' => 542,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 544,
+            'src' => ' bulgaria : package Tomsk ;',
+            'start_line' => 543,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 545,
+            'src' => ' $foo .= "[1:" . __PACKAGE__ . "]" ;',
+            'start_line' => 545,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 546,
+            'src' => ' $foo .= "[2:" . __PACKAGE__ . "]" ;',
+            'start_line' => 546,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 547,
+            'src' => ' package main ;',
+            'start_line' => 547,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 548,
+            'src' => ' $foo .= "[3:" . __PACKAGE__ . "]" ;',
+            'start_line' => 548,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 549,
+            'src' => ' is ( $foo , "[0:main][1:Tomsk][2:Tomsk][3:main]" , "label before package decl" ) ;',
+            'start_line' => 549,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 551,
+            'src' => ' $foo = "[A:" . __PACKAGE__ . "]" ;',
+            'start_line' => 551,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 554,
+            'src' => ' if ( $foo eq $foo ) { goto adelaide ; }',
+            'start_line' => 552,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 553,
+            'src' => ' goto adelaide ;',
+            'start_line' => 553,
+            'indent' => 1,
+            'block_id' => 77
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 555,
+            'src' => ' $foo .= "[Z]" ;',
+            'start_line' => 555,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 558,
+            'src' => ' $foo .= "[B:" . __PACKAGE__ . "]" ;',
+            'start_line' => 558,
+            'indent' => 1,
+            'block_id' => 78
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 560,
+            'src' => ' $foo .= "[C:" . __PACKAGE__ . "]" ;',
+            'start_line' => 560,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 561,
+            'src' => ' is ( $foo , "[A:main][B:Cairngorm][C:main]" , "label before package block" ) ;',
+            'start_line' => 561,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 563,
+            'src' => ' our $obidos ;',
+            'start_line' => 563,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 564,
+            'src' => ' $foo = "{0}" ;',
+            'start_line' => 564,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 567,
+            'src' => ' if ( $foo eq $foo ) { goto shansi ; }',
+            'start_line' => 565,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 566,
+            'src' => ' goto shansi ;',
+            'start_line' => 566,
+            'indent' => 1,
+            'block_id' => 79
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 568,
+            'src' => ' $foo .= "{9}" ;',
+            'start_line' => 568,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 570,
+            'src' => ' $obidos = "x" ;',
+            'start_line' => 570,
+            'indent' => 1,
+            'block_id' => 80
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 571,
+            'src' => ' $foo .= "{1$obidos}" ;',
+            'start_line' => 571,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 572,
+            'src' => ' is ( $foo , "{0}{1x}" , "label before BEGIN block" ) ;',
+            'start_line' => 572,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 574,
+            'src' => ' $foo = "{A:" . ( 1.5 + 1.5 ) . "}" ;',
+            'start_line' => 574,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 577,
+            'src' => ' if ( $foo eq $foo ) { goto stepney ; }',
+            'start_line' => 575,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 576,
+            'src' => ' goto stepney ;',
+            'start_line' => 576,
+            'indent' => 1,
+            'block_id' => 81
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 578,
+            'src' => ' $foo .= "{Z}" ;',
+            'start_line' => 578,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 580,
+            'src' => ' stepney : use integer ;',
+            'start_line' => 579,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 581,
+            'src' => ' $foo .= "{B:" . ( 1.5 + 1.5 ) . "}" ;',
+            'start_line' => 581,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 582,
+            'src' => ' is ( $foo , "{A:3}{B:2}" , "label before use decl" ) ;',
+            'start_line' => 582,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 584,
+            'src' => ' $foo = "<0>" ;',
+            'start_line' => 584,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 587,
+            'src' => ' if ( $foo eq $foo ) { goto tom ; }',
+            'start_line' => 585,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 586,
+            'src' => ' goto tom ;',
+            'start_line' => 586,
+            'indent' => 1,
+            'block_id' => 82
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 588,
+            'src' => ' $foo .= "<9>" ;',
+            'start_line' => 588,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 590,
+            'src' => ' tom : dick : harry : $foo .= "<1>" ;',
+            'start_line' => 589,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 591,
+            'src' => ' $foo .= "<2>" ;',
+            'start_line' => 591,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 592,
+            'src' => ' is ( $foo , "<0><1><2>" , "first of three stacked labels" ) ;',
+            'start_line' => 592,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 594,
+            'src' => ' $foo = "<A>" ;',
+            'start_line' => 594,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 597,
+            'src' => ' if ( $foo eq $foo ) { goto beta ; }',
+            'start_line' => 595,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 596,
+            'src' => ' goto beta ;',
+            'start_line' => 596,
+            'indent' => 1,
+            'block_id' => 83
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 598,
+            'src' => ' $foo .= "<Z>" ;',
+            'start_line' => 598,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 600,
+            'src' => ' alpha : beta : gamma : $foo .= "<B>" ;',
+            'start_line' => 599,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 601,
+            'src' => ' $foo .= "<C>" ;',
+            'start_line' => 601,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 602,
+            'src' => ' is ( $foo , "<A><B><C>" , "second of three stacked labels" ) ;',
+            'start_line' => 602,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 604,
+            'src' => ' $foo = ",0." ;',
+            'start_line' => 604,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 607,
+            'src' => ' if ( $foo eq $foo ) { goto gimel ; }',
+            'start_line' => 605,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 606,
+            'src' => ' goto gimel ;',
+            'start_line' => 606,
+            'indent' => 1,
+            'block_id' => 84
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 608,
+            'src' => ' $foo .= ",9." ;',
+            'start_line' => 608,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 610,
+            'src' => ' alef : bet : gimel : $foo .= ",1." ;',
+            'start_line' => 609,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 611,
+            'src' => ' $foo .= ",2." ;',
+            'start_line' => 611,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 612,
+            'src' => ' is ( $foo , ",0.,1.,2." , "third of three stacked labels" ) ;',
+            'start_line' => 612,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 48,
+            'has_warnings' => 1,
+            'end_line' => 632,
+            'src' => ' sub same_prefix_labels { my $pass ; my $first_time = 1 ; CATCH : { if ( $first_time ) { CATCHLOOP : { if ( ! $first_time ) { return 0 ; } $first_time -- ; goto CATCH ; } } else { return 1 ; } } }',
+            'start_line' => 615,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 616,
+            'src' => ' my $pass ;',
+            'start_line' => 616,
+            'indent' => 1,
+            'block_id' => 85
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 617,
+            'src' => ' my $first_time = 1 ;',
+            'start_line' => 617,
+            'indent' => 1,
+            'block_id' => 85
+          },
+          {
+            'token_num' => 26,
+            'has_warnings' => 1,
+            'end_line' => 627,
+            'src' => ' if ( $first_time ) { CATCHLOOP : { if ( ! $first_time ) { return 0 ; } $first_time -- ; goto CATCH ; } }',
+            'start_line' => 619,
+            'indent' => 2,
+            'block_id' => 86
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 623,
+            'src' => ' if ( ! $first_time ) { return 0 ; }',
+            'start_line' => 621,
+            'indent' => 4,
+            'block_id' => 88
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 622,
+            'src' => ' return 0 ;',
+            'start_line' => 622,
+            'indent' => 5,
+            'block_id' => 89
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 624,
+            'src' => ' $first_time -- ;',
+            'start_line' => 624,
+            'indent' => 4,
+            'block_id' => 88
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 625,
+            'src' => ' goto CATCH ;',
+            'start_line' => 625,
+            'indent' => 4,
+            'block_id' => 88
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 630,
+            'src' => ' else { return 1 ; }',
+            'start_line' => 628,
+            'indent' => 2,
+            'block_id' => 86
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 629,
+            'src' => ' return 1 ;',
+            'start_line' => 629,
+            'indent' => 3,
+            'block_id' => 90
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 637,
+            'src' => ' ok ( same_prefix_labels ( ) , "perl 112316: goto and labels with the same prefix doesn\'t get mixed up" ) ;',
+            'start_line' => 634,
+            'indent' => 0,
+            'block_id' => 0
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');
@@ -24202,6 +25940,10 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '',
             'name' => 'strict'
+          },
+          {
+            'args' => '',
+            'name' => 'integer'
           }
         ]
 , 'Compiler::Lexer::get_used_modules');

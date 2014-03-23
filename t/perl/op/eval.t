@@ -14238,12 +14238,12 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
                    'line' => 457
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 457
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -20978,10 +20978,10 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
             'block_id' => 46
           },
           {
-            'token_num' => 49,
+            'token_num' => 51,
             'has_warnings' => 1,
             'end_line' => 459,
-            'src' => ' { my $ok = 0 ; package Eval1 ; sub STORE { eval \'(\' ; $ok = 1 } sub TIESCALAR { bless [ ] } my $x ; tie $x , bless [ ] ; $x = 1 ;::is ( $ok , 1 , \'eval docatch\' ) ; }',
+            'src' => ' { my $ok = 0 ; package Eval1 ; sub STORE { eval \'(\' ; $ok = 1 } sub TIESCALAR { bless [ ] } my $x ; tie $x , bless [ ] ; $x = 1 ; :: is ( $ok , 1 , \'eval docatch\' ) ; }',
             'start_line' => 449,
             'indent' => 0,
             'block_id' => 0
@@ -21050,11 +21050,20 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
             'block_id' => 47
           },
           {
-            'token_num' => 12,
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 457,
+            'src' => ' $x = 1 ;',
+            'start_line' => 457,
+            'indent' => 1,
+            'block_id' => 47
+          },
+          {
+            'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 458,
-            'src' => ' $x = 1 ;::is ( $ok , 1 , \'eval docatch\' ) ;',
-            'start_line' => 457,
+            'src' => ' :: is ( $ok , 1 , \'eval docatch\' ) ;',
+            'start_line' => 458,
             'indent' => 1,
             'block_id' => 47
           },

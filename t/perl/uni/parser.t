@@ -3615,12 +3615,12 @@ subtest 'tokenize' => sub {
                    'line' => 77
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 77
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3723,12 +3723,12 @@ subtest 'tokenize' => sub {
                    'line' => 78
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 78
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7153,11 +7153,29 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 22,
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 77,
+            'src' => ' closedir FÒÒ ;',
+            'start_line' => 77,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 78,
+            'src' => ' :: ok ( $: : { "FÒÒ" } , "Bareword generates the right glob." ) ;',
+            'start_line' => 78,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
             'has_warnings' => 1,
             'end_line' => 79,
-            'src' => ' closedir FÒÒ ;::ok ( $: : { "FÒÒ" } , "Bareword generates the right glob." ) ;::ok ( ! $: : { "F\\303\\222\\303\\222" } ) ;',
-            'start_line' => 77,
+            'src' => ' :: ok ( ! $: : { "F\\303\\222\\303\\222" } ) ;',
+            'start_line' => 79,
             'indent' => 0,
             'block_id' => 0
           },

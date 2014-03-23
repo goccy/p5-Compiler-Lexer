@@ -5068,12 +5068,12 @@ subtest 'tokenize' => sub {
                    'line' => 138
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 138
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -12185,12 +12185,12 @@ our %RRRRR := ();
                    'line' => 333
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 333
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -12257,12 +12257,12 @@ our %RRRRR := ();
                    'line' => 334
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 334
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -14813,10 +14813,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 58,
+            'token_num' => 83,
             'has_warnings' => 1,
-            'end_line' => 141,
-            'src' => ' { package Ttie ; sub DESTROY { } sub TIESCALAR { my $x = $_ [ 1 ] ; bless \\ $x , $_ [ 0 ] ; } sub FETCH { ${ $_ [ 0 ] } } sub STORE {::pass ; ${ $_ [ 0 ] } = $_ [ 1 ] * 2 ; }',
+            'end_line' => 144,
+            'src' => ' { package Ttie ; sub DESTROY { } sub TIESCALAR { my $x = $_ [ 1 ] ; bless \\ $x , $_ [ 0 ] ; } sub FETCH { ${ $_ [ 0 ] } } sub STORE { :: pass ; ${ $_ [ 0 ] } = $_ [ 1 ] * 2 ; } package Tloop ; sub MODIFY_SCALAR_ATTRIBUTES { tie ${ $_ [ 1 ] } , \'Ttie\' , -1 ; ( ) ; } }',
             'start_line' => 133,
             'indent' => 0,
             'block_id' => 0
@@ -14876,13 +14876,22 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 10
           },
           {
-            'token_num' => 4,
+            'token_num' => 21,
             'has_warnings' => 1,
-            'end_line' => 139,
-            'src' => ' sub STORE {::pass ;',
+            'end_line' => 141,
+            'src' => ' sub STORE { :: pass ; ${ $_ [ 0 ] } = $_ [ 1 ] * 2 ; }',
             'start_line' => 138,
             'indent' => 1,
             'block_id' => 10
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 139,
+            'src' => ' :: pass ;',
+            'start_line' => 139,
+            'indent' => 2,
+            'block_id' => 14
           },
           {
             'token_num' => 14,
@@ -14890,8 +14899,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 140,
             'src' => ' ${ $_ [ 0 ] } = $_ [ 1 ] * 2 ;',
             'start_line' => 140,
-            'indent' => 1,
-            'block_id' => 10
+            'indent' => 2,
+            'block_id' => 14
           },
           {
             'token_num' => 3,
@@ -14899,8 +14908,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 142,
             'src' => ' package Tloop ;',
             'start_line' => 142,
-            'indent' => 0,
-            'block_id' => 0
+            'indent' => 1,
+            'block_id' => 10
           },
           {
             'token_num' => 19,
@@ -14908,8 +14917,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 143,
             'src' => ' sub MODIFY_SCALAR_ATTRIBUTES { tie ${ $_ [ 1 ] } , \'Ttie\' , -1 ; ( ) ; }',
             'start_line' => 143,
-            'indent' => 0,
-            'block_id' => 0
+            'indent' => 1,
+            'block_id' => 10
           },
           {
             'token_num' => 12,
@@ -14917,8 +14926,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 143,
             'src' => ' tie ${ $_ [ 1 ] } , \'Ttie\' , -1 ;',
             'start_line' => 143,
-            'indent' => 1,
-            'block_id' => 14
+            'indent' => 2,
+            'block_id' => 15
           },
           {
             'token_num' => 3,
@@ -14926,8 +14935,445 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 143,
             'src' => ' ( ) ;',
             'start_line' => 143,
+            'indent' => 2,
+            'block_id' => 15
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 152,
+            'src' => ' eval_ok \'
+    package Tloop;
+    for my $i (0..2) {
+	my $x : TieLoop = $i;
+	$x != $i*2 and ::is $x, $i*2;
+    }
+\' ;',
+            'start_line' => 146,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 155,
+            'src' => ' eval \'our ${""} : foo = 1\' ;',
+            'start_line' => 155,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 156,
+            'src' => ' like $@ , qr/Can\'t declare scalar dereference in "our"/ ;',
+            'start_line' => 156,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 157,
+            'src' => ' eval \'my $$foo : bar = 1\' ;',
+            'start_line' => 157,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 158,
+            'src' => ' like $@ , qr/Can\'t declare scalar dereference in "my"/ ;',
+            'start_line' => 158,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 0,
+            'end_line' => 161,
+            'src' => ' my @code = qw(lvalue method) ;',
+            'start_line' => 161,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 0,
+            'end_line' => 162,
+            'src' => ' my @other = qw(shared) ;',
+            'start_line' => 162,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 0,
+            'end_line' => 163,
+            'src' => ' my @deprecated = qw(locked unique) ;',
+            'start_line' => 163,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 164,
+            'src' => ' my %valid ;',
+            'start_line' => 164,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 165,
+            'src' => ' $valid { CODE } = { map { $_ => 1 } @code } ;',
+            'start_line' => 165,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 166,
+            'src' => ' $valid { SCALAR } = { map { $_ => 1 } @other } ;',
+            'start_line' => 166,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 167,
+            'src' => ' $valid { ARRAY } = $valid { HASH } = $valid { SCALAR } ;',
+            'start_line' => 167,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 168,
+            'src' => ' my %deprecated ;',
+            'start_line' => 168,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 169,
+            'src' => ' $deprecated { CODE } = { locked => 1 } ;',
+            'start_line' => 169,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 21,
+            'has_warnings' => 1,
+            'end_line' => 170,
+            'src' => ' $deprecated { ARRAY } = $deprecated { HASH } = $deprecated { SCALAR } = { unique => 1 } ;',
+            'start_line' => 170,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 172,
+            'src' => ' our ( $scalar , @array , %hash ) ;',
+            'start_line' => 172,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 132,
+            'has_warnings' => 1,
+            'end_line' => 194,
+            'src' => ' foreach my $value ( \\ & foo , \\ $scalar , \\ @array , \\ %hash ) { my $type = ref $value ; foreach my $negate ( \'\' , \'-\' ) { foreach my $attr ( @code , @other , @deprecated ) { my $attribute = $negate . $attr ; eval "use attributes __PACKAGE__, \\$value, \'$attribute\'" ; if ( $deprecated { $type } { $attr } ) { like $@ , qr/^Attribute "$attr" is deprecated at \\(eval \\d+\\)/ , "$type attribute $attribute deprecated" ; } elsif ( $valid { $type } { $attr } ) { if ( $attribute eq \'-shared\' ) { like $@ , qr/^A variable may not be unshared/ ; } else { is ( $@ , \'\' , "$type attribute $attribute" ) ; } } else { like $@ , qr/^Invalid $type attribute: $attribute/ , "Bogus $type attribute $attribute should fail" ; } } } }',
+            'start_line' => 173,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 174,
+            'src' => ' my $type = ref $value ;',
+            'start_line' => 174,
             'indent' => 1,
-            'block_id' => 14
+            'block_id' => 18
+          },
+          {
+            'token_num' => 107,
+            'has_warnings' => 1,
+            'end_line' => 193,
+            'src' => ' foreach my $negate ( \'\' , \'-\' ) { foreach my $attr ( @code , @other , @deprecated ) { my $attribute = $negate . $attr ; eval "use attributes __PACKAGE__, \\$value, \'$attribute\'" ; if ( $deprecated { $type } { $attr } ) { like $@ , qr/^Attribute "$attr" is deprecated at \\(eval \\d+\\)/ , "$type attribute $attribute deprecated" ; } elsif ( $valid { $type } { $attr } ) { if ( $attribute eq \'-shared\' ) { like $@ , qr/^A variable may not be unshared/ ; } else { is ( $@ , \'\' , "$type attribute $attribute" ) ; } } else { like $@ , qr/^Invalid $type attribute: $attribute/ , "Bogus $type attribute $attribute should fail" ; } } }',
+            'start_line' => 175,
+            'indent' => 1,
+            'block_id' => 18
+          },
+          {
+            'token_num' => 97,
+            'has_warnings' => 1,
+            'end_line' => 192,
+            'src' => ' foreach my $attr ( @code , @other , @deprecated ) { my $attribute = $negate . $attr ; eval "use attributes __PACKAGE__, \\$value, \'$attribute\'" ; if ( $deprecated { $type } { $attr } ) { like $@ , qr/^Attribute "$attr" is deprecated at \\(eval \\d+\\)/ , "$type attribute $attribute deprecated" ; } elsif ( $valid { $type } { $attr } ) { if ( $attribute eq \'-shared\' ) { like $@ , qr/^A variable may not be unshared/ ; } else { is ( $@ , \'\' , "$type attribute $attribute" ) ; } } else { like $@ , qr/^Invalid $type attribute: $attribute/ , "Bogus $type attribute $attribute should fail" ; } }',
+            'start_line' => 176,
+            'indent' => 2,
+            'block_id' => 19
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 177,
+            'src' => ' my $attribute = $negate . $attr ;',
+            'start_line' => 177,
+            'indent' => 3,
+            'block_id' => 20
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 178,
+            'src' => ' eval "use attributes __PACKAGE__, \\$value, \'$attribute\'" ;',
+            'start_line' => 178,
+            'indent' => 3,
+            'block_id' => 20
+          },
+          {
+            'token_num' => 22,
+            'has_warnings' => 1,
+            'end_line' => 182,
+            'src' => ' if ( $deprecated { $type } { $attr } ) { like $@ , qr/^Attribute "$attr" is deprecated at \\(eval \\d+\\)/ , "$type attribute $attribute deprecated" ; }',
+            'start_line' => 179,
+            'indent' => 3,
+            'block_id' => 20
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 181,
+            'src' => ' like $@ , qr/^Attribute "$attr" is deprecated at \\(eval \\d+\\)/ , "$type attribute $attribute deprecated" ;',
+            'start_line' => 180,
+            'indent' => 4,
+            'block_id' => 21
+          },
+          {
+            'token_num' => 40,
+            'has_warnings' => 1,
+            'end_line' => 188,
+            'src' => ' elsif ( $valid { $type } { $attr } ) { if ( $attribute eq \'-shared\' ) { like $@ , qr/^A variable may not be unshared/ ; } else { is ( $@ , \'\' , "$type attribute $attribute" ) ; } }',
+            'start_line' => 182,
+            'indent' => 3,
+            'block_id' => 20
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 185,
+            'src' => ' if ( $attribute eq \'-shared\' ) { like $@ , qr/^A variable may not be unshared/ ; }',
+            'start_line' => 183,
+            'indent' => 4,
+            'block_id' => 22
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 184,
+            'src' => ' like $@ , qr/^A variable may not be unshared/ ;',
+            'start_line' => 184,
+            'indent' => 5,
+            'block_id' => 23
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 187,
+            'src' => ' else { is ( $@ , \'\' , "$type attribute $attribute" ) ; }',
+            'start_line' => 185,
+            'indent' => 4,
+            'block_id' => 22
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 186,
+            'src' => ' is ( $@ , \'\' , "$type attribute $attribute" ) ;',
+            'start_line' => 186,
+            'indent' => 5,
+            'block_id' => 24
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 191,
+            'src' => ' else { like $@ , qr/^Invalid $type attribute: $attribute/ , "Bogus $type attribute $attribute should fail" ; }',
+            'start_line' => 188,
+            'indent' => 3,
+            'block_id' => 20
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 190,
+            'src' => ' like $@ , qr/^Invalid $type attribute: $attribute/ , "Bogus $type attribute $attribute should fail" ;',
+            'start_line' => 189,
+            'indent' => 4,
+            'block_id' => 25
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 0,
+            'end_line' => 197,
+            'src' => ' sub PVBM (  ) { \'foo\' }',
+            'start_line' => 197,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 0,
+            'end_line' => 198,
+            'src' => ' { my $dummy = index \'foo\' , PVBM }',
+            'start_line' => 198,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 201,
+            'src' => ' ok ! defined ( eval \'attributes::get(\\PVBM)\' ) , \'PVBMs don\\\'t segfault attributes::get\' ;',
+            'start_line' => 200,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 22,
+            'has_warnings' => 1,
+            'end_line' => 213,
+            'src' => ' { eval \'
+	use strict;
+	sub MODIFY_CODE_ATTRIBUTE{}
+	sub f:Blah {$nosuchvar};
+    \' ; my $err = $@ ; like ( $err , qr/Global symbol "\\$nosuchvar" requires / , \'perl #49472\' ) ; }',
+            'start_line' => 203,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 209,
+            'src' => ' eval \'
+	use strict;
+	sub MODIFY_CODE_ATTRIBUTE{}
+	sub f:Blah {$nosuchvar};
+    \' ;',
+            'start_line' => 205,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 211,
+            'src' => ' my $err = $@ ;',
+            'start_line' => 211,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 212,
+            'src' => ' like ( $err , qr/Global symbol "\\$nosuchvar" requires / , \'perl #49472\' ) ;',
+            'start_line' => 212,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 35,
+            'has_warnings' => 1,
+            'end_line' => 222,
+            'src' => ' { package bug66970 ; our $c ; sub MODIFY_CODE_ATTRIBUTES { $c = $_ [ 1 ] ; ( ) } $c = undef ; eval \'sub t0 :Foo\' ; main::ok $c == \\ &{ "t0" } ;',
+            'start_line' => 217,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 218,
+            'src' => ' package bug66970 ;',
+            'start_line' => 218,
+            'indent' => 1,
+            'block_id' => 29
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 219,
+            'src' => ' our $c ;',
+            'start_line' => 219,
+            'indent' => 1,
+            'block_id' => 29
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 220,
+            'src' => ' sub MODIFY_CODE_ATTRIBUTES { $c = $_ [ 1 ] ; ( ) }',
+            'start_line' => 220,
+            'indent' => 1,
+            'block_id' => 29
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 220,
+            'src' => ' $c = $_ [ 1 ] ;',
+            'start_line' => 220,
+            'indent' => 2,
+            'block_id' => 30
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 221,
+            'src' => ' $c = undef ;',
+            'start_line' => 221,
+            'indent' => 1,
+            'block_id' => 29
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 221,
+            'src' => ' eval \'sub t0 :Foo\' ;',
+            'start_line' => 221,
+            'indent' => 1,
+            'block_id' => 29
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 223,
+            'src' => ' $c = undef ;',
+            'start_line' => 223,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 223,
+            'src' => ' eval \'sub t1 :Foo { }\' ;',
+            'start_line' => 223,
+            'indent' => 0,
+            'block_id' => 0
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

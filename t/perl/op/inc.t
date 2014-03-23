@@ -10869,12 +10869,12 @@ subtest 'tokenize' => sub {
                    'line' => 263
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 263
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -12513,10 +12513,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 18
           },
           {
-            'token_num' => 59,
+            'token_num' => 61,
             'has_warnings' => 1,
             'end_line' => 266,
-            'src' => ' { package P9466 ; my $x ; sub DESTROY { $x = 1 } for ( 0 .. 1 ) { $x = 0 ; my $a = bless { } ; my $b = $_ ? $a ++ : $a -- ; undef $a ; undef $b ;::is ( $x , 1 , "9466 case $_" ) ; } }',
+            'src' => ' { package P9466 ; my $x ; sub DESTROY { $x = 1 } for ( 0 .. 1 ) { $x = 0 ; my $a = bless { } ; my $b = $_ ? $a ++ : $a -- ; undef $a ; undef $b ; :: is ( $x , 1 , "9466 case $_" ) ; } }',
             'start_line' => 255,
             'indent' => 0,
             'block_id' => 0
@@ -12549,10 +12549,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 19
           },
           {
-            'token_num' => 44,
+            'token_num' => 46,
             'has_warnings' => 1,
             'end_line' => 265,
-            'src' => ' for ( 0 .. 1 ) { $x = 0 ; my $a = bless { } ; my $b = $_ ? $a ++ : $a -- ; undef $a ; undef $b ;::is ( $x , 1 , "9466 case $_" ) ; }',
+            'src' => ' for ( 0 .. 1 ) { $x = 0 ; my $a = bless { } ; my $b = $_ ? $a ++ : $a -- ; undef $a ; undef $b ; :: is ( $x , 1 , "9466 case $_" ) ; }',
             'start_line' => 259,
             'indent' => 1,
             'block_id' => 19
@@ -12594,11 +12594,20 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 21
           },
           {
-            'token_num' => 11,
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 263,
+            'src' => ' undef $b ;',
+            'start_line' => 263,
+            'indent' => 2,
+            'block_id' => 21
+          },
+          {
+            'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 264,
-            'src' => ' undef $b ;::is ( $x , 1 , "9466 case $_" ) ;',
-            'start_line' => 263,
+            'src' => ' :: is ( $x , 1 , "9466 case $_" ) ;',
+            'start_line' => 264,
             'indent' => 2,
             'block_id' => 21
           },

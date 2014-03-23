@@ -2134,12 +2134,12 @@ sub END {print ":end"}
                    'line' => 114
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 114
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2655,11 +2655,20 @@ sub END {print ":end"}
             'block_id' => 0
           },
           {
-            'token_num' => 12,
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 114,
+            'src' => ' use constant INIT => 5 ;',
+            'start_line' => 114,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
             'has_warnings' => 1,
             'end_line' => 115,
-            'src' => ' use constant INIT => 5 ;::is INIT , 5 , \'constant named after a special block\' ;',
-            'start_line' => 114,
+            'src' => ' :: is INIT , 5 , \'constant named after a special block\' ;',
+            'start_line' => 115,
             'indent' => 0,
             'block_id' => 0
           },
@@ -2688,7 +2697,7 @@ subtest 'get_used_modules' => sub {
     my $modules = Compiler::Lexer->new('')->get_used_modules($script);
     is_deeply($modules, [
           {
-            'args' => '  INIT  =>  5  ;::is  INIT  ,  5  ,  \'constant named after a special block\'',
+            'args' => '  INIT  =>  5',
             'name' => 'constant'
           }
         ]

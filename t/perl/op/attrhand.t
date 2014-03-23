@@ -462,12 +462,12 @@ subtest 'tokenize' => sub {
                    'line' => 18
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 18
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -615,12 +615,12 @@ subtest 'tokenize' => sub {
                    'line' => 22
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 22
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -840,12 +840,12 @@ subtest 'tokenize' => sub {
                    'line' => 29
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 29
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -912,12 +912,12 @@ subtest 'tokenize' => sub {
                    'line' => 32
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 32
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1128,12 +1128,12 @@ subtest 'tokenize' => sub {
                    'line' => 38
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 38
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1200,12 +1200,12 @@ subtest 'tokenize' => sub {
                    'line' => 41
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 41
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1947,11 +1947,119 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 14,
+            'token_num' => 6,
             'has_warnings' => 1,
             'end_line' => 19,
-            'src' => ' sub TypeCheck : ATTR ( CODE , RAWDATA ) {::ok ( 1 ) ;',
-            'start_line' => 18,
+            'src' => ' :: ok ( 1 ) ;',
+            'start_line' => 19,
+            'indent' => 1,
+            'block_id' => 2
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 23,
+            'src' => ' :: ok ( 0 ) ;',
+            'start_line' => 23,
+            'indent' => 1,
+            'block_id' => 3
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 31,
+            'src' => ' if ( $_ [ 4 ] eq "12, 14" ) { :: ok ( 1 ) }',
+            'start_line' => 29,
+            'indent' => 1,
+            'block_id' => 4
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 34,
+            'src' => ' else { :: ok ( 0 ) }',
+            'start_line' => 32,
+            'indent' => 1,
+            'block_id' => 4
+          },
+          {
+            'token_num' => 16,
+            'has_warnings' => 1,
+            'end_line' => 40,
+            'src' => ' if ( not defined $_ [ 4 ] ) { :: ok ( 1 ) }',
+            'start_line' => 38,
+            'indent' => 1,
+            'block_id' => 7
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 43,
+            'src' => ' else { :: ok ( 0 ) }',
+            'start_line' => 41,
+            'indent' => 1,
+            'block_id' => 7
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 46,
+            'src' => ' package Deer ;',
+            'start_line' => 46,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 47,
+            'src' => ' use base \'Antler\' ;',
+            'start_line' => 47,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 55,
+            'src' => ' return 42 ;',
+            'start_line' => 55,
+            'indent' => 1,
+            'block_id' => 10
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 58,
+            'src' => ' something ( ) ;',
+            'start_line' => 58,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 0,
+            'end_line' => 60,
+            'src' => ' sub c : CheckData ( 12 , 14 ) { } ;',
+            'start_line' => 60,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 0,
+            'end_line' => 62,
+            'src' => ' sub d1 : CheckEmptyValue ( ) { } ;',
+            'start_line' => 62,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 63,
+            'src' => ' sub d2 : CheckEmptyValue { } ;',
+            'start_line' => 63,
             'indent' => 0,
             'block_id' => 0
           }
@@ -1965,6 +2073,10 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '',
             'name' => 'Attribute::Handlers'
+          },
+          {
+            'args' => '  \'Antler\'',
+            'name' => 'base'
           }
         ]
 , 'Compiler::Lexer::get_used_modules');

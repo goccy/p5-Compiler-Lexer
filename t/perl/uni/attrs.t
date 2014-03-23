@@ -3141,12 +3141,12 @@ subtest 'tokenize' => sub {
                    'line' => 83
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 83
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7411,12 +7411,12 @@ subtest 'tokenize' => sub {
                    'line' => 190
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 190
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7483,12 +7483,12 @@ subtest 'tokenize' => sub {
                    'line' => 191
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 191
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8032,10 +8032,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 58,
+            'token_num' => 83,
             'has_warnings' => 1,
-            'end_line' => 86,
-            'src' => ' { package Ttìè ; sub DESTROY { } sub TIESCALAR { my $x = $_ [ 1 ] ; bless \\ $x , $_ [ 0 ] ; } sub FETCH { ${ $_ [ 0 ] } } sub STORE {::pass ; ${ $_ [ 0 ] } = $_ [ 1 ] * 2 ; }',
+            'end_line' => 89,
+            'src' => ' { package Ttìè ; sub DESTROY { } sub TIESCALAR { my $x = $_ [ 1 ] ; bless \\ $x , $_ [ 0 ] ; } sub FETCH { ${ $_ [ 0 ] } } sub STORE { :: pass ; ${ $_ [ 0 ] } = $_ [ 1 ] * 2 ; } package Tlòòp ; sub MODIFY_SCALAR_ATTRIBUTES { tie ${ $_ [ 1 ] } , \'Ttìè\' , -1 ; ( ) ; } }',
             'start_line' => 78,
             'indent' => 0,
             'block_id' => 0
@@ -8095,13 +8095,22 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 7
           },
           {
-            'token_num' => 4,
+            'token_num' => 21,
             'has_warnings' => 1,
-            'end_line' => 84,
-            'src' => ' sub STORE {::pass ;',
+            'end_line' => 86,
+            'src' => ' sub STORE { :: pass ; ${ $_ [ 0 ] } = $_ [ 1 ] * 2 ; }',
             'start_line' => 83,
             'indent' => 1,
             'block_id' => 7
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 84,
+            'src' => ' :: pass ;',
+            'start_line' => 84,
+            'indent' => 2,
+            'block_id' => 11
           },
           {
             'token_num' => 14,
@@ -8109,8 +8118,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 85,
             'src' => ' ${ $_ [ 0 ] } = $_ [ 1 ] * 2 ;',
             'start_line' => 85,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 2,
+            'block_id' => 11
           },
           {
             'token_num' => 3,
@@ -8118,8 +8127,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 87,
             'src' => ' package Tlòòp ;',
             'start_line' => 87,
-            'indent' => 0,
-            'block_id' => 0
+            'indent' => 1,
+            'block_id' => 7
           },
           {
             'token_num' => 19,
@@ -8127,8 +8136,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 88,
             'src' => ' sub MODIFY_SCALAR_ATTRIBUTES { tie ${ $_ [ 1 ] } , \'Ttìè\' , -1 ; ( ) ; }',
             'start_line' => 88,
-            'indent' => 0,
-            'block_id' => 0
+            'indent' => 1,
+            'block_id' => 7
           },
           {
             'token_num' => 12,
@@ -8136,8 +8145,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 88,
             'src' => ' tie ${ $_ [ 1 ] } , \'Ttìè\' , -1 ;',
             'start_line' => 88,
-            'indent' => 1,
-            'block_id' => 11
+            'indent' => 2,
+            'block_id' => 12
           },
           {
             'token_num' => 3,
@@ -8145,8 +8154,211 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 88,
             'src' => ' ( ) ;',
             'start_line' => 88,
+            'indent' => 2,
+            'block_id' => 12
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 97,
+            'src' => ' eval_ok \'
+    package Tlòòp;
+    for my $i (0..2) {
+	my $x : TìèLòòp = $i;
+	$x != $i*2 and ::is $x, $i*2;
+    }
+\' ;',
+            'start_line' => 91,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 100,
+            'src' => ' eval \'our ${""} : ᕘ = 1\' ;',
+            'start_line' => 100,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 101,
+            'src' => ' like $@ , qr/Can\'t declare scalar dereference in "our"/ ;',
+            'start_line' => 101,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 102,
+            'src' => ' eval \'my $$ᕘ : bar = 1\' ;',
+            'start_line' => 102,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 103,
+            'src' => ' like $@ , qr/Can\'t declare scalar dereference in "my"/ ;',
+            'start_line' => 103,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 0,
+            'end_line' => 107,
+            'src' => ' sub PVBM (  ) { \'ᕘ\' }',
+            'start_line' => 107,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 0,
+            'end_line' => 108,
+            'src' => ' { my $dummy = index \'ᕘ\' , PVBM }',
+            'start_line' => 108,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 111,
+            'src' => ' ok ! defined ( eval \'attributes::get(\\PVBM)\' ) , \'PVBMs don\\\'t segfault attributes::get\' ;',
+            'start_line' => 110,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 22,
+            'has_warnings' => 1,
+            'end_line' => 123,
+            'src' => ' { eval \'
+	use strict;
+	sub MODIFY_CODE_ATTRIBUTE{}
+	sub f:Blah {$nosuchvar};
+    \' ; my $err = $@ ; like ( $err , qr/Global symbol "\\$nosuchvar" requires / , \'perl #49472\' ) ; }',
+            'start_line' => 113,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 119,
+            'src' => ' eval \'
+	use strict;
+	sub MODIFY_CODE_ATTRIBUTE{}
+	sub f:Blah {$nosuchvar};
+    \' ;',
+            'start_line' => 115,
             'indent' => 1,
-            'block_id' => 11
+            'block_id' => 15
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 121,
+            'src' => ' my $err = $@ ;',
+            'start_line' => 121,
+            'indent' => 1,
+            'block_id' => 15
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 122,
+            'src' => ' like ( $err , qr/Global symbol "\\$nosuchvar" requires / , \'perl #49472\' ) ;',
+            'start_line' => 122,
+            'indent' => 1,
+            'block_id' => 15
+          },
+          {
+            'token_num' => 35,
+            'has_warnings' => 1,
+            'end_line' => 132,
+            'src' => ' { package bug66970 ; our $c ; sub MODIFY_CODE_ATTRIBUTES { $c = $_ [ 1 ] ; ( ) } $c = undef ; eval \'sub t0 :ᕘ\' ; main::ok $c == \\ &{ "t0" } ;',
+            'start_line' => 127,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 128,
+            'src' => ' package bug66970 ;',
+            'start_line' => 128,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 129,
+            'src' => ' our $c ;',
+            'start_line' => 129,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 130,
+            'src' => ' sub MODIFY_CODE_ATTRIBUTES { $c = $_ [ 1 ] ; ( ) }',
+            'start_line' => 130,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 130,
+            'src' => ' $c = $_ [ 1 ] ;',
+            'start_line' => 130,
+            'indent' => 2,
+            'block_id' => 17
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 131,
+            'src' => ' $c = undef ;',
+            'start_line' => 131,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 131,
+            'src' => ' eval \'sub t0 :ᕘ\' ;',
+            'start_line' => 131,
+            'indent' => 1,
+            'block_id' => 16
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 133,
+            'src' => ' $c = undef ;',
+            'start_line' => 133,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 133,
+            'src' => ' eval \'sub t1 :ᕘ { }\' ;',
+            'start_line' => 133,
+            'indent' => 0,
+            'block_id' => 0
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

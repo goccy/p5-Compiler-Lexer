@@ -8927,12 +8927,12 @@ print scalar @DB::args;
                    'line' => 224
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 224
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10025,12 +10025,12 @@ print scalar @DB::args;
                    'line' => 246
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 246
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10106,12 +10106,12 @@ print scalar @DB::args;
                    'line' => 248
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 248
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -11367,10 +11367,10 @@ print scalar @DB::args;
             'block_id' => 28
           },
           {
-            'token_num' => 56,
+            'token_num' => 58,
             'has_warnings' => 1,
             'end_line' => 226,
-            'src' => ' { my $gone ; sub fwib::DESTROY { ++ $gone } package DB ; sub { ( ) = caller ( 0 ) }-> ( ) ; @args = bless [ ] , \'fwib\' ; sub { ( ) = caller ( 0 ) }-> ( ) ;::is $gone , 1 , \'caller does not leak @DB::args elems when AvREAL\' ; }',
+            'src' => ' { my $gone ; sub fwib::DESTROY { ++ $gone } package DB ; sub { ( ) = caller ( 0 ) }-> ( ) ; @args = bless [ ] , \'fwib\' ; sub { ( ) = caller ( 0 ) }-> ( ) ; :: is $gone , 1 , \'caller does not leak @DB::args elems when AvREAL\' ; }',
             'start_line' => 218,
             'indent' => 0,
             'block_id' => 0
@@ -11412,11 +11412,20 @@ print scalar @DB::args;
             'block_id' => 29
           },
           {
-            'token_num' => 20,
+            'token_num' => 14,
+            'has_warnings' => 0,
+            'end_line' => 224,
+            'src' => ' sub { ( ) = caller ( 0 ) }-> ( ) ;',
+            'start_line' => 224,
+            'indent' => 1,
+            'block_id' => 29
+          },
+          {
+            'token_num' => 8,
             'has_warnings' => 1,
             'end_line' => 225,
-            'src' => ' sub { ( ) = caller ( 0 ) }-> ( ) ;::is $gone , 1 , \'caller does not leak @DB::args elems when AvREAL\' ;',
-            'start_line' => 224,
+            'src' => ' :: is $gone , 1 , \'caller does not leak @DB::args elems when AvREAL\' ;',
+            'start_line' => 225,
             'indent' => 1,
             'block_id' => 29
           },
@@ -11547,10 +11556,10 @@ print scalar @DB::args;
             'block_id' => 0
           },
           {
-            'token_num' => 31,
-            'has_warnings' => 1,
-            'end_line' => 249,
-            'src' => ' eval { sub { ( ) = caller 0 ; }-> ( 1 .. 3 ) } ;::like $@ , qr "^Cannot set tied \\@DB::args at " , \'caller dies with tie @DB::args\' ;::ok tied @args , \'@DB::args is still tied\' ;',
+            'token_num' => 19,
+            'has_warnings' => 0,
+            'end_line' => 246,
+            'src' => ' eval { sub { ( ) = caller 0 ; }-> ( 1 .. 3 ) } ;',
             'start_line' => 246,
             'indent' => 0,
             'block_id' => 0
@@ -11563,6 +11572,24 @@ print scalar @DB::args;
             'start_line' => 246,
             'indent' => 1,
             'block_id' => 39
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 248,
+            'src' => ' :: like $@ , qr "^Cannot set tied \\@DB::args at " , \'caller dies with tie @DB::args\' ;',
+            'start_line' => 247,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 249,
+            'src' => ' :: ok tied @args , \'@DB::args is still tied\' ;',
+            'start_line' => 249,
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 3,

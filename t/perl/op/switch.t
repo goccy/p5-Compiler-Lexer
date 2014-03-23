@@ -60098,12 +60098,12 @@ subtest 'tokenize' => sub {
                    'line' => 1382
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 1382
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -60233,12 +60233,12 @@ subtest 'tokenize' => sub {
                    'line' => 1383
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 1384
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -60323,12 +60323,12 @@ subtest 'tokenize' => sub {
                    'line' => 1385
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 1385
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -69397,10 +69397,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 465
           },
           {
-            'token_num' => 96,
+            'token_num' => 102,
             'has_warnings' => 1,
             'end_line' => 1389,
-            'src' => ' { sub f1 { given ( 3 ) { return sub { $_ } } } is ( f1 ( )-> ( ) , 3 , \'closed over $_\' ) ; package RT94682 ; my $d = 0 ; sub DESTROY { $d ++ } ; sub f2 { my $_ = 5 ; given ( bless [ 7 ] ) {::is ( $_-> [ 0 ] , 7 , "is [7]" ) ; }::is ( $_ , 5 , "is 5" ) ;::is ( $d , 1 , "DESTROY called once" ) ; } f2 ( ) ; }',
+            'src' => ' { sub f1 { given ( 3 ) { return sub { $_ } } } is ( f1 ( )-> ( ) , 3 , \'closed over $_\' ) ; package RT94682 ; my $d = 0 ; sub DESTROY { $d ++ } ; sub f2 { my $_ = 5 ; given ( bless [ 7 ] ) { :: is ( $_-> [ 0 ] , 7 , "is [7]" ) ; } :: is ( $_ , 5 , "is 5" ) ; :: is ( $d , 1 , "DESTROY called once" ) ; } f2 ( ) ; }',
             'start_line' => 1367,
             'indent' => 0,
             'block_id' => 0
@@ -69469,10 +69469,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 473
           },
           {
-            'token_num' => 46,
+            'token_num' => 52,
             'has_warnings' => 1,
             'end_line' => 1387,
-            'src' => ' sub f2 { my $_ = 5 ; given ( bless [ 7 ] ) {::is ( $_-> [ 0 ] , 7 , "is [7]" ) ; }::is ( $_ , 5 , "is 5" ) ;::is ( $d , 1 , "DESTROY called once" ) ; }',
+            'src' => ' sub f2 { my $_ = 5 ; given ( bless [ 7 ] ) { :: is ( $_-> [ 0 ] , 7 , "is [7]" ) ; } :: is ( $_ , 5 , "is 5" ) ; :: is ( $d , 1 , "DESTROY called once" ) ; }',
             'start_line' => 1380,
             'indent' => 1,
             'block_id' => 470
@@ -69487,20 +69487,38 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 475
           },
           {
-            'token_num' => 20,
+            'token_num' => 23,
             'has_warnings' => 1,
-            'end_line' => 1383,
-            'src' => ' given ( bless [ 7 ] ) {::is ( $_-> [ 0 ] , 7 , "is [7]" ) ;',
+            'end_line' => 1384,
+            'src' => ' given ( bless [ 7 ] ) { :: is ( $_-> [ 0 ] , 7 , "is [7]" ) ; }',
             'start_line' => 1382,
             'indent' => 2,
             'block_id' => 475
           },
           {
-            'token_num' => 17,
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 1383,
+            'src' => ' :: is ( $_-> [ 0 ] , 7 , "is [7]" ) ;',
+            'start_line' => 1383,
+            'indent' => 3,
+            'block_id' => 476
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 1385,
+            'src' => ' :: is ( $_ , 5 , "is 5" ) ;',
+            'start_line' => 1385,
+            'indent' => 2,
+            'block_id' => 475
+          },
+          {
+            'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 1386,
-            'src' => ' }::is ( $_ , 5 , "is 5" ) ;::is ( $d , 1 , "DESTROY called once" ) ;',
-            'start_line' => 1384,
+            'src' => ' :: is ( $d , 1 , "DESTROY called once" ) ;',
+            'start_line' => 1386,
             'indent' => 2,
             'block_id' => 475
           },

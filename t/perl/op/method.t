@@ -16171,12 +16171,12 @@ package main; Foo->$meth->[0]();
                    'line' => 397
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 397
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -16288,12 +16288,12 @@ package main; Foo->$meth->[0]();
                    'line' => 400
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'LeftBrace',
                    'data' => '{',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
                    'line' => 401
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -16405,12 +16405,12 @@ package main; Foo->$meth->[0]();
                    'line' => 402
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 402
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -18518,10 +18518,10 @@ package main; Foo->$meth->[0]();
             'block_id' => 45
           },
           {
-            'token_num' => 43,
+            'token_num' => 58,
             'has_warnings' => 1,
-            'end_line' => 404,
-            'src' => ' { package NoSub ; eval \'AUTOLOAD { our $AUTOLOAD; return $AUTOLOAD }\' ;::ok ( ! $@ , "AUTOLOAD without a leading sub is legal" ) ; eval "DESTROY { ::pass( q!DESTROY without a leading sub is legal and gets called! ) }" ; {::ok ( NoSub-> can ( "AUTOLOAD" ) , "...and sets up an AUTOLOAD normally" ) ;::is ( eval { NoSub-> bluh } , "NoSub::bluh" , "...which works as expected" ) ; }',
+            'end_line' => 406,
+            'src' => ' { package NoSub ; eval \'AUTOLOAD { our $AUTOLOAD; return $AUTOLOAD }\' ; :: ok ( ! $@ , "AUTOLOAD without a leading sub is legal" ) ; eval "DESTROY { ::pass( q!DESTROY without a leading sub is legal and gets called! ) }" ; { :: ok ( NoSub-> can ( "AUTOLOAD" ) , "...and sets up an AUTOLOAD normally" ) ; :: is ( eval { NoSub-> bluh } , "NoSub::bluh" , "...which works as expected" ) ; } { bless { } , "NoSub" ; } }',
             'start_line' => 392,
             'indent' => 0,
             'block_id' => 0
@@ -18536,11 +18536,20 @@ package main; Foo->$meth->[0]();
             'block_id' => 46
           },
           {
-            'token_num' => 10,
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 397,
+            'src' => ' eval \'AUTOLOAD { our $AUTOLOAD; return $AUTOLOAD }\' ;',
+            'start_line' => 397,
+            'indent' => 1,
+            'block_id' => 46
+          },
+          {
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 398,
-            'src' => ' eval \'AUTOLOAD { our $AUTOLOAD; return $AUTOLOAD }\' ;::ok ( ! $@ , "AUTOLOAD without a leading sub is legal" ) ;',
-            'start_line' => 397,
+            'src' => ' :: ok ( ! $@ , "AUTOLOAD without a leading sub is legal" ) ;',
+            'start_line' => 398,
             'indent' => 1,
             'block_id' => 46
           },
@@ -18554,13 +18563,31 @@ package main; Foo->$meth->[0]();
             'block_id' => 46
           },
           {
-            'token_num' => 25,
+            'token_num' => 30,
             'has_warnings' => 1,
-            'end_line' => 403,
-            'src' => ' {::ok ( NoSub-> can ( "AUTOLOAD" ) , "...and sets up an AUTOLOAD normally" ) ;::is ( eval { NoSub-> bluh } , "NoSub::bluh" , "...which works as expected" ) ;',
+            'end_line' => 404,
+            'src' => ' { :: ok ( NoSub-> can ( "AUTOLOAD" ) , "...and sets up an AUTOLOAD normally" ) ; :: is ( eval { NoSub-> bluh } , "NoSub::bluh" , "...which works as expected" ) ; }',
             'start_line' => 401,
             'indent' => 1,
             'block_id' => 46
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 402,
+            'src' => ' :: ok ( NoSub-> can ( "AUTOLOAD" ) , "...and sets up an AUTOLOAD normally" ) ;',
+            'start_line' => 402,
+            'indent' => 2,
+            'block_id' => 47
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 403,
+            'src' => ' :: is ( eval { NoSub-> bluh } , "NoSub::bluh" , "...which works as expected" ) ;',
+            'start_line' => 403,
+            'indent' => 2,
+            'block_id' => 47
           },
           {
             'token_num' => 8,
@@ -18568,8 +18595,8 @@ package main; Foo->$meth->[0]();
             'end_line' => 405,
             'src' => ' { bless { } , "NoSub" ; }',
             'start_line' => 405,
-            'indent' => 0,
-            'block_id' => 0
+            'indent' => 1,
+            'block_id' => 46
           },
           {
             'token_num' => 6,
@@ -18577,8 +18604,8 @@ package main; Foo->$meth->[0]();
             'end_line' => 405,
             'src' => ' bless { } , "NoSub" ;',
             'start_line' => 405,
-            'indent' => 1,
-            'block_id' => 47
+            'indent' => 2,
+            'block_id' => 48
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

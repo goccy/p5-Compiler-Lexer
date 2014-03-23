@@ -4558,12 +4558,12 @@ subtest 'tokenize' => sub {
                    'line' => 92
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 92
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4666,12 +4666,12 @@ subtest 'tokenize' => sub {
                    'line' => 93
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 93
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4774,12 +4774,12 @@ subtest 'tokenize' => sub {
                    'line' => 94
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 94
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4882,12 +4882,12 @@ subtest 'tokenize' => sub {
                    'line' => 95
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 95
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -16687,25 +16687,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 1324,
+            'token_num' => 90,
             'has_warnings' => 1,
-            'end_line' => 404,
-            'src' => ' { package countfetches ; our $fetchcount = 0 ; sub TIESCALAR { bless { } } ; sub FETCH { ++ $fetchcount ; 18 } ; tie my $y , "countfetches" ; sub foo { state $x = $y ; $x ++ }::is ( foo ( ) , 18 , "initialisation with tied variable" ) ;::is ( foo ( ) , 19 , "increments correctly" ) ;::is ( foo ( ) , 20 , "increments correctly, twice" ) ;::is ( $fetchcount , 1 , "fetch only called once" ) ; } sub gen_cashier { my $amount = shift ; state $cash_in_store = 0 ; return { add => sub { $cash_in_store += $amount } , del => sub { $cash_in_store -= $amount } , bal => sub { $cash_in_store } , } ; } gen_cashier ( 59 )-> { add }-> ( ) ; gen_cashier ( 17 )-> { del }-> ( ) ; is ( gen_cashier ( )-> { bal }-> ( ) , 42 , \'$42 in my drawer\' ) ; sub stateless { state $reinitme = 42 ; ++ $reinitme ; } is ( stateless ( ) , 43 , \'stateless function, first time\' ) ; is ( stateless ( ) , 44 , \'stateless function, second time\' ) ; sub stateful_array { state @x ; push @x , \'x\' ; return $#x ; } my $xsize = stateful_array ( ) ; is ( $xsize , 0 , \'uninitialized state array\' ) ; $xsize = stateful_array ( ) ; is ( $xsize , 1 , \'uninitialized state array after one iteration\' ) ; sub stateful_hash { state %hx ; return $hx { foo } ++ ; } my $xhval = stateful_hash ( ) ; is ( $xhval , 0 , \'uninitialized state hash\' ) ; $xhval = stateful_hash ( ) ; is ( $xhval , 1 , \'uninitialized state hash after one iteration\' ) ; sub noseworth { my $level = shift ; state $recursed_state = 123 ; is ( $recursed_state , 123 , "state kept through recursion ($level)" ) ; noseworth ( $level - 1 ) if $level ; } noseworth ( 2 ) ; sub pugnax { my $x = state $y = 42 ; $y ++ ; $x ; } is ( pugnax ( ) , 42 , \'scalar state assignment return value\' ) ; is ( pugnax ( ) , 43 , \'scalar state assignment return value\' ) ; foreach my $x ( 1 .. 3 ) { state $y = $x ; is ( $y , 1 , "foreach $x" ) ; } for ( my $x = 1 ; $x < 4 ; $x ++ ) { state $y = $x ; is ( $y , 1 , "for $x" ) ; } while ( $x < 4 ) { state $y = $x ; is ( $y , 1 , "while $x" ) ; $x ++ ; } $x = 1 ; until ( $x >= 4 ) { state $y = $x ; is ( $y , 1 , "until $x" ) ; $x ++ ; } $x = 0 ; $y = 0 ; { state $z = $x ; $z ++ ; $y ++ ; is ( $z , $y , "bare block $y" ) ; redo if $y < 3 } my @stones = qw[fred wilma barny betty] ; my $first = $stones [ 0 ] ; my $First = ucfirst $first ; $_ = "bambam" ; foreach my $flint ( @stones ) { state $_ = $flint ; is $_ , $first , \'state $_\' ; ok/$first/ , \'/.../ binds to $_\' ; is ucfirst , $First , \'$_ default argument\' ; } is $_ , "bambam" , \'$_ is still there\' ; my @simpsons = qw[Homer Marge Bart Lisa Maggie] ; again : my $next = shift @simpsons ; state $simpson = $next ; is $simpson , \'Homer\' , \'goto 1\' ; goto again if @simpsons ; my $vi ; { goto Elvis unless $vi ; state $calvin = ++ $vi ; Elvis : state $vile = ++ $vi ; redo unless defined $calvin ; is $calvin , 2 , "goto 2" ; is $vile , 1 , "goto 3" ; is $vi , 2 , "goto 4" ; } my @presidents = qw[Taylor Garfield Ford Arthur Monroe] ; sub president { my $next = shift @presidents ; state $president = $next ; goto & president if @presidents ; $president ; } my $president_answer = $presidents [ 0 ] ; is president , $president_answer , \'&goto\' ; my @flowers = qw[Bluebonnet Goldenrod Hawthorn Peony] ; foreach my $f ( @flowers ) { goto state $flower = $f ; ok 0 , \'computed goto 0\' ; next ; Bluebonnet : ok 1 , \'computed goto 1\' ; next ; Goldenrod : ok 0 , \'computed goto 2\' ; next ; Hawthorn : ok 0 , \'computed goto 3\' ; next ; Peony : ok 0 , \'computed goto 4\' ; next ; ok 0 , \'computed goto 5\' ; next ; } my @apollo = qw[Eagle Antares Odyssey Aquarius] ; my @result1 = map { state $x = $_ ; } @apollo ; my @result2 = grep { state $x =/Eagle/ } @apollo ; { local $" = "" ; is "@result1" , $apollo [ 0 ] x @apollo , "map" ; is "@result2" , "@apollo" , "grep" ; } sub reference { \\ state $x } my $ref1 = reference ; my $ref2 = reference ; is $ref1 , $ref2 , "Reference to state variable" ; foreach my $x ( 1 .. 3 ) { ++ state $y ; state $z ++ ; is $y , $x , "state pre increment" ; is $z , $x , "state post increment" ; } my $tintin = "Tin-Tin" ; my @thunderbirds = qw[Scott Virgel Alan Gordon John] ; my @thunderbirds2 = qw[xcott xxott xxxtt xxxxt xxxxx] ; foreach my $x ( 0 .. 4 ) { state $c = \\ substr $tintin , $x , 1 ; my $d = \\ substr ( ( state $tb = $thunderbirds [ $x ] ) , $x , 1 ) ; $$c = "x" ; $$d = "x" ; is $tintin , "xin-Tin" , "substr" ; is $tb , $thunderbirds2 [ $x ] , "substr" ; } my @spam = qw[spam ham bacon beans] ; foreach my $spam ( @spam ) { given ( state $spam = $spam ) { when ( $spam [ 0 ] ) { ok 1 , "given" } default { ok 0 , "given" } } } { state $x = "one" ; no warnings ; state $x = "two" ; is $x , "two" , "masked" } { my @f ; push @f , sub { state $x ; ++ $x } for 1 .. 2 ; $f [ 0 ]-> ( ) for 1 .. 10 ; is $f [ 0 ]-> ( ) , 11 ; is $f [ 1 ]-> ( ) , 1 ; } { my $x ; my @f ; push @f , sub { $x = 0 ; state $s = $_ [ 0 ] ; $s } for 1 .. 2 ; is $f [ 0 ]-> ( 1 ) , 1 ; is $f [ 0 ]-> ( 2 ) , 1 ; is $f [ 1 ]-> ( 3 ) , 3 ; is $f [ 1 ]-> ( 4 ) , 3 ; } foreach my $forbidden ( < DATA > ) { chomp $forbidden ; no strict \'vars\' ; eval $forbidden ; like $@ , qr/Initialization of state variables in list context currently forbidden/ , "Currently forbidden: $forbidden" ; } { my @warnings ; local $SIG { __WARN__ } = sub { push @warnings , $_ [ 0 ] } ; eval q{
-	use warnings;
-
-	sub f_49522 {
-	    state $s = 88;
-	    sub g_49522 { $s }
-	    sub { $s };
-	}
-
-	sub h_49522 {
-	    state $t = 99;
-	    sub i_49522 {
-		sub { $t };
-	    }
-	}
-    } ; is $@ , \'\' , "eval f_49522" ; ok ! @warnings , "suppress warnings part 1 [@warnings]" ; @warnings = ( ) ; my $f = f_49522 ( ) ; is $f-> ( ) , 88 , "state var closure 1" ; is g_49522 ( ) , 88 , "state var closure 2" ; ok ! @warnings , "suppress warnings part 2 [@warnings]" ; @warnings = ( ) ; $f = i_49522 ( ) ; h_49522 ( ) ; is $f-> ( ) , 99 , "state var closure 3" ; ok ! @warnings , "suppress warnings part 3 [@warnings]" ; }',
+            'end_line' => 97,
+            'src' => ' { package countfetches ; our $fetchcount = 0 ; sub TIESCALAR { bless { } } ; sub FETCH { ++ $fetchcount ; 18 } ; tie my $y , "countfetches" ; sub foo { state $x = $y ; $x ++ } :: is ( foo ( ) , 18 , "initialisation with tied variable" ) ; :: is ( foo ( ) , 19 , "increments correctly" ) ; :: is ( foo ( ) , 20 , "increments correctly, twice" ) ; :: is ( $fetchcount , 1 , "fetch only called once" ) ; }',
             'start_line' => 86,
             'indent' => 0,
             'block_id' => 0
@@ -16783,10 +16768,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 7
           },
           {
-            'token_num' => 50,
+            'token_num' => 11,
             'has_warnings' => 1,
-            'end_line' => 97,
-            'src' => ' sub foo { state $x = $y ; $x ++ }::is ( foo ( ) , 18 , "initialisation with tied variable" ) ;::is ( foo ( ) , 19 , "increments correctly" ) ;::is ( foo ( ) , 20 , "increments correctly, twice" ) ;::is ( $fetchcount , 1 , "fetch only called once" ) ; }',
+            'end_line' => 92,
+            'src' => ' sub foo { state $x = $y ; $x ++ }',
             'start_line' => 92,
             'indent' => 1,
             'block_id' => 7
@@ -16801,13 +16786,40 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 10
           },
           {
-            'token_num' => 41,
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 93,
+            'src' => ' :: is ( foo ( ) , 18 , "initialisation with tied variable" ) ;',
+            'start_line' => 93,
+            'indent' => 1,
+            'block_id' => 7
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 94,
+            'src' => ' :: is ( foo ( ) , 19 , "increments correctly" ) ;',
+            'start_line' => 94,
+            'indent' => 1,
+            'block_id' => 7
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 95,
+            'src' => ' :: is ( foo ( ) , 20 , "increments correctly, twice" ) ;',
+            'start_line' => 95,
+            'indent' => 1,
+            'block_id' => 7
+          },
+          {
+            'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 96,
-            'src' => ' $x ++ }::is ( foo ( ) , 18 , "initialisation with tied variable" ) ;::is ( foo ( ) , 19 , "increments correctly" ) ;::is ( foo ( ) , 20 , "increments correctly, twice" ) ;::is ( $fetchcount , 1 , "fetch only called once" ) ;',
-            'start_line' => 92,
-            'indent' => 2,
-            'block_id' => 10
+            'src' => ' :: is ( $fetchcount , 1 , "fetch only called once" ) ;',
+            'start_line' => 96,
+            'indent' => 1,
+            'block_id' => 7
           },
           {
             'token_num' => 43,
@@ -16815,8 +16827,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 109,
             'src' => ' sub gen_cashier { my $amount = shift ; state $cash_in_store = 0 ; return { add => sub { $cash_in_store += $amount } , del => sub { $cash_in_store -= $amount } , bal => sub { $cash_in_store } , } ; }',
             'start_line' => 101,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -16824,7 +16836,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 102,
             'src' => ' my $amount = shift ;',
             'start_line' => 102,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 11
           },
           {
@@ -16833,7 +16845,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 103,
             'src' => ' state $cash_in_store = 0 ;',
             'start_line' => 103,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 11
           },
           {
@@ -16842,7 +16854,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 108,
             'src' => ' return { add => sub { $cash_in_store += $amount } , del => sub { $cash_in_store -= $amount } , bal => sub { $cash_in_store } , } ;',
             'start_line' => 104,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 11
           },
           {
@@ -16851,8 +16863,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 111,
             'src' => ' gen_cashier ( 59 )-> { add }-> ( ) ;',
             'start_line' => 111,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 12,
@@ -16860,8 +16872,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 112,
             'src' => ' gen_cashier ( 17 )-> { del }-> ( ) ;',
             'start_line' => 112,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 18,
@@ -16869,8 +16881,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 113,
             'src' => ' is ( gen_cashier ( )-> { bal }-> ( ) , 42 , \'$42 in my drawer\' ) ;',
             'start_line' => 113,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 12,
@@ -16878,8 +16890,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 120,
             'src' => ' sub stateless { state $reinitme = 42 ; ++ $reinitme ; }',
             'start_line' => 117,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -16887,7 +16899,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 118,
             'src' => ' state $reinitme = 42 ;',
             'start_line' => 118,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 15
           },
           {
@@ -16896,7 +16908,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 119,
             'src' => ' ++ $reinitme ;',
             'start_line' => 119,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 15
           },
           {
@@ -16905,8 +16917,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 121,
             'src' => ' is ( stateless ( ) , 43 , \'stateless function, first time\' ) ;',
             'start_line' => 121,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 11,
@@ -16914,8 +16926,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 122,
             'src' => ' is ( stateless ( ) , 44 , \'stateless function, second time\' ) ;',
             'start_line' => 122,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 15,
@@ -16923,8 +16935,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 130,
             'src' => ' sub stateful_array { state @x ; push @x , \'x\' ; return $#x ; }',
             'start_line' => 126,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 3,
@@ -16932,7 +16944,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 127,
             'src' => ' state @x ;',
             'start_line' => 127,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 16
           },
           {
@@ -16941,7 +16953,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 128,
             'src' => ' push @x , \'x\' ;',
             'start_line' => 128,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 16
           },
           {
@@ -16950,7 +16962,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 129,
             'src' => ' return $#x ;',
             'start_line' => 129,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 16
           },
           {
@@ -16959,8 +16971,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 132,
             'src' => ' my $xsize = stateful_array ( ) ;',
             'start_line' => 132,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 9,
@@ -16968,8 +16980,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 133,
             'src' => ' is ( $xsize , 0 , \'uninitialized state array\' ) ;',
             'start_line' => 133,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 6,
@@ -16977,8 +16989,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 135,
             'src' => ' $xsize = stateful_array ( ) ;',
             'start_line' => 135,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 9,
@@ -16986,8 +16998,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 136,
             'src' => ' is ( $xsize , 1 , \'uninitialized state array after one iteration\' ) ;',
             'start_line' => 136,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 14,
@@ -16995,8 +17007,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 143,
             'src' => ' sub stateful_hash { state %hx ; return $hx { foo } ++ ; }',
             'start_line' => 140,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 3,
@@ -17004,7 +17016,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 141,
             'src' => ' state %hx ;',
             'start_line' => 141,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 17
           },
           {
@@ -17013,7 +17025,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 142,
             'src' => ' return $hx { foo } ++ ;',
             'start_line' => 142,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 17
           },
           {
@@ -17022,8 +17034,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 145,
             'src' => ' my $xhval = stateful_hash ( ) ;',
             'start_line' => 145,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 9,
@@ -17031,8 +17043,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 146,
             'src' => ' is ( $xhval , 0 , \'uninitialized state hash\' ) ;',
             'start_line' => 146,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 6,
@@ -17040,8 +17052,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 148,
             'src' => ' $xhval = stateful_hash ( ) ;',
             'start_line' => 148,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 9,
@@ -17049,8 +17061,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 149,
             'src' => ' is ( $xhval , 1 , \'uninitialized state hash after one iteration\' ) ;',
             'start_line' => 149,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 32,
@@ -17058,8 +17070,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 158,
             'src' => ' sub noseworth { my $level = shift ; state $recursed_state = 123 ; is ( $recursed_state , 123 , "state kept through recursion ($level)" ) ; noseworth ( $level - 1 ) if $level ; }',
             'start_line' => 153,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -17067,7 +17079,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 154,
             'src' => ' my $level = shift ;',
             'start_line' => 154,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 18
           },
           {
@@ -17076,7 +17088,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 155,
             'src' => ' state $recursed_state = 123 ;',
             'start_line' => 155,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 18
           },
           {
@@ -17085,7 +17097,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 156,
             'src' => ' is ( $recursed_state , 123 , "state kept through recursion ($level)" ) ;',
             'start_line' => 156,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 18
           },
           {
@@ -17094,7 +17106,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 157,
             'src' => ' noseworth ( $level - 1 ) if $level ;',
             'start_line' => 157,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 18
           },
           {
@@ -17103,8 +17115,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 159,
             'src' => ' noseworth ( 2 ) ;',
             'start_line' => 159,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 17,
@@ -17112,8 +17124,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 163,
             'src' => ' sub pugnax { my $x = state $y = 42 ; $y ++ ; $x ; }',
             'start_line' => 163,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 8,
@@ -17121,7 +17133,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 163,
             'src' => ' my $x = state $y = 42 ;',
             'start_line' => 163,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 19
           },
           {
@@ -17130,7 +17142,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 163,
             'src' => ' $y ++ ;',
             'start_line' => 163,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 19
           },
           {
@@ -17139,7 +17151,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 163,
             'src' => ' $x ;',
             'start_line' => 163,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 19
           },
           {
@@ -17148,8 +17160,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 165,
             'src' => ' is ( pugnax ( ) , 42 , \'scalar state assignment return value\' ) ;',
             'start_line' => 165,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 11,
@@ -17157,8 +17169,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 166,
             'src' => ' is ( pugnax ( ) , 43 , \'scalar state assignment return value\' ) ;',
             'start_line' => 166,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 24,
@@ -17166,8 +17178,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 175,
             'src' => ' foreach my $x ( 1 .. 3 ) { state $y = $x ; is ( $y , 1 , "foreach $x" ) ; }',
             'start_line' => 172,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -17175,7 +17187,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 173,
             'src' => ' state $y = $x ;',
             'start_line' => 173,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 20
           },
           {
@@ -17184,7 +17196,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 174,
             'src' => ' is ( $y , 1 , "foreach $x" ) ;',
             'start_line' => 174,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 20
           },
           {
@@ -17193,8 +17205,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 180,
             'src' => ' for ( my $x = 1 ; $x < 4 ; $x ++ ) { state $y = $x ; is ( $y , 1 , "for $x" ) ; }',
             'start_line' => 177,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -17202,7 +17214,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 177,
             'src' => ' my $x = 1 ;',
             'start_line' => 177,
-            'indent' => 1,
+            'indent' => 0,
             'block_id' => 20
           },
           {
@@ -17211,7 +17223,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 177,
             'src' => ' $x < 4 ;',
             'start_line' => 177,
-            'indent' => 1,
+            'indent' => 0,
             'block_id' => 20
           },
           {
@@ -17220,7 +17232,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 177,
             'src' => ' $x ++',
             'start_line' => 177,
-            'indent' => 1,
+            'indent' => 0,
             'block_id' => 20
           },
           {
@@ -17229,7 +17241,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 178,
             'src' => ' state $y = $x ;',
             'start_line' => 178,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 21
           },
           {
@@ -17238,7 +17250,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 179,
             'src' => ' is ( $y , 1 , "for $x" ) ;',
             'start_line' => 179,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 21
           },
           {
@@ -17247,8 +17259,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 186,
             'src' => ' while ( $x < 4 ) { state $y = $x ; is ( $y , 1 , "while $x" ) ; $x ++ ; }',
             'start_line' => 182,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -17256,7 +17268,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 183,
             'src' => ' state $y = $x ;',
             'start_line' => 183,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 22
           },
           {
@@ -17265,7 +17277,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 184,
             'src' => ' is ( $y , 1 , "while $x" ) ;',
             'start_line' => 184,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 22
           },
           {
@@ -17274,7 +17286,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 185,
             'src' => ' $x ++ ;',
             'start_line' => 185,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 22
           },
           {
@@ -17283,8 +17295,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 188,
             'src' => ' $x = 1 ;',
             'start_line' => 188,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 25,
@@ -17292,8 +17304,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 193,
             'src' => ' until ( $x >= 4 ) { state $y = $x ; is ( $y , 1 , "until $x" ) ; $x ++ ; }',
             'start_line' => 189,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -17301,7 +17313,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 190,
             'src' => ' state $y = $x ;',
             'start_line' => 190,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 23
           },
           {
@@ -17310,7 +17322,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 191,
             'src' => ' is ( $y , 1 , "until $x" ) ;',
             'start_line' => 191,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 23
           },
           {
@@ -17319,7 +17331,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 192,
             'src' => ' $x ++ ;',
             'start_line' => 192,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 23
           },
           {
@@ -17328,8 +17340,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 195,
             'src' => ' $x = 0 ;',
             'start_line' => 195,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 4,
@@ -17337,8 +17349,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 196,
             'src' => ' $y = 0 ;',
             'start_line' => 196,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 27,
@@ -17346,8 +17358,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 203,
             'src' => ' { state $z = $x ; $z ++ ; $y ++ ; is ( $z , $y , "bare block $y" ) ; redo if $y < 3 }',
             'start_line' => 197,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -17355,7 +17367,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 198,
             'src' => ' state $z = $x ;',
             'start_line' => 198,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 24
           },
           {
@@ -17364,7 +17376,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 199,
             'src' => ' $z ++ ;',
             'start_line' => 199,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 24
           },
           {
@@ -17373,7 +17385,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 200,
             'src' => ' $y ++ ;',
             'start_line' => 200,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 24
           },
           {
@@ -17382,7 +17394,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 201,
             'src' => ' is ( $z , $y , "bare block $y" ) ;',
             'start_line' => 201,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 24
           },
           {
@@ -17391,8 +17403,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 209,
             'src' => ' my @stones = qw[fred wilma barny betty] ;',
             'start_line' => 209,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 8,
@@ -17400,8 +17412,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 210,
             'src' => ' my $first = $stones [ 0 ] ;',
             'start_line' => 210,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 6,
@@ -17409,8 +17421,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 211,
             'src' => ' my $First = ucfirst $first ;',
             'start_line' => 211,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 4,
@@ -17418,8 +17430,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 212,
             'src' => ' $_ = "bambam" ;',
             'start_line' => 212,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 34,
@@ -17427,8 +17439,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 218,
             'src' => ' foreach my $flint ( @stones ) { state $_ = $flint ; is $_ , $first , \'state $_\' ; ok/$first/ , \'/.../ binds to $_\' ; is ucfirst , $First , \'$_ default argument\' ; }',
             'start_line' => 213,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -17436,7 +17448,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 214,
             'src' => ' state $_ = $flint ;',
             'start_line' => 214,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 25
           },
           {
@@ -17445,7 +17457,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 215,
             'src' => ' is $_ , $first , \'state $_\' ;',
             'start_line' => 215,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 25
           },
           {
@@ -17454,7 +17466,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 216,
             'src' => ' ok/$first/ , \'/.../ binds to $_\' ;',
             'start_line' => 216,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 25
           },
           {
@@ -17463,7 +17475,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 217,
             'src' => ' is ucfirst , $First , \'$_ default argument\' ;',
             'start_line' => 217,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 25
           },
           {
@@ -17472,8 +17484,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 219,
             'src' => ' is $_ , "bambam" , \'$_ is still there\' ;',
             'start_line' => 219,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 8,
@@ -17481,8 +17493,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 224,
             'src' => ' my @simpsons = qw[Homer Marge Bart Lisa Maggie] ;',
             'start_line' => 224,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 8,
@@ -17490,8 +17502,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 226,
             'src' => ' again : my $next = shift @simpsons ;',
             'start_line' => 225,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -17499,8 +17511,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 227,
             'src' => ' state $simpson = $next ;',
             'start_line' => 227,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 7,
@@ -17508,8 +17520,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 228,
             'src' => ' is $simpson , \'Homer\' , \'goto 1\' ;',
             'start_line' => 228,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -17517,8 +17529,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 229,
             'src' => ' goto again if @simpsons ;',
             'start_line' => 229,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 3,
@@ -17526,8 +17538,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 231,
             'src' => ' my $vi ;',
             'start_line' => 231,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 47,
@@ -17535,8 +17547,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 240,
             'src' => ' { goto Elvis unless $vi ; state $calvin = ++ $vi ; Elvis : state $vile = ++ $vi ; redo unless defined $calvin ; is $calvin , 2 , "goto 2" ; is $vile , 1 , "goto 3" ; is $vi , 2 , "goto 4" ; }',
             'start_line' => 232,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -17544,7 +17556,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 233,
             'src' => ' goto Elvis unless $vi ;',
             'start_line' => 233,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 26
           },
           {
@@ -17553,7 +17565,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 234,
             'src' => ' state $calvin = ++ $vi ;',
             'start_line' => 234,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 26
           },
           {
@@ -17562,7 +17574,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 235,
             'src' => ' Elvis : state $vile = ++ $vi ;',
             'start_line' => 235,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 26
           },
           {
@@ -17571,7 +17583,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 236,
             'src' => ' redo unless defined $calvin ;',
             'start_line' => 236,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 26
           },
           {
@@ -17580,7 +17592,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 237,
             'src' => ' is $calvin , 2 , "goto 2" ;',
             'start_line' => 237,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 26
           },
           {
@@ -17589,7 +17601,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 238,
             'src' => ' is $vile , 1 , "goto 3" ;',
             'start_line' => 238,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 26
           },
           {
@@ -17598,7 +17610,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 239,
             'src' => ' is $vi , 2 , "goto 4" ;',
             'start_line' => 239,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 26
           },
           {
@@ -17607,8 +17619,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 241,
             'src' => ' my @presidents = qw[Taylor Garfield Ford Arthur Monroe] ;',
             'start_line' => 241,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 23,
@@ -17616,8 +17628,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 247,
             'src' => ' sub president { my $next = shift @presidents ; state $president = $next ; goto & president if @presidents ; $president ; }',
             'start_line' => 242,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 6,
@@ -17625,7 +17637,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 243,
             'src' => ' my $next = shift @presidents ;',
             'start_line' => 243,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 27
           },
           {
@@ -17634,7 +17646,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 244,
             'src' => ' state $president = $next ;',
             'start_line' => 244,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 27
           },
           {
@@ -17643,7 +17655,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 245,
             'src' => ' goto & president if @presidents ;',
             'start_line' => 245,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 27
           },
           {
@@ -17652,7 +17664,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 246,
             'src' => ' $president ;',
             'start_line' => 246,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 27
           },
           {
@@ -17661,8 +17673,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 248,
             'src' => ' my $president_answer = $presidents [ 0 ] ;',
             'start_line' => 248,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 7,
@@ -17670,8 +17682,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 249,
             'src' => ' is president , $president_answer , \'&goto\' ;',
             'start_line' => 249,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 8,
@@ -17679,8 +17691,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 251,
             'src' => ' my @flowers = qw[Bluebonnet Goldenrod Hawthorn Peony] ;',
             'start_line' => 251,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 64,
@@ -17688,8 +17700,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 260,
             'src' => ' foreach my $f ( @flowers ) { goto state $flower = $f ; ok 0 , \'computed goto 0\' ; next ; Bluebonnet : ok 1 , \'computed goto 1\' ; next ; Goldenrod : ok 0 , \'computed goto 2\' ; next ; Hawthorn : ok 0 , \'computed goto 3\' ; next ; Peony : ok 0 , \'computed goto 4\' ; next ; ok 0 , \'computed goto 5\' ; next ; }',
             'start_line' => 252,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 6,
@@ -17697,7 +17709,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 253,
             'src' => ' goto state $flower = $f ;',
             'start_line' => 253,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 28
           },
           {
@@ -17706,7 +17718,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 254,
             'src' => ' ok 0 , \'computed goto 0\' ;',
             'start_line' => 254,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 28
           },
           {
@@ -17715,7 +17727,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 254,
             'src' => ' next ;',
             'start_line' => 254,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 28
           },
           {
@@ -17724,7 +17736,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 255,
             'src' => ' Bluebonnet : ok 1 , \'computed goto 1\' ;',
             'start_line' => 255,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 28
           },
           {
@@ -17733,7 +17745,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 255,
             'src' => ' next ;',
             'start_line' => 255,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 28
           },
           {
@@ -17742,7 +17754,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 256,
             'src' => ' Goldenrod : ok 0 , \'computed goto 2\' ;',
             'start_line' => 256,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 28
           },
           {
@@ -17751,7 +17763,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 256,
             'src' => ' next ;',
             'start_line' => 256,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 28
           },
           {
@@ -17760,7 +17772,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 257,
             'src' => ' Hawthorn : ok 0 , \'computed goto 3\' ;',
             'start_line' => 257,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 28
           },
           {
@@ -17769,7 +17781,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 257,
             'src' => ' next ;',
             'start_line' => 257,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 28
           },
           {
@@ -17778,7 +17790,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 258,
             'src' => ' Peony : ok 0 , \'computed goto 4\' ;',
             'start_line' => 258,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 28
           },
           {
@@ -17787,7 +17799,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 258,
             'src' => ' next ;',
             'start_line' => 258,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 28
           },
           {
@@ -17796,7 +17808,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 259,
             'src' => ' ok 0 , \'computed goto 5\' ;',
             'start_line' => 259,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 28
           },
           {
@@ -17805,7 +17817,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 259,
             'src' => ' next ;',
             'start_line' => 259,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 28
           },
           {
@@ -17814,8 +17826,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 265,
             'src' => ' my @apollo = qw[Eagle Antares Odyssey Aquarius] ;',
             'start_line' => 265,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 13,
@@ -17823,8 +17835,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 266,
             'src' => ' my @result1 = map { state $x = $_ ; } @apollo ;',
             'start_line' => 266,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -17832,7 +17844,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 266,
             'src' => ' state $x = $_ ;',
             'start_line' => 266,
-            'indent' => 1,
+            'indent' => 0,
             'block_id' => 28
           },
           {
@@ -17841,8 +17853,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 267,
             'src' => ' my @result2 = grep { state $x =/Eagle/ } @apollo ;',
             'start_line' => 267,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 26,
@@ -17850,8 +17862,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 272,
             'src' => ' { local $" = "" ; is "@result1" , $apollo [ 0 ] x @apollo , "map" ; is "@result2" , "@apollo" , "grep" ; }',
             'start_line' => 268,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -17859,7 +17871,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 269,
             'src' => ' local $" = "" ;',
             'start_line' => 269,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 29
           },
           {
@@ -17868,7 +17880,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 270,
             'src' => ' is "@result1" , $apollo [ 0 ] x @apollo , "map" ;',
             'start_line' => 270,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 29
           },
           {
@@ -17877,7 +17889,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 271,
             'src' => ' is "@result2" , "@apollo" , "grep" ;',
             'start_line' => 271,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 29
           },
           {
@@ -17886,8 +17898,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 277,
             'src' => ' sub reference { \\ state $x }',
             'start_line' => 277,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -17895,8 +17907,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 278,
             'src' => ' my $ref1 = reference ;',
             'start_line' => 278,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -17904,8 +17916,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 279,
             'src' => ' my $ref2 = reference ;',
             'start_line' => 279,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 7,
@@ -17913,8 +17925,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 280,
             'src' => ' is $ref1 , $ref2 , "Reference to state variable" ;',
             'start_line' => 280,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 32,
@@ -17922,8 +17934,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 290,
             'src' => ' foreach my $x ( 1 .. 3 ) { ++ state $y ; state $z ++ ; is $y , $x , "state pre increment" ; is $z , $x , "state post increment" ; }',
             'start_line' => 285,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 4,
@@ -17931,7 +17943,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 286,
             'src' => ' ++ state $y ;',
             'start_line' => 286,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 31
           },
           {
@@ -17940,7 +17952,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 287,
             'src' => ' state $z ++ ;',
             'start_line' => 287,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 31
           },
           {
@@ -17949,7 +17961,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 288,
             'src' => ' is $y , $x , "state pre increment" ;',
             'start_line' => 288,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 31
           },
           {
@@ -17958,7 +17970,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 289,
             'src' => ' is $z , $x , "state post increment" ;',
             'start_line' => 289,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 31
           },
           {
@@ -17967,8 +17979,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 296,
             'src' => ' my $tintin = "Tin-Tin" ;',
             'start_line' => 296,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 8,
@@ -17976,8 +17988,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 297,
             'src' => ' my @thunderbirds = qw[Scott Virgel Alan Gordon John] ;',
             'start_line' => 297,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 8,
@@ -17985,8 +17997,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 298,
             'src' => ' my @thunderbirds2 = qw[xcott xxott xxxtt xxxxt xxxxx] ;',
             'start_line' => 298,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 67,
@@ -17994,8 +18006,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 306,
             'src' => ' foreach my $x ( 0 .. 4 ) { state $c = \\ substr $tintin , $x , 1 ; my $d = \\ substr ( ( state $tb = $thunderbirds [ $x ] ) , $x , 1 ) ; $$c = "x" ; $$d = "x" ; is $tintin , "xin-Tin" , "substr" ; is $tb , $thunderbirds2 [ $x ] , "substr" ; }',
             'start_line' => 299,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 11,
@@ -18003,7 +18015,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 300,
             'src' => ' state $c = \\ substr $tintin , $x , 1 ;',
             'start_line' => 300,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 32
           },
           {
@@ -18012,7 +18024,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 301,
             'src' => ' my $d = \\ substr ( ( state $tb = $thunderbirds [ $x ] ) , $x , 1 ) ;',
             'start_line' => 301,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 32
           },
           {
@@ -18021,7 +18033,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 302,
             'src' => ' $$c = "x" ;',
             'start_line' => 302,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 32
           },
           {
@@ -18030,7 +18042,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 303,
             'src' => ' $$d = "x" ;',
             'start_line' => 303,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 32
           },
           {
@@ -18039,7 +18051,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 304,
             'src' => ' is $tintin , "xin-Tin" , "substr" ;',
             'start_line' => 304,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 32
           },
           {
@@ -18048,7 +18060,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 305,
             'src' => ' is $tb , $thunderbirds2 [ $x ] , "substr" ;',
             'start_line' => 305,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 32
           },
           {
@@ -18057,8 +18069,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 312,
             'src' => ' my @spam = qw[spam ham bacon beans] ;',
             'start_line' => 312,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 37,
@@ -18066,8 +18078,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 318,
             'src' => ' foreach my $spam ( @spam ) { given ( state $spam = $spam ) { when ( $spam [ 0 ] ) { ok 1 , "given" } default { ok 0 , "given" } } }',
             'start_line' => 313,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 29,
@@ -18075,7 +18087,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 317,
             'src' => ' given ( state $spam = $spam ) { when ( $spam [ 0 ] ) { ok 1 , "given" } default { ok 0 , "given" } }',
             'start_line' => 314,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 33
           },
           {
@@ -18084,7 +18096,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 315,
             'src' => ' when ( $spam [ 0 ] ) { ok 1 , "given" }',
             'start_line' => 315,
-            'indent' => 3,
+            'indent' => 2,
             'block_id' => 34
           },
           {
@@ -18093,7 +18105,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 316,
             'src' => ' default { ok 0 , "given" }',
             'start_line' => 316,
-            'indent' => 3,
+            'indent' => 2,
             'block_id' => 34
           },
           {
@@ -18102,8 +18114,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 328,
             'src' => ' { state $x = "one" ; no warnings ; state $x = "two" ; is $x , "two" , "masked" }',
             'start_line' => 323,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -18111,7 +18123,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 324,
             'src' => ' state $x = "one" ;',
             'start_line' => 324,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 37
           },
           {
@@ -18120,7 +18132,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 325,
             'src' => ' no warnings ;',
             'start_line' => 325,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 37
           },
           {
@@ -18129,7 +18141,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 326,
             'src' => ' state $x = "two" ;',
             'start_line' => 326,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 37
           },
           {
@@ -18138,8 +18150,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 340,
             'src' => ' { my @f ; push @f , sub { state $x ; ++ $x } for 1 .. 2 ; $f [ 0 ]-> ( ) for 1 .. 10 ; is $f [ 0 ]-> ( ) , 11 ; is $f [ 1 ]-> ( ) , 1 ; }',
             'start_line' => 334,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 3,
@@ -18147,7 +18159,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 335,
             'src' => ' my @f ;',
             'start_line' => 335,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 38
           },
           {
@@ -18156,7 +18168,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 336,
             'src' => ' push @f , sub { state $x ; ++ $x } for 1 .. 2 ;',
             'start_line' => 336,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 38
           },
           {
@@ -18165,7 +18177,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 336,
             'src' => ' state $x ;',
             'start_line' => 336,
-            'indent' => 3,
+            'indent' => 2,
             'block_id' => 39
           },
           {
@@ -18174,7 +18186,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 337,
             'src' => ' $f [ 0 ]-> ( ) for 1 .. 10 ;',
             'start_line' => 337,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 38
           },
           {
@@ -18183,7 +18195,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 338,
             'src' => ' is $f [ 0 ]-> ( ) , 11 ;',
             'start_line' => 338,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 38
           },
           {
@@ -18192,7 +18204,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 339,
             'src' => ' is $f [ 1 ]-> ( ) , 1 ;',
             'start_line' => 339,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 38
           },
           {
@@ -18201,8 +18213,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 352,
             'src' => ' { my $x ; my @f ; push @f , sub { $x = 0 ; state $s = $_ [ 0 ] ; $s } for 1 .. 2 ; is $f [ 0 ]-> ( 1 ) , 1 ; is $f [ 0 ]-> ( 2 ) , 1 ; is $f [ 1 ]-> ( 3 ) , 3 ; is $f [ 1 ]-> ( 4 ) , 3 ; }',
             'start_line' => 344,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 3,
@@ -18210,7 +18222,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 345,
             'src' => ' my $x ;',
             'start_line' => 345,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 40
           },
           {
@@ -18219,7 +18231,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 346,
             'src' => ' my @f ;',
             'start_line' => 346,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 40
           },
           {
@@ -18228,7 +18240,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 347,
             'src' => ' push @f , sub { $x = 0 ; state $s = $_ [ 0 ] ; $s } for 1 .. 2 ;',
             'start_line' => 347,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 40
           },
           {
@@ -18237,7 +18249,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 347,
             'src' => ' $x = 0 ;',
             'start_line' => 347,
-            'indent' => 3,
+            'indent' => 2,
             'block_id' => 41
           },
           {
@@ -18246,7 +18258,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 347,
             'src' => ' state $s = $_ [ 0 ] ;',
             'start_line' => 347,
-            'indent' => 3,
+            'indent' => 2,
             'block_id' => 41
           },
           {
@@ -18255,7 +18267,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 348,
             'src' => ' is $f [ 0 ]-> ( 1 ) , 1 ;',
             'start_line' => 348,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 40
           },
           {
@@ -18264,7 +18276,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 349,
             'src' => ' is $f [ 0 ]-> ( 2 ) , 1 ;',
             'start_line' => 349,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 40
           },
           {
@@ -18273,7 +18285,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 350,
             'src' => ' is $f [ 1 ]-> ( 3 ) , 3 ;',
             'start_line' => 350,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 40
           },
           {
@@ -18282,7 +18294,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 351,
             'src' => ' is $f [ 1 ]-> ( 4 ) , 3 ;',
             'start_line' => 351,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 40
           },
           {
@@ -18291,8 +18303,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 362,
             'src' => ' foreach my $forbidden ( < DATA > ) { chomp $forbidden ; no strict \'vars\' ; eval $forbidden ; like $@ , qr/Initialization of state variables in list context currently forbidden/ , "Currently forbidden: $forbidden" ; }',
             'start_line' => 357,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 3,
@@ -18300,7 +18312,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 358,
             'src' => ' chomp $forbidden ;',
             'start_line' => 358,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 42
           },
           {
@@ -18309,7 +18321,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 359,
             'src' => ' no strict \'vars\' ;',
             'start_line' => 359,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 42
           },
           {
@@ -18318,7 +18330,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 360,
             'src' => ' eval $forbidden ;',
             'start_line' => 360,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 42
           },
           {
@@ -18327,7 +18339,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 361,
             'src' => ' like $@ , qr/Initialization of state variables in list context currently forbidden/ , "Currently forbidden: $forbidden" ;',
             'start_line' => 361,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 42
           },
           {
@@ -18351,8 +18363,8 @@ subtest 'get_groups_by_syntax_level' => sub {
 	}
     } ; is $@ , \'\' , "eval f_49522" ; ok ! @warnings , "suppress warnings part 1 [@warnings]" ; @warnings = ( ) ; my $f = f_49522 ( ) ; is $f-> ( ) , 88 , "state var closure 1" ; is g_49522 ( ) , 88 , "state var closure 2" ; ok ! @warnings , "suppress warnings part 2 [@warnings]" ; @warnings = ( ) ; $f = i_49522 ( ) ; h_49522 ( ) ; is $f-> ( ) , 99 , "state var closure 3" ; ok ! @warnings , "suppress warnings part 3 [@warnings]" ; }',
             'start_line' => 366,
-            'indent' => 1,
-            'block_id' => 7
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 3,
@@ -18360,7 +18372,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 367,
             'src' => ' my @warnings ;',
             'start_line' => 367,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 43
           },
           {
@@ -18369,7 +18381,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 368,
             'src' => ' local $SIG { __WARN__ } = sub { push @warnings , $_ [ 0 ] } ;',
             'start_line' => 368,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 43
           },
           {
@@ -18393,7 +18405,7 @@ subtest 'get_groups_by_syntax_level' => sub {
 	}
     } ;',
             'start_line' => 370,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 43
           },
           {
@@ -18402,7 +18414,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 386,
             'src' => ' is $@ , \'\' , "eval f_49522" ;',
             'start_line' => 386,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 43
           },
           {
@@ -18411,7 +18423,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 388,
             'src' => ' ok ! @warnings , "suppress warnings part 1 [@warnings]" ;',
             'start_line' => 388,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 43
           },
           {
@@ -18420,7 +18432,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 390,
             'src' => ' @warnings = ( ) ;',
             'start_line' => 390,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 43
           },
           {
@@ -18429,7 +18441,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 391,
             'src' => ' my $f = f_49522 ( ) ;',
             'start_line' => 391,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 43
           },
           {
@@ -18438,7 +18450,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 392,
             'src' => ' is $f-> ( ) , 88 , "state var closure 1" ;',
             'start_line' => 392,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 43
           },
           {
@@ -18447,7 +18459,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 393,
             'src' => ' is g_49522 ( ) , 88 , "state var closure 2" ;',
             'start_line' => 393,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 43
           },
           {
@@ -18456,7 +18468,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 394,
             'src' => ' ok ! @warnings , "suppress warnings part 2 [@warnings]" ;',
             'start_line' => 394,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 43
           },
           {
@@ -18465,7 +18477,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 397,
             'src' => ' @warnings = ( ) ;',
             'start_line' => 397,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 43
           },
           {
@@ -18474,7 +18486,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 398,
             'src' => ' $f = i_49522 ( ) ;',
             'start_line' => 398,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 43
           },
           {
@@ -18483,7 +18495,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 399,
             'src' => ' h_49522 ( ) ;',
             'start_line' => 399,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 43
           },
           {
@@ -18492,7 +18504,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 400,
             'src' => ' is $f-> ( ) , 99 , "state var closure 3" ;',
             'start_line' => 400,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 43
           },
           {
@@ -18501,7 +18513,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 401,
             'src' => ' ok ! @warnings , "suppress warnings part 3 [@warnings]" ;',
             'start_line' => 401,
-            'indent' => 2,
+            'indent' => 1,
             'block_id' => 43
           }
         ]

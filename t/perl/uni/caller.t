@@ -461,12 +461,12 @@ subtest 'tokenize' => sub {
                    'line' => 18
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 18
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -704,12 +704,12 @@ subtest 'tokenize' => sub {
                    'line' => 23
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 23
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -821,12 +821,12 @@ subtest 'tokenize' => sub {
                    'line' => 24
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 24
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1145,12 +1145,12 @@ subtest 'tokenize' => sub {
                    'line' => 30
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 30
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1262,12 +1262,12 @@ subtest 'tokenize' => sub {
                    'line' => 31
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 31
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1586,12 +1586,12 @@ subtest 'tokenize' => sub {
                    'line' => 39
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 39
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1703,12 +1703,12 @@ subtest 'tokenize' => sub {
                    'line' => 40
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 40
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1829,12 +1829,12 @@ subtest 'tokenize' => sub {
                    'line' => 42
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 42
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2000,12 +2000,12 @@ subtest 'tokenize' => sub {
                    'line' => 45
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 45
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2117,12 +2117,12 @@ subtest 'tokenize' => sub {
                    'line' => 46
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 46
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2279,12 +2279,12 @@ subtest 'tokenize' => sub {
                    'line' => 49
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 49
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2396,12 +2396,12 @@ subtest 'tokenize' => sub {
                    'line' => 50
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 50
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2594,12 +2594,12 @@ subtest 'tokenize' => sub {
                    'line' => 53
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 53
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2711,12 +2711,12 @@ subtest 'tokenize' => sub {
                    'line' => 54
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 54
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3008,12 +3008,12 @@ subtest 'tokenize' => sub {
                    'line' => 59
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 59
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3125,12 +3125,12 @@ subtest 'tokenize' => sub {
                    'line' => 60
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 60
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3350,12 +3350,12 @@ subtest 'tokenize' => sub {
                    'line' => 63
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'RightBrace',
                    'data' => '}',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
                    'line' => 63
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3566,12 +3566,12 @@ subtest 'tokenize' => sub {
                    'line' => 69
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 69
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3746,10 +3746,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 16,
+            'token_num' => 18,
             'has_warnings' => 1,
             'end_line' => 20,
-            'src' => ' { local $@ ; eval \'ok(1);\' ;::like $@ , qr/Undefined subroutine &ｍａｉｎ::ok called at/u ; }',
+            'src' => ' { local $@ ; eval \'ok(1);\' ; :: like $@ , qr/Undefined subroutine &ｍａｉｎ::ok called at/u ; }',
             'start_line' => 16,
             'indent' => 0,
             'block_id' => 0
@@ -3764,11 +3764,20 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 2
           },
           {
-            'token_num' => 11,
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 18,
+            'src' => ' eval \'ok(1);\' ;',
+            'start_line' => 18,
+            'indent' => 1,
+            'block_id' => 2
+          },
+          {
+            'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 19,
-            'src' => ' eval \'ok(1);\' ;::like $@ , qr/Undefined subroutine &ｍａｉｎ::ok called at/u ;',
-            'start_line' => 18,
+            'src' => ' :: like $@ , qr/Undefined subroutine &ｍａｉｎ::ok called at/u ;',
+            'start_line' => 19,
             'indent' => 1,
             'block_id' => 2
           },
@@ -3782,11 +3791,29 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 33,
+            'token_num' => 13,
+            'has_warnings' => 0,
+            'end_line' => 23,
+            'src' => ' sub { @c = caller ( 0 ) }-> ( ) ;',
+            'start_line' => 23,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 24,
+            'src' => ' :: is ( $c [ 3 ] , "ｍａｉｎ::__ANON__" , "anonymous subroutine name" ) ;',
+            'start_line' => 24,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
             'has_warnings' => 1,
             'end_line' => 25,
-            'src' => ' sub { @c = caller ( 0 ) }-> ( ) ;::is ( $c [ 3 ] , "ｍａｉｎ::__ANON__" , "anonymous subroutine name" ) ;::ok ( $c [ 4 ] , "hasargs true with anon sub" ) ;',
-            'start_line' => 23,
+            'src' => ' :: ok ( $c [ 4 ] , "hasargs true with anon sub" ) ;',
+            'start_line' => 25,
             'indent' => 0,
             'block_id' => 0
           },
@@ -3809,11 +3836,29 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 25,
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 30,
+            'src' => ' $fooref-> ( ) ;',
+            'start_line' => 30,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 31,
+            'src' => ' :: is ( $c [ 3 ] , "ｍａｉｎ::__ANON__" , "deleted subroutine name" ) ;',
+            'start_line' => 31,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
             'has_warnings' => 1,
             'end_line' => 32,
-            'src' => ' $fooref-> ( ) ;::is ( $c [ 3 ] , "ｍａｉｎ::__ANON__" , "deleted subroutine name" ) ;::ok ( $c [ 4 ] , "hasargs true with deleted sub" ) ;',
-            'start_line' => 30,
+            'src' => ' :: ok ( $c [ 4 ] , "hasargs true with deleted sub" ) ;',
+            'start_line' => 32,
             'indent' => 0,
             'block_id' => 0
           },
@@ -3854,10 +3899,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 6
           },
           {
-            'token_num' => 24,
-            'has_warnings' => 1,
-            'end_line' => 41,
-            'src' => ' ｃａｌｌｆ ( ) ;::is ( $c [ 3 ] , "ｍａｉｎ::ｃａｌｌｆ" , "subroutine name" ) ;::ok ( $c [ 4 ] , "hasargs true with ｃａｌｌｆ()" ) ;',
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 39,
+            'src' => ' ｃａｌｌｆ ( ) ;',
             'start_line' => 39,
             'indent' => 0,
             'block_id' => 0
@@ -3865,36 +3910,117 @@ subtest 'get_groups_by_syntax_level' => sub {
           {
             'token_num' => 13,
             'has_warnings' => 1,
-            'end_line' => 43,
-            'src' => ' & ｃａｌｌｆ ;::ok ( ! $c [ 4 ] , "hasargs false with &ｃａｌｌｆ" ) ;',
+            'end_line' => 40,
+            'src' => ' :: is ( $c [ 3 ] , "ｍａｉｎ::ｃａｌｌｆ" , "subroutine name" ) ;',
+            'start_line' => 40,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 41,
+            'src' => ' :: ok ( $c [ 4 ] , "hasargs true with ｃａｌｌｆ()" ) ;',
+            'start_line' => 41,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 42,
+            'src' => ' & ｃａｌｌｆ ;',
             'start_line' => 42,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 28,
+            'token_num' => 12,
             'has_warnings' => 1,
-            'end_line' => 47,
-            'src' => ' eval { ｆ ( ) } ;::is ( $c [ 3 ] , "(eval)" , "subroutine name in an eval {}" ) ;::ok ( ! $c [ 4 ] , "hasargs false in an eval {}" ) ;',
+            'end_line' => 43,
+            'src' => ' :: ok ( ! $c [ 4 ] , "hasargs false with &ｃａｌｌｆ" ) ;',
+            'start_line' => 43,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 0,
+            'end_line' => 45,
+            'src' => ' eval { ｆ ( ) } ;',
             'start_line' => 45,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 27,
+            'token_num' => 13,
             'has_warnings' => 1,
-            'end_line' => 51,
-            'src' => ' eval q{ ｆ() } ;::is ( $c [ 3 ] , "(eval)" , "subroutine name in an eval \'\'" ) ;::ok ( ! $c [ 4 ] , "hasargs false in an eval \'\'" ) ;',
+            'end_line' => 46,
+            'src' => ' :: is ( $c [ 3 ] , "(eval)" , "subroutine name in an eval {}" ) ;',
+            'start_line' => 46,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 47,
+            'src' => ' :: ok ( ! $c [ 4 ] , "hasargs false in an eval {}" ) ;',
+            'start_line' => 47,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 0,
+            'end_line' => 49,
+            'src' => ' eval q{ ｆ() } ;',
             'start_line' => 49,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 30,
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 50,
+            'src' => ' :: is ( $c [ 3 ] , "(eval)" , "subroutine name in an eval \'\'" ) ;',
+            'start_line' => 50,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 51,
+            'src' => ' :: ok ( ! $c [ 4 ] , "hasargs false in an eval \'\'" ) ;',
+            'start_line' => 51,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 0,
+            'end_line' => 53,
+            'src' => ' sub { ｆ ( ) }-> ( ) ;',
+            'start_line' => 53,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 54,
+            'src' => ' :: is ( $c [ 3 ] , "ｍａｉｎ::__ANON__" , "anonymous subroutine name" ) ;',
+            'start_line' => 54,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
             'has_warnings' => 1,
             'end_line' => 55,
-            'src' => ' sub { ｆ ( ) }-> ( ) ;::is ( $c [ 3 ] , "ｍａｉｎ::__ANON__" , "anonymous subroutine name" ) ;::ok ( $c [ 4 ] , "hasargs true with anon sub" ) ;',
-            'start_line' => 53,
+            'src' => ' :: ok ( $c [ 4 ] , "hasargs true with anon sub" ) ;',
+            'start_line' => 55,
             'indent' => 0,
             'block_id' => 0
           },
@@ -3917,40 +4043,49 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 71,
+            'token_num' => 5,
             'has_warnings' => 1,
-            'end_line' => 71,
-            'src' => ' $fooref2-> ( ) ;::is ( $c [ 3 ] , "ｍａｉｎ::__ANON__" , "deleted subroutine name" ) ;::ok ( $c [ 4 ] , "hasargs true with deleted sub" ) ; sub ｐｂ { return ( caller ( 0 ) ) [ 3 ] }::is ( eval \'ｐｂ()\' , \'ｍａｉｎ::ｐｂ\' , "actually return the right function name" ) ; my $saved_perldb = $^P ; $^P = 16 ; $^P = $saved_perldb ;::is ( eval \'ｐｂ()\' , \'ｍａｉｎ::ｐｂ\' , \'actually return the right function name even if $^P had been on at some point\' ) ; ;',
+            'end_line' => 59,
+            'src' => ' $fooref2-> ( ) ;',
             'start_line' => 59,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 25,
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 60,
+            'src' => ' :: is ( $c [ 3 ] , "ｍａｉｎ::__ANON__" , "deleted subroutine name" ) ;',
+            'start_line' => 60,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
             'has_warnings' => 1,
             'end_line' => 61,
-            'src' => ' $fooref2-> ( ) ;::is ( $c [ 3 ] , "ｍａｉｎ::__ANON__" , "deleted subroutine name" ) ;::ok ( $c [ 4 ] , "hasargs true with deleted sub" ) ;',
-            'start_line' => 59,
+            'src' => ' :: ok ( $c [ 4 ] , "hasargs true with deleted sub" ) ;',
+            'start_line' => 61,
             'indent' => 0,
-            'block_id' => 8
+            'block_id' => 0
           },
           {
-            'token_num' => 45,
-            'has_warnings' => 1,
-            'end_line' => 71,
-            'src' => ' sub ｐｂ { return ( caller ( 0 ) ) [ 3 ] }::is ( eval \'ｐｂ()\' , \'ｍａｉｎ::ｐｂ\' , "actually return the right function name" ) ; my $saved_perldb = $^P ; $^P = 16 ; $^P = $saved_perldb ;::is ( eval \'ｐｂ()\' , \'ｍａｉｎ::ｐｂ\' , \'actually return the right function name even if $^P had been on at some point\' ) ;',
+            'token_num' => 14,
+            'has_warnings' => 0,
+            'end_line' => 63,
+            'src' => ' sub ｐｂ { return ( caller ( 0 ) ) [ 3 ] }',
             'start_line' => 63,
             'indent' => 0,
-            'block_id' => 8
+            'block_id' => 0
           },
           {
-            'token_num' => 20,
+            'token_num' => 11,
             'has_warnings' => 1,
             'end_line' => 65,
-            'src' => ' return ( caller ( 0 ) ) [ 3 ] }::is ( eval \'ｐｂ()\' , \'ｍａｉｎ::ｐｂ\' , "actually return the right function name" ) ;',
-            'start_line' => 63,
-            'indent' => 1,
-            'block_id' => 9
+            'src' => ' :: is ( eval \'ｐｂ()\' , \'ｍａｉｎ::ｐｂ\' , "actually return the right function name" ) ;',
+            'start_line' => 65,
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 5,
@@ -3958,8 +4093,8 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 67,
             'src' => ' my $saved_perldb = $^P ;',
             'start_line' => 67,
-            'indent' => 1,
-            'block_id' => 9
+            'indent' => 0,
+            'block_id' => 0
           },
           {
             'token_num' => 4,
@@ -3967,17 +4102,26 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 68,
             'src' => ' $^P = 16 ;',
             'start_line' => 68,
-            'indent' => 1,
-            'block_id' => 9
+            'indent' => 0,
+            'block_id' => 0
           },
           {
-            'token_num' => 13,
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 69,
+            'src' => ' $^P = $saved_perldb ;',
+            'start_line' => 69,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
             'has_warnings' => 1,
             'end_line' => 71,
-            'src' => ' $^P = $saved_perldb ;::is ( eval \'ｐｂ()\' , \'ｍａｉｎ::ｐｂ\' , \'actually return the right function name even if $^P had been on at some point\' ) ;',
-            'start_line' => 69,
-            'indent' => 1,
-            'block_id' => 9
+            'src' => ' :: is ( eval \'ｐｂ()\' , \'ｍａｉｎ::ｐｂ\' , \'actually return the right function name even if $^P had been on at some point\' ) ;',
+            'start_line' => 71,
+            'indent' => 0,
+            'block_id' => 0
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

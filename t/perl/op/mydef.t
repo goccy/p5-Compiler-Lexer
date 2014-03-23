@@ -9113,12 +9113,12 @@ subtest 'tokenize' => sub {
                    'line' => 171
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 171
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9257,12 +9257,12 @@ subtest 'tokenize' => sub {
                    'line' => 173
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 173
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10283,12 +10283,12 @@ subtest 'tokenize' => sub {
                    'line' => 195
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 195
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10373,12 +10373,12 @@ subtest 'tokenize' => sub {
                    'line' => 196
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 196
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10688,12 +10688,12 @@ subtest 'tokenize' => sub {
                    'line' => 205
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 205
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10967,12 +10967,12 @@ subtest 'tokenize' => sub {
                    'line' => 214
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 214
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -12470,10 +12470,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 35
           },
           {
-            'token_num' => 32,
+            'token_num' => 36,
             'has_warnings' => 1,
             'end_line' => 175,
-            'src' => ' { package notmain ; our $_ = \'notmain\' ;::is ( $: : _ , \'notmain\' , \'our $_ forced into main::\' ) ;/(.*)/ ;::is ( $1 , \'notmain\' , \'...m// defaults to our $_ in main::\' ) ; }',
+            'src' => ' { package notmain ; our $_ = \'notmain\' ; :: is ( $: : _ , \'notmain\' , \'our $_ forced into main::\' ) ;/(.*)/ ; :: is ( $1 , \'notmain\' , \'...m// defaults to our $_ in main::\' ) ; }',
             'start_line' => 169,
             'indent' => 0,
             'block_id' => 0
@@ -12488,10 +12488,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 36
           },
           {
-            'token_num' => 15,
-            'has_warnings' => 1,
-            'end_line' => 172,
-            'src' => ' our $_ = \'notmain\' ;::is ( $: : _ , \'notmain\' , \'our $_ forced into main::\' ) ;',
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 171,
+            'src' => ' our $_ = \'notmain\' ;',
             'start_line' => 171,
             'indent' => 1,
             'block_id' => 36
@@ -12499,9 +12499,27 @@ subtest 'get_groups_by_syntax_level' => sub {
           {
             'token_num' => 12,
             'has_warnings' => 1,
-            'end_line' => 174,
-            'src' => '/(.*)/ ;::is ( $1 , \'notmain\' , \'...m// defaults to our $_ in main::\' ) ;',
+            'end_line' => 172,
+            'src' => ' :: is ( $: : _ , \'notmain\' , \'our $_ forced into main::\' ) ;',
+            'start_line' => 172,
+            'indent' => 1,
+            'block_id' => 36
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 173,
+            'src' => '/(.*)/ ;',
             'start_line' => 173,
+            'indent' => 1,
+            'block_id' => 36
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 174,
+            'src' => ' :: is ( $1 , \'notmain\' , \'...m// defaults to our $_ in main::\' ) ;',
+            'start_line' => 174,
             'indent' => 1,
             'block_id' => 36
           },
@@ -12605,10 +12623,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 38
           },
           {
-            'token_num' => 51,
+            'token_num' => 55,
             'has_warnings' => 1,
             'end_line' => 198,
-            'src' => ' { $fqdb::_ = \'fqdb\' ; is ( $fqdb::_ , \'fqdb\' , \'fully qualified $_ is not in main\' ) ; is ( eval q/$fqdb::_/ , \'fqdb\' , \'fully qualified, evaled $_ is not in main\' ) ; package fqdb ;::isnt ( $_ , \'fqdb\' , \'unqualified $_ is in main\' ) ;::isnt ( eval q/$_/ , \'fqdb\' , \'unqualified, evaled $_ is in main\' ) ; }',
+            'src' => ' { $fqdb::_ = \'fqdb\' ; is ( $fqdb::_ , \'fqdb\' , \'fully qualified $_ is not in main\' ) ; is ( eval q/$fqdb::_/ , \'fqdb\' , \'fully qualified, evaled $_ is not in main\' ) ; package fqdb ; :: isnt ( $_ , \'fqdb\' , \'unqualified $_ is in main\' ) ; :: isnt ( eval q/$_/ , \'fqdb\' , \'unqualified, evaled $_ is in main\' ) ; }',
             'start_line' => 191,
             'indent' => 0,
             'block_id' => 0
@@ -12641,19 +12659,37 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 39
           },
           {
-            'token_num' => 23,
+            'token_num' => 3,
             'has_warnings' => 1,
-            'end_line' => 197,
-            'src' => ' package fqdb ;::isnt ( $_ , \'fqdb\' , \'unqualified $_ is in main\' ) ;::isnt ( eval q/$_/ , \'fqdb\' , \'unqualified, evaled $_ is in main\' ) ;',
+            'end_line' => 195,
+            'src' => ' package fqdb ;',
             'start_line' => 195,
             'indent' => 1,
             'block_id' => 39
           },
           {
-            'token_num' => 27,
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 196,
+            'src' => ' :: isnt ( $_ , \'fqdb\' , \'unqualified $_ is in main\' ) ;',
+            'start_line' => 196,
+            'indent' => 1,
+            'block_id' => 39
+          },
+          {
+            'token_num' => 14,
+            'has_warnings' => 1,
+            'end_line' => 197,
+            'src' => ' :: isnt ( eval q/$_/ , \'fqdb\' , \'unqualified, evaled $_ is in main\' ) ;',
+            'start_line' => 197,
+            'indent' => 1,
+            'block_id' => 39
+          },
+          {
+            'token_num' => 29,
             'has_warnings' => 1,
             'end_line' => 207,
-            'src' => ' { $clank_est::qunckkk = 3 ; our $qunckkk ; $qunckkk = 4 ; package clank_est ; our $qunckkk ;::is ( $qunckkk , 3 , \'regular variables are not forced to main\' ) ; }',
+            'src' => ' { $clank_est::qunckkk = 3 ; our $qunckkk ; $qunckkk = 4 ; package clank_est ; our $qunckkk ; :: is ( $qunckkk , 3 , \'regular variables are not forced to main\' ) ; }',
             'start_line' => 200,
             'indent' => 0,
             'block_id' => 0
@@ -12695,19 +12731,28 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 40
           },
           {
-            'token_num' => 11,
+            'token_num' => 3,
             'has_warnings' => 1,
-            'end_line' => 206,
-            'src' => ' our $qunckkk ;::is ( $qunckkk , 3 , \'regular variables are not forced to main\' ) ;',
+            'end_line' => 205,
+            'src' => ' our $qunckkk ;',
             'start_line' => 205,
             'indent' => 1,
             'block_id' => 40
           },
           {
-            'token_num' => 27,
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 206,
+            'src' => ' :: is ( $qunckkk , 3 , \'regular variables are not forced to main\' ) ;',
+            'start_line' => 206,
+            'indent' => 1,
+            'block_id' => 40
+          },
+          {
+            'token_num' => 29,
             'has_warnings' => 1,
             'end_line' => 216,
-            'src' => ' { $whack::_ = 3 ; our $_ ; $_ = 4 ; package whack ; our $_ ;::is ( $_ , 4 , \'$_ is "special", and always forced to main\' ) ; }',
+            'src' => ' { $whack::_ = 3 ; our $_ ; $_ = 4 ; package whack ; our $_ ; :: is ( $_ , 4 , \'$_ is "special", and always forced to main\' ) ; }',
             'start_line' => 209,
             'indent' => 0,
             'block_id' => 0
@@ -12749,11 +12794,20 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 41
           },
           {
-            'token_num' => 11,
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 214,
+            'src' => ' our $_ ;',
+            'start_line' => 214,
+            'indent' => 1,
+            'block_id' => 41
+          },
+          {
+            'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 215,
-            'src' => ' our $_ ;::is ( $_ , 4 , \'$_ is "special", and always forced to main\' ) ;',
-            'start_line' => 214,
+            'src' => ' :: is ( $_ , 4 , \'$_ is "special", and always forced to main\' ) ;',
+            'start_line' => 215,
             'indent' => 1,
             'block_id' => 41
           },

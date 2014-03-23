@@ -15971,12 +15971,12 @@ subtest 'tokenize' => sub {
                    'line' => 267
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 267
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -16142,12 +16142,12 @@ subtest 'tokenize' => sub {
                    'line' => 270
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 270
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -16322,12 +16322,12 @@ subtest 'tokenize' => sub {
                    'line' => 275
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 275
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -16970,12 +16970,12 @@ subtest 'tokenize' => sub {
                    'line' => 288
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 288
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -43268,12 +43268,12 @@ subtest 'tokenize' => sub {
                    'line' => 785
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 785
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -43376,12 +43376,12 @@ subtest 'tokenize' => sub {
                    'line' => 786
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'CallDecl',
                    'data' => '&',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_CallDecl,
                    'line' => 786
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -43745,12 +43745,12 @@ subtest 'tokenize' => sub {
                    'line' => 791
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Namespace',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 791
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -52486,10 +52486,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 209,
+            'token_num' => 217,
             'has_warnings' => 1,
             'end_line' => 299,
-            'src' => ' { package Foo ; @a = ( 5 , 19 , 1996 , 255 , 90 ) ; @b = sort { $b <=> $a } @a ;::cmp_ok ( "@b" , \'eq\' , \'1996 255 90 19 5\' , \'not in main:: 1\' ) ; @b = sort::Backwards_stacked @a ;::cmp_ok ( "@b" , \'eq\' , \'90 5 255 1996 19\' , \'not in main:: 2\' ) ; sub test_if_list { my $gimme = wantarray ;::is ( $gimme , 1 , \'wantarray 1\' ) ; } my $m = sub { $a <=> $b } ; sub cxt_one { sort $m test_if_list ( ) } cxt_one ( ) ; sub cxt_two { sort { $a <=> $b } test_if_list ( ) } cxt_two ( ) ; sub cxt_three { sort & test_if_list ( ) } cxt_three ( ) ; sub test_if_scalar { my $gimme = wantarray ;::is ( ! ( $gimme or ! defined ( $gimme ) ) , 1 , \'wantarray 2\' ) ; } $m = \\ & test_if_scalar ; sub cxt_four { sort $m 1 , 2 } @x = cxt_four ( ) ; sub cxt_five { sort { test_if_scalar ( $a , $b ) ; } 1 , 2 } @x = cxt_five ( ) ; sub cxt_six { sort test_if_scalar 1 , 2 } @x = cxt_six ( ) ; }',
+            'src' => ' { package Foo ; @a = ( 5 , 19 , 1996 , 255 , 90 ) ; @b = sort { $b <=> $a } @a ; :: cmp_ok ( "@b" , \'eq\' , \'1996 255 90 19 5\' , \'not in main:: 1\' ) ; @b = sort::Backwards_stacked @a ; :: cmp_ok ( "@b" , \'eq\' , \'90 5 255 1996 19\' , \'not in main:: 2\' ) ; sub test_if_list { my $gimme = wantarray ; :: is ( $gimme , 1 , \'wantarray 1\' ) ; } my $m = sub { $a <=> $b } ; sub cxt_one { sort $m test_if_list ( ) } cxt_one ( ) ; sub cxt_two { sort { $a <=> $b } test_if_list ( ) } cxt_two ( ) ; sub cxt_three { sort & test_if_list ( ) } cxt_three ( ) ; sub test_if_scalar { my $gimme = wantarray ; :: is ( ! ( $gimme or ! defined ( $gimme ) ) , 1 , \'wantarray 2\' ) ; } $m = \\ & test_if_scalar ; sub cxt_four { sort $m 1 , 2 } @x = cxt_four ( ) ; sub cxt_five { sort { test_if_scalar ( $a , $b ) ; } 1 , 2 } @x = cxt_five ( ) ; sub cxt_six { sort test_if_scalar 1 , 2 } @x = cxt_six ( ) ; }',
             'start_line' => 264,
             'indent' => 0,
             'block_id' => 0
@@ -52513,38 +52513,65 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 22
           },
           {
-            'token_num' => 20,
+            'token_num' => 10,
             'has_warnings' => 1,
-            'end_line' => 268,
-            'src' => ' @b = sort { $b <=> $a } @a ;::cmp_ok ( "@b" , \'eq\' , \'1996 255 90 19 5\' , \'not in main:: 1\' ) ;',
+            'end_line' => 267,
+            'src' => ' @b = sort { $b <=> $a } @a ;',
             'start_line' => 267,
             'indent' => 1,
             'block_id' => 22
           },
           {
-            'token_num' => 15,
+            'token_num' => 12,
             'has_warnings' => 1,
-            'end_line' => 271,
-            'src' => ' @b = sort::Backwards_stacked @a ;::cmp_ok ( "@b" , \'eq\' , \'90 5 255 1996 19\' , \'not in main:: 2\' ) ;',
+            'end_line' => 268,
+            'src' => ' :: cmp_ok ( "@b" , \'eq\' , \'1996 255 90 19 5\' , \'not in main:: 1\' ) ;',
+            'start_line' => 268,
+            'indent' => 1,
+            'block_id' => 22
+          },
+          {
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 270,
+            'src' => ' @b = sort::Backwards_stacked @a ;',
             'start_line' => 270,
             'indent' => 1,
             'block_id' => 22
           },
           {
-            'token_num' => 17,
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 271,
+            'src' => ' :: cmp_ok ( "@b" , \'eq\' , \'90 5 255 1996 19\' , \'not in main:: 2\' ) ;',
+            'start_line' => 271,
+            'indent' => 1,
+            'block_id' => 22
+          },
+          {
+            'token_num' => 19,
             'has_warnings' => 1,
             'end_line' => 277,
-            'src' => ' sub test_if_list { my $gimme = wantarray ;::is ( $gimme , 1 , \'wantarray 1\' ) ; }',
+            'src' => ' sub test_if_list { my $gimme = wantarray ; :: is ( $gimme , 1 , \'wantarray 1\' ) ; }',
             'start_line' => 274,
             'indent' => 1,
             'block_id' => 22
           },
           {
-            'token_num' => 13,
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 275,
+            'src' => ' my $gimme = wantarray ;',
+            'start_line' => 275,
+            'indent' => 2,
+            'block_id' => 23
+          },
+          {
+            'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 276,
-            'src' => ' my $gimme = wantarray ;::is ( $gimme , 1 , \'wantarray 1\' ) ;',
-            'start_line' => 275,
+            'src' => ' :: is ( $gimme , 1 , \'wantarray 1\' ) ;',
+            'start_line' => 276,
             'indent' => 2,
             'block_id' => 23
           },
@@ -52612,20 +52639,29 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 22
           },
           {
-            'token_num' => 26,
+            'token_num' => 28,
             'has_warnings' => 1,
             'end_line' => 290,
-            'src' => ' sub test_if_scalar { my $gimme = wantarray ;::is ( ! ( $gimme or ! defined ( $gimme ) ) , 1 , \'wantarray 2\' ) ; }',
+            'src' => ' sub test_if_scalar { my $gimme = wantarray ; :: is ( ! ( $gimme or ! defined ( $gimme ) ) , 1 , \'wantarray 2\' ) ; }',
             'start_line' => 287,
             'indent' => 1,
             'block_id' => 22
           },
           {
-            'token_num' => 22,
+            'token_num' => 5,
+            'has_warnings' => 0,
+            'end_line' => 288,
+            'src' => ' my $gimme = wantarray ;',
+            'start_line' => 288,
+            'indent' => 2,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 19,
             'has_warnings' => 1,
             'end_line' => 289,
-            'src' => ' my $gimme = wantarray ;::is ( ! ( $gimme or ! defined ( $gimme ) ) , 1 , \'wantarray 2\' ) ;',
-            'start_line' => 288,
+            'src' => ' :: is ( ! ( $gimme or ! defined ( $gimme ) ) , 1 , \'wantarray 2\' ) ;',
+            'start_line' => 289,
             'indent' => 2,
             'block_id' => 28
           },
@@ -55672,10 +55708,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 69
           },
           {
-            'token_num' => 108,
+            'token_num' => 114,
             'has_warnings' => 1,
             'end_line' => 794,
-            'src' => ' { sub sportello { ( 1 + $a ) <=> ( 1 + $b ) } my $refcnt = & Internals::SvREFCNT ( \\ & sportello ) ; @output = sort sportello 3 , 7 , 9 ; { package Doc ;::is ( $refcnt , & Internals::SvREFCNT ( \\ &::sportello ) , "sort sub refcnt" ) ; $fail_msg = q(Modification of a read-only value attempted) ; my @readonly = ( 1 .. 10 ) ; Internals::SvREADONLY ( @readonly , 1 ) ; eval { @readonly = sort @readonly ; } ;::cmp_ok ( substr ( $@ , 0 , length ( $fail_msg ) ) , \'eq\' , $fail_msg , \'in-place sort of read-only array\' ) ; } }',
+            'src' => ' { sub sportello { ( 1 + $a ) <=> ( 1 + $b ) } my $refcnt = & Internals::SvREFCNT ( \\ & sportello ) ; @output = sort sportello 3 , 7 , 9 ; { package Doc ; :: is ( $refcnt , & Internals::SvREFCNT ( \\ & :: sportello ) , "sort sub refcnt" ) ; $fail_msg = q(Modification of a read-only value attempted) ; my @readonly = ( 1 .. 10 ) ; Internals::SvREADONLY ( @readonly , 1 ) ; eval { @readonly = sort @readonly ; } ; :: cmp_ok ( substr ( $@ , 0 , length ( $fail_msg ) ) , \'eq\' , $fail_msg , \'in-place sort of read-only array\' ) ; } }',
             'start_line' => 779,
             'indent' => 0,
             'block_id' => 0
@@ -55708,20 +55744,29 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 70
           },
           {
-            'token_num' => 70,
+            'token_num' => 76,
             'has_warnings' => 1,
             'end_line' => 793,
-            'src' => ' { package Doc ;::is ( $refcnt , & Internals::SvREFCNT ( \\ &::sportello ) , "sort sub refcnt" ) ; $fail_msg = q(Modification of a read-only value attempted) ; my @readonly = ( 1 .. 10 ) ; Internals::SvREADONLY ( @readonly , 1 ) ; eval { @readonly = sort @readonly ; } ;::cmp_ok ( substr ( $@ , 0 , length ( $fail_msg ) ) , \'eq\' , $fail_msg , \'in-place sort of read-only array\' ) ; }',
+            'src' => ' { package Doc ; :: is ( $refcnt , & Internals::SvREFCNT ( \\ & :: sportello ) , "sort sub refcnt" ) ; $fail_msg = q(Modification of a read-only value attempted) ; my @readonly = ( 1 .. 10 ) ; Internals::SvREADONLY ( @readonly , 1 ) ; eval { @readonly = sort @readonly ; } ; :: cmp_ok ( substr ( $@ , 0 , length ( $fail_msg ) ) , \'eq\' , $fail_msg , \'in-place sort of read-only array\' ) ; }',
             'start_line' => 784,
             'indent' => 1,
             'block_id' => 70
           },
           {
-            'token_num' => 16,
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 785,
+            'src' => ' package Doc ;',
+            'start_line' => 785,
+            'indent' => 2,
+            'block_id' => 72
+          },
+          {
+            'token_num' => 17,
             'has_warnings' => 1,
             'end_line' => 786,
-            'src' => ' package Doc ;::is ( $refcnt , & Internals::SvREFCNT ( \\ &::sportello ) , "sort sub refcnt" ) ;',
-            'start_line' => 785,
+            'src' => ' :: is ( $refcnt , & Internals::SvREFCNT ( \\ & :: sportello ) , "sort sub refcnt" ) ;',
+            'start_line' => 786,
             'indent' => 2,
             'block_id' => 72
           },
@@ -55753,10 +55798,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 72
           },
           {
-            'token_num' => 29,
-            'has_warnings' => 1,
-            'end_line' => 792,
-            'src' => ' eval { @readonly = sort @readonly ; } ;::cmp_ok ( substr ( $@ , 0 , length ( $fail_msg ) ) , \'eq\' , $fail_msg , \'in-place sort of read-only array\' ) ;',
+            'token_num' => 9,
+            'has_warnings' => 0,
+            'end_line' => 791,
+            'src' => ' eval { @readonly = sort @readonly ; } ;',
             'start_line' => 791,
             'indent' => 2,
             'block_id' => 72
@@ -55767,6 +55812,15 @@ subtest 'get_groups_by_syntax_level' => sub {
             'end_line' => 791,
             'src' => ' @readonly = sort @readonly ;',
             'start_line' => 791,
+            'indent' => 2,
+            'block_id' => 72
+          },
+          {
+            'token_num' => 22,
+            'has_warnings' => 1,
+            'end_line' => 792,
+            'src' => ' :: cmp_ok ( substr ( $@ , 0 , length ( $fail_msg ) ) , \'eq\' , $fail_msg , \'in-place sort of read-only array\' ) ;',
+            'start_line' => 792,
             'indent' => 2,
             'block_id' => 72
           },
