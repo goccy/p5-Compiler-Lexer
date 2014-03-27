@@ -1,6 +1,7 @@
-package Compiler::Lexer::TokenType;
 use strict;
 use warnings;
+
+package Compiler::Lexer::TokenType;
 use constant {
     T_Return => 0,
     T_Add => 1,
@@ -211,11 +212,8 @@ use constant {
     T_WhiteSpace => 206,
     T_Undefined => 207
 };
-1;
 
 package Compiler::Lexer::SyntaxType;
-use strict;
-use warnings;
 use constant {
     T_Value => 0,
     T_Term => 1,
@@ -223,11 +221,8 @@ use constant {
     T_Stmt => 3,
     T_BlockStmt => 4
 };
-1;
 
 package Compiler::Lexer::Kind;
-use strict;
-use warnings;
 use constant {
     T_Return => 0,
     T_Operator => 1,
@@ -267,4 +262,5 @@ use constant {
     T_Verbose => 35,
     T_Undefined => 36
 };
+
 1;
