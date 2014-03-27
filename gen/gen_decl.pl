@@ -110,28 +110,24 @@ CODE
 
 open($fh, '>', 'lib/Compiler/Lexer/Constants.pm');
 print $fh <<CODE;
-package Compiler::Lexer::TokenType;
 use strict;
 use warnings;
+
+package Compiler::Lexer::TokenType;
 use constant {
 $token_type_enums
 };
-1;
 
 package Compiler::Lexer::SyntaxType;
-use strict;
-use warnings;
 use constant {
 $syntax_type_enums
 };
-1;
 
 package Compiler::Lexer::Kind;
-use strict;
-use warnings;
 use constant {
 $token_kind_enums
 };
+
 1;
 CODE
 
