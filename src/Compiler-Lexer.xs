@@ -8,6 +8,8 @@ extern "C" {
 #include "XSUB.h"
 
 #include "ppport.h"
+#undef  dNOOP // Hack to work around "error: declaration of 'Perl___notused' has a different language linkage" error message on clang.
+#define dNOOP
 
 #define new_Array() (AV*)sv_2mortal((SV*)newAV())
 #define new_Hash() (HV*)sv_2mortal((SV*)newHV())

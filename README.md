@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/goccy/p5-Compiler-Lexer.png?branch=master)](https://travis-ci.org/goccy/p5-Compiler-Lexer) [![Coverage Status](https://coveralls.io/repos/goccy/p5-Compiler-Lexer/badge.png?branch=master)](https://coveralls.io/r/goccy/p5-Compiler-Lexer?branch=master)
 # NAME
 
 Compiler::Lexer - Lexical Analyzer for Perl5
