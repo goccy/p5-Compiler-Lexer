@@ -1826,21 +1826,12 @@ subtest 'tokenize' => sub {
                    'line' => 34
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RightShift',
-                   'data' => '>>',
-                   'type' => Compiler::Lexer::TokenType::T_RightShift,
-                   'line' => 34
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Assign,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Assign',
-                   'data' => '=',
-                   'type' => Compiler::Lexer::TokenType::T_Assign,
+                   'name' => 'RightShiftEqual',
+                   'data' => '>>=',
+                   'type' => Compiler::Lexer::TokenType::T_RightShiftEqual,
                    'line' => 34
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -34694,10 +34685,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 20,
+            'token_num' => 19,
             'has_warnings' => 1,
             'end_line' => 34,
-            'src' => ' for ( my $i = ~ 0 ; $i ; $i >> = 1 ) { ++ $bits ; }',
+            'src' => ' for ( my $i = ~ 0 ; $i ; $i >>= 1 ) { ++ $bits ; }',
             'start_line' => 34,
             'indent' => 0,
             'block_id' => 0
@@ -34721,10 +34712,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 2
           },
           {
-            'token_num' => 4,
+            'token_num' => 3,
             'has_warnings' => 1,
             'end_line' => 34,
-            'src' => ' $i >> = 1',
+            'src' => ' $i >>= 1',
             'start_line' => 34,
             'indent' => 0,
             'block_id' => 2

@@ -4117,21 +4117,12 @@ subtest 'tokenize' => sub {
                    'line' => 147
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RightShift',
-                   'data' => '>>',
-                   'type' => Compiler::Lexer::TokenType::T_RightShift,
-                   'line' => 147
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Assign,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Assign',
-                   'data' => '=',
-                   'type' => Compiler::Lexer::TokenType::T_Assign,
+                   'name' => 'RightShiftEqual',
+                   'data' => '>>=',
+                   'type' => Compiler::Lexer::TokenType::T_RightShiftEqual,
                    'line' => 147
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4558,21 +4549,12 @@ subtest 'tokenize' => sub {
                    'line' => 164
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RightShift',
-                   'data' => '>>',
-                   'type' => Compiler::Lexer::TokenType::T_RightShift,
-                   'line' => 164
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Assign,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Assign',
-                   'data' => '=',
-                   'type' => Compiler::Lexer::TokenType::T_Assign,
+                   'name' => 'RightShiftEqual',
+                   'data' => '>>=',
+                   'type' => Compiler::Lexer::TokenType::T_RightShiftEqual,
                    'line' => 164
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -23369,10 +23351,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 13
           },
           {
-            'token_num' => 9,
+            'token_num' => 8,
             'has_warnings' => 0,
             'end_line' => 147,
-            'src' => ' $? >> = 8 if $^O eq \'VMS\' ;',
+            'src' => ' $? >>= 8 if $^O eq \'VMS\' ;',
             'start_line' => 147,
             'indent' => 1,
             'block_id' => 13
@@ -23432,10 +23414,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 13
           },
           {
-            'token_num' => 9,
+            'token_num' => 8,
             'has_warnings' => 0,
             'end_line' => 164,
-            'src' => ' $? >> = 8 if $^O eq \'VMS\' ;',
+            'src' => ' $? >>= 8 if $^O eq \'VMS\' ;',
             'start_line' => 164,
             'indent' => 1,
             'block_id' => 13

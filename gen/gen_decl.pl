@@ -94,7 +94,7 @@ $token_kind
 }
 CODE
 
-open($fh, '>', 'gen_token_decl.cpp');
+open($fh, '>', 'src/compiler/util/Compiler_gen_token_decl.cpp');
 print $fh <<"CODE";
 #include <common.hpp>
 
@@ -181,6 +181,9 @@ Assign          	MulEqual            	*=
 Assign          	DivEqual            	/=
 Assign          	ModEqual            	%=
 Assign          	StringAddEqual         	.=
+Assign              LeftShiftEqual          <<=
+Assign              RightShiftEqual         >>=
+Assign              StringMulEqual          x=
 Operator        	GreaterEqual        	>=
 Operator        	LessEqual           	<=
 Operator        	EqualEqual          	==
