@@ -105,7 +105,7 @@ void Annotator::annotateNamespace(LexContext *ctx, const string &data, Token *tk
 
 void Annotator::annotateMethod(LexContext *ctx, const string &, Token *tk, TokenInfo *info)
 {
-	if (ctx->prev_type == Pointer && isalpha(tk->_data[0])) {
+	if (ctx->prev_type == Pointer && (isalpha(tk->_data[0]) || tk->_data[0] == '_')) {
 		*info = ctx->tmgr->getTokenInfo(Method);
 	}
 }
