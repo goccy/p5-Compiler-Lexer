@@ -6,7 +6,7 @@ namespace SyntaxType = Enum::Parser::Syntax;
 namespace TokenKind = Enum::Token::Kind;
 
 Token::Token(string data_, FileInfo finfo_) :
-	data(data_), token_num(0), total_token_num(0),
+	token_num(0), total_token_num(0),
 	deparsed_data(""), isDeparsed(false), isDeleted(false)
 {
 	type = TokenType::Undefined;
@@ -23,7 +23,7 @@ Token::Token(string data_, FileInfo finfo_) :
 }
 
 Token::Token(Tokens *tokens) :
-	data(""), deparsed_data(""), isDeparsed(false), isDeleted(false)
+	deparsed_data(""), isDeparsed(false), isDeleted(false)
 {
 	total_token_num = 0;
 	stype = SyntaxType::Value;

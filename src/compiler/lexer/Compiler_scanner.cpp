@@ -70,6 +70,7 @@ Token *Scanner::scanQuote(LexContext *ctx, char quote)
 			ctx->writeBuffer(ch);
 		}
 	}
+	if (smgr->end()) smgr->back();
 	Token *prev_tk = ctx->tmgr->lastToken();
 	int idx = ctx->tmgr->size() - 2;
 	string prev_data = (prev_tk) ? string(prev_tk->_data) : "";

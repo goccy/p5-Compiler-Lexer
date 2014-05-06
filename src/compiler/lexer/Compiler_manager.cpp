@@ -5,7 +5,6 @@ namespace TokenType = Enum::Token::Type;
 TokenManager::TokenManager(size_t script_size) : max_token_size(0), idx(0)
 {
 	size_t token_size = sizeof(Token);
-	size_t token_pool_size = script_size * token_size;
 	tokens = new Tokens();
 	pool = (TokenPool *)calloc(script_size, token_size);
 	head = pool;

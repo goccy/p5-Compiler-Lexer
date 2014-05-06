@@ -58,7 +58,7 @@ public:
 	}
 
 	inline void add(Token *tk) {
-		tokens->add(tk);
+		if (tk) tokens->add(tk);
 	}
 
 	bool end(void);

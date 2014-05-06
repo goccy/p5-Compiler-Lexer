@@ -38,7 +38,6 @@ public:
 	FileInfo finfo;
 	Token **tks;
 	const char *_data;
-	std::string data;
 	size_t token_num;
 	size_t total_token_num;
 	const char *deparsed_data;
