@@ -254,14 +254,16 @@ Token *Scanner::scanPrevSymbol(LexContext *ctx, char )
 	char *token = ctx->buffer();
 	TokenManager *tmgr = ctx->tmgr;
 	Token *ret = NULL;
-	if (isRegexStartDelim(ctx, regex_prefix_map)) {
+	Token *prev_tk = ctx->tmgr->lastToken();
+	bool isPointer = (prev_tk && prev_tk->info.type == TokenType::Pointer) ? true : false;
+	if (!isPointer && isRegexStartDelim(ctx, regex_prefix_map)) {
 		//RegexPrefix
 		ret = ctx->tmgr->new_Token(token, ctx->finfo);
 		ret->info = tmgr->getTokenInfo(token);
 		regex_delim = getRegexDelim(ctx);
 		isRegexStarted = true;
 		skipFlag = true;
-	} else if (isRegexStartDelim(ctx, regex_replace_map)) {
+	} else if (!isPointer && isRegexStartDelim(ctx, regex_replace_map)) {
 		//ReplaceRegexPrefix
 		ret = ctx->tmgr->new_Token(token, ctx->finfo);
 		ret->info = tmgr->getTokenInfo(token);
@@ -272,7 +274,6 @@ Token *Scanner::scanPrevSymbol(LexContext *ctx, char )
 		skipFlag = true;
 	} else if (isPrototype(ctx)) {
 		ret = ctx->tmgr->new_Token(token, ctx->finfo);
-
 		isPrototypeStarted = true;
 		skipFlag = true;
 	} else {
