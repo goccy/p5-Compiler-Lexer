@@ -55,6 +55,28 @@ Token *Scanner::scanQuote(LexContext *ctx, char quote)
 {
 	TokenManager *tmgr = ctx->tmgr;
 	ScriptManager *smgr = ctx->smgr;
+	char prev_ch = smgr->previousChar();
+	if (smgr->currentChar() == '\'' && (isalnum(prev_ch) || prev_ch == '_')) {
+		char *token = ctx->buffer();
+		TokenInfo info = tmgr->getTokenInfo(token);
+		if (info.type == TokenType::Undefined) {
+			Token *namespace_tk = tmgr->new_Token(token, ctx->finfo);
+			namespace_tk->info = tmgr->getTokenInfo(TokenType::Namespace);
+			tmgr->add(namespace_tk);
+			ctx->clearBuffer();
+			
+			ctx->writeBuffer(smgr->currentChar());
+			Token *namespace_resolver = tmgr->new_Token(ctx->buffer(), ctx->finfo);
+			namespace_resolver->info  = tmgr->getTokenInfo(TokenType::NamespaceResolver);
+			ctx->clearBuffer();
+			return namespace_resolver;
+		} else {
+			Token *tk = tmgr->new_Token(token, ctx->finfo);
+			tk->info = info;
+			tmgr->add(tk);
+			ctx->clearBuffer();
+		}
+	}
 	for (smgr->next(); !smgr->end(); smgr->next()) {
 		char ch = smgr->currentChar();
 		if (ch == '\n') {

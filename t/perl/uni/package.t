@@ -1239,45 +1239,31 @@ subtest 'tokenize' => sub {
                    'line' => 45
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RawString',
-                   'data' => '$mainㄅĽuṞfⳐ, 123, "comp/stash.t test 3";
-
-    package 압Ƈ;
-
-    ::is $ㄅĽuṞfⳐ, 5, "comp/stash.t test 4";
-    eval ',
-                   'type' => Compiler::Lexer::TokenType::T_RawString,
-                   'line' => 50
+                   'name' => 'Namespace',
+                   'data' => '$main',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 45
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'NamespaceResolver',
-                   'data' => '::',
+                   'data' => '\'',
                    'type' => Compiler::Lexer::TokenType::T_NamespaceResolver,
-                   'line' => 50
+                   'line' => 45
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Namespace,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Namespace',
-                   'data' => 'is',
+                   'data' => 'ㄅĽuṞfⳐ',
                    'type' => Compiler::Lexer::TokenType::T_Namespace,
-                   'line' => 50
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Var',
-                   'data' => '$ㄅĽuṞfⳐ',
-                   'type' => Compiler::Lexer::TokenType::T_Var,
-                   'line' => 50
+                   'line' => 45
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Comma,
@@ -1286,107 +1272,7 @@ subtest 'tokenize' => sub {
                    'name' => 'Comma',
                    'data' => ',',
                    'type' => Compiler::Lexer::TokenType::T_Comma,
-                   'line' => 50
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Int',
-                   'data' => '5',
-                   'type' => Compiler::Lexer::TokenType::T_Int,
-                   'line' => 50
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Comma,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Comma',
-                   'data' => ',',
-                   'type' => Compiler::Lexer::TokenType::T_Comma,
-                   'line' => 50
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'String',
-                   'data' => 'comp/stash.t test 5',
-                   'type' => Compiler::Lexer::TokenType::T_String,
-                   'line' => 50
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'SemiColon',
-                   'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
-                   'line' => 50
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RawString',
-                   'data' => ';
-    eval ',
-                   'type' => Compiler::Lexer::TokenType::T_RawString,
-                   'line' => 51
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Package,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Package',
-                   'data' => 'package',
-                   'type' => Compiler::Lexer::TokenType::T_Package,
-                   'line' => 51
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Class,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Class',
-                   'data' => 'main',
-                   'type' => Compiler::Lexer::TokenType::T_Class,
-                   'line' => 51
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'SemiColon',
-                   'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
-                   'line' => 51
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'is',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 51
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Var',
-                   'data' => '$ㄅĽuṞfⳐ',
-                   'type' => Compiler::Lexer::TokenType::T_Var,
-                   'line' => 51
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Comma,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Comma',
-                   'data' => ',',
-                   'type' => Compiler::Lexer::TokenType::T_Comma,
-                   'line' => 51
+                   'line' => 45
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -1395,7 +1281,7 @@ subtest 'tokenize' => sub {
                    'name' => 'Int',
                    'data' => '123',
                    'type' => Compiler::Lexer::TokenType::T_Int,
-                   'line' => 51
+                   'line' => 45
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Comma,
@@ -1404,15 +1290,168 @@ subtest 'tokenize' => sub {
                    'name' => 'Comma',
                    'data' => ',',
                    'type' => Compiler::Lexer::TokenType::T_Comma,
-                   'line' => 51
+                   'line' => 45
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'String',
-                   'data' => 'comp/stash.t test 6',
+                   'data' => 'comp/stash.t test 3',
                    'type' => Compiler::Lexer::TokenType::T_String,
+                   'line' => 45
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 45
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Package,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Package',
+                   'data' => 'package',
+                   'type' => Compiler::Lexer::TokenType::T_Package,
+                   'line' => 47
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Class,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Class',
+                   'data' => '압Ƈ',
+                   'type' => Compiler::Lexer::TokenType::T_Class,
+                   'line' => 47
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 47
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'NamespaceResolver',
+                   'data' => '::',
+                   'type' => Compiler::Lexer::TokenType::T_NamespaceResolver,
+                   'line' => 49
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'is',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 49
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Var',
+                   'data' => '$ㄅĽuṞfⳐ',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 49
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'line' => 49
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '5',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
+                   'line' => 49
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'line' => 49
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'String',
+                   'data' => 'comp/stash.t test 4',
+                   'type' => Compiler::Lexer::TokenType::T_String,
+                   'line' => 49
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 49
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'BuiltinFunc',
+                   'data' => 'eval',
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
+                   'line' => 50
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RawString',
+                   'data' => '::is $ㄅĽuṞfⳐ, 5, "comp/stash.t test 5";',
+                   'type' => Compiler::Lexer::TokenType::T_RawString,
+                   'line' => 50
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 50
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'BuiltinFunc',
+                   'data' => 'eval',
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
+                   'line' => 51
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RawString',
+                   'data' => 'package main; is $ㄅĽuṞfⳐ, 123, "comp/stash.t test 6";',
+                   'type' => Compiler::Lexer::TokenType::T_RawString,
                    'line' => 51
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1425,70 +1464,76 @@ subtest 'tokenize' => sub {
                    'line' => 51
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RawString',
-                   'data' => ';
-    ::is $ㄅĽuṞfⳐ, 5, "comp/stash.t test 7";
-
-    #This is actually pretty bad, as caller() wasn',
-                   'type' => Compiler::Lexer::TokenType::T_RawString,
-                   'line' => 54
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 't',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 54
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'clean',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 54
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'to',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 54
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'begin',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 54
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'with',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 54
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Operator,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringAdd',
-                   'data' => '.',
-                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
-                   'line' => 54
+                   'name' => 'NamespaceResolver',
+                   'data' => '::',
+                   'type' => Compiler::Lexer::TokenType::T_NamespaceResolver,
+                   'line' => 52
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'is',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 52
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Var',
+                   'data' => '$ㄅĽuṞfⳐ',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 52
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'line' => 52
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '5',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
+                   'line' => 52
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'line' => 52
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'String',
+                   'data' => 'comp/stash.t test 7',
+                   'type' => Compiler::Lexer::TokenType::T_String,
+                   'line' => 52
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 52
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Package,
@@ -3741,19 +3786,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 256,
+            'token_num' => 260,
             'has_warnings' => 1,
             'end_line' => 87,
-            'src' => ' { $ㄅĽuṞfⳐ = 123 ; package ꑭʑ ; sub ニュー { bless [ ] ; } $bar = 4 ; { package 압Ƈ ; $ㄅĽuṞfⳐ = 5 ; } \'$압Ƈd읯ⱪ = 6;        #\' $ꑭʑ = 2 ; $ꑭʑ = join ( \':\' , sort ( keys %ꑭʑ:: ) ) ; $압Ƈ = join ( \':\' , sort ( keys %압Ƈ:: ) ) ; :: is $ꑭʑ , \'bar:ニュー:ꑭʑ:압Ƈ\' , "comp/stash.t test 1" ; :: is $압Ƈ , "d읯ⱪ:ㄅĽuṞfⳐ" , "comp/stash.t test 2" ; :: is \'$mainㄅĽuṞfⳐ, 123, "comp/stash.t test 3";
-
-    package 압Ƈ;
-
-    ::is $ㄅĽuṞfⳐ, 5, "comp/stash.t test 4";
-    eval \' :: is $ㄅĽuṞfⳐ , 5 , "comp/stash.t test 5" ; \';
-    eval \' package main ; is $ㄅĽuṞfⳐ , 123 , "comp/stash.t test 6" ; \';
-    ::is $ㄅĽuṞfⳐ, 5, "comp/stash.t test 7";
-
-    #This is actually pretty bad, as caller() wasn\' t clean to begin with . package main ; sub ㄘ { caller ( 0 ) } sub ƒஓ { my $s = shift ; if ( $s ) { package ᛔQR ; main::ㄘ ( ) ; } } is ( ( ƒஓ ( 1 ) ) [ 0 ] , \'ᛔQR\' , "comp/stash.t test 8" ) ; my $Q = ꑭʑ-> ニュー ( ) ; undef %ꑭʑ :: ; eval { $a = * ꑭʑ::ニュー { PACKAGE } ; } ; is $a , "__ANON__" , "comp/stash.t test 9" ; { local $@ ; eval { $Q-> param ; } ; like $@ , qr/^Can\'t use anonymous symbol table for method lookup/ , "comp/stash.t test 10" ; } like "$Q" , qr/^__ANON__=/ , "comp/stash.t test 11" ; is ref $Q , "__ANON__" , "comp/stash.t test 12" ; package bugⅲⅱⅴⅵⅱ { :: is ( __PACKAGE__ , \'bugⅲⅱⅴⅵⅱ\' , "comp/stash.t test 13" ) ; :: is ( eval ( \'__PACKAGE__\' ) , \'bugⅲⅱⅴⅵⅱ\' , "comp/stash.t test 14" ) ; } }',
+            'src' => ' { $ㄅĽuṞfⳐ = 123 ; package ꑭʑ ; sub ニュー { bless [ ] ; } $bar = 4 ; { package 압Ƈ ; $ㄅĽuṞfⳐ = 5 ; } \'$압Ƈd읯ⱪ = 6;        #\' $ꑭʑ = 2 ; $ꑭʑ = join ( \':\' , sort ( keys %ꑭʑ:: ) ) ; $압Ƈ = join ( \':\' , sort ( keys %압Ƈ:: ) ) ; :: is $ꑭʑ , \'bar:ニュー:ꑭʑ:압Ƈ\' , "comp/stash.t test 1" ; :: is $압Ƈ , "d읯ⱪ:ㄅĽuṞfⳐ" , "comp/stash.t test 2" ; :: is $main\'ㄅĽuṞfⳐ , 123 , "comp/stash.t test 3" ; package 압Ƈ ; :: is $ㄅĽuṞfⳐ , 5 , "comp/stash.t test 4" ; eval \'::is $ㄅĽuṞfⳐ, 5, "comp/stash.t test 5";\' ; eval \'package main; is $ㄅĽuṞfⳐ, 123, "comp/stash.t test 6";\' ; :: is $ㄅĽuṞfⳐ , 5 , "comp/stash.t test 7" ; package main ; sub ㄘ { caller ( 0 ) } sub ƒஓ { my $s = shift ; if ( $s ) { package ᛔQR ; main::ㄘ ( ) ; } } is ( ( ƒஓ ( 1 ) ) [ 0 ] , \'ᛔQR\' , "comp/stash.t test 8" ) ; my $Q = ꑭʑ-> ニュー ( ) ; undef %ꑭʑ :: ; eval { $a = * ꑭʑ::ニュー { PACKAGE } ; } ; is $a , "__ANON__" , "comp/stash.t test 9" ; { local $@ ; eval { $Q-> param ; } ; like $@ , qr/^Can\'t use anonymous symbol table for method lookup/ , "comp/stash.t test 10" ; } like "$Q" , qr/^__ANON__=/ , "comp/stash.t test 11" ; is ref $Q , "__ANON__" , "comp/stash.t test 12" ; package bugⅲⅱⅴⅵⅱ { :: is ( __PACKAGE__ , \'bugⅲⅱⅴⅵⅱ\' , "comp/stash.t test 13" ) ; :: is ( eval ( \'__PACKAGE__\' ) , \'bugⅲⅱⅴⅵⅱ\' , "comp/stash.t test 14" ) ; } }',
             'start_line' => 23,
             'indent' => 0,
             'block_id' => 0
@@ -3876,47 +3912,65 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 5
           },
           {
-            'token_num' => 11,
+            'token_num' => 8,
             'has_warnings' => 1,
-            'end_line' => 50,
-            'src' => ' :: is \'$mainㄅĽuṞfⳐ, 123, "comp/stash.t test 3";
-
-    package 압Ƈ;
-
-    ::is $ㄅĽuṞfⳐ, 5, "comp/stash.t test 4";
-    eval \' :: is $ㄅĽuṞfⳐ , 5 , "comp/stash.t test 5" ;',
+            'end_line' => 45,
+            'src' => ' :: is $main\'ㄅĽuṞfⳐ , 123 , "comp/stash.t test 3" ;',
             'start_line' => 45,
             'indent' => 1,
             'block_id' => 5
           },
           {
-            'token_num' => 4,
+            'token_num' => 3,
             'has_warnings' => 1,
+            'end_line' => 47,
+            'src' => ' package 압Ƈ ;',
+            'start_line' => 47,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 49,
+            'src' => ' :: is $ㄅĽuṞfⳐ , 5 , "comp/stash.t test 4" ;',
+            'start_line' => 49,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
+            'end_line' => 50,
+            'src' => ' eval \'::is $ㄅĽuṞfⳐ, 5, "comp/stash.t test 5";\' ;',
+            'start_line' => 50,
+            'indent' => 1,
+            'block_id' => 5
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 0,
             'end_line' => 51,
-            'src' => ' \';
-    eval \' package main ;',
+            'src' => ' eval \'package main; is $ㄅĽuṞfⳐ, 123, "comp/stash.t test 6";\' ;',
             'start_line' => 51,
             'indent' => 1,
             'block_id' => 5
           },
           {
-            'token_num' => 7,
+            'token_num' => 8,
             'has_warnings' => 1,
-            'end_line' => 51,
-            'src' => ' is $ㄅĽuṞfⳐ , 123 , "comp/stash.t test 6" ;',
-            'start_line' => 51,
+            'end_line' => 52,
+            'src' => ' :: is $ㄅĽuṞfⳐ , 5 , "comp/stash.t test 7" ;',
+            'start_line' => 52,
             'indent' => 1,
             'block_id' => 5
           },
           {
-            'token_num' => 10,
+            'token_num' => 3,
             'has_warnings' => 1,
             'end_line' => 55,
-            'src' => ' \';
-    ::is $ㄅĽuṞfⳐ, 5, "comp/stash.t test 7";
-
-    #This is actually pretty bad, as caller() wasn\' t clean to begin with . package main ;',
-            'start_line' => 54,
+            'src' => ' package main ;',
+            'start_line' => 55,
             'indent' => 1,
             'block_id' => 5
           },

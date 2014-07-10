@@ -11884,13 +11884,102 @@ subtest 'tokenize' => sub {
                    'line' => 233
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => '$main',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 233
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'NamespaceResolver',
+                   'data' => '\'',
+                   'type' => Compiler::Lexer::TokenType::T_NamespaceResolver,
+                   'line' => 233
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'anonhash2',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 233
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 233
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'main',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 234
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'NamespaceResolver',
+                   'data' => '::',
+                   'type' => Compiler::Lexer::TokenType::T_NamespaceResolver,
+                   'line' => 234
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'is',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 234
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 234
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'BuiltinFunc',
+                   'data' => 'ref',
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
+                   'line' => 234
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RawString',
-                   'data' => '$mainanonhash2;
-main::is (ref $object, ',
-                   'type' => Compiler::Lexer::TokenType::T_RawString,
+                   'name' => 'Var',
+                   'data' => '$object',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 234
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
                    'line' => 234
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -11898,9 +11987,116 @@ main::is (ref $object, ',
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RawString',
-                   'data' => 'MYHASH);
-main::is ($object->{ABC}, ',
+                   'data' => 'MYHASH',
                    'type' => Compiler::Lexer::TokenType::T_RawString,
+                   'line' => 234
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightParenthesis',
+                   'data' => ')',
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
+                   'line' => 234
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 234
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'main',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 235
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'NamespaceResolver',
+                   'data' => '::',
+                   'type' => Compiler::Lexer::TokenType::T_NamespaceResolver,
+                   'line' => 235
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'is',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 235
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 235
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Var',
+                   'data' => '$object',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 235
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Pointer',
+                   'data' => '->',
+                   'type' => Compiler::Lexer::TokenType::T_Pointer,
+                   'line' => 235
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftBrace',
+                   'data' => '{',
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'line' => 235
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Key',
+                   'data' => 'ABC',
+                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'line' => 235
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightBrace',
+                   'data' => '}',
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
+                   'line' => 235
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
                    'line' => 235
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -11908,11 +12104,143 @@ main::is ($object->{ABC}, ',
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RawString',
-                   'data' => 'XYZ);
-
-$object2 = bless {};
-main::is (ref $object2,	',
+                   'data' => 'XYZ',
                    'type' => Compiler::Lexer::TokenType::T_RawString,
+                   'line' => 235
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightParenthesis',
+                   'data' => ')',
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
+                   'line' => 235
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 235
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'GlobalVar',
+                   'data' => '$object2',
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
+                   'line' => 237
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Assign,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Assign',
+                   'data' => '=',
+                   'type' => Compiler::Lexer::TokenType::T_Assign,
+                   'line' => 237
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'BuiltinFunc',
+                   'data' => 'bless',
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
+                   'line' => 237
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftBrace',
+                   'data' => '{',
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'line' => 237
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightBrace',
+                   'data' => '}',
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
+                   'line' => 237
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 237
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'main',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 238
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'NamespaceResolver',
+                   'data' => '::',
+                   'type' => Compiler::Lexer::TokenType::T_NamespaceResolver,
+                   'line' => 238
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'is',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 238
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 238
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'BuiltinFunc',
+                   'data' => 'ref',
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
+                   'line' => 238
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Var',
+                   'data' => '$object2',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 238
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
                    'line' => 238
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -11920,70 +12248,215 @@ main::is (ref $object2,	',
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RawString',
-                   'data' => 'MYHASH);
-
-# Test ordinary call on object method.
-
-&mymethod($object,"argument");
-
-sub mymethod {
-    local($THIS, @ARGS) = @_;
-    die ',
+                   'data' => 'MYHASH',
                    'type' => Compiler::Lexer::TokenType::T_RawString,
-                   'line' => 246
+                   'line' => 238
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightParenthesis',
+                   'data' => ')',
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
+                   'line' => 238
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 238
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'BitAnd',
+                   'data' => '&',
+                   'type' => Compiler::Lexer::TokenType::T_BitAnd,
+                   'line' => 242
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 1,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Key',
-                   'data' => 'Got',
+                   'data' => 'mymethod',
                    'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 246
+                   'line' => 242
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 242
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'a',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 246
+                   'name' => 'Var',
+                   'data' => '$object',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 242
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'line' => 242
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'String',
-                   'data' => '\' . ref($THIS). \'',
+                   'data' => 'argument',
                    'type' => Compiler::Lexer::TokenType::T_String,
-                   'line' => 246
+                   'line' => 242
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightParenthesis',
+                   'data' => ')',
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
+                   'line' => 242
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 242
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'FunctionDecl',
+                   'data' => 'sub',
+                   'type' => Compiler::Lexer::TokenType::T_FunctionDecl,
+                   'line' => 244
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Function',
+                   'data' => 'mymethod',
+                   'type' => Compiler::Lexer::TokenType::T_Function,
+                   'line' => 244
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftBrace',
+                   'data' => '{',
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'line' => 244
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LocalDecl',
+                   'data' => 'local',
+                   'type' => Compiler::Lexer::TokenType::T_LocalDecl,
+                   'line' => 245
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 245
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'instead',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 246
+                   'name' => 'GlobalVar',
+                   'data' => '$THIS',
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
+                   'line' => 245
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'line' => 245
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'of',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
-                   'line' => 246
+                   'name' => 'GlobalArrayVar',
+                   'data' => '@ARGS',
+                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
+                   'line' => 245
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightParenthesis',
+                   'data' => ')',
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
+                   'line' => 245
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Assign,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Assign',
+                   'data' => '=',
+                   'type' => Compiler::Lexer::TokenType::T_Assign,
+                   'line' => 245
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'a',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'ArgumentArray',
+                   'data' => '@_',
+                   'type' => Compiler::Lexer::TokenType::T_ArgumentArray,
+                   'line' => 245
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 245
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'BuiltinFunc',
+                   'data' => 'die',
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
                    'line' => 246
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -11991,9 +12464,107 @@ sub mymethod {
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RawString',
-                   'data' => 'MYHASH
-	unless ref $THIS eq ',
+                   'data' => 'Got a "',
                    'type' => Compiler::Lexer::TokenType::T_RawString,
+                   'line' => 246
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'StringAdd',
+                   'data' => '.',
+                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
+                   'line' => 246
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'BuiltinFunc',
+                   'data' => 'ref',
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
+                   'line' => 246
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 246
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Var',
+                   'data' => '$THIS',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 246
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightParenthesis',
+                   'data' => ')',
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
+                   'line' => 246
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'StringAdd',
+                   'data' => '.',
+                   'type' => Compiler::Lexer::TokenType::T_StringAdd,
+                   'line' => 246
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RawString',
+                   'data' => '" instead of a MYHASH',
+                   'type' => Compiler::Lexer::TokenType::T_RawString,
+                   'line' => 246
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Stmt,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'UnlessStmt',
+                   'data' => 'unless',
+                   'type' => Compiler::Lexer::TokenType::T_UnlessStmt,
+                   'line' => 247
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'BuiltinFunc',
+                   'data' => 'ref',
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
+                   'line' => 247
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Var',
+                   'data' => '$THIS',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 247
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'StringEqual',
+                   'data' => 'eq',
+                   'type' => Compiler::Lexer::TokenType::T_StringEqual,
                    'line' => 247
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -12001,10 +12572,215 @@ sub mymethod {
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RawString',
-                   'data' => 'MYHASH;
-    main::is ($ARGS[0], "argument");
-    main::is ($THIS->{FOO}, ',
+                   'data' => 'MYHASH',
                    'type' => Compiler::Lexer::TokenType::T_RawString,
+                   'line' => 247
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 247
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'main',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 248
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'NamespaceResolver',
+                   'data' => '::',
+                   'type' => Compiler::Lexer::TokenType::T_NamespaceResolver,
+                   'line' => 248
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'is',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 248
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 248
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'GlobalVar',
+                   'data' => '$ARGS',
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
+                   'line' => 248
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftBracket',
+                   'data' => '[',
+                   'type' => Compiler::Lexer::TokenType::T_LeftBracket,
+                   'line' => 248
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '0',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
+                   'line' => 248
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightBracket',
+                   'data' => ']',
+                   'type' => Compiler::Lexer::TokenType::T_RightBracket,
+                   'line' => 248
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'line' => 248
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'String',
+                   'data' => 'argument',
+                   'type' => Compiler::Lexer::TokenType::T_String,
+                   'line' => 248
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightParenthesis',
+                   'data' => ')',
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
+                   'line' => 248
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 248
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'main',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 249
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'NamespaceResolver',
+                   'data' => '::',
+                   'type' => Compiler::Lexer::TokenType::T_NamespaceResolver,
+                   'line' => 249
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'is',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 249
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 249
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Var',
+                   'data' => '$THIS',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 249
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Pointer',
+                   'data' => '->',
+                   'type' => Compiler::Lexer::TokenType::T_Pointer,
+                   'line' => 249
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftBrace',
+                   'data' => '{',
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'line' => 249
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Key',
+                   'data' => 'FOO',
+                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'line' => 249
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightBrace',
+                   'data' => '}',
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
+                   'line' => 249
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
                    'line' => 249
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -12012,25 +12788,170 @@ sub mymethod {
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RawString',
-                   'data' => 'BAR);
-}
-
-# Test automatic destructor call.
-
-$string = "bad";
-$object = "foo";
-$string = "good";
-$main',
+                   'data' => 'BAR',
                    'type' => Compiler::Lexer::TokenType::T_RawString,
-                   'line' => 257
+                   'line' => 249
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightParenthesis',
+                   'data' => ')',
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
+                   'line' => 249
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 249
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightBrace',
+                   'data' => '}',
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
+                   'line' => 250
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
+                   'name' => 'GlobalVar',
+                   'data' => '$string',
+                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
+                   'line' => 254
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Assign,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Assign',
+                   'data' => '=',
+                   'type' => Compiler::Lexer::TokenType::T_Assign,
+                   'line' => 254
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'String',
+                   'data' => 'bad',
+                   'type' => Compiler::Lexer::TokenType::T_String,
+                   'line' => 254
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 254
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Var',
+                   'data' => '$object',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 255
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Assign,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Assign',
+                   'data' => '=',
+                   'type' => Compiler::Lexer::TokenType::T_Assign,
+                   'line' => 255
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'String',
+                   'data' => 'foo',
+                   'type' => Compiler::Lexer::TokenType::T_String,
+                   'line' => 255
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 255
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Var',
+                   'data' => '$string',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 256
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Assign,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Assign',
+                   'data' => '=',
+                   'type' => Compiler::Lexer::TokenType::T_Assign,
+                   'line' => 256
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'String',
+                   'data' => 'good',
+                   'type' => Compiler::Lexer::TokenType::T_String,
+                   'line' => 256
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 256
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => '$main',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 257
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'NamespaceResolver',
+                   'data' => '\'',
+                   'type' => Compiler::Lexer::TokenType::T_NamespaceResolver,
+                   'line' => 257
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
                    'data' => 'anonhash2',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
                    'line' => 257
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -12064,9 +12985,9 @@ $main',
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'GlobalVar',
+                   'name' => 'Var',
                    'data' => '$string',
-                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
+                   'type' => Compiler::Lexer::TokenType::T_Var,
                    'line' => 258
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -12412,12 +13333,75 @@ $main',
                    'line' => 272
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => '$main',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 274
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'NamespaceResolver',
+                   'data' => '\'',
+                   'type' => Compiler::Lexer::TokenType::T_NamespaceResolver,
+                   'line' => 274
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'object',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 274
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Assign,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Assign',
+                   'data' => '=',
+                   'type' => Compiler::Lexer::TokenType::T_Assign,
+                   'line' => 274
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'BuiltinFunc',
+                   'data' => 'bless',
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
+                   'line' => 274
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftBrace',
+                   'data' => '{',
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'line' => 274
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RawString',
-                   'data' => '$mainobject = bless {FOO => ',
-                   'type' => Compiler::Lexer::TokenType::T_RawString,
+                   'name' => 'Key',
+                   'data' => 'FOO',
+                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'line' => 274
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Arrow',
+                   'data' => '=>',
+                   'type' => Compiler::Lexer::TokenType::T_Arrow,
                    'line' => 274
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -12425,8 +13409,35 @@ $main',
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RawString',
-                   'data' => 'foo, BAR => ',
+                   'data' => 'foo',
                    'type' => Compiler::Lexer::TokenType::T_RawString,
+                   'line' => 274
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'line' => 274
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Key',
+                   'data' => 'BAR',
+                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'line' => 274
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Arrow',
+                   'data' => '=>',
+                   'type' => Compiler::Lexer::TokenType::T_Arrow,
                    'line' => 274
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -12434,14 +13445,134 @@ $main',
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RawString',
-                   'data' => 'bar};
-
-package main;
-
-# Test arrow-style method invocation.
-
-is ($object->doit("BAR"), ',
+                   'data' => 'bar',
                    'type' => Compiler::Lexer::TokenType::T_RawString,
+                   'line' => 274
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightBrace',
+                   'data' => '}',
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
+                   'line' => 274
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 274
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Package,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Package',
+                   'data' => 'package',
+                   'type' => Compiler::Lexer::TokenType::T_Package,
+                   'line' => 276
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Class,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Class',
+                   'data' => 'main',
+                   'type' => Compiler::Lexer::TokenType::T_Class,
+                   'line' => 276
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 276
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 1,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Key',
+                   'data' => 'is',
+                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'line' => 280
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 280
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Var',
+                   'data' => '$object',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 280
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Pointer',
+                   'data' => '->',
+                   'type' => Compiler::Lexer::TokenType::T_Pointer,
+                   'line' => 280
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Method',
+                   'data' => 'doit',
+                   'type' => Compiler::Lexer::TokenType::T_Method,
+                   'line' => 280
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 280
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'String',
+                   'data' => 'BAR',
+                   'type' => Compiler::Lexer::TokenType::T_String,
+                   'line' => 280
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightParenthesis',
+                   'data' => ')',
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
+                   'line' => 280
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
                    'line' => 280
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -12449,25 +13580,45 @@ is ($object->doit("BAR"), ',
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RawString',
-                   'data' => 'bar);
-
-# Test indirect-object-style method invocation.
-
-$foo = doit $object "FOO";
-main::is ($foo, ',
+                   'data' => 'bar',
                    'type' => Compiler::Lexer::TokenType::T_RawString,
-                   'line' => 285
+                   'line' => 280
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightParenthesis',
+                   'data' => ')',
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
+                   'line' => 280
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 280
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RawString',
-                   'data' => 'foo);
-
-sub BASEOBJ',
-                   'type' => Compiler::Lexer::TokenType::T_RawString,
-                   'line' => 287
+                   'name' => 'Var',
+                   'data' => '$foo',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 284
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Assign,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Assign',
+                   'data' => '=',
+                   'type' => Compiler::Lexer::TokenType::T_Assign,
+                   'line' => 284
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
@@ -12476,6 +13627,150 @@ sub BASEOBJ',
                    'name' => 'Key',
                    'data' => 'doit',
                    'type' => Compiler::Lexer::TokenType::T_Key,
+                   'line' => 284
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Var',
+                   'data' => '$object',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 284
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'String',
+                   'data' => 'FOO',
+                   'type' => Compiler::Lexer::TokenType::T_String,
+                   'line' => 284
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 284
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'main',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 285
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'NamespaceResolver',
+                   'data' => '::',
+                   'type' => Compiler::Lexer::TokenType::T_NamespaceResolver,
+                   'line' => 285
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'is',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 285
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 285
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Var',
+                   'data' => '$foo',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 285
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'line' => 285
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RawString',
+                   'data' => 'foo',
+                   'type' => Compiler::Lexer::TokenType::T_RawString,
+                   'line' => 285
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightParenthesis',
+                   'data' => ')',
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
+                   'line' => 285
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 285
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'FunctionDecl',
+                   'data' => 'sub',
+                   'type' => Compiler::Lexer::TokenType::T_FunctionDecl,
+                   'line' => 287
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'BASEOBJ',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
+                   'line' => 287
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'NamespaceResolver',
+                   'data' => '\'',
+                   'type' => Compiler::Lexer::TokenType::T_NamespaceResolver,
+                   'line' => 287
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Namespace,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Namespace',
+                   'data' => 'doit',
+                   'type' => Compiler::Lexer::TokenType::T_Namespace,
                    'line' => 287
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -37770,35 +39065,137 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 20,
+            'token_num' => 5,
+            'has_warnings' => 1,
+            'end_line' => 233,
+            'src' => ' $object = bless $main\'anonhash2 ;',
+            'start_line' => 233,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 234,
+            'src' => ' main::is ( ref $object , \'MYHASH\' ) ;',
+            'start_line' => 234,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 235,
+            'src' => ' main::is ( $object-> { ABC } , \'XYZ\' ) ;',
+            'start_line' => 235,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 237,
+            'src' => ' $object2 = bless { } ;',
+            'start_line' => 237,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 238,
+            'src' => ' main::is ( ref $object2 , \'MYHASH\' ) ;',
+            'start_line' => 238,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 242,
+            'src' => ' & mymethod ( $object , "argument" ) ;',
+            'start_line' => 242,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 49,
+            'has_warnings' => 1,
+            'end_line' => 250,
+            'src' => ' sub mymethod { local ( $THIS , @ARGS ) = @_ ; die \'Got a "\' . ref ( $THIS ) . \'" instead of a MYHASH\' unless ref $THIS eq \'MYHASH\' ; main::is ( $ARGS [ 0 ] , "argument" ) ; main::is ( $THIS-> { FOO } , \'BAR\' ) ; }',
+            'start_line' => 244,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 245,
+            'src' => ' local ( $THIS , @ARGS ) = @_ ;',
+            'start_line' => 245,
+            'indent' => 1,
+            'block_id' => 26
+          },
+          {
+            'token_num' => 15,
+            'has_warnings' => 1,
+            'end_line' => 247,
+            'src' => ' die \'Got a "\' . ref ( $THIS ) . \'" instead of a MYHASH\' unless ref $THIS eq \'MYHASH\' ;',
+            'start_line' => 246,
+            'indent' => 1,
+            'block_id' => 26
+          },
+          {
+            'token_num' => 10,
+            'has_warnings' => 1,
+            'end_line' => 248,
+            'src' => ' main::is ( $ARGS [ 0 ] , "argument" ) ;',
+            'start_line' => 248,
+            'indent' => 1,
+            'block_id' => 26
+          },
+          {
+            'token_num' => 11,
+            'has_warnings' => 1,
+            'end_line' => 249,
+            'src' => ' main::is ( $THIS-> { FOO } , \'BAR\' ) ;',
+            'start_line' => 249,
+            'indent' => 1,
+            'block_id' => 26
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 254,
+            'src' => ' $string = "bad" ;',
+            'start_line' => 254,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 255,
+            'src' => ' $object = "foo" ;',
+            'start_line' => 255,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 1,
+            'end_line' => 256,
+            'src' => ' $string = "good" ;',
+            'start_line' => 256,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 257,
-            'src' => ' $object = bless \'$mainanonhash2;
-main::is (ref $object, \' \'MYHASH);
-main::is ($object->{ABC}, \' \'XYZ);
-
-$object2 = bless {};
-main::is (ref $object2,	\' \'MYHASH);
-
-# Test ordinary call on object method.
-
-&mymethod($object,"argument");
-
-sub mymethod {
-    local($THIS, @ARGS) = @_;
-    die \' Got a "\' . ref($THIS). \'" instead of a \'MYHASH
-	unless ref $THIS eq \' \'MYHASH;
-    main::is ($ARGS[0], "argument");
-    main::is ($THIS->{FOO}, \' \'BAR);
-}
-
-# Test automatic destructor call.
-
-$string = "bad";
-$object = "foo";
-$string = "good";
-$main\' anonhash2 = "foo" ;',
-            'start_line' => 233,
+            'src' => ' $main\'anonhash2 = "foo" ;',
+            'start_line' => 257,
             'indent' => 0,
             'block_id' => 0
           },
@@ -37818,7 +39215,7 @@ $main\' anonhash2 = "foo" ;',
             'src' => ' return unless $string ;',
             'start_line' => 261,
             'indent' => 1,
-            'block_id' => 26
+            'block_id' => 27
           },
           {
             'token_num' => 7,
@@ -37827,7 +39224,7 @@ $main\' anonhash2 = "foo" ;',
             'src' => ' main::is ( $string , \'good\' ) ;',
             'start_line' => 262,
             'indent' => 1,
-            'block_id' => 26
+            'block_id' => 27
           },
           {
             'token_num' => 8,
@@ -37836,7 +39233,7 @@ $main\' anonhash2 = "foo" ;',
             'src' => ' main::isnt ( ref shift , \'HASH\' ) ;',
             'start_line' => 265,
             'indent' => 1,
-            'block_id' => 26
+            'block_id' => 27
           },
           {
             'token_num' => 3,
@@ -37857,24 +39254,47 @@ $main\' anonhash2 = "foo" ;',
             'block_id' => 0
           },
           {
-            'token_num' => 32,
+            'token_num' => 13,
             'has_warnings' => 1,
-            'end_line' => 293,
-            'src' => ' \'$mainobject = bless {FOO => \' \'foo, BAR => \' \'bar};
-
-package main;
-
-# Test arrow-style method invocation.
-
-is ($object->doit("BAR"), \' \'bar);
-
-# Test indirect-object-style method invocation.
-
-$foo = doit $object "FOO";
-main::is ($foo, \' \'foo);
-
-sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'OBJ\' ; $ref-> { shift ( ) } ; } package UNIVERSAL ;',
+            'end_line' => 274,
+            'src' => ' $main\'object = bless { FOO => \'foo\' , BAR => \'bar\' } ;',
             'start_line' => 274,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 276,
+            'src' => ' package main ;',
+            'start_line' => 276,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 280,
+            'src' => ' is ( $object-> doit ( "BAR" ) , \'bar\' ) ;',
+            'start_line' => 280,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 6,
+            'has_warnings' => 1,
+            'end_line' => 284,
+            'src' => ' $foo = doit $object "FOO" ;',
+            'start_line' => 284,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 7,
+            'has_warnings' => 1,
+            'end_line' => 285,
+            'src' => ' main::is ( $foo , \'foo\' ) ;',
+            'start_line' => 285,
             'indent' => 0,
             'block_id' => 0
           },
@@ -37884,8 +39304,8 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'end_line' => 288,
             'src' => ' local $ref = shift ;',
             'start_line' => 288,
-            'indent' => 0,
-            'block_id' => 26
+            'indent' => 1,
+            'block_id' => 28
           },
           {
             'token_num' => 8,
@@ -37893,8 +39313,8 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'end_line' => 289,
             'src' => ' die "Not an OBJ" unless ref $ref eq \'OBJ\' ;',
             'start_line' => 289,
-            'indent' => 0,
-            'block_id' => 26
+            'indent' => 1,
+            'block_id' => 28
           },
           {
             'token_num' => 8,
@@ -37902,8 +39322,17 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'end_line' => 290,
             'src' => ' $ref-> { shift ( ) } ;',
             'start_line' => 290,
+            'indent' => 1,
+            'block_id' => 28
+          },
+          {
+            'token_num' => 3,
+            'has_warnings' => 1,
+            'end_line' => 293,
+            'src' => ' package UNIVERSAL ;',
+            'start_line' => 293,
             'indent' => 0,
-            'block_id' => 26
+            'block_id' => 0
           },
           {
             'token_num' => 4,
@@ -38101,7 +39530,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' print "# larry\\nok $test\\n" ;',
             'start_line' => 326,
             'indent' => 1,
-            'block_id' => 28
+            'block_id' => 30
           },
           {
             'token_num' => 9,
@@ -38110,7 +39539,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' print "# curly\\nok " , $test + 1 , "\\n" ;',
             'start_line' => 327,
             'indent' => 1,
-            'block_id' => 29
+            'block_id' => 31
           },
           {
             'token_num' => 9,
@@ -38119,7 +39548,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' print "# moe\\nok " , $test + 2 , "\\n" ;',
             'start_line' => 328,
             'indent' => 1,
-            'block_id' => 30
+            'block_id' => 32
           },
           {
             'token_num' => 41,
@@ -38137,7 +39566,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' my ( $joe , @curly , %larry ) ;',
             'start_line' => 331,
             'indent' => 1,
-            'block_id' => 31
+            'block_id' => 33
           },
           {
             'token_num' => 9,
@@ -38146,7 +39575,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' my $moe = bless \\ $joe , \'moe\' ;',
             'start_line' => 332,
             'indent' => 1,
-            'block_id' => 31
+            'block_id' => 33
           },
           {
             'token_num' => 9,
@@ -38155,7 +39584,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' my $curly = bless \\ @curly , \'curly\' ;',
             'start_line' => 333,
             'indent' => 1,
-            'block_id' => 31
+            'block_id' => 33
           },
           {
             'token_num' => 9,
@@ -38164,7 +39593,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' my $larry = bless \\ %larry , \'larry\' ;',
             'start_line' => 334,
             'indent' => 1,
-            'block_id' => 31
+            'block_id' => 33
           },
           {
             'token_num' => 3,
@@ -38173,7 +39602,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' print "# leaving block\\n" ;',
             'start_line' => 335,
             'indent' => 1,
-            'block_id' => 31
+            'block_id' => 33
           },
           {
             'token_num' => 3,
@@ -38290,7 +39719,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' package A ;',
             'start_line' => 358,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 35
           },
           {
             'token_num' => 9,
@@ -38299,7 +39728,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' sub new { bless { } , shift }',
             'start_line' => 359,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 35
           },
           {
             'token_num' => 3,
@@ -38308,7 +39737,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' package _B ;',
             'start_line' => 361,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 35
           },
           {
             'token_num' => 9,
@@ -38317,7 +39746,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' sub new { bless { } , shift }',
             'start_line' => 362,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 35
           },
           {
             'token_num' => 3,
@@ -38326,7 +39755,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' print "# destroying \'_B\'\\nok $test\\n" ;',
             'start_line' => 363,
             'indent' => 2,
-            'block_id' => 37
+            'block_id' => 39
           },
           {
             'token_num' => 3,
@@ -38335,7 +39764,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' package main ;',
             'start_line' => 364,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 35
           },
           {
             'token_num' => 7,
@@ -38344,7 +39773,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' my $b = _B-> new ;',
             'start_line' => 365,
             'indent' => 1,
-            'block_id' => 33
+            'block_id' => 35
           },
           {
             'token_num' => 7,
@@ -38371,7 +39800,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' my $test = curr_test ( ) ;',
             'start_line' => 372,
             'indent' => 1,
-            'block_id' => 38
+            'block_id' => 40
           },
           {
             'token_num' => 5,
@@ -38380,7 +39809,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' my $i = 0 ;',
             'start_line' => 373,
             'indent' => 1,
-            'block_id' => 38
+            'block_id' => 40
           },
           {
             'token_num' => 40,
@@ -38389,7 +39818,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' local $SIG { \'__DIE__\' } = sub { my $m = shift ; if ( $i ++ > 4 ) { print "# infinite recursion, bailing\\nnot ok $test\\n" ; exit 1 ; } like ( $m , qr/^Modification of a read-only/ ) ; } ;',
             'start_line' => 374,
             'indent' => 1,
-            'block_id' => 38
+            'block_id' => 40
           },
           {
             'token_num' => 5,
@@ -38398,7 +39827,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' my $m = shift ;',
             'start_line' => 375,
             'indent' => 2,
-            'block_id' => 39
+            'block_id' => 41
           },
           {
             'token_num' => 15,
@@ -38407,7 +39836,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' if ( $i ++ > 4 ) { print "# infinite recursion, bailing\\nnot ok $test\\n" ; exit 1 ; }',
             'start_line' => 376,
             'indent' => 2,
-            'block_id' => 39
+            'block_id' => 41
           },
           {
             'token_num' => 3,
@@ -38416,7 +39845,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' print "# infinite recursion, bailing\\nnot ok $test\\n" ;',
             'start_line' => 377,
             'indent' => 3,
-            'block_id' => 40
+            'block_id' => 42
           },
           {
             'token_num' => 3,
@@ -38425,7 +39854,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' exit 1 ;',
             'start_line' => 378,
             'indent' => 3,
-            'block_id' => 40
+            'block_id' => 42
           },
           {
             'token_num' => 10,
@@ -38434,7 +39863,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' like ( $m , qr/^Modification of a read-only/ ) ;',
             'start_line' => 380,
             'indent' => 2,
-            'block_id' => 39
+            'block_id' => 41
           },
           {
             'token_num' => 3,
@@ -38443,7 +39872,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' package C ;',
             'start_line' => 382,
             'indent' => 1,
-            'block_id' => 38
+            'block_id' => 40
           },
           {
             'token_num' => 9,
@@ -38452,7 +39881,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' sub new { bless { } , shift }',
             'start_line' => 383,
             'indent' => 1,
-            'block_id' => 38
+            'block_id' => 40
           },
           {
             'token_num' => 12,
@@ -38461,7 +39890,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' { print "# should generate an error...\\n" ; my $c = C-> new ; }',
             'start_line' => 385,
             'indent' => 1,
-            'block_id' => 38
+            'block_id' => 40
           },
           {
             'token_num' => 3,
@@ -38470,7 +39899,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' print "# should generate an error...\\n" ;',
             'start_line' => 386,
             'indent' => 2,
-            'block_id' => 43
+            'block_id' => 45
           },
           {
             'token_num' => 7,
@@ -38479,7 +39908,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' my $c = C-> new ;',
             'start_line' => 387,
             'indent' => 2,
-            'block_id' => 43
+            'block_id' => 45
           },
           {
             'token_num' => 3,
@@ -38488,7 +39917,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' print "# good, didn\'t recurse\\n" ;',
             'start_line' => 389,
             'indent' => 1,
-            'block_id' => 38
+            'block_id' => 40
           },
           {
             'token_num' => 18,
@@ -38524,7 +39953,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' my @a ;',
             'start_line' => 413,
             'indent' => 1,
-            'block_id' => 44
+            'block_id' => 46
           },
           {
             'token_num' => 7,
@@ -38533,7 +39962,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' $a [ 1 ] = "good" ;',
             'start_line' => 414,
             'indent' => 1,
-            'block_id' => 44
+            'block_id' => 46
           },
           {
             'token_num' => 3,
@@ -38542,7 +39971,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' my $got ;',
             'start_line' => 415,
             'indent' => 1,
-            'block_id' => 44
+            'block_id' => 46
           },
           {
             'token_num' => 17,
@@ -38551,7 +39980,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' for ( @a ) { $got .= ${ \\ $_ } ; $got .= \';\' ; }',
             'start_line' => 416,
             'indent' => 1,
-            'block_id' => 44
+            'block_id' => 46
           },
           {
             'token_num' => 7,
@@ -38560,7 +39989,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' $got .= ${ \\ $_ } ;',
             'start_line' => 417,
             'indent' => 2,
-            'block_id' => 45
+            'block_id' => 47
           },
           {
             'token_num' => 4,
@@ -38569,7 +39998,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' $got .= \';\' ;',
             'start_line' => 418,
             'indent' => 2,
-            'block_id' => 45
+            'block_id' => 47
           },
           {
             'token_num' => 7,
@@ -38578,7 +40007,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $got , ";good;" ) ;',
             'start_line' => 420,
             'indent' => 1,
-            'block_id' => 44
+            'block_id' => 46
           },
           {
             'token_num' => 10,
@@ -38623,7 +40052,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' my $expect = "pass\\n" ;',
             'start_line' => 435,
             'indent' => 1,
-            'block_id' => 46
+            'block_id' => 48
           },
           {
             'token_num' => 22,
@@ -38632,7 +40061,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' my $result = runperl ( switches => [ \'-wl\' ] , stderr => 1 , prog => $lexical . \'BEGIN {$a = \\q{pass}}; $a = $$a; print $a\' ) ;',
             'start_line' => 436,
             'indent' => 1,
-            'block_id' => 46
+            'block_id' => 48
           },
           {
             'token_num' => 7,
@@ -38641,7 +40070,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $? , 0 ) ;',
             'start_line' => 439,
             'indent' => 1,
-            'block_id' => 46
+            'block_id' => 48
           },
           {
             'token_num' => 7,
@@ -38650,7 +40079,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $result , $expect ) ;',
             'start_line' => 440,
             'indent' => 1,
-            'block_id' => 46
+            'block_id' => 48
           },
           {
             'token_num' => 6,
@@ -38677,7 +40106,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' my $a1 = bless [ 3 ] , "x" ;',
             'start_line' => 445,
             'indent' => 1,
-            'block_id' => 48
+            'block_id' => 50
           },
           {
             'token_num' => 10,
@@ -38686,7 +40115,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' my $a2 = bless [ 2 ] , "x" ;',
             'start_line' => 446,
             'indent' => 1,
-            'block_id' => 48
+            'block_id' => 50
           },
           {
             'token_num' => 24,
@@ -38695,7 +40124,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' { my $a3 = bless [ 1 ] , "x" ; my $a4 = bless [ 0 ] , "x" ; 567 ; }',
             'start_line' => 447,
             'indent' => 1,
-            'block_id' => 48
+            'block_id' => 50
           },
           {
             'token_num' => 10,
@@ -38704,7 +40133,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' my $a3 = bless [ 1 ] , "x" ;',
             'start_line' => 447,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 51
           },
           {
             'token_num' => 10,
@@ -38713,7 +40142,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' my $a4 = bless [ 0 ] , "x" ;',
             'start_line' => 448,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 51
           },
           {
             'token_num' => 2,
@@ -38722,7 +40151,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' 567 ;',
             'start_line' => 449,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 51
           },
           {
             'token_num' => 7,
@@ -38812,7 +40241,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' local $TODO = "works but output through pipe is mangled" if $^O eq \'VMS\' ;',
             'start_line' => 485,
             'indent' => 1,
-            'block_id' => 50
+            'block_id' => 52
           },
           {
             'token_num' => 21,
@@ -38821,7 +40250,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' like ( runperl ( prog => \'$x=bless[]; sub IO::Handle::DESTROY{$_=q{bad};s/bad/ok/;print}\' , stderr => 1 ) , qr/^(ok)+$/ , \'STDOUT destructor\' ) ;',
             'start_line' => 486,
             'indent' => 1,
-            'block_id' => 50
+            'block_id' => 52
           },
           {
             'token_num' => 61,
@@ -38839,7 +40268,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' no strict \'refs\' ;',
             'start_line' => 493,
             'indent' => 1,
-            'block_id' => 51
+            'block_id' => 53
           },
           {
             'token_num' => 5,
@@ -38848,7 +40277,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' $name8 = chr 163 ;',
             'start_line' => 494,
             'indent' => 1,
-            'block_id' => 51
+            'block_id' => 53
           },
           {
             'token_num' => 7,
@@ -38857,7 +40286,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' $name_utf8 = $name8 . chr 256 ;',
             'start_line' => 495,
             'indent' => 1,
-            'block_id' => 51
+            'block_id' => 53
           },
           {
             'token_num' => 3,
@@ -38866,7 +40295,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' chop $name_utf8 ;',
             'start_line' => 496,
             'indent' => 1,
-            'block_id' => 51
+            'block_id' => 53
           },
           {
             'token_num' => 9,
@@ -38875,7 +40304,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $$name8 , undef , \'Nothing before we start\' ) ;',
             'start_line' => 498,
             'indent' => 1,
-            'block_id' => 51
+            'block_id' => 53
           },
           {
             'token_num' => 9,
@@ -38884,7 +40313,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $$name_utf8 , undef , \'Nothing before we start\' ) ;',
             'start_line' => 499,
             'indent' => 1,
-            'block_id' => 51
+            'block_id' => 53
           },
           {
             'token_num' => 4,
@@ -38893,7 +40322,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' $$name8 = "Pound" ;',
             'start_line' => 500,
             'indent' => 1,
-            'block_id' => 51
+            'block_id' => 53
           },
           {
             'token_num' => 9,
@@ -38902,7 +40331,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $$name8 , "Pound" , \'Accessing via 8 bit symref works\' ) ;',
             'start_line' => 501,
             'indent' => 1,
-            'block_id' => 51
+            'block_id' => 53
           },
           {
             'token_num' => 9,
@@ -38911,7 +40340,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $$name_utf8 , "Pound" , \'Accessing via UTF8 symref works\' ) ;',
             'start_line' => 502,
             'indent' => 1,
-            'block_id' => 51
+            'block_id' => 53
           },
           {
             'token_num' => 76,
@@ -38929,7 +40358,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' no strict \'refs\' ;',
             'start_line' => 506,
             'indent' => 1,
-            'block_id' => 52
+            'block_id' => 54
           },
           {
             'token_num' => 7,
@@ -38938,7 +40367,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' $name_utf8 = $name = chr 9787 ;',
             'start_line' => 507,
             'indent' => 1,
-            'block_id' => 52
+            'block_id' => 54
           },
           {
             'token_num' => 3,
@@ -38947,7 +40376,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' utf8::encode $name_utf8 ;',
             'start_line' => 508,
             'indent' => 1,
-            'block_id' => 52
+            'block_id' => 54
           },
           {
             'token_num' => 10,
@@ -38956,7 +40385,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( length $name , 1 , "Name is 1 char" ) ;',
             'start_line' => 510,
             'indent' => 1,
-            'block_id' => 52
+            'block_id' => 54
           },
           {
             'token_num' => 10,
@@ -38965,7 +40394,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( length $name_utf8 , 3 , "UTF8 representation is 3 chars" ) ;',
             'start_line' => 511,
             'indent' => 1,
-            'block_id' => 52
+            'block_id' => 54
           },
           {
             'token_num' => 9,
@@ -38974,7 +40403,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $$name , undef , \'Nothing before we start\' ) ;',
             'start_line' => 513,
             'indent' => 1,
-            'block_id' => 52
+            'block_id' => 54
           },
           {
             'token_num' => 9,
@@ -38983,7 +40412,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $$name_utf8 , undef , \'Nothing before we start\' ) ;',
             'start_line' => 514,
             'indent' => 1,
-            'block_id' => 52
+            'block_id' => 54
           },
           {
             'token_num' => 4,
@@ -38992,7 +40421,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' $$name = "Face" ;',
             'start_line' => 515,
             'indent' => 1,
-            'block_id' => 52
+            'block_id' => 54
           },
           {
             'token_num' => 9,
@@ -39001,7 +40430,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $$name , "Face" , \'Accessing via Unicode symref works\' ) ;',
             'start_line' => 516,
             'indent' => 1,
-            'block_id' => 52
+            'block_id' => 54
           },
           {
             'token_num' => 9,
@@ -39010,7 +40439,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $$name_utf8 , undef , \'Accessing via the UTF8 byte sequence gives nothing\' ) ;',
             'start_line' => 517,
             'indent' => 1,
-            'block_id' => 52
+            'block_id' => 54
           },
           {
             'token_num' => 563,
@@ -39028,7 +40457,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' no strict \'refs\' ;',
             'start_line' => 522,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 4,
@@ -39037,7 +40466,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' $name1 = "\\0Chalk" ;',
             'start_line' => 523,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 4,
@@ -39046,7 +40475,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' $name2 = "\\0Cheese" ;',
             'start_line' => 524,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 9,
@@ -39055,7 +40484,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' isnt ( $name1 , $name2 , "They differ" ) ;',
             'start_line' => 526,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 9,
@@ -39064,7 +40493,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $$name1 , undef , \'Nothing before we start (scalars)\' ) ;',
             'start_line' => 528,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 9,
@@ -39073,7 +40502,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $$name2 , undef , \'Nothing before we start\' ) ;',
             'start_line' => 529,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 4,
@@ -39082,7 +40511,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' $$name1 = "Yummy" ;',
             'start_line' => 530,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 9,
@@ -39091,7 +40520,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $$name1 , "Yummy" , \'Accessing via the correct name works\' ) ;',
             'start_line' => 531,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 9,
@@ -39100,7 +40529,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $$name2 , undef , \'Accessing via a different NUL-containing name gives nothing\' ) ;',
             'start_line' => 532,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 8,
@@ -39109,7 +40538,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' ok ( defined $$name1 , \'defined via the correct name works\' ) ;',
             'start_line' => 535,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 9,
@@ -39118,7 +40547,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' ok ( ! defined $$name2 , \'defined via a different NUL-containing name gives nothing\' ) ;',
             'start_line' => 536,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 13,
@@ -39127,7 +40556,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $name1-> [ 0 ] , undef , \'Nothing before we start (arrays)\' ) ;',
             'start_line' => 539,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 13,
@@ -39136,7 +40565,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $name2-> [ 0 ] , undef , \'Nothing before we start\' ) ;',
             'start_line' => 540,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 8,
@@ -39145,7 +40574,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' $name1-> [ 0 ] = "Yummy" ;',
             'start_line' => 541,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 13,
@@ -39154,7 +40583,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $name1-> [ 0 ] , "Yummy" , \'Accessing via the correct name works\' ) ;',
             'start_line' => 542,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 13,
@@ -39163,7 +40592,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $name2-> [ 0 ] , undef , \'Accessing via a different NUL-containing name gives nothing\' ) ;',
             'start_line' => 543,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 12,
@@ -39172,7 +40601,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' ok ( defined $name1-> [ 0 ] , \'defined via the correct name works\' ) ;',
             'start_line' => 545,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 13,
@@ -39181,7 +40610,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' ok ( ! defined $name2-> [ 0 ] , \'defined via a different NUL-containing name gives nothing\' ) ;',
             'start_line' => 546,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 16,
@@ -39190,7 +40619,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' my ( undef , $one ) = @{ $name1 } [ 2 , 3 ] ;',
             'start_line' => 549,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 16,
@@ -39199,7 +40628,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' my ( undef , $two ) = @{ $name2 } [ 2 , 3 ] ;',
             'start_line' => 550,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 9,
@@ -39208,7 +40637,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $one , undef , \'Nothing before we start (array slices)\' ) ;',
             'start_line' => 551,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 9,
@@ -39217,7 +40646,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $two , undef , \'Nothing before we start\' ) ;',
             'start_line' => 552,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 15,
@@ -39226,7 +40655,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' @{ $name1 } [ 2 , 3 ] = ( "Very" , "Yummy" ) ;',
             'start_line' => 553,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 15,
@@ -39235,7 +40664,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' ( undef , $one ) = @{ $name1 } [ 2 , 3 ] ;',
             'start_line' => 554,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 15,
@@ -39244,7 +40673,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' ( undef , $two ) = @{ $name2 } [ 2 , 3 ] ;',
             'start_line' => 555,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 9,
@@ -39253,7 +40682,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $one , "Yummy" , \'Accessing via the correct name works\' ) ;',
             'start_line' => 556,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 9,
@@ -39262,7 +40691,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $two , undef , \'Accessing via a different NUL-containing name gives nothing\' ) ;',
             'start_line' => 557,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 8,
@@ -39271,7 +40700,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' ok ( defined $one , \'defined via the correct name works\' ) ;',
             'start_line' => 559,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 9,
@@ -39280,7 +40709,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' ok ( ! defined $two , \'defined via a different NUL-containing name gives nothing\' ) ;',
             'start_line' => 560,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 13,
@@ -39289,7 +40718,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $name1-> { PWOF } , undef , \'Nothing before we start (hashes)\' ) ;',
             'start_line' => 563,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 13,
@@ -39298,7 +40727,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $name2-> { PWOF } , undef , \'Nothing before we start\' ) ;',
             'start_line' => 564,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 8,
@@ -39307,7 +40736,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' $name1-> { PWOF } = "Yummy" ;',
             'start_line' => 565,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 13,
@@ -39316,7 +40745,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $name1-> { PWOF } , "Yummy" , \'Accessing via the correct name works\' ) ;',
             'start_line' => 566,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 13,
@@ -39325,7 +40754,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $name2-> { PWOF } , undef , \'Accessing via a different NUL-containing name gives nothing\' ) ;',
             'start_line' => 567,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 12,
@@ -39334,7 +40763,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' ok ( defined $name1-> { PWOF } , \'defined via the correct name works\' ) ;',
             'start_line' => 569,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 13,
@@ -39343,7 +40772,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' ok ( ! defined $name2-> { PWOF } , \'defined via a different NUL-containing name gives nothing\' ) ;',
             'start_line' => 570,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 16,
@@ -39352,7 +40781,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' my ( undef , $one ) = @{ $name1 } { \'SNIF\' , \'BEEYOOP\' } ;',
             'start_line' => 573,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 16,
@@ -39361,7 +40790,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' my ( undef , $two ) = @{ $name2 } { \'SNIF\' , \'BEEYOOP\' } ;',
             'start_line' => 574,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 9,
@@ -39370,7 +40799,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $one , undef , \'Nothing before we start (hash slices)\' ) ;',
             'start_line' => 575,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 9,
@@ -39379,7 +40808,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $two , undef , \'Nothing before we start\' ) ;',
             'start_line' => 576,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 15,
@@ -39388,7 +40817,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' @{ $name1 } { \'SNIF\' , \'BEEYOOP\' } = ( "Very" , "Yummy" ) ;',
             'start_line' => 577,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 15,
@@ -39397,7 +40826,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' ( undef , $one ) = @{ $name1 } { \'SNIF\' , \'BEEYOOP\' } ;',
             'start_line' => 578,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 15,
@@ -39406,7 +40835,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' ( undef , $two ) = @{ $name2 } { \'SNIF\' , \'BEEYOOP\' } ;',
             'start_line' => 579,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 9,
@@ -39415,7 +40844,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $one , "Yummy" , \'Accessing via the correct name works\' ) ;',
             'start_line' => 580,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 9,
@@ -39424,7 +40853,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $two , undef , \'Accessing via a different NUL-containing name gives nothing\' ) ;',
             'start_line' => 581,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 8,
@@ -39433,7 +40862,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' ok ( defined $one , \'defined via the correct name works\' ) ;',
             'start_line' => 583,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 9,
@@ -39442,7 +40871,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' ok ( ! defined $two , \'defined via a different NUL-containing name gives nothing\' ) ;',
             'start_line' => 584,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 4,
@@ -39451,7 +40880,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' $name1 = "Left" ;',
             'start_line' => 587,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 4,
@@ -39460,7 +40889,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' $name2 = "Left\\0Right" ;',
             'start_line' => 587,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 8,
@@ -39469,7 +40898,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' my $glob2 = * { $name2 } ;',
             'start_line' => 588,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 9,
@@ -39478,7 +40907,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' is ( $glob1 , undef , "We get different typeglobs. In fact, undef" ) ;',
             'start_line' => 590,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 10,
@@ -39487,7 +40916,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' * { $name1 } = sub { "One" } ;',
             'start_line' => 592,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           },
           {
             'token_num' => 10,
@@ -39496,7 +40925,7 @@ sub BASEOBJ\' doit { local $ref = shift ; die "Not an OBJ" unless ref $ref eq \'
             'src' => ' * { $name2 } = sub { "Two" } ;',
             'start_line' => 593,
             'indent' => 1,
-            'block_id' => 53
+            'block_id' => 55
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

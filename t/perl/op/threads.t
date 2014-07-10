@@ -8045,11 +8045,20 @@ threads->create(
                    'line' => 382
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_RegPrefix,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegDoubleQuote',
+                   'data' => 'qq',
+                   'type' => Compiler::Lexer::TokenType::T_RegDoubleQuote,
+                   'line' => 382
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RawString',
-                   'data' => 'qq"$perl"',
+                   'data' => '"$perl"',
                    'type' => Compiler::Lexer::TokenType::T_RawString,
                    'line' => 382
                  }, 'Compiler::Lexer::Token' ),
@@ -9785,10 +9794,10 @@ threads->create(
             'block_id' => 39
           },
           {
-            'token_num' => 48,
+            'token_num' => 49,
             'has_warnings' => 1,
             'end_line' => 386,
-            'src' => ' { my $perl = which_perl ; $perl = \'qq"$perl"\' if $perl =~/\\s/ ; open ( my $OUT , "|$perl" ) || die ( "ERROR: $!" ) ; threads-> create ( sub { } )-> join ; ok ( 1 , "Pipes shared between threads do not block when closed" ) ; }',
+            'src' => ' { my $perl = which_perl ; $perl = qq \'"$perl"\' if $perl =~/\\s/ ; open ( my $OUT , "|$perl" ) || die ( "ERROR: $!" ) ; threads-> create ( sub { } )-> join ; ok ( 1 , "Pipes shared between threads do not block when closed" ) ; }',
             'start_line' => 380,
             'indent' => 0,
             'block_id' => 0
@@ -9803,10 +9812,10 @@ threads->create(
             'block_id' => 41
           },
           {
-            'token_num' => 10,
+            'token_num' => 11,
             'has_warnings' => 1,
             'end_line' => 382,
-            'src' => ' $perl = \'qq"$perl"\' if $perl =~/\\s/ ;',
+            'src' => ' $perl = qq \'"$perl"\' if $perl =~/\\s/ ;',
             'start_line' => 382,
             'indent' => 1,
             'block_id' => 41

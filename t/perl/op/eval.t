@@ -9188,11 +9188,20 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
                    'line' => 315
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'BuiltinFunc',
+                   'data' => 'eval',
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
+                   'line' => 315
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RawString',
-                   'data' => 'evalfred3(5)',
+                   'data' => 'fred3(5)',
                    'type' => Compiler::Lexer::TokenType::T_RawString,
                    'line' => 315
                  }, 'Compiler::Lexer::Token' ),
@@ -9305,11 +9314,20 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
                    'line' => 317
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'BuiltinFunc',
+                   'data' => 'eval',
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
+                   'line' => 318
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RawString',
-                   'data' => 'eval$r = fred3(5)',
+                   'data' => '$r = fred3(5)',
                    'type' => Compiler::Lexer::TokenType::T_RawString,
                    'line' => 318
                  }, 'Compiler::Lexer::Token' ),
@@ -20221,10 +20239,10 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
             'block_id' => 0
           },
           {
-            'token_num' => 4,
+            'token_num' => 5,
             'has_warnings' => 1,
             'end_line' => 315,
-            'src' => ' $r = \'evalfred3(5)\' ;',
+            'src' => ' $r = eval \'fred3(5)\' ;',
             'start_line' => 315,
             'indent' => 0,
             'block_id' => 0
@@ -20248,10 +20266,10 @@ do_eval2(\'sub { print "# $x\\n"; eval q[is($x, "af")] }->()\');
             'block_id' => 0
           },
           {
-            'token_num' => 2,
+            'token_num' => 3,
             'has_warnings' => 0,
             'end_line' => 318,
-            'src' => ' \'eval$r = fred3(5)\' ;',
+            'src' => ' eval \'$r = fred3(5)\' ;',
             'start_line' => 318,
             'indent' => 0,
             'block_id' => 0

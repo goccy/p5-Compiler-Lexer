@@ -38899,11 +38899,20 @@ The problem is that I cannot solve it.
                    'line' => 862
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_RegPrefix,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegDecl',
+                   'data' => 'qr',
+                   'type' => Compiler::Lexer::TokenType::T_RegDecl,
+                   'line' => 862
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RawString',
-                   'data' => 'qr^Undefined format "STDOUT" called',
+                   'data' => '^Undefined format "STDOUT" called',
                    'type' => Compiler::Lexer::TokenType::T_RawString,
                    'line' => 862
                  }, 'Compiler::Lexer::Token' ),

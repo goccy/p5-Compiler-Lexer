@@ -79,7 +79,15 @@ sub generate {
 }
 
 if (@ARGV) {
-    generate($ARGV[0]);
+    my $file_or_dirname = $ARGV[0];
+    if ($file_or_dirname =~ /\.[a-zA-Z]+$/) {
+        generate($file_or_dirname);
+    } else {
+        File::Find::find(sub {
+            return unless $_ =~ /\.t$/;
+            generate("$File::Find::dir/$_");
+        }, $file_or_dirname);
+    }
 } else {
     File::Find::find(sub {
         return unless $_ =~ /\.t$/;

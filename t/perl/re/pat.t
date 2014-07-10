@@ -13805,11 +13805,20 @@ subtest 'tokenize' => sub {
                    'line' => 281
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_RegPrefix,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegMatch',
+                   'data' => 'm',
+                   'type' => Compiler::Lexer::TokenType::T_RegMatch,
+                   'line' => 281
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RawString',
-                   'data' => 'ma(?{ $out = 2 })b',
+                   'data' => 'a(?{ $out = 2 })b',
                    'type' => Compiler::Lexer::TokenType::T_RawString,
                    'line' => 281
                  }, 'Compiler::Lexer::Token' ),
@@ -13958,11 +13967,20 @@ subtest 'tokenize' => sub {
                    'line' => 285
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_RegPrefix,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegMatch',
+                   'data' => 'm',
+                   'type' => Compiler::Lexer::TokenType::T_RegMatch,
+                   'line' => 285
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RawString',
-                   'data' => 'ma(?{ $out = 3 })c',
+                   'data' => 'a(?{ $out = 3 })c',
                    'type' => Compiler::Lexer::TokenType::T_RawString,
                    'line' => 285
                  }, 'Compiler::Lexer::Token' ),
@@ -62328,10 +62346,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 6697,
+            'token_num' => 6699,
             'has_warnings' => 1,
             'end_line' => 1263,
-            'src' => ' sub run_tests { { my $x = "abc\\ndef\\n" ; ( my $x_pretty = $x ) =~ s/\\n/\\\\n/g ; ok $x =~/^abc/ , qq["$x_pretty" =~ /^abc/] ; ok $x !~/^def/ , qq["$x_pretty" !~ /^def/] ; ok $x =~/^def/m , qq["$x_pretty" =~ /^def/m] ; ok ( ! ( $x =~/^xxx/ ) , qq["$x_pretty" =~ /^xxx/] ) ; ok ( ! ( $x !~/^abc/ ) , qq["$x_pretty" !~ /^abc/] ) ; ok $x =~/def/ , qq["$x_pretty" =~ /def/] ; ok ( ! ( $x !~/def/ ) , qq["$x_pretty" !~ /def/] ) ; ok $x !~/.def/ , qq["$x_pretty" !~ /.def/] ; ok ( ! ( $x =~/.def/ ) , qq["$x_pretty" =~ /.def/] ) ; ok $x =~/\\ndef/ , qq["$x_pretty" =~ /\\\\ndef/] ; ok ( ! ( $x !~/\\ndef/ ) , qq["$x_pretty" !~ /\\\\ndef/] ) ; } { $_ = \'123\' ; ok/^([0-9][0-9]*)/ , qq[\\$_ = \'$_\'; /^([0-9][0-9]*)/] ; } { $_ = \'aaabbbccc\' ; ok/(a*b*)(c*)/ && $1 eq \'aaabbb\' && $2 eq \'ccc\' , qq[\\$_ = \'$_\'; /(a*b*)(c*)/] ; ok/(a+b+c+)/ && $1 eq \'aaabbbccc\' , qq[\\$_ = \'$_\'; /(a+b+c+)/] ; unlike ( $_ , qr/a+b?c+/ , qq[\\$_ = \'$_\'; /a+b?c+/] ) ; $_ = \'aaabccc\' ; ok/a+b?c+/ , qq[\\$_ = \'$_\'; /a+b?c+/] ; ok/a*b?c*/ , qq[\\$_ = \'$_\'; /a*b?c*/] ; $_ = \'aaaccc\' ; ok/a*b?c*/ , qq[\\$_ = \'$_\'; /a*b?c*/] ; unlike ( $_ , qr/a*b+c*/ , qq[\\$_ = \'$_\'; /a*b+c*/] ) ; $_ = \'abcdef\' ; ok/bcd|xyz/ , qq[\\$_ = \'$_\'; /bcd|xyz/] ; ok/xyz|bcd/ , qq[\\$_ = \'$_\'; /xyz|bcd/] ; ok m|bc/*d| , qq[\\$_ = \'$_\'; m|bc/*d|] ; ok/^$_$/ , qq[\\$_ = \'$_\'; /^\\$_\\$/] ; } { ok "ab\\ncd\\n" =~/^cd/m , q["ab\\ncd\\n" =~ /^cd/m] ; } { our %XXX = map { ( $_ => $_ ) } 123 , 234 , 345 ; our @XXX = ( \'ok 1\' , \'not ok 1\' , \'ok 2\' , \'not ok 2\' , \'not ok 3\' ) ; while ( $_ = shift ( @XXX ) ) { my $e = index ( $_ , \'not\' ) >= 0 ? \'\' : 1 ; my $r = m?(.*)? ; is ( $r , $e , "?(.*)?" ) ;/not/ && reset ; if (/not ok 2/ ) { if ( $^O eq \'VMS\' ) { $_ = shift ( @XXX ) ; } else { reset \'X\' ; } } } SKIP : { if ( $^O eq \'VMS\' ) { skip "Reset \'X\'" , 1 ; } ok ! keys %XXX , "%XXX is empty" ; } } { my $message = "Test empty pattern" ; my $xyz = \'xyz\' ; my $cde = \'cde\' ; $cde =~/[^ab]*/ ; $xyz =~ // ; is ( $& , $xyz , $message ) ; my $foo = \'[^ab]*\' ; $cde =~/$foo/ ; $xyz =~ // ; is ( $& , $xyz , $message ) ; $cde =~/$foo/ ; my $null ; no warnings \'uninitialized\' ; $xyz =~/$null/ ; is ( $& , $xyz , $message ) ; $null = "" ; $xyz =~/$null/ ; is ( $& , $xyz , $message ) ; } { my $message = q!Check $`, $&, $\'! ; $_ = \'abcdefghi\' ;/def/ ; is ( "$`:$&:$\'" , \'abc:def:ghi\' , $message ) ; no warnings \'void\' ;/cde/ + 0 ; is ( "$`:$&:$\'" , \'ab:cde:fghi\' , $message ) ;/[d][e][f]/ ; is ( "$`:$&:$\'" , \'abc:def:ghi\' , $message ) ; } { $_ = \'now is the {time for all} good men to come to.\' ;/ {([^}]*)}/ ; is ( $1 , \'time for all\' , "Match braces" ) ; } { my $message = "{N,M} quantifier" ; $_ = \'xxx {3,4}  yyy   zzz\' ; ok (/( {3,4})/ , $message ) ; is ( $1 , \'   \' , $message ) ; unlike ( $_ , qr/( {4,})/ , $message ) ; ok (/( {2,3}.)/ , $message ) ; is ( $1 , \'  y\' , $message ) ; ok (/(y{2,3}.)/ , $message ) ; is ( $1 , \'yyy \' , $message ) ; unlike ( $_ , qr/x {3,4}/ , $message ) ; unlike ( $_ , qr/^xxx {3,4}/ , $message ) ; } { my $message = "Test /g" ; local $" = ":" ; $_ = "now is the time for all good men to come to." ; my @words =/(\\w+)/g ; my $exp = "now:is:the:time:for:all:good:men:to:come:to" ; is ( "@words" , $exp , $message ) ; @words = ( ) ; while (/\\w+/g ) { push ( @words , $& ) ; } is ( "@words" , $exp , $message ) ; @words = ( ) ; pos = 0 ; while (/to/g ) { push ( @words , $& ) ; } is ( "@words" , "to:to" , $message ) ; pos $_ = 0 ; @words =/to/g ; is ( "@words" , "to:to" , $message ) ; } { $_ = "abcdefghi" ; my $pat1 = \'def\' ; my $pat2 = \'^def\' ; my $pat3 = \'.def.\' ; my $pat4 = \'abc\' ; my $pat5 = \'^abc\' ; my $pat6 = \'abc$\' ; my $pat7 = \'ghi\' ; my $pat8 = \'\\w*ghi\' ; my $pat9 = \'ghi$\' ; my $t1 = my $t2 = my $t3 = my $t4 = my $t5 = my $t6 = my $t7 = my $t8 = my $t9 = 0 ; for my $iter ( 1 .. 5 ) { $t1 ++ if/$pat1/o ; $t2 ++ if/$pat2/o ; $t3 ++ if/$pat3/o ; $t4 ++ if/$pat4/o ; $t5 ++ if/$pat5/o ; $t6 ++ if/$pat6/o ; $t7 ++ if/$pat7/o ; $t8 ++ if/$pat8/o ; $t9 ++ if/$pat9/o ; } my $x = "$t1$t2$t3$t4$t5$t6$t7$t8$t9" ; is ( $x , \'505550555\' , "Test /o" ) ; } { my $xyz = \'xyz\' ; ok "abc" =~/^abc$|$xyz/ , "| after \\$" ; my $message = \'$ inside ()\' ; my $result ; eval \'"abc" =~ /a(bc$)|$xyz/; $result = "$&:$1"\' ; is ( $@ , "" , $message ) ; is ( $result , "abc:bc" , $message ) ; } { my $message = "Scalar /g" ; $_ = "abcfooabcbar" ; ok (/abc/g && $` eq "" , $message ) ; ok (/abc/g && $` eq "abcfoo" , $message ) ; ok ( !/abc/g , $message ) ; $message = "Scalar /gi" ; pos = 0 ; ok (/ABC/gi && $` eq "" , $message ) ; ok (/ABC/gi && $` eq "abcfoo" , $message ) ; ok ( !/ABC/gi , $message ) ; $message = "Scalar /g" ; pos = 0 ; ok (/abc/g && $\' eq "fooabcbar" , $message ) ; ok (/abc/g && $\' eq "bar" , $message ) ; $_ .= \'\' ; my @x =/abc/g ; is ( @x , 2 , "/g reset after assignment" ) ; } { my $message = \'/g, \\G and pos\' ; $_ = "abdc" ; pos $_ = 2 ;/\\Gc/gc ; is ( pos $_ , 2 , $message ) ;/\\Gc/g ; is ( pos $_ , undef , $message ) ; } { my $message = \'(?{ })\' ; our $out = 1 ; \'abc\' =~ \'ma(?{ $out = 2 })b\' ; is ( $out , 2 , $message ) ; $out = 1 ; \'abc\' =~ \'ma(?{ $out = 3 })c\' ; is ( $out , 1 , $message ) ; } { $_ = \'foobar1 bar2 foobar3 barfoobar5 foobar6\' ; my @out =/(?<!foo)bar./g ; is ( "@out" , \'bar2 barf\' , "Negative lookbehind" ) ; } { my $message = "REG_INFTY tests" ; eval { require Config ; } ; $: : reg_infty = $Config::Config { reg_infty } // 32767 ; $: : reg_infty_m = $: : reg_infty - 1 ; $: : reg_infty_p = $: : reg_infty + 1 ; $: : reg_infty_m = $: : reg_infty_m ; is ( eval q{(\'aaa\' =~ /(a{1,$::reg_infty_m})/)[0]} , \'aaa\' , $message ) ; is ( $@ , \'\' , $message ) ; is ( eval q{(\'a\' x $::reg_infty_m) =~ /a{$::reg_infty_m}/} , 1 , $message ) ; is ( $@ , \'\' , $message ) ; isnt ( q{(\'a\' x ($::reg_infty_m - 1)) !~ /a{$::reg_infty_m}/} , 1 , $message ) ; is ( $@ , \'\' , $message ) ; eval "\'aaa\' =~ /a{1,$::reg_infty}/" ; like ( $@ , qr/^\\QQuantifier in {,} bigger than/ , $message ) ; eval "\'aaa\' =~ /a{1,$::reg_infty_p}/" ; like ( $@ , qr/^\\QQuantifier in {,} bigger than/ , $message ) ; } { my $context = \'x\' x 256 ; eval qq("${context}y" =~ /(?<=$context)y/) ; ok $@ =~/^\\QLookbehind longer than 255 not/ , "Lookbehind limit" ; } { for my $l ( 125 , 140 , 250 , 270 , 300000 , 30 ) { my $a = \'a\' x $l ; my $message = "Long monster, length = $l" ; like ( "ba$a=" , qr/a$a=/ , $message ) ; unlike ( "b$a=" , qr/a$a=/ , $message ) ; like ( "b$a=" , qr/ba+=/ , $message ) ; like ( "ba$a=" , qr/b(?:a|b)+=/ , $message ) ; } } { my $long_constant_len = join \'|\' , 12120 .. 32645 ; my $long_var_len = join \'|\' , 8120 .. 28645 ; my %ans = ( \'ax13876y25677lbc\' => 1 , \'ax13876y25677mcb\' => 0 , \'ax13876y35677nbc\' => 0 , \'ax13876y25677y21378obc\' => 1 , \'ax13876y25677y21378zbc\' => 0 , \'ax13876y25677y21378y21378kbc\' => 1 , \'ax13876y25677y21378y21378kcb\' => 0 , \'ax13876y25677y21378y21378y21378kbc\' => 0 , ) ; for ( keys %ans ) { my $message = "20000 nodes, const-len \'$_\'" ; ok ! ( $ans { $_ } xor/a(?=([yx]($long_constant_len)){2,4}[k-o]).*b./o ) , $message ; $message = "20000 nodes, var-len \'$_\'" ; ok ! ( $ans { $_ } xor/a(?=([yx]($long_var_len)){2,4}[k-o]).*b./o , ) , $message ; } } { my $message = "Complicated backtracking" ; $_ = " a (bla()) and x(y b((l)u((e))) and b(l(e)e)e" ; my $expect = "(bla()) ((l)u((e))) (l(e)e)" ; use vars \'$c\' ; sub matchit { m/
+            'src' => ' sub run_tests { { my $x = "abc\\ndef\\n" ; ( my $x_pretty = $x ) =~ s/\\n/\\\\n/g ; ok $x =~/^abc/ , qq["$x_pretty" =~ /^abc/] ; ok $x !~/^def/ , qq["$x_pretty" !~ /^def/] ; ok $x =~/^def/m , qq["$x_pretty" =~ /^def/m] ; ok ( ! ( $x =~/^xxx/ ) , qq["$x_pretty" =~ /^xxx/] ) ; ok ( ! ( $x !~/^abc/ ) , qq["$x_pretty" !~ /^abc/] ) ; ok $x =~/def/ , qq["$x_pretty" =~ /def/] ; ok ( ! ( $x !~/def/ ) , qq["$x_pretty" !~ /def/] ) ; ok $x !~/.def/ , qq["$x_pretty" !~ /.def/] ; ok ( ! ( $x =~/.def/ ) , qq["$x_pretty" =~ /.def/] ) ; ok $x =~/\\ndef/ , qq["$x_pretty" =~ /\\\\ndef/] ; ok ( ! ( $x !~/\\ndef/ ) , qq["$x_pretty" !~ /\\\\ndef/] ) ; } { $_ = \'123\' ; ok/^([0-9][0-9]*)/ , qq[\\$_ = \'$_\'; /^([0-9][0-9]*)/] ; } { $_ = \'aaabbbccc\' ; ok/(a*b*)(c*)/ && $1 eq \'aaabbb\' && $2 eq \'ccc\' , qq[\\$_ = \'$_\'; /(a*b*)(c*)/] ; ok/(a+b+c+)/ && $1 eq \'aaabbbccc\' , qq[\\$_ = \'$_\'; /(a+b+c+)/] ; unlike ( $_ , qr/a+b?c+/ , qq[\\$_ = \'$_\'; /a+b?c+/] ) ; $_ = \'aaabccc\' ; ok/a+b?c+/ , qq[\\$_ = \'$_\'; /a+b?c+/] ; ok/a*b?c*/ , qq[\\$_ = \'$_\'; /a*b?c*/] ; $_ = \'aaaccc\' ; ok/a*b?c*/ , qq[\\$_ = \'$_\'; /a*b?c*/] ; unlike ( $_ , qr/a*b+c*/ , qq[\\$_ = \'$_\'; /a*b+c*/] ) ; $_ = \'abcdef\' ; ok/bcd|xyz/ , qq[\\$_ = \'$_\'; /bcd|xyz/] ; ok/xyz|bcd/ , qq[\\$_ = \'$_\'; /xyz|bcd/] ; ok m|bc/*d| , qq[\\$_ = \'$_\'; m|bc/*d|] ; ok/^$_$/ , qq[\\$_ = \'$_\'; /^\\$_\\$/] ; } { ok "ab\\ncd\\n" =~/^cd/m , q["ab\\ncd\\n" =~ /^cd/m] ; } { our %XXX = map { ( $_ => $_ ) } 123 , 234 , 345 ; our @XXX = ( \'ok 1\' , \'not ok 1\' , \'ok 2\' , \'not ok 2\' , \'not ok 3\' ) ; while ( $_ = shift ( @XXX ) ) { my $e = index ( $_ , \'not\' ) >= 0 ? \'\' : 1 ; my $r = m?(.*)? ; is ( $r , $e , "?(.*)?" ) ;/not/ && reset ; if (/not ok 2/ ) { if ( $^O eq \'VMS\' ) { $_ = shift ( @XXX ) ; } else { reset \'X\' ; } } } SKIP : { if ( $^O eq \'VMS\' ) { skip "Reset \'X\'" , 1 ; } ok ! keys %XXX , "%XXX is empty" ; } } { my $message = "Test empty pattern" ; my $xyz = \'xyz\' ; my $cde = \'cde\' ; $cde =~/[^ab]*/ ; $xyz =~ // ; is ( $& , $xyz , $message ) ; my $foo = \'[^ab]*\' ; $cde =~/$foo/ ; $xyz =~ // ; is ( $& , $xyz , $message ) ; $cde =~/$foo/ ; my $null ; no warnings \'uninitialized\' ; $xyz =~/$null/ ; is ( $& , $xyz , $message ) ; $null = "" ; $xyz =~/$null/ ; is ( $& , $xyz , $message ) ; } { my $message = q!Check $`, $&, $\'! ; $_ = \'abcdefghi\' ;/def/ ; is ( "$`:$&:$\'" , \'abc:def:ghi\' , $message ) ; no warnings \'void\' ;/cde/ + 0 ; is ( "$`:$&:$\'" , \'ab:cde:fghi\' , $message ) ;/[d][e][f]/ ; is ( "$`:$&:$\'" , \'abc:def:ghi\' , $message ) ; } { $_ = \'now is the {time for all} good men to come to.\' ;/ {([^}]*)}/ ; is ( $1 , \'time for all\' , "Match braces" ) ; } { my $message = "{N,M} quantifier" ; $_ = \'xxx {3,4}  yyy   zzz\' ; ok (/( {3,4})/ , $message ) ; is ( $1 , \'   \' , $message ) ; unlike ( $_ , qr/( {4,})/ , $message ) ; ok (/( {2,3}.)/ , $message ) ; is ( $1 , \'  y\' , $message ) ; ok (/(y{2,3}.)/ , $message ) ; is ( $1 , \'yyy \' , $message ) ; unlike ( $_ , qr/x {3,4}/ , $message ) ; unlike ( $_ , qr/^xxx {3,4}/ , $message ) ; } { my $message = "Test /g" ; local $" = ":" ; $_ = "now is the time for all good men to come to." ; my @words =/(\\w+)/g ; my $exp = "now:is:the:time:for:all:good:men:to:come:to" ; is ( "@words" , $exp , $message ) ; @words = ( ) ; while (/\\w+/g ) { push ( @words , $& ) ; } is ( "@words" , $exp , $message ) ; @words = ( ) ; pos = 0 ; while (/to/g ) { push ( @words , $& ) ; } is ( "@words" , "to:to" , $message ) ; pos $_ = 0 ; @words =/to/g ; is ( "@words" , "to:to" , $message ) ; } { $_ = "abcdefghi" ; my $pat1 = \'def\' ; my $pat2 = \'^def\' ; my $pat3 = \'.def.\' ; my $pat4 = \'abc\' ; my $pat5 = \'^abc\' ; my $pat6 = \'abc$\' ; my $pat7 = \'ghi\' ; my $pat8 = \'\\w*ghi\' ; my $pat9 = \'ghi$\' ; my $t1 = my $t2 = my $t3 = my $t4 = my $t5 = my $t6 = my $t7 = my $t8 = my $t9 = 0 ; for my $iter ( 1 .. 5 ) { $t1 ++ if/$pat1/o ; $t2 ++ if/$pat2/o ; $t3 ++ if/$pat3/o ; $t4 ++ if/$pat4/o ; $t5 ++ if/$pat5/o ; $t6 ++ if/$pat6/o ; $t7 ++ if/$pat7/o ; $t8 ++ if/$pat8/o ; $t9 ++ if/$pat9/o ; } my $x = "$t1$t2$t3$t4$t5$t6$t7$t8$t9" ; is ( $x , \'505550555\' , "Test /o" ) ; } { my $xyz = \'xyz\' ; ok "abc" =~/^abc$|$xyz/ , "| after \\$" ; my $message = \'$ inside ()\' ; my $result ; eval \'"abc" =~ /a(bc$)|$xyz/; $result = "$&:$1"\' ; is ( $@ , "" , $message ) ; is ( $result , "abc:bc" , $message ) ; } { my $message = "Scalar /g" ; $_ = "abcfooabcbar" ; ok (/abc/g && $` eq "" , $message ) ; ok (/abc/g && $` eq "abcfoo" , $message ) ; ok ( !/abc/g , $message ) ; $message = "Scalar /gi" ; pos = 0 ; ok (/ABC/gi && $` eq "" , $message ) ; ok (/ABC/gi && $` eq "abcfoo" , $message ) ; ok ( !/ABC/gi , $message ) ; $message = "Scalar /g" ; pos = 0 ; ok (/abc/g && $\' eq "fooabcbar" , $message ) ; ok (/abc/g && $\' eq "bar" , $message ) ; $_ .= \'\' ; my @x =/abc/g ; is ( @x , 2 , "/g reset after assignment" ) ; } { my $message = \'/g, \\G and pos\' ; $_ = "abdc" ; pos $_ = 2 ;/\\Gc/gc ; is ( pos $_ , 2 , $message ) ;/\\Gc/g ; is ( pos $_ , undef , $message ) ; } { my $message = \'(?{ })\' ; our $out = 1 ; \'abc\' =~ m \'a(?{ $out = 2 })b\' ; is ( $out , 2 , $message ) ; $out = 1 ; \'abc\' =~ m \'a(?{ $out = 3 })c\' ; is ( $out , 1 , $message ) ; } { $_ = \'foobar1 bar2 foobar3 barfoobar5 foobar6\' ; my @out =/(?<!foo)bar./g ; is ( "@out" , \'bar2 barf\' , "Negative lookbehind" ) ; } { my $message = "REG_INFTY tests" ; eval { require Config ; } ; $: : reg_infty = $Config::Config { reg_infty } // 32767 ; $: : reg_infty_m = $: : reg_infty - 1 ; $: : reg_infty_p = $: : reg_infty + 1 ; $: : reg_infty_m = $: : reg_infty_m ; is ( eval q{(\'aaa\' =~ /(a{1,$::reg_infty_m})/)[0]} , \'aaa\' , $message ) ; is ( $@ , \'\' , $message ) ; is ( eval q{(\'a\' x $::reg_infty_m) =~ /a{$::reg_infty_m}/} , 1 , $message ) ; is ( $@ , \'\' , $message ) ; isnt ( q{(\'a\' x ($::reg_infty_m - 1)) !~ /a{$::reg_infty_m}/} , 1 , $message ) ; is ( $@ , \'\' , $message ) ; eval "\'aaa\' =~ /a{1,$::reg_infty}/" ; like ( $@ , qr/^\\QQuantifier in {,} bigger than/ , $message ) ; eval "\'aaa\' =~ /a{1,$::reg_infty_p}/" ; like ( $@ , qr/^\\QQuantifier in {,} bigger than/ , $message ) ; } { my $context = \'x\' x 256 ; eval qq("${context}y" =~ /(?<=$context)y/) ; ok $@ =~/^\\QLookbehind longer than 255 not/ , "Lookbehind limit" ; } { for my $l ( 125 , 140 , 250 , 270 , 300000 , 30 ) { my $a = \'a\' x $l ; my $message = "Long monster, length = $l" ; like ( "ba$a=" , qr/a$a=/ , $message ) ; unlike ( "b$a=" , qr/a$a=/ , $message ) ; like ( "b$a=" , qr/ba+=/ , $message ) ; like ( "ba$a=" , qr/b(?:a|b)+=/ , $message ) ; } } { my $long_constant_len = join \'|\' , 12120 .. 32645 ; my $long_var_len = join \'|\' , 8120 .. 28645 ; my %ans = ( \'ax13876y25677lbc\' => 1 , \'ax13876y25677mcb\' => 0 , \'ax13876y35677nbc\' => 0 , \'ax13876y25677y21378obc\' => 1 , \'ax13876y25677y21378zbc\' => 0 , \'ax13876y25677y21378y21378kbc\' => 1 , \'ax13876y25677y21378y21378kcb\' => 0 , \'ax13876y25677y21378y21378y21378kbc\' => 0 , ) ; for ( keys %ans ) { my $message = "20000 nodes, const-len \'$_\'" ; ok ! ( $ans { $_ } xor/a(?=([yx]($long_constant_len)){2,4}[k-o]).*b./o ) , $message ; $message = "20000 nodes, var-len \'$_\'" ; ok ! ( $ans { $_ } xor/a(?=([yx]($long_var_len)){2,4}[k-o]).*b./o , ) , $message ; } } { my $message = "Complicated backtracking" ; $_ = " a (bla()) and x(y b((l)u((e))) and b(l(e)e)e" ; my $expect = "(bla()) ((l)u((e))) (l(e)e)" ; use vars \'$c\' ; sub matchit { m/
              (
                \\(
                (?{ $c = 1 })    # Initialize
@@ -63916,10 +63934,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 25
           },
           {
-            'token_num' => 42,
+            'token_num' => 44,
             'has_warnings' => 1,
             'end_line' => 287,
-            'src' => ' { my $message = \'(?{ })\' ; our $out = 1 ; \'abc\' =~ \'ma(?{ $out = 2 })b\' ; is ( $out , 2 , $message ) ; $out = 1 ; \'abc\' =~ \'ma(?{ $out = 3 })c\' ; is ( $out , 1 , $message ) ; }',
+            'src' => ' { my $message = \'(?{ })\' ; our $out = 1 ; \'abc\' =~ m \'a(?{ $out = 2 })b\' ; is ( $out , 2 , $message ) ; $out = 1 ; \'abc\' =~ m \'a(?{ $out = 3 })c\' ; is ( $out , 1 , $message ) ; }',
             'start_line' => 278,
             'indent' => 1,
             'block_id' => 2
@@ -63943,10 +63961,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 26
           },
           {
-            'token_num' => 4,
+            'token_num' => 5,
             'has_warnings' => 0,
             'end_line' => 281,
-            'src' => ' \'abc\' =~ \'ma(?{ $out = 2 })b\' ;',
+            'src' => ' \'abc\' =~ m \'a(?{ $out = 2 })b\' ;',
             'start_line' => 281,
             'indent' => 2,
             'block_id' => 26
@@ -63970,10 +63988,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 26
           },
           {
-            'token_num' => 4,
+            'token_num' => 5,
             'has_warnings' => 0,
             'end_line' => 285,
-            'src' => ' \'abc\' =~ \'ma(?{ $out = 3 })c\' ;',
+            'src' => ' \'abc\' =~ m \'a(?{ $out = 3 })c\' ;',
             'start_line' => 285,
             'indent' => 2,
             'block_id' => 26
