@@ -296,9 +296,11 @@ Token *Scanner::scanCurSymbol(LexContext *ctx, char symbol)
 	Token *ret = NULL;
 	TokenManager *tmgr = ctx->tmgr;
 	Token *prev_tk = ctx->tmgr->lastToken();
+	string prev_data = (prev_tk) ? prev_tk->_data : "";
 	int idx = ctx->tmgr->size() - 2;
 	string prev_before = (idx >= 0) ? string(ctx->tmgr->beforeLastToken()->_data) : "";
-	if (prev_before != "sub" && isRegexDelim(prev_tk, symbol)) {
+	if ((prev_before != "sub" && isRegexDelim(prev_tk, symbol)) ||
+		(prev_data   == "{"   && symbol == '/')) {
 		if (!isRegexEndDelim(ctx)) {
 			regex_delim = getRegexDelim(ctx);
 			isRegexStarted = true;
