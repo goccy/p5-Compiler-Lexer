@@ -9772,12 +9772,39 @@ subtest 'tokenize' => sub {
                    'line' => 154
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_RegPrefix,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegQuote',
+                   'data' => 'q',
+                   'type' => Compiler::Lexer::TokenType::T_RegQuote,
+                   'line' => 154
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'String',
-                   'data' => 'qkeys $empty',
-                   'type' => Compiler::Lexer::TokenType::T_String,
+                   'name' => 'RegDelim',
+                   'data' => '"',
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
+                   'line' => 154
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegExp',
+                   'data' => 'keys $empty',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
+                   'line' => 154
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegDelim',
+                   'data' => '"',
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 154
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -15490,12 +15517,39 @@ subtest 'tokenize' => sub {
                    'line' => 249
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_RegPrefix,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegQuote',
+                   'data' => 'q',
+                   'type' => Compiler::Lexer::TokenType::T_RegQuote,
+                   'line' => 249
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'String',
-                   'data' => 'qvalues $empty',
-                   'type' => Compiler::Lexer::TokenType::T_String,
+                   'name' => 'RegDelim',
+                   'data' => '"',
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
+                   'line' => 249
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegExp',
+                   'data' => 'values $empty',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
+                   'line' => 249
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegDelim',
+                   'data' => '"',
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 249
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -30460,12 +30514,39 @@ subtest 'tokenize' => sub {
                    'line' => 358
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_RegPrefix,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegQuote',
+                   'data' => 'q',
+                   'type' => Compiler::Lexer::TokenType::T_RegQuote,
+                   'line' => 358
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'String',
-                   'data' => 'qeach $empty',
-                   'type' => Compiler::Lexer::TokenType::T_String,
+                   'name' => 'RegDelim',
+                   'data' => '"',
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
+                   'line' => 358
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegExp',
+                   'data' => 'each $empty',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
+                   'line' => 358
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegDelim',
+                   'data' => '"',
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 358
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -34147,10 +34228,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 3,
+            'token_num' => 6,
             'has_warnings' => 0,
             'end_line' => 154,
-            'src' => ' eval "qkeys $empty" ;',
+            'src' => ' eval q"keys $empty" ;',
             'start_line' => 154,
             'indent' => 0,
             'block_id' => 0
@@ -34825,10 +34906,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 3,
+            'token_num' => 6,
             'has_warnings' => 0,
             'end_line' => 249,
-            'src' => ' eval "qvalues $empty" ;',
+            'src' => ' eval q"values $empty" ;',
             'start_line' => 249,
             'indent' => 0,
             'block_id' => 0
@@ -36493,10 +36574,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 3,
+            'token_num' => 6,
             'has_warnings' => 0,
             'end_line' => 358,
-            'src' => ' eval "qeach $empty" ;',
+            'src' => ' eval q"each $empty" ;',
             'start_line' => 358,
             'indent' => 0,
             'block_id' => 0

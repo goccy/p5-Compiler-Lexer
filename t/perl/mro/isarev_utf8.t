@@ -3294,11 +3294,20 @@ subtest 'tokenize' => sub {
                    'line' => 74
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Call',
+                   'data' => 'i',
+                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'line' => 75
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'String',
-                   'data' => 'iごଅｔ',
+                   'data' => 'ごଅｔ',
                    'type' => Compiler::Lexer::TokenType::T_String,
                    'line' => 75
                  }, 'Compiler::Lexer::Token' ),
@@ -3375,11 +3384,20 @@ subtest 'tokenize' => sub {
                    'line' => 76
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Call',
+                   'data' => 'i',
+                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'line' => 77
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'String',
-                   'data' => 'iごଅｔ::DଐɾẎ',
+                   'data' => 'ごଅｔ::DଐɾẎ',
                    'type' => Compiler::Lexer::TokenType::T_String,
                    'line' => 77
                  }, 'Compiler::Lexer::Token' ),
@@ -3960,11 +3978,20 @@ subtest 'tokenize' => sub {
                    'line' => 87
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Call',
+                   'data' => 'i',
+                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'line' => 88
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'String',
-                   'data' => 'iHഓf엗::맘말',
+                   'data' => 'Hഓf엗::맘말',
                    'type' => Compiler::Lexer::TokenType::T_String,
                    'line' => 88
                  }, 'Compiler::Lexer::Token' ),
@@ -4689,11 +4716,20 @@ subtest 'tokenize' => sub {
                    'line' => 100
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Call',
+                   'data' => 'i',
+                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'line' => 101
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'String',
-                   'data' => 'iᛑiስアsઍ::ｪᔦ',
+                   'data' => 'ᛑiስアsઍ::ｪᔦ',
                    'type' => Compiler::Lexer::TokenType::T_String,
                    'line' => 101
                  }, 'Compiler::Lexer::Token' ),
@@ -4770,11 +4806,20 @@ subtest 'tokenize' => sub {
                    'line' => 102
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Call',
+                   'data' => 'i',
+                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'line' => 103
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'String',
-                   'data' => 'i솜e_란돔_new_symbol::Iṇᚠctĭo웃',
+                   'data' => '솜e_란돔_new_symbol::Iṇᚠctĭo웃',
                    'type' => Compiler::Lexer::TokenType::T_String,
                    'line' => 103
                  }, 'Compiler::Lexer::Token' ),
@@ -5238,11 +5283,20 @@ subtest 'tokenize' => sub {
                    'line' => 113
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Call',
+                   'data' => 'i',
+                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'line' => 114
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'String',
-                   'data' => 'iዚlcᕻ::Eṁpｔᔾ',
+                   'data' => 'ዚlcᕻ::Eṁpｔᔾ',
                    'type' => Compiler::Lexer::TokenType::T_String,
                    'line' => 114
                  }, 'Compiler::Lexer::Token' ),
@@ -5634,11 +5688,20 @@ subtest 'tokenize' => sub {
                    'line' => 123
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Call',
+                   'data' => 'i',
+                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'line' => 125
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'String',
-                   'data' => 'iअ::ᵇ',
+                   'data' => 'अ::ᵇ',
                    'type' => Compiler::Lexer::TokenType::T_String,
                    'line' => 125
                  }, 'Compiler::Lexer::Token' ),
@@ -7254,19 +7317,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 9,
+            'token_num' => 10,
             'has_warnings' => 0,
             'end_line' => 76,
-            'src' => ' "iごଅｔ" => qw[ ごଅｔ::DଐɾẎ ごଅｔ::DଐɾẎ::Ⱦ옥ゲᕟƃᚒḠ ] , "deleting an alias to a package updates isarev entries of nested stashes" ;',
+            'src' => ' i "ごଅｔ" => qw[ ごଅｔ::DଐɾẎ ごଅｔ::DଐɾẎ::Ⱦ옥ゲᕟƃᚒḠ ] , "deleting an alias to a package updates isarev entries of nested stashes" ;',
             'start_line' => 75,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 9,
+            'token_num' => 10,
             'has_warnings' => 0,
             'end_line' => 78,
-            'src' => ' "iごଅｔ::DଐɾẎ" => qw[ ごଅｔ::DଐɾẎ::Ⱦ옥ゲᕟƃᚒḠ ] , "deleting an stash alias updates isarev entries of doubly nested stashes" ;',
+            'src' => ' i "ごଅｔ::DଐɾẎ" => qw[ ごଅｔ::DଐɾẎ::Ⱦ옥ゲᕟƃᚒḠ ] , "deleting an stash alias updates isarev entries of doubly nested stashes" ;',
             'start_line' => 77,
             'indent' => 0,
             'block_id' => 0
@@ -7317,10 +7380,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 17,
+            'token_num' => 18,
             'has_warnings' => 1,
             'end_line' => 89,
-            'src' => ' * 챂릳::= * 챂린ẽ::; * 챂린ẽ::= * ㄔɘvレ::; "iHഓf엗::맘말" => qw[ 챂릳 ] , "replacing a stash updates isarev entries" ;',
+            'src' => ' * 챂릳::= * 챂린ẽ::; * 챂린ẽ::= * ㄔɘvレ::; i "Hഓf엗::맘말" => qw[ 챂릳 ] , "replacing a stash updates isarev entries" ;',
             'start_line' => 86,
             'indent' => 0,
             'block_id' => 0
@@ -7371,19 +7434,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 9,
+            'token_num' => 10,
             'has_warnings' => 0,
             'end_line' => 102,
-            'src' => ' "iᛑiስアsઍ::ｪᔦ" => qw[ ᛑiስアsઍ::ｪᔦ::Iṇᚠctĭo웃 ] , "replacing an alias of a stash containing another updates isarev entries" ;',
+            'src' => ' i "ᛑiስアsઍ::ｪᔦ" => qw[ ᛑiስアsઍ::ｪᔦ::Iṇᚠctĭo웃 ] , "replacing an alias of a stash containing another updates isarev entries" ;',
             'start_line' => 101,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 9,
+            'token_num' => 10,
             'has_warnings' => 0,
             'end_line' => 104,
-            'src' => ' "i솜e_란돔_new_symbol::Iṇᚠctĭo웃" => qw[ Kㄦat옻oǌ운ctᝁヸቲᔈ ] , "replacing an alias updates isarev of stashes nested in the replacement" ;',
+            'src' => ' i "솜e_란돔_new_symbol::Iṇᚠctĭo웃" => qw[ Kㄦat옻oǌ운ctᝁヸቲᔈ ] , "replacing an alias updates isarev of stashes nested in the replacement" ;',
             'start_line' => 103,
             'indent' => 0,
             'block_id' => 0
@@ -7425,10 +7488,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 9,
+            'token_num' => 10,
             'has_warnings' => 0,
             'end_line' => 115,
-            'src' => ' "iዚlcᕻ::Eṁpｔᔾ" => qw[ 눌Ļ::눌Ļ ] , "assigning to an empty spot updates isarev of nested packages" ;',
+            'src' => ' i "ዚlcᕻ::Eṁpｔᔾ" => qw[ 눌Ļ::눌Ļ ] , "assigning to an empty spot updates isarev of nested packages" ;',
             'start_line' => 114,
             'indent' => 0,
             'block_id' => 0
@@ -7470,10 +7533,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 9,
+            'token_num' => 10,
             'has_warnings' => 0,
             'end_line' => 125,
-            'src' => ' "iअ::ᵇ" => qw[] , \'assigning to two superclasses at the same time\' ;',
+            'src' => ' i "अ::ᵇ" => qw[] , \'assigning to two superclasses at the same time\' ;',
             'start_line' => 125,
             'indent' => 0,
             'block_id' => 0

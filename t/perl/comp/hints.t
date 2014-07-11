@@ -5618,11 +5618,29 @@ subtest 'tokenize' => sub {
                    'line' => 135
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_RegPrefix,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegQuote',
+                   'data' => 'q',
+                   'type' => Compiler::Lexer::TokenType::T_RegQuote,
+                   'line' => 135
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'ExecString',
-                   'data' => 'q
+                   'name' => 'RegDelim',
+                   'data' => '`',
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
+                   'line' => 135
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegExp',
+                   'data' => '
     # Do something naughty enough, and you get your module mentioned in the
     # test suite. :-)
     package namespace::clean::_TieHintHash;
@@ -5659,7 +5677,16 @@ subtest 'tokenize' => sub {
     }
     1;
 ',
-                   'type' => Compiler::Lexer::TokenType::T_ExecString,
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
+                   'line' => 171
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegDelim',
+                   'data' => '`',
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 171
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5888,11 +5915,29 @@ subtest 'tokenize' => sub {
                    'line' => 177
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_RegPrefix,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegQuote',
+                   'data' => 'q',
+                   'type' => Compiler::Lexer::TokenType::T_RegQuote,
+                   'line' => 177
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'ExecString',
-                   'data' => 'q
+                   'name' => 'RegDelim',
+                   'data' => '`',
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
+                   'line' => 177
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegExp',
+                   'data' => '
 	package namespace::clean::_TieHintHasi;
     
 	sub TIEHASH  { bless[] }
@@ -5911,7 +5956,16 @@ subtest 'tokenize' => sub {
 	}
 	{ ; } # clone the tied hint hash
     ',
-                   'type' => Compiler::Lexer::TokenType::T_ExecString,
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
+                   'line' => 195
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegDelim',
+                   'data' => '`',
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 195
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8869,10 +8923,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 30
           },
           {
-            'token_num' => 6,
+            'token_num' => 9,
             'has_warnings' => 0,
             'end_line' => 171,
-            'src' => ' eval `q
+            'src' => ' eval q`
     # Do something naughty enough, and you get your module mentioned in the
     # test suite. :-)
     package namespace::clean::_TieHintHash;
@@ -8923,10 +8977,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 34,
+            'token_num' => 37,
             'has_warnings' => 1,
             'end_line' => 199,
-            'src' => ' { my $w ; local $SIG { __WARN__ } = sub { $w = shift } ; eval `q
+            'src' => ' { my $w ; local $SIG { __WARN__ } = sub { $w = shift } ; eval q`
 	package namespace::clean::_TieHintHasi;
     
 	sub TIEHASH  { bless[] }
@@ -8968,10 +9022,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 34
           },
           {
-            'token_num' => 3,
+            'token_num' => 6,
             'has_warnings' => 0,
             'end_line' => 195,
-            'src' => ' eval `q
+            'src' => ' eval q`
 	package namespace::clean::_TieHintHasi;
     
 	sub TIEHASH  { bless[] }

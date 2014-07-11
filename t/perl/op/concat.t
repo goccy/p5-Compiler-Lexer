@@ -6050,11 +6050,20 @@ subtest 'tokenize' => sub {
                    'line' => 152
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'BuiltinFunc',
+                   'data' => 'eval',
+                   'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
+                   'line' => 152
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'String',
-                   'data' => 'evalqr/\\x{fff}/',
+                   'data' => 'qr/\\x{fff}/',
                    'type' => Compiler::Lexer::TokenType::T_String,
                    'line' => 152
                  }, 'Compiler::Lexer::Token' ),
@@ -7238,19 +7247,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 14
           },
           {
-            'token_num' => 22,
+            'token_num' => 23,
             'has_warnings' => 1,
             'end_line' => 154,
-            'src' => ' { my $x = "evalqr/\\x{fff}/" ; ok ( ord chop ( $x .= "\\303\\277" ) == 191 , "UTF8ness preserved" ) ; }',
+            'src' => ' { my $x = eval "qr/\\x{fff}/" ; ok ( ord chop ( $x .= "\\303\\277" ) == 191 , "UTF8ness preserved" ) ; }',
             'start_line' => 150,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 5,
+            'token_num' => 6,
             'has_warnings' => 0,
             'end_line' => 152,
-            'src' => ' my $x = "evalqr/\\x{fff}/" ;',
+            'src' => ' my $x = eval "qr/\\x{fff}/" ;',
             'start_line' => 152,
             'indent' => 1,
             'block_id' => 15

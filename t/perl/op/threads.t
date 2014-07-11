@@ -8057,9 +8057,27 @@ threads->create(
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RawString',
+                   'name' => 'RegDelim',
+                   'data' => '\'',
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
+                   'line' => 382
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegExp',
                    'data' => '"$perl"',
-                   'type' => Compiler::Lexer::TokenType::T_RawString,
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
+                   'line' => 382
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegDelim',
+                   'data' => '\'',
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 382
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9794,10 +9812,10 @@ threads->create(
             'block_id' => 39
           },
           {
-            'token_num' => 49,
+            'token_num' => 51,
             'has_warnings' => 1,
             'end_line' => 386,
-            'src' => ' { my $perl = which_perl ; $perl = qq \'"$perl"\' if $perl =~/\\s/ ; open ( my $OUT , "|$perl" ) || die ( "ERROR: $!" ) ; threads-> create ( sub { } )-> join ; ok ( 1 , "Pipes shared between threads do not block when closed" ) ; }',
+            'src' => ' { my $perl = which_perl ; $perl = qq\'"$perl"\' if $perl =~/\\s/ ; open ( my $OUT , "|$perl" ) || die ( "ERROR: $!" ) ; threads-> create ( sub { } )-> join ; ok ( 1 , "Pipes shared between threads do not block when closed" ) ; }',
             'start_line' => 380,
             'indent' => 0,
             'block_id' => 0
@@ -9812,10 +9830,10 @@ threads->create(
             'block_id' => 41
           },
           {
-            'token_num' => 11,
+            'token_num' => 13,
             'has_warnings' => 1,
             'end_line' => 382,
-            'src' => ' $perl = qq \'"$perl"\' if $perl =~/\\s/ ;',
+            'src' => ' $perl = qq\'"$perl"\' if $perl =~/\\s/ ;',
             'start_line' => 382,
             'indent' => 1,
             'block_id' => 41

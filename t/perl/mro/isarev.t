@@ -3201,11 +3201,20 @@ subtest 'tokenize' => sub {
                    'line' => 71
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Call',
+                   'data' => 'i',
+                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'line' => 72
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'String',
-                   'data' => 'iGoat',
+                   'data' => 'Goat',
                    'type' => Compiler::Lexer::TokenType::T_String,
                    'line' => 72
                  }, 'Compiler::Lexer::Token' ),
@@ -3282,11 +3291,20 @@ subtest 'tokenize' => sub {
                    'line' => 73
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Call',
+                   'data' => 'i',
+                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'line' => 74
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'String',
-                   'data' => 'iGoat::Dairy',
+                   'data' => 'Goat::Dairy',
                    'type' => Compiler::Lexer::TokenType::T_String,
                    'line' => 74
                  }, 'Compiler::Lexer::Token' ),
@@ -3867,11 +3885,20 @@ subtest 'tokenize' => sub {
                    'line' => 84
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Call',
+                   'data' => 'i',
+                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'line' => 85
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'String',
-                   'data' => 'iHoofed::Mammal',
+                   'data' => 'Hoofed::Mammal',
                    'type' => Compiler::Lexer::TokenType::T_String,
                    'line' => 85
                  }, 'Compiler::Lexer::Token' ),
@@ -4596,11 +4623,20 @@ subtest 'tokenize' => sub {
                    'line' => 97
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Call',
+                   'data' => 'i',
+                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'line' => 98
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'String',
-                   'data' => 'iDisease::Eye',
+                   'data' => 'Disease::Eye',
                    'type' => Compiler::Lexer::TokenType::T_String,
                    'line' => 98
                  }, 'Compiler::Lexer::Token' ),
@@ -4677,11 +4713,20 @@ subtest 'tokenize' => sub {
                    'line' => 99
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Call',
+                   'data' => 'i',
+                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'line' => 100
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'String',
-                   'data' => 'isome_random_new_symbol::Infectious',
+                   'data' => 'some_random_new_symbol::Infectious',
                    'type' => Compiler::Lexer::TokenType::T_String,
                    'line' => 100
                  }, 'Compiler::Lexer::Token' ),
@@ -5145,11 +5190,20 @@ subtest 'tokenize' => sub {
                    'line' => 110
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Call',
+                   'data' => 'i',
+                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'line' => 111
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'String',
-                   'data' => 'iZilch::Empty',
+                   'data' => 'Zilch::Empty',
                    'type' => Compiler::Lexer::TokenType::T_String,
                    'line' => 111
                  }, 'Compiler::Lexer::Token' ),
@@ -5541,11 +5595,20 @@ subtest 'tokenize' => sub {
                    'line' => 120
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Function,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Call',
+                   'data' => 'i',
+                   'type' => Compiler::Lexer::TokenType::T_Call,
+                   'line' => 122
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'String',
-                   'data' => 'iA::B',
+                   'data' => 'A::B',
                    'type' => Compiler::Lexer::TokenType::T_String,
                    'line' => 122
                  }, 'Compiler::Lexer::Token' ),
@@ -7143,19 +7206,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 9,
+            'token_num' => 10,
             'has_warnings' => 0,
             'end_line' => 73,
-            'src' => ' "iGoat" => qw[ Goat::Dairy Goat::Dairy::Toggenburg ] , "deleting an alias to a package updates isarev entries of nested stashes" ;',
+            'src' => ' i "Goat" => qw[ Goat::Dairy Goat::Dairy::Toggenburg ] , "deleting an alias to a package updates isarev entries of nested stashes" ;',
             'start_line' => 72,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 9,
+            'token_num' => 10,
             'has_warnings' => 0,
             'end_line' => 75,
-            'src' => ' "iGoat::Dairy" => qw[ Goat::Dairy::Toggenburg ] , "deleting an stash alias updates isarev entries of doubly nested stashes" ;',
+            'src' => ' i "Goat::Dairy" => qw[ Goat::Dairy::Toggenburg ] , "deleting an stash alias updates isarev entries of doubly nested stashes" ;',
             'start_line' => 74,
             'indent' => 0,
             'block_id' => 0
@@ -7206,10 +7269,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 17,
+            'token_num' => 18,
             'has_warnings' => 1,
             'end_line' => 86,
-            'src' => ' * Caprid::= * Caprine::; * Caprine::= * Chevre::; "iHoofed::Mammal" => qw[ Caprid ] , "replacing a stash updates isarev entries" ;',
+            'src' => ' * Caprid::= * Caprine::; * Caprine::= * Chevre::; i "Hoofed::Mammal" => qw[ Caprid ] , "replacing a stash updates isarev entries" ;',
             'start_line' => 83,
             'indent' => 0,
             'block_id' => 0
@@ -7260,19 +7323,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 9,
+            'token_num' => 10,
             'has_warnings' => 0,
             'end_line' => 99,
-            'src' => ' "iDisease::Eye" => qw[ Disease::Eye::Infectious ] , "replacing an alias of a stash containing another updates isarev entries" ;',
+            'src' => ' i "Disease::Eye" => qw[ Disease::Eye::Infectious ] , "replacing an alias of a stash containing another updates isarev entries" ;',
             'start_line' => 98,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 9,
+            'token_num' => 10,
             'has_warnings' => 0,
             'end_line' => 101,
-            'src' => ' "isome_random_new_symbol::Infectious" => qw[ Keratoconjunctivitis ] , "replacing an alias updates isarev of stashes nested in the replacement" ;',
+            'src' => ' i "some_random_new_symbol::Infectious" => qw[ Keratoconjunctivitis ] , "replacing an alias updates isarev of stashes nested in the replacement" ;',
             'start_line' => 100,
             'indent' => 0,
             'block_id' => 0
@@ -7314,10 +7377,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 9,
+            'token_num' => 10,
             'has_warnings' => 0,
             'end_line' => 112,
-            'src' => ' "iZilch::Empty" => qw[ Null::Null ] , "assigning to an empty spot updates isarev of nested packages" ;',
+            'src' => ' i "Zilch::Empty" => qw[ Null::Null ] , "assigning to an empty spot updates isarev of nested packages" ;',
             'start_line' => 111,
             'indent' => 0,
             'block_id' => 0
@@ -7359,10 +7422,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 9,
+            'token_num' => 10,
             'has_warnings' => 0,
             'end_line' => 122,
-            'src' => ' "iA::B" => qw[] , \'assigning to two superclasses at the same time\' ;',
+            'src' => ' i "A::B" => qw[] , \'assigning to two superclasses at the same time\' ;',
             'start_line' => 122,
             'indent' => 0,
             'block_id' => 0

@@ -56,20 +56,31 @@ Token *Scanner::scanQuote(LexContext *ctx, char quote)
 	TokenManager *tmgr = ctx->tmgr;
 	ScriptManager *smgr = ctx->smgr;
 	char prev_ch = smgr->previousChar();
-	if (smgr->currentChar() == '\'' && (isalnum(prev_ch) || prev_ch == '_')) {
+	Token *prev_token = tmgr->lastToken();
+	if (prev_token && prev_token->info.type == TokenType::RegExp) {
+		return scanSymbol(ctx);
+	}
+	if (isalnum(prev_ch) || prev_ch == '_') {
 		char *token = ctx->buffer();
 		TokenInfo info = tmgr->getTokenInfo(token);
-		if (info.type == TokenType::Undefined) {
+		char cur_ch = smgr->currentChar();
+		if (cur_ch == '\'' && info.type == TokenType::Undefined) {
 			Token *namespace_tk = tmgr->new_Token(token, ctx->finfo);
 			namespace_tk->info = tmgr->getTokenInfo(TokenType::Namespace);
 			tmgr->add(namespace_tk);
 			ctx->clearBuffer();
 			
-			ctx->writeBuffer(smgr->currentChar());
+			ctx->writeBuffer(cur_ch);
 			Token *namespace_resolver = tmgr->new_Token(ctx->buffer(), ctx->finfo);
 			namespace_resolver->info  = tmgr->getTokenInfo(TokenType::NamespaceResolver);
 			ctx->clearBuffer();
 			return namespace_resolver;
+		} else if (info.kind == TokenKind::RegPrefix || info.kind == TokenKind::RegReplacePrefix) {
+			Token *tk = tmgr->new_Token(token, ctx->finfo);
+			tk->info = info;
+			tmgr->add(tk);
+			ctx->clearBuffer();
+			return scanSymbol(ctx);
 		} else {
 			Token *tk = tmgr->new_Token(token, ctx->finfo);
 			tk->info = info;
@@ -253,6 +264,9 @@ bool Scanner::isRegexDelim(Token *prev_token, char symbol)
 	if (regex_delim == 0 && prev_token && prev_token->info.type == TokenType::Undefined &&
 		(symbol != '-' && symbol != '=' && symbol != ',' && symbol != ')') &&
 		regex_prefix_map.find(prev_tk) != regex_prefix_map.end()) {
+		return true;
+	} else if (regex_delim == 0 && prev_token && 
+			   (prev_token->info.kind == TokenKind::RegPrefix || prev_token->info.kind == TokenKind::RegReplacePrefix)) {
 		return true;
 	}
 	TokenType::Type prev_type = (prev_token) ? prev_token->info.type : TokenType::Undefined;

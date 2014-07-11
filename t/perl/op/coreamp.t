@@ -38911,9 +38911,27 @@ The problem is that I cannot solve it.
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RawString',
+                   'name' => 'RegDelim',
+                   'data' => '\'',
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
+                   'line' => 862
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegExp',
                    'data' => '^Undefined format "STDOUT" called',
-                   'type' => Compiler::Lexer::TokenType::T_RawString,
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
+                   'line' => 862
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegDelim',
+                   'data' => '\'',
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 862
                  }, 'Compiler::Lexer::Token' ),
           bless( {

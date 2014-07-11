@@ -37027,18 +37027,36 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RawString',
-                   'data' => '^abc$',
-                   'type' => Compiler::Lexer::TokenType::T_RawString,
+                   'name' => 'RegDelim',
+                   'data' => '\'',
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 763
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegPrefix,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegMatch',
+                   'name' => 'RegExp',
+                   'data' => '^abc$',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
+                   'line' => 763
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegDelim',
+                   'data' => '\'',
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
+                   'line' => 763
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegOpt',
                    'data' => 'm',
-                   'type' => Compiler::Lexer::TokenType::T_RegMatch,
+                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
                    'line' => 763
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -51275,7 +51293,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 5481,
+            'token_num' => 5483,
             'has_warnings' => 1,
             'end_line' => 1138,
             'src' => ' sub run_tests { like ( "A \\x{263a} B z C" , qr/A . B (??{ "z" }) C/ , "Match UTF-8 char in presence of (??{ }); Bug 20000731.001" ) ; { no warnings \'uninitialized\' ; ok ( undef =~/^([^\\/]*)(.*)$/ , "Used to cause a SEGV; Bug 20001021.005" ) ; } { my $message = \'bug id 20001008.001\' ; my @x = ( "stra\\337e 138" , "stra\\337e 138" ) ; for ( @x ) { ok ( s/(\\d+)\\s*([\\w\\-]+)/$1 . uc $2/e , $message ) ; ok ( my ( $latin ) =/^(.+)(?:\\s+\\d)/ , $message ) ; is ( $latin , "stra\\337e" , $message ) ; ok ( $latin =~ s/stra\\337e/straße/ , $message ) ; } } { my $message = \'HEBREW ACCENT QADMA matched by .*; Bug 20001028.003\' ; my $X = chr ( 1448 ) ; ok ( my ( $Y ) = $X =~/(.*)/ , $message ) ; is ( $Y , v1448 , $message ) ; is ( length $Y , 1 , $message ) ; $message = \'HEBREW ACCENT QADMA in replacement; Bug 20001028.003\' ; $X = \'\' ; $X =~ s/^/chr(1488)/e ; is ( length $X , 1 , $message ) ; is ( ord $X , 1488 , $message ) ; } { my $message = \'Repeated s///; Bug 20001108.001\' ; my $X = "Szab\\x{f3},Bal\\x{e1}zs" ; my $Y = $X ; $Y =~ s/(B)/$1/ for 0 .. 3 ; is ( $Y , $X , $message ) ; is ( $X , "Szab\\x{f3},Bal\\x{e1}zs" , $message ) ; } { my $message = \'s/// on UTF-8 string; Bug 20000517.001\' ; my $x = "\\x{100}A" ; $x =~ s/A/B/ ; is ( $x , "\\x{100}B" , $message ) ; is ( length $x , 2 , $message ) ; } { my $message = \'\\C and É; Bug 20001230.002\' ; ok ( "École" =~/^\\C\\C(.)/ && $1 eq \'c\' , $message ) ; like ( "École" , qr/^\\C\\C(c)/ , $message ) ; } { my $message = "Don\'t dump core; Bug 20010306.008" ; my $a = "a\\x{1234}" ; like ( $a , qr/\\w/ , $message ) ; } { my $message = \'/g in scalar context; Bug 20010410.006\' ; for my $rx ( \'/(.*?)\\{(.*?)\\}/csg\' , \'/(.*?)\\{(.*?)\\}/cg\' , \'/(.*?)\\{(.*?)\\}/sg\' , \'/(.*?)\\{(.*?)\\}/g\' , \'/(.+?)\\{(.+?)\\}/csg\' , ) { my $i = 0 ; my $input = "a{b}c{d}" ; eval qq{                while (eval \\$input =~ $rx) {
@@ -51294,7 +51312,7 @@ subtest 'get_groups_by_syntax_level' => sub {
         \' ; is ( $@ , \'\' , \'lvalue $+ {...} should not throw an exception; Bug 50496\' ) ; } { my $s = \'foo bar baz\' ; my ( @k , @v , @fetch , $res ) ; my $count = 0 ; my @names = qw($+{A} $+{B} $+{C} $+{D}) ; if ( $s =~/(?<D>(?<A>foo)\\s+(?<B>bar)?\\s+(?<C>baz))/ ) { while ( my ( $k , $v ) = each ( %+ ) ) { $count ++ ; } @k = sort keys ( %+ ) ; @v = sort values ( %+ ) ; $res = 1 ; push @fetch , [ "$+{A}" , "$2" ] , [ "$+{B}" , "$3" ] , [ "$+{C}" , "$4" ] , [ "$+{D}" , "$1" ] , ; } foreach ( 0 .. 3 ) { if ( $fetch [ $_ ] ) { is ( $fetch [ $_ ] [ 0 ] , $fetch [ $_ ] [ 1 ] , "$names[$_]; Bug 50496" ) ; } else { ok 0 , $names [ $_ ] ; } } is ( $res , 1 , "\'$s\' =~ /(?<D>(?<A>foo)\\\\s+(?<B>bar)?\\\\s+(?<C>baz))/; Bug 50496" ) ; is ( $count , 4 , "Got 4 keys in %+ via each; Bug 50496" ) ; is ( @k , 4 , "Got 4 keys in %+ via keys; Bug 50496" ) ; is ( "@k" , "A B C D" , "Got expected keys; Bug 50496" ) ; is ( "@v" , "bar baz foo foo bar baz" , "Got expected values; Bug 50496" ) ; eval \'
             no warnings "uninitialized";
             print for $+ {this_key_doesnt_exist};
-        \' ; is ( $@ , \'\' , \'lvalue $+ {...} should not throw an exception; Bug 50496\' ) ; } { my $str = \'abc\' ; my $count = 0 ; my $mval = 0 ; my $pval = 0 ; while ( $str =~/b/g ) { $mval = $# - ; $pval = $# + ; $count ++ } is ( $mval , 0 , \'@- should be empty; Bug 36046\' ) ; is ( $pval , 0 , \'@+ should be empty; Bug 36046\' ) ; is ( $count , 1 , \'Should have matched once only; Bug 36046\' ) ; } { my $message = \'/m in precompiled regexp; Bug 40684\' ; my $s = "abc\\ndef" ; my $rex = qr \'^abc$\' m;
+        \' ; is ( $@ , \'\' , \'lvalue $+ {...} should not throw an exception; Bug 50496\' ) ; } { my $str = \'abc\' ; my $count = 0 ; my $mval = 0 ; my $pval = 0 ; while ( $str =~/b/g ) { $mval = $# - ; $pval = $# + ; $count ++ } is ( $mval , 0 , \'@- should be empty; Bug 36046\' ) ; is ( $pval , 0 , \'@+ should be empty; Bug 36046\' ) ; is ( $count , 1 , \'Should have matched once only; Bug 36046\' ) ; } { my $message = \'/m in precompiled regexp; Bug 40684\' ; my $s = "abc\\ndef" ; my $rex = qr\'^abc$\'m;
         ok($s =~ m/$rex/, $message); ok ( $s =~ m/^abc$/m , $message ) ; } { my $message = \'(?: ... )? should not lose $^R; Bug 36909\' ; $^R = \'Nothing\' ; { local $^R = "Bad" ; ok ( \'x foofoo y\' =~ m{
                       (foo) # $^R correctly set
                       (?{ "last regexp code result" })
@@ -55590,10 +55608,10 @@ $t =~ s/([^a])//ge;
             'block_id' => 87
           },
           {
-            'token_num' => 34,
+            'token_num' => 36,
             'has_warnings' => 1,
             'end_line' => 766,
-            'src' => ' { my $message = \'/m in precompiled regexp; Bug 40684\' ; my $s = "abc\\ndef" ; my $rex = qr \'^abc$\' m;
+            'src' => ' { my $message = \'/m in precompiled regexp; Bug 40684\' ; my $s = "abc\\ndef" ; my $rex = qr\'^abc$\'m;
         ok($s =~ m/$rex/, $message); ok ( $s =~ m/^abc$/m , $message ) ; }',
             'start_line' => 760,
             'indent' => 1,
@@ -55618,10 +55636,10 @@ $t =~ s/([^a])//ge;
             'block_id' => 89
           },
           {
-            'token_num' => 22,
+            'token_num' => 24,
             'has_warnings' => 1,
             'end_line' => 765,
-            'src' => ' my $rex = qr \'^abc$\' m;
+            'src' => ' my $rex = qr\'^abc$\'m;
         ok($s =~ m/$rex/, $message); ok ( $s =~ m/^abc$/m , $message ) ;',
             'start_line' => 763,
             'indent' => 2,
