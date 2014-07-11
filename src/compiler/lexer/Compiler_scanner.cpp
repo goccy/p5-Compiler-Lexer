@@ -255,6 +255,10 @@ bool Scanner::isRegexDelim(Token *prev_token, char symbol)
 		regex_prefix_map.find(prev_tk) != regex_prefix_map.end()) {
 		return true;
 	}
+	TokenType::Type prev_type = (prev_token) ? prev_token->info.type : TokenType::Undefined;
+	if (prev_type == TokenType::RawString ||
+		prev_type == TokenType::String    ||
+		prev_type == TokenType::ExecString) return false;
 	if (symbol != '/') return false;
 	if (!prev_token) return true;
 	if (symbol == '/' && (prev_tk == "xor" || prev_tk == "and")) return true;
