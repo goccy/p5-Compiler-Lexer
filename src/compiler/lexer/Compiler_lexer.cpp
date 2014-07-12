@@ -14,7 +14,7 @@ LexContext::LexContext(const char *filename, char *script)
 	: progress(0), buffer_idx(0)
 {
 	script_size = strlen(script) + 1;
-	token_buffer = (char *)malloc(script_size * 2);
+	token_buffer = (char *)malloc((script_size + 1) * 2);
 	buffer_head = token_buffer;
 	token_buffer[0] = EOL;
 	prev_type = TokenType::Undefined;
