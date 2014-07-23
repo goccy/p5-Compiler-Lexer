@@ -2,6 +2,9 @@ Revision history for Perl extension Compiler-Lexer.
 
 {{$NEXT}}
 
+0.19 2014-07-23T07:32:47Z
+     - fixed some issues (foo'bar and q'foobar' and so on)
+
 0.18 2014-04-06T09:12:56Z
      - fixed some bugs (regex option or glob operator and so on)
 

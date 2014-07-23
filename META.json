@@ -4,7 +4,7 @@
       "Masaaki Goshima (goccy) <goccy(at)cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v0.6.5, CPAN::Meta::Converter version 2.132140",
+   "generated_by" : "Minilla/v2.1.1, CPAN::Meta::Converter version 2.141520",
    "license" : [
       "perl_5"
    ],
@@ -31,8 +31,6 @@
       },
       "configure" : {
          "requires" : {
-            "CPAN::Meta" : "0",
-            "CPAN::Meta::Prereqs" : "0",
             "Module::Build" : "0.38",
             "Module::Build::XSUtil" : "0.02"
          }
@@ -40,7 +38,8 @@
       "develop" : {
          "requires" : {
             "Test::CPAN::Meta" : "0",
-            "Test::MinimumVersion" : "0.10108",
+            "Test::MinimumVersion::Fast" : "0.04",
+            "Test::PAUSE::Permissions" : "0.04",
             "Test::Pod" : "1.41",
             "Test::Spellunker" : "v0.2.7"
          }
@@ -69,14 +68,15 @@
          "web" : "https://github.com/goccy/p5-Compiler-Lexer"
       }
    },
-   "version" : "0.18",
+   "version" : "0.19",
    "x_contributors" : [
       "tokuhirom <tokuhirom@gmail.com>",
       "Reini Urban <rurban@cpanel.net>",
       "Fumihiro Itoh <fmhrit@gmail.com>",
       "Masaaki Goshima <masaaki.goshima@mixi.co.jp>",
       "moznion <moznion@gmail.com>",
-      "Olivier MenguÃ© <dolmen@cpan.org>",
-      "Masaaki Goshima <goccy54@gmail.com>"
+      "Olivier Mengué <dolmen@cpan.org>",
+      "Syohei YOSHIDA <syohex@gmail.com>",
+      "goccy <goccy54@gmail.com>"
    ]
 }
