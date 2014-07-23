@@ -5149,6 +5149,10 @@ subtest 'get_used_modules' => sub {
             'name' => 'warnings'
           },
           {
+            'args' => '',
+            'name' => 'mro'
+          },
+          {
             'args' => '  \'c3\'',
             'name' => 'mro'
           },

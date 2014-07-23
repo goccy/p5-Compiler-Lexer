@@ -2741,6 +2741,10 @@ subtest 'get_used_modules' => sub {
             'name' => 'charnames'
           },
           {
+            'args' => '',
+            'name' => 'Encode'
+          },
+          {
             'args' => '  \'unicode_eval\'',
             'name' => 'feature'
           }

@@ -9910,7 +9910,11 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '',
             'name' => 'threads'
-          }
+          },
+          {
+            'args' => '  }',
+            'name' => 'IO'
+          },
         ]
 , 'Compiler::Lexer::get_used_modules');
 };

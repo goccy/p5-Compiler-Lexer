@@ -10827,6 +10827,10 @@ subtest 'get_used_modules' => sub {
     is_deeply($modules, [
           {
             'args' => '',
+            'name' => 'File::Spec::Functions',
+          },
+          {
+            'args' => '',
             'name' => 'Config'
           },
           {

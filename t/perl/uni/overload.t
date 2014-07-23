@@ -19198,12 +19198,16 @@ subtest 'get_used_modules' => sub {
           },
           {
             'args' => '',
+            'name' => 'POSIX'
+          },
+          {
+            'args' => '',
             'name' => 'locale'
           },
           {
             'args' => '  \'""\'  =>  sub  { $_ [ 0 ]-> { data } }  }',
             'name' => 'overload'
-          }
+          },
         ]
 , 'Compiler::Lexer::get_used_modules');
 };

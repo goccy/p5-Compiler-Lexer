@@ -2024,6 +2024,10 @@ subtest 'get_used_modules' => sub {
             'name' => 'warnings'
           },
           {
+            'args' => ' ( ./test.pl )',
+            'name' => 'q'
+          },
+          {
             'args' => '',
             'name' => 'mro'
           }

@@ -9634,7 +9634,15 @@ subtest 'get_used_modules' => sub {
           },
           {
             'args' => '',
+            'name' => 'Tie::Scalar'
+          },
+          {
+            'args' => '',
             'name' => 'bytes'
+          },
+          {
+            'args' => '',
+            'name' => 'Tie::Scalar'
           },
           {
             'args' => '  \'""\'  =>  sub  { return undef ; }',

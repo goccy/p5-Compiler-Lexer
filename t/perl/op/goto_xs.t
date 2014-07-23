@@ -4093,6 +4093,10 @@ subtest 'get_used_modules' => sub {
     is_deeply($modules, [
           {
             'args' => '',
+            'name' => 'Fcntl'
+          },
+          {
+            'args' => '',
             'name' => 'strict'
           },
           {

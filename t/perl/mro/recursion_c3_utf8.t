@@ -5267,6 +5267,10 @@ subtest 'get_used_modules' => sub {
             'name' => 'open'
           },
           {
+            'args' => '',
+            'name' => 'mro'
+          },
+          {
             'args' => '  \'c3\'',
             'name' => 'mro'
           },

@@ -1363,7 +1363,15 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '  qw (  :utf8 :std  )',
             'name' => 'open'
-          }
+          },
+          {
+            'args' => ' ( ./test.pl )',
+            'name' => 'q'
+          },
+          {
+            'args' => '',
+            'name' => 'mro'
+          },
         ]
 , 'Compiler::Lexer::get_used_modules');
 };

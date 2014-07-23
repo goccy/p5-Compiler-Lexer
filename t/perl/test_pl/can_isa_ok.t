@@ -2738,7 +2738,11 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '',
             'name' => 'warnings'
-          }
+          },
+          {
+            'args' => '',
+            'name' => 'Test::More'
+          },
         ]
 , 'Compiler::Lexer::get_used_modules');
 };

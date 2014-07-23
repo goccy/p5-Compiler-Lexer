@@ -177,7 +177,7 @@ SKIP: {
 
     { local $TODO = 'fails well back into 5.8.x';
 
-	
+
       sub read_fh_and_return_final_rv {
 	my ($fh) = @_;
 	my $buf = '';
@@ -189,8 +189,8 @@ SKIP: {
 	return $rv
       }
 
-      open(my $no_perlio, '<', \'ab') or die; 
-      open(my $perlio, '<:crlf', \'ab') or die; 
+      open(my $no_perlio, '<', \'ab') or die;
+      open(my $perlio, '<:crlf', \'ab') or die;
 
       is(read_fh_and_return_final_rv($perlio),
          read_fh_and_return_final_rv($no_perlio),
@@ -10448,7 +10448,16 @@ require Symbol; # doesn\'t matter whether it exists or not
 
 subtest 'get_used_modules' => sub {
     my $modules = Compiler::Lexer->new('')->get_used_modules($script);
-    is_deeply($modules, []
+    is_deeply($modules, [
+        {
+            args => "",
+            name => "Config"
+        },
+        {
+            args => "  }",
+            name => "PerlIO::scalar",
+        }
+    ]
 , 'Compiler::Lexer::get_used_modules');
 };
 

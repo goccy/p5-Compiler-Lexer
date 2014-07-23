@@ -1523,6 +1523,10 @@ subtest 'get_used_modules' => sub {
             'name' => 'warnings'
           },
           {
+            'args' => ' ( ./test.pl )',
+            'name' => 'q'
+          },
+          {
             'args' => '  \'Diamond_A\'',
             'name' => 'base'
           },

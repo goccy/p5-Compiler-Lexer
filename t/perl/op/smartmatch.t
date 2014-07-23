@@ -7167,7 +7167,11 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '  \'eq\'  =>  sub  { "$_[0]" eq "$_[1]" }',
             'name' => 'overload'
-          }
+          },
+          {
+            'args' => '',
+            'name' => 'Tie::RefHash'
+          },
         ]
 , 'Compiler::Lexer::get_used_modules');
 };

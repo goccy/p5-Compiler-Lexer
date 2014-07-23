@@ -5159,8 +5159,16 @@ subtest 'get_used_modules' => sub {
             'name' => 'warnings'
           },
           {
+            'args' => '',
+            'name' => 'Deprecated'
+          },
+          {
             'args' => '  qw ( deprecated )',
             'name' => 'warnings'
+          },
+          {
+            'args' => '',
+            'name' => 'Optionally::Deprecated'
           }
         ]
 , 'Compiler::Lexer::get_used_modules');

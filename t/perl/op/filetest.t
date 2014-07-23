@@ -15429,6 +15429,10 @@ subtest 'get_used_modules' => sub {
             'name' => 'overload'
           },
           {
+            'args' => '  }',
+            'name' => 'Fcntl'
+          },
+          {
             'args' => '  FATAL  =>  io',
             'name' => 'warnings'
           },

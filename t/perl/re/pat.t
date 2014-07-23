@@ -69750,6 +69750,10 @@ subtest 'get_used_modules' => sub {
             'name' => '5.010'
           },
           {
+            'args' => '',
+            'name' => 'Config'
+          },
+          {
             'args' => '  \'$c\'',
             'name' => 'vars'
           },
@@ -69780,6 +69784,10 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '',
             'name' => 'utf8'
+          },
+          {
+            'args' => '',
+            'name' => 'overload'
           },
           {
             'args' => '  \'/u\'',

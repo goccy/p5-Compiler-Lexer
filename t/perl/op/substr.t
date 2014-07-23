@@ -62547,12 +62547,16 @@ subtest 'get_used_modules' => sub {
           },
           {
             'args' => '',
+            'name' => 'Tie::Scalar'
+          },
+          {
+            'args' => '',
             'name' => 'utf8'
           },
           {
             'args' => '  qw (  :utf8 :std  )',
             'name' => 'open'
-          }
+          },
         ]
 , 'Compiler::Lexer::get_used_modules');
 };

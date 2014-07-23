@@ -2141,6 +2141,10 @@ subtest 'get_used_modules' => sub {
             'name' => 'open'
           },
           {
+            'args' => ' ( ./test.pl )',
+            'name' => 'q'
+          },
+          {
             'args' => '',
             'name' => 'mro'
           }

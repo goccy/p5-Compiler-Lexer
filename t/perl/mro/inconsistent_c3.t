@@ -1245,7 +1245,15 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '',
             'name' => 'warnings'
-          }
+          },
+          {
+            'args' => ' ( ./test.pl )',
+            'name' => 'q'
+          },
+          {
+            'args' => '',
+            'name' => 'mro'
+          },
         ]
 , 'Compiler::Lexer::get_used_modules');
 };

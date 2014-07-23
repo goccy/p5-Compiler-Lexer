@@ -7880,7 +7880,15 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '  qw ( @ary %ary %hash )',
             'name' => 'vars'
-          }
+          },
+          {
+            'args' => '',
+            'name' => 'Tie::Hash'
+          },
+          {
+            'args' => '',
+            'name' => 'Tie::Array'
+          },
         ]
 , 'Compiler::Lexer::get_used_modules');
 };

@@ -7684,6 +7684,10 @@ subtest 'get_used_modules' => sub {
     my $modules = Compiler::Lexer->new('')->get_used_modules($script);
     is_deeply($modules, [
           {
+            'args' => ' ( ./test.pl )',
+            'name' => 'q'
+          },
+          {
             'args' => '',
             'name' => 'strict'
           },

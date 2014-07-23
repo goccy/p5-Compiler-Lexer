@@ -1280,7 +1280,7 @@ sub is_pod_file {
         note("Not considering $_") if DEBUG;
         return;
     }
-               
+
     my $filename = $File::Find::name;
 
     # $filename is relative, like './path'.  Strip that initial part away.
@@ -59471,6 +59471,10 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '  \'Pod::Checker\'',
             'name' => 'parent'
+          },
+          {
+            'args' => '',
+            'name' => 'Encode'
           }
         ]
 , 'Compiler::Lexer::get_used_modules');

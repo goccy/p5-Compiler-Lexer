@@ -2372,6 +2372,14 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '',
             'name' => 'File::Spec::Functions'
+          },
+          {
+            'args' => '  }',
+            'name' => 'Socket'
+          },
+          {
+            'args' => '  }',
+            'name' => 'Convert::EBCDIC'
           }
         ]
 , 'Compiler::Lexer::get_used_modules');

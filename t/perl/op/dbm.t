@@ -1695,7 +1695,12 @@ die "Failed to fail!";
 
 subtest 'get_used_modules' => sub {
     my $modules = Compiler::Lexer->new('')->get_used_modules($script);
-    is_deeply($modules, []
+    is_deeply($modules, [
+        {
+            args => '  }',
+            name => 'AnyDBM_File'
+        }
+    ]
 , 'Compiler::Lexer::get_used_modules');
 };
 

@@ -2578,7 +2578,15 @@ subtest 'get_used_modules' => sub {
           {
             'args' => '',
             'name' => 'Data::Dumper'
-          }
+          },
+          {
+            'args' => '',
+            'name' => 'POSIX'
+          },
+          {
+            'args' => '',
+            'name' => 'Time::HiRes'
+          },
         ]
 , 'Compiler::Lexer::get_used_modules');
 };

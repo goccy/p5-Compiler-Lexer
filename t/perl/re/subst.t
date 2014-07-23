@@ -31330,8 +31330,16 @@ subtest 'get_used_modules' => sub {
     is_deeply($modules, [
           {
             'args' => '',
+            'name' => 'Config'
+          },
+          {
+            'args' => '',
             'name' => 'warnings'
-          }
+          },
+          {
+            'args' => '',
+            'name' => 'Tie::Scalar'
+          },
         ]
 , 'Compiler::Lexer::get_used_modules');
 };
