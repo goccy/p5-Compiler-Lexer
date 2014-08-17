@@ -5610,48 +5610,39 @@ pass("This will rot13\'ed twice");
                    'line' => 148
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
-                   'line' => 148
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Ref',
-                   'data' => '\\',
-                   'type' => Compiler::Lexer::TokenType::T_Ref,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 148
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => 'n',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'RegExp',
+                   'data' => '\\n',
+                   'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 148
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Div',
+                   'name' => 'RegDelim',
                    'data' => '/',
-                   'type' => Compiler::Lexer::TokenType::T_Div,
+                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 148
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegReplacePrefix,
+                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegReplace',
+                   'name' => 'RegOpt',
                    'data' => 's',
-                   'type' => Compiler::Lexer::TokenType::T_RegReplace,
+                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
                    'line' => 148
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9709,10 +9700,10 @@ pass("This will rot13\'ed twice");
             'block_id' => 0
           },
           {
-            'token_num' => 79,
+            'token_num' => 78,
             'has_warnings' => 1,
             'end_line' => 156,
-            'src' => ' sub prepend_block_counting_filter { filter_add ( sub { my $output = $_ ; my $count = 256 ; while ( -- $count ) { $_ = \'\' ; my $status = filter_read ( $amount ) ; cmp_ok ( length $_ , \'<=\' , $amount , "block mode works?" ) ; $output .= $_ ; if ( $status <= 0 or / \\ n / s ) { $_ = $output ; return $status ; } } die "Looping infinitely" ; } ) }',
+            'src' => ' sub prepend_block_counting_filter { filter_add ( sub { my $output = $_ ; my $count = 256 ; while ( -- $count ) { $_ = \'\' ; my $status = filter_read ( $amount ) ; cmp_ok ( length $_ , \'<=\' , $amount , "block mode works?" ) ; $output .= $_ ; if ( $status <= 0 or/\\n/s ) { $_ = $output ; return $status ; } } die "Looping infinitely" ; } ) }',
             'start_line' => 139,
             'indent' => 0,
             'block_id' => 0
@@ -9736,10 +9727,10 @@ pass("This will rot13\'ed twice");
             'block_id' => 17
           },
           {
-            'token_num' => 56,
+            'token_num' => 55,
             'has_warnings' => 1,
             'end_line' => 152,
-            'src' => ' while ( -- $count ) { $_ = \'\' ; my $status = filter_read ( $amount ) ; cmp_ok ( length $_ , \'<=\' , $amount , "block mode works?" ) ; $output .= $_ ; if ( $status <= 0 or / \\ n / s ) { $_ = $output ; return $status ; } }',
+            'src' => ' while ( -- $count ) { $_ = \'\' ; my $status = filter_read ( $amount ) ; cmp_ok ( length $_ , \'<=\' , $amount , "block mode works?" ) ; $output .= $_ ; if ( $status <= 0 or/\\n/s ) { $_ = $output ; return $status ; } }',
             'start_line' => 143,
             'indent' => 2,
             'block_id' => 17
@@ -9781,10 +9772,10 @@ pass("This will rot13\'ed twice");
             'block_id' => 18
           },
           {
-            'token_num' => 21,
+            'token_num' => 20,
             'has_warnings' => 1,
             'end_line' => 151,
-            'src' => ' if ( $status <= 0 or / \\ n / s ) { $_ = $output ; return $status ; }',
+            'src' => ' if ( $status <= 0 or/\\n/s ) { $_ = $output ; return $status ; }',
             'start_line' => 148,
             'indent' => 3,
             'block_id' => 18

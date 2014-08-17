@@ -275,7 +275,7 @@ bool Scanner::isRegexDelim(Token *prev_token, char symbol)
 		prev_type == TokenType::ExecString) return false;
 	if (symbol != '/') return false;
 	if (!prev_token) return true;
-	if (symbol == '/' && (prev_tk == "xor" || prev_tk == "and")) return true;
+	if (symbol == '/' && (prev_tk == "xor" || prev_tk == "and" || prev_tk == "not" || prev_tk == "or")) return true;
 	if (strtod(prev_data, NULL)) return false;
 	if (prev_tk == "0") return false;
 	if (enable_regex_argument_func_map.find(prev_tk) != enable_regex_argument_func_map.end()) return true;
