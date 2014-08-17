@@ -332,6 +332,40 @@ Token *Scanner::scanPrevSymbol(LexContext *ctx, char )
 	return ret;
 }
 
+bool Scanner::isRegexOption(const char *opt)
+{
+	size_t len = strlen(opt);
+	for (size_t i = 0; i < len; i++) {
+		char ch = opt[i];
+		switch (ch) {
+		case 'a': case 'c': case 'd': case 'e':
+		case 'g': case 'i': case 'm': case 'l':
+		case 'o': case 'p': case 'r': case 's':
+		case 'u': case 'x':
+			break;
+		default:
+			return false;
+			break;
+		}
+	}
+	return true;
+}
+
+bool Scanner::isRegexOptionPrevToken(LexContext *ctx)
+{
+	if (ctx->tmgr->size() < 2) return false;
+	Token *before_prev_token = ctx->tmgr->beforeLastToken();
+	Token *prev_token        = ctx->tmgr->lastToken();
+	const char *data         = prev_token->_data;
+	if (before_prev_token->info.type == TokenType::RegDelim &&
+		isalpha(data[0]) &&
+		string(data) != "or" &&
+		isRegexOption(data)) {
+		return true;
+	}
+	return false;
+}
+
 Token *Scanner::scanCurSymbol(LexContext *ctx, char symbol)
 {
 	Token *ret = NULL;
@@ -340,7 +374,8 @@ Token *Scanner::scanCurSymbol(LexContext *ctx, char symbol)
 	string prev_data = (prev_tk) ? prev_tk->_data : "";
 	int idx = ctx->tmgr->size() - 2;
 	string prev_before = (idx >= 0) ? string(ctx->tmgr->beforeLastToken()->_data) : "";
-	if ((prev_before != "sub" && isRegexDelim(prev_tk, symbol)) ||
+	if ((prev_before != "sub" && !isRegexOptionPrevToken(ctx) &&
+		 isRegexDelim(prev_tk, symbol)) ||
 		(prev_data   == "{"   && symbol == '/')) {
 		if (!isRegexEndDelim(ctx)) {
 			regex_delim = getRegexDelim(ctx);

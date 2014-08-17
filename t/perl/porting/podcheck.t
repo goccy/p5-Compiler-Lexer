@@ -35839,22 +35839,92 @@ $diff
                    'line' => 1307
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 1307
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightBrace',
+                   'data' => '}',
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
+                   'line' => 1308
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Stmt,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'ElseStmt',
+                   'data' => 'else',
+                   'type' => Compiler::Lexer::TokenType::T_ElseStmt,
+                   'line' => 1308
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftBrace',
+                   'data' => '{',
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'line' => 1308
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Return,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Return',
+                   'data' => 'return',
+                   'type' => Compiler::Lexer::TokenType::T_Return,
+                   'line' => 1309
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Stmt,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'UnlessStmt',
+                   'data' => 'unless',
+                   'type' => Compiler::Lexer::TokenType::T_UnlessStmt,
+                   'line' => 1309
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Var',
+                   'data' => '$contents',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 1309
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegOK',
+                   'data' => '=~',
+                   'type' => Compiler::Lexer::TokenType::T_RegOK,
+                   'line' => 1309
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegDelim',
-                   'data' => ';',
+                   'data' => '/',
                    'type' => Compiler::Lexer::TokenType::T_RegDelim,
-                   'line' => 1307
+                   'line' => 1309
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegExp',
-                   'data' => '
-    } else {
-        return unless $contents =~ /^=head1 +NAME/m',
+                   'data' => '^=head1 +NAME',
                    'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 1309
                  }, 'Compiler::Lexer::Token' ),
@@ -35863,8 +35933,26 @@ $diff
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegDelim',
-                   'data' => ';',
+                   'data' => '/',
                    'type' => Compiler::Lexer::TokenType::T_RegDelim,
+                   'line' => 1309
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegOpt',
+                   'data' => 'm',
+                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'line' => 1309
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 1309
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -57166,12 +57254,10 @@ $diff
             'block_id' => 0
           },
           {
-            'token_num' => 287,
+            'token_num' => 297,
             'has_warnings' => 1,
             'end_line' => 1369,
-            'src' => ' sub is_pod_file { if ( -d ) { if ( $_ eq \'t\' || $_ =~/^\\../ ) { $File::Find::prune = 1 ; } return ; } return unless -r && -s ; return unless -f || -l ; if ( $_ =~/^\\./ || $_ =~ $non_pods ) { note ( "Not considering $_" ) if DEBUG ; return ; } my $filename = $File::Find::name ; $filename =~ s/^\\..// ; return if $excluded_files { canonicalize ( $filename ) } ; my $contents = do { local $/ ; my $candidate ; if ( ! open $candidate , \'<:bytes\' , $_ ) { ok ( 0 , "Can\'t open \'$filename\': $!" ) if -r $filename && ! -l $filename ; return ; } < $candidate > ; } ; if ( $filename =~/\\.(?:pm|pod)/ ) { return unless $contents =~/^=/m;
-    } else {
-        return unless $contents =~ /^=head1 +NAME/m; } push @files , $filename ; my $checker = My::Pod::Checker-> new ( $filename ) ; $filename_to_checker { $filename } = $checker ; if ( $filename =~/ (?: ^(cpan|lib|ext|dist)\\/ )
+            'src' => ' sub is_pod_file { if ( -d ) { if ( $_ eq \'t\' || $_ =~/^\\../ ) { $File::Find::prune = 1 ; } return ; } return unless -r && -s ; return unless -f || -l ; if ( $_ =~/^\\./ || $_ =~ $non_pods ) { note ( "Not considering $_" ) if DEBUG ; return ; } my $filename = $File::Find::name ; $filename =~ s/^\\..// ; return if $excluded_files { canonicalize ( $filename ) } ; my $contents = do { local $/ ; my $candidate ; if ( ! open $candidate , \'<:bytes\' , $_ ) { ok ( 0 , "Can\'t open \'$filename\': $!" ) if -r $filename && ! -l $filename ; return ; } < $candidate > ; } ; if ( $filename =~/\\.(?:pm|pod)/ ) { return unless $contents =~/^=/m ; } else { return unless $contents =~/^=head1 +NAME/m ; } push @files , $filename ; my $checker = My::Pod::Checker-> new ( $filename ) ; $filename_to_checker { $filename } = $checker ; if ( $filename =~/ (?: ^(cpan|lib|ext|dist)\\/ )
                         | $only_for_interior_links_re
                     /x ) { $digest-> add ( $contents ) ; $digests { $filename } = $digest-> digest ; if ( $filename =~ m{ (?: ^ (?: cpan | lib ) / )
                             | $only_for_interior_links_re
@@ -57363,15 +57449,40 @@ $diff
             'block_id' => 107
           },
           {
-            'token_num' => 21,
+            'token_num' => 19,
             'has_warnings' => 1,
-            'end_line' => 1310,
-            'src' => ' if ( $filename =~/\\.(?:pm|pod)/ ) { return unless $contents =~/^=/m;
-    } else {
-        return unless $contents =~ /^=head1 +NAME/m; }',
+            'end_line' => 1308,
+            'src' => ' if ( $filename =~/\\.(?:pm|pod)/ ) { return unless $contents =~/^=/m ; }',
             'start_line' => 1306,
             'indent' => 1,
             'block_id' => 103
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 1307,
+            'src' => ' return unless $contents =~/^=/m ;',
+            'start_line' => 1307,
+            'indent' => 2,
+            'block_id' => 109
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 1310,
+            'src' => ' else { return unless $contents =~/^=head1 +NAME/m ; }',
+            'start_line' => 1308,
+            'indent' => 1,
+            'block_id' => 103
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 1,
+            'end_line' => 1309,
+            'src' => ' return unless $contents =~/^=head1 +NAME/m ;',
+            'start_line' => 1309,
+            'indent' => 2,
+            'block_id' => 110
           },
           {
             'token_num' => 5,
@@ -57422,7 +57533,7 @@ $diff
             'src' => ' $digest-> add ( $contents ) ;',
             'start_line' => 1331,
             'indent' => 2,
-            'block_id' => 110
+            'block_id' => 111
           },
           {
             'token_num' => 9,
@@ -57431,7 +57542,7 @@ $diff
             'src' => ' $digests { $filename } = $digest-> digest ;',
             'start_line' => 1332,
             'indent' => 2,
-            'block_id' => 110
+            'block_id' => 111
           },
           {
             'token_num' => 81,
@@ -57444,7 +57555,7 @@ $diff
                                   ^ \\s* ( \\S+?) \\s* (?: [,-] | $ )/mx ) { my $name = $1 ; $checker-> name ( $name ) ; $id_to_checker { $name } = $checker if $filename =~ m{^cpan/} ; } } elsif ( $filename =~ m{^cpan/} ) { $id_to_checker { $digests { $filename } } = $checker ; } }',
             'start_line' => 1343,
             'indent' => 2,
-            'block_id' => 110
+            'block_id' => 111
           },
           {
             'token_num' => 48,
@@ -57455,7 +57566,7 @@ $diff
                                   ^ \\s* ( \\S+?) \\s* (?: [,-] | $ )/mx ) { my $name = $1 ; $checker-> name ( $name ) ; $id_to_checker { $name } = $checker if $filename =~ m{^cpan/} ; } }',
             'start_line' => 1346,
             'indent' => 3,
-            'block_id' => 111
+            'block_id' => 112
           },
           {
             'token_num' => 37,
@@ -57466,7 +57577,7 @@ $diff
                                   ^ \\s* ( \\S+?) \\s* (?: [,-] | $ )/mx ) { my $name = $1 ; $checker-> name ( $name ) ; $id_to_checker { $name } = $checker if $filename =~ m{^cpan/} ; }',
             'start_line' => 1353,
             'indent' => 4,
-            'block_id' => 112
+            'block_id' => 113
           },
           {
             'token_num' => 5,
@@ -57475,7 +57586,7 @@ $diff
             'src' => ' my $name = $1 ;',
             'start_line' => 1356,
             'indent' => 5,
-            'block_id' => 113
+            'block_id' => 114
           },
           {
             'token_num' => 7,
@@ -57484,7 +57595,7 @@ $diff
             'src' => ' $checker-> name ( $name ) ;',
             'start_line' => 1357,
             'indent' => 5,
-            'block_id' => 113
+            'block_id' => 114
           },
           {
             'token_num' => 14,
@@ -57493,7 +57604,7 @@ $diff
             'src' => ' $id_to_checker { $name } = $checker if $filename =~ m{^cpan/} ;',
             'start_line' => 1358,
             'indent' => 5,
-            'block_id' => 113
+            'block_id' => 114
           },
           {
             'token_num' => 21,
@@ -57502,7 +57613,7 @@ $diff
             'src' => ' elsif ( $filename =~ m{^cpan/} ) { $id_to_checker { $digests { $filename } } = $checker ; }',
             'start_line' => 1362,
             'indent' => 3,
-            'block_id' => 111
+            'block_id' => 112
           },
           {
             'token_num' => 10,
@@ -57511,7 +57622,7 @@ $diff
             'src' => ' $id_to_checker { $digests { $filename } } = $checker ;',
             'start_line' => 1363,
             'indent' => 4,
-            'block_id' => 114
+            'block_id' => 115
           },
           {
             'token_num' => 2,
@@ -57538,7 +57649,7 @@ $diff
             'src' => ' undef %known_problems ;',
             'start_line' => 1379,
             'indent' => 1,
-            'block_id' => 115
+            'block_id' => 116
           },
           {
             'token_num' => 6,
@@ -57547,7 +57658,7 @@ $diff
             'src' => ' $do_upstream_cpan = $do_deltas = 1 ;',
             'start_line' => 1380,
             'indent' => 1,
-            'block_id' => 115
+            'block_id' => 116
           },
           {
             'token_num' => 54,
@@ -57565,7 +57676,7 @@ $diff
             'src' => ' if ( $regen ) { $copy_fh = open_new ( $known_issues ) ; note ( "Regenerating $known_issues, please be patient..." ) ; print $copy_fh $HEADER ; }',
             'start_line' => 1384,
             'indent' => 1,
-            'block_id' => 116
+            'block_id' => 117
           },
           {
             'token_num' => 7,
@@ -57574,7 +57685,7 @@ $diff
             'src' => ' $copy_fh = open_new ( $known_issues ) ;',
             'start_line' => 1385,
             'indent' => 2,
-            'block_id' => 117
+            'block_id' => 118
           },
           {
             'token_num' => 5,
@@ -57583,7 +57694,7 @@ $diff
             'src' => ' note ( "Regenerating $known_issues, please be patient..." ) ;',
             'start_line' => 1386,
             'indent' => 2,
-            'block_id' => 117
+            'block_id' => 118
           },
           {
             'token_num' => 4,
@@ -57592,7 +57703,7 @@ $diff
             'src' => ' print $copy_fh $HEADER ;',
             'start_line' => 1387,
             'indent' => 2,
-            'block_id' => 117
+            'block_id' => 118
           },
           {
             'token_num' => 10,
@@ -57601,7 +57712,7 @@ $diff
             'src' => ' s{^\\.\\./lib$}{lib} for @INC ;',
             'start_line' => 1392,
             'indent' => 1,
-            'block_id' => 116
+            'block_id' => 117
           },
           {
             'token_num' => 5,
@@ -57610,7 +57721,7 @@ $diff
             'src' => ' chdir File::Spec-> updir ;',
             'start_line' => 1393,
             'indent' => 1,
-            'block_id' => 116
+            'block_id' => 117
           },
           {
             'token_num' => 9,
@@ -57619,7 +57730,7 @@ $diff
             'src' => ' find ( \\ & is_pod_file , \'.\' ) ;',
             'start_line' => 1396,
             'indent' => 1,
-            'block_id' => 116
+            'block_id' => 117
           },
           {
             'token_num' => 5,
@@ -57628,7 +57739,7 @@ $diff
             'src' => ' push @files , "t/porting/podcheck.t" ;',
             'start_line' => 1399,
             'indent' => 1,
-            'block_id' => 116
+            'block_id' => 117
           },
           {
             'token_num' => 11,
@@ -57655,7 +57766,7 @@ $diff
             'src' => ' if ( $a =~/^cpan/ ) { return 1 if $b !~/^cpan/ ; return lc $a cmp lc $b ; }',
             'start_line' => 1417,
             'indent' => 0,
-            'block_id' => 117
+            'block_id' => 118
           },
           {
             'token_num' => 9,
@@ -57664,7 +57775,7 @@ $diff
             'src' => ' return 1 if $b !~/^cpan/ ;',
             'start_line' => 1418,
             'indent' => 1,
-            'block_id' => 118
+            'block_id' => 119
           },
           {
             'token_num' => 7,
@@ -57673,7 +57784,7 @@ $diff
             'src' => ' return lc $a cmp lc $b ;',
             'start_line' => 1419,
             'indent' => 1,
-            'block_id' => 118
+            'block_id' => 119
           },
           {
             'token_num' => 13,
@@ -57682,7 +57793,7 @@ $diff
             'src' => ' elsif ( $b =~/^cpan/ ) { return -1 ; }',
             'start_line' => 1421,
             'indent' => 0,
-            'block_id' => 117
+            'block_id' => 118
           },
           {
             'token_num' => 3,
@@ -57691,7 +57802,7 @@ $diff
             'src' => ' return -1 ;',
             'start_line' => 1422,
             'indent' => 1,
-            'block_id' => 119
+            'block_id' => 120
           },
           {
             'token_num' => 26,
@@ -57700,7 +57811,7 @@ $diff
             'src' => ' elsif ( $a =~/$only_for_interior_links_re/ ) { return 1 if $b !~/$only_for_interior_links_re/ ; return lc $a cmp lc $b ; }',
             'start_line' => 1424,
             'indent' => 0,
-            'block_id' => 117
+            'block_id' => 118
           },
           {
             'token_num' => 9,
@@ -57709,7 +57820,7 @@ $diff
             'src' => ' return 1 if $b !~/$only_for_interior_links_re/ ;',
             'start_line' => 1425,
             'indent' => 1,
-            'block_id' => 120
+            'block_id' => 121
           },
           {
             'token_num' => 7,
@@ -57718,7 +57829,7 @@ $diff
             'src' => ' return lc $a cmp lc $b ;',
             'start_line' => 1426,
             'indent' => 1,
-            'block_id' => 120
+            'block_id' => 121
           },
           {
             'token_num' => 13,
@@ -57727,7 +57838,7 @@ $diff
             'src' => ' elsif ( $b =~/$only_for_interior_links_re/ ) { return -1 ; }',
             'start_line' => 1428,
             'indent' => 0,
-            'block_id' => 117
+            'block_id' => 118
           },
           {
             'token_num' => 3,
@@ -57736,7 +57847,7 @@ $diff
             'src' => ' return -1 ;',
             'start_line' => 1429,
             'indent' => 1,
-            'block_id' => 121
+            'block_id' => 122
           },
           {
             'token_num' => 26,
@@ -57745,7 +57856,7 @@ $diff
             'src' => ' elsif ( $a =~/^lib/ ) { return 1 if $b !~/^lib/ ; return lc $a cmp lc $b ; }',
             'start_line' => 1431,
             'indent' => 0,
-            'block_id' => 117
+            'block_id' => 118
           },
           {
             'token_num' => 9,
@@ -57754,7 +57865,7 @@ $diff
             'src' => ' return 1 if $b !~/^lib/ ;',
             'start_line' => 1432,
             'indent' => 1,
-            'block_id' => 122
+            'block_id' => 123
           },
           {
             'token_num' => 7,
@@ -57763,7 +57874,7 @@ $diff
             'src' => ' return lc $a cmp lc $b ;',
             'start_line' => 1433,
             'indent' => 1,
-            'block_id' => 122
+            'block_id' => 123
           },
           {
             'token_num' => 13,
@@ -57772,7 +57883,7 @@ $diff
             'src' => ' elsif ( $b =~/^lib/ ) { return -1 ; }',
             'start_line' => 1435,
             'indent' => 0,
-            'block_id' => 117
+            'block_id' => 118
           },
           {
             'token_num' => 3,
@@ -57781,7 +57892,7 @@ $diff
             'src' => ' return -1 ;',
             'start_line' => 1436,
             'indent' => 1,
-            'block_id' => 123
+            'block_id' => 124
           },
           {
             'token_num' => 28,
@@ -57790,7 +57901,7 @@ $diff
             'src' => ' elsif ( $a =~/\\breadme\\b/i ) { return 1 if $b !~/\\breadme\\b/i ; return lc $a cmp lc $b ; }',
             'start_line' => 1437,
             'indent' => 0,
-            'block_id' => 117
+            'block_id' => 118
           },
           {
             'token_num' => 10,
@@ -57799,7 +57910,7 @@ $diff
             'src' => ' return 1 if $b !~/\\breadme\\b/i ;',
             'start_line' => 1438,
             'indent' => 1,
-            'block_id' => 124
+            'block_id' => 125
           },
           {
             'token_num' => 7,
@@ -57808,7 +57919,7 @@ $diff
             'src' => ' return lc $a cmp lc $b ;',
             'start_line' => 1439,
             'indent' => 1,
-            'block_id' => 124
+            'block_id' => 125
           },
           {
             'token_num' => 14,
@@ -57817,7 +57928,7 @@ $diff
             'src' => ' elsif ( $b =~/\\breadme\\b/i ) { return -1 ; }',
             'start_line' => 1441,
             'indent' => 0,
-            'block_id' => 117
+            'block_id' => 118
           },
           {
             'token_num' => 3,
@@ -57826,7 +57937,7 @@ $diff
             'src' => ' return -1 ;',
             'start_line' => 1442,
             'indent' => 1,
-            'block_id' => 125
+            'block_id' => 126
           },
           {
             'token_num' => 10,
@@ -57835,7 +57946,7 @@ $diff
             'src' => ' else { return lc $a cmp lc $b ; }',
             'start_line' => 1444,
             'indent' => 0,
-            'block_id' => 117
+            'block_id' => 118
           },
           {
             'token_num' => 7,
@@ -57844,7 +57955,7 @@ $diff
             'src' => ' return lc $a cmp lc $b ;',
             'start_line' => 1445,
             'indent' => 1,
-            'block_id' => 126
+            'block_id' => 127
           },
           {
             'token_num' => 631,
@@ -57862,7 +57973,7 @@ $diff
             'src' => ' my $parsed = 0 ;',
             'start_line' => 1452,
             'indent' => 1,
-            'block_id' => 127
+            'block_id' => 128
           },
           {
             'token_num' => 7,
@@ -57871,7 +57982,7 @@ $diff
             'src' => ' note ( "parsing $filename" ) if DEBUG ;',
             'start_line' => 1453,
             'indent' => 1,
-            'block_id' => 127
+            'block_id' => 128
           },
           {
             'token_num' => 8,
@@ -57880,7 +57991,7 @@ $diff
             'src' => ' my $checker = $filename_to_checker { $filename } ;',
             'start_line' => 1458,
             'indent' => 1,
-            'block_id' => 127
+            'block_id' => 128
           },
           {
             'token_num' => 23,
@@ -57889,7 +58000,7 @@ $diff
             'src' => ' if ( ! $checker ) { $checker = My::Pod::Checker-> new ( $filename ) ; $filename_to_checker { $filename } = $checker ; }',
             'start_line' => 1459,
             'indent' => 1,
-            'block_id' => 127
+            'block_id' => 128
           },
           {
             'token_num' => 9,
@@ -57898,7 +58009,7 @@ $diff
             'src' => ' $checker = My::Pod::Checker-> new ( $filename ) ;',
             'start_line' => 1460,
             'indent' => 2,
-            'block_id' => 128
+            'block_id' => 129
           },
           {
             'token_num' => 7,
@@ -57907,7 +58018,7 @@ $diff
             'src' => ' $filename_to_checker { $filename } = $checker ;',
             'start_line' => 1461,
             'indent' => 2,
-            'block_id' => 128
+            'block_id' => 129
           },
           {
             'token_num' => 22,
@@ -57916,7 +58027,7 @@ $diff
             'src' => ' if ( ! $checker-> name ) { $parsed = 1 ; $checker-> parse_from_file ( $filename , undef ) ; }',
             'start_line' => 1466,
             'indent' => 1,
-            'block_id' => 127
+            'block_id' => 128
           },
           {
             'token_num' => 4,
@@ -57925,7 +58036,7 @@ $diff
             'src' => ' $parsed = 1 ;',
             'start_line' => 1467,
             'indent' => 2,
-            'block_id' => 129
+            'block_id' => 130
           },
           {
             'token_num' => 9,
@@ -57934,7 +58045,7 @@ $diff
             'src' => ' $checker-> parse_from_file ( $filename , undef ) ;',
             'start_line' => 1468,
             'indent' => 2,
-            'block_id' => 129
+            'block_id' => 130
           },
           {
             'token_num' => 19,
@@ -57943,7 +58054,7 @@ $diff
             'src' => ' if ( $checker-> num_errors ( ) < 0 ) { $checker-> set_skip ( "$filename is not a pod" ) ; }',
             'start_line' => 1471,
             'indent' => 1,
-            'block_id' => 127
+            'block_id' => 128
           },
           {
             'token_num' => 7,
@@ -57952,7 +58063,7 @@ $diff
             'src' => ' $checker-> set_skip ( "$filename is not a pod" ) ;',
             'start_line' => 1472,
             'indent' => 2,
-            'block_id' => 130
+            'block_id' => 131
           },
           {
             'token_num' => 539,
@@ -57961,7 +58072,7 @@ $diff
             'src' => ' else { my $name = $checker-> name ; my $id ; if ( $name ) { $id = $name ; } else { my $digest = Digest-> new ( $digest_type ) ; $digest-> add ( extract_pod ( $filename ) ) ; $id = $digest-> digest ; } my $prior_checker ; if ( defined ( $prior_checker = $id_to_checker { $id } ) && $prior_checker != $checker ) { my $prior_filename = $prior_checker-> get_filename ; my $same = ( ! $name || ( $digests { $prior_filename } && $digests { $filename } && $digests { $prior_filename } eq $digests { $filename } ) ) ; if ( ! $same && $name ) { $same = extract_pod ( $prior_filename ) eq extract_pod ( $filename ) ; } if ( $same ) { $checker-> set_skip ( "The pod of $filename is a duplicate of " . "the pod for $prior_filename" ) ; } elsif ( $prior_filename =~/\\breadme\\b/i ) { $checker-> set_skip ( "$prior_filename is a README apparently for $filename" ) ; } elsif ( $filename =~/\\breadme\\b/i ) { $checker-> set_skip ( "$filename is a README apparently for $prior_filename" ) ; } elsif ( ! $do_upstream_cpan && $filename =~/^cpan/ && $prior_filename =~/^cpan/ ) { $checker-> set_skip ( "CPAN is upstream for $filename" ) ; } else { $prior_checker-> poderror ( { -msg => $duplicate_name , -line => "???" , parameter => "\'$filename\' also has NAME \'$name\'" } ) ; $checker-> poderror ( { -msg => $duplicate_name , -line => "???" , parameter => "\'$prior_filename\' also has NAME \'$name\'" } ) ; $prior_checker-> name ( "$name version arbitrarily numbered 1" ) ; $checker-> name ( "$name version arbitrarily numbered 2" ) ; } next ; } $id_to_checker { $id } = $checker ; my $parsed_for_links = ", but parsed for its interior links" ; if ( ( ! $do_upstream_cpan && $filename =~/^cpan/ ) || $filename =~ $only_for_interior_links_re ) { if ( $filename =~/^cpan/ ) { $checker-> set_skip ( "CPAN is upstream for $filename" ) ; } elsif ( $filename =~/perl\\d+delta/ && ! $do_deltas ) { $checker-> set_skip ( "$filename is a stable perldelta" ) ; } elsif ( $filename =~/perltoc/ ) { $checker-> set_skip ( "$filename dependent on component pods" ) ; } else { croak ( "Unexpected file \'$filename\' encountered that has parsing for interior-linking only" ) ; } if ( $name && $has_referred_to_node { $name } ) { $checker-> set_skip ( $checker-> get_skip ( ) . $parsed_for_links ) ; } } if ( ! defined $name ) { $checker-> poderror ( { -msg => $no_name , -line => \'???\' } ) ; next ; } my $skip ; if ( ( $skip = $checker-> get_skip ( ) ) && $skip !~/$parsed_for_links/ ) { $checker-> node ( $name ) if $name ; } else { $checker-> parse_from_file ( $filename , undef ) if ! $parsed ; } foreach my $node ( $checker-> linkable_nodes ) { next if ! $node ; if ( exists $nodes { $name } { $node } ) { $nodes { $name } { $node } ++ ; } else { $nodes { $name } { $node } = 1 ; } my $first_word = $node ; if ( $first_word =~ s/^(\\S+)\\s+\\S.*/$1/ ) { $nodes_first_word { $name } { $first_word } = $node ; } } $filename_to_pod { $filename } = $name ; }',
             'start_line' => 1474,
             'indent' => 1,
-            'block_id' => 127
+            'block_id' => 128
           },
           {
             'token_num' => 7,
@@ -57970,7 +58081,7 @@ $diff
             'src' => ' my $name = $checker-> name ;',
             'start_line' => 1479,
             'indent' => 2,
-            'block_id' => 131
+            'block_id' => 132
           },
           {
             'token_num' => 3,
@@ -57979,7 +58090,7 @@ $diff
             'src' => ' my $id ;',
             'start_line' => 1480,
             'indent' => 2,
-            'block_id' => 131
+            'block_id' => 132
           },
           {
             'token_num' => 10,
@@ -57988,7 +58099,7 @@ $diff
             'src' => ' if ( $name ) { $id = $name ; }',
             'start_line' => 1482,
             'indent' => 2,
-            'block_id' => 131
+            'block_id' => 132
           },
           {
             'token_num' => 4,
@@ -57997,7 +58108,7 @@ $diff
             'src' => ' $id = $name ;',
             'start_line' => 1483,
             'indent' => 3,
-            'block_id' => 132
+            'block_id' => 133
           },
           {
             'token_num' => 29,
@@ -58006,7 +58117,7 @@ $diff
             'src' => ' else { my $digest = Digest-> new ( $digest_type ) ; $digest-> add ( extract_pod ( $filename ) ) ; $id = $digest-> digest ; }',
             'start_line' => 1485,
             'indent' => 2,
-            'block_id' => 131
+            'block_id' => 132
           },
           {
             'token_num' => 10,
@@ -58015,7 +58126,7 @@ $diff
             'src' => ' my $digest = Digest-> new ( $digest_type ) ;',
             'start_line' => 1486,
             'indent' => 3,
-            'block_id' => 133
+            'block_id' => 134
           },
           {
             'token_num' => 10,
@@ -58024,7 +58135,7 @@ $diff
             'src' => ' $digest-> add ( extract_pod ( $filename ) ) ;',
             'start_line' => 1487,
             'indent' => 3,
-            'block_id' => 133
+            'block_id' => 134
           },
           {
             'token_num' => 6,
@@ -58033,7 +58144,7 @@ $diff
             'src' => ' $id = $digest-> digest ;',
             'start_line' => 1488,
             'indent' => 3,
-            'block_id' => 133
+            'block_id' => 134
           },
           {
             'token_num' => 3,
@@ -58042,7 +58153,7 @@ $diff
             'src' => ' my $prior_checker ;',
             'start_line' => 1493,
             'indent' => 2,
-            'block_id' => 131
+            'block_id' => 132
           },
           {
             'token_num' => 210,
@@ -58051,7 +58162,7 @@ $diff
             'src' => ' if ( defined ( $prior_checker = $id_to_checker { $id } ) && $prior_checker != $checker ) { my $prior_filename = $prior_checker-> get_filename ; my $same = ( ! $name || ( $digests { $prior_filename } && $digests { $filename } && $digests { $prior_filename } eq $digests { $filename } ) ) ; if ( ! $same && $name ) { $same = extract_pod ( $prior_filename ) eq extract_pod ( $filename ) ; } if ( $same ) { $checker-> set_skip ( "The pod of $filename is a duplicate of " . "the pod for $prior_filename" ) ; } elsif ( $prior_filename =~/\\breadme\\b/i ) { $checker-> set_skip ( "$prior_filename is a README apparently for $filename" ) ; } elsif ( $filename =~/\\breadme\\b/i ) { $checker-> set_skip ( "$filename is a README apparently for $prior_filename" ) ; } elsif ( ! $do_upstream_cpan && $filename =~/^cpan/ && $prior_filename =~/^cpan/ ) { $checker-> set_skip ( "CPAN is upstream for $filename" ) ; } else { $prior_checker-> poderror ( { -msg => $duplicate_name , -line => "???" , parameter => "\'$filename\' also has NAME \'$name\'" } ) ; $checker-> poderror ( { -msg => $duplicate_name , -line => "???" , parameter => "\'$prior_filename\' also has NAME \'$name\'" } ) ; $prior_checker-> name ( "$name version arbitrarily numbered 1" ) ; $checker-> name ( "$name version arbitrarily numbered 2" ) ; } next ; }',
             'start_line' => 1494,
             'indent' => 2,
-            'block_id' => 131
+            'block_id' => 132
           },
           {
             'token_num' => 7,
@@ -58060,7 +58171,7 @@ $diff
             'src' => ' my $prior_filename = $prior_checker-> get_filename ;',
             'start_line' => 1503,
             'indent' => 3,
-            'block_id' => 134
+            'block_id' => 135
           },
           {
             'token_num' => 30,
@@ -58069,7 +58180,7 @@ $diff
             'src' => ' my $same = ( ! $name || ( $digests { $prior_filename } && $digests { $filename } && $digests { $prior_filename } eq $digests { $filename } ) ) ;',
             'start_line' => 1504,
             'indent' => 3,
-            'block_id' => 134
+            'block_id' => 135
           },
           {
             'token_num' => 21,
@@ -58078,7 +58189,7 @@ $diff
             'src' => ' if ( ! $same && $name ) { $same = extract_pod ( $prior_filename ) eq extract_pod ( $filename ) ; }',
             'start_line' => 1512,
             'indent' => 3,
-            'block_id' => 134
+            'block_id' => 135
           },
           {
             'token_num' => 12,
@@ -58087,7 +58198,7 @@ $diff
             'src' => ' $same = extract_pod ( $prior_filename ) eq extract_pod ( $filename ) ;',
             'start_line' => 1513,
             'indent' => 4,
-            'block_id' => 135
+            'block_id' => 136
           },
           {
             'token_num' => 15,
@@ -58096,7 +58207,7 @@ $diff
             'src' => ' if ( $same ) { $checker-> set_skip ( "The pod of $filename is a duplicate of " . "the pod for $prior_filename" ) ; }',
             'start_line' => 1516,
             'indent' => 3,
-            'block_id' => 134
+            'block_id' => 135
           },
           {
             'token_num' => 9,
@@ -58105,7 +58216,7 @@ $diff
             'src' => ' $checker-> set_skip ( "The pod of $filename is a duplicate of " . "the pod for $prior_filename" ) ;',
             'start_line' => 1517,
             'indent' => 4,
-            'block_id' => 136
+            'block_id' => 137
           },
           {
             'token_num' => 18,
@@ -58114,7 +58225,7 @@ $diff
             'src' => ' elsif ( $prior_filename =~/\\breadme\\b/i ) { $checker-> set_skip ( "$prior_filename is a README apparently for $filename" ) ; }',
             'start_line' => 1519,
             'indent' => 3,
-            'block_id' => 134
+            'block_id' => 135
           },
           {
             'token_num' => 7,
@@ -58123,7 +58234,7 @@ $diff
             'src' => ' $checker-> set_skip ( "$prior_filename is a README apparently for $filename" ) ;',
             'start_line' => 1520,
             'indent' => 4,
-            'block_id' => 137
+            'block_id' => 138
           },
           {
             'token_num' => 18,
@@ -58132,7 +58243,7 @@ $diff
             'src' => ' elsif ( $filename =~/\\breadme\\b/i ) { $checker-> set_skip ( "$filename is a README apparently for $prior_filename" ) ; }',
             'start_line' => 1521,
             'indent' => 3,
-            'block_id' => 134
+            'block_id' => 135
           },
           {
             'token_num' => 7,
@@ -58141,7 +58252,7 @@ $diff
             'src' => ' $checker-> set_skip ( "$filename is a README apparently for $prior_filename" ) ;',
             'start_line' => 1522,
             'indent' => 4,
-            'block_id' => 138
+            'block_id' => 139
           },
           {
             'token_num' => 26,
@@ -58150,7 +58261,7 @@ $diff
             'src' => ' elsif ( ! $do_upstream_cpan && $filename =~/^cpan/ && $prior_filename =~/^cpan/ ) { $checker-> set_skip ( "CPAN is upstream for $filename" ) ; }',
             'start_line' => 1523,
             'indent' => 3,
-            'block_id' => 134
+            'block_id' => 135
           },
           {
             'token_num' => 7,
@@ -58159,7 +58270,7 @@ $diff
             'src' => ' $checker-> set_skip ( "CPAN is upstream for $filename" ) ;',
             'start_line' => 1527,
             'indent' => 4,
-            'block_id' => 139
+            'block_id' => 140
           },
           {
             'token_num' => 55,
@@ -58168,7 +58279,7 @@ $diff
             'src' => ' else { $prior_checker-> poderror ( { -msg => $duplicate_name , -line => "???" , parameter => "\'$filename\' also has NAME \'$name\'" } ) ; $checker-> poderror ( { -msg => $duplicate_name , -line => "???" , parameter => "\'$prior_filename\' also has NAME \'$name\'" } ) ; $prior_checker-> name ( "$name version arbitrarily numbered 1" ) ; $checker-> name ( "$name version arbitrarily numbered 2" ) ; }',
             'start_line' => 1528,
             'indent' => 3,
-            'block_id' => 134
+            'block_id' => 135
           },
           {
             'token_num' => 19,
@@ -58177,7 +58288,7 @@ $diff
             'src' => ' $prior_checker-> poderror ( { -msg => $duplicate_name , -line => "???" , parameter => "\'$filename\' also has NAME \'$name\'" } ) ;',
             'start_line' => 1529,
             'indent' => 4,
-            'block_id' => 140
+            'block_id' => 141
           },
           {
             'token_num' => 19,
@@ -58186,7 +58297,7 @@ $diff
             'src' => ' $checker-> poderror ( { -msg => $duplicate_name , -line => "???" , parameter => "\'$prior_filename\' also has NAME \'$name\'" } ) ;',
             'start_line' => 1534,
             'indent' => 4,
-            'block_id' => 140
+            'block_id' => 141
           },
           {
             'token_num' => 7,
@@ -58195,7 +58306,7 @@ $diff
             'src' => ' $prior_checker-> name ( "$name version arbitrarily numbered 1" ) ;',
             'start_line' => 1541,
             'indent' => 4,
-            'block_id' => 140
+            'block_id' => 141
           },
           {
             'token_num' => 7,
@@ -58204,7 +58315,7 @@ $diff
             'src' => ' $checker-> name ( "$name version arbitrarily numbered 2" ) ;',
             'start_line' => 1542,
             'indent' => 4,
-            'block_id' => 140
+            'block_id' => 141
           },
           {
             'token_num' => 2,
@@ -58213,7 +58324,7 @@ $diff
             'src' => ' next ;',
             'start_line' => 1547,
             'indent' => 3,
-            'block_id' => 134
+            'block_id' => 135
           },
           {
             'token_num' => 7,
@@ -58222,7 +58333,7 @@ $diff
             'src' => ' $id_to_checker { $id } = $checker ;',
             'start_line' => 1551,
             'indent' => 2,
-            'block_id' => 131
+            'block_id' => 132
           },
           {
             'token_num' => 5,
@@ -58231,7 +58342,7 @@ $diff
             'src' => ' my $parsed_for_links = ", but parsed for its interior links" ;',
             'start_line' => 1553,
             'indent' => 2,
-            'block_id' => 131
+            'block_id' => 132
           },
           {
             'token_num' => 105,
@@ -58240,7 +58351,7 @@ $diff
             'src' => ' if ( ( ! $do_upstream_cpan && $filename =~/^cpan/ ) || $filename =~ $only_for_interior_links_re ) { if ( $filename =~/^cpan/ ) { $checker-> set_skip ( "CPAN is upstream for $filename" ) ; } elsif ( $filename =~/perl\\d+delta/ && ! $do_deltas ) { $checker-> set_skip ( "$filename is a stable perldelta" ) ; } elsif ( $filename =~/perltoc/ ) { $checker-> set_skip ( "$filename dependent on component pods" ) ; } else { croak ( "Unexpected file \'$filename\' encountered that has parsing for interior-linking only" ) ; } if ( $name && $has_referred_to_node { $name } ) { $checker-> set_skip ( $checker-> get_skip ( ) . $parsed_for_links ) ; } }',
             'start_line' => 1554,
             'indent' => 2,
-            'block_id' => 131
+            'block_id' => 132
           },
           {
             'token_num' => 17,
@@ -58249,7 +58360,7 @@ $diff
             'src' => ' if ( $filename =~/^cpan/ ) { $checker-> set_skip ( "CPAN is upstream for $filename" ) ; }',
             'start_line' => 1557,
             'indent' => 3,
-            'block_id' => 141
+            'block_id' => 142
           },
           {
             'token_num' => 7,
@@ -58258,7 +58369,7 @@ $diff
             'src' => ' $checker-> set_skip ( "CPAN is upstream for $filename" ) ;',
             'start_line' => 1558,
             'indent' => 4,
-            'block_id' => 142
+            'block_id' => 143
           },
           {
             'token_num' => 20,
@@ -58267,7 +58378,7 @@ $diff
             'src' => ' elsif ( $filename =~/perl\\d+delta/ && ! $do_deltas ) { $checker-> set_skip ( "$filename is a stable perldelta" ) ; }',
             'start_line' => 1560,
             'indent' => 3,
-            'block_id' => 141
+            'block_id' => 142
           },
           {
             'token_num' => 7,
@@ -58276,7 +58387,7 @@ $diff
             'src' => ' $checker-> set_skip ( "$filename is a stable perldelta" ) ;',
             'start_line' => 1561,
             'indent' => 4,
-            'block_id' => 143
+            'block_id' => 144
           },
           {
             'token_num' => 17,
@@ -58285,7 +58396,7 @@ $diff
             'src' => ' elsif ( $filename =~/perltoc/ ) { $checker-> set_skip ( "$filename dependent on component pods" ) ; }',
             'start_line' => 1563,
             'indent' => 3,
-            'block_id' => 141
+            'block_id' => 142
           },
           {
             'token_num' => 7,
@@ -58294,7 +58405,7 @@ $diff
             'src' => ' $checker-> set_skip ( "$filename dependent on component pods" ) ;',
             'start_line' => 1564,
             'indent' => 4,
-            'block_id' => 144
+            'block_id' => 145
           },
           {
             'token_num' => 8,
@@ -58303,7 +58414,7 @@ $diff
             'src' => ' else { croak ( "Unexpected file \'$filename\' encountered that has parsing for interior-linking only" ) ; }',
             'start_line' => 1566,
             'indent' => 3,
-            'block_id' => 141
+            'block_id' => 142
           },
           {
             'token_num' => 5,
@@ -58312,7 +58423,7 @@ $diff
             'src' => ' croak ( "Unexpected file \'$filename\' encountered that has parsing for interior-linking only" ) ;',
             'start_line' => 1567,
             'indent' => 4,
-            'block_id' => 145
+            'block_id' => 146
           },
           {
             'token_num' => 24,
@@ -58321,7 +58432,7 @@ $diff
             'src' => ' if ( $name && $has_referred_to_node { $name } ) { $checker-> set_skip ( $checker-> get_skip ( ) . $parsed_for_links ) ; }',
             'start_line' => 1570,
             'indent' => 3,
-            'block_id' => 141
+            'block_id' => 142
           },
           {
             'token_num' => 13,
@@ -58330,7 +58441,7 @@ $diff
             'src' => ' $checker-> set_skip ( $checker-> get_skip ( ) . $parsed_for_links ) ;',
             'start_line' => 1571,
             'indent' => 4,
-            'block_id' => 146
+            'block_id' => 147
           },
           {
             'token_num' => 25,
@@ -58339,7 +58450,7 @@ $diff
             'src' => ' if ( ! defined $name ) { $checker-> poderror ( { -msg => $no_name , -line => \'???\' } ) ; next ; }',
             'start_line' => 1577,
             'indent' => 2,
-            'block_id' => 131
+            'block_id' => 132
           },
           {
             'token_num' => 15,
@@ -58348,7 +58459,7 @@ $diff
             'src' => ' $checker-> poderror ( { -msg => $no_name , -line => \'???\' } ) ;',
             'start_line' => 1578,
             'indent' => 3,
-            'block_id' => 147
+            'block_id' => 148
           },
           {
             'token_num' => 2,
@@ -58357,7 +58468,7 @@ $diff
             'src' => ' next ;',
             'start_line' => 1581,
             'indent' => 3,
-            'block_id' => 147
+            'block_id' => 148
           },
           {
             'token_num' => 3,
@@ -58366,7 +58477,7 @@ $diff
             'src' => ' my $skip ;',
             'start_line' => 1585,
             'indent' => 2,
-            'block_id' => 131
+            'block_id' => 132
           },
           {
             'token_num' => 29,
@@ -58375,7 +58486,7 @@ $diff
             'src' => ' if ( ( $skip = $checker-> get_skip ( ) ) && $skip !~/$parsed_for_links/ ) { $checker-> node ( $name ) if $name ; }',
             'start_line' => 1586,
             'indent' => 2,
-            'block_id' => 131
+            'block_id' => 132
           },
           {
             'token_num' => 9,
@@ -58384,7 +58495,7 @@ $diff
             'src' => ' $checker-> node ( $name ) if $name ;',
             'start_line' => 1588,
             'indent' => 3,
-            'block_id' => 148
+            'block_id' => 149
           },
           {
             'token_num' => 15,
@@ -58393,7 +58504,7 @@ $diff
             'src' => ' else { $checker-> parse_from_file ( $filename , undef ) if ! $parsed ; }',
             'start_line' => 1590,
             'indent' => 2,
-            'block_id' => 131
+            'block_id' => 132
           },
           {
             'token_num' => 12,
@@ -58402,7 +58513,7 @@ $diff
             'src' => ' $checker-> parse_from_file ( $filename , undef ) if ! $parsed ;',
             'start_line' => 1591,
             'indent' => 3,
-            'block_id' => 149
+            'block_id' => 150
           },
           {
             'token_num' => 78,
@@ -58411,7 +58522,7 @@ $diff
             'src' => ' foreach my $node ( $checker-> linkable_nodes ) { next if ! $node ; if ( exists $nodes { $name } { $node } ) { $nodes { $name } { $node } ++ ; } else { $nodes { $name } { $node } = 1 ; } my $first_word = $node ; if ( $first_word =~ s/^(\\S+)\\s+\\S.*/$1/ ) { $nodes_first_word { $name } { $first_word } = $node ; } }',
             'start_line' => 1596,
             'indent' => 2,
-            'block_id' => 131
+            'block_id' => 132
           },
           {
             'token_num' => 5,
@@ -58420,7 +58531,7 @@ $diff
             'src' => ' next if ! $node ;',
             'start_line' => 1597,
             'indent' => 3,
-            'block_id' => 150
+            'block_id' => 151
           },
           {
             'token_num' => 22,
@@ -58429,7 +58540,7 @@ $diff
             'src' => ' if ( exists $nodes { $name } { $node } ) { $nodes { $name } { $node } ++ ; }',
             'start_line' => 1598,
             'indent' => 3,
-            'block_id' => 150
+            'block_id' => 151
           },
           {
             'token_num' => 9,
@@ -58438,7 +58549,7 @@ $diff
             'src' => ' $nodes { $name } { $node } ++ ;',
             'start_line' => 1599,
             'indent' => 4,
-            'block_id' => 151
+            'block_id' => 152
           },
           {
             'token_num' => 13,
@@ -58447,7 +58558,7 @@ $diff
             'src' => ' else { $nodes { $name } { $node } = 1 ; }',
             'start_line' => 1601,
             'indent' => 3,
-            'block_id' => 150
+            'block_id' => 151
           },
           {
             'token_num' => 10,
@@ -58456,7 +58567,7 @@ $diff
             'src' => ' $nodes { $name } { $node } = 1 ;',
             'start_line' => 1602,
             'indent' => 4,
-            'block_id' => 152
+            'block_id' => 153
           },
           {
             'token_num' => 5,
@@ -58465,7 +58576,7 @@ $diff
             'src' => ' my $first_word = $node ;',
             'start_line' => 1610,
             'indent' => 3,
-            'block_id' => 150
+            'block_id' => 151
           },
           {
             'token_num' => 23,
@@ -58474,7 +58585,7 @@ $diff
             'src' => ' if ( $first_word =~ s/^(\\S+)\\s+\\S.*/$1/ ) { $nodes_first_word { $name } { $first_word } = $node ; }',
             'start_line' => 1611,
             'indent' => 3,
-            'block_id' => 150
+            'block_id' => 151
           },
           {
             'token_num' => 10,
@@ -58483,7 +58594,7 @@ $diff
             'src' => ' $nodes_first_word { $name } { $first_word } = $node ;',
             'start_line' => 1612,
             'indent' => 4,
-            'block_id' => 153
+            'block_id' => 154
           },
           {
             'token_num' => 7,
@@ -58492,7 +58603,7 @@ $diff
             'src' => ' $filename_to_pod { $filename } = $name ;',
             'start_line' => 1615,
             'indent' => 2,
-            'block_id' => 131
+            'block_id' => 132
           },
           {
             'token_num' => 277,
@@ -58510,7 +58621,7 @@ $diff
             'src' => ' foreach my $filename ( @files ) { next if $filename_to_checker { $filename }-> get_skip ; my $checker = $filename_to_checker { $filename } ; foreach my $link ( $checker-> hyperlink ) { my $linked_to_page = $link-> [ 1 ]-> page ; next unless $linked_to_page ; my %problem = ( -msg => $broken_link , -line => $link-> [ 0 ] , parameter => "to \\"$linked_to_page\\"" , ) ; if ( exists $nodes { $linked_to_page } ) { my $node = $link-> [ 1 ]-> node ; next if ! $node ; $node =~ s,E<sol>,/,g ; $node =~ s/E<verbar>/|/g ; if ( $nodes { $linked_to_page } { $node } ) { if ( $nodes { $linked_to_page } { $node } > 1 ) { $problem { -msg } = $multiple_targets ; $problem { parameter } = "in $linked_to_page that $node could be pointing to" ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! $nodes_first_word { $linked_to_page } { $node } ) { $problem { parameter } =~ s,"$,/$node", ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! exists $valid_modules { $link-> [ 1 ]-> page } ) { my $NAME = $filename_to_pod { $filename } ; if ( ! defined $NAME ) { $checker-> poderror ( \\ %problem ) ; } else { if ( $nodes { $NAME } { $linked_to_page } ) { $problem { -msg } = $broken_internal_link ; } $checker-> poderror ( \\ %problem ) ; } } } }',
             'start_line' => 1622,
             'indent' => 1,
-            'block_id' => 154
+            'block_id' => 155
           },
           {
             'token_num' => 9,
@@ -58519,7 +58630,7 @@ $diff
             'src' => ' next if $filename_to_checker { $filename }-> get_skip ;',
             'start_line' => 1623,
             'indent' => 2,
-            'block_id' => 155
+            'block_id' => 156
           },
           {
             'token_num' => 8,
@@ -58528,7 +58639,7 @@ $diff
             'src' => ' my $checker = $filename_to_checker { $filename } ;',
             'start_line' => 1624,
             'indent' => 2,
-            'block_id' => 155
+            'block_id' => 156
           },
           {
             'token_num' => 245,
@@ -58537,7 +58648,7 @@ $diff
             'src' => ' foreach my $link ( $checker-> hyperlink ) { my $linked_to_page = $link-> [ 1 ]-> page ; next unless $linked_to_page ; my %problem = ( -msg => $broken_link , -line => $link-> [ 0 ] , parameter => "to \\"$linked_to_page\\"" , ) ; if ( exists $nodes { $linked_to_page } ) { my $node = $link-> [ 1 ]-> node ; next if ! $node ; $node =~ s,E<sol>,/,g ; $node =~ s/E<verbar>/|/g ; if ( $nodes { $linked_to_page } { $node } ) { if ( $nodes { $linked_to_page } { $node } > 1 ) { $problem { -msg } = $multiple_targets ; $problem { parameter } = "in $linked_to_page that $node could be pointing to" ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! $nodes_first_word { $linked_to_page } { $node } ) { $problem { parameter } =~ s,"$,/$node", ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! exists $valid_modules { $link-> [ 1 ]-> page } ) { my $NAME = $filename_to_pod { $filename } ; if ( ! defined $NAME ) { $checker-> poderror ( \\ %problem ) ; } else { if ( $nodes { $NAME } { $linked_to_page } ) { $problem { -msg } = $broken_internal_link ; } $checker-> poderror ( \\ %problem ) ; } } }',
             'start_line' => 1625,
             'indent' => 2,
-            'block_id' => 155
+            'block_id' => 156
           },
           {
             'token_num' => 11,
@@ -58546,7 +58657,7 @@ $diff
             'src' => ' my $linked_to_page = $link-> [ 1 ]-> page ;',
             'start_line' => 1626,
             'indent' => 3,
-            'block_id' => 156
+            'block_id' => 157
           },
           {
             'token_num' => 4,
@@ -58555,7 +58666,7 @@ $diff
             'src' => ' next unless $linked_to_page ;',
             'start_line' => 1627,
             'indent' => 3,
-            'block_id' => 156
+            'block_id' => 157
           },
           {
             'token_num' => 22,
@@ -58564,7 +58675,7 @@ $diff
             'src' => ' my %problem = ( -msg => $broken_link , -line => $link-> [ 0 ] , parameter => "to \\"$linked_to_page\\"" , ) ;',
             'start_line' => 1631,
             'indent' => 3,
-            'block_id' => 156
+            'block_id' => 157
           },
           {
             'token_num' => 127,
@@ -58573,7 +58684,7 @@ $diff
             'src' => ' if ( exists $nodes { $linked_to_page } ) { my $node = $link-> [ 1 ]-> node ; next if ! $node ; $node =~ s,E<sol>,/,g ; $node =~ s/E<verbar>/|/g ; if ( $nodes { $linked_to_page } { $node } ) { if ( $nodes { $linked_to_page } { $node } > 1 ) { $problem { -msg } = $multiple_targets ; $problem { parameter } = "in $linked_to_page that $node could be pointing to" ; $checker-> poderror ( \\ %problem ) ; } } elsif ( ! $nodes_first_word { $linked_to_page } { $node } ) { $problem { parameter } =~ s,"$,/$node", ; $checker-> poderror ( \\ %problem ) ; } }',
             'start_line' => 1637,
             'indent' => 3,
-            'block_id' => 156
+            'block_id' => 157
           },
           {
             'token_num' => 11,
@@ -58582,7 +58693,7 @@ $diff
             'src' => ' my $node = $link-> [ 1 ]-> node ;',
             'start_line' => 1638,
             'indent' => 4,
-            'block_id' => 157
+            'block_id' => 158
           },
           {
             'token_num' => 5,
@@ -58591,7 +58702,7 @@ $diff
             'src' => ' next if ! $node ;',
             'start_line' => 1641,
             'indent' => 4,
-            'block_id' => 157
+            'block_id' => 158
           },
           {
             'token_num' => 10,
@@ -58600,7 +58711,7 @@ $diff
             'src' => ' $node =~ s,E<sol>,/,g ;',
             'start_line' => 1644,
             'indent' => 4,
-            'block_id' => 157
+            'block_id' => 158
           },
           {
             'token_num' => 10,
@@ -58609,7 +58720,7 @@ $diff
             'src' => ' $node =~ s/E<verbar>/|/g ;',
             'start_line' => 1645,
             'indent' => 4,
-            'block_id' => 157
+            'block_id' => 158
           },
           {
             'token_num' => 48,
@@ -58618,7 +58729,7 @@ $diff
             'src' => ' if ( $nodes { $linked_to_page } { $node } ) { if ( $nodes { $linked_to_page } { $node } > 1 ) { $problem { -msg } = $multiple_targets ; $problem { parameter } = "in $linked_to_page that $node could be pointing to" ; $checker-> poderror ( \\ %problem ) ; } }',
             'start_line' => 1648,
             'indent' => 4,
-            'block_id' => 157
+            'block_id' => 158
           },
           {
             'token_num' => 36,
@@ -58627,7 +58738,7 @@ $diff
             'src' => ' if ( $nodes { $linked_to_page } { $node } > 1 ) { $problem { -msg } = $multiple_targets ; $problem { parameter } = "in $linked_to_page that $node could be pointing to" ; $checker-> poderror ( \\ %problem ) ; }',
             'start_line' => 1652,
             'indent' => 5,
-            'block_id' => 158
+            'block_id' => 159
           },
           {
             'token_num' => 7,
@@ -58636,7 +58747,7 @@ $diff
             'src' => ' $problem { -msg } = $multiple_targets ;',
             'start_line' => 1653,
             'indent' => 6,
-            'block_id' => 159
+            'block_id' => 160
           },
           {
             'token_num' => 7,
@@ -58645,7 +58756,7 @@ $diff
             'src' => ' $problem { parameter } = "in $linked_to_page that $node could be pointing to" ;',
             'start_line' => 1654,
             'indent' => 6,
-            'block_id' => 159
+            'block_id' => 160
           },
           {
             'token_num' => 8,
@@ -58654,7 +58765,7 @@ $diff
             'src' => ' $checker-> poderror ( \\ %problem ) ;',
             'start_line' => 1655,
             'indent' => 6,
-            'block_id' => 159
+            'block_id' => 160
           },
           {
             'token_num' => 33,
@@ -58663,7 +58774,7 @@ $diff
             'src' => ' elsif ( ! $nodes_first_word { $linked_to_page } { $node } ) { $problem { parameter } =~ s,"$,/$node", ; $checker-> poderror ( \\ %problem ) ; }',
             'start_line' => 1657,
             'indent' => 4,
-            'block_id' => 157
+            'block_id' => 158
           },
           {
             'token_num' => 12,
@@ -58672,7 +58783,7 @@ $diff
             'src' => ' $problem { parameter } =~ s,"$,/$node", ;',
             'start_line' => 1661,
             'indent' => 5,
-            'block_id' => 160
+            'block_id' => 161
           },
           {
             'token_num' => 8,
@@ -58681,7 +58792,7 @@ $diff
             'src' => ' $checker-> poderror ( \\ %problem ) ;',
             'start_line' => 1662,
             'indent' => 5,
-            'block_id' => 160
+            'block_id' => 161
           },
           {
             'token_num' => 71,
@@ -58690,7 +58801,7 @@ $diff
             'src' => ' elsif ( ! exists $valid_modules { $link-> [ 1 ]-> page } ) { my $NAME = $filename_to_pod { $filename } ; if ( ! defined $NAME ) { $checker-> poderror ( \\ %problem ) ; } else { if ( $nodes { $NAME } { $linked_to_page } ) { $problem { -msg } = $broken_internal_link ; } $checker-> poderror ( \\ %problem ) ; } }',
             'start_line' => 1666,
             'indent' => 3,
-            'block_id' => 156
+            'block_id' => 157
           },
           {
             'token_num' => 8,
@@ -58699,7 +58810,7 @@ $diff
             'src' => ' my $NAME = $filename_to_pod { $filename } ;',
             'start_line' => 1674,
             'indent' => 4,
-            'block_id' => 161
+            'block_id' => 162
           },
           {
             'token_num' => 16,
@@ -58708,7 +58819,7 @@ $diff
             'src' => ' if ( ! defined $NAME ) { $checker-> poderror ( \\ %problem ) ; }',
             'start_line' => 1675,
             'indent' => 4,
-            'block_id' => 161
+            'block_id' => 162
           },
           {
             'token_num' => 8,
@@ -58717,7 +58828,7 @@ $diff
             'src' => ' $checker-> poderror ( \\ %problem ) ;',
             'start_line' => 1676,
             'indent' => 5,
-            'block_id' => 162
+            'block_id' => 163
           },
           {
             'token_num' => 30,
@@ -58726,7 +58837,7 @@ $diff
             'src' => ' else { if ( $nodes { $NAME } { $linked_to_page } ) { $problem { -msg } = $broken_internal_link ; } $checker-> poderror ( \\ %problem ) ; }',
             'start_line' => 1678,
             'indent' => 4,
-            'block_id' => 161
+            'block_id' => 162
           },
           {
             'token_num' => 19,
@@ -58735,7 +58846,7 @@ $diff
             'src' => ' if ( $nodes { $NAME } { $linked_to_page } ) { $problem { -msg } = $broken_internal_link ; }',
             'start_line' => 1679,
             'indent' => 5,
-            'block_id' => 163
+            'block_id' => 164
           },
           {
             'token_num' => 7,
@@ -58744,7 +58855,7 @@ $diff
             'src' => ' $problem { -msg } = $broken_internal_link ;',
             'start_line' => 1680,
             'indent' => 6,
-            'block_id' => 164
+            'block_id' => 165
           },
           {
             'token_num' => 8,
@@ -58753,7 +58864,7 @@ $diff
             'src' => ' $checker-> poderror ( \\ %problem ) ;',
             'start_line' => 1682,
             'indent' => 5,
-            'block_id' => 163
+            'block_id' => 164
           },
           {
             'token_num' => 30,
@@ -58771,7 +58882,7 @@ $diff
             'src' => ' foreach ( sort { lc $a cmp lc $b } keys %valid_modules ) { my_safer_print ( $copy_fh , $_ , "\\n" ) ; }',
             'start_line' => 1694,
             'indent' => 1,
-            'block_id' => 165
+            'block_id' => 166
           },
           {
             'token_num' => 9,
@@ -58780,7 +58891,7 @@ $diff
             'src' => ' my_safer_print ( $copy_fh , $_ , "\\n" ) ;',
             'start_line' => 1695,
             'indent' => 2,
-            'block_id' => 166
+            'block_id' => 167
           },
           {
             'token_num' => 455,
@@ -58798,7 +58909,7 @@ $diff
             'src' => ' my $canonical = canonicalize ( $filename ) ;',
             'start_line' => 1701,
             'indent' => 1,
-            'block_id' => 167
+            'block_id' => 168
           },
           {
             'token_num' => 12,
@@ -58807,7 +58918,7 @@ $diff
             'src' => ' my $skip = $filename_to_checker { $filename }-> get_skip // "" ;',
             'start_line' => 1703,
             'indent' => 2,
-            'block_id' => 168
+            'block_id' => 169
           },
           {
             'token_num' => 82,
@@ -58816,7 +58927,7 @@ $diff
             'src' => ' if ( $regen ) { foreach my $message ( sort keys %{ $problems { $filename } } ) { my $count ; if ( $known_problems { $canonical } { $message } && $known_problems { $canonical } { $message } < 0 ) { $count = $known_problems { $canonical } { $message } ; } else { $count = @{ $problems { $filename } { $message } } ; } my_safer_print ( $copy_fh , $canonical . "\\t$message\\t$count\\n" ) ; } next ; }',
             'start_line' => 1705,
             'indent' => 2,
-            'block_id' => 168
+            'block_id' => 169
           },
           {
             'token_num' => 74,
@@ -58825,7 +58936,7 @@ $diff
             'src' => ' foreach my $message ( sort keys %{ $problems { $filename } } ) { my $count ; if ( $known_problems { $canonical } { $message } && $known_problems { $canonical } { $message } < 0 ) { $count = $known_problems { $canonical } { $message } ; } else { $count = @{ $problems { $filename } { $message } } ; } my_safer_print ( $copy_fh , $canonical . "\\t$message\\t$count\\n" ) ; }',
             'start_line' => 1706,
             'indent' => 3,
-            'block_id' => 169
+            'block_id' => 170
           },
           {
             'token_num' => 3,
@@ -58834,7 +58945,7 @@ $diff
             'src' => ' my $count ;',
             'start_line' => 1707,
             'indent' => 4,
-            'block_id' => 170
+            'block_id' => 171
           },
           {
             'token_num' => 32,
@@ -58843,7 +58954,7 @@ $diff
             'src' => ' if ( $known_problems { $canonical } { $message } && $known_problems { $canonical } { $message } < 0 ) { $count = $known_problems { $canonical } { $message } ; }',
             'start_line' => 1710,
             'indent' => 4,
-            'block_id' => 170
+            'block_id' => 171
           },
           {
             'token_num' => 10,
@@ -58852,7 +58963,7 @@ $diff
             'src' => ' $count = $known_problems { $canonical } { $message } ;',
             'start_line' => 1713,
             'indent' => 5,
-            'block_id' => 171
+            'block_id' => 172
           },
           {
             'token_num' => 15,
@@ -58861,7 +58972,7 @@ $diff
             'src' => ' else { $count = @{ $problems { $filename } { $message } } ; }',
             'start_line' => 1715,
             'indent' => 4,
-            'block_id' => 170
+            'block_id' => 171
           },
           {
             'token_num' => 12,
@@ -58870,7 +58981,7 @@ $diff
             'src' => ' $count = @{ $problems { $filename } { $message } } ;',
             'start_line' => 1716,
             'indent' => 5,
-            'block_id' => 172
+            'block_id' => 173
           },
           {
             'token_num' => 9,
@@ -58879,7 +58990,7 @@ $diff
             'src' => ' my_safer_print ( $copy_fh , $canonical . "\\t$message\\t$count\\n" ) ;',
             'start_line' => 1718,
             'indent' => 4,
-            'block_id' => 170
+            'block_id' => 171
           },
           {
             'token_num' => 2,
@@ -58888,7 +58999,7 @@ $diff
             'src' => ' next ;',
             'start_line' => 1720,
             'indent' => 3,
-            'block_id' => 169
+            'block_id' => 170
           },
           {
             'token_num' => 9,
@@ -58897,7 +59008,7 @@ $diff
             'src' => ' skip ( $skip , 1 ) if $skip ;',
             'start_line' => 1723,
             'indent' => 2,
-            'block_id' => 168
+            'block_id' => 169
           },
           {
             'token_num' => 3,
@@ -58906,7 +59017,7 @@ $diff
             'src' => ' my @diagnostics ;',
             'start_line' => 1724,
             'indent' => 2,
-            'block_id' => 168
+            'block_id' => 169
           },
           {
             'token_num' => 5,
@@ -58915,7 +59026,7 @@ $diff
             'src' => ' my $indent = \'  \' ;',
             'start_line' => 1725,
             'indent' => 2,
-            'block_id' => 168
+            'block_id' => 169
           },
           {
             'token_num' => 5,
@@ -58924,7 +59035,7 @@ $diff
             'src' => ' my $total_known = 0 ;',
             'start_line' => 1727,
             'indent' => 2,
-            'block_id' => 168
+            'block_id' => 169
           },
           {
             'token_num' => 208,
@@ -58933,7 +59044,7 @@ $diff
             'src' => ' foreach my $message ( sort keys %{ $problems { $filename } } ) { $known_problems { $canonical } { $message } = 0 if ! $known_problems { $canonical } { $message } ; my $diagnostic = "" ; my $problem_count = scalar @{ $problems { $filename } { $message } } ; $total_known += $problem_count ; next if $known_problems { $canonical } { $message } < 0 ; if ( $problem_count > $known_problems { $canonical } { $message } ) { $total_known -= $problem_count ; $diagnostic .= $indent . $message ; if ( $problem_count > 2 ) { $diagnostic .= "  ($problem_count occurrences)" ; } foreach my $problem ( @{ $problems { $filename } { $message } } ) { $diagnostic .= " " if $problem_count == 1 ; $diagnostic .= "\\n$indent$indent" ; $diagnostic .= "$problem->{parameter}" if $problem-> { parameter } ; $diagnostic .= " near line $problem->{-line}" ; $diagnostic .= " $problem->{comment}" if $problem-> { comment } ; } $diagnostic .= "\\n" ; $files_with_unknown_issues { $filename } = 1 ; } elsif ( $problem_count < $known_problems { $canonical } { $message } ) { $diagnostic = output_thanks ( $filename , $known_problems { $canonical } { $message } , $problem_count , $message ) ; } push @diagnostics , $diagnostic if $diagnostic ; }',
             'start_line' => 1728,
             'indent' => 2,
-            'block_id' => 168
+            'block_id' => 169
           },
           {
             'token_num' => 19,
@@ -58942,7 +59053,7 @@ $diff
             'src' => ' $known_problems { $canonical } { $message } = 0 if ! $known_problems { $canonical } { $message } ;',
             'start_line' => 1729,
             'indent' => 3,
-            'block_id' => 173
+            'block_id' => 174
           },
           {
             'token_num' => 5,
@@ -58951,7 +59062,7 @@ $diff
             'src' => ' my $diagnostic = "" ;',
             'start_line' => 1731,
             'indent' => 3,
-            'block_id' => 173
+            'block_id' => 174
           },
           {
             'token_num' => 14,
@@ -58960,7 +59071,7 @@ $diff
             'src' => ' my $problem_count = scalar @{ $problems { $filename } { $message } } ;',
             'start_line' => 1732,
             'indent' => 3,
-            'block_id' => 173
+            'block_id' => 174
           },
           {
             'token_num' => 4,
@@ -58969,7 +59080,7 @@ $diff
             'src' => ' $total_known += $problem_count ;',
             'start_line' => 1733,
             'indent' => 3,
-            'block_id' => 173
+            'block_id' => 174
           },
           {
             'token_num' => 12,
@@ -58978,7 +59089,7 @@ $diff
             'src' => ' next if $known_problems { $canonical } { $message } < 0 ;',
             'start_line' => 1734,
             'indent' => 3,
-            'block_id' => 173
+            'block_id' => 174
           },
           {
             'token_num' => 99,
@@ -58987,7 +59098,7 @@ $diff
             'src' => ' if ( $problem_count > $known_problems { $canonical } { $message } ) { $total_known -= $problem_count ; $diagnostic .= $indent . $message ; if ( $problem_count > 2 ) { $diagnostic .= "  ($problem_count occurrences)" ; } foreach my $problem ( @{ $problems { $filename } { $message } } ) { $diagnostic .= " " if $problem_count == 1 ; $diagnostic .= "\\n$indent$indent" ; $diagnostic .= "$problem->{parameter}" if $problem-> { parameter } ; $diagnostic .= " near line $problem->{-line}" ; $diagnostic .= " $problem->{comment}" if $problem-> { comment } ; } $diagnostic .= "\\n" ; $files_with_unknown_issues { $filename } = 1 ; }',
             'start_line' => 1735,
             'indent' => 3,
-            'block_id' => 173
+            'block_id' => 174
           },
           {
             'token_num' => 4,
@@ -58996,7 +59107,7 @@ $diff
             'src' => ' $total_known -= $problem_count ;',
             'start_line' => 1739,
             'indent' => 4,
-            'block_id' => 174
+            'block_id' => 175
           },
           {
             'token_num' => 6,
@@ -59005,7 +59116,7 @@ $diff
             'src' => ' $diagnostic .= $indent . $message ;',
             'start_line' => 1741,
             'indent' => 4,
-            'block_id' => 174
+            'block_id' => 175
           },
           {
             'token_num' => 12,
@@ -59014,7 +59125,7 @@ $diff
             'src' => ' if ( $problem_count > 2 ) { $diagnostic .= "  ($problem_count occurrences)" ; }',
             'start_line' => 1742,
             'indent' => 4,
-            'block_id' => 174
+            'block_id' => 175
           },
           {
             'token_num' => 4,
@@ -59023,7 +59134,7 @@ $diff
             'src' => ' $diagnostic .= "  ($problem_count occurrences)" ;',
             'start_line' => 1743,
             'indent' => 5,
-            'block_id' => 175
+            'block_id' => 176
           },
           {
             'token_num' => 52,
@@ -59032,7 +59143,7 @@ $diff
             'src' => ' foreach my $problem ( @{ $problems { $filename } { $message } } ) { $diagnostic .= " " if $problem_count == 1 ; $diagnostic .= "\\n$indent$indent" ; $diagnostic .= "$problem->{parameter}" if $problem-> { parameter } ; $diagnostic .= " near line $problem->{-line}" ; $diagnostic .= " $problem->{comment}" if $problem-> { comment } ; }',
             'start_line' => 1745,
             'indent' => 4,
-            'block_id' => 174
+            'block_id' => 175
           },
           {
             'token_num' => 8,
@@ -59041,7 +59152,7 @@ $diff
             'src' => ' $diagnostic .= " " if $problem_count == 1 ;',
             'start_line' => 1746,
             'indent' => 5,
-            'block_id' => 176
+            'block_id' => 177
           },
           {
             'token_num' => 4,
@@ -59050,7 +59161,7 @@ $diff
             'src' => ' $diagnostic .= "\\n$indent$indent" ;',
             'start_line' => 1747,
             'indent' => 5,
-            'block_id' => 176
+            'block_id' => 177
           },
           {
             'token_num' => 10,
@@ -59059,7 +59170,7 @@ $diff
             'src' => ' $diagnostic .= "$problem->{parameter}" if $problem-> { parameter } ;',
             'start_line' => 1748,
             'indent' => 5,
-            'block_id' => 176
+            'block_id' => 177
           },
           {
             'token_num' => 4,
@@ -59068,7 +59179,7 @@ $diff
             'src' => ' $diagnostic .= " near line $problem->{-line}" ;',
             'start_line' => 1749,
             'indent' => 5,
-            'block_id' => 176
+            'block_id' => 177
           },
           {
             'token_num' => 10,
@@ -59077,7 +59188,7 @@ $diff
             'src' => ' $diagnostic .= " $problem->{comment}" if $problem-> { comment } ;',
             'start_line' => 1750,
             'indent' => 5,
-            'block_id' => 176
+            'block_id' => 177
           },
           {
             'token_num' => 4,
@@ -59086,7 +59197,7 @@ $diff
             'src' => ' $diagnostic .= "\\n" ;',
             'start_line' => 1752,
             'indent' => 4,
-            'block_id' => 174
+            'block_id' => 175
           },
           {
             'token_num' => 7,
@@ -59095,7 +59206,7 @@ $diff
             'src' => ' $files_with_unknown_issues { $filename } = 1 ;',
             'start_line' => 1753,
             'indent' => 4,
-            'block_id' => 174
+            'block_id' => 175
           },
           {
             'token_num' => 33,
@@ -59104,7 +59215,7 @@ $diff
             'src' => ' elsif ( $problem_count < $known_problems { $canonical } { $message } ) { $diagnostic = output_thanks ( $filename , $known_problems { $canonical } { $message } , $problem_count , $message ) ; }',
             'start_line' => 1754,
             'indent' => 3,
-            'block_id' => 173
+            'block_id' => 174
           },
           {
             'token_num' => 19,
@@ -59113,7 +59224,7 @@ $diff
             'src' => ' $diagnostic = output_thanks ( $filename , $known_problems { $canonical } { $message } , $problem_count , $message ) ;',
             'start_line' => 1755,
             'indent' => 4,
-            'block_id' => 177
+            'block_id' => 178
           },
           {
             'token_num' => 7,
@@ -59122,7 +59233,7 @@ $diff
             'src' => ' push @diagnostics , $diagnostic if $diagnostic ;',
             'start_line' => 1757,
             'indent' => 3,
-            'block_id' => 173
+            'block_id' => 174
           },
           {
             'token_num' => 75,
@@ -59131,7 +59242,7 @@ $diff
             'src' => ' foreach my $message ( sort keys %{ $known_problems { $canonical } } ) { next if $problems { $filename } { $message } ; next if ! $known_problems { $canonical } { $message } ; next if $known_problems { $canonical } { $message } < 0 ; my $diagnostic = output_thanks ( $filename , $known_problems { $canonical } { $message } , 0 , $message ) ; push @diagnostics , $diagnostic if $diagnostic ; }',
             'start_line' => 1763,
             'indent' => 2,
-            'block_id' => 168
+            'block_id' => 169
           },
           {
             'token_num' => 10,
@@ -59140,7 +59251,7 @@ $diff
             'src' => ' next if $problems { $filename } { $message } ;',
             'start_line' => 1764,
             'indent' => 3,
-            'block_id' => 178
+            'block_id' => 179
           },
           {
             'token_num' => 11,
@@ -59149,7 +59260,7 @@ $diff
             'src' => ' next if ! $known_problems { $canonical } { $message } ;',
             'start_line' => 1765,
             'indent' => 3,
-            'block_id' => 178
+            'block_id' => 179
           },
           {
             'token_num' => 12,
@@ -59158,7 +59269,7 @@ $diff
             'src' => ' next if $known_problems { $canonical } { $message } < 0 ;',
             'start_line' => 1766,
             'indent' => 3,
-            'block_id' => 178
+            'block_id' => 179
           },
           {
             'token_num' => 20,
@@ -59167,7 +59278,7 @@ $diff
             'src' => ' my $diagnostic = output_thanks ( $filename , $known_problems { $canonical } { $message } , 0 , $message ) ;',
             'start_line' => 1767,
             'indent' => 3,
-            'block_id' => 178
+            'block_id' => 179
           },
           {
             'token_num' => 7,
@@ -59176,7 +59287,7 @@ $diff
             'src' => ' push @diagnostics , $diagnostic if $diagnostic ;',
             'start_line' => 1768,
             'indent' => 3,
-            'block_id' => 178
+            'block_id' => 179
           },
           {
             'token_num' => 5,
@@ -59185,7 +59296,7 @@ $diff
             'src' => ' my $output = "POD of $filename" ;',
             'start_line' => 1771,
             'indent' => 2,
-            'block_id' => 168
+            'block_id' => 169
           },
           {
             'token_num' => 6,
@@ -59194,7 +59305,7 @@ $diff
             'src' => ' $output .= ", excluding $total_known not shown known potential problems" if $total_known ;',
             'start_line' => 1772,
             'indent' => 2,
-            'block_id' => 168
+            'block_id' => 169
           },
           {
             'token_num' => 9,
@@ -59203,7 +59314,7 @@ $diff
             'src' => ' ok ( @diagnostics == 0 , $output ) ;',
             'start_line' => 1774,
             'indent' => 2,
-            'block_id' => 168
+            'block_id' => 169
           },
           {
             'token_num' => 16,
@@ -59212,7 +59323,7 @@ $diff
             'src' => ' if ( @diagnostics ) { note ( join "" , @diagnostics , "See end of this test output for your options on silencing this" ) ; }',
             'start_line' => 1775,
             'indent' => 2,
-            'block_id' => 168
+            'block_id' => 169
           },
           {
             'token_num' => 10,
@@ -59221,7 +59332,7 @@ $diff
             'src' => ' note ( join "" , @diagnostics , "See end of this test output for your options on silencing this" ) ;',
             'start_line' => 1776,
             'indent' => 3,
-            'block_id' => 179
+            'block_id' => 180
           },
           {
             'token_num' => 5,
@@ -59284,7 +59395,7 @@ $how_to
             'src' => ' my $were_count_files = scalar keys %files_with_unknown_issues ;',
             'start_line' => 1790,
             'indent' => 1,
-            'block_id' => 180
+            'block_id' => 181
           },
           {
             'token_num' => 12,
@@ -59293,7 +59404,7 @@ $how_to
             'src' => ' $were_count_files = ( $were_count_files == 1 ) ? "was $were_count_files file" : "were $were_count_files files" ;',
             'start_line' => 1791,
             'indent' => 1,
-            'block_id' => 180
+            'block_id' => 181
           },
           {
             'token_num' => 5,
@@ -59328,7 +59439,7 @@ $how_to
 } ;',
             'start_line' => 1794,
             'indent' => 1,
-            'block_id' => 180
+            'block_id' => 181
           },
           {
             'token_num' => 10,
@@ -59337,7 +59448,7 @@ $how_to
             'src' => ' if ( %files_with_fixes ) { $message .= "   This step will also take care of the files that have fixes in them\\n" ; }',
             'start_line' => 1822,
             'indent' => 1,
-            'block_id' => 180
+            'block_id' => 181
           },
           {
             'token_num' => 4,
@@ -59346,7 +59457,7 @@ $how_to
             'src' => ' $message .= "   This step will also take care of the files that have fixes in them\\n" ;',
             'start_line' => 1823,
             'indent' => 2,
-            'block_id' => 181
+            'block_id' => 182
           },
           {
             'token_num' => 4,
@@ -59361,7 +59472,7 @@ $how_to
 } ;',
             'start_line' => 1826,
             'indent' => 1,
-            'block_id' => 180
+            'block_id' => 181
           },
           {
             'token_num' => 5,
@@ -59370,7 +59481,7 @@ $how_to
             'src' => ' note ( $message ) ;',
             'start_line' => 1835,
             'indent' => 1,
-            'block_id' => 180
+            'block_id' => 181
           },
           {
             'token_num' => 11,
@@ -59392,7 +59503,7 @@ $how_to
 } ) ;',
             'start_line' => 1837,
             'indent' => 1,
-            'block_id' => 182
+            'block_id' => 183
           },
           {
             'token_num' => 17,
@@ -59410,7 +59521,7 @@ $how_to
             'src' => ' chdir $original_dir || die "Can\'t change directories to $original_dir" ;',
             'start_line' => 1845,
             'indent' => 1,
-            'block_id' => 183
+            'block_id' => 184
           },
           {
             'token_num' => 5,
@@ -59419,7 +59530,7 @@ $how_to
             'src' => ' close_and_rename ( $copy_fh ) ;',
             'start_line' => 1846,
             'indent' => 1,
-            'block_id' => 183
+            'block_id' => 184
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');

@@ -19689,34 +19689,66 @@ subtest 'tokenize' => sub {
                    'line' => 412
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegDelim',
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 412
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightBrace',
+                   'data' => '}',
+                   'type' => Compiler::Lexer::TokenType::T_RightBrace,
+                   'line' => 413
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftBrace',
+                   'data' => '{',
+                   'type' => Compiler::Lexer::TokenType::T_LeftBrace,
+                   'line' => 415
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegExp',
-                   'data' => '
-    }
-
-    {
-        $_    = "abcdef\\n"',
-                   'type' => Compiler::Lexer::TokenType::T_RegExp,
+                   'name' => 'SpecificValue',
+                   'data' => '$_',
+                   'type' => Compiler::Lexer::TokenType::T_SpecificValue,
+                   'line' => 416
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Assign,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Assign',
+                   'data' => '=',
+                   'type' => Compiler::Lexer::TokenType::T_Assign,
                    'line' => 416
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegDelim',
+                   'name' => 'String',
+                   'data' => 'abcdef\\n',
+                   'type' => Compiler::Lexer::TokenType::T_String,
+                   'line' => 416
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
                    'data' => ';',
-                   'type' => Compiler::Lexer::TokenType::T_RegDelim,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 416
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -37060,21 +37092,74 @@ subtest 'tokenize' => sub {
                    'line' => 763
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 763
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 1,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Key',
+                   'data' => 'ok',
+                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'line' => 764
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 764
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Var',
+                   'data' => '$s',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 764
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegOK',
+                   'data' => '=~',
+                   'type' => Compiler::Lexer::TokenType::T_RegOK,
+                   'line' => 764
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_RegPrefix,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegMatch',
+                   'data' => 'm',
+                   'type' => Compiler::Lexer::TokenType::T_RegMatch,
+                   'line' => 764
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegDelim',
-                   'data' => ';',
+                   'data' => '/',
                    'type' => Compiler::Lexer::TokenType::T_RegDelim,
-                   'line' => 763
+                   'line' => 764
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegExp',
-                   'data' => '
-        ok($s =~ m/$rex/, $message)',
+                   'data' => '$rex',
                    'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 764
                  }, 'Compiler::Lexer::Token' ),
@@ -37083,8 +37168,44 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegDelim',
-                   'data' => ';',
+                   'data' => '/',
                    'type' => Compiler::Lexer::TokenType::T_RegDelim,
+                   'line' => 764
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Comma,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Comma',
+                   'data' => ',',
+                   'type' => Compiler::Lexer::TokenType::T_Comma,
+                   'line' => 764
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Var',
+                   'data' => '$message',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 764
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightParenthesis',
+                   'data' => ')',
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
+                   'line' => 764
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 764
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -51293,7 +51414,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 5483,
+            'token_num' => 5497,
             'has_warnings' => 1,
             'end_line' => 1138,
             'src' => ' sub run_tests { like ( "A \\x{263a} B z C" , qr/A . B (??{ "z" }) C/ , "Match UTF-8 char in presence of (??{ }); Bug 20000731.001" ) ; { no warnings \'uninitialized\' ; ok ( undef =~/^([^\\/]*)(.*)$/ , "Used to cause a SEGV; Bug 20001021.005" ) ; } { my $message = \'bug id 20001008.001\' ; my @x = ( "stra\\337e 138" , "stra\\337e 138" ) ; for ( @x ) { ok ( s/(\\d+)\\s*([\\w\\-]+)/$1 . uc $2/e , $message ) ; ok ( my ( $latin ) =/^(.+)(?:\\s+\\d)/ , $message ) ; is ( $latin , "stra\\337e" , $message ) ; ok ( $latin =~ s/stra\\337e/straße/ , $message ) ; } } { my $message = \'HEBREW ACCENT QADMA matched by .*; Bug 20001028.003\' ; my $X = chr ( 1448 ) ; ok ( my ( $Y ) = $X =~/(.*)/ , $message ) ; is ( $Y , v1448 , $message ) ; is ( length $Y , 1 , $message ) ; $message = \'HEBREW ACCENT QADMA in replacement; Bug 20001028.003\' ; $X = \'\' ; $X =~ s/^/chr(1488)/e ; is ( length $X , 1 , $message ) ; is ( ord $X , 1488 , $message ) ; } { my $message = \'Repeated s///; Bug 20001108.001\' ; my $X = "Szab\\x{f3},Bal\\x{e1}zs" ; my $Y = $X ; $Y =~ s/(B)/$1/ for 0 .. 3 ; is ( $Y , $X , $message ) ; is ( $X , "Szab\\x{f3},Bal\\x{e1}zs" , $message ) ; } { my $message = \'s/// on UTF-8 string; Bug 20000517.001\' ; my $x = "\\x{100}A" ; $x =~ s/A/B/ ; is ( $x , "\\x{100}B" , $message ) ; is ( length $x , 2 , $message ) ; } { my $message = \'\\C and É; Bug 20001230.002\' ; ok ( "École" =~/^\\C\\C(.)/ && $1 eq \'c\' , $message ) ; like ( "École" , qr/^\\C\\C(c)/ , $message ) ; } { my $message = "Don\'t dump core; Bug 20010306.008" ; my $a = "a\\x{1234}" ; like ( $a , qr/\\w/ , $message ) ; } { my $message = \'/g in scalar context; Bug 20010410.006\' ; for my $rx ( \'/(.*?)\\{(.*?)\\}/csg\' , \'/(.*?)\\{(.*?)\\}/cg\' , \'/(.*?)\\{(.*?)\\}/sg\' , \'/(.*?)\\{(.*?)\\}/g\' , \'/(.+?)\\{(.+?)\\}/csg\' , ) { my $i = 0 ; my $input = "a{b}c{d}" ; eval qq{                while (eval \\$input =~ $rx) {
@@ -51302,18 +51423,13 @@ subtest 'get_groups_by_syntax_level' => sub {
 } ; is ( $i , 2 , $message ) ; } } { for ( "\\n" , "\\t" , "\\014" , "\\r" ) { unlike ( $_ , qr/[[:print:]]/ , sprintf "\\\\%03o not in [[:print:]]; Bug 20010619.003" , ord $_ ) ; } for ( " " ) { like ( $_ , qr/[[:print:]]/ , "\'$_\' in [[:print:]]; Bug 20010619.003" ) ; } } { $_ = "ababacadaea" ; my $a = join ":" ,/b./gc ; my $b = join ":" ,/a./gc ; my $c = pos ; is ( "$a $b $c" , \'ba:ba ad:ae 10\' , "pos() works with () = m//; Bug 20010814.004" ) ; } { my $message = \'UTF-8 return values from functions; Bug 20010407.006\' ; package ID_20010407_006 ; sub x { "a\\x{1234}" } my $x = x ; my $y ; :: ok ( $x =~/(..)/ , $message ) ; $y = $1 ; :: ok ( length ( $y ) == 2 && $y eq $x , $message ) ; :: ok ( x =~/(..)/ , $message ) ; $y = $1 ; :: ok ( length ( $y ) == 2 && $y eq $x , $message ) ; } { my $x = "ab\\200d" ; ok $x =~/.*?\\200/ , "High bit fine" ; } { my $message = \'UTF-8 hash keys and /$/\' ; my $u = "a\\x{100}" ; my $v = substr ( $u , 0 , 1 ) ; my $w = substr ( $u , 1 , 1 ) ; my %u = ( $u => $u , $v => $v , $w => $w ) ; for ( keys %u ) { my $m1 =/^\\w*$/ ? 1 : 0 ; my $m2 = $u { $_ } =~/^\\w*$/ ? 1 : 0 ; is ( $m1 , $m2 , $message ) ; } } { my $message = "s///eg [change 13f46d054db22cf4]; Bug 20020124.005" ; for my $char ( "a" , "\\x{df}" , "\\x{100}" ) { my $x = "$char b $char" ; $x =~ s{($char)}{
                   "c" =~ /c/;
                   "x";
-            }ge ; is ( substr ( $x , 0 , 1 ) , substr ( $x , -1 , 1 ) , $message ) ; } } { my $message = "Correct pmop flags checked when empty pattern; Bug 20020412.005" ; my $num = 123 ; $num =~/\\d/ ; for ( 0 .. 1 ) { my $match = m?? + 0 ; ok ( $match != $_ , $message ) or diag ( sprintf "\'match one\' %s on %s iteration" => $match ? \'succeeded\' : \'failed\' , $_ ? \'second\' : \'first\' ) ; } $num =~/(\\d)/ ; my $result = join "" => $num =~ // g ; is ( $result , $num , $message ) ; } { my $message = \'UTF-8 regex matches above 32k; Bug 20020630.002\' ; for ( [ \'byte\' , "\\x{ff}" ] , [ \'utf8\' , "\\x{1ff}" ] ) { my ( $type , $char ) = @$_ ; for my $len ( 32000 , 32768 , 33000 ) { my $s = $char . "f" x $len ; my $r = $s =~/$char([f]*)/gc ; ok ( $r , $message ) or diag ( "<$type x $len>" ) ; ok ( ! $r || pos ( $s ) == $len + 1 , $message ) or diag ( "<$type x $len>; pos = @{[pos $s]}" ) ; } } } { my $s = "\\x{100}" x 5 ; my $ok = $s =~/(\\x{100}{4})/ ; my ( $ord , $len ) = ( ord $1 , length $1 ) ; ok $ok && $ord == 0x100 && $len == 4 , "No panic: end_shift [change 0e933229fa758625]" ; } { our $a = "x\\x{100}" ; chop $a ; $a .= "y" ; like ( $a , qr/^\\C/ , \'match one \\C on 1-byte UTF-8; Bug 15763\' ) ; like ( $a , qr/^\\C{1}/ , \'match \\C{1}; Bug 15763\' ) ; like ( $a , qr/^\\Cy/ , \'match \\Cy; Bug 15763\' ) ; like ( $a , qr/^\\C{1}y/ , \'match \\C{1}y; Bug 15763\' ) ; unlike ( $a , qr/^\\C\\Cy/ , q{don\'t match two \\Cy; Bug 15763} ) ; unlike ( $a , qr/^\\C{2}y/ , q{don\'t match \\C{2}y; Bug 15763} ) ; $a = "\\x{100}y" ; like ( $a , qr/^\\C/ , \'match one \\C on 2-byte UTF-8; Bug 15763\' ) ; like ( $a , qr/^\\C{1}/ , \'match \\C{1}; Bug 15763\' ) ; like ( $a , qr/^\\C\\C/ , \'match two \\C; Bug 15763\' ) ; like ( $a , qr/^\\C{2}/ , \'match \\C{2}; Bug 15763\' ) ; like ( $a , qr/^\\C\\C\\C/ , \'match three \\C on 2-byte UTF-8 and a byte; Bug 15763\' ) ; like ( $a , qr/^\\C{3}/ , \'match \\C{3}; Bug 15763\' ) ; like ( $a , qr/^\\C\\Cy/ , \'match two \\C; Bug 15763\' ) ; like ( $a , qr/^\\C{2}y/ , \'match \\C{2}; Bug 15763\' ) ; unlike ( $a , qr/^\\C\\C\\Cy/ , q{don\'t match three \\Cy; Bug 15763} ) ; unlike ( $a , qr/^\\C{2}\\Cy/ , q{don\'t match \\C{2}\\Cy; Bug 15763} ) ; unlike ( $a , qr/^\\C{3}y/ , q{don\'t match \\C{3}y; Bug 15763} ) ; $a = "\\x{1000}y" ; like ( $a , qr/^\\C/ , \'match one \\C on three-byte UTF-8; Bug 15763\' ) ; like ( $a , qr/^\\C{1}/ , \'match \\C{1}; Bug 15763\' ) ; like ( $a , qr/^\\C\\C/ , \'match two \\C; Bug 15763\' ) ; like ( $a , qr/^\\C{2}/ , \'match \\C{2}; Bug 15763\' ) ; like ( $a , qr/^\\C\\C\\C/ , \'match three \\C; Bug 15763\' ) ; like ( $a , qr/^\\C{3}/ , \'match \\C{3}; Bug 15763\' ) ; like ( $a , qr/^\\C\\C\\C\\C/ , \'match four \\C on three-byte UTF-8 and a byte; Bug 15763\' ) ; like ( $a , qr/^\\C{4}/ , \'match \\C{4}; Bug 15763\' ) ; like ( $a , qr/^\\C\\C\\Cy/ , \'match three \\Cy; Bug 15763\' ) ; like ( $a , qr/^\\C{3}y/ , \'match \\C{3}y; Bug 15763\' ) ; unlike ( $a , qr/^\\C\\C\\C\\Cy/ , q{don\'t match four \\Cy; Bug 15763} ) ; unlike ( $a , qr/^\\C{4}y/ , q{don\'t match \\C{4}y; Bug 15763} ) ; } { my $message = \'UTF-8 matching; Bug 15397\' ; like ( "\\x{100}" , qr/\\x{100}/ , $message ) ; like ( "\\x{100}" , qr/(\\x{100})/ , $message ) ; like ( "\\x{100}" , qr/(\\x{100}){1}/ , $message ) ; like ( "\\x{100}\\x{100}" , qr/(\\x{100}){2}/ , $message ) ; like ( "\\x{100}\\x{100}" , qr/(\\x{100})(\\x{100})/ , $message ) ; } { my $message = \'Neither ()* nor ()*? sets $1 when matched 0 times; Bug 7471\' ; local $_ = \'CD\' ; ok (/(AB)*?CD/ && ! defined $1 , $message ) ; ok (/(AB)*CD/ && ! defined $1 , $message ) ; } { my $message = "Caching shouldn\'t prevent match; Bug 3547" ; my $pattern = "^(b+?|a){1,2}c" ; ok ( "bac" =~/$pattern/ && $1 eq \'a\' , $message ) ; ok ( "bbac" =~/$pattern/ && $1 eq \'a\' , $message ) ; ok ( "bbbac" =~/$pattern/ && $1 eq \'a\' , $message ) ; ok ( "bbbbac" =~/$pattern/ && $1 eq \'a\' , $message ) ; } { ok ( "\\x{100}" =~/(.)/ , \'$1 should keep UTF-8 ness; Bug 18232\' ) ; is ( $1 , "\\x{100}" , \'$1 is UTF-8; Bug 18232\' ) ; { \'a\' =~/./ ; } is ( $1 , "\\x{100}" , \'$1 is still UTF-8; Bug 18232\' ) ; isnt ( $1 , "\\xC4\\x80" , \'$1 is not non-UTF-8; Bug 18232\' ) ; } { my $message = "Optimizer doesn\'t prematurely reject match; Bug 19767" ; use utf8 ; my $attr = \'Name-1\' ; my $NormalChar = qr/[\\p{IsDigit}\\p{IsLower}\\p{IsUpper}]/ ; my $NormalWord = qr/${NormalChar}+?/ ; my $PredNameHyphen = qr/^${NormalWord}(\\-${NormalWord})*?$/ ; $attr =~/^$/ ; like ( $attr , $PredNameHyphen , $message ) ; "a" =~ m/[b]/ ; like ( "0" , qr/\\p{N}+\\z/ , $message ) ; } { my $message = "(??{ }) doesn\'t return stale values; Bug 20683" ; our $p = 1 ; foreach ( 1 , 2 , 3 , 4 ) { $p ++ if/(??{ $p })/ } is ( $p , 5 , $message ) ; { package P ; $a = 1 ; sub TIESCALAR { bless [ ] } sub FETCH { $a ++ } } tie $p , "P" ; foreach ( 1 , 2 , 3 , 4 ) {/(??{ $p })/ } is ( $p , 5 , $message ) ; } { my $message = \'Markus Kuhn 2003-02-26\' ; my $x = "\\x{2019}\\nk" ; ok ( $x =~ s/(\\S)\\n(\\S)/$1 $2/sg , $message ) ; is ( $x , "\\x{2019} k" , $message ) ; $x = "b\\nk" ; ok ( $x =~ s/(\\S)\\n(\\S)/$1 $2/sg , $message ) ; is ( $x , "b k" , $message ) ; like ( "\\x{2019}" , qr/\\S/ , $message ) ; } { my $message = "(??{ .. }) in split doesn\'t corrupt its stack; Bug 21411" ; our $i ; is ( \'-1-3-5-\' , join ( \'\' , split/((??{$i++}))/ , \'-1-3-5-\' ) , $message ) ; no warnings \'syntax\' ; @_ = split/(?{\'WOW\'})/ , \'abc\' ; local $" = "|" ; is ( "@_" , "a|b|c" , $message ) ; } { local $: : TODO = "Recursive split is still broken" ; ok 0 , \'cache_re & "(?{": it dumps core in 5.6.1 & 5.8.0\' ; } { $_ = "code:   \'x\' { \'...\' }\\n" ; study ; my @x ; push @x , $& while m/\'[^\\\']*\'/gx ; local $" = ":" ; is ( "@x" , "\'x\':\'...\'" , "Parse::RecDescent triggered infinite loop; Bug 17757" ) ; } { sub func ( $ ) { ok ( "a\\nb" !~/^b/ , "Propagated modifier; $_[0]; Bug 22354" ) ; ok ( "a\\nb" =~/^b/m , "Propagated modifier; $_[0] - with /m; Bug 22354" ) ; } func "standalone" ; $_ = "x" ; s/x/func "in subst"/e ; $_ = "x" ; s/x/func "in multiline subst"/em ; $_ = "x" ;/x(?{func "in regexp"})/ ; $_ = "x" ;/x(?{func "in multiline regexp"})/m;
-    }
-
-    {
-        $_    = "abcdef\\n"; my @x = m/./g ; is ( "abcde" , $` , \'Global match sets $`; Bug 19049\' ) ; } { my $Mess = \'regrepeat() handles UTF-8 EXACT case right\' ; my $message = "$Mess; Bug 23769" ; my $s = "\\x{a0}\\x{a0}\\x{a0}\\x{100}" ; chop $s ; like ( $s , qr/\\x{a0}/ , $message ) ; like ( $s , qr/\\x{a0}+/ , $message ) ; like ( $s , qr/\\x{a0}\\x{a0}/ , $message ) ; $message = "$Mess (easy variant); Bug 23769" ; ok ( "aaa\\x{100}" =~/(a+)/ , $message ) ; is ( $1 , "aaa" , $message ) ; $message = "$Mess (easy invariant); Bug 23769" ; ok ( "aaa\\x{100}     " =~/(a+?)/ , $message ) ; is ( $1 , "a" , $message ) ; $message = "$Mess (regrepeat variant); Bug 23769" ; ok ( "\\xa0\\xa0\\xa0\\x{100}    " =~/(\\xa0+?)/ , $message ) ; is ( $1 , "\\xa0" , $message ) ; $message = "$Mess (regrepeat invariant); Bug 23769" ; ok ( "\\xa0\\xa0\\xa0\\x{100}" =~/(\\xa0+)/ , $message ) ; is ( $1 , "\\xa0\\xa0\\xa0" , $message ) ; $message = "$Mess (hard variant); Bug 23769" ; ok ( "\\xa0\\xa1\\xa0\\xa1\\xa0\\xa1\\x{100}" =~/((?:\\xa0\\xa1)+?)/ , $message ) ; is ( $1 , "\\xa0\\xa1" , $message ) ; $message = "$Mess (hard invariant); Bug 23769" ; ok ( "ababab\\x{100}  " =~/((?:ab)+)/ , $message ) ; is ( $1 , \'ababab\' , $message ) ; ok ( "\\xa0\\xa1\\xa0\\xa1\\xa0\\xa1\\x{100}" =~/((?:\\xa0\\xa1)+)/ , $message ) ; is ( $1 , "\\xa0\\xa1\\xa0\\xa1\\xa0\\xa1" , $message ) ; ok ( "ababab\\x{100}  " =~/((?:ab)+?)/ , $message ) ; is ( $1 , "ab" , $message ) ; $message = "Don\'t match first byte of UTF-8 representation; Bug 23769" ; unlike ( "\\xc4\\xc4\\xc4" , qr/(\\x{100}+)/ , $message ) ; unlike ( "\\xc4\\xc4\\xc4" , qr/(\\x{100}+?)/ , $message ) ; unlike ( "\\xc4\\xc4\\xc4" , qr/(\\x{100}++)/ , $message ) ; } { is ( eval { my ( $x , $y ) = "bca" =~/^(?=.*(a)).*(bc)/ ; "$x-$y" } , "a-bc" , \'Captures can move backwards in string; Bug 25269\' ) ; } { like ( "a\\cAb" , qr/\\cA/ , \'\\cA in pattern; Bug 27940\' ) ; like ( "a\\cAb" , qr/[\\cA]/ , \'\\cA in character class; Bug 27940\' ) ; like ( "a\\cAb" , qr/[\\cA-\\cB]/ , \'\\cA in character class range; Bug 27940\' ) ; like ( "abc" , qr/[^\\cA-\\cB]/ , \'\\cA in negated character class range; Bug 27940\' ) ; like ( "a\\cBb" , qr/[\\cA-\\cC]/ , \'\\cB in character class range; Bug 27940\' ) ; like ( "a\\cCbc" , qr/[^\\cA-\\cB]/ , \'\\cC in negated character class range; Bug 27940\' ) ; like ( "a\\cAb" , qr/(??{"\\cA"})/ , \'\\cA in ??{} pattern; Bug 27940\' ) ; unlike ( "ab" , qr/a\\cIb/x , \'\\cI in pattern; Bug 27940\' ) ; } { ok ( "abc" =~/^abc(\\z)?/ && defined ( $1 ) , \'Optional zero-width match at end of string; Bug 28532\' ) ; ok ( "abc" =~/^abc(\\z)??/ && ! defined ( $1 ) , \'Optional zero-width match at end of string; Bug 28532\' ) ; } { my $utf8 = "\\xe9\\x{100}" ; chop $utf8 ; my $latin1 = "\\xe9" ; like ( $utf8 , qr/\\xe9/i , "utf8/latin; Bug 36207" ) ; like ( $utf8 , qr/$latin1/i , "utf8/latin runtime; Bug 36207" ) ; like ( $utf8 , qr/(abc|\\xe9)/i , "utf8/latin trie; Bug 36207" ) ; like ( $utf8 , qr/(abc|$latin1)/i , "utf8/latin trie runtime; Bug 36207" ) ; like ( "\\xe9" , qr/$utf8/i , "latin/utf8; Bug 36207" ) ; like ( "\\xe9" , qr/(abc|$utf8)/i , "latin/utf8 trie; Bug 36207" ) ; like ( $latin1 , qr/$utf8/i , "latin/utf8 runtime; Bug 36207" ) ; like ( $latin1 , qr/(abc|$utf8)/i , "latin/utf8 trie runtime; Bug 36207" ) ; } { my $s = "abcd" ; $s =~/(..)(..)/g ; $s = $1 ; $s = $2 ; is ( $2 , \'cd\' , "Assigning to original string does not corrupt match vars; Bug 37038" ) ; } { { package wooosh ; sub gloople { "!" } } my $aeek = bless { } => \'wooosh\' ; is ( do { $aeek-> gloople ( ) =~/(.)/g } , 1 , "//g match against return value of sub [change e26a497577f3ce7b]" ) ; sub gloople { "!" } is ( do { gloople ( ) =~/(.)/g } , 1 , "change e26a497577f3ce7b didn\'t affect sub calls for some reason" ) ; } { { package lv ; our $var = "abc" ; sub variable : lvalue { $var } } my $o = bless [ ] => \'lv\' ; my $f = "" ; my $r = eval { for ( 1 .. 2 ) { $f .= $1 if $o-> variable =~/(.)/g ; } 1 ; } ; if ( $r ) { is ( $f , "ab" , "pos() retained between calls" ) ; } else { ok 0 , "Code failed: $@" ; } our $var = "abc" ; sub variable : lvalue { $var } my $g = "" ; my $s = eval { for ( 1 .. 2 ) { $g .= $1 if variable =~/(.)/g ; } 1 ; } ; if ( $s ) { is ( $g , "ab" , "pos() retained between calls" ) ; } else { ok 0 , "Code failed: $@" ; } } SKIP : { skip "In EBCDIC" if $: : IS_EBCDIC ; no warnings \'utf8\' ; $_ = pack \'U0C2\' , 0xa2 , 0xf8 ; my $ret = 0 ; is ( do { ! ( $ret = s/[\\0]+//g ) } , 1 , "Ill-formed UTF-8 doesn\'t match NUL in class; Bug 37836" ) ; } { no warnings \'utf8\' ; my ( $c , $r , $s ) ; $c = chr 0xffff ; $c =~ s/$c//g ; is ( $c , "" , "U+FFFF, parsed as atom; Bug 38293" ) ; $c = chr 0xffff ; $r = "\\\\$c" ; $c =~ s/$r//g ; is ( $c , "" , "U+FFFF backslashed, parsed as atom; Bug 38293" ) ; $c = chr 0xffff ; $c =~ s/[$c]//g ; is ( $c , "" , "U+FFFF, parsed in class; Bug 38293" ) ; $c = chr 0xffff ; $r = "[\\\\$c]" ; $c =~ s/$r//g ; is ( $c , "" , "U+FFFF backslashed, parsed in class; Bug 38293" ) ; $s = "A\\x{ffff}B" ; $s =~ s/\\x{ffff}//i ; is ( $s , "AB" , "U+FFFF, EXACTF; Bug 38293" ) ; $s = "\\x{ffff}A" ; $s =~ s/\\bA// ; is ( $s , "\\x{ffff}" , "U+FFFF, BOUND; Bug 38293" ) ; $s = "\\x{ffff}!" ; $s =~ s/\\B!// ; is ( $s , "\\x{ffff}" , "U+FFFF, NBOUND; Bug 38293" ) ; } { my @chars = ( "A" .. "Z" ) ; my $delim = "," ; my $size = 32771 - 4 ; my $str = \'\' ; for ( my $i = 0 ; $i < $size ; $ i ++ ) { $str .= $chars [ rand @chars ] ; } $str .= ( $delim x 4 ) ; my $res ; my $matched ; ok ( $str =~ s/^(.*?)${delim}{4}//s , "Pattern matches; Bug 39583" ) ; is ( $str , "" , "Empty string; Bug 39583" ) ; ok ( defined $1 && length ( $1 ) == $size , \'$1 is correct size; Bug 39583\' ) ; } { like ( "\\0-A" , qr/\\c@-A/ , \'@- should not be interpolated in a pattern; Bug 27940\' ) ; like ( "\\0\\0A" , qr/\\c@+A/ , \'@+ should not be interpolated in a pattern; Bug 27940\' ) ; like ( "X\\@-A" , qr/X@-A/ , \'@- should not be interpolated in a pattern; Bug 27940\' ) ; like ( "X\\@\\@A" , qr/X@+A/ , \'@+ should not be interpolated in a pattern; Bug 27940\' ) ; like ( "X\\0A" , qr/X\\c@?A/ , \'\\c@?; Bug 27940\' ) ; like ( "X\\0A" , qr/X\\c@*A/ , \'\\c@*; Bug 27940\' ) ; like ( "X\\0A" , qr/X\\c@(A)/ , \'\\c@(; Bug 27940\' ) ; like ( "X\\0A" , qr/X(\\c@)A/ , \'\\c@); Bug 27940\' ) ; like ( "X\\0A" , qr/X\\c@|ZA/ , \'\\c@|; Bug 27940\' ) ; like ( "X\\@A" , qr/X@?A/ , \'@?; Bug 27940\' ) ; like ( "X\\@A" , qr/X@*A/ , \'@*; Bug 27940\' ) ; like ( "X\\@A" , qr/X@(A)/ , \'@(; Bug 27940\' ) ; like ( "X\\@A" , qr/X(@)A/ , \'@); Bug 27940\' ) ; like ( "X\\@A" , qr/X@|ZA/ , \'@|; Bug 27940\' ) ; local $" = \',\' ; like ( \'abc\' , qr/(.)(.)(.)/ , \'The last successful match is bogus; Bug 27940\' ) ; like ( "A@+B" , qr/A@{+}B/ , \'Interpolation of @+ in /@{+}/; Bug 27940\' ) ; like ( "A@-B" , qr/A@{-}B/ , \'Interpolation of @- in /@{-}/; Bug 27940\' ) ; like ( "A@+B" , qr/A@{+}B/x , \'Interpolation of @+ in /@{+}/x; Bug 27940\' ) ; like ( "A@-B" , qr/A@{-}B/x , \'Interpolation of @- in /@{-}/x; Bug 27940\' ) ; } { my $s = \'foo bar baz\' ; my ( @k , @v , @fetch , $res ) ; my $count = 0 ; my @names = qw($+{A} $+{B} $+{C}) ; if ( $s =~/(?<A>foo)\\s+(?<B>bar)?\\s+(?<C>baz)/ ) { while ( my ( $k , $v ) = each ( %+ ) ) { $count ++ ; } @k = sort keys ( %+ ) ; @v = sort values ( %+ ) ; $res = 1 ; push @fetch , [ "$+{A}" , "$1" ] , [ "$+{B}" , "$2" ] , [ "$+{C}" , "$3" ] , ; } foreach ( 0 .. 2 ) { if ( $fetch [ $_ ] ) { is ( $fetch [ $_ ] [ 0 ] , $fetch [ $_ ] [ 1 ] , "$names[$_]; Bug 50496" ) ; } else { ok 0 , $names [ $_ ] ; } } is ( $res , 1 , "\'$s\' =~ /(?<A>foo)\\\\s+(?<B>bar)?\\\\s+(?<C>baz)/; Bug 50496" ) ; is ( $count , 3 , "Got 3 keys in %+ via each; Bug 50496" ) ; is ( 0 + @k , 3 , "Got 3 keys in %+ via keys; Bug 50496" ) ; is ( "@k" , "A B C" , "Got expected keys; Bug 50496" ) ; is ( "@v" , "bar baz foo" , "Got expected values; Bug 50496" ) ; eval \'
+            }ge ; is ( substr ( $x , 0 , 1 ) , substr ( $x , -1 , 1 ) , $message ) ; } } { my $message = "Correct pmop flags checked when empty pattern; Bug 20020412.005" ; my $num = 123 ; $num =~/\\d/ ; for ( 0 .. 1 ) { my $match = m?? + 0 ; ok ( $match != $_ , $message ) or diag ( sprintf "\'match one\' %s on %s iteration" => $match ? \'succeeded\' : \'failed\' , $_ ? \'second\' : \'first\' ) ; } $num =~/(\\d)/ ; my $result = join "" => $num =~ // g ; is ( $result , $num , $message ) ; } { my $message = \'UTF-8 regex matches above 32k; Bug 20020630.002\' ; for ( [ \'byte\' , "\\x{ff}" ] , [ \'utf8\' , "\\x{1ff}" ] ) { my ( $type , $char ) = @$_ ; for my $len ( 32000 , 32768 , 33000 ) { my $s = $char . "f" x $len ; my $r = $s =~/$char([f]*)/gc ; ok ( $r , $message ) or diag ( "<$type x $len>" ) ; ok ( ! $r || pos ( $s ) == $len + 1 , $message ) or diag ( "<$type x $len>; pos = @{[pos $s]}" ) ; } } } { my $s = "\\x{100}" x 5 ; my $ok = $s =~/(\\x{100}{4})/ ; my ( $ord , $len ) = ( ord $1 , length $1 ) ; ok $ok && $ord == 0x100 && $len == 4 , "No panic: end_shift [change 0e933229fa758625]" ; } { our $a = "x\\x{100}" ; chop $a ; $a .= "y" ; like ( $a , qr/^\\C/ , \'match one \\C on 1-byte UTF-8; Bug 15763\' ) ; like ( $a , qr/^\\C{1}/ , \'match \\C{1}; Bug 15763\' ) ; like ( $a , qr/^\\Cy/ , \'match \\Cy; Bug 15763\' ) ; like ( $a , qr/^\\C{1}y/ , \'match \\C{1}y; Bug 15763\' ) ; unlike ( $a , qr/^\\C\\Cy/ , q{don\'t match two \\Cy; Bug 15763} ) ; unlike ( $a , qr/^\\C{2}y/ , q{don\'t match \\C{2}y; Bug 15763} ) ; $a = "\\x{100}y" ; like ( $a , qr/^\\C/ , \'match one \\C on 2-byte UTF-8; Bug 15763\' ) ; like ( $a , qr/^\\C{1}/ , \'match \\C{1}; Bug 15763\' ) ; like ( $a , qr/^\\C\\C/ , \'match two \\C; Bug 15763\' ) ; like ( $a , qr/^\\C{2}/ , \'match \\C{2}; Bug 15763\' ) ; like ( $a , qr/^\\C\\C\\C/ , \'match three \\C on 2-byte UTF-8 and a byte; Bug 15763\' ) ; like ( $a , qr/^\\C{3}/ , \'match \\C{3}; Bug 15763\' ) ; like ( $a , qr/^\\C\\Cy/ , \'match two \\C; Bug 15763\' ) ; like ( $a , qr/^\\C{2}y/ , \'match \\C{2}; Bug 15763\' ) ; unlike ( $a , qr/^\\C\\C\\Cy/ , q{don\'t match three \\Cy; Bug 15763} ) ; unlike ( $a , qr/^\\C{2}\\Cy/ , q{don\'t match \\C{2}\\Cy; Bug 15763} ) ; unlike ( $a , qr/^\\C{3}y/ , q{don\'t match \\C{3}y; Bug 15763} ) ; $a = "\\x{1000}y" ; like ( $a , qr/^\\C/ , \'match one \\C on three-byte UTF-8; Bug 15763\' ) ; like ( $a , qr/^\\C{1}/ , \'match \\C{1}; Bug 15763\' ) ; like ( $a , qr/^\\C\\C/ , \'match two \\C; Bug 15763\' ) ; like ( $a , qr/^\\C{2}/ , \'match \\C{2}; Bug 15763\' ) ; like ( $a , qr/^\\C\\C\\C/ , \'match three \\C; Bug 15763\' ) ; like ( $a , qr/^\\C{3}/ , \'match \\C{3}; Bug 15763\' ) ; like ( $a , qr/^\\C\\C\\C\\C/ , \'match four \\C on three-byte UTF-8 and a byte; Bug 15763\' ) ; like ( $a , qr/^\\C{4}/ , \'match \\C{4}; Bug 15763\' ) ; like ( $a , qr/^\\C\\C\\Cy/ , \'match three \\Cy; Bug 15763\' ) ; like ( $a , qr/^\\C{3}y/ , \'match \\C{3}y; Bug 15763\' ) ; unlike ( $a , qr/^\\C\\C\\C\\Cy/ , q{don\'t match four \\Cy; Bug 15763} ) ; unlike ( $a , qr/^\\C{4}y/ , q{don\'t match \\C{4}y; Bug 15763} ) ; } { my $message = \'UTF-8 matching; Bug 15397\' ; like ( "\\x{100}" , qr/\\x{100}/ , $message ) ; like ( "\\x{100}" , qr/(\\x{100})/ , $message ) ; like ( "\\x{100}" , qr/(\\x{100}){1}/ , $message ) ; like ( "\\x{100}\\x{100}" , qr/(\\x{100}){2}/ , $message ) ; like ( "\\x{100}\\x{100}" , qr/(\\x{100})(\\x{100})/ , $message ) ; } { my $message = \'Neither ()* nor ()*? sets $1 when matched 0 times; Bug 7471\' ; local $_ = \'CD\' ; ok (/(AB)*?CD/ && ! defined $1 , $message ) ; ok (/(AB)*CD/ && ! defined $1 , $message ) ; } { my $message = "Caching shouldn\'t prevent match; Bug 3547" ; my $pattern = "^(b+?|a){1,2}c" ; ok ( "bac" =~/$pattern/ && $1 eq \'a\' , $message ) ; ok ( "bbac" =~/$pattern/ && $1 eq \'a\' , $message ) ; ok ( "bbbac" =~/$pattern/ && $1 eq \'a\' , $message ) ; ok ( "bbbbac" =~/$pattern/ && $1 eq \'a\' , $message ) ; } { ok ( "\\x{100}" =~/(.)/ , \'$1 should keep UTF-8 ness; Bug 18232\' ) ; is ( $1 , "\\x{100}" , \'$1 is UTF-8; Bug 18232\' ) ; { \'a\' =~/./ ; } is ( $1 , "\\x{100}" , \'$1 is still UTF-8; Bug 18232\' ) ; isnt ( $1 , "\\xC4\\x80" , \'$1 is not non-UTF-8; Bug 18232\' ) ; } { my $message = "Optimizer doesn\'t prematurely reject match; Bug 19767" ; use utf8 ; my $attr = \'Name-1\' ; my $NormalChar = qr/[\\p{IsDigit}\\p{IsLower}\\p{IsUpper}]/ ; my $NormalWord = qr/${NormalChar}+?/ ; my $PredNameHyphen = qr/^${NormalWord}(\\-${NormalWord})*?$/ ; $attr =~/^$/ ; like ( $attr , $PredNameHyphen , $message ) ; "a" =~ m/[b]/ ; like ( "0" , qr/\\p{N}+\\z/ , $message ) ; } { my $message = "(??{ }) doesn\'t return stale values; Bug 20683" ; our $p = 1 ; foreach ( 1 , 2 , 3 , 4 ) { $p ++ if/(??{ $p })/ } is ( $p , 5 , $message ) ; { package P ; $a = 1 ; sub TIESCALAR { bless [ ] } sub FETCH { $a ++ } } tie $p , "P" ; foreach ( 1 , 2 , 3 , 4 ) {/(??{ $p })/ } is ( $p , 5 , $message ) ; } { my $message = \'Markus Kuhn 2003-02-26\' ; my $x = "\\x{2019}\\nk" ; ok ( $x =~ s/(\\S)\\n(\\S)/$1 $2/sg , $message ) ; is ( $x , "\\x{2019} k" , $message ) ; $x = "b\\nk" ; ok ( $x =~ s/(\\S)\\n(\\S)/$1 $2/sg , $message ) ; is ( $x , "b k" , $message ) ; like ( "\\x{2019}" , qr/\\S/ , $message ) ; } { my $message = "(??{ .. }) in split doesn\'t corrupt its stack; Bug 21411" ; our $i ; is ( \'-1-3-5-\' , join ( \'\' , split/((??{$i++}))/ , \'-1-3-5-\' ) , $message ) ; no warnings \'syntax\' ; @_ = split/(?{\'WOW\'})/ , \'abc\' ; local $" = "|" ; is ( "@_" , "a|b|c" , $message ) ; } { local $: : TODO = "Recursive split is still broken" ; ok 0 , \'cache_re & "(?{": it dumps core in 5.6.1 & 5.8.0\' ; } { $_ = "code:   \'x\' { \'...\' }\\n" ; study ; my @x ; push @x , $& while m/\'[^\\\']*\'/gx ; local $" = ":" ; is ( "@x" , "\'x\':\'...\'" , "Parse::RecDescent triggered infinite loop; Bug 17757" ) ; } { sub func ( $ ) { ok ( "a\\nb" !~/^b/ , "Propagated modifier; $_[0]; Bug 22354" ) ; ok ( "a\\nb" =~/^b/m , "Propagated modifier; $_[0] - with /m; Bug 22354" ) ; } func "standalone" ; $_ = "x" ; s/x/func "in subst"/e ; $_ = "x" ; s/x/func "in multiline subst"/em ; $_ = "x" ;/x(?{func "in regexp"})/ ; $_ = "x" ;/x(?{func "in multiline regexp"})/m ; } { $_ = "abcdef\\n" ; my @x = m/./g ; is ( "abcde" , $` , \'Global match sets $`; Bug 19049\' ) ; } { my $Mess = \'regrepeat() handles UTF-8 EXACT case right\' ; my $message = "$Mess; Bug 23769" ; my $s = "\\x{a0}\\x{a0}\\x{a0}\\x{100}" ; chop $s ; like ( $s , qr/\\x{a0}/ , $message ) ; like ( $s , qr/\\x{a0}+/ , $message ) ; like ( $s , qr/\\x{a0}\\x{a0}/ , $message ) ; $message = "$Mess (easy variant); Bug 23769" ; ok ( "aaa\\x{100}" =~/(a+)/ , $message ) ; is ( $1 , "aaa" , $message ) ; $message = "$Mess (easy invariant); Bug 23769" ; ok ( "aaa\\x{100}     " =~/(a+?)/ , $message ) ; is ( $1 , "a" , $message ) ; $message = "$Mess (regrepeat variant); Bug 23769" ; ok ( "\\xa0\\xa0\\xa0\\x{100}    " =~/(\\xa0+?)/ , $message ) ; is ( $1 , "\\xa0" , $message ) ; $message = "$Mess (regrepeat invariant); Bug 23769" ; ok ( "\\xa0\\xa0\\xa0\\x{100}" =~/(\\xa0+)/ , $message ) ; is ( $1 , "\\xa0\\xa0\\xa0" , $message ) ; $message = "$Mess (hard variant); Bug 23769" ; ok ( "\\xa0\\xa1\\xa0\\xa1\\xa0\\xa1\\x{100}" =~/((?:\\xa0\\xa1)+?)/ , $message ) ; is ( $1 , "\\xa0\\xa1" , $message ) ; $message = "$Mess (hard invariant); Bug 23769" ; ok ( "ababab\\x{100}  " =~/((?:ab)+)/ , $message ) ; is ( $1 , \'ababab\' , $message ) ; ok ( "\\xa0\\xa1\\xa0\\xa1\\xa0\\xa1\\x{100}" =~/((?:\\xa0\\xa1)+)/ , $message ) ; is ( $1 , "\\xa0\\xa1\\xa0\\xa1\\xa0\\xa1" , $message ) ; ok ( "ababab\\x{100}  " =~/((?:ab)+?)/ , $message ) ; is ( $1 , "ab" , $message ) ; $message = "Don\'t match first byte of UTF-8 representation; Bug 23769" ; unlike ( "\\xc4\\xc4\\xc4" , qr/(\\x{100}+)/ , $message ) ; unlike ( "\\xc4\\xc4\\xc4" , qr/(\\x{100}+?)/ , $message ) ; unlike ( "\\xc4\\xc4\\xc4" , qr/(\\x{100}++)/ , $message ) ; } { is ( eval { my ( $x , $y ) = "bca" =~/^(?=.*(a)).*(bc)/ ; "$x-$y" } , "a-bc" , \'Captures can move backwards in string; Bug 25269\' ) ; } { like ( "a\\cAb" , qr/\\cA/ , \'\\cA in pattern; Bug 27940\' ) ; like ( "a\\cAb" , qr/[\\cA]/ , \'\\cA in character class; Bug 27940\' ) ; like ( "a\\cAb" , qr/[\\cA-\\cB]/ , \'\\cA in character class range; Bug 27940\' ) ; like ( "abc" , qr/[^\\cA-\\cB]/ , \'\\cA in negated character class range; Bug 27940\' ) ; like ( "a\\cBb" , qr/[\\cA-\\cC]/ , \'\\cB in character class range; Bug 27940\' ) ; like ( "a\\cCbc" , qr/[^\\cA-\\cB]/ , \'\\cC in negated character class range; Bug 27940\' ) ; like ( "a\\cAb" , qr/(??{"\\cA"})/ , \'\\cA in ??{} pattern; Bug 27940\' ) ; unlike ( "ab" , qr/a\\cIb/x , \'\\cI in pattern; Bug 27940\' ) ; } { ok ( "abc" =~/^abc(\\z)?/ && defined ( $1 ) , \'Optional zero-width match at end of string; Bug 28532\' ) ; ok ( "abc" =~/^abc(\\z)??/ && ! defined ( $1 ) , \'Optional zero-width match at end of string; Bug 28532\' ) ; } { my $utf8 = "\\xe9\\x{100}" ; chop $utf8 ; my $latin1 = "\\xe9" ; like ( $utf8 , qr/\\xe9/i , "utf8/latin; Bug 36207" ) ; like ( $utf8 , qr/$latin1/i , "utf8/latin runtime; Bug 36207" ) ; like ( $utf8 , qr/(abc|\\xe9)/i , "utf8/latin trie; Bug 36207" ) ; like ( $utf8 , qr/(abc|$latin1)/i , "utf8/latin trie runtime; Bug 36207" ) ; like ( "\\xe9" , qr/$utf8/i , "latin/utf8; Bug 36207" ) ; like ( "\\xe9" , qr/(abc|$utf8)/i , "latin/utf8 trie; Bug 36207" ) ; like ( $latin1 , qr/$utf8/i , "latin/utf8 runtime; Bug 36207" ) ; like ( $latin1 , qr/(abc|$utf8)/i , "latin/utf8 trie runtime; Bug 36207" ) ; } { my $s = "abcd" ; $s =~/(..)(..)/g ; $s = $1 ; $s = $2 ; is ( $2 , \'cd\' , "Assigning to original string does not corrupt match vars; Bug 37038" ) ; } { { package wooosh ; sub gloople { "!" } } my $aeek = bless { } => \'wooosh\' ; is ( do { $aeek-> gloople ( ) =~/(.)/g } , 1 , "//g match against return value of sub [change e26a497577f3ce7b]" ) ; sub gloople { "!" } is ( do { gloople ( ) =~/(.)/g } , 1 , "change e26a497577f3ce7b didn\'t affect sub calls for some reason" ) ; } { { package lv ; our $var = "abc" ; sub variable : lvalue { $var } } my $o = bless [ ] => \'lv\' ; my $f = "" ; my $r = eval { for ( 1 .. 2 ) { $f .= $1 if $o-> variable =~/(.)/g ; } 1 ; } ; if ( $r ) { is ( $f , "ab" , "pos() retained between calls" ) ; } else { ok 0 , "Code failed: $@" ; } our $var = "abc" ; sub variable : lvalue { $var } my $g = "" ; my $s = eval { for ( 1 .. 2 ) { $g .= $1 if variable =~/(.)/g ; } 1 ; } ; if ( $s ) { is ( $g , "ab" , "pos() retained between calls" ) ; } else { ok 0 , "Code failed: $@" ; } } SKIP : { skip "In EBCDIC" if $: : IS_EBCDIC ; no warnings \'utf8\' ; $_ = pack \'U0C2\' , 0xa2 , 0xf8 ; my $ret = 0 ; is ( do { ! ( $ret = s/[\\0]+//g ) } , 1 , "Ill-formed UTF-8 doesn\'t match NUL in class; Bug 37836" ) ; } { no warnings \'utf8\' ; my ( $c , $r , $s ) ; $c = chr 0xffff ; $c =~ s/$c//g ; is ( $c , "" , "U+FFFF, parsed as atom; Bug 38293" ) ; $c = chr 0xffff ; $r = "\\\\$c" ; $c =~ s/$r//g ; is ( $c , "" , "U+FFFF backslashed, parsed as atom; Bug 38293" ) ; $c = chr 0xffff ; $c =~ s/[$c]//g ; is ( $c , "" , "U+FFFF, parsed in class; Bug 38293" ) ; $c = chr 0xffff ; $r = "[\\\\$c]" ; $c =~ s/$r//g ; is ( $c , "" , "U+FFFF backslashed, parsed in class; Bug 38293" ) ; $s = "A\\x{ffff}B" ; $s =~ s/\\x{ffff}//i ; is ( $s , "AB" , "U+FFFF, EXACTF; Bug 38293" ) ; $s = "\\x{ffff}A" ; $s =~ s/\\bA// ; is ( $s , "\\x{ffff}" , "U+FFFF, BOUND; Bug 38293" ) ; $s = "\\x{ffff}!" ; $s =~ s/\\B!// ; is ( $s , "\\x{ffff}" , "U+FFFF, NBOUND; Bug 38293" ) ; } { my @chars = ( "A" .. "Z" ) ; my $delim = "," ; my $size = 32771 - 4 ; my $str = \'\' ; for ( my $i = 0 ; $i < $size ; $ i ++ ) { $str .= $chars [ rand @chars ] ; } $str .= ( $delim x 4 ) ; my $res ; my $matched ; ok ( $str =~ s/^(.*?)${delim}{4}//s , "Pattern matches; Bug 39583" ) ; is ( $str , "" , "Empty string; Bug 39583" ) ; ok ( defined $1 && length ( $1 ) == $size , \'$1 is correct size; Bug 39583\' ) ; } { like ( "\\0-A" , qr/\\c@-A/ , \'@- should not be interpolated in a pattern; Bug 27940\' ) ; like ( "\\0\\0A" , qr/\\c@+A/ , \'@+ should not be interpolated in a pattern; Bug 27940\' ) ; like ( "X\\@-A" , qr/X@-A/ , \'@- should not be interpolated in a pattern; Bug 27940\' ) ; like ( "X\\@\\@A" , qr/X@+A/ , \'@+ should not be interpolated in a pattern; Bug 27940\' ) ; like ( "X\\0A" , qr/X\\c@?A/ , \'\\c@?; Bug 27940\' ) ; like ( "X\\0A" , qr/X\\c@*A/ , \'\\c@*; Bug 27940\' ) ; like ( "X\\0A" , qr/X\\c@(A)/ , \'\\c@(; Bug 27940\' ) ; like ( "X\\0A" , qr/X(\\c@)A/ , \'\\c@); Bug 27940\' ) ; like ( "X\\0A" , qr/X\\c@|ZA/ , \'\\c@|; Bug 27940\' ) ; like ( "X\\@A" , qr/X@?A/ , \'@?; Bug 27940\' ) ; like ( "X\\@A" , qr/X@*A/ , \'@*; Bug 27940\' ) ; like ( "X\\@A" , qr/X@(A)/ , \'@(; Bug 27940\' ) ; like ( "X\\@A" , qr/X(@)A/ , \'@); Bug 27940\' ) ; like ( "X\\@A" , qr/X@|ZA/ , \'@|; Bug 27940\' ) ; local $" = \',\' ; like ( \'abc\' , qr/(.)(.)(.)/ , \'The last successful match is bogus; Bug 27940\' ) ; like ( "A@+B" , qr/A@{+}B/ , \'Interpolation of @+ in /@{+}/; Bug 27940\' ) ; like ( "A@-B" , qr/A@{-}B/ , \'Interpolation of @- in /@{-}/; Bug 27940\' ) ; like ( "A@+B" , qr/A@{+}B/x , \'Interpolation of @+ in /@{+}/x; Bug 27940\' ) ; like ( "A@-B" , qr/A@{-}B/x , \'Interpolation of @- in /@{-}/x; Bug 27940\' ) ; } { my $s = \'foo bar baz\' ; my ( @k , @v , @fetch , $res ) ; my $count = 0 ; my @names = qw($+{A} $+{B} $+{C}) ; if ( $s =~/(?<A>foo)\\s+(?<B>bar)?\\s+(?<C>baz)/ ) { while ( my ( $k , $v ) = each ( %+ ) ) { $count ++ ; } @k = sort keys ( %+ ) ; @v = sort values ( %+ ) ; $res = 1 ; push @fetch , [ "$+{A}" , "$1" ] , [ "$+{B}" , "$2" ] , [ "$+{C}" , "$3" ] , ; } foreach ( 0 .. 2 ) { if ( $fetch [ $_ ] ) { is ( $fetch [ $_ ] [ 0 ] , $fetch [ $_ ] [ 1 ] , "$names[$_]; Bug 50496" ) ; } else { ok 0 , $names [ $_ ] ; } } is ( $res , 1 , "\'$s\' =~ /(?<A>foo)\\\\s+(?<B>bar)?\\\\s+(?<C>baz)/; Bug 50496" ) ; is ( $count , 3 , "Got 3 keys in %+ via each; Bug 50496" ) ; is ( 0 + @k , 3 , "Got 3 keys in %+ via keys; Bug 50496" ) ; is ( "@k" , "A B C" , "Got expected keys; Bug 50496" ) ; is ( "@v" , "bar baz foo" , "Got expected values; Bug 50496" ) ; eval \'
             no warnings "uninitialized";
             print for $+ {this_key_doesnt_exist};
         \' ; is ( $@ , \'\' , \'lvalue $+ {...} should not throw an exception; Bug 50496\' ) ; } { my $s = \'foo bar baz\' ; my ( @k , @v , @fetch , $res ) ; my $count = 0 ; my @names = qw($+{A} $+{B} $+{C} $+{D}) ; if ( $s =~/(?<D>(?<A>foo)\\s+(?<B>bar)?\\s+(?<C>baz))/ ) { while ( my ( $k , $v ) = each ( %+ ) ) { $count ++ ; } @k = sort keys ( %+ ) ; @v = sort values ( %+ ) ; $res = 1 ; push @fetch , [ "$+{A}" , "$2" ] , [ "$+{B}" , "$3" ] , [ "$+{C}" , "$4" ] , [ "$+{D}" , "$1" ] , ; } foreach ( 0 .. 3 ) { if ( $fetch [ $_ ] ) { is ( $fetch [ $_ ] [ 0 ] , $fetch [ $_ ] [ 1 ] , "$names[$_]; Bug 50496" ) ; } else { ok 0 , $names [ $_ ] ; } } is ( $res , 1 , "\'$s\' =~ /(?<D>(?<A>foo)\\\\s+(?<B>bar)?\\\\s+(?<C>baz))/; Bug 50496" ) ; is ( $count , 4 , "Got 4 keys in %+ via each; Bug 50496" ) ; is ( @k , 4 , "Got 4 keys in %+ via keys; Bug 50496" ) ; is ( "@k" , "A B C D" , "Got expected keys; Bug 50496" ) ; is ( "@v" , "bar baz foo foo bar baz" , "Got expected values; Bug 50496" ) ; eval \'
             no warnings "uninitialized";
             print for $+ {this_key_doesnt_exist};
-        \' ; is ( $@ , \'\' , \'lvalue $+ {...} should not throw an exception; Bug 50496\' ) ; } { my $str = \'abc\' ; my $count = 0 ; my $mval = 0 ; my $pval = 0 ; while ( $str =~/b/g ) { $mval = $# - ; $pval = $# + ; $count ++ } is ( $mval , 0 , \'@- should be empty; Bug 36046\' ) ; is ( $pval , 0 , \'@+ should be empty; Bug 36046\' ) ; is ( $count , 1 , \'Should have matched once only; Bug 36046\' ) ; } { my $message = \'/m in precompiled regexp; Bug 40684\' ; my $s = "abc\\ndef" ; my $rex = qr\'^abc$\'m;
-        ok($s =~ m/$rex/, $message); ok ( $s =~ m/^abc$/m , $message ) ; } { my $message = \'(?: ... )? should not lose $^R; Bug 36909\' ; $^R = \'Nothing\' ; { local $^R = "Bad" ; ok ( \'x foofoo y\' =~ m{
+        \' ; is ( $@ , \'\' , \'lvalue $+ {...} should not throw an exception; Bug 50496\' ) ; } { my $str = \'abc\' ; my $count = 0 ; my $mval = 0 ; my $pval = 0 ; while ( $str =~/b/g ) { $mval = $# - ; $pval = $# + ; $count ++ } is ( $mval , 0 , \'@- should be empty; Bug 36046\' ) ; is ( $pval , 0 , \'@+ should be empty; Bug 36046\' ) ; is ( $count , 1 , \'Should have matched once only; Bug 36046\' ) ; } { my $message = \'/m in precompiled regexp; Bug 40684\' ; my $s = "abc\\ndef" ; my $rex = qr\'^abc$\'m ; ok ( $s =~ m/$rex/ , $message ) ; ok ( $s =~ m/^abc$/m , $message ) ; } { my $message = \'(?: ... )? should not lose $^R; Bug 36909\' ; $^R = \'Nothing\' ; { local $^R = "Bad" ; ok ( \'x foofoo y\' =~ m{
                       (foo) # $^R correctly set
                       (?{ "last regexp code result" })
             }x , $message ) ; is ( $^R , \'last regexp code result\' , $message ) ; } is ( $^R , \'Nothing\' , $message ) ; { local $^R = "Bad" ; ok ( \'x foofoo y\' =~ m{
@@ -53419,14 +53535,10 @@ $t =~ s/([^a])//ge;
             'block_id' => 46
           },
           {
-            'token_num' => 96,
+            'token_num' => 76,
             'has_warnings' => 1,
-            'end_line' => 419,
-            'src' => ' { sub func ( $ ) { ok ( "a\\nb" !~/^b/ , "Propagated modifier; $_[0]; Bug 22354" ) ; ok ( "a\\nb" =~/^b/m , "Propagated modifier; $_[0] - with /m; Bug 22354" ) ; } func "standalone" ; $_ = "x" ; s/x/func "in subst"/e ; $_ = "x" ; s/x/func "in multiline subst"/em ; $_ = "x" ;/x(?{func "in regexp"})/ ; $_ = "x" ;/x(?{func "in multiline regexp"})/m;
-    }
-
-    {
-        $_    = "abcdef\\n"; my @x = m/./g ; is ( "abcde" , $` , \'Global match sets $`; Bug 19049\' ) ; }',
+            'end_line' => 413,
+            'src' => ' { sub func ( $ ) { ok ( "a\\nb" !~/^b/ , "Propagated modifier; $_[0]; Bug 22354" ) ; ok ( "a\\nb" =~/^b/m , "Propagated modifier; $_[0] - with /m; Bug 22354" ) ; } func "standalone" ; $_ = "x" ; s/x/func "in subst"/e ; $_ = "x" ; s/x/func "in multiline subst"/em ; $_ = "x" ;/x(?{func "in regexp"})/ ; $_ = "x" ;/x(?{func "in multiline regexp"})/m ; }',
             'start_line' => 403,
             'indent' => 1,
             'block_id' => 2
@@ -53531,17 +53643,40 @@ $t =~ s/([^a])//ge;
             'block_id' => 47
           },
           {
-            'token_num' => 16,
+            'token_num' => 5,
             'has_warnings' => 0,
-            'end_line' => 417,
-            'src' => '/x(?{func "in multiline regexp"})/m;
-    }
-
-    {
-        $_    = "abcdef\\n"; my @x = m/./g ;',
+            'end_line' => 412,
+            'src' => '/x(?{func "in multiline regexp"})/m ;',
             'start_line' => 412,
             'indent' => 2,
             'block_id' => 47
+          },
+          {
+            'token_num' => 24,
+            'has_warnings' => 1,
+            'end_line' => 419,
+            'src' => ' { $_ = "abcdef\\n" ; my @x = m/./g ; is ( "abcde" , $` , \'Global match sets $`; Bug 19049\' ) ; }',
+            'start_line' => 415,
+            'indent' => 1,
+            'block_id' => 2
+          },
+          {
+            'token_num' => 4,
+            'has_warnings' => 0,
+            'end_line' => 416,
+            'src' => ' $_ = "abcdef\\n" ;',
+            'start_line' => 416,
+            'indent' => 2,
+            'block_id' => 49
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 0,
+            'end_line' => 417,
+            'src' => ' my @x = m/./g ;',
+            'start_line' => 417,
+            'indent' => 2,
+            'block_id' => 49
           },
           {
             'token_num' => 9,
@@ -53550,7 +53685,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( "abcde" , $` , \'Global match sets $`; Bug 19049\' ) ;',
             'start_line' => 418,
             'indent' => 2,
-            'block_id' => 47
+            'block_id' => 49
           },
           {
             'token_num' => 280,
@@ -53568,7 +53703,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $Mess = \'regrepeat() handles UTF-8 EXACT case right\' ;',
             'start_line' => 425,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 5,
@@ -53577,7 +53712,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $message = "$Mess; Bug 23769" ;',
             'start_line' => 426,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 5,
@@ -53586,7 +53721,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $s = "\\x{a0}\\x{a0}\\x{a0}\\x{100}" ;',
             'start_line' => 428,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 3,
@@ -53595,7 +53730,7 @@ $t =~ s/([^a])//ge;
             'src' => ' chop $s ;',
             'start_line' => 428,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 12,
@@ -53604,7 +53739,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( $s , qr/\\x{a0}/ , $message ) ;',
             'start_line' => 430,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 12,
@@ -53613,7 +53748,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( $s , qr/\\x{a0}+/ , $message ) ;',
             'start_line' => 431,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 12,
@@ -53622,7 +53757,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( $s , qr/\\x{a0}\\x{a0}/ , $message ) ;',
             'start_line' => 432,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 4,
@@ -53631,7 +53766,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $message = "$Mess (easy variant); Bug 23769" ;',
             'start_line' => 434,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 11,
@@ -53640,7 +53775,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok ( "aaa\\x{100}" =~/(a+)/ , $message ) ;',
             'start_line' => 435,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 9,
@@ -53649,7 +53784,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $1 , "aaa" , $message ) ;',
             'start_line' => 436,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 4,
@@ -53658,7 +53793,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $message = "$Mess (easy invariant); Bug 23769" ;',
             'start_line' => 438,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 11,
@@ -53667,7 +53802,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok ( "aaa\\x{100}     " =~/(a+?)/ , $message ) ;',
             'start_line' => 439,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 9,
@@ -53676,7 +53811,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $1 , "a" , $message ) ;',
             'start_line' => 440,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 4,
@@ -53685,7 +53820,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $message = "$Mess (regrepeat variant); Bug 23769" ;',
             'start_line' => 442,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 11,
@@ -53694,7 +53829,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok ( "\\xa0\\xa0\\xa0\\x{100}    " =~/(\\xa0+?)/ , $message ) ;',
             'start_line' => 443,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 9,
@@ -53703,7 +53838,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $1 , "\\xa0" , $message ) ;',
             'start_line' => 444,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 4,
@@ -53712,7 +53847,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $message = "$Mess (regrepeat invariant); Bug 23769" ;',
             'start_line' => 446,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 11,
@@ -53721,7 +53856,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok ( "\\xa0\\xa0\\xa0\\x{100}" =~/(\\xa0+)/ , $message ) ;',
             'start_line' => 447,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 9,
@@ -53730,7 +53865,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $1 , "\\xa0\\xa0\\xa0" , $message ) ;',
             'start_line' => 448,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 4,
@@ -53739,7 +53874,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $message = "$Mess (hard variant); Bug 23769" ;',
             'start_line' => 450,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 11,
@@ -53748,7 +53883,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok ( "\\xa0\\xa1\\xa0\\xa1\\xa0\\xa1\\x{100}" =~/((?:\\xa0\\xa1)+?)/ , $message ) ;',
             'start_line' => 451,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 9,
@@ -53757,7 +53892,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $1 , "\\xa0\\xa1" , $message ) ;',
             'start_line' => 452,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 4,
@@ -53766,7 +53901,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $message = "$Mess (hard invariant); Bug 23769" ;',
             'start_line' => 454,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 11,
@@ -53775,7 +53910,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok ( "ababab\\x{100}  " =~/((?:ab)+)/ , $message ) ;',
             'start_line' => 455,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 9,
@@ -53784,7 +53919,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $1 , \'ababab\' , $message ) ;',
             'start_line' => 456,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 11,
@@ -53793,7 +53928,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok ( "\\xa0\\xa1\\xa0\\xa1\\xa0\\xa1\\x{100}" =~/((?:\\xa0\\xa1)+)/ , $message ) ;',
             'start_line' => 458,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 9,
@@ -53802,7 +53937,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $1 , "\\xa0\\xa1\\xa0\\xa1\\xa0\\xa1" , $message ) ;',
             'start_line' => 459,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 11,
@@ -53811,7 +53946,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok ( "ababab\\x{100}  " =~/((?:ab)+?)/ , $message ) ;',
             'start_line' => 461,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 9,
@@ -53820,7 +53955,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $1 , "ab" , $message ) ;',
             'start_line' => 462,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 4,
@@ -53829,7 +53964,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $message = "Don\'t match first byte of UTF-8 representation; Bug 23769" ;',
             'start_line' => 464,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 12,
@@ -53838,7 +53973,7 @@ $t =~ s/([^a])//ge;
             'src' => ' unlike ( "\\xc4\\xc4\\xc4" , qr/(\\x{100}+)/ , $message ) ;',
             'start_line' => 465,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 12,
@@ -53847,7 +53982,7 @@ $t =~ s/([^a])//ge;
             'src' => ' unlike ( "\\xc4\\xc4\\xc4" , qr/(\\x{100}+?)/ , $message ) ;',
             'start_line' => 466,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 12,
@@ -53856,7 +53991,7 @@ $t =~ s/([^a])//ge;
             'src' => ' unlike ( "\\xc4\\xc4\\xc4" , qr/(\\x{100}++)/ , $message ) ;',
             'start_line' => 467,
             'indent' => 2,
-            'block_id' => 49
+            'block_id' => 50
           },
           {
             'token_num' => 27,
@@ -53874,7 +54009,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( eval { my ( $x , $y ) = "bca" =~/^(?=.*(a)).*(bc)/ ; "$x-$y" } , "a-bc" , \'Captures can move backwards in string; Bug 25269\' ) ;',
             'start_line' => 473,
             'indent' => 2,
-            'block_id' => 50
+            'block_id' => 51
           },
           {
             'token_num' => 13,
@@ -53883,7 +54018,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my ( $x , $y ) = "bca" =~/^(?=.*(a)).*(bc)/ ;',
             'start_line' => 473,
             'indent' => 2,
-            'block_id' => 50
+            'block_id' => 51
           },
           {
             'token_num' => 99,
@@ -53901,7 +54036,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "a\\cAb" , qr/\\cA/ , \'\\cA in pattern; Bug 27940\' ) ;',
             'start_line' => 479,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 52
           },
           {
             'token_num' => 12,
@@ -53910,7 +54045,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "a\\cAb" , qr/[\\cA]/ , \'\\cA in character class; Bug 27940\' ) ;',
             'start_line' => 480,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 52
           },
           {
             'token_num' => 12,
@@ -53919,7 +54054,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "a\\cAb" , qr/[\\cA-\\cB]/ , \'\\cA in character class range; Bug 27940\' ) ;',
             'start_line' => 481,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 52
           },
           {
             'token_num' => 12,
@@ -53928,7 +54063,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "abc" , qr/[^\\cA-\\cB]/ , \'\\cA in negated character class range; Bug 27940\' ) ;',
             'start_line' => 482,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 52
           },
           {
             'token_num' => 12,
@@ -53937,7 +54072,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "a\\cBb" , qr/[\\cA-\\cC]/ , \'\\cB in character class range; Bug 27940\' ) ;',
             'start_line' => 483,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 52
           },
           {
             'token_num' => 12,
@@ -53946,7 +54081,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "a\\cCbc" , qr/[^\\cA-\\cB]/ , \'\\cC in negated character class range; Bug 27940\' ) ;',
             'start_line' => 484,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 52
           },
           {
             'token_num' => 12,
@@ -53955,7 +54090,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "a\\cAb" , qr/(??{"\\cA"})/ , \'\\cA in ??{} pattern; Bug 27940\' ) ;',
             'start_line' => 485,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 52
           },
           {
             'token_num' => 13,
@@ -53964,7 +54099,7 @@ $t =~ s/([^a])//ge;
             'src' => ' unlike ( "ab" , qr/a\\cIb/x , \'\\cI in pattern; Bug 27940\' ) ;',
             'start_line' => 486,
             'indent' => 2,
-            'block_id' => 51
+            'block_id' => 52
           },
           {
             'token_num' => 35,
@@ -53982,7 +54117,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok ( "abc" =~/^abc(\\z)?/ && defined ( $1 ) , \'Optional zero-width match at end of string; Bug 28532\' ) ;',
             'start_line' => 492,
             'indent' => 2,
-            'block_id' => 52
+            'block_id' => 53
           },
           {
             'token_num' => 17,
@@ -53991,7 +54126,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok ( "abc" =~/^abc(\\z)??/ && ! defined ( $1 ) , \'Optional zero-width match at end of string; Bug 28532\' ) ;',
             'start_line' => 494,
             'indent' => 2,
-            'block_id' => 52
+            'block_id' => 53
           },
           {
             'token_num' => 119,
@@ -54009,7 +54144,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $utf8 = "\\xe9\\x{100}" ;',
             'start_line' => 499,
             'indent' => 2,
-            'block_id' => 53
+            'block_id' => 54
           },
           {
             'token_num' => 3,
@@ -54018,7 +54153,7 @@ $t =~ s/([^a])//ge;
             'src' => ' chop $utf8 ;',
             'start_line' => 499,
             'indent' => 2,
-            'block_id' => 53
+            'block_id' => 54
           },
           {
             'token_num' => 5,
@@ -54027,7 +54162,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $latin1 = "\\xe9" ;',
             'start_line' => 500,
             'indent' => 2,
-            'block_id' => 53
+            'block_id' => 54
           },
           {
             'token_num' => 13,
@@ -54036,7 +54171,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( $utf8 , qr/\\xe9/i , "utf8/latin; Bug 36207" ) ;',
             'start_line' => 502,
             'indent' => 2,
-            'block_id' => 53
+            'block_id' => 54
           },
           {
             'token_num' => 13,
@@ -54045,7 +54180,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( $utf8 , qr/$latin1/i , "utf8/latin runtime; Bug 36207" ) ;',
             'start_line' => 503,
             'indent' => 2,
-            'block_id' => 53
+            'block_id' => 54
           },
           {
             'token_num' => 13,
@@ -54054,7 +54189,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( $utf8 , qr/(abc|\\xe9)/i , "utf8/latin trie; Bug 36207" ) ;',
             'start_line' => 504,
             'indent' => 2,
-            'block_id' => 53
+            'block_id' => 54
           },
           {
             'token_num' => 13,
@@ -54063,7 +54198,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( $utf8 , qr/(abc|$latin1)/i , "utf8/latin trie runtime; Bug 36207" ) ;',
             'start_line' => 505,
             'indent' => 2,
-            'block_id' => 53
+            'block_id' => 54
           },
           {
             'token_num' => 13,
@@ -54072,7 +54207,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "\\xe9" , qr/$utf8/i , "latin/utf8; Bug 36207" ) ;',
             'start_line' => 507,
             'indent' => 2,
-            'block_id' => 53
+            'block_id' => 54
           },
           {
             'token_num' => 13,
@@ -54081,7 +54216,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "\\xe9" , qr/(abc|$utf8)/i , "latin/utf8 trie; Bug 36207" ) ;',
             'start_line' => 508,
             'indent' => 2,
-            'block_id' => 53
+            'block_id' => 54
           },
           {
             'token_num' => 13,
@@ -54090,7 +54225,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( $latin1 , qr/$utf8/i , "latin/utf8 runtime; Bug 36207" ) ;',
             'start_line' => 509,
             'indent' => 2,
-            'block_id' => 53
+            'block_id' => 54
           },
           {
             'token_num' => 13,
@@ -54099,7 +54234,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( $latin1 , qr/(abc|$utf8)/i , "latin/utf8 trie runtime; Bug 36207" ) ;',
             'start_line' => 510,
             'indent' => 2,
-            'block_id' => 53
+            'block_id' => 54
           },
           {
             'token_num' => 31,
@@ -54117,7 +54252,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $s = "abcd" ;',
             'start_line' => 514,
             'indent' => 2,
-            'block_id' => 54
+            'block_id' => 55
           },
           {
             'token_num' => 7,
@@ -54126,7 +54261,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $s =~/(..)(..)/g ;',
             'start_line' => 515,
             'indent' => 2,
-            'block_id' => 54
+            'block_id' => 55
           },
           {
             'token_num' => 4,
@@ -54135,7 +54270,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $s = $1 ;',
             'start_line' => 516,
             'indent' => 2,
-            'block_id' => 54
+            'block_id' => 55
           },
           {
             'token_num' => 4,
@@ -54144,7 +54279,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $s = $2 ;',
             'start_line' => 517,
             'indent' => 2,
-            'block_id' => 54
+            'block_id' => 55
           },
           {
             'token_num' => 9,
@@ -54153,7 +54288,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $2 , \'cd\' , "Assigning to original string does not corrupt match vars; Bug 37038" ) ;',
             'start_line' => 518,
             'indent' => 2,
-            'block_id' => 54
+            'block_id' => 55
           },
           {
             'token_num' => 66,
@@ -54171,7 +54306,7 @@ $t =~ s/([^a])//ge;
             'src' => ' package wooosh ;',
             'start_line' => 524,
             'indent' => 3,
-            'block_id' => 56
+            'block_id' => 57
           },
           {
             'token_num' => 5,
@@ -54180,7 +54315,7 @@ $t =~ s/([^a])//ge;
             'src' => ' sub gloople { "!" }',
             'start_line' => 525,
             'indent' => 3,
-            'block_id' => 56
+            'block_id' => 57
           },
           {
             'token_num' => 9,
@@ -54189,7 +54324,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $aeek = bless { } => \'wooosh\' ;',
             'start_line' => 527,
             'indent' => 2,
-            'block_id' => 55
+            'block_id' => 56
           },
           {
             'token_num' => 21,
@@ -54198,7 +54333,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( do { $aeek-> gloople ( ) =~/(.)/g } , 1 , "//g match against return value of sub [change e26a497577f3ce7b]" ) ;',
             'start_line' => 528,
             'indent' => 2,
-            'block_id' => 55
+            'block_id' => 56
           },
           {
             'token_num' => 13,
@@ -54207,7 +54342,7 @@ $t =~ s/([^a])//ge;
             'src' => ' do { $aeek-> gloople ( ) =~/(.)/g }',
             'start_line' => 528,
             'indent' => 2,
-            'block_id' => 57
+            'block_id' => 58
           },
           {
             'token_num' => 5,
@@ -54216,7 +54351,7 @@ $t =~ s/([^a])//ge;
             'src' => ' sub gloople { "!" }',
             'start_line' => 531,
             'indent' => 2,
-            'block_id' => 55
+            'block_id' => 56
           },
           {
             'token_num' => 19,
@@ -54225,7 +54360,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( do { gloople ( ) =~/(.)/g } , 1 , "change e26a497577f3ce7b didn\'t affect sub calls for some reason" ) ;',
             'start_line' => 532,
             'indent' => 2,
-            'block_id' => 55
+            'block_id' => 56
           },
           {
             'token_num' => 11,
@@ -54234,7 +54369,7 @@ $t =~ s/([^a])//ge;
             'src' => ' do { gloople ( ) =~/(.)/g }',
             'start_line' => 532,
             'indent' => 2,
-            'block_id' => 59
+            'block_id' => 60
           },
           {
             'token_num' => 154,
@@ -54252,7 +54387,7 @@ $t =~ s/([^a])//ge;
             'src' => ' package lv ;',
             'start_line' => 540,
             'indent' => 3,
-            'block_id' => 62
+            'block_id' => 63
           },
           {
             'token_num' => 5,
@@ -54261,7 +54396,7 @@ $t =~ s/([^a])//ge;
             'src' => ' our $var = "abc" ;',
             'start_line' => 541,
             'indent' => 3,
-            'block_id' => 62
+            'block_id' => 63
           },
           {
             'token_num' => 9,
@@ -54270,7 +54405,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $o = bless [ ] => \'lv\' ;',
             'start_line' => 544,
             'indent' => 2,
-            'block_id' => 61
+            'block_id' => 62
           },
           {
             'token_num' => 5,
@@ -54279,7 +54414,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $f = "" ;',
             'start_line' => 545,
             'indent' => 2,
-            'block_id' => 61
+            'block_id' => 62
           },
           {
             'token_num' => 30,
@@ -54288,7 +54423,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $r = eval { for ( 1 .. 2 ) { $f .= $1 if $o-> variable =~/(.)/g ; } 1 ; } ;',
             'start_line' => 546,
             'indent' => 2,
-            'block_id' => 61
+            'block_id' => 62
           },
           {
             'token_num' => 21,
@@ -54297,7 +54432,7 @@ $t =~ s/([^a])//ge;
             'src' => ' for ( 1 .. 2 ) { $f .= $1 if $o-> variable =~/(.)/g ; }',
             'start_line' => 547,
             'indent' => 2,
-            'block_id' => 62
+            'block_id' => 63
           },
           {
             'token_num' => 13,
@@ -54306,7 +54441,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $f .= $1 if $o-> variable =~/(.)/g ;',
             'start_line' => 548,
             'indent' => 3,
-            'block_id' => 63
+            'block_id' => 64
           },
           {
             'token_num' => 2,
@@ -54315,7 +54450,7 @@ $t =~ s/([^a])//ge;
             'src' => ' 1 ;',
             'start_line' => 550,
             'indent' => 2,
-            'block_id' => 62
+            'block_id' => 63
           },
           {
             'token_num' => 15,
@@ -54324,7 +54459,7 @@ $t =~ s/([^a])//ge;
             'src' => ' if ( $r ) { is ( $f , "ab" , "pos() retained between calls" ) ; }',
             'start_line' => 552,
             'indent' => 2,
-            'block_id' => 61
+            'block_id' => 62
           },
           {
             'token_num' => 9,
@@ -54333,7 +54468,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $f , "ab" , "pos() retained between calls" ) ;',
             'start_line' => 553,
             'indent' => 3,
-            'block_id' => 64
+            'block_id' => 65
           },
           {
             'token_num' => 8,
@@ -54342,7 +54477,7 @@ $t =~ s/([^a])//ge;
             'src' => ' else { ok 0 , "Code failed: $@" ; }',
             'start_line' => 555,
             'indent' => 2,
-            'block_id' => 61
+            'block_id' => 62
           },
           {
             'token_num' => 5,
@@ -54351,7 +54486,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok 0 , "Code failed: $@" ;',
             'start_line' => 556,
             'indent' => 3,
-            'block_id' => 65
+            'block_id' => 66
           },
           {
             'token_num' => 5,
@@ -54360,7 +54495,7 @@ $t =~ s/([^a])//ge;
             'src' => ' our $var = "abc" ;',
             'start_line' => 559,
             'indent' => 2,
-            'block_id' => 61
+            'block_id' => 62
           },
           {
             'token_num' => 12,
@@ -54369,7 +54504,7 @@ $t =~ s/([^a])//ge;
             'src' => ' sub variable : lvalue { $var } my $g = "" ;',
             'start_line' => 560,
             'indent' => 2,
-            'block_id' => 61
+            'block_id' => 62
           },
           {
             'token_num' => 28,
@@ -54378,7 +54513,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $s = eval { for ( 1 .. 2 ) { $g .= $1 if variable =~/(.)/g ; } 1 ; } ;',
             'start_line' => 562,
             'indent' => 2,
-            'block_id' => 61
+            'block_id' => 62
           },
           {
             'token_num' => 19,
@@ -54387,7 +54522,7 @@ $t =~ s/([^a])//ge;
             'src' => ' for ( 1 .. 2 ) { $g .= $1 if variable =~/(.)/g ; }',
             'start_line' => 563,
             'indent' => 2,
-            'block_id' => 65
+            'block_id' => 66
           },
           {
             'token_num' => 11,
@@ -54396,7 +54531,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $g .= $1 if variable =~/(.)/g ;',
             'start_line' => 564,
             'indent' => 3,
-            'block_id' => 66
+            'block_id' => 67
           },
           {
             'token_num' => 2,
@@ -54405,7 +54540,7 @@ $t =~ s/([^a])//ge;
             'src' => ' 1 ;',
             'start_line' => 566,
             'indent' => 2,
-            'block_id' => 65
+            'block_id' => 66
           },
           {
             'token_num' => 15,
@@ -54414,7 +54549,7 @@ $t =~ s/([^a])//ge;
             'src' => ' if ( $s ) { is ( $g , "ab" , "pos() retained between calls" ) ; }',
             'start_line' => 568,
             'indent' => 2,
-            'block_id' => 61
+            'block_id' => 62
           },
           {
             'token_num' => 9,
@@ -54423,7 +54558,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $g , "ab" , "pos() retained between calls" ) ;',
             'start_line' => 569,
             'indent' => 3,
-            'block_id' => 67
+            'block_id' => 68
           },
           {
             'token_num' => 8,
@@ -54432,7 +54567,7 @@ $t =~ s/([^a])//ge;
             'src' => ' else { ok 0 , "Code failed: $@" ; }',
             'start_line' => 571,
             'indent' => 2,
-            'block_id' => 61
+            'block_id' => 62
           },
           {
             'token_num' => 5,
@@ -54441,7 +54576,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok 0 , "Code failed: $@" ;',
             'start_line' => 572,
             'indent' => 3,
-            'block_id' => 68
+            'block_id' => 69
           },
           {
             'token_num' => 7,
@@ -54450,7 +54585,7 @@ $t =~ s/([^a])//ge;
             'src' => ' skip "In EBCDIC" if $: : IS_EBCDIC ;',
             'start_line' => 578,
             'indent' => 2,
-            'block_id' => 69
+            'block_id' => 70
           },
           {
             'token_num' => 4,
@@ -54459,7 +54594,7 @@ $t =~ s/([^a])//ge;
             'src' => ' no warnings \'utf8\' ;',
             'start_line' => 579,
             'indent' => 2,
-            'block_id' => 69
+            'block_id' => 70
           },
           {
             'token_num' => 9,
@@ -54468,7 +54603,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $_ = pack \'U0C2\' , 0xa2 , 0xf8 ;',
             'start_line' => 580,
             'indent' => 2,
-            'block_id' => 69
+            'block_id' => 70
           },
           {
             'token_num' => 5,
@@ -54477,7 +54612,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $ret = 0 ;',
             'start_line' => 581,
             'indent' => 2,
-            'block_id' => 69
+            'block_id' => 70
           },
           {
             'token_num' => 23,
@@ -54486,7 +54621,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( do { ! ( $ret = s/[\\0]+//g ) } , 1 , "Ill-formed UTF-8 doesn\'t match NUL in class; Bug 37836" ) ;',
             'start_line' => 582,
             'indent' => 2,
-            'block_id' => 69
+            'block_id' => 70
           },
           {
             'token_num' => 15,
@@ -54495,7 +54630,7 @@ $t =~ s/([^a])//ge;
             'src' => ' do { ! ( $ret = s/[\\0]+//g ) }',
             'start_line' => 582,
             'indent' => 2,
-            'block_id' => 69
+            'block_id' => 70
           },
           {
             'token_num' => 186,
@@ -54513,7 +54648,7 @@ $t =~ s/([^a])//ge;
             'src' => ' no warnings \'utf8\' ;',
             'start_line' => 589,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 9,
@@ -54522,7 +54657,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my ( $c , $r , $s ) ;',
             'start_line' => 590,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 5,
@@ -54531,7 +54666,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $c = chr 0xffff ;',
             'start_line' => 592,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 10,
@@ -54540,7 +54675,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $c =~ s/$c//g ;',
             'start_line' => 593,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 9,
@@ -54549,7 +54684,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $c , "" , "U+FFFF, parsed as atom; Bug 38293" ) ;',
             'start_line' => 594,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 5,
@@ -54558,7 +54693,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $c = chr 0xffff ;',
             'start_line' => 596,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 4,
@@ -54567,7 +54702,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $r = "\\\\$c" ;',
             'start_line' => 597,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 10,
@@ -54576,7 +54711,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $c =~ s/$r//g ;',
             'start_line' => 598,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 9,
@@ -54585,7 +54720,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $c , "" , "U+FFFF backslashed, parsed as atom; Bug 38293" ) ;',
             'start_line' => 599,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 5,
@@ -54594,7 +54729,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $c = chr 0xffff ;',
             'start_line' => 601,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 10,
@@ -54603,7 +54738,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $c =~ s/[$c]//g ;',
             'start_line' => 602,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 9,
@@ -54612,7 +54747,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $c , "" , "U+FFFF, parsed in class; Bug 38293" ) ;',
             'start_line' => 603,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 5,
@@ -54621,7 +54756,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $c = chr 0xffff ;',
             'start_line' => 605,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 4,
@@ -54630,7 +54765,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $r = "[\\\\$c]" ;',
             'start_line' => 606,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 10,
@@ -54639,7 +54774,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $c =~ s/$r//g ;',
             'start_line' => 607,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 9,
@@ -54648,7 +54783,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $c , "" , "U+FFFF backslashed, parsed in class; Bug 38293" ) ;',
             'start_line' => 608,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 4,
@@ -54657,7 +54792,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $s = "A\\x{ffff}B" ;',
             'start_line' => 610,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 10,
@@ -54666,7 +54801,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $s =~ s/\\x{ffff}//i ;',
             'start_line' => 611,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 9,
@@ -54675,7 +54810,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $s , "AB" , "U+FFFF, EXACTF; Bug 38293" ) ;',
             'start_line' => 612,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 4,
@@ -54684,7 +54819,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $s = "\\x{ffff}A" ;',
             'start_line' => 614,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 9,
@@ -54693,7 +54828,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $s =~ s/\\bA// ;',
             'start_line' => 615,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 9,
@@ -54702,7 +54837,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $s , "\\x{ffff}" , "U+FFFF, BOUND; Bug 38293" ) ;',
             'start_line' => 616,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 4,
@@ -54711,7 +54846,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $s = "\\x{ffff}!" ;',
             'start_line' => 618,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 9,
@@ -54720,7 +54855,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $s =~ s/\\B!// ;',
             'start_line' => 619,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 9,
@@ -54729,7 +54864,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $s , "\\x{ffff}" , "U+FFFF, NBOUND; Bug 38293" ) ;',
             'start_line' => 620,
             'indent' => 2,
-            'block_id' => 71
+            'block_id' => 72
           },
           {
             'token_num' => 106,
@@ -54747,7 +54882,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my @chars = ( "A" .. "Z" ) ;',
             'start_line' => 626,
             'indent' => 2,
-            'block_id' => 72
+            'block_id' => 73
           },
           {
             'token_num' => 5,
@@ -54756,7 +54891,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $delim = "," ;',
             'start_line' => 627,
             'indent' => 2,
-            'block_id' => 72
+            'block_id' => 73
           },
           {
             'token_num' => 7,
@@ -54765,7 +54900,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $size = 32771 - 4 ;',
             'start_line' => 628,
             'indent' => 2,
-            'block_id' => 72
+            'block_id' => 73
           },
           {
             'token_num' => 5,
@@ -54774,7 +54909,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $str = \'\' ;',
             'start_line' => 629,
             'indent' => 2,
-            'block_id' => 72
+            'block_id' => 73
           },
           {
             'token_num' => 25,
@@ -54783,7 +54918,7 @@ $t =~ s/([^a])//ge;
             'src' => ' for ( my $i = 0 ; $i < $size ; $ i ++ ) { $str .= $chars [ rand @chars ] ; }',
             'start_line' => 632,
             'indent' => 2,
-            'block_id' => 72
+            'block_id' => 73
           },
           {
             'token_num' => 5,
@@ -54792,7 +54927,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $i = 0 ;',
             'start_line' => 632,
             'indent' => 2,
-            'block_id' => 72
+            'block_id' => 73
           },
           {
             'token_num' => 4,
@@ -54801,7 +54936,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $i < $size ;',
             'start_line' => 632,
             'indent' => 2,
-            'block_id' => 72
+            'block_id' => 73
           },
           {
             'token_num' => 3,
@@ -54810,7 +54945,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $ i ++',
             'start_line' => 632,
             'indent' => 2,
-            'block_id' => 72
+            'block_id' => 73
           },
           {
             'token_num' => 8,
@@ -54819,7 +54954,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $str .= $chars [ rand @chars ] ;',
             'start_line' => 633,
             'indent' => 3,
-            'block_id' => 73
+            'block_id' => 74
           },
           {
             'token_num' => 8,
@@ -54828,7 +54963,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $str .= ( $delim x 4 ) ;',
             'start_line' => 636,
             'indent' => 2,
-            'block_id' => 72
+            'block_id' => 73
           },
           {
             'token_num' => 3,
@@ -54837,7 +54972,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $res ;',
             'start_line' => 637,
             'indent' => 2,
-            'block_id' => 72
+            'block_id' => 73
           },
           {
             'token_num' => 3,
@@ -54846,7 +54981,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $matched ;',
             'start_line' => 638,
             'indent' => 2,
-            'block_id' => 72
+            'block_id' => 73
           },
           {
             'token_num' => 15,
@@ -54855,7 +54990,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok ( $str =~ s/^(.*?)${delim}{4}//s , "Pattern matches; Bug 39583" ) ;',
             'start_line' => 639,
             'indent' => 2,
-            'block_id' => 72
+            'block_id' => 73
           },
           {
             'token_num' => 9,
@@ -54864,7 +54999,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $str , "" , "Empty string; Bug 39583" ) ;',
             'start_line' => 640,
             'indent' => 2,
-            'block_id' => 72
+            'block_id' => 73
           },
           {
             'token_num' => 15,
@@ -54873,7 +55008,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok ( defined $1 && length ( $1 ) == $size , \'$1 is correct size; Bug 39583\' ) ;',
             'start_line' => 641,
             'indent' => 2,
-            'block_id' => 72
+            'block_id' => 73
           },
           {
             'token_num' => 237,
@@ -54891,7 +55026,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "\\0-A" , qr/\\c@-A/ , \'@- should not be interpolated in a pattern; Bug 27940\' ) ;',
             'start_line' => 645,
             'indent' => 2,
-            'block_id' => 74
+            'block_id' => 75
           },
           {
             'token_num' => 12,
@@ -54900,7 +55035,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "\\0\\0A" , qr/\\c@+A/ , \'@+ should not be interpolated in a pattern; Bug 27940\' ) ;',
             'start_line' => 646,
             'indent' => 2,
-            'block_id' => 74
+            'block_id' => 75
           },
           {
             'token_num' => 12,
@@ -54909,7 +55044,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "X\\@-A" , qr/X@-A/ , \'@- should not be interpolated in a pattern; Bug 27940\' ) ;',
             'start_line' => 647,
             'indent' => 2,
-            'block_id' => 74
+            'block_id' => 75
           },
           {
             'token_num' => 12,
@@ -54918,7 +55053,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "X\\@\\@A" , qr/X@+A/ , \'@+ should not be interpolated in a pattern; Bug 27940\' ) ;',
             'start_line' => 648,
             'indent' => 2,
-            'block_id' => 74
+            'block_id' => 75
           },
           {
             'token_num' => 12,
@@ -54927,7 +55062,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "X\\0A" , qr/X\\c@?A/ , \'\\c@?; Bug 27940\' ) ;',
             'start_line' => 650,
             'indent' => 2,
-            'block_id' => 74
+            'block_id' => 75
           },
           {
             'token_num' => 12,
@@ -54936,7 +55071,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "X\\0A" , qr/X\\c@*A/ , \'\\c@*; Bug 27940\' ) ;',
             'start_line' => 651,
             'indent' => 2,
-            'block_id' => 74
+            'block_id' => 75
           },
           {
             'token_num' => 12,
@@ -54945,7 +55080,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "X\\0A" , qr/X\\c@(A)/ , \'\\c@(; Bug 27940\' ) ;',
             'start_line' => 652,
             'indent' => 2,
-            'block_id' => 74
+            'block_id' => 75
           },
           {
             'token_num' => 12,
@@ -54954,7 +55089,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "X\\0A" , qr/X(\\c@)A/ , \'\\c@); Bug 27940\' ) ;',
             'start_line' => 653,
             'indent' => 2,
-            'block_id' => 74
+            'block_id' => 75
           },
           {
             'token_num' => 12,
@@ -54963,7 +55098,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "X\\0A" , qr/X\\c@|ZA/ , \'\\c@|; Bug 27940\' ) ;',
             'start_line' => 654,
             'indent' => 2,
-            'block_id' => 74
+            'block_id' => 75
           },
           {
             'token_num' => 12,
@@ -54972,7 +55107,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "X\\@A" , qr/X@?A/ , \'@?; Bug 27940\' ) ;',
             'start_line' => 656,
             'indent' => 2,
-            'block_id' => 74
+            'block_id' => 75
           },
           {
             'token_num' => 12,
@@ -54981,7 +55116,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "X\\@A" , qr/X@*A/ , \'@*; Bug 27940\' ) ;',
             'start_line' => 657,
             'indent' => 2,
-            'block_id' => 74
+            'block_id' => 75
           },
           {
             'token_num' => 12,
@@ -54990,7 +55125,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "X\\@A" , qr/X@(A)/ , \'@(; Bug 27940\' ) ;',
             'start_line' => 658,
             'indent' => 2,
-            'block_id' => 74
+            'block_id' => 75
           },
           {
             'token_num' => 12,
@@ -54999,7 +55134,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "X\\@A" , qr/X(@)A/ , \'@); Bug 27940\' ) ;',
             'start_line' => 659,
             'indent' => 2,
-            'block_id' => 74
+            'block_id' => 75
           },
           {
             'token_num' => 12,
@@ -55008,7 +55143,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "X\\@A" , qr/X@|ZA/ , \'@|; Bug 27940\' ) ;',
             'start_line' => 660,
             'indent' => 2,
-            'block_id' => 74
+            'block_id' => 75
           },
           {
             'token_num' => 5,
@@ -55017,7 +55152,7 @@ $t =~ s/([^a])//ge;
             'src' => ' local $" = \',\' ;',
             'start_line' => 662,
             'indent' => 2,
-            'block_id' => 74
+            'block_id' => 75
           },
           {
             'token_num' => 12,
@@ -55026,7 +55161,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( \'abc\' , qr/(.)(.)(.)/ , \'The last successful match is bogus; Bug 27940\' ) ;',
             'start_line' => 663,
             'indent' => 2,
-            'block_id' => 74
+            'block_id' => 75
           },
           {
             'token_num' => 12,
@@ -55035,7 +55170,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "A@+B" , qr/A@{+}B/ , \'Interpolation of @+ in /@{+}/; Bug 27940\' ) ;',
             'start_line' => 664,
             'indent' => 2,
-            'block_id' => 74
+            'block_id' => 75
           },
           {
             'token_num' => 12,
@@ -55044,7 +55179,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "A@-B" , qr/A@{-}B/ , \'Interpolation of @- in /@{-}/; Bug 27940\' ) ;',
             'start_line' => 665,
             'indent' => 2,
-            'block_id' => 74
+            'block_id' => 75
           },
           {
             'token_num' => 13,
@@ -55053,7 +55188,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "A@+B" , qr/A@{+}B/x , \'Interpolation of @+ in /@{+}/x; Bug 27940\' ) ;',
             'start_line' => 666,
             'indent' => 2,
-            'block_id' => 74
+            'block_id' => 75
           },
           {
             'token_num' => 13,
@@ -55062,7 +55197,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "A@-B" , qr/A@{-}B/x , \'Interpolation of @- in /@{-}/x; Bug 27940\' ) ;',
             'start_line' => 667,
             'indent' => 2,
-            'block_id' => 74
+            'block_id' => 75
           },
           {
             'token_num' => 210,
@@ -55083,7 +55218,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $s = \'foo bar baz\' ;',
             'start_line' => 671,
             'indent' => 2,
-            'block_id' => 75
+            'block_id' => 76
           },
           {
             'token_num' => 11,
@@ -55092,7 +55227,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my ( @k , @v , @fetch , $res ) ;',
             'start_line' => 672,
             'indent' => 2,
-            'block_id' => 75
+            'block_id' => 76
           },
           {
             'token_num' => 5,
@@ -55101,7 +55236,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $count = 0 ;',
             'start_line' => 673,
             'indent' => 2,
-            'block_id' => 75
+            'block_id' => 76
           },
           {
             'token_num' => 8,
@@ -55110,7 +55245,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my @names = qw($+{A} $+{B} $+{C}) ;',
             'start_line' => 674,
             'indent' => 2,
-            'block_id' => 75
+            'block_id' => 76
           },
           {
             'token_num' => 71,
@@ -55119,7 +55254,7 @@ $t =~ s/([^a])//ge;
             'src' => ' if ( $s =~/(?<A>foo)\\s+(?<B>bar)?\\s+(?<C>baz)/ ) { while ( my ( $k , $v ) = each ( %+ ) ) { $count ++ ; } @k = sort keys ( %+ ) ; @v = sort values ( %+ ) ; $res = 1 ; push @fetch , [ "$+{A}" , "$1" ] , [ "$+{B}" , "$2" ] , [ "$+{C}" , "$3" ] , ; }',
             'start_line' => 675,
             'indent' => 2,
-            'block_id' => 75
+            'block_id' => 76
           },
           {
             'token_num' => 19,
@@ -55128,7 +55263,7 @@ $t =~ s/([^a])//ge;
             'src' => ' while ( my ( $k , $v ) = each ( %+ ) ) { $count ++ ; }',
             'start_line' => 676,
             'indent' => 3,
-            'block_id' => 76
+            'block_id' => 77
           },
           {
             'token_num' => 3,
@@ -55137,7 +55272,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $count ++ ;',
             'start_line' => 677,
             'indent' => 4,
-            'block_id' => 77
+            'block_id' => 78
           },
           {
             'token_num' => 8,
@@ -55146,7 +55281,7 @@ $t =~ s/([^a])//ge;
             'src' => ' @k = sort keys ( %+ ) ;',
             'start_line' => 679,
             'indent' => 3,
-            'block_id' => 76
+            'block_id' => 77
           },
           {
             'token_num' => 8,
@@ -55155,7 +55290,7 @@ $t =~ s/([^a])//ge;
             'src' => ' @v = sort values ( %+ ) ;',
             'start_line' => 680,
             'indent' => 3,
-            'block_id' => 76
+            'block_id' => 77
           },
           {
             'token_num' => 4,
@@ -55164,7 +55299,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $res = 1 ;',
             'start_line' => 681,
             'indent' => 3,
-            'block_id' => 76
+            'block_id' => 77
           },
           {
             'token_num' => 22,
@@ -55173,7 +55308,7 @@ $t =~ s/([^a])//ge;
             'src' => ' push @fetch , [ "$+{A}" , "$1" ] , [ "$+{B}" , "$2" ] , [ "$+{C}" , "$3" ] , ;',
             'start_line' => 682,
             'indent' => 3,
-            'block_id' => 76
+            'block_id' => 77
           },
           {
             'token_num' => 49,
@@ -55182,7 +55317,7 @@ $t =~ s/([^a])//ge;
             'src' => ' foreach ( 0 .. 2 ) { if ( $fetch [ $_ ] ) { is ( $fetch [ $_ ] [ 0 ] , $fetch [ $_ ] [ 1 ] , "$names[$_]; Bug 50496" ) ; } else { ok 0 , $names [ $_ ] ; } }',
             'start_line' => 688,
             'indent' => 2,
-            'block_id' => 75
+            'block_id' => 76
           },
           {
             'token_num' => 30,
@@ -55191,7 +55326,7 @@ $t =~ s/([^a])//ge;
             'src' => ' if ( $fetch [ $_ ] ) { is ( $fetch [ $_ ] [ 0 ] , $fetch [ $_ ] [ 1 ] , "$names[$_]; Bug 50496" ) ; }',
             'start_line' => 689,
             'indent' => 3,
-            'block_id' => 78
+            'block_id' => 79
           },
           {
             'token_num' => 21,
@@ -55200,7 +55335,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $fetch [ $_ ] [ 0 ] , $fetch [ $_ ] [ 1 ] , "$names[$_]; Bug 50496" ) ;',
             'start_line' => 690,
             'indent' => 4,
-            'block_id' => 79
+            'block_id' => 80
           },
           {
             'token_num' => 11,
@@ -55209,7 +55344,7 @@ $t =~ s/([^a])//ge;
             'src' => ' else { ok 0 , $names [ $_ ] ; }',
             'start_line' => 691,
             'indent' => 3,
-            'block_id' => 78
+            'block_id' => 79
           },
           {
             'token_num' => 8,
@@ -55218,7 +55353,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok 0 , $names [ $_ ] ;',
             'start_line' => 692,
             'indent' => 4,
-            'block_id' => 80
+            'block_id' => 81
           },
           {
             'token_num' => 9,
@@ -55227,7 +55362,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $res , 1 , "\'$s\' =~ /(?<A>foo)\\\\s+(?<B>bar)?\\\\s+(?<C>baz)/; Bug 50496" ) ;',
             'start_line' => 695,
             'indent' => 2,
-            'block_id' => 75
+            'block_id' => 76
           },
           {
             'token_num' => 9,
@@ -55236,7 +55371,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $count , 3 , "Got 3 keys in %+ via each; Bug 50496" ) ;',
             'start_line' => 696,
             'indent' => 2,
-            'block_id' => 75
+            'block_id' => 76
           },
           {
             'token_num' => 11,
@@ -55245,7 +55380,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( 0 + @k , 3 , "Got 3 keys in %+ via keys; Bug 50496" ) ;',
             'start_line' => 697,
             'indent' => 2,
-            'block_id' => 75
+            'block_id' => 76
           },
           {
             'token_num' => 9,
@@ -55254,7 +55389,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( "@k" , "A B C" , "Got expected keys; Bug 50496" ) ;',
             'start_line' => 698,
             'indent' => 2,
-            'block_id' => 75
+            'block_id' => 76
           },
           {
             'token_num' => 9,
@@ -55263,7 +55398,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( "@v" , "bar baz foo" , "Got expected values; Bug 50496" ) ;',
             'start_line' => 699,
             'indent' => 2,
-            'block_id' => 75
+            'block_id' => 76
           },
           {
             'token_num' => 3,
@@ -55275,7 +55410,7 @@ $t =~ s/([^a])//ge;
         \' ;',
             'start_line' => 700,
             'indent' => 2,
-            'block_id' => 75
+            'block_id' => 76
           },
           {
             'token_num' => 9,
@@ -55284,7 +55419,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $@ , \'\' , \'lvalue $+ {...} should not throw an exception; Bug 50496\' ) ;',
             'start_line' => 704,
             'indent' => 2,
-            'block_id' => 75
+            'block_id' => 76
           },
           {
             'token_num' => 214,
@@ -55305,7 +55440,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $s = \'foo bar baz\' ;',
             'start_line' => 712,
             'indent' => 2,
-            'block_id' => 81
+            'block_id' => 82
           },
           {
             'token_num' => 11,
@@ -55314,7 +55449,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my ( @k , @v , @fetch , $res ) ;',
             'start_line' => 713,
             'indent' => 2,
-            'block_id' => 81
+            'block_id' => 82
           },
           {
             'token_num' => 5,
@@ -55323,7 +55458,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $count = 0 ;',
             'start_line' => 714,
             'indent' => 2,
-            'block_id' => 81
+            'block_id' => 82
           },
           {
             'token_num' => 8,
@@ -55332,7 +55467,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my @names = qw($+{A} $+{B} $+{C} $+{D}) ;',
             'start_line' => 715,
             'indent' => 2,
-            'block_id' => 81
+            'block_id' => 82
           },
           {
             'token_num' => 77,
@@ -55341,7 +55476,7 @@ $t =~ s/([^a])//ge;
             'src' => ' if ( $s =~/(?<D>(?<A>foo)\\s+(?<B>bar)?\\s+(?<C>baz))/ ) { while ( my ( $k , $v ) = each ( %+ ) ) { $count ++ ; } @k = sort keys ( %+ ) ; @v = sort values ( %+ ) ; $res = 1 ; push @fetch , [ "$+{A}" , "$2" ] , [ "$+{B}" , "$3" ] , [ "$+{C}" , "$4" ] , [ "$+{D}" , "$1" ] , ; }',
             'start_line' => 716,
             'indent' => 2,
-            'block_id' => 81
+            'block_id' => 82
           },
           {
             'token_num' => 19,
@@ -55350,7 +55485,7 @@ $t =~ s/([^a])//ge;
             'src' => ' while ( my ( $k , $v ) = each ( %+ ) ) { $count ++ ; }',
             'start_line' => 717,
             'indent' => 3,
-            'block_id' => 82
+            'block_id' => 83
           },
           {
             'token_num' => 3,
@@ -55359,7 +55494,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $count ++ ;',
             'start_line' => 718,
             'indent' => 4,
-            'block_id' => 83
+            'block_id' => 84
           },
           {
             'token_num' => 8,
@@ -55368,7 +55503,7 @@ $t =~ s/([^a])//ge;
             'src' => ' @k = sort keys ( %+ ) ;',
             'start_line' => 720,
             'indent' => 3,
-            'block_id' => 82
+            'block_id' => 83
           },
           {
             'token_num' => 8,
@@ -55377,7 +55512,7 @@ $t =~ s/([^a])//ge;
             'src' => ' @v = sort values ( %+ ) ;',
             'start_line' => 721,
             'indent' => 3,
-            'block_id' => 82
+            'block_id' => 83
           },
           {
             'token_num' => 4,
@@ -55386,7 +55521,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $res = 1 ;',
             'start_line' => 722,
             'indent' => 3,
-            'block_id' => 82
+            'block_id' => 83
           },
           {
             'token_num' => 28,
@@ -55395,7 +55530,7 @@ $t =~ s/([^a])//ge;
             'src' => ' push @fetch , [ "$+{A}" , "$2" ] , [ "$+{B}" , "$3" ] , [ "$+{C}" , "$4" ] , [ "$+{D}" , "$1" ] , ;',
             'start_line' => 723,
             'indent' => 3,
-            'block_id' => 82
+            'block_id' => 83
           },
           {
             'token_num' => 49,
@@ -55404,7 +55539,7 @@ $t =~ s/([^a])//ge;
             'src' => ' foreach ( 0 .. 3 ) { if ( $fetch [ $_ ] ) { is ( $fetch [ $_ ] [ 0 ] , $fetch [ $_ ] [ 1 ] , "$names[$_]; Bug 50496" ) ; } else { ok 0 , $names [ $_ ] ; } }',
             'start_line' => 730,
             'indent' => 2,
-            'block_id' => 81
+            'block_id' => 82
           },
           {
             'token_num' => 30,
@@ -55413,7 +55548,7 @@ $t =~ s/([^a])//ge;
             'src' => ' if ( $fetch [ $_ ] ) { is ( $fetch [ $_ ] [ 0 ] , $fetch [ $_ ] [ 1 ] , "$names[$_]; Bug 50496" ) ; }',
             'start_line' => 731,
             'indent' => 3,
-            'block_id' => 84
+            'block_id' => 85
           },
           {
             'token_num' => 21,
@@ -55422,7 +55557,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $fetch [ $_ ] [ 0 ] , $fetch [ $_ ] [ 1 ] , "$names[$_]; Bug 50496" ) ;',
             'start_line' => 732,
             'indent' => 4,
-            'block_id' => 85
+            'block_id' => 86
           },
           {
             'token_num' => 11,
@@ -55431,7 +55566,7 @@ $t =~ s/([^a])//ge;
             'src' => ' else { ok 0 , $names [ $_ ] ; }',
             'start_line' => 733,
             'indent' => 3,
-            'block_id' => 84
+            'block_id' => 85
           },
           {
             'token_num' => 8,
@@ -55440,7 +55575,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok 0 , $names [ $_ ] ;',
             'start_line' => 734,
             'indent' => 4,
-            'block_id' => 86
+            'block_id' => 87
           },
           {
             'token_num' => 9,
@@ -55449,7 +55584,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $res , 1 , "\'$s\' =~ /(?<D>(?<A>foo)\\\\s+(?<B>bar)?\\\\s+(?<C>baz))/; Bug 50496" ) ;',
             'start_line' => 737,
             'indent' => 2,
-            'block_id' => 81
+            'block_id' => 82
           },
           {
             'token_num' => 9,
@@ -55458,7 +55593,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $count , 4 , "Got 4 keys in %+ via each; Bug 50496" ) ;',
             'start_line' => 738,
             'indent' => 2,
-            'block_id' => 81
+            'block_id' => 82
           },
           {
             'token_num' => 9,
@@ -55467,7 +55602,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( @k , 4 , "Got 4 keys in %+ via keys; Bug 50496" ) ;',
             'start_line' => 739,
             'indent' => 2,
-            'block_id' => 81
+            'block_id' => 82
           },
           {
             'token_num' => 9,
@@ -55476,7 +55611,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( "@k" , "A B C D" , "Got expected keys; Bug 50496" ) ;',
             'start_line' => 740,
             'indent' => 2,
-            'block_id' => 81
+            'block_id' => 82
           },
           {
             'token_num' => 9,
@@ -55485,7 +55620,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( "@v" , "bar baz foo foo bar baz" , "Got expected values; Bug 50496" ) ;',
             'start_line' => 741,
             'indent' => 2,
-            'block_id' => 81
+            'block_id' => 82
           },
           {
             'token_num' => 3,
@@ -55497,7 +55632,7 @@ $t =~ s/([^a])//ge;
         \' ;',
             'start_line' => 742,
             'indent' => 2,
-            'block_id' => 81
+            'block_id' => 82
           },
           {
             'token_num' => 9,
@@ -55506,7 +55641,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $@ , \'\' , \'lvalue $+ {...} should not throw an exception; Bug 50496\' ) ;',
             'start_line' => 746,
             'indent' => 2,
-            'block_id' => 81
+            'block_id' => 82
           },
           {
             'token_num' => 72,
@@ -55524,7 +55659,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $str = \'abc\' ;',
             'start_line' => 750,
             'indent' => 2,
-            'block_id' => 87
+            'block_id' => 88
           },
           {
             'token_num' => 5,
@@ -55533,7 +55668,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $count = 0 ;',
             'start_line' => 751,
             'indent' => 2,
-            'block_id' => 87
+            'block_id' => 88
           },
           {
             'token_num' => 5,
@@ -55542,7 +55677,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $mval = 0 ;',
             'start_line' => 752,
             'indent' => 2,
-            'block_id' => 87
+            'block_id' => 88
           },
           {
             'token_num' => 5,
@@ -55551,7 +55686,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $pval = 0 ;',
             'start_line' => 753,
             'indent' => 2,
-            'block_id' => 87
+            'block_id' => 88
           },
           {
             'token_num' => 23,
@@ -55560,7 +55695,7 @@ $t =~ s/([^a])//ge;
             'src' => ' while ( $str =~/b/g ) { $mval = $# - ; $pval = $# + ; $count ++ }',
             'start_line' => 754,
             'indent' => 2,
-            'block_id' => 87
+            'block_id' => 88
           },
           {
             'token_num' => 5,
@@ -55569,7 +55704,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $mval = $# - ;',
             'start_line' => 754,
             'indent' => 3,
-            'block_id' => 88
+            'block_id' => 89
           },
           {
             'token_num' => 5,
@@ -55578,7 +55713,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $pval = $# + ;',
             'start_line' => 754,
             'indent' => 3,
-            'block_id' => 88
+            'block_id' => 89
           },
           {
             'token_num' => 9,
@@ -55587,7 +55722,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $mval , 0 , \'@- should be empty; Bug 36046\' ) ;',
             'start_line' => 755,
             'indent' => 2,
-            'block_id' => 87
+            'block_id' => 88
           },
           {
             'token_num' => 9,
@@ -55596,7 +55731,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $pval , 0 , \'@+ should be empty; Bug 36046\' ) ;',
             'start_line' => 756,
             'indent' => 2,
-            'block_id' => 87
+            'block_id' => 88
           },
           {
             'token_num' => 9,
@@ -55605,14 +55740,13 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $count , 1 , \'Should have matched once only; Bug 36046\' ) ;',
             'start_line' => 757,
             'indent' => 2,
-            'block_id' => 87
+            'block_id' => 88
           },
           {
-            'token_num' => 36,
+            'token_num' => 46,
             'has_warnings' => 1,
             'end_line' => 766,
-            'src' => ' { my $message = \'/m in precompiled regexp; Bug 40684\' ; my $s = "abc\\ndef" ; my $rex = qr\'^abc$\'m;
-        ok($s =~ m/$rex/, $message); ok ( $s =~ m/^abc$/m , $message ) ; }',
+            'src' => ' { my $message = \'/m in precompiled regexp; Bug 40684\' ; my $s = "abc\\ndef" ; my $rex = qr\'^abc$\'m ; ok ( $s =~ m/$rex/ , $message ) ; ok ( $s =~ m/^abc$/m , $message ) ; }',
             'start_line' => 760,
             'indent' => 1,
             'block_id' => 2
@@ -55624,7 +55758,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $message = \'/m in precompiled regexp; Bug 40684\' ;',
             'start_line' => 761,
             'indent' => 2,
-            'block_id' => 89
+            'block_id' => 90
           },
           {
             'token_num' => 5,
@@ -55633,17 +55767,34 @@ $t =~ s/([^a])//ge;
             'src' => ' my $s = "abc\\ndef" ;',
             'start_line' => 762,
             'indent' => 2,
-            'block_id' => 89
+            'block_id' => 90
           },
           {
-            'token_num' => 24,
-            'has_warnings' => 1,
-            'end_line' => 765,
-            'src' => ' my $rex = qr\'^abc$\'m;
-        ok($s =~ m/$rex/, $message); ok ( $s =~ m/^abc$/m , $message ) ;',
+            'token_num' => 9,
+            'has_warnings' => 0,
+            'end_line' => 763,
+            'src' => ' my $rex = qr\'^abc$\'m ;',
             'start_line' => 763,
             'indent' => 2,
-            'block_id' => 89
+            'block_id' => 90
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 764,
+            'src' => ' ok ( $s =~ m/$rex/ , $message ) ;',
+            'start_line' => 764,
+            'indent' => 2,
+            'block_id' => 90
+          },
+          {
+            'token_num' => 13,
+            'has_warnings' => 1,
+            'end_line' => 765,
+            'src' => ' ok ( $s =~ m/^abc$/m , $message ) ;',
+            'start_line' => 765,
+            'indent' => 2,
+            'block_id' => 90
           },
           {
             'token_num' => 163,
@@ -55673,7 +55824,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $message = \'(?: ... )? should not lose $^R; Bug 36909\' ;',
             'start_line' => 769,
             'indent' => 2,
-            'block_id' => 90
+            'block_id' => 91
           },
           {
             'token_num' => 4,
@@ -55682,7 +55833,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $^R = \'Nothing\' ;',
             'start_line' => 770,
             'indent' => 2,
-            'block_id' => 90
+            'block_id' => 91
           },
           {
             'token_num' => 29,
@@ -55694,7 +55845,7 @@ $t =~ s/([^a])//ge;
             }x , $message ) ; is ( $^R , \'last regexp code result\' , $message ) ; }',
             'start_line' => 771,
             'indent' => 2,
-            'block_id' => 90
+            'block_id' => 91
           },
           {
             'token_num' => 5,
@@ -55703,7 +55854,7 @@ $t =~ s/([^a])//ge;
             'src' => ' local $^R = "Bad" ;',
             'start_line' => 772,
             'indent' => 3,
-            'block_id' => 91
+            'block_id' => 92
           },
           {
             'token_num' => 13,
@@ -55715,7 +55866,7 @@ $t =~ s/([^a])//ge;
             }x , $message ) ;',
             'start_line' => 773,
             'indent' => 3,
-            'block_id' => 91
+            'block_id' => 92
           },
           {
             'token_num' => 9,
@@ -55724,7 +55875,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $^R , \'last regexp code result\' , $message ) ;',
             'start_line' => 777,
             'indent' => 3,
-            'block_id' => 91
+            'block_id' => 92
           },
           {
             'token_num' => 9,
@@ -55733,7 +55884,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $^R , \'Nothing\' , $message ) ;',
             'start_line' => 779,
             'indent' => 2,
-            'block_id' => 90
+            'block_id' => 91
           },
           {
             'token_num' => 29,
@@ -55745,7 +55896,7 @@ $t =~ s/([^a])//ge;
             }x , $message ) ; is ( $^R , \'last regexp code result\' , $message ) ; }',
             'start_line' => 781,
             'indent' => 2,
-            'block_id' => 90
+            'block_id' => 91
           },
           {
             'token_num' => 5,
@@ -55754,7 +55905,7 @@ $t =~ s/([^a])//ge;
             'src' => ' local $^R = "Bad" ;',
             'start_line' => 782,
             'indent' => 3,
-            'block_id' => 92
+            'block_id' => 93
           },
           {
             'token_num' => 13,
@@ -55766,7 +55917,7 @@ $t =~ s/([^a])//ge;
             }x , $message ) ;',
             'start_line' => 784,
             'indent' => 3,
-            'block_id' => 92
+            'block_id' => 93
           },
           {
             'token_num' => 9,
@@ -55775,7 +55926,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $^R , \'last regexp code result\' , $message ) ;',
             'start_line' => 788,
             'indent' => 3,
-            'block_id' => 92
+            'block_id' => 93
           },
           {
             'token_num' => 9,
@@ -55784,7 +55935,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $^R , \'Nothing\' , $message ) ;',
             'start_line' => 790,
             'indent' => 2,
-            'block_id' => 90
+            'block_id' => 91
           },
           {
             'token_num' => 29,
@@ -55796,7 +55947,7 @@ $t =~ s/([^a])//ge;
             }x , $message ) ; is ( $^R , \'last regexp code result\' , $message ) ; }',
             'start_line' => 792,
             'indent' => 2,
-            'block_id' => 90
+            'block_id' => 91
           },
           {
             'token_num' => 5,
@@ -55805,7 +55956,7 @@ $t =~ s/([^a])//ge;
             'src' => ' local $^R = "Bad" ;',
             'start_line' => 793,
             'indent' => 3,
-            'block_id' => 93
+            'block_id' => 94
           },
           {
             'token_num' => 13,
@@ -55817,7 +55968,7 @@ $t =~ s/([^a])//ge;
             }x , $message ) ;',
             'start_line' => 794,
             'indent' => 3,
-            'block_id' => 93
+            'block_id' => 94
           },
           {
             'token_num' => 9,
@@ -55826,7 +55977,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $^R , \'last regexp code result\' , $message ) ;',
             'start_line' => 798,
             'indent' => 3,
-            'block_id' => 93
+            'block_id' => 94
           },
           {
             'token_num' => 9,
@@ -55835,7 +55986,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $^R , \'Nothing\' , $message ) ;',
             'start_line' => 800,
             'indent' => 2,
-            'block_id' => 90
+            'block_id' => 91
           },
           {
             'token_num' => 29,
@@ -55847,7 +55998,7 @@ $t =~ s/([^a])//ge;
             }x , $message ) ; is ( $^R , \'last regexp code result\' , $message ) ; }',
             'start_line' => 802,
             'indent' => 2,
-            'block_id' => 90
+            'block_id' => 91
           },
           {
             'token_num' => 5,
@@ -55856,7 +56007,7 @@ $t =~ s/([^a])//ge;
             'src' => ' local $^R = "Bad" ;',
             'start_line' => 803,
             'indent' => 3,
-            'block_id' => 94
+            'block_id' => 95
           },
           {
             'token_num' => 13,
@@ -55868,7 +56019,7 @@ $t =~ s/([^a])//ge;
             }x , $message ) ;',
             'start_line' => 804,
             'indent' => 3,
-            'block_id' => 94
+            'block_id' => 95
           },
           {
             'token_num' => 9,
@@ -55877,7 +56028,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $^R , \'last regexp code result\' , $message ) ;',
             'start_line' => 808,
             'indent' => 3,
-            'block_id' => 94
+            'block_id' => 95
           },
           {
             'token_num' => 9,
@@ -55886,7 +56037,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $^R , \'Nothing\' , $message ) ;',
             'start_line' => 810,
             'indent' => 2,
-            'block_id' => 90
+            'block_id' => 91
           },
           {
             'token_num' => 54,
@@ -55904,7 +56055,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $message = \'Match is linear, not quadratic; Bug 22395\' ;',
             'start_line' => 814,
             'indent' => 2,
-            'block_id' => 95
+            'block_id' => 96
           },
           {
             'token_num' => 3,
@@ -55913,7 +56064,7 @@ $t =~ s/([^a])//ge;
             'src' => ' our $count ;',
             'start_line' => 815,
             'indent' => 2,
-            'block_id' => 95
+            'block_id' => 96
           },
           {
             'token_num' => 44,
@@ -55922,7 +56073,7 @@ $t =~ s/([^a])//ge;
             'src' => ' for my $l ( 10 , 100 , 1000 ) { $count = 0 ; ( \'a\' x $l ) =~/(.*)(?{$count++})[bc]/ ; local $: : TODO = "Should be L+1 not L*(L+3)/2 (L=$l)" ; is ( $count , $l + 1 , $message ) ; }',
             'start_line' => 816,
             'indent' => 2,
-            'block_id' => 95
+            'block_id' => 96
           },
           {
             'token_num' => 4,
@@ -55931,7 +56082,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $count = 0 ;',
             'start_line' => 817,
             'indent' => 3,
-            'block_id' => 96
+            'block_id' => 97
           },
           {
             'token_num' => 10,
@@ -55940,7 +56091,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ( \'a\' x $l ) =~/(.*)(?{$count++})[bc]/ ;',
             'start_line' => 818,
             'indent' => 3,
-            'block_id' => 96
+            'block_id' => 97
           },
           {
             'token_num' => 7,
@@ -55949,7 +56100,7 @@ $t =~ s/([^a])//ge;
             'src' => ' local $: : TODO = "Should be L+1 not L*(L+3)/2 (L=$l)" ;',
             'start_line' => 819,
             'indent' => 3,
-            'block_id' => 96
+            'block_id' => 97
           },
           {
             'token_num' => 11,
@@ -55958,7 +56109,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $count , $l + 1 , $message ) ;',
             'start_line' => 820,
             'indent' => 3,
-            'block_id' => 96
+            'block_id' => 97
           },
           {
             'token_num' => 31,
@@ -55976,7 +56127,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $message = \'@-/@+ should not have undefined values; Bug 22614\' ;',
             'start_line' => 825,
             'indent' => 2,
-            'block_id' => 97
+            'block_id' => 98
           },
           {
             'token_num' => 5,
@@ -55985,7 +56136,7 @@ $t =~ s/([^a])//ge;
             'src' => ' local $_ = \'ab\' ;',
             'start_line' => 826,
             'indent' => 2,
-            'block_id' => 97
+            'block_id' => 98
           },
           {
             'token_num' => 6,
@@ -55994,7 +56145,7 @@ $t =~ s/([^a])//ge;
             'src' => ' our @len = ( ) ;',
             'start_line' => 827,
             'indent' => 2,
-            'block_id' => 97
+            'block_id' => 98
           },
           {
             'token_num' => 4,
@@ -56003,7 +56154,7 @@ $t =~ s/([^a])//ge;
             'src' => '/(.){1,}(?{push @len,0+@-})(.){1,}(?{})^/ ;',
             'start_line' => 828,
             'indent' => 2,
-            'block_id' => 97
+            'block_id' => 98
           },
           {
             'token_num' => 9,
@@ -56012,7 +56163,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( "@len" , "2 2 2" , $message ) ;',
             'start_line' => 829,
             'indent' => 2,
-            'block_id' => 97
+            'block_id' => 98
           },
           {
             'token_num' => 71,
@@ -56030,7 +56181,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $message = \'$& set on s///; Bug 18209\' ;',
             'start_line' => 833,
             'indent' => 2,
-            'block_id' => 98
+            'block_id' => 99
           },
           {
             'token_num' => 5,
@@ -56039,7 +56190,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $text = \' word1 word2 word3 word4 word5 word6 \' ;',
             'start_line' => 834,
             'indent' => 2,
-            'block_id' => 98
+            'block_id' => 99
           },
           {
             'token_num' => 11,
@@ -56048,7 +56199,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my @words = ( \'word1\' , \'word3\' , \'word5\' ) ;',
             'start_line' => 836,
             'indent' => 2,
-            'block_id' => 98
+            'block_id' => 99
           },
           {
             'token_num' => 3,
@@ -56057,7 +56208,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $count ;',
             'start_line' => 837,
             'indent' => 2,
-            'block_id' => 98
+            'block_id' => 99
           },
           {
             'token_num' => 27,
@@ -56066,7 +56217,7 @@ $t =~ s/([^a])//ge;
             'src' => ' foreach my $word ( @words ) { $text =~ s/$word\\s//gi ; if ( $& ) { $count ++ ; } }',
             'start_line' => 838,
             'indent' => 2,
-            'block_id' => 98
+            'block_id' => 99
           },
           {
             'token_num' => 10,
@@ -56075,7 +56226,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $text =~ s/$word\\s//gi ;',
             'start_line' => 839,
             'indent' => 3,
-            'block_id' => 99
+            'block_id' => 100
           },
           {
             'token_num' => 9,
@@ -56084,7 +56235,7 @@ $t =~ s/([^a])//ge;
             'src' => ' if ( $& ) { $count ++ ; }',
             'start_line' => 842,
             'indent' => 3,
-            'block_id' => 99
+            'block_id' => 100
           },
           {
             'token_num' => 3,
@@ -56093,7 +56244,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $count ++ ;',
             'start_line' => 843,
             'indent' => 4,
-            'block_id' => 100
+            'block_id' => 101
           },
           {
             'token_num' => 9,
@@ -56102,7 +56253,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $count , 3 , $message ) ;',
             'start_line' => 847,
             'indent' => 2,
-            'block_id' => 98
+            'block_id' => 99
           },
           {
             'token_num' => 9,
@@ -56111,7 +56262,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $text , \' word2 word4 word6 \' , $message ) ;',
             'start_line' => 848,
             'indent' => 2,
-            'block_id' => 98
+            'block_id' => 99
           },
           {
             'token_num' => 43,
@@ -56129,7 +56280,7 @@ $t =~ s/([^a])//ge;
             'src' => ' local $_ = qq(A\\nB\\nC\\n) ;',
             'start_line' => 854,
             'indent' => 2,
-            'block_id' => 101
+            'block_id' => 102
           },
           {
             'token_num' => 3,
@@ -56138,7 +56289,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my @res ;',
             'start_line' => 855,
             'indent' => 2,
-            'block_id' => 101
+            'block_id' => 102
           },
           {
             'token_num' => 21,
@@ -56147,7 +56298,7 @@ $t =~ s/([^a])//ge;
             'src' => ' while ( m#(\\G|\\n)([^\\n]*)\\n#gsx ) { push @res , "$2" ; last if @res > 3 ; }',
             'start_line' => 856,
             'indent' => 2,
-            'block_id' => 101
+            'block_id' => 102
           },
           {
             'token_num' => 5,
@@ -56156,7 +56307,7 @@ $t =~ s/([^a])//ge;
             'src' => ' push @res , "$2" ;',
             'start_line' => 857,
             'indent' => 3,
-            'block_id' => 102
+            'block_id' => 103
           },
           {
             'token_num' => 6,
@@ -56165,7 +56316,7 @@ $t =~ s/([^a])//ge;
             'src' => ' last if @res > 3 ;',
             'start_line' => 858,
             'indent' => 3,
-            'block_id' => 102
+            'block_id' => 103
           },
           {
             'token_num' => 9,
@@ -56174,7 +56325,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( "@res" , "A B C" , "/g pattern shouldn\'t infinite loop; Bug 6893" ) ;',
             'start_line' => 860,
             'indent' => 2,
-            'block_id' => 101
+            'block_id' => 102
           },
           {
             'token_num' => 164,
@@ -56192,7 +56343,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my @tails = ( \'\' , \'(?(1))\' , \'(|)\' , \'()?\' ) ;',
             'start_line' => 865,
             'indent' => 2,
-            'block_id' => 103
+            'block_id' => 104
           },
           {
             'token_num' => 9,
@@ -56201,7 +56352,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my @quants = ( \'*\' , \'+\' ) ;',
             'start_line' => 866,
             'indent' => 2,
-            'block_id' => 103
+            'block_id' => 104
           },
           {
             'token_num' => 74,
@@ -56210,7 +56361,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $doit = sub { my $pats = shift ; for ( @_ ) { for my $pat ( @$pats ) { for my $quant ( @quants ) { for my $tail ( @tails ) { my $re = "($pat$quant\\$)$tail" ; ok (/$re/ && $1 eq $_ , "\'$_\' =~ /$re/; Bug 41010" ) ; ok (/$re/m && $1 eq $_ , "\'$_\' =~ /$re/m; Bug 41010" ) ; } } } } } ;',
             'start_line' => 867,
             'indent' => 2,
-            'block_id' => 103
+            'block_id' => 104
           },
           {
             'token_num' => 5,
@@ -56219,7 +56370,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $pats = shift ;',
             'start_line' => 868,
             'indent' => 3,
-            'block_id' => 104
+            'block_id' => 105
           },
           {
             'token_num' => 62,
@@ -56228,7 +56379,7 @@ $t =~ s/([^a])//ge;
             'src' => ' for ( @_ ) { for my $pat ( @$pats ) { for my $quant ( @quants ) { for my $tail ( @tails ) { my $re = "($pat$quant\\$)$tail" ; ok (/$re/ && $1 eq $_ , "\'$_\' =~ /$re/; Bug 41010" ) ; ok (/$re/m && $1 eq $_ , "\'$_\' =~ /$re/m; Bug 41010" ) ; } } } }',
             'start_line' => 869,
             'indent' => 3,
-            'block_id' => 104
+            'block_id' => 105
           },
           {
             'token_num' => 56,
@@ -56237,7 +56388,7 @@ $t =~ s/([^a])//ge;
             'src' => ' for my $pat ( @$pats ) { for my $quant ( @quants ) { for my $tail ( @tails ) { my $re = "($pat$quant\\$)$tail" ; ok (/$re/ && $1 eq $_ , "\'$_\' =~ /$re/; Bug 41010" ) ; ok (/$re/m && $1 eq $_ , "\'$_\' =~ /$re/m; Bug 41010" ) ; } } }',
             'start_line' => 870,
             'indent' => 4,
-            'block_id' => 105
+            'block_id' => 106
           },
           {
             'token_num' => 48,
@@ -56246,7 +56397,7 @@ $t =~ s/([^a])//ge;
             'src' => ' for my $quant ( @quants ) { for my $tail ( @tails ) { my $re = "($pat$quant\\$)$tail" ; ok (/$re/ && $1 eq $_ , "\'$_\' =~ /$re/; Bug 41010" ) ; ok (/$re/m && $1 eq $_ , "\'$_\' =~ /$re/m; Bug 41010" ) ; } }',
             'start_line' => 871,
             'indent' => 5,
-            'block_id' => 106
+            'block_id' => 107
           },
           {
             'token_num' => 40,
@@ -56255,7 +56406,7 @@ $t =~ s/([^a])//ge;
             'src' => ' for my $tail ( @tails ) { my $re = "($pat$quant\\$)$tail" ; ok (/$re/ && $1 eq $_ , "\'$_\' =~ /$re/; Bug 41010" ) ; ok (/$re/m && $1 eq $_ , "\'$_\' =~ /$re/m; Bug 41010" ) ; }',
             'start_line' => 872,
             'indent' => 6,
-            'block_id' => 107
+            'block_id' => 108
           },
           {
             'token_num' => 5,
@@ -56264,7 +56415,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $re = "($pat$quant\\$)$tail" ;',
             'start_line' => 873,
             'indent' => 7,
-            'block_id' => 108
+            'block_id' => 109
           },
           {
             'token_num' => 13,
@@ -56273,7 +56424,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok (/$re/ && $1 eq $_ , "\'$_\' =~ /$re/; Bug 41010" ) ;',
             'start_line' => 874,
             'indent' => 7,
-            'block_id' => 108
+            'block_id' => 109
           },
           {
             'token_num' => 14,
@@ -56282,7 +56433,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok (/$re/m && $1 eq $_ , "\'$_\' =~ /$re/m; Bug 41010" ) ;',
             'start_line' => 875,
             'indent' => 7,
-            'block_id' => 108
+            'block_id' => 109
           },
           {
             'token_num' => 17,
@@ -56291,7 +56442,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my @dpats = ( \'\\d\' , \'[1234567890]\' , \'(1|[23]|4|[56]|[78]|[90])\' , \'(?:1|[23]|4|[56]|[78]|[90])\' , \'(1|2|3|4|5|6|7|8|9|0)\' , \'(?:1|2|3|4|5|6|7|8|9|0)\' ) ;',
             'start_line' => 882,
             'indent' => 2,
-            'block_id' => 103
+            'block_id' => 104
           },
           {
             'token_num' => 17,
@@ -56300,7 +56451,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my @spats = ( \'[ ]\' , \' \' , \'( |\\t)\' , \'(?: |\\t)\' , \'[ \\t]\' , \'\\s\' ) ;',
             'start_line' => 888,
             'indent' => 2,
-            'block_id' => 103
+            'block_id' => 104
           },
           {
             'token_num' => 7,
@@ -56309,7 +56460,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my @sstrs = ( \'  \' ) ;',
             'start_line' => 889,
             'indent' => 2,
-            'block_id' => 103
+            'block_id' => 104
           },
           {
             'token_num' => 7,
@@ -56318,7 +56469,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my @dstrs = ( \'12345\' ) ;',
             'start_line' => 890,
             'indent' => 2,
-            'block_id' => 103
+            'block_id' => 104
           },
           {
             'token_num' => 9,
@@ -56327,7 +56478,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $doit-> ( \\ @spats , @sstrs ) ;',
             'start_line' => 891,
             'indent' => 2,
-            'block_id' => 103
+            'block_id' => 104
           },
           {
             'token_num' => 9,
@@ -56336,7 +56487,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $doit-> ( \\ @dpats , @dstrs ) ;',
             'start_line' => 892,
             'indent' => 2,
-            'block_id' => 103
+            'block_id' => 104
           },
           {
             'token_num' => 28,
@@ -56354,7 +56505,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $utf_8 = "\\xd6schel" ;',
             'start_line' => 898,
             'indent' => 2,
-            'block_id' => 109
+            'block_id' => 110
           },
           {
             'token_num' => 5,
@@ -56363,7 +56514,7 @@ $t =~ s/([^a])//ge;
             'src' => ' utf8::upgrade ( $utf_8 ) ;',
             'start_line' => 899,
             'indent' => 2,
-            'block_id' => 109
+            'block_id' => 110
           },
           {
             'token_num' => 7,
@@ -56372,7 +56523,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $utf_8 =~ m{(\\xd6|&Ouml;)schel} ;',
             'start_line' => 900,
             'indent' => 2,
-            'block_id' => 109
+            'block_id' => 110
           },
           {
             'token_num' => 9,
@@ -56381,7 +56532,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $1 , "\\xd6" , "Upgrade error; Bug 45605" ) ;',
             'start_line' => 901,
             'indent' => 2,
-            'block_id' => 109
+            'block_id' => 110
           },
           {
             'token_num' => 87,
@@ -56399,7 +56550,7 @@ $t =~ s/([^a])//ge;
             'src' => ' for my $o ( 0 .. 255 ) { my @ch = ( chr ( $o ) , chr ( $o ) ) ; utf8::upgrade ( $ch [ 1 ] ) ; for my $u_str ( 0 , 1 ) { for my $u_pat ( 0 , 1 ) { like ( $ch [ $u_str ] , qr/\\Q$ch[$u_pat]\\E/i , "\\$c =~ /\\$c/i : chr ($o) : u_str = $u_str u_pat = $u_pat; Bug 36207" ) ; like ( $ch [ $u_str ] , qr/\\Q$ch[$u_pat]\\E|xyz/i , "\\$c=~/\\$c|xyz/i : chr($o) : u_str = $u_str u_pat = $u_pat; Bug 36207" ) ; } } }',
             'start_line' => 908,
             'indent' => 2,
-            'block_id' => 110
+            'block_id' => 111
           },
           {
             'token_num' => 15,
@@ -56408,7 +56559,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my @ch = ( chr ( $o ) , chr ( $o ) ) ;',
             'start_line' => 909,
             'indent' => 3,
-            'block_id' => 111
+            'block_id' => 112
           },
           {
             'token_num' => 8,
@@ -56417,7 +56568,7 @@ $t =~ s/([^a])//ge;
             'src' => ' utf8::upgrade ( $ch [ 1 ] ) ;',
             'start_line' => 910,
             'indent' => 3,
-            'block_id' => 111
+            'block_id' => 112
           },
           {
             'token_num' => 52,
@@ -56426,7 +56577,7 @@ $t =~ s/([^a])//ge;
             'src' => ' for my $u_str ( 0 , 1 ) { for my $u_pat ( 0 , 1 ) { like ( $ch [ $u_str ] , qr/\\Q$ch[$u_pat]\\E/i , "\\$c =~ /\\$c/i : chr ($o) : u_str = $u_str u_pat = $u_pat; Bug 36207" ) ; like ( $ch [ $u_str ] , qr/\\Q$ch[$u_pat]\\E|xyz/i , "\\$c=~/\\$c|xyz/i : chr($o) : u_str = $u_str u_pat = $u_pat; Bug 36207" ) ; } }',
             'start_line' => 911,
             'indent' => 3,
-            'block_id' => 111
+            'block_id' => 112
           },
           {
             'token_num' => 42,
@@ -56435,7 +56586,7 @@ $t =~ s/([^a])//ge;
             'src' => ' for my $u_pat ( 0 , 1 ) { like ( $ch [ $u_str ] , qr/\\Q$ch[$u_pat]\\E/i , "\\$c =~ /\\$c/i : chr ($o) : u_str = $u_str u_pat = $u_pat; Bug 36207" ) ; like ( $ch [ $u_str ] , qr/\\Q$ch[$u_pat]\\E|xyz/i , "\\$c=~/\\$c|xyz/i : chr($o) : u_str = $u_str u_pat = $u_pat; Bug 36207" ) ; }',
             'start_line' => 912,
             'indent' => 4,
-            'block_id' => 112
+            'block_id' => 113
           },
           {
             'token_num' => 16,
@@ -56444,7 +56595,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( $ch [ $u_str ] , qr/\\Q$ch[$u_pat]\\E/i , "\\$c =~ /\\$c/i : chr ($o) : u_str = $u_str u_pat = $u_pat; Bug 36207" ) ;',
             'start_line' => 913,
             'indent' => 5,
-            'block_id' => 113
+            'block_id' => 114
           },
           {
             'token_num' => 16,
@@ -56453,7 +56604,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( $ch [ $u_str ] , qr/\\Q$ch[$u_pat]\\E|xyz/i , "\\$c=~/\\$c|xyz/i : chr($o) : u_str = $u_str u_pat = $u_pat; Bug 36207" ) ;',
             'start_line' => 915,
             'indent' => 5,
-            'block_id' => 113
+            'block_id' => 114
           },
           {
             'token_num' => 62,
@@ -56471,7 +56622,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $message = \'$REGMARK in replacement; Bug 49190\' ;',
             'start_line' => 923,
             'indent' => 2,
-            'block_id' => 114
+            'block_id' => 115
           },
           {
             'token_num' => 3,
@@ -56480,7 +56631,7 @@ $t =~ s/([^a])//ge;
             'src' => ' our $REGMARK ;',
             'start_line' => 924,
             'indent' => 2,
-            'block_id' => 114
+            'block_id' => 115
           },
           {
             'token_num' => 5,
@@ -56489,7 +56640,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $_ = "A" ;',
             'start_line' => 925,
             'indent' => 2,
-            'block_id' => 114
+            'block_id' => 115
           },
           {
             'token_num' => 12,
@@ -56498,7 +56649,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok ( s/(*:B)A/$REGMARK/ , $message ) ;',
             'start_line' => 926,
             'indent' => 2,
-            'block_id' => 114
+            'block_id' => 115
           },
           {
             'token_num' => 9,
@@ -56507,7 +56658,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $_ , "B" , $message ) ;',
             'start_line' => 927,
             'indent' => 2,
-            'block_id' => 114
+            'block_id' => 115
           },
           {
             'token_num' => 4,
@@ -56516,7 +56667,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $_ = "CCCCBAA" ;',
             'start_line' => 928,
             'indent' => 2,
-            'block_id' => 114
+            'block_id' => 115
           },
           {
             'token_num' => 13,
@@ -56525,7 +56676,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok ( s/(*:X)A+|(*:Y)B+|(*:Z)C+/$REGMARK/g , $message ) ;',
             'start_line' => 929,
             'indent' => 2,
-            'block_id' => 114
+            'block_id' => 115
           },
           {
             'token_num' => 9,
@@ -56534,7 +56685,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $_ , "ZYX" , $message ) ;',
             'start_line' => 930,
             'indent' => 2,
-            'block_id' => 114
+            'block_id' => 115
           },
           {
             'token_num' => 61,
@@ -56552,7 +56703,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $message = \'Substitution evaluation in list context; Bug 52658\' ;',
             'start_line' => 934,
             'indent' => 2,
-            'block_id' => 115
+            'block_id' => 116
           },
           {
             'token_num' => 5,
@@ -56561,7 +56712,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $reg = \'../xxx/\' ;',
             'start_line' => 935,
             'indent' => 2,
-            'block_id' => 115
+            'block_id' => 116
           },
           {
             'token_num' => 28,
@@ -56570,7 +56721,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my @te = ( $reg =~ m{^(/?(?:\\.\\./)*)} , $reg =~ s/(x)/\'b\'/eg > 1 ? \'##\' : \'++\' ) ;',
             'start_line' => 936,
             'indent' => 2,
-            'block_id' => 115
+            'block_id' => 116
           },
           {
             'token_num' => 9,
@@ -56579,7 +56730,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $reg , \'../bbb/\' , $message ) ;',
             'start_line' => 938,
             'indent' => 2,
-            'block_id' => 115
+            'block_id' => 116
           },
           {
             'token_num' => 12,
@@ -56588,7 +56739,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $te [ 0 ] , \'../\' , $message ) ;',
             'start_line' => 939,
             'indent' => 2,
-            'block_id' => 115
+            'block_id' => 116
           },
           {
             'token_num' => 53,
@@ -56606,7 +56757,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $a = "xyzt" x 8192 ;',
             'start_line' => 943,
             'indent' => 2,
-            'block_id' => 116
+            'block_id' => 117
           },
           {
             'token_num' => 12,
@@ -56615,7 +56766,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( $a , qr/\\A(?>[a-z])*\\z/ , \'(?>) does not cause wrongness on long string; Bug 60034\' ) ;',
             'start_line' => 944,
             'indent' => 2,
-            'block_id' => 116
+            'block_id' => 117
           },
           {
             'token_num' => 8,
@@ -56624,7 +56775,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $b = $a . chr 256 ;',
             'start_line' => 946,
             'indent' => 2,
-            'block_id' => 116
+            'block_id' => 117
           },
           {
             'token_num' => 3,
@@ -56633,7 +56784,7 @@ $t =~ s/([^a])//ge;
             'src' => ' chop $b ;',
             'start_line' => 947,
             'indent' => 2,
-            'block_id' => 116
+            'block_id' => 117
           },
           {
             'token_num' => 9,
@@ -56642,7 +56793,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $a , $b , \'Bug 60034\' ) ;',
             'start_line' => 948,
             'indent' => 2,
-            'block_id' => 116
+            'block_id' => 117
           },
           {
             'token_num' => 12,
@@ -56651,7 +56802,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( $b , qr/\\A(?>[a-z])*\\z/ , \'(?>) does not cause wrongness on long string with UTF-8; Bug 60034\' ) ;',
             'start_line' => 949,
             'indent' => 2,
-            'block_id' => 116
+            'block_id' => 117
           },
           {
             'token_num' => 3,
@@ -56678,7 +56829,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $message = \'Pattern in a loop, failure should not \' . \'affect previous success; Bug 19049/38869\' ;',
             'start_line' => 959,
             'indent' => 2,
-            'block_id' => 117
+            'block_id' => 118
           },
           {
             'token_num' => 15,
@@ -56687,7 +56838,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my @list = ( \'ab cdef\' , ( \'e\' x 40000 ) . \'ab c\' ) ;',
             'start_line' => 961,
             'indent' => 2,
-            'block_id' => 117
+            'block_id' => 118
           },
           {
             'token_num' => 3,
@@ -56696,7 +56847,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $y ;',
             'start_line' => 965,
             'indent' => 2,
-            'block_id' => 117
+            'block_id' => 118
           },
           {
             'token_num' => 3,
@@ -56705,7 +56856,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $x ;',
             'start_line' => 966,
             'indent' => 2,
-            'block_id' => 117
+            'block_id' => 118
           },
           {
             'token_num' => 41,
@@ -56714,7 +56865,7 @@ $t =~ s/([^a])//ge;
             'src' => ' foreach ( @list ) { m/ab(.+)cd/i ; $y = $1 ; $x = substr ( $list [ 0 ] , $- [ 0 ] , $+ [ 0 ] - $- [ 0 ] ) ; }',
             'start_line' => 967,
             'indent' => 2,
-            'block_id' => 117
+            'block_id' => 118
           },
           {
             'token_num' => 6,
@@ -56723,7 +56874,7 @@ $t =~ s/([^a])//ge;
             'src' => ' m/ab(.+)cd/i ;',
             'start_line' => 968,
             'indent' => 3,
-            'block_id' => 118
+            'block_id' => 119
           },
           {
             'token_num' => 4,
@@ -56732,7 +56883,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $y = $1 ;',
             'start_line' => 969,
             'indent' => 3,
-            'block_id' => 118
+            'block_id' => 119
           },
           {
             'token_num' => 25,
@@ -56741,7 +56892,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $x = substr ( $list [ 0 ] , $- [ 0 ] , $+ [ 0 ] - $- [ 0 ] ) ;',
             'start_line' => 970,
             'indent' => 3,
-            'block_id' => 118
+            'block_id' => 119
           },
           {
             'token_num' => 9,
@@ -56750,7 +56901,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $y , \' \' , $message ) ;',
             'start_line' => 972,
             'indent' => 2,
-            'block_id' => 117
+            'block_id' => 118
           },
           {
             'token_num' => 9,
@@ -56759,7 +56910,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $x , \'ab cd\' , $message ) ;',
             'start_line' => 973,
             'indent' => 2,
-            'block_id' => 117
+            'block_id' => 118
           },
           {
             'token_num' => 41,
@@ -56777,7 +56928,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok ( ( "a" x ( 2 ** 15 - 10 ) ) =~/^()(a|bb)*$/ , "Recursive stack cracker; Bug 24274" ) ;',
             'start_line' => 977,
             'indent' => 2,
-            'block_id' => 119
+            'block_id' => 120
           },
           {
             'token_num' => 18,
@@ -56786,7 +56937,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok ( ( q(a)x 100 ) =~/^(??{\'(.)\'x 100})/ , "Regexp /^(??{\'(.)\'x 100})/ crashes older perls; Bug 24274" ) ;',
             'start_line' => 978,
             'indent' => 2,
-            'block_id' => 119
+            'block_id' => 120
           },
           {
             'token_num' => 35,
@@ -56804,7 +56955,7 @@ $t =~ s/([^a])//ge;
             'src' => ' local ${ ^ UTF8CACHE } = -1 ;',
             'start_line' => 985,
             'indent' => 2,
-            'block_id' => 120
+            'block_id' => 121
           },
           {
             'token_num' => 5,
@@ -56813,7 +56964,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $message = "Shouldn\'t panic; Bug 45337" ;',
             'start_line' => 986,
             'indent' => 2,
-            'block_id' => 120
+            'block_id' => 121
           },
           {
             'token_num' => 5,
@@ -56822,7 +56973,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $s = "[a]a{2}" ;',
             'start_line' => 987,
             'indent' => 2,
-            'block_id' => 120
+            'block_id' => 121
           },
           {
             'token_num' => 3,
@@ -56831,7 +56982,7 @@ $t =~ s/([^a])//ge;
             'src' => ' utf8::upgrade $s ;',
             'start_line' => 988,
             'indent' => 2,
-            'block_id' => 120
+            'block_id' => 121
           },
           {
             'token_num' => 12,
@@ -56840,7 +56991,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( "aaa" , qr/$s/ , $message ) ;',
             'start_line' => 989,
             'indent' => 2,
-            'block_id' => 120
+            'block_id' => 121
           },
           {
             'token_num' => 58,
@@ -56863,7 +57014,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $message = "Check if tree logic breaks \\$^R; Bug 57042" ;',
             'start_line' => 992,
             'indent' => 2,
-            'block_id' => 121
+            'block_id' => 122
           },
           {
             'token_num' => 9,
@@ -56877,7 +57028,7 @@ $t =~ s/([^a])//ge;
 	   /x ;',
             'start_line' => 993,
             'indent' => 2,
-            'block_id' => 121
+            'block_id' => 122
           },
           {
             'token_num' => 3,
@@ -56886,7 +57037,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my @res ;',
             'start_line' => 999,
             'indent' => 2,
-            'block_id' => 121
+            'block_id' => 122
           },
           {
             'token_num' => 30,
@@ -56895,7 +57046,7 @@ $t =~ s/([^a])//ge;
             'src' => ' for my $line ( "(A)" , "(B)" ) { if ( $line =~ m/$cond_re/ ) { push @res , $^R ? "#$^R" : "UNDEF" ; } }',
             'start_line' => 1000,
             'indent' => 2,
-            'block_id' => 121
+            'block_id' => 122
           },
           {
             'token_num' => 20,
@@ -56904,7 +57055,7 @@ $t =~ s/([^a])//ge;
             'src' => ' if ( $line =~ m/$cond_re/ ) { push @res , $^R ? "#$^R" : "UNDEF" ; }',
             'start_line' => 1001,
             'indent' => 3,
-            'block_id' => 122
+            'block_id' => 123
           },
           {
             'token_num' => 9,
@@ -56913,7 +57064,7 @@ $t =~ s/([^a])//ge;
             'src' => ' push @res , $^R ? "#$^R" : "UNDEF" ;',
             'start_line' => 1002,
             'indent' => 4,
-            'block_id' => 123
+            'block_id' => 124
           },
           {
             'token_num' => 9,
@@ -56922,7 +57073,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( "@res" , "#1 #2" , $message ) ;',
             'start_line' => 1005,
             'indent' => 2,
-            'block_id' => 121
+            'block_id' => 122
           },
           {
             'token_num' => 32,
@@ -56940,7 +57091,7 @@ $t =~ s/([^a])//ge;
             'src' => ' no warnings \'closure\' ;',
             'start_line' => 1008,
             'indent' => 2,
-            'block_id' => 124
+            'block_id' => 125
           },
           {
             'token_num' => 8,
@@ -56949,7 +57100,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $re = qr/A(??{"1"})/ ;',
             'start_line' => 1009,
             'indent' => 2,
-            'block_id' => 124
+            'block_id' => 125
           },
           {
             'token_num' => 8,
@@ -56958,7 +57109,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok "A1B" =~ m/^((??{ $re }))((??{"B"}))$/ ;',
             'start_line' => 1010,
             'indent' => 2,
-            'block_id' => 124
+            'block_id' => 125
           },
           {
             'token_num' => 5,
@@ -56967,7 +57118,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok $1 eq "A1" ;',
             'start_line' => 1011,
             'indent' => 2,
-            'block_id' => 124
+            'block_id' => 125
           },
           {
             'token_num' => 5,
@@ -56976,7 +57127,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok $2 eq "B" ;',
             'start_line' => 1012,
             'indent' => 2,
-            'block_id' => 124
+            'block_id' => 125
           },
           {
             'token_num' => 62,
@@ -56994,7 +57145,7 @@ $t =~ s/([^a])//ge;
             'src' => ' sub fswash { $_ [ 0 ] =~ s/([>X])//g ; }',
             'start_line' => 1019,
             'indent' => 2,
-            'block_id' => 125
+            'block_id' => 126
           },
           {
             'token_num' => 13,
@@ -57003,7 +57154,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $_ [ 0 ] =~ s/([>X])//g ;',
             'start_line' => 1019,
             'indent' => 3,
-            'block_id' => 126
+            'block_id' => 127
           },
           {
             'token_num' => 9,
@@ -57012,7 +57163,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $k1 = "." x 4 . ">>" ;',
             'start_line' => 1021,
             'indent' => 2,
-            'block_id' => 125
+            'block_id' => 126
           },
           {
             'token_num' => 5,
@@ -57021,7 +57172,7 @@ $t =~ s/([^a])//ge;
             'src' => ' fswash ( $k1 ) ;',
             'start_line' => 1022,
             'indent' => 2,
-            'block_id' => 125
+            'block_id' => 126
           },
           {
             'token_num' => 5,
@@ -57030,7 +57181,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $k2 = "\\x{f1}\\x{2022}" ;',
             'start_line' => 1024,
             'indent' => 2,
-            'block_id' => 125
+            'block_id' => 126
           },
           {
             'token_num' => 10,
@@ -57039,7 +57190,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $k2 =~ s/([\\360-\\362])/>/g ;',
             'start_line' => 1025,
             'indent' => 2,
-            'block_id' => 125
+            'block_id' => 126
           },
           {
             'token_num' => 5,
@@ -57048,7 +57199,7 @@ $t =~ s/([^a])//ge;
             'src' => ' fswash ( $k2 ) ;',
             'start_line' => 1026,
             'indent' => 2,
-            'block_id' => 125
+            'block_id' => 126
           },
           {
             'token_num' => 9,
@@ -57057,7 +57208,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $k2 , "\\x{2022}" , "utf8::SWASHNEW doesn\'t cause capture leaks; Bug 60508" ) ;',
             'start_line' => 1028,
             'indent' => 2,
-            'block_id' => 125
+            'block_id' => 126
           },
           {
             'token_num' => 64,
@@ -57075,7 +57226,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my @pat = ( qr{a(x|y)*b} , qr{a(x|y)*?b} , qr{a([wx]|[yz])*b} , qr{a([wx]|[yz])*?b} , ) ;',
             'start_line' => 1033,
             'indent' => 2,
-            'block_id' => 127
+            'block_id' => 128
           },
           {
             'token_num' => 5,
@@ -57084,7 +57235,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $len = 32768 ;',
             'start_line' => 1039,
             'indent' => 2,
-            'block_id' => 127
+            'block_id' => 128
           },
           {
             'token_num' => 14,
@@ -57093,7 +57244,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $s = join \'\' , \'a\' , \'x\' x $len , \'b\' ;',
             'start_line' => 1040,
             'indent' => 2,
-            'block_id' => 127
+            'block_id' => 128
           },
           {
             'token_num' => 17,
@@ -57102,7 +57253,7 @@ $t =~ s/([^a])//ge;
             'src' => ' for my $pat ( @pat ) { like ( $s , $pat , "$pat; Bug 65372" ) ; }',
             'start_line' => 1041,
             'indent' => 2,
-            'block_id' => 127
+            'block_id' => 128
           },
           {
             'token_num' => 9,
@@ -57111,7 +57262,7 @@ $t =~ s/([^a])//ge;
             'src' => ' like ( $s , $pat , "$pat; Bug 65372" ) ;',
             'start_line' => 1042,
             'indent' => 3,
-            'block_id' => 128
+            'block_id' => 129
           },
           {
             'token_num' => 38,
@@ -57129,7 +57280,7 @@ $t =~ s/([^a])//ge;
             'src' => ' local $: : TODO = "[perl #38133]" ;',
             'start_line' => 1047,
             'indent' => 2,
-            'block_id' => 129
+            'block_id' => 130
           },
           {
             'token_num' => 6,
@@ -57138,7 +57289,7 @@ $t =~ s/([^a])//ge;
             'src' => ' "A" =~/(((?:A))?)+/ ;',
             'start_line' => 1049,
             'indent' => 2,
-            'block_id' => 129
+            'block_id' => 130
           },
           {
             'token_num' => 5,
@@ -57147,7 +57298,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $first = $2 ;',
             'start_line' => 1050,
             'indent' => 2,
-            'block_id' => 129
+            'block_id' => 130
           },
           {
             'token_num' => 6,
@@ -57156,7 +57307,7 @@ $t =~ s/([^a])//ge;
             'src' => ' "A" =~/(((A))?)+/ ;',
             'start_line' => 1052,
             'indent' => 2,
-            'block_id' => 129
+            'block_id' => 130
           },
           {
             'token_num' => 5,
@@ -57165,7 +57316,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $second = $2 ;',
             'start_line' => 1053,
             'indent' => 2,
-            'block_id' => 129
+            'block_id' => 130
           },
           {
             'token_num' => 7,
@@ -57174,7 +57325,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $first , $second ) ;',
             'start_line' => 1055,
             'indent' => 2,
-            'block_id' => 129
+            'block_id' => 130
           },
           {
             'token_num' => 135,
@@ -57192,7 +57343,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $message = \'utf8 =~ /trie/ where trie matches a continuation octet; Bug 70998\' ;',
             'start_line' => 1059,
             'indent' => 2,
-            'block_id' => 130
+            'block_id' => 131
           },
           {
             'token_num' => 3,
@@ -57201,7 +57352,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $w ;',
             'start_line' => 1063,
             'indent' => 2,
-            'block_id' => 130
+            'block_id' => 131
           },
           {
             'token_num' => 13,
@@ -57210,7 +57361,7 @@ $t =~ s/([^a])//ge;
             'src' => ' local $SIG { __WARN__ } = sub { $w .= shift } ;',
             'start_line' => 1064,
             'indent' => 2,
-            'block_id' => 130
+            'block_id' => 131
           },
           {
             'token_num' => 9,
@@ -57219,7 +57370,7 @@ $t =~ s/([^a])//ge;
             'src' => ' qq{\\x{30ab}} =~/\\xab|\\xa9/ ;',
             'start_line' => 1067,
             'indent' => 2,
-            'block_id' => 130
+            'block_id' => 131
           },
           {
             'token_num' => 14,
@@ -57228,7 +57379,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my %conv = ( "\\xab" => "&lt;" , "\\xa9" => "(c)" , ) ;',
             'start_line' => 1071,
             'indent' => 2,
-            'block_id' => 130
+            'block_id' => 131
           },
           {
             'token_num' => 19,
@@ -57237,7 +57388,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $conv_rx = \'(\' . join ( \'|\' , map { quotemeta } keys %conv ) . \')\' ;',
             'start_line' => 1075,
             'indent' => 2,
-            'block_id' => 130
+            'block_id' => 131
           },
           {
             'token_num' => 7,
@@ -57246,7 +57397,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $conv_rx = qr{$conv_rx} ;',
             'start_line' => 1076,
             'indent' => 2,
-            'block_id' => 130
+            'block_id' => 131
           },
           {
             'token_num' => 43,
@@ -57255,7 +57406,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $x = qq{\\x{3042}\\x{304b}\\x{3055}\\x{305f}\\x{306a}\\x{306f}\\x{307e}} . qq{\\x{3084}\\x{3089}\\x{308f}\\x{3093}\\x{3042}\\x{304b}\\x{3055}} . qq{\\x{305f}\\x{306a}\\x{306f}\\x{307e}\\x{3084}\\x{3089}\\x{308f}} . qq{\\x{3093}\\x{30a2}\\x{30ab}\\x{30b5}\\x{30bf}\\x{30ca}\\x{30cf}} . qq{\\x{30de}\\x{30e4}\\x{30e9}\\x{30ef}\\x{30f3}\\x{30a2}\\x{30ab}} . qq{\\x{30b5}\\x{30bf}\\x{30ca}\\x{30cf}\\x{30de}\\x{30e4}\\x{30e9}} . qq{\\x{30ef}\\x{30f3}\\x{30a2}\\x{30ab}\\x{30b5}\\x{30bf}\\x{30ca}} . qq{\\x{30cf}\\x{30de}\\x{30e4}\\x{30e9}\\x{30ef}\\x{30f3}} ;',
             'start_line' => 1078,
             'indent' => 2,
-            'block_id' => 130
+            'block_id' => 131
           },
           {
             'token_num' => 11,
@@ -57264,7 +57415,7 @@ $t =~ s/([^a])//ge;
             'src' => ' $x =~ s{$conv_rx}{$conv{$1}}eg ;',
             'start_line' => 1088,
             'indent' => 2,
-            'block_id' => 130
+            'block_id' => 131
           },
           {
             'token_num' => 9,
@@ -57273,7 +57424,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( $w , undef , $message ) ;',
             'start_line' => 1090,
             'indent' => 2,
-            'block_id' => 130
+            'block_id' => 131
           },
           {
             'token_num' => 21,
@@ -57291,7 +57442,7 @@ $t =~ s/([^a])//ge;
             'src' => ' is ( join ( "-" , "   abc   def  " =~/(?=(\\S+))/g ) , "abc-bc-c-def-ef-f" , \'stclass optimisation does not break + inside (?=); Bug 68564\' ) ;',
             'start_line' => 1096,
             'indent' => 2,
-            'block_id' => 132
+            'block_id' => 133
           },
           {
             'token_num' => 66,
@@ -57309,7 +57460,7 @@ $t =~ s/([^a])//ge;
             'src' => ' use charnames ":full" ;',
             'start_line' => 1101,
             'indent' => 2,
-            'block_id' => 133
+            'block_id' => 134
           },
           {
             'token_num' => 8,
@@ -57318,7 +57469,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $r1 = qr/\\N{THAI CHARACTER SARA I}/ ;',
             'start_line' => 1103,
             'indent' => 2,
-            'block_id' => 133
+            'block_id' => 134
           },
           {
             'token_num' => 5,
@@ -57327,7 +57478,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $s1 = "\\x{E34}\\x{E34}\\x{E34}\\x{E34}" ;',
             'start_line' => 1104,
             'indent' => 2,
-            'block_id' => 133
+            'block_id' => 134
           },
           {
             'token_num' => 9,
@@ -57336,7 +57487,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok $s1 =~/$r1+/ , \'my $r1 = qr/\\N{THAI CHARACTER SARA I}/; my $s1 = "\\x{E34}\\x{E34}\\x{E34}\\x{E34}; $s1 =~ /$r1+/\' ;',
             'start_line' => 1107,
             'indent' => 2,
-            'block_id' => 133
+            'block_id' => 134
           },
           {
             'token_num' => 10,
@@ -57345,7 +57496,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok "${s1}A" =~ m/$s1\\N{LATIN CAPITAL LETTER A}/ , \'"${s1}A" =~ m/$s1\\N{LATIN CAPITAL LETTER A}/\' ;',
             'start_line' => 1110,
             'indent' => 2,
-            'block_id' => 133
+            'block_id' => 134
           },
           {
             'token_num' => 14,
@@ -57354,7 +57505,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok "abbbbc" =~ m/\\N{1}/ && $& eq "a" , \'"abbbbc" =~ m/\\N{1}/ && $& eq "a"\' ;',
             'start_line' => 1112,
             'indent' => 2,
-            'block_id' => 133
+            'block_id' => 134
           },
           {
             'token_num' => 14,
@@ -57363,7 +57514,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok "abbbbc" =~ m/\\N{3,4}/ && $& eq "abbb" , \'"abbbbc" =~ m/\\N{3,4}/ && $& eq "abbb"\' ;',
             'start_line' => 1113,
             'indent' => 2,
-            'block_id' => 133
+            'block_id' => 134
           },
           {
             'token_num' => 43,
@@ -57381,7 +57532,7 @@ $t =~ s/([^a])//ge;
             'src' => ' use charnames ":full" ;',
             'start_line' => 1117,
             'indent' => 2,
-            'block_id' => 134
+            'block_id' => 135
           },
           {
             'token_num' => 5,
@@ -57390,7 +57541,7 @@ $t =~ s/([^a])//ge;
             'src' => ' my $message = \'[perl #74982] Period coming after \\N{}\' ;',
             'start_line' => 1118,
             'indent' => 2,
-            'block_id' => 134
+            'block_id' => 135
           },
           {
             'token_num' => 16,
@@ -57399,7 +57550,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok ( "\\x{ff08}." =~ m/\\N{FULLWIDTH LEFT PARENTHESIS}./ && $& eq "\\x{ff08}." , $message ) ;',
             'start_line' => 1119,
             'indent' => 2,
-            'block_id' => 134
+            'block_id' => 135
           },
           {
             'token_num' => 16,
@@ -57408,7 +57559,7 @@ $t =~ s/([^a])//ge;
             'src' => ' ok ( "\\x{ff08}." =~ m/[\\N{FULLWIDTH LEFT PARENTHESIS}]./ && $& eq "\\x{ff08}." , $message ) ;',
             'start_line' => 1120,
             'indent' => 2,
-            'block_id' => 134
+            'block_id' => 135
           },
           {
             'token_num' => 16,
@@ -57417,7 +57568,7 @@ $t =~ s/([^a])//ge;
             'src' => ' skip ( \'Perl configured without Encode module\' , 1 ) unless $Config { extensions } =~/ Encode / ;',
             'start_line' => 1126,
             'indent' => 2,
-            'block_id' => 135
+            'block_id' => 136
           },
           {
             'token_num' => 12,
@@ -57430,7 +57581,7 @@ $t =~ s/([^a])//ge;
 } , qr!Malformed UTF-8 character \\(unexpected end of string\\) in substitution \\(s///\\) at! , \'Segfault using HTML::Entities\' ) ;',
             'start_line' => 1130,
             'indent' => 2,
-            'block_id' => 135
+            'block_id' => 136
           },
           {
             'token_num' => 2,

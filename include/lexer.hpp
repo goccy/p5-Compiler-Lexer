@@ -220,6 +220,8 @@ public:
 	bool isVersionString(LexContext *ctx);
 	bool isSkip(LexContext *ctx);
 	bool isPrototype(LexContext *ctx);
+	bool isRegexOptionPrevToken(LexContext *ctx);
+	bool isRegexOption(const char *opt);
 	char getRegexDelim(LexContext *ctx);
 	Token *scanQuote(LexContext *ctx, char quote);
 	Token *scanNewLineKeyword(LexContext *ctx);

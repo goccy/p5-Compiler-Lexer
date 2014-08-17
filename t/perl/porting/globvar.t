@@ -716,23 +716,92 @@ subtest 'tokenize' => sub {
                    'line' => 26
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 26
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 1,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Key',
+                   'data' => 'skip_all',
+                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'line' => 28
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LeftParenthesis',
+                   'data' => '(',
+                   'type' => Compiler::Lexer::TokenType::T_LeftParenthesis,
+                   'line' => 28
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'String',
+                   'data' => 'Could not spot definition of PL_Yes in output of `$trial`',
+                   'type' => Compiler::Lexer::TokenType::T_String,
+                   'line' => 28
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Symbol,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RightParenthesis',
+                   'data' => ')',
+                   'type' => Compiler::Lexer::TokenType::T_RightParenthesis,
+                   'line' => 28
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Stmt,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'UnlessStmt',
+                   'data' => 'unless',
+                   'type' => Compiler::Lexer::TokenType::T_UnlessStmt,
+                   'line' => 29
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Var',
+                   'data' => '$yes',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 29
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegOK',
+                   'data' => '=~',
+                   'type' => Compiler::Lexer::TokenType::T_RegOK,
+                   'line' => 29
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegDelim',
-                   'data' => ';',
+                   'data' => '/',
                    'type' => Compiler::Lexer::TokenType::T_RegDelim,
-                   'line' => 26
+                   'line' => 29
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegExp',
-                   'data' => '
-
-skip_all("Could not spot definition of PL_Yes in output of `$trial`")
-    unless $yes =~ /${defined}PL_Yes/m',
+                   'data' => '${defined}PL_Yes',
                    'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 29
                  }, 'Compiler::Lexer::Token' ),
@@ -741,8 +810,26 @@ skip_all("Could not spot definition of PL_Yes in output of `$trial`")
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegDelim',
-                   'data' => ';',
+                   'data' => '/',
                    'type' => Compiler::Lexer::TokenType::T_RegDelim,
+                   'line' => 29
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegOpt',
+                   'data' => 'm',
+                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'line' => 29
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
                    'line' => 29
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2352,14 +2439,29 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 14,
+            'token_num' => 9,
+            'has_warnings' => 0,
+            'end_line' => 26,
+            'src' => ' my $defined = qr/^[0-9a-fA-F]{8,16}\\s+[^Uu]\\s+_?/m ;',
+            'start_line' => 26,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 12,
+            'has_warnings' => 1,
+            'end_line' => 29,
+            'src' => ' skip_all ( "Could not spot definition of PL_Yes in output of `$trial`" ) unless $yes =~/${defined}PL_Yes/m ;',
+            'start_line' => 28,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 3,
             'has_warnings' => 0,
             'end_line' => 31,
-            'src' => ' my $defined = qr/^[0-9a-fA-F]{8,16}\\s+[^Uu]\\s+_?/m;
-
-skip_all("Could not spot definition of PL_Yes in output of `$trial`")
-    unless $yes =~ /${defined}PL_Yes/m; my %exported ;',
-            'start_line' => 26,
+            'src' => ' my %exported ;',
+            'start_line' => 31,
             'indent' => 0,
             'block_id' => 0
           },

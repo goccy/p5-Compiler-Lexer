@@ -2514,21 +2514,74 @@ subtest 'tokenize' => sub {
                    'line' => 44
                  }, 'Compiler::Lexer::Token' ),
           bless( {
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 44
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'VarDecl',
+                   'data' => 'my',
+                   'type' => Compiler::Lexer::TokenType::T_VarDecl,
+                   'line' => 45
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'LocalVar',
+                   'data' => '$binmode',
+                   'type' => Compiler::Lexer::TokenType::T_LocalVar,
+                   'line' => 45
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Assign,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Assign',
+                   'data' => '=',
+                   'type' => Compiler::Lexer::TokenType::T_Assign,
+                   'line' => 45
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'SpecificValue',
+                   'data' => '$1',
+                   'type' => Compiler::Lexer::TokenType::T_SpecificValue,
+                   'line' => 45
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RegOK',
+                   'data' => '=~',
+                   'type' => Compiler::Lexer::TokenType::T_RegOK,
+                   'line' => 45
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegDelim',
-                   'data' => ';',
+                   'data' => '/',
                    'type' => Compiler::Lexer::TokenType::T_RegDelim,
-                   'line' => 44
+                   'line' => 45
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegExp',
-                   'data' => '
-my $binmode = $1 =~ /binmode|binary/',
+                   'data' => 'binmode|binary',
                    'type' => Compiler::Lexer::TokenType::T_RegExp,
                    'line' => 45
                  }, 'Compiler::Lexer::Token' ),
@@ -2537,17 +2590,26 @@ my $binmode = $1 =~ /binmode|binary/',
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'RegDelim',
-                   'data' => ';',
+                   'data' => '/',
                    'type' => Compiler::Lexer::TokenType::T_RegDelim,
                    'line' => 45
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_RegOpt,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'RegOpt',
+                   'name' => 'SemiColon',
+                   'data' => ';',
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'line' => 45
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 1,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Key',
                    'data' => 'is',
-                   'type' => Compiler::Lexer::TokenType::T_RegOpt,
+                   'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 46
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2626,9 +2688,9 @@ my $binmode = $1 =~ /binmode|binary/',
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'GlobalVar',
+                   'name' => 'Var',
                    'data' => '$binmode',
-                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
+                   'type' => Compiler::Lexer::TokenType::T_Var,
                    'line' => 46
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4774,12 +4836,29 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 26,
+            'token_num' => 8,
+            'has_warnings' => 1,
+            'end_line' => 44,
+            'src' => ' $mount =~ m|on /usr/bin type .+ \\((\\w+)[,\\)]|m ;',
+            'start_line' => 44,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 9,
+            'has_warnings' => 0,
+            'end_line' => 45,
+            'src' => ' my $binmode = $1 =~/binmode|binary/ ;',
+            'start_line' => 45,
+            'indent' => 0,
+            'block_id' => 0
+          },
+          {
+            'token_num' => 16,
             'has_warnings' => 1,
             'end_line' => 46,
-            'src' => ' $mount =~ m|on /usr/bin type .+ \\((\\w+)[,\\)]|m;
-my $binmode = $1 =~ /binmode|binary/;is ( Cygwin::is_binmount ( "/" ) , $binmode ? 1 : \'\' , "check / for binmount" ) ;',
-            'start_line' => 44,
+            'src' => ' is ( Cygwin::is_binmount ( "/" ) , $binmode ? 1 : \'\' , "check / for binmount" ) ;',
+            'start_line' => 46,
             'indent' => 0,
             'block_id' => 0
           },
