@@ -97,6 +97,21 @@ Tokens *Lexer::tokenize(char *script)
 			smgr->idx += ctx->progress;
 			ctx->progress = 0;
 			break;
+		case 'x': {
+			char next_ch = smgr->nextChar();
+			char after_next_ch = smgr->afterNextChar();
+			if (next_ch != '=' || ctx->existsBuffer() ||
+				after_next_ch == '=' ||
+				after_next_ch == '>' ||
+				after_next_ch == '~') {
+				ctx->writeBuffer(ch);
+			} else {
+				tmgr->add(scanner.scanSymbol(ctx));
+				smgr->idx += ctx->progress;
+				ctx->progress = 0;
+			}
+			break;
+		}
 		case '\n':
 			tmgr->add(scanner.scanLineDelimiter(ctx));
 			tmgr->add(scanner.scanWhiteSpace(ctx)); // For newline character

@@ -2742,21 +2742,12 @@ subtest 'tokenize' => sub {
                    'line' => 46
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringMul',
-                   'data' => 'x',
-                   'type' => Compiler::Lexer::TokenType::T_StringMul,
-                   'line' => 46
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Assign,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Assign',
-                   'data' => '=',
-                   'type' => Compiler::Lexer::TokenType::T_Assign,
+                   'name' => 'StringMulEqual',
+                   'data' => 'x=',
+                   'type' => Compiler::Lexer::TokenType::T_StringMulEqual,
                    'line' => 46
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2868,21 +2859,12 @@ subtest 'tokenize' => sub {
                    'line' => 48
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringMul',
-                   'data' => 'x',
-                   'type' => Compiler::Lexer::TokenType::T_StringMul,
-                   'line' => 48
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Assign,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Assign',
-                   'data' => '=',
-                   'type' => Compiler::Lexer::TokenType::T_Assign,
+                   'name' => 'StringMulEqual',
+                   'data' => 'x=',
+                   'type' => Compiler::Lexer::TokenType::T_StringMulEqual,
                    'line' => 48
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2994,21 +2976,12 @@ subtest 'tokenize' => sub {
                    'line' => 50
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Operator,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'StringMul',
-                   'data' => 'x',
-                   'type' => Compiler::Lexer::TokenType::T_StringMul,
-                   'line' => 50
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
                    'kind' => Compiler::Lexer::Kind::T_Assign,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Assign',
-                   'data' => '=',
-                   'type' => Compiler::Lexer::TokenType::T_Assign,
+                   'name' => 'StringMulEqual',
+                   'data' => 'x=',
+                   'type' => Compiler::Lexer::TokenType::T_StringMulEqual,
                    'line' => 50
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6567,10 +6540,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 5,
+            'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 46,
-            'src' => ' $a x = 2 ;',
+            'src' => ' $a x= 2 ;',
             'start_line' => 46,
             'indent' => 0,
             'block_id' => 0
@@ -6585,10 +6558,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 5,
+            'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 48,
-            'src' => ' $a x = 1 ;',
+            'src' => ' $a x= 1 ;',
             'start_line' => 48,
             'indent' => 0,
             'block_id' => 0
@@ -6603,10 +6576,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 5,
+            'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 50,
-            'src' => ' $a x = 0 ;',
+            'src' => ' $a x= 0 ;',
             'start_line' => 50,
             'indent' => 0,
             'block_id' => 0
