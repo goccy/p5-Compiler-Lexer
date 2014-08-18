@@ -6229,9 +6229,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'DIAG',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 134
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -26971,7 +26971,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 26,
             'has_warnings' => 1,
             'end_line' => 142,
-            'src' => ' if ( ! ok ( $mtime , \'hard link mtime\' ) || ! isnt ( $mtime , $ctime , \'hard link ctime != mtime\' ) ) { print STDERR q{# Check if you are on a tmpfs of some sort.  Building in /tmp sometimes
+            'src' => ' if ( ! ok ( $mtime , \'hard link mtime\' ) || ! isnt ( $mtime , $ctime , \'hard link ctime != mtime\' ) ) { print STDERR qq{# Check if you are on a tmpfs of some sort.  Building in /tmp sometimes
 # has this problem.  Building on the ClearCase VOBS filesystem may also
 # cause this failure.
 #
@@ -26986,7 +26986,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 4,
             'has_warnings' => 0,
             'end_line' => 134,
-            'src' => ' print STDERR q{# Check if you are on a tmpfs of some sort.  Building in /tmp sometimes
+            'src' => ' print STDERR qq{# Check if you are on a tmpfs of some sort.  Building in /tmp sometimes
 # has this problem.  Building on the ClearCase VOBS filesystem may also
 # cause this failure.
 #

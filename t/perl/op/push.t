@@ -220,9 +220,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOF',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 3
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7575,7 +7575,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 11,
             'has_warnings' => 0,
             'end_line' => 3,
-            'src' => ' @tests = split (/\\n/ , q{0 3,			0 1 2,		3 4 5 6 7
+            'src' => ' @tests = split (/\\n/ , qq{0 3,			0 1 2,		3 4 5 6 7
 0 0 a b c,		,		a b c 0 1 2 3 4 5 6 7
 8 0 a b c,		,		0 1 2 3 4 5 6 7 a b c
 7 0 6.5,		,		0 1 2 3 4 5 6 6.5 7

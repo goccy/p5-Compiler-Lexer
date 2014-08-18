@@ -5117,9 +5117,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOEX',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 143
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6794,7 +6794,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 24,
             'has_warnings' => 1,
             'end_line' => 160,
-            'src' => ' if ( keys %perfect == 0 && $n ) { $max ++ ; print q{#
+            'src' => ' if ( keys %perfect == 0 && $n ) { $max ++ ; print qq{#
 # The failure of op/grent test is not necessarily serious.
 # It may fail due to local group administration conventions.
 # If you are for example using both NIS and local groups,
@@ -6824,7 +6824,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 3,
             'has_warnings' => 0,
             'end_line' => 143,
-            'src' => ' print q{#
+            'src' => ' print qq{#
 # The failure of op/grent test is not necessarily serious.
 # It may fail due to local group administration conventions.
 # If you are for example using both NIS and local groups,

@@ -5454,9 +5454,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOE',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 124
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6157,9 +6157,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOE',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 152
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7830,7 +7830,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 129,
             'has_warnings' => 1,
             'end_line' => 144,
-            'src' => ' for ( @INPUT ) { $ord ++ ; ( $op , undef , $comment ) =/^([^\\#]+)(\\#\\s+(.*))?/ ; $comment = $op unless defined $comment ; chomp ; $op = "$op==$op" unless $op =~/==/ ; ( $op , $expectop ) = $op =~/(.*)==(.*)/ ; $skip = ( $op =~/^\'\\?\\?\\?\'/ or $comment =~/skip\\(.*\\Q$^O\\E.*\\)/i ) ? "skip" : "# \'$_\'\\nnot" ; $integer = ( $comment =~/^i_/ ) ? "use integer" : \'\' ; ( print "#skipping $comment:\\nok $ord\\n" ) , next if $skip eq \'skip\' ; eval q{  local \\$SIG{__WARN__} = \\\\&wrn;
+            'src' => ' for ( @INPUT ) { $ord ++ ; ( $op , undef , $comment ) =/^([^\\#]+)(\\#\\s+(.*))?/ ; $comment = $op unless defined $comment ; chomp ; $op = "$op==$op" unless $op =~/==/ ; ( $op , $expectop ) = $op =~/(.*)==(.*)/ ; $skip = ( $op =~/^\'\\?\\?\\?\'/ or $comment =~/skip\\(.*\\Q$^O\\E.*\\)/i ) ? "skip" : "# \'$_\'\\nnot" ; $integer = ( $comment =~/^i_/ ) ? "use integer" : \'\' ; ( print "#skipping $comment:\\nok $ord\\n" ) , next if $skip eq \'skip\' ; eval qq{  local \\$SIG{__WARN__} = \\\\&wrn;
   my \\$a = \'fake\';
   $integer;
   \\$a = $op;
@@ -7930,7 +7930,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 3,
             'has_warnings' => 0,
             'end_line' => 124,
-            'src' => ' eval q{  local \\$SIG{__WARN__} = \\\\&wrn;
+            'src' => ' eval qq{  local \\$SIG{__WARN__} = \\\\&wrn;
   my \\$a = \'fake\';
   $integer;
   \\$a = $op;
@@ -8003,7 +8003,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 87,
             'has_warnings' => 1,
             'end_line' => 172,
-            'src' => ' for ( @simple_input ) { $ord ++ ; ( $op , undef , $comment ) =/^([^\\#]+)(\\#\\s+(.*))?/ ; $comment = $op unless defined $comment ; chomp ; ( $operator , $variable ) =/^\\s*(\\w+)\\s*\\$(\\w+)/ or warn "misprocessed \'$_\'\\n" ; eval q{  local \\$SIG{__WARN__} = \\\\&wrn;
+            'src' => ' for ( @simple_input ) { $ord ++ ; ( $op , undef , $comment ) =/^([^\\#]+)(\\#\\s+(.*))?/ ; $comment = $op unless defined $comment ; chomp ; ( $operator , $variable ) =/^\\s*(\\w+)\\s*\\$(\\w+)/ or warn "misprocessed \'$_\'\\n" ; eval qq{  local \\$SIG{__WARN__} = \\\\&wrn;
   my \\$$variable = "Ac# Ca\\\\nxxx";
   \\$$variable = $operator \\$$variable;
   \\$toself = \\$$variable;
@@ -8065,7 +8065,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 3,
             'has_warnings' => 0,
             'end_line' => 152,
-            'src' => ' eval q{  local \\$SIG{__WARN__} = \\\\&wrn;
+            'src' => ' eval qq{  local \\$SIG{__WARN__} = \\\\&wrn;
   my \\$$variable = "Ac# Ca\\\\nxxx";
   \\$$variable = $operator \\$$variable;
   \\$toself = \\$$variable;

@@ -1753,9 +1753,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOF',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 41
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1817,9 +1817,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOE',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 45
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1942,9 +1942,9 @@ EOF
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOF',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 56
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2243,9 +2243,9 @@ ok 13
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'E1',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 78
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2354,9 +2354,9 @@ E2
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'E1',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 84
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9761,7 +9761,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 3,
             'has_warnings' => 0,
             'end_line' => 41,
-            'src' => ' print q{$foo
+            'src' => ' print qq{$foo
 } ;',
             'start_line' => 41,
             'indent' => 0,
@@ -9771,7 +9771,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 7,
             'has_warnings' => 0,
             'end_line' => 45,
-            'src' => ' eval << q{print <<\'EOF\';
+            'src' => ' eval << qq{print <<\'EOF\';
 ok 10
 EOF
 
@@ -9788,7 +9788,7 @@ EOF
             'token_num' => 7,
             'has_warnings' => 0,
             'end_line' => 56,
-            'src' => ' print << EOS . << q{ok 12 - make sure single quotes are honored \\nnot ok
+            'src' => ' print << EOS . << qq{ok 12 - make sure single quotes are honored \\nnot ok
 EOS
 ok 13
 } ;',
@@ -9846,7 +9846,7 @@ ok 13
             'token_num' => 9,
             'has_warnings' => 0,
             'end_line' => 78,
-            'src' => ' print q{@{[ <<E2 ]}
+            'src' => ' print qq{@{[ <<E2 ]}
 foo
 E2
 } eq "foo\\n\\n" ? "ok 19\\n" : "not ok 19\\n" ;',
@@ -9858,7 +9858,7 @@ E2
             'token_num' => 9,
             'has_warnings' => 0,
             'end_line' => 84,
-            'src' => ' print q{@{[
+            'src' => ' print qq{@{[
   <<E2
 foo
 E2

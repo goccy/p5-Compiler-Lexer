@@ -4087,9 +4087,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'ERROR',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 100
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4305,9 +4305,9 @@ Use of uninitialized value \\$x in print at -e line 1.
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'ERROR',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 109
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5963,9 +5963,9 @@ Use of uninitialized value \\$x in print at -e line 1.
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'ERROR',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 157
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9916,7 +9916,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 21,
             'has_warnings' => 0,
             'end_line' => 103,
-            'src' => ' try ( { PERL5OPT => \'-w -Mstrict\' } , [ \'-I../lib\' , \'-e\' , \'print $::x\' ] , "" , q{Name "main::x" used only once: possible typo at -e line 1.
+            'src' => ' try ( { PERL5OPT => \'-w -Mstrict\' } , [ \'-I../lib\' , \'-e\' , \'print $::x\' ] , "" , qq{Name "main::x" used only once: possible typo at -e line 1.
 Use of uninitialized value \\$x in print at -e line 1.
 } ) ;',
             'start_line' => 97,
@@ -9927,7 +9927,7 @@ Use of uninitialized value \\$x in print at -e line 1.
             'token_num' => 21,
             'has_warnings' => 0,
             'end_line' => 112,
-            'src' => ' try ( { PERL5OPT => \'-w -Mstrict\' } , [ \'-I../lib\' , \'-e\' , \'print $::x\' ] , "" , q{Name "main::x" used only once: possible typo at -e line 1.
+            'src' => ' try ( { PERL5OPT => \'-w -Mstrict\' } , [ \'-I../lib\' , \'-e\' , \'print $::x\' ] , "" , qq{Name "main::x" used only once: possible typo at -e line 1.
 Use of uninitialized value \\$x in print at -e line 1.
 } ) ;',
             'start_line' => 106,
@@ -10028,7 +10028,7 @@ Use of uninitialized value \\$x in print at -e line 1.
             'token_num' => 21,
             'has_warnings' => 0,
             'end_line' => 160,
-            'src' => ' try ( { PERL5OPT => \'-W\' } , [ \'-I../lib\' , \'-e\' , \'local $^W = 0;  no warnings;  print $x\' ] , \'\' , q{Name "main::x" used only once: possible typo at -e line 1.
+            'src' => ' try ( { PERL5OPT => \'-W\' } , [ \'-I../lib\' , \'-e\' , \'local $^W = 0;  no warnings;  print $x\' ] , \'\' , qq{Name "main::x" used only once: possible typo at -e line 1.
 Use of uninitialized value \\$x in print at -e line 1.
 } ) ;',
             'start_line' => 153,

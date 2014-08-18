@@ -606,6 +606,7 @@ Term            	VersionString
 Term            	HereDocumentTag     	
 Term            	HereDocumentRawTag  	
 Term            	HereDocumentExecTag  	
+Term            	HereDocumentBareTag  	
 Term            	RawHereDocument     	
 Term            	HereDocument        	
 Term            	HereDocumentEnd     	

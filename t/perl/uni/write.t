@@ -1767,9 +1767,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOFORMAT',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 36
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1794,9 +1794,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOEXPECT',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 36
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1891,9 +1891,9 @@ $blite2 $bitem2
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOFORMAT',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 46
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1918,9 +1918,9 @@ $blite2 $bitem2
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOEXPECT',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 46
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2015,9 +2015,9 @@ $blite2 $uitem2
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOFORMAT',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 56
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2042,9 +2042,9 @@ $blite2 $uitem2
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOEXPECT',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 56
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2139,9 +2139,9 @@ $blite2 $bitem2
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOFORMAT',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 66
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2166,9 +2166,9 @@ $blite2 $bitem2
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOEXPECT',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 66
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2263,9 +2263,9 @@ $ulite2 $bitem2
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOFORMAT',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 76
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2290,9 +2290,9 @@ $ulite2 $bitem2
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOEXPECT',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 76
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2387,9 +2387,9 @@ $umulti$blite2
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOFORMAT',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 86
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2414,9 +2414,9 @@ $umulti$blite2
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOEXPECT',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 86
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3584,7 +3584,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 10,
             'has_warnings' => 0,
             'end_line' => 36,
-            'src' => ' fmwrtest OUT1 => << EOFORMAT , q{$blite1 @<<
+            'src' => ' fmwrtest OUT1 => << EOFORMAT , qq{$blite1 @<<
 \\$uitem1
 $blite2 @<<
 \\$bitem2
@@ -3600,7 +3600,7 @@ $blite2 $bitem2
             'token_num' => 10,
             'has_warnings' => 0,
             'end_line' => 46,
-            'src' => ' fmwrtest OUT2 => << EOFORMAT , q{$blite1 @<<
+            'src' => ' fmwrtest OUT2 => << EOFORMAT , qq{$blite1 @<<
 \\$bitem1
 $blite2 @<<
 \\$uitem2
@@ -3616,7 +3616,7 @@ $blite2 $uitem2
             'token_num' => 10,
             'has_warnings' => 0,
             'end_line' => 56,
-            'src' => ' fmwrtest OUT3 => << EOFORMAT , q{$ulite1 @<<
+            'src' => ' fmwrtest OUT3 => << EOFORMAT , qq{$ulite1 @<<
 \\$bitem1
 $blite2 @<<
 \\$bitem2
@@ -3632,7 +3632,7 @@ $blite2 $bitem2
             'token_num' => 10,
             'has_warnings' => 0,
             'end_line' => 66,
-            'src' => ' fmwrtest OUT4 => << EOFORMAT , q{$blite1 @<<
+            'src' => ' fmwrtest OUT4 => << EOFORMAT , qq{$blite1 @<<
 \\$bitem1
 $ulite2 @<<
 \\$bitem2
@@ -3648,7 +3648,7 @@ $ulite2 $bitem2
             'token_num' => 10,
             'has_warnings' => 0,
             'end_line' => 76,
-            'src' => ' fmwrtest OUT5 => << EOFORMAT , q{$blite1
+            'src' => ' fmwrtest OUT5 => << EOFORMAT , qq{$blite1
 @*
 \\$umulti
 $blite2
@@ -3664,7 +3664,7 @@ $umulti$blite2
             'token_num' => 10,
             'has_warnings' => 0,
             'end_line' => 86,
-            'src' => ' fmwrtest OUT6 => << EOFORMAT , q{$ulite1
+            'src' => ' fmwrtest OUT6 => << EOFORMAT , qq{$ulite1
 @*
 \\$bmulti
 $blite2

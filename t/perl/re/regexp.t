@@ -4562,9 +4562,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOFCODE',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 126
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4683,9 +4683,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOFCODE',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 134
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4804,9 +4804,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOFCODE',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 142
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4900,9 +4900,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOFCODE',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 152
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7369,21 +7369,21 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 578,
             'has_warnings' => 1,
             'end_line' => 207,
-            'src' => ' foreach ( @tests ) { $test ++ ; if ( !/\\S/ ||/^\\s*#/ ||/^__END__$/ ) { print "ok $test # (Blank line or comment)\\n" ; if (/#/ ) { print $_ } ; next ; } chomp ; s/\\\\n/\\n/g ; my ( $pat , $subject , $result , $repl , $expect , $reason ) = split (/\\t/ , $_ , 6 ) ; $reason = \'\' unless defined $reason ; my $input = join ( \':\' , $pat , $subject , $result , $repl , $expect ) ; $pat = "\'$pat\'" unless $pat =~/^[:\'\'\\/]/ ; $pat =~ s/(\\$\\{\\w+\\})/$1/eeg ; $pat =~ s/\\\\n/\\n/g ; $subject = eval qq("$subject") ; die $@ if $@ ; $expect = eval qq("$expect") ; die $@ if $@ ; $expect = $repl = \'-\' if $skip_amp and $input =~/\\$[&\\`\\\']/ ; my $todo_qr = $qr_embed_thr && ( $result =~ s/t// ) ; my $skip = ( $skip_amp ? ( $result =~ s/B//i ) : ( $result =~ s/B// ) ) ; ++ $skip if $result =~ s/M// && ! defined & DynaLoader::boot_DynaLoader ; $reason = \'skipping $&\' if $reason eq \'\' && $skip_amp ; $result =~ s/B//i unless $skip ; my $todo = $result =~ s/T// ? " # TODO" : "" ; for my $study ( \'\' , \'study $subject\' , \'utf8::upgrade($subject)\' , \'utf8::upgrade($subject); study $subject\' ) { my $subject = $subject ; my $c = $iters ; my ( $code , $match , $got ) ; if ( $repl eq \'pos\' ) { $code = q{                $study;
+            'src' => ' foreach ( @tests ) { $test ++ ; if ( !/\\S/ ||/^\\s*#/ ||/^__END__$/ ) { print "ok $test # (Blank line or comment)\\n" ; if (/#/ ) { print $_ } ; next ; } chomp ; s/\\\\n/\\n/g ; my ( $pat , $subject , $result , $repl , $expect , $reason ) = split (/\\t/ , $_ , 6 ) ; $reason = \'\' unless defined $reason ; my $input = join ( \':\' , $pat , $subject , $result , $repl , $expect ) ; $pat = "\'$pat\'" unless $pat =~/^[:\'\'\\/]/ ; $pat =~ s/(\\$\\{\\w+\\})/$1/eeg ; $pat =~ s/\\\\n/\\n/g ; $subject = eval qq("$subject") ; die $@ if $@ ; $expect = eval qq("$expect") ; die $@ if $@ ; $expect = $repl = \'-\' if $skip_amp and $input =~/\\$[&\\`\\\']/ ; my $todo_qr = $qr_embed_thr && ( $result =~ s/t// ) ; my $skip = ( $skip_amp ? ( $result =~ s/B//i ) : ( $result =~ s/B// ) ) ; ++ $skip if $result =~ s/M// && ! defined & DynaLoader::boot_DynaLoader ; $reason = \'skipping $&\' if $reason eq \'\' && $skip_amp ; $result =~ s/B//i unless $skip ; my $todo = $result =~ s/T// ? " # TODO" : "" ; for my $study ( \'\' , \'study $subject\' , \'utf8::upgrade($subject)\' , \'utf8::upgrade($subject); study $subject\' ) { my $subject = $subject ; my $c = $iters ; my ( $code , $match , $got ) ; if ( $repl eq \'pos\' ) { $code = qq{                $study;
                 pos(\\$subject)=0;
                 \\$match = ( \\$subject =~ m${pat}g );
                 \\$got = pos(\\$subject);
-} ; } elsif ( $qr_embed ) { $code = q{                my \\$RE = qr$pat;
+} ; } elsif ( $qr_embed ) { $code = qq{                my \\$RE = qr$pat;
                 $study;
                 \\$match = (\\$subject =~ /(?:)\\$RE(?:)/) while \\$c--;
                 \\$got = "$repl";
-} ; } elsif ( $qr_embed_thr ) { $code = q{		# Can\'t run the match in a subthread, but can do this and
+} ; } elsif ( $qr_embed_thr ) { $code = qq{		# Can\'t run the match in a subthread, but can do this and
 	 	# clone the pattern the other way.
                 my \\$RE = threads->new(sub {qr$pat})->join();
                 $study;
                 \\$match = (\\$subject =~ /(?:)\\$RE(?:)/) while \\$c--;
                 \\$got = "$repl";
-} ; } else { $code = q{                $study;
+} ; } else { $code = qq{                $study;
                 \\$match = (\\$subject =~ $OP$pat) while \\$c--;
                 \\$got = "$repl";
 } ; } { no warnings qw(uninitialized regexp) ; eval $code ; } chomp ( my $err = $@ ) ; if ( $result eq \'c\' ) { if ( $err !~ m!^\\Q$expect! ) { print "not ok $test$todo (compile) $input => \'$err\'\\n" ; next TEST } last ; } elsif ( $skip ) { print "ok $test # skipped" , length ( $reason ) ? " $reason" : \'\' , "\\n" ; next TEST ; } elsif ( $todo_qr ) { print "not ok $test # TODO" , length ( $reason ) ? " - $reason" : \'\' , "\\n" ; next TEST ; } elsif ( $@ ) { print "not ok $test$todo $input => error \'$err\'\\n" , _comment ( "$code\\n$@\\n" ) ; next TEST ; } elsif ( $result =~/^n/ ) { if ( $match ) { print "not ok $test$todo ($study) $input => false positive\\n" ; next TEST } } else { if ( ! $match || $got ne $expect ) { eval { require Data::Dumper } ; if ( $@ || ! defined & DynaLoader::boot_DynaLoader ) { print "not ok $test$todo ($study) $input => \'$got\', match=$match\\n" , _comment ( "$code\\n" ) ; } else { my $s = Data::Dumper-> new ( [ $subject ] , [ \'subject\' ] )-> Useqq ( 1 )-> Dump ; my $g = Data::Dumper-> new ( [ $got ] , [ \'got\' ] )-> Useqq ( 1 )-> Dump ; print "not ok $test$todo ($study) $input => \'$got\', match=$match\\n" , _comment ( "$s\\n$g\\n$code\\n" ) ; } next TEST ; } } } print "ok $test$todo\\n" ; }',
@@ -7620,21 +7620,21 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 301,
             'has_warnings' => 1,
             'end_line' => 205,
-            'src' => ' for my $study ( \'\' , \'study $subject\' , \'utf8::upgrade($subject)\' , \'utf8::upgrade($subject); study $subject\' ) { my $subject = $subject ; my $c = $iters ; my ( $code , $match , $got ) ; if ( $repl eq \'pos\' ) { $code = q{                $study;
+            'src' => ' for my $study ( \'\' , \'study $subject\' , \'utf8::upgrade($subject)\' , \'utf8::upgrade($subject); study $subject\' ) { my $subject = $subject ; my $c = $iters ; my ( $code , $match , $got ) ; if ( $repl eq \'pos\' ) { $code = qq{                $study;
                 pos(\\$subject)=0;
                 \\$match = ( \\$subject =~ m${pat}g );
                 \\$got = pos(\\$subject);
-} ; } elsif ( $qr_embed ) { $code = q{                my \\$RE = qr$pat;
+} ; } elsif ( $qr_embed ) { $code = qq{                my \\$RE = qr$pat;
                 $study;
                 \\$match = (\\$subject =~ /(?:)\\$RE(?:)/) while \\$c--;
                 \\$got = "$repl";
-} ; } elsif ( $qr_embed_thr ) { $code = q{		# Can\'t run the match in a subthread, but can do this and
+} ; } elsif ( $qr_embed_thr ) { $code = qq{		# Can\'t run the match in a subthread, but can do this and
 	 	# clone the pattern the other way.
                 my \\$RE = threads->new(sub {qr$pat})->join();
                 $study;
                 \\$match = (\\$subject =~ /(?:)\\$RE(?:)/) while \\$c--;
                 \\$got = "$repl";
-} ; } else { $code = q{                $study;
+} ; } else { $code = qq{                $study;
                 \\$match = (\\$subject =~ $OP$pat) while \\$c--;
                 \\$got = "$repl";
 } ; } { no warnings qw(uninitialized regexp) ; eval $code ; } chomp ( my $err = $@ ) ; if ( $result eq \'c\' ) { if ( $err !~ m!^\\Q$expect! ) { print "not ok $test$todo (compile) $input => \'$err\'\\n" ; next TEST } last ; } elsif ( $skip ) { print "ok $test # skipped" , length ( $reason ) ? " $reason" : \'\' , "\\n" ; next TEST ; } elsif ( $todo_qr ) { print "not ok $test # TODO" , length ( $reason ) ? " - $reason" : \'\' , "\\n" ; next TEST ; } elsif ( $@ ) { print "not ok $test$todo $input => error \'$err\'\\n" , _comment ( "$code\\n$@\\n" ) ; next TEST ; } elsif ( $result =~/^n/ ) { if ( $match ) { print "not ok $test$todo ($study) $input => false positive\\n" ; next TEST } } else { if ( ! $match || $got ne $expect ) { eval { require Data::Dumper } ; if ( $@ || ! defined & DynaLoader::boot_DynaLoader ) { print "not ok $test$todo ($study) $input => \'$got\', match=$match\\n" , _comment ( "$code\\n" ) ; } else { my $s = Data::Dumper-> new ( [ $subject ] , [ \'subject\' ] )-> Useqq ( 1 )-> Dump ; my $g = Data::Dumper-> new ( [ $got ] , [ \'got\' ] )-> Useqq ( 1 )-> Dump ; print "not ok $test$todo ($study) $input => \'$got\', match=$match\\n" , _comment ( "$s\\n$g\\n$code\\n" ) ; } next TEST ; } } }',
@@ -7673,7 +7673,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 12,
             'has_warnings' => 1,
             'end_line' => 132,
-            'src' => ' if ( $repl eq \'pos\' ) { $code = q{                $study;
+            'src' => ' if ( $repl eq \'pos\' ) { $code = qq{                $study;
                 pos(\\$subject)=0;
                 \\$match = ( \\$subject =~ m${pat}g );
                 \\$got = pos(\\$subject);
@@ -7686,7 +7686,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 126,
-            'src' => ' $code = q{                $study;
+            'src' => ' $code = qq{                $study;
                 pos(\\$subject)=0;
                 \\$match = ( \\$subject =~ m${pat}g );
                 \\$got = pos(\\$subject);
@@ -7699,7 +7699,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 140,
-            'src' => ' elsif ( $qr_embed ) { $code = q{                my \\$RE = qr$pat;
+            'src' => ' elsif ( $qr_embed ) { $code = qq{                my \\$RE = qr$pat;
                 $study;
                 \\$match = (\\$subject =~ /(?:)\\$RE(?:)/) while \\$c--;
                 \\$got = "$repl";
@@ -7712,7 +7712,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 134,
-            'src' => ' $code = q{                my \\$RE = qr$pat;
+            'src' => ' $code = qq{                my \\$RE = qr$pat;
                 $study;
                 \\$match = (\\$subject =~ /(?:)\\$RE(?:)/) while \\$c--;
                 \\$got = "$repl";
@@ -7725,7 +7725,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 150,
-            'src' => ' elsif ( $qr_embed_thr ) { $code = q{		# Can\'t run the match in a subthread, but can do this and
+            'src' => ' elsif ( $qr_embed_thr ) { $code = qq{		# Can\'t run the match in a subthread, but can do this and
 	 	# clone the pattern the other way.
                 my \\$RE = threads->new(sub {qr$pat})->join();
                 $study;
@@ -7740,7 +7740,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 142,
-            'src' => ' $code = q{		# Can\'t run the match in a subthread, but can do this and
+            'src' => ' $code = qq{		# Can\'t run the match in a subthread, but can do this and
 	 	# clone the pattern the other way.
                 my \\$RE = threads->new(sub {qr$pat})->join();
                 $study;
@@ -7755,7 +7755,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 7,
             'has_warnings' => 1,
             'end_line' => 157,
-            'src' => ' else { $code = q{                $study;
+            'src' => ' else { $code = qq{                $study;
                 \\$match = (\\$subject =~ $OP$pat) while \\$c--;
                 \\$got = "$repl";
 } ; }',
@@ -7767,7 +7767,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 152,
-            'src' => ' $code = q{                $study;
+            'src' => ' $code = qq{                $study;
                 \\$match = (\\$subject =~ $OP$pat) while \\$c--;
                 \\$got = "$repl";
 } ;',

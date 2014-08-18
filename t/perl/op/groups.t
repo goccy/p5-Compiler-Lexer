@@ -5307,9 +5307,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOM',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 218
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10899,7 +10899,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 99,
             'has_warnings' => 1,
             'end_line' => 232,
-            'src' => ' sub _system_groups { my $cmd ; my $str ; $cmd = \'id -a 2>/dev/null || id 2>/dev/null\' ; $str = `$cmd` ; if ( $str && $str =~/groups=/ ) { return ( $cmd , $str ) ; } $cmd = \'id -Gn 2>/dev/null\' ; $str = `$cmd` ; if ( $str && $str !~/^[\\d\\s]$/ ) { return ( $cmd , $str ) ; } $cmd = \'groups 2>/dev/null\' ; $str = `$cmd` ; if ( $str ) { if ( -d \'/afs\' ) { print q{# These test results *may* be bogus, as you appear to have AFS,
+            'src' => ' sub _system_groups { my $cmd ; my $str ; $cmd = \'id -a 2>/dev/null || id 2>/dev/null\' ; $str = `$cmd` ; if ( $str && $str =~/groups=/ ) { return ( $cmd , $str ) ; } $cmd = \'id -Gn 2>/dev/null\' ; $str = `$cmd` ; if ( $str && $str !~/^[\\d\\s]$/ ) { return ( $cmd , $str ) ; } $cmd = \'groups 2>/dev/null\' ; $str = `$cmd` ; if ( $str ) { if ( -d \'/afs\' ) { print qq{# These test results *may* be bogus, as you appear to have AFS,
 # and I can\'t find a working \'id\' in your PATH (which I have set
 # to \'$ENV{PATH}\').
 #
@@ -11023,7 +11023,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 23,
             'has_warnings' => 1,
             'end_line' => 229,
-            'src' => ' if ( $str ) { if ( -d \'/afs\' ) { print q{# These test results *may* be bogus, as you appear to have AFS,
+            'src' => ' if ( $str ) { if ( -d \'/afs\' ) { print qq{# These test results *may* be bogus, as you appear to have AFS,
 # and I can\'t find a working \'id\' in your PATH (which I have set
 # to \'$ENV{PATH}\').
 #
@@ -11039,7 +11039,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 10,
             'has_warnings' => 0,
             'end_line' => 227,
-            'src' => ' if ( -d \'/afs\' ) { print q{# These test results *may* be bogus, as you appear to have AFS,
+            'src' => ' if ( -d \'/afs\' ) { print qq{# These test results *may* be bogus, as you appear to have AFS,
 # and I can\'t find a working \'id\' in your PATH (which I have set
 # to \'$ENV{PATH}\').
 #
@@ -11055,7 +11055,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 3,
             'has_warnings' => 0,
             'end_line' => 218,
-            'src' => ' print q{# These test results *may* be bogus, as you appear to have AFS,
+            'src' => ' print qq{# These test results *may* be bogus, as you appear to have AFS,
 # and I can\'t find a working \'id\' in your PATH (which I have set
 # to \'$ENV{PATH}\').
 #

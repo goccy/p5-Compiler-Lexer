@@ -13155,9 +13155,9 @@ sub C::AUTOLOAD {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOT',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 307
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -18162,7 +18162,7 @@ sub C::AUTOLOAD {
             'token_num' => 42,
             'has_warnings' => 1,
             'end_line' => 316,
-            'src' => ' for my $meth ( [ \'Bar\' , \'Foo::Bar\' ] , [ \'SUPER::Bar\' , \'main::SUPER::Bar\' ] , [ \'Xyz::SUPER::Bar\' , \'Xyz::SUPER::Bar\' ] ) { fresh_perl_is ( q{package UNIVERSAL; sub AUTOLOAD { my \\$c = shift; print "\\$c \\$AUTOLOAD\\\\n" }
+            'src' => ' for my $meth ( [ \'Bar\' , \'Foo::Bar\' ] , [ \'SUPER::Bar\' , \'main::SUPER::Bar\' ] , [ \'Xyz::SUPER::Bar\' , \'Xyz::SUPER::Bar\' ] ) { fresh_perl_is ( qq{package UNIVERSAL; sub AUTOLOAD { my \\$c = shift; print "\\$c \\$AUTOLOAD\\\\n" }
 package Xyz;
 package main; Foo->$meth->[0]();
 } , "Foo $meth->[1]" , { switches => [ \'-w\' ] } , "check if UNIVERSAL::AUTOLOAD works" , ) ; }',
@@ -18174,7 +18174,7 @@ package main; Foo->$meth->[0]();
             'token_num' => 18,
             'has_warnings' => 1,
             'end_line' => 315,
-            'src' => ' fresh_perl_is ( q{package UNIVERSAL; sub AUTOLOAD { my \\$c = shift; print "\\$c \\$AUTOLOAD\\\\n" }
+            'src' => ' fresh_perl_is ( qq{package UNIVERSAL; sub AUTOLOAD { my \\$c = shift; print "\\$c \\$AUTOLOAD\\\\n" }
 package Xyz;
 package main; Foo->$meth->[0]();
 } , "Foo $meth->[1]" , { switches => [ \'-w\' ] } , "check if UNIVERSAL::AUTOLOAD works" , ) ;',

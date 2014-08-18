@@ -245,14 +245,14 @@ void Lexer::prepare(Tokens *tokens)
 		Token *t = ITER_CAST(Token *, it);
 		switch (t->info.type) {
 		case TokenType::HereDocumentTag: case TokenType::HereDocumentRawTag:
-		case TokenType::HereDocumentExecTag:
+		case TokenType::HereDocumentExecTag: case TokenType::HereDocumentBareTag:
 			tag_pos = it;
 			break;
 		case TokenType::HereDocument: {
 			assert(tag_pos != start_pos && "ERROR!: nothing use HereDocumentTag");
 			Token *tag = ITER_CAST(Token *, tag_pos);
 			switch (tag->info.type) {
-			case TokenType::HereDocumentTag:
+				case TokenType::HereDocumentTag: case TokenType::HereDocumentBareTag:
 				tag->info.type = Enum::Token::Type::RegDoubleQuote;
 				tag->info.kind = Enum::Token::Kind::RegPrefix;
 				tag->info.name = "RegDoubleQuote";
