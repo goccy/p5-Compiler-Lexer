@@ -2346,9 +2346,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOF',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 60
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4727,7 +4727,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 53,
             'has_warnings' => 1,
             'end_line' => 68,
-            'src' => ' while ( @ARGV && substr ( $ARGV [ 0 ] , 0 , 1 ) eq \'-\' ) { my $arg = shift @ARGV ; $arg =~ s/^--/-/ ; if ( $arg eq \'-regen\' ) { $regen = 1 ; } else { die q{Unknown option \'$arg\'
+            'src' => ' while ( @ARGV && substr ( $ARGV [ 0 ] , 0 , 1 ) eq \'-\' ) { my $arg = shift @ARGV ; $arg =~ s/^--/-/ ; if ( $arg eq \'-regen\' ) { $regen = 1 ; } else { die qq{Unknown option \'$arg\'
 
 Usage: $0 [ --regen ]\\n"
     --regen    -> Regenerate the data file for $0
@@ -4777,7 +4777,7 @@ Usage: $0 [ --regen ]\\n"
             'token_num' => 6,
             'has_warnings' => 0,
             'end_line' => 67,
-            'src' => ' else { die q{Unknown option \'$arg\'
+            'src' => ' else { die qq{Unknown option \'$arg\'
 
 Usage: $0 [ --regen ]\\n"
     --regen    -> Regenerate the data file for $0
@@ -4791,7 +4791,7 @@ Usage: $0 [ --regen ]\\n"
             'token_num' => 3,
             'has_warnings' => 0,
             'end_line' => 60,
-            'src' => ' die q{Unknown option \'$arg\'
+            'src' => ' die qq{Unknown option \'$arg\'
 
 Usage: $0 [ --regen ]\\n"
     --regen    -> Regenerate the data file for $0

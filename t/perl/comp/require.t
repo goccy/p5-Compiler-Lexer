@@ -6867,9 +6867,9 @@ krunch.pm krunch.pmc whap.pm whap.pmc',
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOT',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 161
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -15235,7 +15235,7 @@ krunch.pm krunch.pmc whap.pm whap.pmc) ;',
             'token_num' => 7,
             'has_warnings' => 0,
             'end_line' => 161,
-            'src' => ' write_file ( "bleah.do" , q{\\$x = "not ok $i\\\\n";
+            'src' => ' write_file ( "bleah.do" , qq{\\$x = "not ok $i\\\\n";
 } ) ;',
             'start_line' => 161,
             'indent' => 0,

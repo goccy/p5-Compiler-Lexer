@@ -5549,9 +5549,9 @@ now is the time for all good men to come to\\n',
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOT',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 200
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10695,9 +10695,9 @@ $txt,             $txt
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOD',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 384
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -11185,9 +11185,9 @@ this_is_block_3   this_is_block_4
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOD',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 402
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -12160,9 +12160,9 @@ this_is_block_3   this_is_block_4
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOD',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 431
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -28860,7 +28860,7 @@ now is the time for all good men to come to\\n" ;',
             'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 200,
-            'src' => ' $right = q{@ a
+            'src' => ' $right = qq{@ a
 @> ab
 @>> abc
 @>>>  abc
@@ -29660,7 +29660,7 @@ $txt
 $txt,             $txt
 ^<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<
 $txt,             $txt
- . open ( OUT16 , \'>Op_write.tmp\' ) || die "Can\'t create Op_write.tmp" ; write ( OUT16 ) ; close OUT16 or die "Could not close: $!" ; my $res = cat ( \'Op_write.tmp\' ) ; is $res , q{this_is_block_1   this_is_block_2
+ . open ( OUT16 , \'>Op_write.tmp\' ) || die "Can\'t create Op_write.tmp" ; write ( OUT16 ) ; close OUT16 or die "Could not close: $!" ; my $res = cat ( \'Op_write.tmp\' ) ; is $res , qq{this_is_block_1   this_is_block_2
 this_is_block_3   this_is_block_4
 } ; }',
             'start_line' => 373,
@@ -29720,7 +29720,7 @@ $txt,             $txt
             'token_num' => 5,
             'has_warnings' => 1,
             'end_line' => 384,
-            'src' => ' is $res , q{this_is_block_1   this_is_block_2
+            'src' => ' is $res , qq{this_is_block_1   this_is_block_2
 this_is_block_3   this_is_block_4
 } ;',
             'start_line' => 384,
@@ -29733,7 +29733,7 @@ this_is_block_3   this_is_block_4
             'end_line' => 406,
             'src' => ' { my $txt = "This is line 1.\\nThis is the second line.\\nThird and last.\\n" ; format OUT17 = Here we go: @* That\'s all, folks!
             $txt
- . open ( OUT17 , \'>Op_write.tmp\' ) || die "Can\'t create Op_write.tmp" ; write ( OUT17 ) ; close OUT17 or die "Could not close: $!" ; my $res = cat ( \'Op_write.tmp\' ) ; chomp ( $txt ) ; my $exp = q{Here we go: $txt That\'s all, folks!
+ . open ( OUT17 , \'>Op_write.tmp\' ) || die "Can\'t create Op_write.tmp" ; write ( OUT17 ) ; close OUT17 or die "Could not close: $!" ; my $res = cat ( \'Op_write.tmp\' ) ; chomp ( $txt ) ; my $exp = qq{Here we go: $txt That\'s all, folks!
 } ; is $res , $exp ; }',
             'start_line' => 390,
             'indent' => 0,
@@ -29799,7 +29799,7 @@ this_is_block_3   this_is_block_4
             'token_num' => 5,
             'has_warnings' => 0,
             'end_line' => 402,
-            'src' => ' my $exp = q{Here we go: $txt That\'s all, folks!
+            'src' => ' my $exp = qq{Here we go: $txt That\'s all, folks!
 } ;',
             'start_line' => 402,
             'indent' => 1,
@@ -29876,7 +29876,7 @@ this_is_block_3   this_is_block_4
             'token_num' => 60,
             'has_warnings' => 1,
             'end_line' => 435,
-            'src' => ' { my $v = \'gaga\' ; eval "format OUT19 = \\n" . \'@<<<\' . "\\0\\n" . \'$v\' . "\\n" . \'@<<<\' . "\\0\\n" . \'$v\' . "\\n.\\n" ; open ( OUT19 , \'>Op_write.tmp\' ) || die "Can\'t create Op_write.tmp" ; write ( OUT19 ) ; close OUT19 or die "Could not close: $!" ; my $res = cat ( \'Op_write.tmp\' ) ; is $res , q{gaga\\0
+            'src' => ' { my $v = \'gaga\' ; eval "format OUT19 = \\n" . \'@<<<\' . "\\0\\n" . \'$v\' . "\\n" . \'@<<<\' . "\\0\\n" . \'$v\' . "\\n.\\n" ; open ( OUT19 , \'>Op_write.tmp\' ) || die "Can\'t create Op_write.tmp" ; write ( OUT19 ) ; close OUT19 or die "Could not close: $!" ; my $res = cat ( \'Op_write.tmp\' ) ; is $res , qq{gaga\\0
 gaga\\0
 } ; }',
             'start_line' => 420,
@@ -29941,7 +29941,7 @@ gaga\\0
             'token_num' => 5,
             'has_warnings' => 1,
             'end_line' => 431,
-            'src' => ' is $res , q{gaga\\0
+            'src' => ' is $res , qq{gaga\\0
 gaga\\0
 } ;',
             'start_line' => 431,

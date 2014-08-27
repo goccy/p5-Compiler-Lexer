@@ -10017,9 +10017,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOF',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 543
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -29536,9 +29536,9 @@ Usage: $0 [ --regen | --cpan | --show_all | FILE ... | --add_link MODULE ... ]\\
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'END',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 1076
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -33044,9 +33044,9 @@ Usage: $0 [ --regen | --cpan | --show_all | FILE ... | --add_link MODULE ... ]\\
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOF',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 1191
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -33136,9 +33136,9 @@ Usage: $0 [ --regen | --cpan | --show_all | FILE ... | --add_link MODULE ... ]\\
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOF',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 1196
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -33290,9 +33290,9 @@ Usage: $0 [ --regen | --cpan | --show_all | FILE ... | --add_link MODULE ... ]\\
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOF',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 1203
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -33383,9 +33383,9 @@ Now you must teach $0 that this was fixed.
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOF',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 1211
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -52138,9 +52138,9 @@ $diff
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOF',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 1782
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -52430,9 +52430,9 @@ $diff
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOF',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 1794
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -52609,9 +52609,9 @@ $how_to
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOF',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 1826
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -52777,9 +52777,9 @@ $how_to
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOF',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 1838
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -54004,7 +54004,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 113,
             'has_warnings' => 1,
             'end_line' => 556,
-            'src' => ' while ( @ARGV && substr ( $ARGV [ 0 ] , 0 , 1 ) eq \'-\' ) { my $arg = shift @ARGV ; $arg =~ s/^--/-/ ; if ( $arg eq \'-regen\' ) { $regen = 1 ; } elsif ( $arg eq \'-add_link\' ) { $add_link = 1 ; } elsif ( $arg eq \'-cpan\' ) { $do_upstream_cpan = 1 ; } elsif ( $arg eq \'-deltas\' ) { $do_deltas = 1 ; } elsif ( $arg eq \'-show_all\' ) { $show_all = 1 ; } elsif ( $arg eq \'-counts\' ) { $show_counts = 1 ; } else { die q{Unknown option \'$arg\'
+            'src' => ' while ( @ARGV && substr ( $ARGV [ 0 ] , 0 , 1 ) eq \'-\' ) { my $arg = shift @ARGV ; $arg =~ s/^--/-/ ; if ( $arg eq \'-regen\' ) { $regen = 1 ; } elsif ( $arg eq \'-add_link\' ) { $add_link = 1 ; } elsif ( $arg eq \'-cpan\' ) { $do_upstream_cpan = 1 ; } elsif ( $arg eq \'-deltas\' ) { $do_deltas = 1 ; } elsif ( $arg eq \'-show_all\' ) { $show_all = 1 ; } elsif ( $arg eq \'-counts\' ) { $show_counts = 1 ; } else { die qq{Unknown option \'$arg\'
 
 Usage: $0 [ --regen | --cpan | --show_all | FILE ... | --add_link MODULE ... ]\\n"
     --add_link -> Add the MODULE and man page references to the data base
@@ -54149,7 +54149,7 @@ Usage: $0 [ --regen | --cpan | --show_all | FILE ... | --add_link MODULE ... ]\\
             'token_num' => 6,
             'has_warnings' => 0,
             'end_line' => 555,
-            'src' => ' else { die q{Unknown option \'$arg\'
+            'src' => ' else { die qq{Unknown option \'$arg\'
 
 Usage: $0 [ --regen | --cpan | --show_all | FILE ... | --add_link MODULE ... ]\\n"
     --add_link -> Add the MODULE and man page references to the data base
@@ -54168,7 +54168,7 @@ Usage: $0 [ --regen | --cpan | --show_all | FILE ... | --add_link MODULE ... ]\\
             'token_num' => 3,
             'has_warnings' => 0,
             'end_line' => 543,
-            'src' => ' die q{Unknown option \'$arg\'
+            'src' => ' die qq{Unknown option \'$arg\'
 
 Usage: $0 [ --regen | --cpan | --show_all | FILE ... | --add_link MODULE ... ]\\n"
     --add_link -> Add the MODULE and man page references to the data base
@@ -56498,7 +56498,7 @@ Usage: $0 [ --regen | --cpan | --show_all | FILE ... | --add_link MODULE ... ]\\
             'token_num' => 5,
             'has_warnings' => 0,
             'end_line' => 1076,
-            'src' => ' my $HEADER = q{# This file is the data file for $0.
+            'src' => ' my $HEADER = qq{# This file is the data file for $0.
 # There are three types of lines.
 # Comment lines are white-space only or begin with a \'#\', like this one.  Any
 #   changes you make to the comment lines will be lost when the file is
@@ -56894,13 +56894,13 @@ Usage: $0 [ --regen | --cpan | --show_all | FILE ... | --add_link MODULE ... ]\\
             'token_num' => 120,
             'has_warnings' => 1,
             'end_line' => 1218,
-            'src' => ' { my $first_time = 1 ; sub output_thanks ( $$$$ ) { my $filename = shift ; my $original_count = shift ; my $current_count = shift ; my $message = shift ; $files_with_fixes { $filename } = 1 ; my $return ; my $fixed_count = $original_count - $current_count ; my $a_problem = ( $fixed_count == 1 ) ? "a problem" : "multiple problems" ; my $another_problem = ( $fixed_count == 1 ) ? "another problem" : "another set of problems" ; my $diff ; if ( $message ) { $diff = q{There were $original_count occurrences (now $current_count) in this pod of type
+            'src' => ' { my $first_time = 1 ; sub output_thanks ( $$$$ ) { my $filename = shift ; my $original_count = shift ; my $current_count = shift ; my $message = shift ; $files_with_fixes { $filename } = 1 ; my $return ; my $fixed_count = $original_count - $current_count ; my $a_problem = ( $fixed_count == 1 ) ? "a problem" : "multiple problems" ; my $another_problem = ( $fixed_count == 1 ) ? "another problem" : "another set of problems" ; my $diff ; if ( $message ) { $diff = qq{There were $original_count occurrences (now $current_count) in this pod of type
 "$message",
-} ; } else { $diff = q{There are no longer any problems found in this pod!
-} ; } if ( $first_time ) { $first_time = 0 ; $return = q{Thanks for fixing $a_problem!
+} ; } else { $diff = qq{There are no longer any problems found in this pod!
+} ; } if ( $first_time ) { $first_time = 0 ; $return = qq{Thanks for fixing $a_problem!
 $diff
 Now you must teach $0 that this was fixed.
-} ; } else { $return = q{Thanks for fixing $another_problem.
+} ; } else { $return = qq{Thanks for fixing $another_problem.
 $diff
 } } return $return ; } }',
             'start_line' => 1175,
@@ -56920,13 +56920,13 @@ $diff
             'token_num' => 113,
             'has_warnings' => 1,
             'end_line' => 1217,
-            'src' => ' sub output_thanks ( $$$$ ) { my $filename = shift ; my $original_count = shift ; my $current_count = shift ; my $message = shift ; $files_with_fixes { $filename } = 1 ; my $return ; my $fixed_count = $original_count - $current_count ; my $a_problem = ( $fixed_count == 1 ) ? "a problem" : "multiple problems" ; my $another_problem = ( $fixed_count == 1 ) ? "another problem" : "another set of problems" ; my $diff ; if ( $message ) { $diff = q{There were $original_count occurrences (now $current_count) in this pod of type
+            'src' => ' sub output_thanks ( $$$$ ) { my $filename = shift ; my $original_count = shift ; my $current_count = shift ; my $message = shift ; $files_with_fixes { $filename } = 1 ; my $return ; my $fixed_count = $original_count - $current_count ; my $a_problem = ( $fixed_count == 1 ) ? "a problem" : "multiple problems" ; my $another_problem = ( $fixed_count == 1 ) ? "another problem" : "another set of problems" ; my $diff ; if ( $message ) { $diff = qq{There were $original_count occurrences (now $current_count) in this pod of type
 "$message",
-} ; } else { $diff = q{There are no longer any problems found in this pod!
-} ; } if ( $first_time ) { $first_time = 0 ; $return = q{Thanks for fixing $a_problem!
+} ; } else { $diff = qq{There are no longer any problems found in this pod!
+} ; } if ( $first_time ) { $first_time = 0 ; $return = qq{Thanks for fixing $a_problem!
 $diff
 Now you must teach $0 that this was fixed.
-} ; } else { $return = q{Thanks for fixing $another_problem.
+} ; } else { $return = qq{Thanks for fixing $another_problem.
 $diff
 } } return $return ; }',
             'start_line' => 1178,
@@ -57027,7 +57027,7 @@ $diff
             'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 1195,
-            'src' => ' if ( $message ) { $diff = q{There were $original_count occurrences (now $current_count) in this pod of type
+            'src' => ' if ( $message ) { $diff = qq{There were $original_count occurrences (now $current_count) in this pod of type
 "$message",
 } ; }',
             'start_line' => 1190,
@@ -57038,7 +57038,7 @@ $diff
             'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 1191,
-            'src' => ' $diff = q{There were $original_count occurrences (now $current_count) in this pod of type
+            'src' => ' $diff = qq{There were $original_count occurrences (now $current_count) in this pod of type
 "$message",
 } ;',
             'start_line' => 1191,
@@ -57049,7 +57049,7 @@ $diff
             'token_num' => 7,
             'has_warnings' => 1,
             'end_line' => 1199,
-            'src' => ' else { $diff = q{There are no longer any problems found in this pod!
+            'src' => ' else { $diff = qq{There are no longer any problems found in this pod!
 } ; }',
             'start_line' => 1195,
             'indent' => 2,
@@ -57059,7 +57059,7 @@ $diff
             'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 1196,
-            'src' => ' $diff = q{There are no longer any problems found in this pod!
+            'src' => ' $diff = qq{There are no longer any problems found in this pod!
 } ;',
             'start_line' => 1196,
             'indent' => 3,
@@ -57069,7 +57069,7 @@ $diff
             'token_num' => 14,
             'has_warnings' => 1,
             'end_line' => 1208,
-            'src' => ' if ( $first_time ) { $first_time = 0 ; $return = q{Thanks for fixing $a_problem!
+            'src' => ' if ( $first_time ) { $first_time = 0 ; $return = qq{Thanks for fixing $a_problem!
 $diff
 Now you must teach $0 that this was fixed.
 } ; }',
@@ -57090,7 +57090,7 @@ Now you must teach $0 that this was fixed.
             'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 1203,
-            'src' => ' $return = q{Thanks for fixing $a_problem!
+            'src' => ' $return = qq{Thanks for fixing $a_problem!
 $diff
 Now you must teach $0 that this was fixed.
 } ;',
@@ -57102,7 +57102,7 @@ Now you must teach $0 that this was fixed.
             'token_num' => 6,
             'has_warnings' => 1,
             'end_line' => 1214,
-            'src' => ' else { $return = q{Thanks for fixing $another_problem.
+            'src' => ' else { $return = qq{Thanks for fixing $another_problem.
 $diff
 } }',
             'start_line' => 1209,
@@ -59338,7 +59338,7 @@ $diff
             'token_num' => 5,
             'has_warnings' => 0,
             'end_line' => 1782,
-            'src' => ' my $how_to = q{   run this test script by hand, using the following formula (on
+            'src' => ' my $how_to = qq{   run this test script by hand, using the following formula (on
    Un*x-like machines):
         cd t
         ./perl -I../lib porting/podcheck.t --regen
@@ -59351,7 +59351,7 @@ $diff
             'token_num' => 49,
             'has_warnings' => 1,
             'end_line' => 1836,
-            'src' => ' if ( %files_with_unknown_issues ) { my $were_count_files = scalar keys %files_with_unknown_issues ; $were_count_files = ( $were_count_files == 1 ) ? "was $were_count_files file" : "were $were_count_files files" ; my $message = q{
+            'src' => ' if ( %files_with_unknown_issues ) { my $were_count_files = scalar keys %files_with_unknown_issues ; $were_count_files = ( $were_count_files == 1 ) ? "was $were_count_files file" : "were $were_count_files files" ; my $message = qq{
 HOW TO GET THIS .t TO PASS
 
 There $were_count_files that had new potential problems identified.
@@ -59377,7 +59377,7 @@ following:
 $how_to
    That should cause all current potential problems to be accepted by
    the program, so that the next time it runs, they won\'t be flagged.
-} ; if ( %files_with_fixes ) { $message .= "   This step will also take care of the files that have fixes in them\\n" ; } $message .= q{   For a few files, such as perltoc, certain issues will always be
+} ; if ( %files_with_fixes ) { $message .= "   This step will also take care of the files that have fixes in them\\n" ; } $message .= qq{   For a few files, such as perltoc, certain issues will always be
    expected, and more of the same will be added over time.  For those,
    before you do the regen, you can edit
    $known_issues
@@ -59410,7 +59410,7 @@ $how_to
             'token_num' => 5,
             'has_warnings' => 0,
             'end_line' => 1794,
-            'src' => ' my $message = q{
+            'src' => ' my $message = qq{
 HOW TO GET THIS .t TO PASS
 
 There $were_count_files that had new potential problems identified.
@@ -59463,7 +59463,7 @@ $how_to
             'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 1826,
-            'src' => ' $message .= q{   For a few files, such as perltoc, certain issues will always be
+            'src' => ' $message .= qq{   For a few files, such as perltoc, certain issues will always be
    expected, and more of the same will be added over time.  For those,
    before you do the regen, you can edit
    $known_issues
@@ -59487,7 +59487,7 @@ $how_to
             'token_num' => 11,
             'has_warnings' => 0,
             'end_line' => 1842,
-            'src' => ' elsif ( %files_with_fixes ) { note ( q{To teach this test script that the potential problems have been fixed,
+            'src' => ' elsif ( %files_with_fixes ) { note ( qq{To teach this test script that the potential problems have been fixed,
 $how_to
 } ) ; }',
             'start_line' => 1836,
@@ -59498,7 +59498,7 @@ $how_to
             'token_num' => 5,
             'has_warnings' => 0,
             'end_line' => 1841,
-            'src' => ' note ( q{To teach this test script that the potential problems have been fixed,
+            'src' => ' note ( qq{To teach this test script that the potential problems have been fixed,
 $how_to
 } ) ;',
             'start_line' => 1837,

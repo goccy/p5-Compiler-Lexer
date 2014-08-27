@@ -2419,9 +2419,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => '__EOH__',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 45
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -11419,7 +11419,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 3,
             'has_warnings' => 0,
             'end_line' => 45,
-            'src' => ' print q{# PERLIO        = $PERLIO
+            'src' => ' print qq{# PERLIO        = $PERLIO
 # DOSISH        = $DOSISH
 # NONSTDIO      = $NONSTDIO
 # FASTSTDIO     = $FASTSTDIO

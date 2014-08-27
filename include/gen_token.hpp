@@ -181,6 +181,7 @@ typedef enum {
 	HereDocumentTag,
 	HereDocumentRawTag,
 	HereDocumentExecTag,
+	HereDocumentBareTag,
 	RawHereDocument,
 	HereDocument,
 	HereDocumentEnd,

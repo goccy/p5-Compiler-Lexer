@@ -1699,9 +1699,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOM',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 54
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -2227,9 +2227,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'DIAG',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 85
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -5725,13 +5725,13 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 358,
             'has_warnings' => 1,
             'end_line' => 205,
-            'src' => ' { my ( $max , $min , $sum ) ; my ( $off , $shouldbe ) ; my ( $dev , $bits ) ; my $randbits = $Config { randbits } ; $max = $min = rand ( 1 ) ; for ( 1 .. $reps ) { my $n = rand ( 1 ) ; if ( $n < 0.0 or $n >= 1.0 ) { print q{# WHOA THERE!  \\$Config{drand01} is set to \'$Config{drand01}\',
+            'src' => ' { my ( $max , $min , $sum ) ; my ( $off , $shouldbe ) ; my ( $dev , $bits ) ; my $randbits = $Config { randbits } ; $max = $min = rand ( 1 ) ; for ( 1 .. $reps ) { my $n = rand ( 1 ) ; if ( $n < 0.0 or $n >= 1.0 ) { print qq{# WHOA THERE!  \\$Config{drand01} is set to \'$Config{drand01}\',
 # but that apparently produces values < 0.0 or >= 1.0.
 # Make sure \\$Config{drand01} is a valid expression in the
 # C-language, and produces values in the range [0.0,1.0).
 #
 # I give up.
-} ; exit ; } $sum += $n ; $bits += bits ( $n * 256 ) ; $max = $n if $n > $max ; $min = $n if $n < $min ; } unless ( ok ( ! $max <= 0 or $max >= ( 2 ** $randbits ) ) ) { print q{# max=[$max] min=[$min]
+} ; exit ; } $sum += $n ; $bits += bits ( $n * 256 ) ; $max = $n if $n > $max ; $min = $n if $n < $min ; } unless ( ok ( ! $max <= 0 or $max >= ( 2 ** $randbits ) ) ) { print qq{# max=[$max] min=[$min]
 # This perl was compiled with randbits=$randbits
 # which is _way_ off. Or maybe your system rand is broken,
 # or your C compiler can\'t multiply, or maybe Martians
@@ -5791,7 +5791,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 62,
             'has_warnings' => 1,
             'end_line' => 72,
-            'src' => ' for ( 1 .. $reps ) { my $n = rand ( 1 ) ; if ( $n < 0.0 or $n >= 1.0 ) { print q{# WHOA THERE!  \\$Config{drand01} is set to \'$Config{drand01}\',
+            'src' => ' for ( 1 .. $reps ) { my $n = rand ( 1 ) ; if ( $n < 0.0 or $n >= 1.0 ) { print qq{# WHOA THERE!  \\$Config{drand01} is set to \'$Config{drand01}\',
 # but that apparently produces values < 0.0 or >= 1.0.
 # Make sure \\$Config{drand01} is a valid expression in the
 # C-language, and produces values in the range [0.0,1.0).
@@ -5815,7 +5815,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 17,
             'has_warnings' => 1,
             'end_line' => 63,
-            'src' => ' if ( $n < 0.0 or $n >= 1.0 ) { print q{# WHOA THERE!  \\$Config{drand01} is set to \'$Config{drand01}\',
+            'src' => ' if ( $n < 0.0 or $n >= 1.0 ) { print qq{# WHOA THERE!  \\$Config{drand01} is set to \'$Config{drand01}\',
 # but that apparently produces values < 0.0 or >= 1.0.
 # Make sure \\$Config{drand01} is a valid expression in the
 # C-language, and produces values in the range [0.0,1.0).
@@ -5830,7 +5830,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 3,
             'has_warnings' => 0,
             'end_line' => 54,
-            'src' => ' print q{# WHOA THERE!  \\$Config{drand01} is set to \'$Config{drand01}\',
+            'src' => ' print qq{# WHOA THERE!  \\$Config{drand01} is set to \'$Config{drand01}\',
 # but that apparently produces values < 0.0 or >= 1.0.
 # Make sure \\$Config{drand01} is a valid expression in the
 # C-language, and produces values in the range [0.0,1.0).
@@ -5890,7 +5890,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 28,
             'has_warnings' => 1,
             'end_line' => 98,
-            'src' => ' unless ( ok ( ! $max <= 0 or $max >= ( 2 ** $randbits ) ) ) { print q{# max=[$max] min=[$min]
+            'src' => ' unless ( ok ( ! $max <= 0 or $max >= ( 2 ** $randbits ) ) ) { print qq{# max=[$max] min=[$min]
 # This perl was compiled with randbits=$randbits
 # which is _way_ off. Or maybe your system rand is broken,
 # or your C compiler can\'t multiply, or maybe Martians
@@ -5905,7 +5905,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 3,
             'has_warnings' => 0,
             'end_line' => 85,
-            'src' => ' print q{# max=[$max] min=[$min]
+            'src' => ' print qq{# max=[$max] min=[$min]
 # This perl was compiled with randbits=$randbits
 # which is _way_ off. Or maybe your system rand is broken,
 # or your C compiler can\'t multiply, or maybe Martians

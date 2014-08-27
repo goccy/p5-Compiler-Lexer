@@ -921,9 +921,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOM',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 27
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7960,7 +7960,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 25,
             'has_warnings' => 1,
             'end_line' => 47,
-            'src' => ' sub explain { unless ( $explained ++ ) { print q{#
+            'src' => ' sub explain { unless ( $explained ++ ) { print qq{#
 # If the lfs (large file support: large meaning larger than two
 # gigabytes) tests are skipped or fail, it may mean either that your
 # process (or process group) is not allowed to write large files
@@ -7983,7 +7983,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 10,
             'has_warnings' => 1,
             'end_line' => 43,
-            'src' => ' unless ( $explained ++ ) { print q{#
+            'src' => ' unless ( $explained ++ ) { print qq{#
 # If the lfs (large file support: large meaning larger than two
 # gigabytes) tests are skipped or fail, it may mean either that your
 # process (or process group) is not allowed to write large files
@@ -8006,7 +8006,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 3,
             'has_warnings' => 0,
             'end_line' => 27,
-            'src' => ' print q{#
+            'src' => ' print qq{#
 # If the lfs (large file support: large meaning larger than two
 # gigabytes) tests are skipped or fail, it may mean either that your
 # process (or process group) is not allowed to write large files

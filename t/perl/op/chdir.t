@@ -7570,9 +7570,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'WARNING',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 160
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -7959,9 +7959,9 @@ Use of chdir(\'\') or chdir(undef) as chdir() is deprecated at $0 line 64.
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'WARNING',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 172
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10408,9 +10408,9 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 185,
             'has_warnings' => 1,
             'end_line' => 178,
-            'src' => ' sub check_env { my ( $key ) = @_ ; if ( $key eq \'SYS$LOGIN\' && ! $IsVMS ) { ok ( ! chdir ( ) , "chdir() on $^O ignores only \\$ENV{$key} set" ) ; is ( abs_path , $Cwd , \'  abs_path() did not change\' ) ; pass ( "  no need to test SYS\\$LOGIN on $^O" ) for 1 .. 7 ; } else { ok ( chdir ( ) , "chdir() w/ only \\$ENV{$key} set" ) ; is ( abs_path , $ENV { $key } , \'  abs_path() agrees\' ) ; chdir ( $Cwd ) ; is ( abs_path , $Cwd , \'  and back again\' ) ; my $warning = \'\' ; local $SIG { __WARN__ } = sub { $warning .= join \'\' , @_ } ; ok ( chdir ( undef ) , "chdir(undef) w/ only \\$ENV{$key} set" ) ; is ( abs_path , $ENV { $key } , \'  abs_path() agrees\' ) ; is ( $warning , q{Use of uninitialized value in chdir at $0 line 64.
+            'src' => ' sub check_env { my ( $key ) = @_ ; if ( $key eq \'SYS$LOGIN\' && ! $IsVMS ) { ok ( ! chdir ( ) , "chdir() on $^O ignores only \\$ENV{$key} set" ) ; is ( abs_path , $Cwd , \'  abs_path() did not change\' ) ; pass ( "  no need to test SYS\\$LOGIN on $^O" ) for 1 .. 7 ; } else { ok ( chdir ( ) , "chdir() w/ only \\$ENV{$key} set" ) ; is ( abs_path , $ENV { $key } , \'  abs_path() agrees\' ) ; chdir ( $Cwd ) ; is ( abs_path , $Cwd , \'  and back again\' ) ; my $warning = \'\' ; local $SIG { __WARN__ } = sub { $warning .= join \'\' , @_ } ; ok ( chdir ( undef ) , "chdir(undef) w/ only \\$ENV{$key} set" ) ; is ( abs_path , $ENV { $key } , \'  abs_path() agrees\' ) ; is ( $warning , qq{Use of uninitialized value in chdir at $0 line 64.
 Use of chdir(\'\') or chdir(undef) as chdir() is deprecated at $0 line 64.
-} , \'  got uninit & deprecation warning\' ) ; chdir ( $Cwd ) ; $warning = \'\' ; ok ( chdir ( \'\' ) , "chdir(\'\') w/ only \\$ENV{$key} set" ) ; is ( abs_path , $ENV { $key } , \'  abs_path() agrees\' ) ; is ( $warning , q{Use of chdir(\'\') or chdir(undef) as chdir() is deprecated at $0 line 76.
+} , \'  got uninit & deprecation warning\' ) ; chdir ( $Cwd ) ; $warning = \'\' ; ok ( chdir ( \'\' ) , "chdir(\'\') w/ only \\$ENV{$key} set" ) ; is ( abs_path , $ENV { $key } , \'  abs_path() agrees\' ) ; is ( $warning , qq{Use of chdir(\'\') or chdir(undef) as chdir() is deprecated at $0 line 76.
 } , \'  got deprecation warning\' ) ; chdir ( $Cwd ) ; } }',
             'start_line' => 137,
             'indent' => 0,
@@ -10465,9 +10465,9 @@ Use of chdir(\'\') or chdir(undef) as chdir() is deprecated at $0 line 64.
             'token_num' => 135,
             'has_warnings' => 1,
             'end_line' => 177,
-            'src' => ' else { ok ( chdir ( ) , "chdir() w/ only \\$ENV{$key} set" ) ; is ( abs_path , $ENV { $key } , \'  abs_path() agrees\' ) ; chdir ( $Cwd ) ; is ( abs_path , $Cwd , \'  and back again\' ) ; my $warning = \'\' ; local $SIG { __WARN__ } = sub { $warning .= join \'\' , @_ } ; ok ( chdir ( undef ) , "chdir(undef) w/ only \\$ENV{$key} set" ) ; is ( abs_path , $ENV { $key } , \'  abs_path() agrees\' ) ; is ( $warning , q{Use of uninitialized value in chdir at $0 line 64.
+            'src' => ' else { ok ( chdir ( ) , "chdir() w/ only \\$ENV{$key} set" ) ; is ( abs_path , $ENV { $key } , \'  abs_path() agrees\' ) ; chdir ( $Cwd ) ; is ( abs_path , $Cwd , \'  and back again\' ) ; my $warning = \'\' ; local $SIG { __WARN__ } = sub { $warning .= join \'\' , @_ } ; ok ( chdir ( undef ) , "chdir(undef) w/ only \\$ENV{$key} set" ) ; is ( abs_path , $ENV { $key } , \'  abs_path() agrees\' ) ; is ( $warning , qq{Use of uninitialized value in chdir at $0 line 64.
 Use of chdir(\'\') or chdir(undef) as chdir() is deprecated at $0 line 64.
-} , \'  got uninit & deprecation warning\' ) ; chdir ( $Cwd ) ; $warning = \'\' ; ok ( chdir ( \'\' ) , "chdir(\'\') w/ only \\$ENV{$key} set" ) ; is ( abs_path , $ENV { $key } , \'  abs_path() agrees\' ) ; is ( $warning , q{Use of chdir(\'\') or chdir(undef) as chdir() is deprecated at $0 line 76.
+} , \'  got uninit & deprecation warning\' ) ; chdir ( $Cwd ) ; $warning = \'\' ; ok ( chdir ( \'\' ) , "chdir(\'\') w/ only \\$ENV{$key} set" ) ; is ( abs_path , $ENV { $key } , \'  abs_path() agrees\' ) ; is ( $warning , qq{Use of chdir(\'\') or chdir(undef) as chdir() is deprecated at $0 line 76.
 } , \'  got deprecation warning\' ) ; chdir ( $Cwd ) ; }',
             'start_line' => 146,
             'indent' => 1,
@@ -10549,7 +10549,7 @@ Use of chdir(\'\') or chdir(undef) as chdir() is deprecated at $0 line 64.
             'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 160,
-            'src' => ' is ( $warning , q{Use of uninitialized value in chdir at $0 line 64.
+            'src' => ' is ( $warning , qq{Use of uninitialized value in chdir at $0 line 64.
 Use of chdir(\'\') or chdir(undef) as chdir() is deprecated at $0 line 64.
 } , \'  got uninit & deprecation warning\' ) ;',
             'start_line' => 160,
@@ -10596,7 +10596,7 @@ Use of chdir(\'\') or chdir(undef) as chdir() is deprecated at $0 line 64.
             'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 172,
-            'src' => ' is ( $warning , q{Use of chdir(\'\') or chdir(undef) as chdir() is deprecated at $0 line 76.
+            'src' => ' is ( $warning , qq{Use of chdir(\'\') or chdir(undef) as chdir() is deprecated at $0 line 76.
 } , \'  got deprecation warning\' ) ;',
             'start_line' => 172,
             'indent' => 2,

@@ -3245,9 +3245,9 @@ print do \'op/threads_create.pl\' || die $@;
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOI',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 114
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9111,7 +9111,7 @@ print do \'op/threads_create.pl\' || die $@;
             'token_num' => 23,
             'has_warnings' => 1,
             'end_line' => 119,
-            'src' => ' foreach my $BLOCK ( qw(CHECK INIT) ) { fresh_perl_is ( q{        use threads;
+            'src' => ' foreach my $BLOCK ( qw(CHECK INIT) ) { fresh_perl_is ( qq{        use threads;
         $BLOCK { threads->create(sub {})->join; }
         print \'ok\';
 } , \'ok\' , { } , "threads in $BLOCK block" ) ; }',
@@ -9123,7 +9123,7 @@ print do \'op/threads_create.pl\' || die $@;
             'token_num' => 12,
             'has_warnings' => 1,
             'end_line' => 114,
-            'src' => ' fresh_perl_is ( q{        use threads;
+            'src' => ' fresh_perl_is ( qq{        use threads;
         $BLOCK { threads->create(sub {})->join; }
         print \'ok\';
 } , \'ok\' , { } , "threads in $BLOCK block" ) ;',

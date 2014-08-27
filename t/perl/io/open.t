@@ -4444,9 +4444,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOC',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 78
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -4868,9 +4868,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOC',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 87
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9828,9 +9828,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOC',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 177
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10252,9 +10252,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOC',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 187
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -18774,7 +18774,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 44,
             'has_warnings' => 1,
             'end_line' => 85,
-            'src' => ' { ok ( open ( my $f , \'-|\' , q{    $Perl -e "print qq(a row\\\\n); print qq(another row\\\\n)"
+            'src' => ' { ok ( open ( my $f , \'-|\' , qq{    $Perl -e "print qq(a row\\\\n); print qq(another row\\\\n)"
 } ) , \'open -|\' ) ; my @rows = < $f > ; is ( scalar @rows , 2 , \'       readline, list context\' ) ; ok ( close ( $f ) , \'       close\' ) ; }',
             'start_line' => 77,
             'indent' => 0,
@@ -18784,7 +18784,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 15,
             'has_warnings' => 1,
             'end_line' => 78,
-            'src' => ' ok ( open ( my $f , \'-|\' , q{    $Perl -e "print qq(a row\\\\n); print qq(another row\\\\n)"
+            'src' => ' ok ( open ( my $f , \'-|\' , qq{    $Perl -e "print qq(a row\\\\n); print qq(another row\\\\n)"
 } ) , \'open -|\' ) ;',
             'start_line' => 78,
             'indent' => 1,
@@ -18821,7 +18821,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 63,
             'has_warnings' => 1,
             'end_line' => 102,
-            'src' => ' { ok ( open ( my $f , \'|-\' , q{    $Perl -pe "s/^not //"
+            'src' => ' { ok ( open ( my $f , \'|-\' , qq{    $Perl -pe "s/^not //"
 } ) , \'open |-\' ) ; my @rows = < $f > ; my $test = curr_test ; print $f "not ok $test - piped in\\n" ; next_test ; $test = curr_test ; print $f "not ok $test - piped in\\n" ; next_test ; ok ( close ( $f ) , \'       close\' ) ; sleep 1 ; pass ( \'flushing\' ) ; }',
             'start_line' => 86,
             'indent' => 0,
@@ -18831,7 +18831,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 15,
             'has_warnings' => 1,
             'end_line' => 87,
-            'src' => ' ok ( open ( my $f , \'|-\' , q{    $Perl -pe "s/^not //"
+            'src' => ' ok ( open ( my $f , \'|-\' , qq{    $Perl -pe "s/^not //"
 } ) , \'open |-\' ) ;',
             'start_line' => 87,
             'indent' => 1,
@@ -19453,7 +19453,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 44,
             'has_warnings' => 1,
             'end_line' => 184,
-            'src' => ' { ok ( open ( local $f , \'-|\' , q{    $Perl -e "print qq(a row\\\\n); print qq(another row\\\\n)"
+            'src' => ' { ok ( open ( local $f , \'-|\' , qq{    $Perl -e "print qq(a row\\\\n); print qq(another row\\\\n)"
 } ) , \'open local $f, "-|", ...\' ) ; my @rows = < $f > ; is ( scalar @rows , 2 , \'       readline list context\' ) ; ok ( close ( $f ) , \'       close\' ) ; }',
             'start_line' => 176,
             'indent' => 0,
@@ -19463,7 +19463,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 15,
             'has_warnings' => 1,
             'end_line' => 177,
-            'src' => ' ok ( open ( local $f , \'-|\' , q{    $Perl -e "print qq(a row\\\\n); print qq(another row\\\\n)"
+            'src' => ' ok ( open ( local $f , \'-|\' , qq{    $Perl -e "print qq(a row\\\\n); print qq(another row\\\\n)"
 } ) , \'open local $f, "-|", ...\' ) ;',
             'start_line' => 177,
             'indent' => 1,
@@ -19500,7 +19500,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 63,
             'has_warnings' => 1,
             'end_line' => 202,
-            'src' => ' { ok ( open ( local $f , \'|-\' , q{    $Perl -pe "s/^not //"
+            'src' => ' { ok ( open ( local $f , \'|-\' , qq{    $Perl -pe "s/^not //"
 } ) , \'open local $f, "|-", ...\' ) ; my @rows = < $f > ; my $test = curr_test ; print $f "not ok $test - piping\\n" ; next_test ; $test = curr_test ; print $f "not ok $test - piping\\n" ; next_test ; ok ( close ( $f ) , \'       close\' ) ; sleep 1 ; pass ( "Flush" ) ; }',
             'start_line' => 186,
             'indent' => 0,
@@ -19510,7 +19510,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 15,
             'has_warnings' => 1,
             'end_line' => 187,
-            'src' => ' ok ( open ( local $f , \'|-\' , q{    $Perl -pe "s/^not //"
+            'src' => ' ok ( open ( local $f , \'|-\' , qq{    $Perl -pe "s/^not //"
 } ) , \'open local $f, "|-", ...\' ) ;',
             'start_line' => 187,
             'indent' => 1,

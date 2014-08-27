@@ -323,7 +323,7 @@ Token *Scanner::scanPrevSymbol(LexContext *ctx, char )
 			ret = ctx->tmgr->new_Token(token, ctx->finfo);
 			here_document_tag = string(token);
 			here_document_tag_tk = ret;
-			ret->info = tmgr->getTokenInfo(TokenType::HereDocumentRawTag);
+			ret->info = tmgr->getTokenInfo(TokenType::HereDocumentBareTag);
 		} else {
 			ret = ctx->tmgr->new_Token(token, ctx->finfo);
 		}
@@ -491,7 +491,7 @@ Token *Scanner::scanWordDelimiter(LexContext *ctx)
 			/* Key is HereDocument */
 			here_document_tag = string(token);
 			here_document_tag_tk = ret;
-			ret->info = tmgr->getTokenInfo(TokenType::HereDocumentRawTag);
+			ret->info = tmgr->getTokenInfo(TokenType::HereDocumentBareTag);
 		} else if (string(token) == "format") {
 			isFormatDeclared = true;
 			ret = ctx->tmgr->new_Token(token, ctx->finfo);

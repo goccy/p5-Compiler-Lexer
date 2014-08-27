@@ -686,9 +686,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'END',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 15
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -786,9 +786,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'END',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 21
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -904,9 +904,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'END',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 27
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3363,7 +3363,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 6,
             'has_warnings' => 0,
             'end_line' => 18,
-            'src' => ' sub IsMyUniClass { q{0030	004F
+            'src' => ' sub IsMyUniClass { qq{0030	004F
 } ; }',
             'start_line' => 14,
             'indent' => 0,
@@ -3373,7 +3373,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 2,
             'has_warnings' => 0,
             'end_line' => 15,
-            'src' => ' q{0030	004F
+            'src' => ' qq{0030	004F
 } ;',
             'start_line' => 15,
             'indent' => 1,
@@ -3383,7 +3383,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 2,
             'has_warnings' => 0,
             'end_line' => 21,
-            'src' => ' q{0040	005F
+            'src' => ' qq{0040	005F
 } ;',
             'start_line' => 21,
             'indent' => 1,
@@ -3393,7 +3393,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 2,
             'has_warnings' => 0,
             'end_line' => 27,
-            'src' => ' q{+main::IsMyUniClass
+            'src' => ' qq{+main::IsMyUniClass
 &Other::IsClass
 } ;',
             'start_line' => 27,

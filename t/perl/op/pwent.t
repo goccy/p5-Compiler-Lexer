@@ -8488,9 +8488,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOEX',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 202
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -10484,7 +10484,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 15,
             'has_warnings' => 1,
             'end_line' => 216,
-            'src' => ' if ( keys %perfect == 0 ) { $max ++ ; print q{#
+            'src' => ' if ( keys %perfect == 0 ) { $max ++ ; print qq{#
 # The failure of op/pwent test is not necessarily serious.
 # It may fail due to local password administration conventions.
 # If you are for example using both NIS and local passwords,
@@ -10514,7 +10514,7 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 3,
             'has_warnings' => 0,
             'end_line' => 202,
-            'src' => ' print q{#
+            'src' => ' print qq{#
 # The failure of op/pwent test is not necessarily serious.
 # It may fail due to local password administration conventions.
 # If you are for example using both NIS and local passwords,

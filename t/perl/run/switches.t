@@ -11615,9 +11615,9 @@ sub import { print map "<\\$_>", \\@_ }
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => '__EOF__',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 328
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -15117,7 +15117,7 @@ sub import { print map "<\\$_>", \\@_ }
             'token_num' => 133,
             'has_warnings' => 1,
             'end_line' => 353,
-            'src' => ' { local $TODO = \'\' ; sub do_i_unlink { unlink_all ( "file" , "file.bak" ) } open ( FILE , ">file" ) or die "$0: Failed to create \'file\': $!" ; print FILE q{foo yada dada
+            'src' => ' { local $TODO = \'\' ; sub do_i_unlink { unlink_all ( "file" , "file.bak" ) } open ( FILE , ">file" ) or die "$0: Failed to create \'file\': $!" ; print FILE qq{foo yada dada
 bada foo bing
 king kong foo
 } ; close FILE ; END { do_i_unlink ( ) } runperl ( switches => [ \'-pi.bak\' ] , prog => \'s/foo/bar/\' , args => [ \'file\' ] ) ; open ( FILE , "file" ) or die "$0: Failed to open \'file\': $!" ; chomp ( my @file = < FILE > ) ; close FILE ; open ( BAK , "file.bak" ) or die "$0: Failed to open \'file\': $!" ; chomp ( my @bak = < BAK > ) ; close BAK ; is ( join ( ":" , @file ) , "bar yada dada:bada bar bing:king kong bar" , "-i new file" ) ; is ( join ( ":" , @bak ) , "foo yada dada:bada foo bing:king kong foo" , "-i backup file" ) ; }',
@@ -15156,7 +15156,7 @@ king kong foo
             'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 328,
-            'src' => ' print FILE q{foo yada dada
+            'src' => ' print FILE qq{foo yada dada
 bada foo bing
 king kong foo
 } ;',

@@ -9097,9 +9097,9 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOH',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 271
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9165,9 +9165,9 @@ goto endofperl
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOT',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 278
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9665,9 +9665,9 @@ $0 = Cygwin::win_to_posix_path(Cygwin::posix_to_win_path($0, 1));
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOH',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 297
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9910,9 +9910,9 @@ $0 = Cygwin::win_to_posix_path(Cygwin::posix_to_win_path($0, 1));
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'HereDocumentRawTag',
+                   'name' => 'HereDocumentBareTag',
                    'data' => 'EOB',
-                   'type' => Compiler::Lexer::TokenType::T_HereDocumentRawTag,
+                   'type' => Compiler::Lexer::TokenType::T_HereDocumentBareTag,
                    'line' => 304
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -23849,17 +23849,17 @@ subtest 'get_groups_by_syntax_level' => sub {
             'token_num' => 419,
             'has_warnings' => 1,
             'end_line' => 334,
-            'src' => ' { my $is_abs = $Config { d_procselfexe } || $Config { usekernprocpathname } || $Config { usensgetexecutablepath } ; if ( $^O eq \'qnx\' ) { chomp ( $wd = `/usr/bin/fullpath -t` ) ; } elsif ( $Is_Cygwin || $is_abs ) { chomp ( $wd = `pwd` ) ; $wd =~ s#/t$## ; $wd =~/(.*)/ ; $wd = $1 ; if ( $Is_Cygwin ) { $wd = Cygwin::win_to_posix_path ( Cygwin::posix_to_win_path ( $wd , 1 ) ) ; } } elsif ( $Is_os2 ) { $wd = Cwd::sys_cwd ( ) ; } else { $wd = \'.\' ; } my $perl = $Is_VMS || $is_abs ? $^X : "$wd/perl" ; my $headmaybe = \'\' ; my $middlemaybe = \'\' ; my $tailmaybe = \'\' ; $script = "$wd/show-shebang" ; if ( $Is_MSWin32 ) { chomp ( $wd = `cd` ) ; $wd =~ s|\\\\|/|g ; $perl = "$wd/perl.exe" ; $script = "$wd/show-shebang.bat" ; $headmaybe = q{\\@rem =\'
+            'src' => ' { my $is_abs = $Config { d_procselfexe } || $Config { usekernprocpathname } || $Config { usensgetexecutablepath } ; if ( $^O eq \'qnx\' ) { chomp ( $wd = `/usr/bin/fullpath -t` ) ; } elsif ( $Is_Cygwin || $is_abs ) { chomp ( $wd = `pwd` ) ; $wd =~ s#/t$## ; $wd =~/(.*)/ ; $wd = $1 ; if ( $Is_Cygwin ) { $wd = Cygwin::win_to_posix_path ( Cygwin::posix_to_win_path ( $wd , 1 ) ) ; } } elsif ( $Is_os2 ) { $wd = Cwd::sys_cwd ( ) ; } else { $wd = \'.\' ; } my $perl = $Is_VMS || $is_abs ? $^X : "$wd/perl" ; my $headmaybe = \'\' ; my $middlemaybe = \'\' ; my $tailmaybe = \'\' ; $script = "$wd/show-shebang" ; if ( $Is_MSWin32 ) { chomp ( $wd = `cd` ) ; $wd =~ s|\\\\|/|g ; $perl = "$wd/perl.exe" ; $script = "$wd/show-shebang.bat" ; $headmaybe = qq{\\@rem =\'
 \\@echo off
 $perl -x \\%0
 goto endofperl
 \\@rem \';
-} ; $tailmaybe = q{
+} ; $tailmaybe = qq{
 __END__
 :endofperl
 } ; } elsif ( $Is_os2 ) { $script = "./show-shebang" ; } elsif ( $Is_VMS ) { $script = "[]show-shebang" ; } elsif ( $Is_Cygwin ) { $middlemaybe = q{$^X = Cygwin::win_to_posix_path(Cygwin::posix_to_win_path($^X, 1));
 $0 = Cygwin::win_to_posix_path(Cygwin::posix_to_win_path($0, 1));
-} } if ( $^O eq \'os390\' or $^O eq \'posix-bc\' or $^O eq \'vmesa\' ) { $headmaybe = q{    eval \'exec ./perl -S \\$0 \\${1+"\\$\\@"}\'
+} } if ( $^O eq \'os390\' or $^O eq \'posix-bc\' or $^O eq \'vmesa\' ) { $headmaybe = qq{    eval \'exec ./perl -S \\$0 \\${1+"\\$\\@"}\'
         if 0;
 } ; } $s1 = "\\$^X is $perl, \\$0 is $script\\n" ; ok open ( SCRIPT , ">$script" ) or diag "Can\'t write to $script: $!" ; ok print ( SCRIPT $headmaybe . << EOB . $middlemaybe . q{#!$perl
 EOB
@@ -24044,12 +24044,12 @@ print "\\$^X is $^X, \\$0 is $0\\n";
             'token_num' => 39,
             'has_warnings' => 1,
             'end_line' => 283,
-            'src' => ' if ( $Is_MSWin32 ) { chomp ( $wd = `cd` ) ; $wd =~ s|\\\\|/|g ; $perl = "$wd/perl.exe" ; $script = "$wd/show-shebang.bat" ; $headmaybe = q{\\@rem =\'
+            'src' => ' if ( $Is_MSWin32 ) { chomp ( $wd = `cd` ) ; $wd =~ s|\\\\|/|g ; $perl = "$wd/perl.exe" ; $script = "$wd/show-shebang.bat" ; $headmaybe = qq{\\@rem =\'
 \\@echo off
 $perl -x \\%0
 goto endofperl
 \\@rem \';
-} ; $tailmaybe = q{
+} ; $tailmaybe = qq{
 __END__
 :endofperl
 } ; }',
@@ -24097,7 +24097,7 @@ __END__
             'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 271,
-            'src' => ' $headmaybe = q{\\@rem =\'
+            'src' => ' $headmaybe = qq{\\@rem =\'
 \\@echo off
 $perl -x \\%0
 goto endofperl
@@ -24111,7 +24111,7 @@ goto endofperl
             'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 278,
-            'src' => ' $tailmaybe = q{
+            'src' => ' $tailmaybe = qq{
 __END__
 :endofperl
 } ;',
@@ -24170,7 +24170,7 @@ $0 = Cygwin::win_to_posix_path(Cygwin::posix_to_win_path($0, 1));
             'token_num' => 20,
             'has_warnings' => 1,
             'end_line' => 301,
-            'src' => ' if ( $^O eq \'os390\' or $^O eq \'posix-bc\' or $^O eq \'vmesa\' ) { $headmaybe = q{    eval \'exec ./perl -S \\$0 \\${1+"\\$\\@"}\'
+            'src' => ' if ( $^O eq \'os390\' or $^O eq \'posix-bc\' or $^O eq \'vmesa\' ) { $headmaybe = qq{    eval \'exec ./perl -S \\$0 \\${1+"\\$\\@"}\'
         if 0;
 } ; }',
             'start_line' => 296,
@@ -24181,7 +24181,7 @@ $0 = Cygwin::win_to_posix_path(Cygwin::posix_to_win_path($0, 1));
             'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 297,
-            'src' => ' $headmaybe = q{    eval \'exec ./perl -S \\$0 \\${1+"\\$\\@"}\'
+            'src' => ' $headmaybe = qq{    eval \'exec ./perl -S \\$0 \\${1+"\\$\\@"}\'
         if 0;
 } ;',
             'start_line' => 297,

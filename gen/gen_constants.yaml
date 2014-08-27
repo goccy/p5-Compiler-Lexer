@@ -55,13 +55,13 @@ token_type:
   T_AndBitEqual: 54
   T_AndEqual: 58
   T_Annotation: 135
-  T_Argument: 204
+  T_Argument: 205
   T_ArgumentArray: 136
-  T_Array: 187
-  T_ArrayAt: 198
+  T_Array: 188
+  T_ArrayAt: 199
   T_ArrayDereference: 113
-  T_ArrayRef: 196
-  T_ArraySet: 200
+  T_ArrayRef: 197
+  T_ArraySet: 201
   T_ArraySize: 66
   T_ArraySizeDereference: 121
   T_ArrayVar: 168
@@ -75,7 +75,7 @@ token_type:
   T_Break: 88
   T_BuiltinFunc: 70
   T_CORE: 77
-  T_Call: 203
+  T_Call: 204
   T_CallDecl: 130
   T_Class: 129
   T_CodeDereference: 116
@@ -83,14 +83,14 @@ token_type:
   T_CodeVar: 167
   T_Colon: 105
   T_Comma: 104
-  T_Comment: 208
+  T_Comment: 209
   T_Compare: 33
   T_ConstValue: 138
   T_Continue: 86
   T_DESTROY: 78
   T_DataWord: 74
   T_Dec: 46
-  T_Default: 206
+  T_Default: 207
   T_DefaultEqual: 49
   T_DefaultOperator: 60
   T_DefaultStmt: 103
@@ -108,30 +108,31 @@ token_type:
   T_FieldDecl: 158
   T_ForStmt: 133
   T_ForeachStmt: 134
-  T_Format: 183
-  T_FormatDecl: 182
-  T_FormatEnd: 184
-  T_Function: 202
+  T_Format: 184
+  T_FormatDecl: 183
+  T_FormatEnd: 185
+  T_Function: 203
   T_FunctionDecl: 63
   T_GivenStmt: 102
   T_Glob: 11
-  T_GlobalArrayVar: 194
-  T_GlobalHashVar: 195
-  T_GlobalVar: 193
+  T_GlobalArrayVar: 195
+  T_GlobalHashVar: 196
+  T_GlobalVar: 194
   T_GlobalVarDecl: 162
   T_Goto: 85
   T_Greater: 7
   T_GreaterEqual: 29
   T_Handle: 89
   T_HandleDelim: 152
-  T_Hash: 188
-  T_HashAt: 199
+  T_Hash: 189
+  T_HashAt: 200
   T_HashDereference: 114
-  T_HashRef: 197
-  T_HashSet: 201
+  T_HashRef: 198
+  T_HashSet: 202
   T_HashVar: 169
-  T_HereDocument: 180
-  T_HereDocumentEnd: 181
+  T_HereDocument: 181
+  T_HereDocumentBareTag: 179
+  T_HereDocumentEnd: 182
   T_HereDocumentExecTag: 178
   T_HereDocumentRawTag: 177
   T_HereDocumentTag: 176
@@ -152,11 +153,11 @@ token_type:
   T_Less: 8
   T_LessEqual: 30
   T_LibraryDirectories: 140
-  T_List: 205
-  T_LocalArrayVar: 191
+  T_List: 206
+  T_LocalArrayVar: 192
   T_LocalDecl: 90
-  T_LocalHashVar: 192
-  T_LocalVar: 190
+  T_LocalHashVar: 193
+  T_LocalVar: 191
   T_LocalVarDecl: 161
   T_Method: 64
   T_Mod: 5
@@ -172,20 +173,20 @@ token_type:
   T_Not: 68
   T_NotBitEqual: 56
   T_NotEqual: 37
-  T_Object: 185
-  T_Operator: 189
+  T_Object: 186
+  T_Operator: 190
   T_Or: 53
   T_OrBitEqual: 55
   T_OrEqual: 57
   T_OurDecl: 91
   T_Package: 128
-  T_Pod: 207
+  T_Pod: 208
   T_Pointer: 125
   T_PolymorphicCompare: 34
   T_PowerEqual: 48
   T_ProgramArgument: 139
   T_Prototype: 165
-  T_RawHereDocument: 179
+  T_RawHereDocument: 180
   T_RawString: 173
   T_Redo: 82
   T_Ref: 10
@@ -194,7 +195,7 @@ token_type:
   T_RegDelim: 151
   T_RegDoubleQuote: 146
   T_RegExec: 148
-  T_RegExp: 186
+  T_RegExp: 187
   T_RegList: 147
   T_RegMatch: 150
   T_RegMiddleDelim: 153
@@ -244,7 +245,7 @@ token_type:
   T_ThreeTermOperator: 6
   T_ToDo: 61
   T_TypeRef: 159
-  T_Undefined: 210
+  T_Undefined: 211
   T_UnlessStmt: 99
   T_UntilStmt: 100
   T_UseDecl: 93
@@ -254,4 +255,4 @@ token_type:
   T_VersionString: 175
   T_WhenStmt: 101
   T_WhileStmt: 132
-  T_WhiteSpace: 209
+  T_WhiteSpace: 210
