@@ -232,6 +232,7 @@ public:
 	Token *scanCurSymbol(LexContext *ctx, char symbol);
 	Token *scanDoubleCharacterOperator(LexContext *ctx, char symbol, char next_ch);
 	Token *scanTripleCharacterOperator(LexContext *ctx, char symbol, char next_ch, char after_next_ch);
+	Token *scanPostDeref(LexContext *ctx);
 	Token *scanSymbol(LexContext *ctx);
 	Token *scanWordDelimiter(LexContext *ctx);
 	Token *scanReference(LexContext *ctx);

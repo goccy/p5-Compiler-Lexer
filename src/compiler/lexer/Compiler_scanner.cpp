@@ -494,6 +494,24 @@ Token *Scanner::scanDoubleCharacterOperator(LexContext *ctx, char symbol, char n
 	return ret;
 }
 
+Token *Scanner::scanPostDeref(LexContext *ctx)
+{
+	Token *ret = NULL;
+	ScriptManager *smgr = ctx->smgr;
+
+	char symbol = smgr->currentChar();
+	if (symbol == '*' ) {
+		ctx->writeBuffer(symbol);
+		ret = ctx->tmgr->new_Token(ctx->buffer(), ctx->finfo);
+		ctx->clearBuffer();
+		ret->info = ctx->tmgr->getTokenInfo(TokenType::PostDerefStar);
+		isPostDerefStarted = false;
+		skipFlag = false;
+	}
+
+	return ret;
+}
+
 Token *Scanner::scanSymbol(LexContext *ctx)
 {
 	Token *ret = NULL;
@@ -502,8 +520,11 @@ Token *Scanner::scanSymbol(LexContext *ctx)
 	char next_ch = smgr->nextChar();
 	char after_next_ch = smgr->afterNextChar();
 	if (ctx->existsBuffer()) ctx->tmgr->add(scanPrevSymbol(ctx, symbol));
-	bool postderef = isPostDeref(ctx);
-	cout << "Postderef is " << postderef << endl;
+
+	if (isPostDerefStarted) {
+		ret = scanPostDeref(ctx);
+		if (ret) return ret;
+	}
 
 	if (!isRegexStarted) {
 		ret = scanTripleCharacterOperator(ctx, symbol, next_ch, after_next_ch);
@@ -624,7 +645,7 @@ Token *Scanner::scanVersionString(LexContext *ctx)
 	TokenManager *tmgr = ctx->tmgr;
 	char *src = ctx->smgr->raw_script;
 	size_t i = ctx->smgr->idx;
-	char *begin = src + i;
+	// char *begin = src + i;
 	char c = next(ctx, src, i);//NEXT();
 	Token *token = NULL;
 	for (;(is_number(c) || c == '.') && c != EOL; c = next(ctx, src, i)) {}
@@ -643,7 +664,7 @@ Token *Scanner::scanNumber(LexContext *ctx)
 	TokenManager *tmgr = ctx->tmgr;
 	char *src = ctx->smgr->raw_script;
 	size_t i = ctx->smgr->idx;
-	char *begin = src + i;
+	// char *begin = src + i;
 	int c = next(ctx, src, i);
 	Token *token = NULL;
 	assert((c == '.' || is_number(c)) && "It do not seem as Number");
