@@ -214,7 +214,14 @@ typedef enum {
 	Comment,
 	WhiteSpace,
 	Undefined,
-	PostDeref
+	PostDeref,
+	PostDerefStar,
+	PostDerefArraySliceOpenBracket,
+	PostDerefArraySliceCloseBracket,
+	PostDerefHashSliceOpenBrace,
+	PostDerefHashSliceCloseBrace,
+	PostDerefCodeOpenParen,
+	PostDerefCodeCloseParen
 } Type;
 }
 

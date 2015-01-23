@@ -639,4 +639,11 @@ Verbose             Pod
 Verbose             Comment
 Verbose             WhiteSpace
 Undefined       	Undefined           	
-Term                PostDeref
+Symbol              PostDeref
+Symbol              PostDerefStar
+Symbol              PostDerefArraySliceOpenBracket
+Symbol              PostDerefArraySliceCloseBracket
+Symbol              PostDerefHashSliceOpenBrace
+Symbol              PostDerefHashSliceCloseBrace
+Symbol              PostDerefCodeOpenParen
+Symbol              PostDerefCodeCloseParen

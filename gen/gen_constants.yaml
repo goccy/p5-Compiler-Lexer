@@ -184,6 +184,13 @@ token_type:
   T_Pointer: 125
   T_PolymorphicCompare: 34
   T_PostDeref: 212
+  T_PostDerefArraySliceCloseBracket: 215
+  T_PostDerefArraySliceOpenBracket: 214
+  T_PostDerefCodeCloseParen: 219
+  T_PostDerefCodeOpenParen: 218
+  T_PostDerefHashSliceCloseBrace: 217
+  T_PostDerefHashSliceOpenBrace: 216
+  T_PostDerefStar: 213
   T_PowerEqual: 48
   T_ProgramArgument: 139
   T_Prototype: 165

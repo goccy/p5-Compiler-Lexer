@@ -215,7 +215,14 @@ use constant {
     T_Comment => 209,
     T_WhiteSpace => 210,
     T_Undefined => 211,
-    T_PostDeref => 212
+    T_PostDeref => 212,
+    T_PostDerefStar => 213,
+    T_PostDerefArraySliceOpenBracket => 214,
+    T_PostDerefArraySliceCloseBracket => 215,
+    T_PostDerefHashSliceOpenBrace => 216,
+    T_PostDerefHashSliceCloseBrace => 217,
+    T_PostDerefCodeOpenParen => 218,
+    T_PostDerefCodeCloseParen => 219
 };
 
 package Compiler::Lexer::SyntaxType;
