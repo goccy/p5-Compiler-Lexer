@@ -213,7 +213,8 @@ typedef enum {
 	Pod,
 	Comment,
 	WhiteSpace,
-	Undefined
+	Undefined,
+	PostDeref
 } Type;
 }
 

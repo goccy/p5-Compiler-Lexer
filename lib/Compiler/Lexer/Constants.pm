@@ -214,7 +214,8 @@ use constant {
     T_Pod => 208,
     T_Comment => 209,
     T_WhiteSpace => 210,
-    T_Undefined => 211
+    T_Undefined => 211,
+    T_PostDeref => 212
 };
 
 package Compiler::Lexer::SyntaxType;

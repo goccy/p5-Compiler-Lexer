@@ -484,7 +484,8 @@ TokenInfo decl_tokens[] = {
 	{Enum::Token::Type::Pod, Enum::Token::Kind::Verbose, "Pod", ""},
 	{Enum::Token::Type::Comment, Enum::Token::Kind::Verbose, "Comment", ""},
 	{Enum::Token::Type::WhiteSpace, Enum::Token::Kind::Verbose, "WhiteSpace", ""},
-	{Enum::Token::Type::Undefined, Enum::Token::Kind::Undefined, "Undefined", ""}
+	{Enum::Token::Type::Undefined, Enum::Token::Kind::Undefined, "Undefined", ""},
+	{Enum::Token::Type::PostDeref, Enum::Token::Kind::Term, "PostDeref", ""}
 };
 
 TokenInfo type_to_info[] = {
@@ -699,6 +700,7 @@ TokenInfo type_to_info[] = {
 	{Enum::Token::Type::Pod, Enum::Token::Kind::Verbose, "Pod", ""},
 	{Enum::Token::Type::Comment, Enum::Token::Kind::Verbose, "Comment", ""},
 	{Enum::Token::Type::WhiteSpace, Enum::Token::Kind::Verbose, "WhiteSpace", ""},
-	{Enum::Token::Type::Undefined, Enum::Token::Kind::Undefined, "Undefined", ""}
+	{Enum::Token::Type::Undefined, Enum::Token::Kind::Undefined, "Undefined", ""},
+	{Enum::Token::Type::PostDeref, Enum::Token::Kind::Term, "PostDeref", ""}
 };
 
