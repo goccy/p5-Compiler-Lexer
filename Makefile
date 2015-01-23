@@ -31,3 +31,6 @@ lexer:
 
 clean:
 	rm -f src/compiler/lexer/*.o src/compiler/util/*.o test.o token_test.o token_test
+
+include/gen_token.hpp:
+	${PERL} gen/gen_decl.pl
