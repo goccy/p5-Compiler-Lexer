@@ -194,6 +194,7 @@ public:
 	bool isFormatDeclared;
 	bool commentFlag;
 	bool hereDocumentFlag;
+	bool isPostDerefStarted;
 	bool skipFlag;
 	char start_string_ch;
 	char regex_delim;
@@ -216,6 +217,7 @@ public:
 	bool isRegexEndDelim(LexContext *ctx);
 	bool isRegexDelim(Token *prev_token, char symbol);
 	bool isHereDocument(LexContext *ctx, Token *prev_token);
+	bool isPostDeref(LexContext *ctx);
 	bool isFormat(LexContext *ctx, Token *tk);
 	bool isVersionString(LexContext *ctx);
 	bool isSkip(LexContext *ctx);

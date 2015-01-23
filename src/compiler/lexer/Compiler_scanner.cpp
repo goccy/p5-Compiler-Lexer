@@ -6,7 +6,9 @@ namespace TokenKind = Enum::Token::Kind;
 
 Scanner::Scanner() :
 	isStringStarted(false), isRegexStarted(false), isPrototypeStarted(false), isFormatStarted(false),
-	isFormatDeclared(false), commentFlag(false), hereDocumentFlag(false), skipFlag(false),
+	isFormatDeclared(false), commentFlag(false), hereDocumentFlag(false),
+	isPostDerefStarted(false),
+	skipFlag(false),
 	regex_delim(0), regex_middle_delim(0),
     brace_count_inner_regex(0), bracket_count_inner_regex(0), cury_brace_count_inner_regex(0)
 {
@@ -69,7 +71,7 @@ Token *Scanner::scanQuote(LexContext *ctx, char quote)
 			namespace_tk->info = tmgr->getTokenInfo(TokenType::Namespace);
 			tmgr->add(namespace_tk);
 			ctx->clearBuffer();
-			
+
 			ctx->writeBuffer(cur_ch);
 			Token *namespace_resolver = tmgr->new_Token(ctx->buffer(), ctx->finfo);
 			namespace_resolver->info  = tmgr->getTokenInfo(TokenType::NamespaceResolver);
@@ -251,6 +253,27 @@ bool Scanner::isHereDocument(LexContext *ctx, Token *tk)
 	return false;
 }
 
+bool Scanner::isPostDeref(LexContext *ctx)
+{
+	Token *prev_token = ctx->tmgr->lastToken();
+	string prev_data = (prev_token) ? string(prev_token->_data) : "";
+	char symbol = ctx->smgr->currentChar();
+	cout << "In isPostDeref prev_data is " << prev_data << endl;
+	if (prev_data != "->") return false;
+	cout << "In isPostDeref symbol is " << symbol << endl;
+	if (symbol != '$' && symbol != '@' && symbol != '%' && symbol != '&')
+		return false;
+
+	char next_ch = ctx->smgr->nextChar();
+	cout << "In isPostDeref next char is " << next_ch << endl;
+	if (symbol == '$' && next_ch != '*') return false;
+	if (symbol == '@' && ! ( next_ch == '*' || next_ch == '[' )) return false;
+	if (symbol == '%' && ! ( next_ch == '*' || next_ch == '{' )) return false;
+	if (symbol == '&' && ! ( next_ch == '*' || next_ch == '(' )) return false;
+
+	return true;
+}
+
 bool Scanner::isFormat(LexContext *, Token *tk)
 {
 	return (string(tk->_data) == "format") ? true : false;
@@ -265,7 +288,7 @@ bool Scanner::isRegexDelim(Token *prev_token, char symbol)
 		(symbol != '-' && symbol != '=' && symbol != ',' && symbol != ')') &&
 		regex_prefix_map.find(prev_tk) != regex_prefix_map.end()) {
 		return true;
-	} else if (regex_delim == 0 && prev_token && 
+	} else if (regex_delim == 0 && prev_token &&
 			   (prev_token->info.kind == TokenKind::RegPrefix || prev_token->info.kind == TokenKind::RegReplacePrefix)) {
 		return true;
 	}
@@ -393,7 +416,14 @@ Token *Scanner::scanCurSymbol(LexContext *ctx, char symbol)
 		ret = ctx->tmgr->new_Token(ctx->buffer(), ctx->finfo);
 		ret->info = tmgr->getTokenInfo(TokenType::RegDelim);
 		ctx->clearBuffer();
-	} else if (symbol == '@' || symbol == '$' || symbol == '%') {// || symbol == '&') {
+	} else if (isPostDeref(ctx)) { // try this before looking for a sigil
+		ctx->writeBuffer(symbol);
+		ret = ctx->tmgr->new_Token(ctx->buffer(), ctx->finfo);
+		ctx->clearBuffer();
+		ret->info = tmgr->getTokenInfo(TokenType::PostDeref);
+		isPostDerefStarted = true;
+		skipFlag = true;
+	} else if (symbol == '@' || symbol == '$' || symbol == '%') { //|| symbol == '&')
 		ctx->writeBuffer(symbol);
 	} else if (symbol == ';') {
 		ctx->writeBuffer(symbol);
@@ -472,6 +502,9 @@ Token *Scanner::scanSymbol(LexContext *ctx)
 	char next_ch = smgr->nextChar();
 	char after_next_ch = smgr->afterNextChar();
 	if (ctx->existsBuffer()) ctx->tmgr->add(scanPrevSymbol(ctx, symbol));
+	bool postderef = isPostDeref(ctx);
+	cout << "Postderef is " << postderef << endl;
+
 	if (!isRegexStarted) {
 		ret = scanTripleCharacterOperator(ctx, symbol, next_ch, after_next_ch);
 		if (!ret) ret = scanDoubleCharacterOperator(ctx, symbol, next_ch);
