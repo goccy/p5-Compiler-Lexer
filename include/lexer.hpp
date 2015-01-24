@@ -194,7 +194,6 @@ public:
 	bool isFormatDeclared;
 	bool commentFlag;
 	bool hereDocumentFlag;
-	bool isPostDerefStarted;
 	bool skipFlag;
 	char start_string_ch;
 	char regex_delim;
