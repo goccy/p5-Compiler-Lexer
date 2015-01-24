@@ -4,7 +4,7 @@ badges = ["travis", "coveralls"]
 build_class = "builder::MyBuilder"
 
 [no_index]
-directory = ['t', 'examples', 'builder']
+directory = ['t', 'examples', 'builder', 'experiments']
 
 [FileGatherer]
-exclude_match = ['^t/perl/.*', '^example/bigdata.pl']
+exclude_match = ['^t/perl/.*', '^example/bigdata.pl', '^experiments/' ]
