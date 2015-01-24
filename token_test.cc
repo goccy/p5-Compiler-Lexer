@@ -2,24 +2,56 @@
 #include <string>
 #include <lexer.hpp>
 
+using namespace std;
+
 typedef Lexer * Compiler_Lexer;
 int show_token( Token *token );
+int just_toke_it( Lexer *lexer, const char *script );
 
 int main() {
 	const char *filename = "foo.pl";
 	bool verbose = false;
 	Lexer *lexer = new Lexer(filename, verbose);
 
-	const char *script = "$array->@*";
-	Tokens *tokens = lexer->tokenize( (char *)script);
+	just_toke_it( lexer, "$scalar->$*" );
+
+	just_toke_it( lexer, "$array->@*" );
+	just_toke_it( lexer, "$array->@[0]" );
+	just_toke_it( lexer, "$array->@[0,1]" );
+	just_toke_it( lexer, "$array->@[@indices]" );
+	just_toke_it( lexer, "$array->$#*" );
+
+	just_toke_it( lexer, "$hash->%*" );
+	just_toke_it( lexer, "$hash->%{'key'}" );
+	just_toke_it( lexer, "$hash->%{'key','key2'}" );
+	just_toke_it( lexer, "$hash->%{@keys}" );
+
+	just_toke_it( lexer, "$coderef->&('arg','arg2')" );
+	just_toke_it( lexer, "$coderef->&*" );
+
+	just_toke_it( lexer, "$typeglob->**" );
+	just_toke_it( lexer, "$typeglob->*{SCALAR}" );
+
+	return 0;
+	}
+
+int just_toke_it( Lexer *lexer, const char *script ) {
+	Tokens *tokens = lexer->tokenize((char *)script);
+
+	cout << "==================" 
+		<< endl 
+		<< script 
+		<< endl 
+		<< "-------------------" 
+		<< endl;
 
 	size_t size = tokens->size();
 	for (size_t i = 0; i < size; i++) {
 		Token *token = tokens->at(i);
 		show_token( token );
 		}
-
-	return 0;
+	
+	return 1;
 	}
 
 int show_token( Token *token ) {
