@@ -27,4 +27,4 @@ GTAGS
 GRTAGS
 GPATH
 workdir
-token_test
+token_test*.o

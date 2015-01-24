@@ -24,10 +24,7 @@ int main() {
 
 int show_token( Token *token ) {
 	printf( 
-		"------------\nStype: %d\nType: %d\nKind: %d\nName: %s\nData: %s\n",
-		token->stype,
-		token->info.type,
-		token->info.kind,
+		"%-20s | %-s\n",
 		token->info.name,
 		token->_data
 		);
