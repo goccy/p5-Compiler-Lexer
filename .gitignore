@@ -28,3 +28,4 @@ GRTAGS
 GPATH
 workdir
 token_test*.o
+token_test
