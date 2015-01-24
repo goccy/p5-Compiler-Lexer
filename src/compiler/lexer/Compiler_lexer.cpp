@@ -1,4 +1,5 @@
 #include <lexer.hpp>
+#include <iostream>
 
 /* Declare Namespace */
 using namespace std;
@@ -46,6 +47,7 @@ Tokens *Lexer::tokenize(char *script)
 	char ch = smgr->currentChar();
 	for (; ch != EOL; smgr->idx++) {
 		ch = smgr->currentChar();
+		// cout << "Char is " << ch << endl;
 		if (smgr->end()) break;
 		if (ch == '\n') ctx->finfo.start_line_num++;
 		if (scanner.isSkip(ctx)) {
@@ -87,12 +89,23 @@ Tokens *Lexer::tokenize(char *script)
 				continue;
 			}
 			//fall through
-		case '=': case '^': case '~': case '@':
+
+		case '$': case '@': case '%': case '&': case '*': // all of the sigils
+			if (scanner.isPostDeref(ctx)) {
+				tk = scanner.scanPostDeref(ctx);
+				tmgr->add(tk);
+			} else {
+				tmgr->add(scanner.scanSymbol(ctx));
+			}
+			smgr->idx += ctx->progress;
+			ctx->progress = 0;
+			break;
+		case '=': case '^': case '~':
 		case ',': case ':': case ';': case '+':
-		case '<': case '>': case '&': case '|':
-		case '!': case '*': case '/': case '%':
+		case '<': case '>': case '|':
+		case '!': case '/':
 		case '(': case ')': case '{': case '}':
-		case '[': case ']': case '?': case '$':
+		case '[': case ']': case '?':
 		case '\\':
 			tmgr->add(scanner.scanSymbol(ctx));
 			smgr->idx += ctx->progress;
