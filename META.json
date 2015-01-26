@@ -68,7 +68,8 @@
          "web" : "https://github.com/goccy/p5-Compiler-Lexer"
       }
    },
-   "version" : "0.20",
+   "version" : "0.21",
+   "x_authority" : "cpan:GOCCY",
    "x_contributors" : [
       "tokuhirom <tokuhirom@gmail.com>",
       "Reini Urban <rurban@cpanel.net>",
@@ -77,6 +78,6 @@
       "Olivier Mengué <dolmen@cpan.org>",
       "Syohei YOSHIDA <syohex@gmail.com>",
       "moznion <moznion@gmail.com>",
-      "Masaaki Goshima <goccy54@gmail.com>"
+      "goccy <goccy54@gmail.com>"
    ]
 }
