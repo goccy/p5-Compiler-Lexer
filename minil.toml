@@ -1,4 +1,5 @@
 badges = ["travis", "coveralls"]
+authority = "cpan:GOCCY"
 
 [build]
 build_class = "builder::MyBuilder"
