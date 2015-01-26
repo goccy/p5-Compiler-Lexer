@@ -6,10 +6,9 @@ namespace TokenKind = Enum::Token::Kind;
 
 Scanner::Scanner() :
 	isStringStarted(false), isRegexStarted(false), isPrototypeStarted(false), isFormatStarted(false),
-	isFormatDeclared(false), commentFlag(false), hereDocumentFlag(false),
-	skipFlag(false),
+	isFormatDeclared(false), commentFlag(false), hereDocumentFlag(false), skipFlag(false),
 	regex_delim(0), regex_middle_delim(0),
-    brace_count_inner_regex(0), bracket_count_inner_regex(0), cury_brace_count_inner_regex(0)
+	brace_count_inner_regex(0), bracket_count_inner_regex(0), cury_brace_count_inner_regex(0)
 {
 	const char *regex_prefixes[] = {
 		"q", "qq", "qw", "qx", "qr", "m", NULL
