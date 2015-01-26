@@ -2,6 +2,9 @@ Revision history for Perl extension Compiler-Lexer.
 
 {{$NEXT}}
 
+0.20 2015-01-26T03:17:35Z
+     - support HereDocumentBareTag (e.g. <<BARE)
+
 0.19 2014-07-23T07:32:47Z
      - fixed some issues (foo'bar and q'foobar' and so on)
 
