@@ -216,6 +216,7 @@ public:
 	bool isRegexEndDelim(LexContext *ctx);
 	bool isRegexDelim(Token *prev_token, char symbol);
 	bool isHereDocument(LexContext *ctx, Token *prev_token);
+	bool isPostDeref(LexContext *ctx);
 	bool isFormat(LexContext *ctx, Token *tk);
 	bool isVersionString(LexContext *ctx);
 	bool isSkip(LexContext *ctx);
@@ -230,6 +231,7 @@ public:
 	Token *scanCurSymbol(LexContext *ctx, char symbol);
 	Token *scanDoubleCharacterOperator(LexContext *ctx, char symbol, char next_ch);
 	Token *scanTripleCharacterOperator(LexContext *ctx, char symbol, char next_ch, char after_next_ch);
+	Token *scanPostDeref(LexContext *ctx);
 	Token *scanSymbol(LexContext *ctx);
 	Token *scanWordDelimiter(LexContext *ctx);
 	Token *scanReference(LexContext *ctx);

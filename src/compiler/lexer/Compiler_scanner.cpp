@@ -8,7 +8,7 @@ Scanner::Scanner() :
 	isStringStarted(false), isRegexStarted(false), isPrototypeStarted(false), isFormatStarted(false),
 	isFormatDeclared(false), commentFlag(false), hereDocumentFlag(false), skipFlag(false),
 	regex_delim(0), regex_middle_delim(0),
-    brace_count_inner_regex(0), bracket_count_inner_regex(0), cury_brace_count_inner_regex(0)
+	brace_count_inner_regex(0), bracket_count_inner_regex(0), cury_brace_count_inner_regex(0)
 {
 	const char *regex_prefixes[] = {
 		"q", "qq", "qw", "qx", "qr", "m", NULL
@@ -69,7 +69,7 @@ Token *Scanner::scanQuote(LexContext *ctx, char quote)
 			namespace_tk->info = tmgr->getTokenInfo(TokenType::Namespace);
 			tmgr->add(namespace_tk);
 			ctx->clearBuffer();
-			
+
 			ctx->writeBuffer(cur_ch);
 			Token *namespace_resolver = tmgr->new_Token(ctx->buffer(), ctx->finfo);
 			namespace_resolver->info  = tmgr->getTokenInfo(TokenType::NamespaceResolver);
@@ -265,7 +265,7 @@ bool Scanner::isRegexDelim(Token *prev_token, char symbol)
 		(symbol != '-' && symbol != '=' && symbol != ',' && symbol != ')') &&
 		regex_prefix_map.find(prev_tk) != regex_prefix_map.end()) {
 		return true;
-	} else if (regex_delim == 0 && prev_token && 
+	} else if (regex_delim == 0 && prev_token &&
 			   (prev_token->info.kind == TokenKind::RegPrefix || prev_token->info.kind == TokenKind::RegReplacePrefix)) {
 		return true;
 	}
@@ -393,7 +393,7 @@ Token *Scanner::scanCurSymbol(LexContext *ctx, char symbol)
 		ret = ctx->tmgr->new_Token(ctx->buffer(), ctx->finfo);
 		ret->info = tmgr->getTokenInfo(TokenType::RegDelim);
 		ctx->clearBuffer();
-	} else if (symbol == '@' || symbol == '$' || symbol == '%') {// || symbol == '&') {
+	} else if (symbol == '@' || symbol == '$' || symbol == '%') { //|| symbol == '&')
 		ctx->writeBuffer(symbol);
 	} else if (symbol == ';') {
 		ctx->writeBuffer(symbol);
@@ -464,6 +464,121 @@ Token *Scanner::scanDoubleCharacterOperator(LexContext *ctx, char symbol, char n
 	return ret;
 }
 
+/* Scanner::scanPostDeref
+
+The postfix dereference is a bit odd because we have to treat a sigil
+a bit special.
+
+Scalars are simple:
+
+	$scalar->$*
+
+Arrays have a special case with the last index, and support single
+element access and slices:
+
+	$array->@*
+	$array->$#*
+	$array->@[0]
+	$array->@[0,1]
+
+Hashes support single element access and slices:
+
+	$hash->%*
+	$array->%{key}
+	$array->%{key,key2}
+
+Code supports argument lists:
+
+	$code->&*
+	$code->&( arg, arg2 )
+
+Typeglobs have "keys" into the symbol table
+
+	$gref->**
+	$gref->*{SCALAR}
+
+*/
+
+Token *Scanner::scanPostDeref(LexContext *ctx)
+{
+	Token *ret      = NULL;
+	Token *sigil_tk = NULL;
+
+	if (!isPostDeref(ctx)) return ret;
+
+	char symbol = ctx->smgr->currentChar();
+	ctx->writeBuffer(symbol);
+
+	if (symbol == '$') {
+		char next_ch = ctx->smgr->nextChar();
+		if (next_ch=='#') { // we have the last array index
+			symbol = ctx->smgr->forward(1);
+			ctx->writeBuffer(next_ch);
+			}
+	}
+
+	sigil_tk = ctx->tmgr->new_Token(ctx->buffer(), ctx->finfo);
+	sigil_tk->info = ctx->tmgr->getTokenInfo(TokenType::PostDeref);
+	ctx->clearBuffer();
+
+	// This is a bit odd because we add a Token directly instead of
+	// returning it and letting the rest of the system figure it out
+	ctx->tmgr->add(sigil_tk);
+
+	// We only care if it's a *. We'll let the rest of the tokenizer
+	// handle the slices, which would have [, {, (
+	char next_ch = ctx->smgr->nextChar();
+	if (next_ch != '*') return ret;
+
+	symbol = ctx->smgr->forward(1);
+	ctx->writeBuffer(symbol);
+	ret = ctx->tmgr->new_Token(ctx->buffer(), ctx->finfo);
+	ctx->clearBuffer();
+	ret->info = ctx->tmgr->getTokenInfo(TokenType::PostDerefStar);
+
+	return ret;
+}
+
+/* Scanner::isPostDeref
+
+See Scanner::scanPostDeref for the rules
+
+*/
+
+bool Scanner::isPostDeref(LexContext *ctx)
+{
+	Token *prev_token = ctx->tmgr->lastToken();
+	string prev_data = (prev_token) ? string(prev_token->_data) : "";
+	char symbol = ctx->smgr->currentChar();
+
+	// Should I check that the previous Token was Pointer
+	// instead of looking at the data
+	if (prev_data != "->") return false;
+
+	// do we need an isSigil method?
+	if (symbol != '$' && symbol != '@' && symbol != '%' && symbol != '&' && symbol != '*')
+		return false;
+
+	char next_ch = ctx->smgr->nextChar();
+
+	// scalar and array index case
+	if (symbol == '$' && ! ( next_ch == '*' || next_ch == '#' )) return false;
+
+	// array case
+	if (symbol == '@' && ! ( next_ch == '*' || next_ch == '[' )) return false;
+
+	// hash case
+	if (symbol == '%' && ! ( next_ch == '*' || next_ch == '{' )) return false;
+
+	// code case
+	if (symbol == '&' && ! ( next_ch == '*' || next_ch == '(' )) return false;
+
+	// typeglob case
+	if (symbol == '*' && ! ( next_ch == '*' || next_ch == '{' )) return false;
+
+	return true;
+}
+
 Token *Scanner::scanSymbol(LexContext *ctx)
 {
 	Token *ret = NULL;
@@ -472,8 +587,10 @@ Token *Scanner::scanSymbol(LexContext *ctx)
 	char next_ch = smgr->nextChar();
 	char after_next_ch = smgr->afterNextChar();
 	if (ctx->existsBuffer()) ctx->tmgr->add(scanPrevSymbol(ctx, symbol));
+
 	if (!isRegexStarted) {
-		ret = scanTripleCharacterOperator(ctx, symbol, next_ch, after_next_ch);
+		ret = scanPostDeref(ctx);
+		if (!ret) ret = scanTripleCharacterOperator(ctx, symbol, next_ch, after_next_ch);
 		if (!ret) ret = scanDoubleCharacterOperator(ctx, symbol, next_ch);
 	}
 	if (!ret) ret = scanCurSymbol(ctx, symbol);
@@ -591,7 +708,7 @@ Token *Scanner::scanVersionString(LexContext *ctx)
 	TokenManager *tmgr = ctx->tmgr;
 	char *src = ctx->smgr->raw_script;
 	size_t i = ctx->smgr->idx;
-	char *begin = src + i;
+	// char *begin = src + i;
 	char c = next(ctx, src, i);//NEXT();
 	Token *token = NULL;
 	for (;(is_number(c) || c == '.') && c != EOL; c = next(ctx, src, i)) {}
@@ -610,7 +727,7 @@ Token *Scanner::scanNumber(LexContext *ctx)
 	TokenManager *tmgr = ctx->tmgr;
 	char *src = ctx->smgr->raw_script;
 	size_t i = ctx->smgr->idx;
-	char *begin = src + i;
+	// char *begin = src + i;
 	int c = next(ctx, src, i);
 	Token *token = NULL;
 	assert((c == '.' || is_number(c)) && "It do not seem as Number");

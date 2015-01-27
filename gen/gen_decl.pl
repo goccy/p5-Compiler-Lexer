@@ -638,4 +638,12 @@ Term            	Default             	undef
 Verbose             Pod
 Verbose             Comment
 Verbose             WhiteSpace
-Undefined       	Undefined           	
+Symbol              PostDeref
+Symbol              PostDerefStar
+Symbol              PostDerefArraySliceOpenBracket
+Symbol              PostDerefArraySliceCloseBracket
+Symbol              PostDerefHashSliceOpenBrace
+Symbol              PostDerefHashSliceCloseBrace
+Symbol              PostDerefCodeOpenParen
+Symbol              PostDerefCodeCloseParen
+Undefined       	Undefined

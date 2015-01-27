@@ -484,7 +484,15 @@ TokenInfo decl_tokens[] = {
 	{Enum::Token::Type::Pod, Enum::Token::Kind::Verbose, "Pod", ""},
 	{Enum::Token::Type::Comment, Enum::Token::Kind::Verbose, "Comment", ""},
 	{Enum::Token::Type::WhiteSpace, Enum::Token::Kind::Verbose, "WhiteSpace", ""},
-	{Enum::Token::Type::Undefined, Enum::Token::Kind::Undefined, "Undefined", ""}
+	{Enum::Token::Type::Undefined, Enum::Token::Kind::Undefined, "Undefined", ""},
+	{Enum::Token::Type::PostDeref, Enum::Token::Kind::Symbol, "PostDeref", ""},
+	{Enum::Token::Type::PostDerefStar, Enum::Token::Kind::Symbol, "PostDerefStar", ""},
+	{Enum::Token::Type::PostDerefArraySliceOpenBracket, Enum::Token::Kind::Symbol, "PostDerefArraySliceOpenBracket", ""},
+	{Enum::Token::Type::PostDerefArraySliceCloseBracket, Enum::Token::Kind::Symbol, "PostDerefArraySliceCloseBracket", ""},
+	{Enum::Token::Type::PostDerefHashSliceOpenBrace, Enum::Token::Kind::Symbol, "PostDerefHashSliceOpenBrace", ""},
+	{Enum::Token::Type::PostDerefHashSliceCloseBrace, Enum::Token::Kind::Symbol, "PostDerefHashSliceCloseBrace", ""},
+	{Enum::Token::Type::PostDerefCodeOpenParen, Enum::Token::Kind::Symbol, "PostDerefCodeOpenParen", ""},
+	{Enum::Token::Type::PostDerefCodeCloseParen, Enum::Token::Kind::Symbol, "PostDerefCodeCloseParen", ""}
 };
 
 TokenInfo type_to_info[] = {
@@ -699,6 +707,14 @@ TokenInfo type_to_info[] = {
 	{Enum::Token::Type::Pod, Enum::Token::Kind::Verbose, "Pod", ""},
 	{Enum::Token::Type::Comment, Enum::Token::Kind::Verbose, "Comment", ""},
 	{Enum::Token::Type::WhiteSpace, Enum::Token::Kind::Verbose, "WhiteSpace", ""},
-	{Enum::Token::Type::Undefined, Enum::Token::Kind::Undefined, "Undefined", ""}
+	{Enum::Token::Type::Undefined, Enum::Token::Kind::Undefined, "Undefined", ""},
+	{Enum::Token::Type::PostDeref, Enum::Token::Kind::Symbol, "PostDeref", ""},
+	{Enum::Token::Type::PostDerefStar, Enum::Token::Kind::Symbol, "PostDerefStar", ""},
+	{Enum::Token::Type::PostDerefArraySliceOpenBracket, Enum::Token::Kind::Symbol, "PostDerefArraySliceOpenBracket", ""},
+	{Enum::Token::Type::PostDerefArraySliceCloseBracket, Enum::Token::Kind::Symbol, "PostDerefArraySliceCloseBracket", ""},
+	{Enum::Token::Type::PostDerefHashSliceOpenBrace, Enum::Token::Kind::Symbol, "PostDerefHashSliceOpenBrace", ""},
+	{Enum::Token::Type::PostDerefHashSliceCloseBrace, Enum::Token::Kind::Symbol, "PostDerefHashSliceCloseBrace", ""},
+	{Enum::Token::Type::PostDerefCodeOpenParen, Enum::Token::Kind::Symbol, "PostDerefCodeOpenParen", ""},
+	{Enum::Token::Type::PostDerefCodeCloseParen, Enum::Token::Kind::Symbol, "PostDerefCodeCloseParen", ""}
 };
 

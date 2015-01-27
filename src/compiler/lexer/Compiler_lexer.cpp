@@ -87,12 +87,23 @@ Tokens *Lexer::tokenize(char *script)
 				continue;
 			}
 			//fall through
-		case '=': case '^': case '~': case '@':
+
+		case '$': case '@': case '%': case '&': case '*': // all of the sigils
+			if (scanner.isPostDeref(ctx)) {
+				tk = scanner.scanPostDeref(ctx);
+				tmgr->add(tk);
+			} else {
+				tmgr->add(scanner.scanSymbol(ctx));
+			}
+			smgr->idx += ctx->progress;
+			ctx->progress = 0;
+			break;
+		case '=': case '^': case '~':
 		case ',': case ':': case ';': case '+':
-		case '<': case '>': case '&': case '|':
-		case '!': case '*': case '/': case '%':
+		case '<': case '>': case '|':
+		case '!': case '/':
 		case '(': case ')': case '{': case '}':
-		case '[': case ']': case '?': case '$':
+		case '[': case ']': case '?':
 		case '\\':
 			tmgr->add(scanner.scanSymbol(ctx));
 			smgr->idx += ctx->progress;

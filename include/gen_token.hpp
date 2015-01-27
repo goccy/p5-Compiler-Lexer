@@ -213,7 +213,15 @@ typedef enum {
 	Pod,
 	Comment,
 	WhiteSpace,
-	Undefined
+	Undefined,
+	PostDeref,
+	PostDerefStar,
+	PostDerefArraySliceOpenBracket,
+	PostDerefArraySliceCloseBracket,
+	PostDerefHashSliceOpenBrace,
+	PostDerefHashSliceCloseBrace,
+	PostDerefCodeOpenParen,
+	PostDerefCodeCloseParen
 } Type;
 }
 
