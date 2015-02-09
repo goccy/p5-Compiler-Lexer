@@ -35,7 +35,8 @@ CODE:
 {
 	const char *filename = SvPVX(get_value(_options, "filename"));
 	bool verbose = SvIVX(get_value(_options, "verbose"));
-	Lexer *lexer = new Lexer(filename, verbose);
+	int extra_alloc_mem_size = SvIVX(get_value(_options, "extra_allocation_memory_size"));
+	Lexer *lexer = new Lexer(filename, verbose, extra_alloc_mem_size);
 	RETVAL = lexer;
 }
 OUTPUT:
@@ -184,7 +185,7 @@ deparse(filename, script)
     const char *script
 CODE:
 {
-	Lexer lexer(filename, false);
+	Lexer lexer(filename, false, 0);
 	Tokens *tokens = lexer.tokenize((char *)script);
 	lexer.grouping(tokens);
 	lexer.prepare(tokens);

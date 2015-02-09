@@ -10,10 +10,10 @@ namespace TokenKind = Enum::Token::Kind;
 Module::Module(const char *name_, const char *args_)
 	: name(name_), args(args_) {}
 
-LexContext::LexContext(const char *filename, char *script)
+LexContext::LexContext(const char *filename, char *script, int extra_alloc_mem_size)
 	: progress(0), buffer_idx(0)
 {
-	script_size = strlen(script) + 1;
+	script_size = strlen(script) + 1 + extra_alloc_mem_size;
 	token_buffer = (char *)malloc((script_size + 1) * 2);
 	buffer_head = token_buffer;
 	token_buffer[0] = EOL;
@@ -24,10 +24,11 @@ LexContext::LexContext(const char *filename, char *script)
 	finfo.filename = filename;
 }
 
-Lexer::Lexer(const char *filename, bool verbose)
+Lexer::Lexer(const char *filename, bool verbose, int extra_alloc_mem_size)
 {
 	this->filename = filename;
 	this->verbose  = verbose;
+	this->extra_alloc_mem_size = extra_alloc_mem_size;
 }
 
 Lexer::~Lexer(void)
@@ -39,7 +40,7 @@ Tokens *Lexer::tokenize(char *script)
 {
 	Scanner scanner;
 	scanner.verbose = verbose;
-	ctx = new LexContext(filename, script);
+	ctx = new LexContext(filename, script, extra_alloc_mem_size);
 	Token *tk = NULL;
 	TokenManager *tmgr = ctx->tmgr;
 	ScriptManager *smgr = ctx->smgr;

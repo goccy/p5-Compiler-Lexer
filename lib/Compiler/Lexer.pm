@@ -27,6 +27,7 @@ sub new {
     }
     $options->{filename} ||= '-';
     $options->{verbose}  ||= 0;
+    $options->{extra_allocation_memory_size} ||= 0;
     return $class->_new($options);
 }
 
@@ -119,6 +120,8 @@ B<options list>
 =item filename
 
 =item verbose : includes token of Pod, Comment and WhiteSpace
+
+=item extra_allocation_memory_size : Extra memory size to allocate in advance (default: 0)
 
 =back
 
