@@ -11918,17 +11918,8 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'VersionString',
-                   'data' => 'v1.2',
+                   'data' => 'v1.2_3',
                    'type' => Compiler::Lexer::TokenType::T_VersionString,
-                   'line' => 253
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => '_3',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
                    'line' => 253
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -14488,10 +14479,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 5,
+            'token_num' => 4,
             'has_warnings' => 1,
             'end_line' => 253,
-            'src' => ' $v = v1.2 _3 ;',
+            'src' => ' $v = v1.2_3 ;',
             'start_line' => 253,
             'indent' => 0,
             'block_id' => 0

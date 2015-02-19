@@ -711,7 +711,7 @@ Token *Scanner::scanVersionString(LexContext *ctx)
 	// char *begin = src + i;
 	char c = next(ctx, src, i);//NEXT();
 	Token *token = NULL;
-	for (;(is_number(c) || c == '.') && c != EOL; c = next(ctx, src, i)) {}
+	for (;(is_number(c) || c == '.' || c == '_') && c != EOL; c = next(ctx, src, i)) {}
 	i -= 1;
 	char *buf = ctx->buffer();
 	buf[ctx->buffer_idx-1] = EOL;
