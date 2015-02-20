@@ -141,7 +141,7 @@ public:
 	TokenPos itr;
 	Enum::Token::Type::Type prev_type;
 
-	LexContext(const char *filename, char *script);
+	LexContext(const char *filename, char *script, int extra_alloc_mem_size);
 	LexContext(Tokens *tokens);
 
 	inline char *buffer(void) {
@@ -251,8 +251,9 @@ public:
 	const char *filename;
 	bool verbose;
 	LexContext *ctx;
+	int extra_alloc_mem_size;
 
-	Lexer(const char *filename, bool verbose);
+	Lexer(const char *filename, bool verbose, int extra_alloc_mem_size);
 	~Lexer(void);
 	Tokens *tokenize(char *script);
 	void clearContext(void);
