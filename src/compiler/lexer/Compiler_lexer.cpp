@@ -6,6 +6,7 @@ namespace TokenType = Enum::Token::Type;
 namespace SyntaxType = Enum::Parser::Syntax;
 namespace TokenKind = Enum::Token::Kind;
 #define ITER_CAST(T, it) (T)*(it)
+#define EXTEND_BUFFER_SIZE (16) //This parameter is needed to correspond #53
 
 Module::Module(const char *name_, const char *args_)
 	: name(name_), args(args_) {}
@@ -14,12 +15,12 @@ LexContext::LexContext(const char *filename, char *script)
 	: progress(0), buffer_idx(0)
 {
 	script_size = strlen(script) + 1;
-	token_buffer = (char *)malloc((script_size + 1) * 2);
+	token_buffer = (char *)malloc((script_size + EXTEND_BUFFER_SIZE) * 2);
 	buffer_head = token_buffer;
 	token_buffer[0] = EOL;
 	prev_type = TokenType::Undefined;
 	smgr = new ScriptManager(script);
-	tmgr = new TokenManager(script_size);
+	tmgr = new TokenManager(script_size + EXTEND_BUFFER_SIZE);
 	finfo.start_line_num = 1;
 	finfo.filename = filename;
 }
