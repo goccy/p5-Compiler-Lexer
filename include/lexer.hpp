@@ -191,7 +191,7 @@ public:
 	bool isRegexStarted;
 	bool isPrototypeStarted;
 	bool isFormatStarted;
-	bool isFormatDeclared;
+	Token *formatDeclaredToken;
 	bool commentFlag;
 	bool hereDocumentFlag;
 	bool skipFlag;
