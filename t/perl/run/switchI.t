@@ -495,8 +495,26 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Key',
-                   'data' => 'INC-1',
+                   'data' => 'INC',
                    'type' => Compiler::Lexer::TokenType::T_Key,
+                   'line' => 14
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Sub',
+                   'data' => '-',
+                   'type' => Compiler::Lexer::TokenType::T_Sub,
+                   'line' => 14
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '1',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 14
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -792,8 +810,26 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Key',
-                   'data' => 'INC-1',
+                   'data' => 'INC',
                    'type' => Compiler::Lexer::TokenType::T_Key,
+                   'line' => 18
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Sub',
+                   'data' => '-',
+                   'type' => Compiler::Lexer::TokenType::T_Sub,
+                   'line' => 18
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '1',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 18
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1463,10 +1499,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 18,
+            'token_num' => 20,
             'has_warnings' => 1,
             'end_line' => 14,
-            'src' => ' ok ( grep { $_ eq $lib } @INC [ 0 .. ( $#INC-1 ) ] ) ;',
+            'src' => ' ok ( grep { $_ eq $lib } @INC [ 0 .. ( $#INC - 1 ) ] ) ;',
             'start_line' => 14,
             'indent' => 0,
             'block_id' => 0
@@ -1490,10 +1526,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 2
           },
           {
-            'token_num' => 18,
+            'token_num' => 20,
             'has_warnings' => 1,
             'end_line' => 18,
-            'src' => ' ok ( grep { $_ eq $lib } @INC [ 0 .. ( $#INC-1 ) ] ) ;',
+            'src' => ' ok ( grep { $_ eq $lib } @INC [ 0 .. ( $#INC - 1 ) ] ) ;',
             'start_line' => 18,
             'indent' => 1,
             'block_id' => 2

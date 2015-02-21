@@ -5764,9 +5764,27 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'GlobalArrayVar',
-                   'data' => '@fields-2',
-                   'type' => Compiler::Lexer::TokenType::T_GlobalArrayVar,
+                   'name' => 'ArrayVar',
+                   'data' => '@fields',
+                   'type' => Compiler::Lexer::TokenType::T_ArrayVar,
+                   'line' => 245
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Sub',
+                   'data' => '-',
+                   'type' => Compiler::Lexer::TokenType::T_Sub,
+                   'line' => 245
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '2',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 245
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -11086,10 +11104,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 16
           },
           {
-            'token_num' => 157,
+            'token_num' => 159,
             'has_warnings' => 1,
             'end_line' => 270,
-            'src' => ' sub extract_system_groups { my ( $groups_string ) = @_ ; my @extracted ; my @fields = split/\\b(\\w+=)/ , $groups_string ; my $gr ; for my $i ( 0 .. @fields-2 ) { if ( $fields [ $i ] eq \'groups=\' ) { $gr = $fields [ $i + 1 ] ; $gr =~ s/ $// ; last ; } } if ( defined $gr ) { my @g = split m{, ?} , $gr ; for ( @g ) { if ( $_ =~ GROUP_RX1 ( ) || $_ =~ GROUP_RX2 ( ) ) { push @extracted , $+ { gr_name } || $+ { gid } ; } else { print "# ignoring group entry [$_]\\n" ; } } diag_variable ( gr => $gr ) ; diag_variable ( g => join \',\' , @g ) ; diag_variable ( ex_gr => join \',\' , @extracted ) ; } return @extracted ; }',
+            'src' => ' sub extract_system_groups { my ( $groups_string ) = @_ ; my @extracted ; my @fields = split/\\b(\\w+=)/ , $groups_string ; my $gr ; for my $i ( 0 .. @fields - 2 ) { if ( $fields [ $i ] eq \'groups=\' ) { $gr = $fields [ $i + 1 ] ; $gr =~ s/ $// ; last ; } } if ( defined $gr ) { my @g = split m{, ?} , $gr ; for ( @g ) { if ( $_ =~ GROUP_RX1 ( ) || $_ =~ GROUP_RX2 ( ) ) { push @extracted , $+ { gr_name } || $+ { gid } ; } else { print "# ignoring group entry [$_]\\n" ; } } diag_variable ( gr => $gr ) ; diag_variable ( g => join \',\' , @g ) ; diag_variable ( ex_gr => join \',\' , @extracted ) ; } return @extracted ; }',
             'start_line' => 236,
             'indent' => 0,
             'block_id' => 0
@@ -11131,10 +11149,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 21
           },
           {
-            'token_num' => 41,
+            'token_num' => 43,
             'has_warnings' => 1,
             'end_line' => 251,
-            'src' => ' for my $i ( 0 .. @fields-2 ) { if ( $fields [ $i ] eq \'groups=\' ) { $gr = $fields [ $i + 1 ] ; $gr =~ s/ $// ; last ; } }',
+            'src' => ' for my $i ( 0 .. @fields - 2 ) { if ( $fields [ $i ] eq \'groups=\' ) { $gr = $fields [ $i + 1 ] ; $gr =~ s/ $// ; last ; } }',
             'start_line' => 245,
             'indent' => 1,
             'block_id' => 21

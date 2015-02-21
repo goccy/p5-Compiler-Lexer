@@ -10214,9 +10214,27 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'GlobalVar',
-                   'data' => '$_-1',
-                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
+                   'name' => 'SpecificValue',
+                   'data' => '$_',
+                   'type' => Compiler::Lexer::TokenType::T_SpecificValue,
+                   'line' => 367
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Sub',
+                   'data' => '-',
+                   'type' => Compiler::Lexer::TokenType::T_Sub,
+                   'line' => 367
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '1',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 367
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -25736,10 +25754,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 33
           },
           {
-            'token_num' => 31,
-            'has_warnings' => 1,
+            'token_num' => 33,
+            'has_warnings' => 0,
             'end_line' => 368,
-            'src' => ' sub pairs ( @ ) { map { prefix $_ [ $_ ] , @_ [ 0 .. $_-1 , $_ + 1 .. $#_ ] } 0 .. $#_ }',
+            'src' => ' sub pairs ( @ ) { map { prefix $_ [ $_ ] , @_ [ 0 .. $_ - 1 , $_ + 1 .. $#_ ] } 0 .. $#_ }',
             'start_line' => 365,
             'indent' => 0,
             'block_id' => 0

@@ -38566,12 +38566,30 @@ The problem is that I cannot solve it.
                    'line' => 855
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 1,
+                   'kind' => Compiler::Lexer::Kind::T_SpecificKeyword,
+                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'Key',
-                   'data' => '__LINE__-1',
-                   'type' => Compiler::Lexer::TokenType::T_Key,
+                   'name' => 'SpecificKeyword',
+                   'data' => '__LINE__',
+                   'type' => Compiler::Lexer::TokenType::T_SpecificKeyword,
+                   'line' => 855
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Sub',
+                   'data' => '-',
+                   'type' => Compiler::Lexer::TokenType::T_Sub,
+                   'line' => 855
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '1',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 855
                  }, 'Compiler::Lexer::Token' ),
           bless( {

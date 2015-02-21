@@ -1131,9 +1131,27 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'GlobalVar',
-                   'data' => '$n-1',
-                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
+                   'name' => 'Var',
+                   'data' => '$n',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 30
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Sub',
+                   'data' => '-',
+                   'type' => Compiler::Lexer::TokenType::T_Sub,
+                   'line' => 30
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '1',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 30
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1789,8 +1807,26 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Var',
-                   'data' => '$n-1',
+                   'data' => '$n',
                    'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 47
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Sub',
+                   'data' => '-',
+                   'type' => Compiler::Lexer::TokenType::T_Sub,
+                   'line' => 47
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '1',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 47
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9460,10 +9496,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 72,
+            'token_num' => 74,
             'has_warnings' => 1,
             'end_line' => 31,
-            'src' => ' sub leak { my ( $n , $delta , $code , @rest ) = @_ ; my $sv0 = 0 ; my $sv1 = 0 ; for my $i ( 1 .. $n ) { &$code ( ) ; $sv1 = sv_count ( ) ; $sv0 = $sv1 if $i == 1 ; } cmp_ok ( $sv1 - $sv0 , \'<=\' , ( $n-1 ) * $delta , @rest ) ; }',
+            'src' => ' sub leak { my ( $n , $delta , $code , @rest ) = @_ ; my $sv0 = 0 ; my $sv1 = 0 ; for my $i ( 1 .. $n ) { &$code ( ) ; $sv1 = sv_count ( ) ; $sv0 = $sv1 if $i == 1 ; } cmp_ok ( $sv1 - $sv0 , \'<=\' , ( $n - 1 ) * $delta , @rest ) ; }',
             'start_line' => 21,
             'indent' => 0,
             'block_id' => 0
@@ -9532,19 +9568,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 3
           },
           {
-            'token_num' => 17,
+            'token_num' => 19,
             'has_warnings' => 1,
             'end_line' => 30,
-            'src' => ' cmp_ok ( $sv1 - $sv0 , \'<=\' , ( $n-1 ) * $delta , @rest ) ;',
+            'src' => ' cmp_ok ( $sv1 - $sv0 , \'<=\' , ( $n - 1 ) * $delta , @rest ) ;',
             'start_line' => 30,
             'indent' => 1,
             'block_id' => 2
           },
           {
-            'token_num' => 82,
+            'token_num' => 84,
             'has_warnings' => 1,
             'end_line' => 52,
-            'src' => ' sub leak_expr { my ( $n , $delta , $expr , @rest ) = @_ ; my $sv0 = 0 ; my $sv1 = 0 ; my $true = 1 ; my $code1 = "($expr || \\$true)" ; my $code = "$code1 && (\\$sv0 = sv_count())" . ( "&& $code1" x 4 ) . " && (\\$sv1 = sv_count())" ; if ( eval $code ) { cmp_ok ( $sv1 - $sv0 , \'<=\' , ( $n-1 ) * $delta , @rest ) ; } else { fail ( "eval @rest: $@" ) ; } }',
+            'src' => ' sub leak_expr { my ( $n , $delta , $expr , @rest ) = @_ ; my $sv0 = 0 ; my $sv1 = 0 ; my $true = 1 ; my $code1 = "($expr || \\$true)" ; my $code = "$code1 && (\\$sv0 = sv_count())" . ( "&& $code1" x 4 ) . " && (\\$sv1 = sv_count())" ; if ( eval $code ) { cmp_ok ( $sv1 - $sv0 , \'<=\' , ( $n - 1 ) * $delta , @rest ) ; } else { fail ( "eval @rest: $@" ) ; } }',
             'start_line' => 38,
             'indent' => 0,
             'block_id' => 0
@@ -9604,19 +9640,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 4
           },
           {
-            'token_num' => 24,
+            'token_num' => 26,
             'has_warnings' => 1,
             'end_line' => 48,
-            'src' => ' if ( eval $code ) { cmp_ok ( $sv1 - $sv0 , \'<=\' , ( $n-1 ) * $delta , @rest ) ; }',
+            'src' => ' if ( eval $code ) { cmp_ok ( $sv1 - $sv0 , \'<=\' , ( $n - 1 ) * $delta , @rest ) ; }',
             'start_line' => 46,
             'indent' => 1,
             'block_id' => 4
           },
           {
-            'token_num' => 17,
+            'token_num' => 19,
             'has_warnings' => 1,
             'end_line' => 47,
-            'src' => ' cmp_ok ( $sv1 - $sv0 , \'<=\' , ( $n-1 ) * $delta , @rest ) ;',
+            'src' => ' cmp_ok ( $sv1 - $sv0 , \'<=\' , ( $n - 1 ) * $delta , @rest ) ;',
             'start_line' => 47,
             'indent' => 2,
             'block_id' => 5

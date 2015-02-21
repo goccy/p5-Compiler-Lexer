@@ -157,8 +157,19 @@ bool Scanner::scanNegativeNumber(LexContext *ctx, char number)
 	if (number != EOL) {
 		num_buffer[0] = number;
 		if (atoi(num_buffer) > 0 || number == '0') {
-			//negative number
-			ctx->writeBuffer('-');
+			if (ctx->existsBuffer()) {
+				ctx->tmgr->add(ctx->tmgr->new_Token(ctx->buffer(), ctx->finfo));
+				ctx->clearBuffer();
+				//sub operator
+				ctx->writeBuffer('-');
+				Token *sub_operator = ctx->tmgr->new_Token(ctx->buffer(), ctx->finfo);
+				sub_operator->info  = ctx->tmgr->getTokenInfo(TokenType::Sub);
+				ctx->clearBuffer();
+				ctx->tmgr->add(sub_operator);
+			} else {
+				//negative number
+				ctx->writeBuffer('-');
+			}
 			return true;
 		}
 	}

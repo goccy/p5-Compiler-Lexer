@@ -7786,9 +7786,27 @@ z
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'GlobalVar',
-                   'data' => '$s-1',
-                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
+                   'name' => 'Var',
+                   'data' => '$s',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 128
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Sub',
+                   'data' => '-',
+                   'type' => Compiler::Lexer::TokenType::T_Sub,
+                   'line' => 128
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '1',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 128
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9577,19 +9595,19 @@ z
             'block_id' => 0
           },
           {
-            'token_num' => 127,
+            'token_num' => 129,
             'has_warnings' => 1,
             'end_line' => 143,
-            'src' => ' for my $s ( 1 .. 2 ) { my $t = ( $t1 , $t2 ) [ $s-1 ] ; my $str = $t-> { data } ; my $r = $t-> { read_c } ; my $w = $t-> { write_c } ; for my $read_c ( @$r ) { for my $write_c ( @$w ) { for my $how_r ( qw(readline_all readline read sysread) ) { next if $how_r eq \'readline_all\' and $read_c != 1 ; for my $how_w ( qw(print print/flush syswrite) ) { testfile ( $str , $write_c , $read_c , $how_w , $how_r , $s ) ; testpipe ( $str , $write_c , $read_c , $how_w , $how_r , $s ) ; } } } } }',
+            'src' => ' for my $s ( 1 .. 2 ) { my $t = ( $t1 , $t2 ) [ $s - 1 ] ; my $str = $t-> { data } ; my $r = $t-> { read_c } ; my $w = $t-> { write_c } ; for my $read_c ( @$r ) { for my $write_c ( @$w ) { for my $how_r ( qw(readline_all readline read sysread) ) { next if $how_r eq \'readline_all\' and $read_c != 1 ; for my $how_w ( qw(print print/flush syswrite) ) { testfile ( $str , $write_c , $read_c , $how_w , $how_r , $s ) ; testpipe ( $str , $write_c , $read_c , $how_w , $how_r , $s ) ; } } } } }',
             'start_line' => 127,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 12,
+            'token_num' => 14,
             'has_warnings' => 1,
             'end_line' => 128,
-            'src' => ' my $t = ( $t1 , $t2 ) [ $s-1 ] ;',
+            'src' => ' my $t = ( $t1 , $t2 ) [ $s - 1 ] ;',
             'start_line' => 128,
             'indent' => 1,
             'block_id' => 18

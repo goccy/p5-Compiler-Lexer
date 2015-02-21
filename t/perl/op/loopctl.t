@@ -30453,9 +30453,27 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'GlobalVar',
-                   'data' => '$i-1',
-                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
+                   'name' => 'Var',
+                   'data' => '$i',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 991
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Sub',
+                   'data' => '-',
+                   'type' => Compiler::Lexer::TokenType::T_Sub,
+                   'line' => 991
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '1',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 991
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -36642,10 +36660,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 161
           },
           {
-            'token_num' => 81,
+            'token_num' => 83,
             'has_warnings' => 1,
             'end_line' => 996,
-            'src' => ' { my $i = 1 ; $x_21469 = \'X\' ; $y1_21469 = \'Y1\' ; $y2_21469 = \'Y2\' ; $y3_21469 = \'Y3\' ; for $x_21469 ( 1 , 2 , 3 ) { is ( $x_21469 , $i , "bug 21469: correct at start of loop $i" ) ; * x_21469 = ( * y1_21469 , * y2_21469 , * y3_21469 ) [ $i-1 ] ; is ( $x_21469 , "Y$i" , "bug 21469: correct at tail of loop $i" ) ; $i ++ ; } is ( $x_21469 , \'X\' , "bug 21469: X okay at end of loop" ) ; }',
+            'src' => ' { my $i = 1 ; $x_21469 = \'X\' ; $y1_21469 = \'Y1\' ; $y2_21469 = \'Y2\' ; $y3_21469 = \'Y3\' ; for $x_21469 ( 1 , 2 , 3 ) { is ( $x_21469 , $i , "bug 21469: correct at start of loop $i" ) ; * x_21469 = ( * y1_21469 , * y2_21469 , * y3_21469 ) [ $i - 1 ] ; is ( $x_21469 , "Y$i" , "bug 21469: correct at tail of loop $i" ) ; $i ++ ; } is ( $x_21469 , \'X\' , "bug 21469: X okay at end of loop" ) ; }',
             'start_line' => 983,
             'indent' => 0,
             'block_id' => 0
@@ -36696,10 +36714,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 163
           },
           {
-            'token_num' => 49,
+            'token_num' => 51,
             'has_warnings' => 1,
             'end_line' => 994,
-            'src' => ' for $x_21469 ( 1 , 2 , 3 ) { is ( $x_21469 , $i , "bug 21469: correct at start of loop $i" ) ; * x_21469 = ( * y1_21469 , * y2_21469 , * y3_21469 ) [ $i-1 ] ; is ( $x_21469 , "Y$i" , "bug 21469: correct at tail of loop $i" ) ; $i ++ ; }',
+            'src' => ' for $x_21469 ( 1 , 2 , 3 ) { is ( $x_21469 , $i , "bug 21469: correct at start of loop $i" ) ; * x_21469 = ( * y1_21469 , * y2_21469 , * y3_21469 ) [ $i - 1 ] ; is ( $x_21469 , "Y$i" , "bug 21469: correct at tail of loop $i" ) ; $i ++ ; }',
             'start_line' => 989,
             'indent' => 1,
             'block_id' => 163
@@ -36714,10 +36732,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 164
           },
           {
-            'token_num' => 17,
+            'token_num' => 19,
             'has_warnings' => 1,
             'end_line' => 991,
-            'src' => ' * x_21469 = ( * y1_21469 , * y2_21469 , * y3_21469 ) [ $i-1 ] ;',
+            'src' => ' * x_21469 = ( * y1_21469 , * y2_21469 , * y3_21469 ) [ $i - 1 ] ;',
             'start_line' => 991,
             'indent' => 2,
             'block_id' => 164

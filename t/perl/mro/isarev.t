@@ -874,8 +874,26 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Key',
-                   'data' => 'args-1',
+                   'data' => 'args',
                    'type' => Compiler::Lexer::TokenType::T_Key,
+                   'line' => 22
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Sub',
+                   'data' => '-',
+                   'type' => Compiler::Lexer::TokenType::T_Sub,
+                   'line' => 22
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '1',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 22
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -6918,10 +6936,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 47,
+            'token_num' => 49,
             'has_warnings' => 1,
             'end_line' => 26,
-            'src' => ' sub i { my @args = @_ ; @_ = ( join ( " " , sort @{ mro::get_isarev $args [ 0 ] } ) , join ( " " , sort @args [ 1 .. $#args-1 ] ) , pop @args ) ; goto & is ; }',
+            'src' => ' sub i { my @args = @_ ; @_ = ( join ( " " , sort @{ mro::get_isarev $args [ 0 ] } ) , join ( " " , sort @args [ 1 .. $#args - 1 ] ) , pop @args ) ; goto & is ; }',
             'start_line' => 17,
             'indent' => 0,
             'block_id' => 0
@@ -6936,10 +6954,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 3
           },
           {
-            'token_num' => 34,
+            'token_num' => 36,
             'has_warnings' => 1,
             'end_line' => 24,
-            'src' => ' @_ = ( join ( " " , sort @{ mro::get_isarev $args [ 0 ] } ) , join ( " " , sort @args [ 1 .. $#args-1 ] ) , pop @args ) ;',
+            'src' => ' @_ = ( join ( " " , sort @{ mro::get_isarev $args [ 0 ] } ) , join ( " " , sort @args [ 1 .. $#args - 1 ] ) , pop @args ) ;',
             'start_line' => 20,
             'indent' => 1,
             'block_id' => 3

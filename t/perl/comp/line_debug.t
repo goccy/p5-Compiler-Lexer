@@ -1099,9 +1099,27 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'GlobalVar',
-                   'data' => '$_-1',
-                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
+                   'name' => 'SpecificValue',
+                   'data' => '$_',
+                   'type' => Compiler::Lexer::TokenType::T_SpecificValue,
+                   'line' => 28
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Sub',
+                   'data' => '-',
+                   'type' => Compiler::Lexer::TokenType::T_Sub,
+                   'line' => 28
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '1',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 28
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -1285,19 +1303,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 25,
+            'token_num' => 27,
             'has_warnings' => 1,
             'end_line' => 29,
-            'src' => ' for ( 1 .. $nlines ) { ok 2 + $_ , ${ "_<comp/line_debug_0.aux" } [ $_ ] eq $lines [ $_-1 ] ; }',
+            'src' => ' for ( 1 .. $nlines ) { ok 2 + $_ , ${ "_<comp/line_debug_0.aux" } [ $_ ] eq $lines [ $_ - 1 ] ; }',
             'start_line' => 27,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 17,
+            'token_num' => 19,
             'has_warnings' => 1,
             'end_line' => 28,
-            'src' => ' ok 2 + $_ , ${ "_<comp/line_debug_0.aux" } [ $_ ] eq $lines [ $_-1 ] ;',
+            'src' => ' ok 2 + $_ , ${ "_<comp/line_debug_0.aux" } [ $_ ] eq $lines [ $_ - 1 ] ;',
             'start_line' => 28,
             'indent' => 1,
             'block_id' => 2

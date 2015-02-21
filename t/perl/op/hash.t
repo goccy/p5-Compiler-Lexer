@@ -2637,9 +2637,27 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'GlobalVar',
-                   'data' => '$bits-1',
-                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
+                   'name' => 'Var',
+                   'data' => '$bits',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 67
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Sub',
+                   'data' => '-',
+                   'type' => Compiler::Lexer::TokenType::T_Sub,
+                   'line' => 67
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '1',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 67
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -8331,10 +8349,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 158,
+            'token_num' => 160,
             'has_warnings' => 1,
             'end_line' => 87,
-            'src' => ' sub get_keys { my $hr = shift ; my $min_bits = log ( THRESHOLD ) / log ( 2 ) ; my $keys = scalar keys %$hr ; my $bits = $keys ? log ( $keys ) / log ( 2 ) : 0 ; $bits = $min_bits if $min_bits > $bits ; $bits = int ( $bits ) < $bits ? int ( $bits ) + 1 : int ( $bits ) ; $bits += 2 ; my $mask = 2 ** $bits-1 ; print "# using mask: $mask ($bits)\\n" ; my @keys ; my $s = START ; my $c = 0 ; my $hash ; while ( @keys < THRESHOLD + 2 ) { $hash = hash ( $s ) ; next unless ( $hash & $mask ) == 0 ; $c ++ ; printf "# %2d: %5s, %10s\\n" , $c , $s , $hash ; push @keys , $s ; } continue { $s ++ ; } return @keys ; }',
+            'src' => ' sub get_keys { my $hr = shift ; my $min_bits = log ( THRESHOLD ) / log ( 2 ) ; my $keys = scalar keys %$hr ; my $bits = $keys ? log ( $keys ) / log ( 2 ) : 0 ; $bits = $min_bits if $min_bits > $bits ; $bits = int ( $bits ) < $bits ? int ( $bits ) + 1 : int ( $bits ) ; $bits += 2 ; my $mask = 2 ** $bits - 1 ; print "# using mask: $mask ($bits)\\n" ; my @keys ; my $s = START ; my $c = 0 ; my $hash ; while ( @keys < THRESHOLD + 2 ) { $hash = hash ( $s ) ; next unless ( $hash & $mask ) == 0 ; $c ++ ; printf "# %2d: %5s, %10s\\n" , $c , $s , $hash ; push @keys , $s ; } continue { $s ++ ; } return @keys ; }',
             'start_line' => 52,
             'indent' => 0,
             'block_id' => 0
@@ -8403,10 +8421,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 4
           },
           {
-            'token_num' => 7,
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 67,
-            'src' => ' my $mask = 2 ** $bits-1 ;',
+            'src' => ' my $mask = 2 ** $bits - 1 ;',
             'start_line' => 67,
             'indent' => 1,
             'block_id' => 4

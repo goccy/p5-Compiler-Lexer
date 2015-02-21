@@ -3156,9 +3156,27 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'GlobalVar',
-                   'data' => '$max-1',
-                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
+                   'name' => 'Var',
+                   'data' => '$max',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 67
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Sub',
+                   'data' => '-',
+                   'type' => Compiler::Lexer::TokenType::T_Sub,
+                   'line' => 67
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '1',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 67
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3639,10 +3657,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 2
           },
           {
-            'token_num' => 56,
+            'token_num' => 58,
             'has_warnings' => 1,
             'end_line' => 72,
-            'src' => ' foreach my $pow ( @pow ) { my ( $base , $max , $range ) = @$pow ; my $expect = 1 ; foreach my $n ( 0 .. $max-1 ) { my $got = $base ** $n ; within ( $got , $expect , $range , "$base ** $n got[$got] expect[$expect]" ) ; $expect *= $base ; } }',
+            'src' => ' foreach my $pow ( @pow ) { my ( $base , $max , $range ) = @$pow ; my $expect = 1 ; foreach my $n ( 0 .. $max - 1 ) { my $got = $base ** $n ; within ( $got , $expect , $range , "$base ** $n got[$got] expect[$expect]" ) ; $expect *= $base ; } }',
             'start_line' => 64,
             'indent' => 0,
             'block_id' => 0
@@ -3666,10 +3684,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 3
           },
           {
-            'token_num' => 32,
+            'token_num' => 34,
             'has_warnings' => 1,
             'end_line' => 71,
-            'src' => ' foreach my $n ( 0 .. $max-1 ) { my $got = $base ** $n ; within ( $got , $expect , $range , "$base ** $n got[$got] expect[$expect]" ) ; $expect *= $base ; }',
+            'src' => ' foreach my $n ( 0 .. $max - 1 ) { my $got = $base ** $n ; within ( $got , $expect , $range , "$base ** $n got[$got] expect[$expect]" ) ; $expect *= $base ; }',
             'start_line' => 67,
             'indent' => 1,
             'block_id' => 3

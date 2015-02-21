@@ -11869,9 +11869,27 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'GlobalVar',
-                   'data' => '$MAX_INT-10',
-                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
+                   'name' => 'Var',
+                   'data' => '$MAX_INT',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 199
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Sub',
+                   'data' => '-',
+                   'type' => Compiler::Lexer::TokenType::T_Sub,
+                   'line' => 199
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '10',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 199
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -12428,8 +12446,26 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Var',
-                   'data' => '$MAX_INT-10',
+                   'data' => '$MAX_INT',
                    'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 209
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Sub',
+                   'data' => '-',
+                   'type' => Compiler::Lexer::TokenType::T_Sub,
+                   'line' => 209
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '10',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 209
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -13957,9 +13993,27 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'GlobalVar',
-                   'data' => '$MAX_INT-1',
-                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
+                   'name' => 'Var',
+                   'data' => '$MAX_INT',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 241
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Sub',
+                   'data' => '-',
+                   'type' => Compiler::Lexer::TokenType::T_Sub,
+                   'line' => 241
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '1',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 241
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -14723,8 +14777,26 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Var',
-                   'data' => '$MAX_INT-10',
+                   'data' => '$MAX_INT',
                    'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 256
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Sub',
+                   'data' => '-',
+                   'type' => Compiler::Lexer::TokenType::T_Sub,
+                   'line' => 256
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '10',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 256
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -25294,10 +25366,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 0
           },
           {
-            'token_num' => 121,
+            'token_num' => 125,
             'has_warnings' => 1,
             'end_line' => 214,
-            'src' => ' foreach my $ii ( -3 .. 3 ) { my ( $first , $last ) ; eval { my $lim = 0 ; for ( $MAX_INT-10 .. $MAX_INT + $ii ) { if ( ! defined ( $first ) ) { $first = $_ ; } $last = $_ ; last if ( $lim ++ > 100 ) ; } } ; if ( $ii <= 0 ) { ok ( ! $@ , \'Upper bound accepted: \' . ( $MAX_INT + $ii ) ) ; is ( $first , $MAX_INT-10 , \'Lower bound okay\' ) ; is ( $last , $MAX_INT + $ii , \'Upper bound okay\' ) ; } else { ok ( $@ , \'Upper bound rejected: \' . ( $MAX_INT + $ii ) ) ; } }',
+            'src' => ' foreach my $ii ( -3 .. 3 ) { my ( $first , $last ) ; eval { my $lim = 0 ; for ( $MAX_INT - 10 .. $MAX_INT + $ii ) { if ( ! defined ( $first ) ) { $first = $_ ; } $last = $_ ; last if ( $lim ++ > 100 ) ; } } ; if ( $ii <= 0 ) { ok ( ! $@ , \'Upper bound accepted: \' . ( $MAX_INT + $ii ) ) ; is ( $first , $MAX_INT - 10 , \'Lower bound okay\' ) ; is ( $last , $MAX_INT + $ii , \'Upper bound okay\' ) ; } else { ok ( $@ , \'Upper bound rejected: \' . ( $MAX_INT + $ii ) ) ; } }',
             'start_line' => 195,
             'indent' => 0,
             'block_id' => 0
@@ -25312,10 +25384,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 20
           },
           {
-            'token_num' => 46,
+            'token_num' => 48,
             'has_warnings' => 1,
             'end_line' => 206,
-            'src' => ' eval { my $lim = 0 ; for ( $MAX_INT-10 .. $MAX_INT + $ii ) { if ( ! defined ( $first ) ) { $first = $_ ; } $last = $_ ; last if ( $lim ++ > 100 ) ; } } ;',
+            'src' => ' eval { my $lim = 0 ; for ( $MAX_INT - 10 .. $MAX_INT + $ii ) { if ( ! defined ( $first ) ) { $first = $_ ; } $last = $_ ; last if ( $lim ++ > 100 ) ; } } ;',
             'start_line' => 197,
             'indent' => 1,
             'block_id' => 20
@@ -25330,10 +25402,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 20
           },
           {
-            'token_num' => 37,
+            'token_num' => 39,
             'has_warnings' => 1,
             'end_line' => 205,
-            'src' => ' for ( $MAX_INT-10 .. $MAX_INT + $ii ) { if ( ! defined ( $first ) ) { $first = $_ ; } $last = $_ ; last if ( $lim ++ > 100 ) ; }',
+            'src' => ' for ( $MAX_INT - 10 .. $MAX_INT + $ii ) { if ( ! defined ( $first ) ) { $first = $_ ; } $last = $_ ; last if ( $lim ++ > 100 ) ; }',
             'start_line' => 199,
             'indent' => 1,
             'block_id' => 20
@@ -25375,10 +25447,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 21
           },
           {
-            'token_num' => 42,
+            'token_num' => 44,
             'has_warnings' => 1,
             'end_line' => 211,
-            'src' => ' if ( $ii <= 0 ) { ok ( ! $@ , \'Upper bound accepted: \' . ( $MAX_INT + $ii ) ) ; is ( $first , $MAX_INT-10 , \'Lower bound okay\' ) ; is ( $last , $MAX_INT + $ii , \'Upper bound okay\' ) ; }',
+            'src' => ' if ( $ii <= 0 ) { ok ( ! $@ , \'Upper bound accepted: \' . ( $MAX_INT + $ii ) ) ; is ( $first , $MAX_INT - 10 , \'Lower bound okay\' ) ; is ( $last , $MAX_INT + $ii , \'Upper bound okay\' ) ; }',
             'start_line' => 207,
             'indent' => 1,
             'block_id' => 20
@@ -25393,10 +25465,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 23
           },
           {
-            'token_num' => 9,
+            'token_num' => 11,
             'has_warnings' => 1,
             'end_line' => 209,
-            'src' => ' is ( $first , $MAX_INT-10 , \'Lower bound okay\' ) ;',
+            'src' => ' is ( $first , $MAX_INT - 10 , \'Lower bound okay\' ) ;',
             'start_line' => 209,
             'indent' => 2,
             'block_id' => 23
@@ -25564,10 +25636,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 29
           },
           {
-            'token_num' => 68,
+            'token_num' => 70,
             'has_warnings' => 1,
             'end_line' => 251,
-            'src' => ' { my $first ; eval { my $lim = 0 ; for ( $MAX_INT .. $MAX_INT-1 ) { if ( ! defined ( $first ) ) { $first = $_ ; } $last = $_ ; last if ( $lim ++ > 100 ) ; } } ; ok ( ! $@ , \'Range accepted\' ) ; ok ( ! defined ( $first ) , \'Range ineffectual\' ) ; }',
+            'src' => ' { my $first ; eval { my $lim = 0 ; for ( $MAX_INT .. $MAX_INT - 1 ) { if ( ! defined ( $first ) ) { $first = $_ ; } $last = $_ ; last if ( $lim ++ > 100 ) ; } } ; ok ( ! $@ , \'Range accepted\' ) ; ok ( ! defined ( $first ) , \'Range ineffectual\' ) ; }',
             'start_line' => 237,
             'indent' => 0,
             'block_id' => 0
@@ -25582,10 +25654,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 30
           },
           {
-            'token_num' => 44,
+            'token_num' => 46,
             'has_warnings' => 1,
             'end_line' => 248,
-            'src' => ' eval { my $lim = 0 ; for ( $MAX_INT .. $MAX_INT-1 ) { if ( ! defined ( $first ) ) { $first = $_ ; } $last = $_ ; last if ( $lim ++ > 100 ) ; } } ;',
+            'src' => ' eval { my $lim = 0 ; for ( $MAX_INT .. $MAX_INT - 1 ) { if ( ! defined ( $first ) ) { $first = $_ ; } $last = $_ ; last if ( $lim ++ > 100 ) ; } } ;',
             'start_line' => 239,
             'indent' => 1,
             'block_id' => 30
@@ -25600,10 +25672,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 30
           },
           {
-            'token_num' => 35,
+            'token_num' => 37,
             'has_warnings' => 1,
             'end_line' => 247,
-            'src' => ' for ( $MAX_INT .. $MAX_INT-1 ) { if ( ! defined ( $first ) ) { $first = $_ ; } $last = $_ ; last if ( $lim ++ > 100 ) ; }',
+            'src' => ' for ( $MAX_INT .. $MAX_INT - 1 ) { if ( ! defined ( $first ) ) { $first = $_ ; } $last = $_ ; last if ( $lim ++ > 100 ) ; }',
             'start_line' => 241,
             'indent' => 1,
             'block_id' => 30
@@ -25663,19 +25735,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 30
           },
           {
-            'token_num' => 59,
+            'token_num' => 61,
             'has_warnings' => 1,
             'end_line' => 261,
-            'src' => ' foreach my $ii ( ~ 0 , ~ 0 + 1 , ~ 0 + ( ~ 0 >> 4 ) ) { eval { my $lim = 0 ; for ( $MAX_INT-10 .. $ii ) { last if ( $lim ++ > 100 ) ; } } ; ok ( $@ , \'Upper bound rejected: \' . $ii ) ; }',
+            'src' => ' foreach my $ii ( ~ 0 , ~ 0 + 1 , ~ 0 + ( ~ 0 >> 4 ) ) { eval { my $lim = 0 ; for ( $MAX_INT - 10 .. $ii ) { last if ( $lim ++ > 100 ) ; } } ; ok ( $@ , \'Upper bound rejected: \' . $ii ) ; }',
             'start_line' => 253,
             'indent' => 0,
             'block_id' => 0
           },
           {
-            'token_num' => 26,
+            'token_num' => 28,
             'has_warnings' => 1,
             'end_line' => 259,
-            'src' => ' eval { my $lim = 0 ; for ( $MAX_INT-10 .. $ii ) { last if ( $lim ++ > 100 ) ; } } ;',
+            'src' => ' eval { my $lim = 0 ; for ( $MAX_INT - 10 .. $ii ) { last if ( $lim ++ > 100 ) ; } } ;',
             'start_line' => 254,
             'indent' => 1,
             'block_id' => 33
@@ -25690,10 +25762,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 33
           },
           {
-            'token_num' => 17,
+            'token_num' => 19,
             'has_warnings' => 1,
             'end_line' => 258,
-            'src' => ' for ( $MAX_INT-10 .. $ii ) { last if ( $lim ++ > 100 ) ; }',
+            'src' => ' for ( $MAX_INT - 10 .. $ii ) { last if ( $lim ++ > 100 ) ; }',
             'start_line' => 256,
             'indent' => 1,
             'block_id' => 33

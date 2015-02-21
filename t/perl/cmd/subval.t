@@ -3799,9 +3799,27 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'GlobalVar',
-                   'data' => '$arg-1',
-                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
+                   'name' => 'Var',
+                   'data' => '$arg',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 61
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Sub',
+                   'data' => '-',
+                   'type' => Compiler::Lexer::TokenType::T_Sub,
+                   'line' => 61
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '1',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 61
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3853,9 +3871,27 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'GlobalVar',
-                   'data' => '$arg-2',
-                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
+                   'name' => 'Var',
+                   'data' => '$arg',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 61
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Sub',
+                   'data' => '-',
+                   'type' => Compiler::Lexer::TokenType::T_Sub,
+                   'line' => 61
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '2',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 61
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -9664,10 +9700,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 36
           },
           {
-            'token_num' => 53,
+            'token_num' => 57,
             'has_warnings' => 1,
             'end_line' => 65,
-            'src' => ' sub fib { my ( $arg ) = @_ ; my ( $foo ) ; $level ++ ; if ( $arg <= 2 ) { $foo = 1 ; } else { $foo = & fib ( $arg-1 ) + & fib ( $arg-2 ) ; } $level -- ; $foo ; }',
+            'src' => ' sub fib { my ( $arg ) = @_ ; my ( $foo ) ; $level ++ ; if ( $arg <= 2 ) { $foo = 1 ; } else { $foo = & fib ( $arg - 1 ) + & fib ( $arg - 2 ) ; } $level -- ; $foo ; }',
             'start_line' => 53,
             'indent' => 0,
             'block_id' => 0
@@ -9718,19 +9754,19 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 38
           },
           {
-            'token_num' => 17,
+            'token_num' => 21,
             'has_warnings' => 1,
             'end_line' => 62,
-            'src' => ' else { $foo = & fib ( $arg-1 ) + & fib ( $arg-2 ) ; }',
+            'src' => ' else { $foo = & fib ( $arg - 1 ) + & fib ( $arg - 2 ) ; }',
             'start_line' => 60,
             'indent' => 1,
             'block_id' => 37
           },
           {
-            'token_num' => 14,
+            'token_num' => 18,
             'has_warnings' => 1,
             'end_line' => 61,
-            'src' => ' $foo = & fib ( $arg-1 ) + & fib ( $arg-2 ) ;',
+            'src' => ' $foo = & fib ( $arg - 1 ) + & fib ( $arg - 2 ) ;',
             'start_line' => 61,
             'indent' => 2,
             'block_id' => 39

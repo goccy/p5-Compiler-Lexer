@@ -10678,9 +10678,27 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'GlobalVar',
-                   'data' => '$a-1',
-                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
+                   'name' => 'Var',
+                   'data' => '$a',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 224
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Sub',
+                   'data' => '-',
+                   'type' => Compiler::Lexer::TokenType::T_Sub,
+                   'line' => 224
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '1',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 224
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -11039,8 +11057,26 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Var',
-                   'data' => '$a-1',
+                   'data' => '$a',
                    'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 233
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Sub',
+                   'data' => '-',
+                   'type' => Compiler::Lexer::TokenType::T_Sub,
+                   'line' => 233
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '1',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 233
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -18334,10 +18370,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 9
           },
           {
-            'token_num' => 10,
+            'token_num' => 12,
             'has_warnings' => 1,
             'end_line' => 224,
-            'src' => ' cmp_ok ( $b , \'==\' , - $a-1 ) ;',
+            'src' => ' cmp_ok ( $b , \'==\' , - $a - 1 ) ;',
             'start_line' => 224,
             'indent' => 1,
             'block_id' => 4
@@ -18397,10 +18433,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 10
           },
           {
-            'token_num' => 10,
+            'token_num' => 12,
             'has_warnings' => 1,
             'end_line' => 233,
-            'src' => ' cmp_ok ( $b , \'==\' , - $a-1 ) ;',
+            'src' => ' cmp_ok ( $b , \'==\' , - $a - 1 ) ;',
             'start_line' => 233,
             'indent' => 1,
             'block_id' => 4

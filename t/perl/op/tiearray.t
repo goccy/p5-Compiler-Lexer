@@ -954,9 +954,27 @@ subtest 'tokenize' => sub {
                    'kind' => Compiler::Lexer::Kind::T_Term,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'GlobalVar',
-                   'data' => '$sz-1',
-                   'type' => Compiler::Lexer::TokenType::T_GlobalVar,
+                   'name' => 'Var',
+                   'data' => '$sz',
+                   'type' => Compiler::Lexer::TokenType::T_Var,
+                   'line' => 24
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Sub',
+                   'data' => '-',
+                   'type' => Compiler::Lexer::TokenType::T_Sub,
+                   'line' => 24
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '1',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 24
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -3295,8 +3313,26 @@ subtest 'tokenize' => sub {
                    'has_warnings' => 1,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'name' => 'Key',
-                   'data' => 'ob-1',
+                   'data' => 'ob',
                    'type' => Compiler::Lexer::TokenType::T_Key,
+                   'line' => 98
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Operator,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Sub',
+                   'data' => '-',
+                   'type' => Compiler::Lexer::TokenType::T_Sub,
+                   'line' => 98
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'Int',
+                   'data' => '1',
+                   'type' => Compiler::Lexer::TokenType::T_Int,
                    'line' => 98
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -12525,10 +12561,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 2
           },
           {
-            'token_num' => 26,
+            'token_num' => 28,
             'has_warnings' => 1,
             'end_line' => 25,
-            'src' => ' sub STORESIZE { $seen { \'STORESIZE\' } ++ ; my ( $ob , $sz ) = @_ ; return $#{ $ob } = $sz-1 ; }',
+            'src' => ' sub STORESIZE { $seen { \'STORESIZE\' } ++ ; my ( $ob , $sz ) = @_ ; return $#{ $ob } = $sz - 1 ; }',
             'start_line' => 20,
             'indent' => 0,
             'block_id' => 0
@@ -12552,10 +12588,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 3
           },
           {
-            'token_num' => 7,
+            'token_num' => 9,
             'has_warnings' => 1,
             'end_line' => 24,
-            'src' => ' return $#{ $ob } = $sz-1 ;',
+            'src' => ' return $#{ $ob } = $sz - 1 ;',
             'start_line' => 24,
             'indent' => 1,
             'block_id' => 3
@@ -12894,10 +12930,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 13
           },
           {
-            'token_num' => 45,
+            'token_num' => 47,
             'has_warnings' => 1,
             'end_line' => 100,
-            'src' => ' sub SPLICE { $seen { \'SPLICE\' } ++ ; my $ob = shift ; my $off = @_ ? shift : 0 ; my $len = @_ ? shift : @$ob-1 ; return splice ( @$ob , $off , $len , @_ ) ; }',
+            'src' => ' sub SPLICE { $seen { \'SPLICE\' } ++ ; my $ob = shift ; my $off = @_ ? shift : 0 ; my $len = @_ ? shift : @$ob - 1 ; return splice ( @$ob , $off , $len , @_ ) ; }',
             'start_line' => 93,
             'indent' => 0,
             'block_id' => 0
@@ -12930,10 +12966,10 @@ subtest 'get_groups_by_syntax_level' => sub {
             'block_id' => 14
           },
           {
-            'token_num' => 9,
+            'token_num' => 11,
             'has_warnings' => 0,
             'end_line' => 98,
-            'src' => ' my $len = @_ ? shift : @$ob-1 ;',
+            'src' => ' my $len = @_ ? shift : @$ob - 1 ;',
             'start_line' => 98,
             'indent' => 1,
             'block_id' => 14
