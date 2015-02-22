@@ -2,6 +2,10 @@ Revision history for Perl extension Compiler-Lexer.
 
 {{$NEXT}}
 
+0.22 2015-02-22T02:59:18Z
+     - supported newly syntax from 5.20.0
+     - fixed parsing bugs (format/v-string/variable)
+
 0.21 2015-01-26T05:59:24Z
      - added authority
 

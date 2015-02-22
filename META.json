@@ -17,7 +17,8 @@
       "directory" : [
          "t",
          "examples",
-         "builder"
+         "builder",
+         "experiments"
       ]
    },
    "prereqs" : {
@@ -52,7 +53,7 @@
       },
       "test" : {
          "requires" : {
-            "Test::More" : "0"
+            "Test::More" : "0.95"
          }
       }
    },
@@ -68,7 +69,7 @@
          "web" : "https://github.com/goccy/p5-Compiler-Lexer"
       }
    },
-   "version" : "0.21",
+   "version" : "0.22",
    "x_authority" : "cpan:GOCCY",
    "x_contributors" : [
       "tokuhirom <tokuhirom@gmail.com>",
@@ -77,7 +78,8 @@
       "Masaaki Goshima <masaaki.goshima@mixi.co.jp>",
       "Olivier Mengué <dolmen@cpan.org>",
       "Syohei YOSHIDA <syohex@gmail.com>",
+      "brian d foy <brian.d.foy@gmail.com>",
       "moznion <moznion@gmail.com>",
-      "goccy <goccy54@gmail.com>"
+      "Masaaki Goshima <goccy54@gmail.com>"
    ]
 }
