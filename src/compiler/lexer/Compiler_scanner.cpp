@@ -19,24 +19,6 @@ Scanner::Scanner() :
 	const char *enable_regex_argument_funcs[] = {
 		"map", "grep", "split", NULL
 	};
-	const char *operators[] = {
-		"<=>", "**=", "//=", "||=", "&&=", "...", "$#{",
-		"$^A", "$^D", "$^E", "$^F", "$^G", "$^H", "$^I",
-		"$^L", "$^M", "$^O", "$^P", "$^R", "$^T", "$^W", "$^X",
-		"<=",  ">=",  ".=",  "!=",  "==",  "+=",  "-=",
-		"*=",  "%=",  "|=",  "&=",  "^=",  "<<",  ">>",
-		"++",  "--",  "**",  "//",  "&&",  "||",  "::",
-		"..",  "=>",  "->",  "@{",  "%{",  "${",  "@$",
-		"%$",  "%-",  "%+",  "@-",  "@+",  "&$",  "$#",
-		"<>",  "!~",  "~~",  "=~",
-		"$0",  "$1",  "$2",  "$3",  "$4",  "$5",  "$6",
-		"$7",  "$8",  "$9",
-		"$&",  "$`",  "$'",  "$+",  "$.",  "$/",  "$|",
-		"$,",  "$\\", "$\"", "$%",  "$=",  "$-",  "$~",
-		"$^",  "$*",  "$:",  "$;",  "$?",  "$!",  "$@",
-		/*"$$",*/  "$<",  "$>",  "$(",  "$)",  "$[",  "$]",
-		NULL
-	};
 	for (size_t i = 0; regex_prefixes[i] != NULL; i++) {
 		regex_prefix_map.insert(StringMap::value_type(regex_prefixes[i], ""));
 	}
@@ -45,9 +27,6 @@ Scanner::Scanner() :
 	}
 	for (size_t i = 0; regex_replaces[i] != NULL; i++) {
 		regex_replace_map.insert(StringMap::value_type(regex_replaces[i], ""));
-	}
-	for (size_t i = 0; operators[i] != NULL; i++) {
-		operator_map.insert(StringMap::value_type(operators[i], ""));
 	}
 }
 
@@ -237,12 +216,13 @@ char Scanner::getRegexDelim(LexContext *ctx)
 
 bool Scanner::isPrototype(LexContext *ctx)
 {
+	char symbol = ctx->smgr->currentChar();
+	if (symbol != '(') return false;
+	
 	Token *prev_token = ctx->tmgr->lastToken();
 	string prev_data = (prev_token) ? string(prev_token->_data) : "";
 	int idx = ctx->tmgr->size() - 2;
 	string before_prev_data = (idx >= 0) ? string(ctx->tmgr->beforeLastToken()->_data) : "";
-	char symbol = ctx->smgr->currentChar();
-	if (symbol != '(') return false;
 	if (prev_data == "sub") return true;
 	if (prev_data != "{" && before_prev_data == "sub") return true;
 	return false;
@@ -270,8 +250,8 @@ bool Scanner::isFormat(LexContext *, Token *tk)
 bool Scanner::isRegexDelim(Token *prev_token, char symbol)
 {
 	const char *prev_data = (prev_token) ? prev_token->_data : "";
-	/* [^0-9] && !"0" && !CONST && !{hash} && ![array] && !func() && !$var */
 	string prev_tk = string(prev_data);
+	/* [^0-9] && !"0" && !CONST && !{hash} && ![array] && !func() && !$var */
 	if (regex_delim == 0 && prev_token && prev_token->info.type == TokenType::Undefined &&
 		(symbol != '-' && symbol != '=' && symbol != ',' && symbol != ')') &&
 		regex_prefix_map.find(prev_tk) != regex_prefix_map.end()) {
@@ -280,13 +260,13 @@ bool Scanner::isRegexDelim(Token *prev_token, char symbol)
 			   (prev_token->info.kind == TokenKind::RegPrefix || prev_token->info.kind == TokenKind::RegReplacePrefix)) {
 		return true;
 	}
-	TokenType::Type prev_type = (prev_token) ? prev_token->info.type : TokenType::Undefined;
+	if (symbol != '/') return false;
+	if (!prev_token)   return true;
+	TokenType::Type prev_type = prev_token->info.type;
 	if (prev_type == TokenType::RawString ||
 		prev_type == TokenType::String    ||
 		prev_type == TokenType::ExecString) return false;
-	if (symbol != '/') return false;
-	if (!prev_token) return true;
-	if (symbol == '/' && (prev_tk == "xor" || prev_tk == "and" || prev_tk == "not" || prev_tk == "or")) return true;
+	if (prev_tk == "xor" || prev_tk == "and" || prev_tk == "not" || prev_tk == "or") return true;
 	if (strtod(prev_data, NULL)) return false;
 	if (prev_tk == "0") return false;
 	if (enable_regex_argument_func_map.find(prev_tk) != enable_regex_argument_func_map.end()) return true;
@@ -558,17 +538,17 @@ See Scanner::scanPostDeref for the rules
 
 bool Scanner::isPostDeref(LexContext *ctx)
 {
+	char symbol = ctx->smgr->currentChar();
+	// do we need an isSigil method?
+	if (symbol != '$' && symbol != '@' && symbol != '%' && symbol != '&' && symbol != '*')
+		return false;
+
 	Token *prev_token = ctx->tmgr->lastToken();
 	string prev_data = (prev_token) ? string(prev_token->_data) : "";
-	char symbol = ctx->smgr->currentChar();
 
 	// Should I check that the previous Token was Pointer
 	// instead of looking at the data
 	if (prev_data != "->") return false;
-
-	// do we need an isSigil method?
-	if (symbol != '$' && symbol != '@' && symbol != '%' && symbol != '&' && symbol != '*')
-		return false;
 
 	char next_ch = ctx->smgr->nextChar();
 
