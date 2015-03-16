@@ -29,3 +29,11 @@ GPATH
 workdir
 token_test*.o
 token_test
+vendor
+emscripten/build/*.o
+node_modules
+.bundle
+.sass-cache
+bower_components
+*.bc
+

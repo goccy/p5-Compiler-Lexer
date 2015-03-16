@@ -1,0 +1,166 @@
+/* line 3, ../sass/style.scss */
+body {
+  font-family: 'Khula', sans-serif;
+  min-width: 800px;
+}
+
+/* line 8, ../sass/style.scss */
+h1 {
+  position: relative;
+  top: 70px;
+  font-size: 80px;
+  text-align: center;
+}
+
+/* line 14, ../sass/style.scss */
+h2 {
+  position: relative;
+  top: 70px;
+  font-size: 40px;
+  text-align: center;
+}
+
+/* line 20, ../sass/style.scss */
+h3 {
+  position: relative;
+  left: 50px;
+  font-size: 40px;
+  vertical-align: bottom;
+}
+
+/* line 26, ../sass/style.scss */
+h4 {
+  position: relative;
+  left: 50px;
+  vertical-align: bottom;
+}
+
+/* line 32, ../sass/style.scss */
+li {
+  position: relative;
+  left: 50px;
+  font-size: 24px;
+}
+
+/* line 38, ../sass/style.scss */
+header {
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIzMSUiIHN0b3AtY29sb3I9IiMzZWI0ZTYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0MWU4ZDIiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(31%, #3eb4e6), color-stop(100%, #41e8d2));
+  background-image: -moz-linear-gradient(#3eb4e6 31%, #41e8d2 100%);
+  background-image: -webkit-linear-gradient(#3eb4e6 31%, #41e8d2 100%);
+  background-image: linear-gradient(#3eb4e6 31%, #41e8d2 100%);
+  position: relative;
+  top: -20px;
+  width: 100%;
+  height: 300px;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+
+/* line 53, ../sass/style.scss */
+#marker {
+  position: relative;
+  text-align: center;
+  vertical-align: top;
+  display: inline-block;
+  top: 225px;
+  font-size: 40px;
+}
+
+/* line 62, ../sass/style.scss */
+#editor_pane {
+  position: relative;
+  left: 30px;
+}
+/* line 65, ../sass/style.scss */
+#editor_pane input {
+  margin: 5px;
+  margin-bottom: 10px;
+}
+
+/* line 71, ../sass/style.scss */
+#ace_editor {
+  height: 500px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+
+/* line 76, ../sass/style.scss */
+#output_pane {
+  position: relative;
+  top: 25px;
+  left: -30px;
+  height: 500px;
+  background-color: black;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+  opacity: 0.7;
+}
+
+/* line 85, ../sass/style.scss */
+.token {
+  position: relative;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+  min-width: 30px;
+  background-color: white;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/* line 95, ../sass/style.scss */
+#synopsis {
+  position: relative;
+  margin-top: 80px;
+}
+/* line 98, ../sass/style.scss */
+#synopsis #synopsis_code {
+  left: 50px;
+  height: 200px;
+}
+
+/* line 104, ../sass/style.scss */
+#how_to_install {
+  position: relative;
+  margin-bottom: 100px;
+}
+/* line 107, ../sass/style.scss */
+#how_to_install #how_to_install_code {
+  position: relative;
+  left: 50px;
+  width: 50%;
+  height: 70px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+  opacity: 0.7;
+}
+
+/* line 117, ../sass/style.scss */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+/* line 122, ../sass/style.scss */
+body {
+  margin-bottom: 60px;
+}
+
+/* line 126, ../sass/style.scss */
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+/* line 134, ../sass/style.scss */
+footer p {
+  position: relative;
+  top: 20px;
+}

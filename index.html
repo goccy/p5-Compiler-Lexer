@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <link   type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"></link>
+    <link href='http://fonts.googleapis.com/css?family=Khula' rel='stylesheet' type='text/css'>
+    <link   type="text/css" href="css/style.css" rel="stylesheet"></link>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/ace-builds/src-min-noconflict/ace.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-ace/ui-ace.js"></script>
+    <script type="text/javascript" src="perl_lexer.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+  </head>
+  <body ng-app="ngApp">
+    <header>
+      <h1>Compiler::Lexer</h1>
+      <h2>- Fast Lexical Analyzer for Perl5 -</h2>
+    </header>
+    <div ng-controller="ngController">
+      <div>
+        <h3>Features</h3>
+        <ul>
+          <li>Written by C++ [XS]</li>
+          <li>Perfect hashing for reserved keywords</li>
+          <li>Using memory pool for token objects</li>
+          <li>Readable Code (without yacc/bison)</li>
+        </ul>
+      </div>
+      <div id="play_ground" class="container-fluid">
+        <div class="row">
+          <h3>PLAY GROUND</h3>
+          <h4>- Tokenize your perl5 code dynamically and display results to right pane -</h4>
+        </div>
+        <div class="row">
+          <div id="editor_pane" class="col-xs-5">
+            <input type="radio" ng-model="keyboardMode" value="ace/keyboard/emacs"> emacs</input>
+            <input type="radio" ng-model="keyboardMode" value="ace/keyboard/vim"> vim</input>
+            <div id="ace_editor" ui-ace="{ onLoad:   aceLoaded, onChange: aceChanged }"></div>
+          </div>
+          <div class="col-xs-2">
+            <div class="col-xs-2"></div>
+            <p id="marker" class="col-xs-8">>></p>
+            <div class="col-xs-2"></div>
+          </div>
+          <div class="col-xs-5">
+            <div id="output_pane">
+              <label class="token" ng-repeat="token in tokens">{{token.data}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="synopsis">
+        <h3>SYNOPSIS</h3>
+        <div id="synopsis_code" ui-ace="{ onLoad: synopsisLoaded }" readonly="true">use Compiler::Lexer;
+my $tokens = Compiler::Lexer->new->tokenize('print "hello world\n"');
+print $tokens->[0]->data; #=> 'print'
+print $tokens->[1]->data; #=> 'hello world\n'
+            </div>
+      </div>
+      <div id="how_to_install">
+        <h3>INSTALL</h3>
+        <div id="how_to_install_code" ui-ace="{ onLoad: howToInstallLoaded }" readonly="true">
+ cpanm Compiler::Lexer
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>
+        Copyright 2015. Masaaki Goshima. All rights reserved.
+      </p>
+    </footer>
+  </body>
+</html>

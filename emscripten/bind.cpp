@@ -14,6 +14,8 @@ public:
     const std::string& getName();
 };
 
+typedef std::vector<CompilerLexerToken> CompilerLexerTokens;
+
 CompilerLexerToken::CompilerLexerToken()
 {
 }
@@ -38,15 +40,18 @@ const std::string& CompilerLexerToken::getName()
 	return this->name;
 }
 
-CompilerLexerToken tokenize(std::string script)
+CompilerLexerTokens tokenize(std::string script)
 {
 	Lexer lexer("", false);
 	Tokens *tokens = lexer.tokenize((char *)script.c_str());
-	CompilerLexerToken *token = new CompilerLexerToken();
-	if (tokens->size() == 0) return *token;
-	token->name = std::string(((Token *)tokens->at(0))->info.name);
-	token->data = std::string(((Token *)tokens->at(0))->_data);
-	return *token;
+	CompilerLexerTokens *ret = new CompilerLexerTokens();
+	for (size_t i = 0; i < tokens->size(); i++) {
+		CompilerLexerToken *token = new CompilerLexerToken();
+		token->name = std::string(((Token *)tokens->at(i))->info.name);
+		token->data = std::string(((Token *)tokens->at(i))->_data);
+		ret->push_back(*token);
+	}
+	return *ret;
 }
 
 EMSCRIPTEN_BINDINGS(compiler_lexer) {
@@ -55,5 +60,6 @@ EMSCRIPTEN_BINDINGS(compiler_lexer) {
 		.function("getData", &CompilerLexerToken::getData)
 		.function("setName", &CompilerLexerToken::setName)
 		.function("getName", &CompilerLexerToken::getName);
+	register_vector<CompilerLexerToken>("Tokens");
 	function("tokenize", &tokenize);
 }
