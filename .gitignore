@@ -34,6 +34,5 @@ emscripten/build/*.o
 node_modules
 .bundle
 .sass-cache
-bower_components
 *.bc
 
