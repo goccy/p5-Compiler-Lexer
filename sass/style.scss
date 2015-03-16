@@ -1,0 +1,138 @@
+@import "compass";
+
+body {
+  font-family: 'Khula', sans-serif;
+  min-width: 800px;
+}
+
+h1 {
+  position: relative;
+  top: 70px;
+  font-size: 80px;
+  text-align: center;
+}
+h2 {
+  position: relative;
+  top: 70px;
+  font-size: 40px;
+  text-align: center;
+}
+h3 {
+  position: relative;
+  left: 50px;
+  font-size: 40px;
+  vertical-align: bottom;
+}
+h4 {
+  position: relative;
+  left: 50px;
+  vertical-align: bottom;
+}
+
+li {
+  position: relative;
+  left: 50px;
+  font-size: 24px;
+}
+
+header {
+  @include background-image(linear-gradient(#3EB4E6 31%, #41E8D2 100%));
+  position: relative;
+  top: -20px;
+  width: 100%;
+  height: 300px;
+  text-align: center;
+  color: white;
+  @include single-text-shadow(rgba(0, 0, 0, 1.0), 1px, 1px, 2px);
+}
+
+#play_ground {
+
+}
+
+#marker {
+  position: relative;
+  text-align:center;
+  vertical-align: top;
+  display: inline-block;
+  top: 225px;
+  font-size: 40px;
+}
+
+#editor_pane {
+  position: relative;
+  left: 30px;
+  input {
+    margin: 5px;
+    margin-bottom: 10px;
+  }
+}
+
+#ace_editor {
+  height: 500px;
+  @include border-radius(2px);
+}
+
+#output_pane {
+  position: relative;
+  top: 25px;
+  left: -30px;
+  height: 500px;
+  background-color: black;
+  @include opacity(0.7);
+}
+
+.token {
+  position: relative;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+  min-width: 30px;
+  background-color: white;
+  @include border-radius(3px);
+}
+
+#synopsis {
+  position: relative;
+  margin-top: 80px;
+  #synopsis_code {
+    left: 50px;
+    height: 200px;
+  }
+}
+
+#how_to_install {
+  position: relative;
+  
+  #how_to_install_code {
+    position: relative;
+    left: 50px;
+    width: 50%;
+    height: 70px;
+    @include opacity(0.7);
+  }
+  margin-bottom: 100px;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  p {
+    position: relative;
+    top: 20px;
+  }
+}

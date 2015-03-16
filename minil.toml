@@ -1,0 +1,11 @@
+badges = ["travis", "coveralls"]
+authority = "cpan:GOCCY"
+
+[build]
+build_class = "builder::MyBuilder"
+
+[no_index]
+directory = ['t', 'examples', 'builder', 'experiments']
+
+[FileGatherer]
+exclude_match = ['^t/perl/.*', '^example/bigdata.pl', '^experiments/' ]

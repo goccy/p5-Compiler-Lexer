@@ -1,0 +1,19 @@
+@import "compass";
+
+.token {
+  position: relative;
+  margin: 10px;
+  width: 100px;
+}
+
+#ace_editor {
+  width:  500px;
+  height: 500px;
+  @include border-radius(2px);
+}
+
+#result {
+  left: 600px;
+  width: 500px;
+  height: 500px;
+}
