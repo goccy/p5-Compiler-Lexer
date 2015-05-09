@@ -17,6 +17,10 @@
   "devDependencies": {
     "angular-ui-ace": "bower",
     "angular-bootstrap": "~0.12.1",
-    "bootstrap": "~3.3.2"
+    "bootstrap": "~3.3.2",
+    "bootstrap-social": "~4.8.0"
+  },
+  "dependencies": {
+    "font-awesome": "~4.3.0"
   }
 }

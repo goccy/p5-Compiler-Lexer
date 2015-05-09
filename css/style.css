@@ -1,7 +1,7 @@
 /* line 3, ../sass/style.scss */
 body {
   font-family: 'Khula', sans-serif;
-  min-width: 800px;
+  background-image: url("../images/white_wall_hash.png");
 }
 
 /* line 8, ../sass/style.scss */
@@ -12,7 +12,7 @@ h1 {
   text-align: center;
 }
 
-/* line 14, ../sass/style.scss */
+/* line 15, ../sass/style.scss */
 h2 {
   position: relative;
   top: 70px;
@@ -20,29 +20,27 @@ h2 {
   text-align: center;
 }
 
-/* line 20, ../sass/style.scss */
+/* line 22, ../sass/style.scss */
 h3 {
   position: relative;
-  left: 50px;
   font-size: 40px;
   vertical-align: bottom;
 }
 
-/* line 26, ../sass/style.scss */
+/* line 28, ../sass/style.scss */
 h4 {
   position: relative;
-  left: 50px;
   vertical-align: bottom;
 }
 
-/* line 32, ../sass/style.scss */
+/* line 33, ../sass/style.scss */
 li {
   position: relative;
   left: 50px;
   font-size: 24px;
 }
 
-/* line 38, ../sass/style.scss */
+/* line 39, ../sass/style.scss */
 header {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIzMSUiIHN0b3AtY29sb3I9IiMzZWI0ZTYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0MWU4ZDIiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background-size: 100%;
@@ -57,9 +55,33 @@ header {
   text-align: center;
   color: white;
   text-shadow: 1px 1px 2px black;
+  /*background-image: url('../images/6.jpg');*/
+  background-image: url("../images/wg_water_drops1.jpg");
 }
 
-/* line 53, ../sass/style.scss */
+/* line 52, ../sass/style.scss */
+#features {
+  position: relative;
+  margin-top: 60px;
+  width: 80%;
+}
+/* line 56, ../sass/style.scss */
+#features h3 {
+  left: 50px;
+}
+
+/* line 61, ../sass/style.scss */
+#play_ground {
+  position: relative;
+  margin-top: 60px;
+  width: 80%;
+}
+/* line 65, ../sass/style.scss */
+#play_ground h3, #play_ground h4 {
+  left: 50px;
+}
+
+/* line 70, ../sass/style.scss */
 #marker {
   position: relative;
   text-align: center;
@@ -69,18 +91,18 @@ header {
   font-size: 40px;
 }
 
-/* line 62, ../sass/style.scss */
+/* line 79, ../sass/style.scss */
 #editor_pane {
   position: relative;
   left: 30px;
 }
-/* line 65, ../sass/style.scss */
+/* line 82, ../sass/style.scss */
 #editor_pane input {
   margin: 5px;
   margin-bottom: 10px;
 }
 
-/* line 71, ../sass/style.scss */
+/* line 88, ../sass/style.scss */
 #ace_editor {
   height: 500px;
   -moz-border-radius: 2px;
@@ -88,7 +110,7 @@ header {
   border-radius: 2px;
 }
 
-/* line 76, ../sass/style.scss */
+/* line 93, ../sass/style.scss */
 #output_pane {
   position: relative;
   top: 25px;
@@ -99,7 +121,7 @@ header {
   opacity: 0.7;
 }
 
-/* line 85, ../sass/style.scss */
+/* line 102, ../sass/style.scss */
 .token {
   position: relative;
   text-align: center;
@@ -112,55 +134,288 @@ header {
   border-radius: 3px;
 }
 
-/* line 95, ../sass/style.scss */
+/* line 112, ../sass/style.scss */
 #synopsis {
   position: relative;
-  margin-top: 80px;
-}
-/* line 98, ../sass/style.scss */
-#synopsis #synopsis_code {
+  margin-top: 60px;
   left: 50px;
+  width: 80%;
+}
+/* line 117, ../sass/style.scss */
+#synopsis #synopsis_code {
+  width: 700px;
   height: 200px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
 }
 
-/* line 104, ../sass/style.scss */
+/* line 124, ../sass/style.scss */
+#forkme_banner {
+  position: relative;
+  text-color: black;
+  top: 70px;
+  left: 100px;
+  width: 300px;
+  height: 70px;
+  text-align: center;
+  border-color: black;
+  font-size: 20px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  color: black;
+}
+/* line 24, ../vendor/bundle/ruby/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/typography/links/_link-colors.scss */
+#forkme_banner:hover {
+  color: #444;
+}
+/* line 137, ../sass/style.scss */
+#forkme_banner i {
+  position: relative;
+  top: 18px;
+  margin-right: 10px;
+}
+
+/* line 144, ../sass/style.scss */
 #how_to_install {
   position: relative;
+  margin-top: 60px;
+  width: 80%;
   margin-bottom: 100px;
 }
-/* line 107, ../sass/style.scss */
+/* line 148, ../sass/style.scss */
+#how_to_install h3 {
+  left: 50px;
+}
+/* line 152, ../sass/style.scss */
 #how_to_install #how_to_install_code {
   position: relative;
   left: 50px;
-  width: 50%;
+  width: 700px;
   height: 70px;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
   opacity: 0.7;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
 }
 
-/* line 117, ../sass/style.scss */
+/* line 163, ../sass/style.scss */
 html {
   position: relative;
   min-height: 100%;
 }
 
-/* line 122, ../sass/style.scss */
-body {
-  margin-bottom: 60px;
-}
-
-/* line 126, ../sass/style.scss */
+/* line 168, ../sass/style.scss */
 footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 60px;
-  background-color: black;
+  background-color: #212121;
   color: white;
   text-align: center;
 }
-/* line 134, ../sass/style.scss */
+/* line 176, ../sass/style.scss */
 footer p {
   position: relative;
   top: 20px;
+}
+
+@media screen and (max-width: 480px) {
+  /* line 184, ../sass/style.scss */
+  h1 {
+    position: relative;
+    top: 90px;
+    font-size: 50px;
+    text-align: center;
+  }
+
+  /* line 191, ../sass/style.scss */
+  h2 {
+    position: relative;
+    top: 90px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  /* line 198, ../sass/style.scss */
+  h3 {
+    position: relative;
+    font-size: 30px;
+    vertical-align: bottom;
+  }
+
+  /* line 204, ../sass/style.scss */
+  h4 {
+    position: relative;
+    vertical-align: bottom;
+  }
+
+  /* line 209, ../sass/style.scss */
+  li {
+    position: relative;
+    left: 5px;
+    font-size: 16px;
+  }
+
+  /* line 215, ../sass/style.scss */
+  #features {
+    position: relative;
+    margin-top: 20px;
+    width: 80%;
+  }
+  /* line 219, ../sass/style.scss */
+  #features h3 {
+    left: 5px;
+  }
+
+  /* line 224, ../sass/style.scss */
+  #forkme_banner {
+    position: relative;
+    text-color: black;
+    top: 70px;
+    left: 5px;
+    width: 170px;
+    height: 70px;
+    text-align: center;
+    border-color: black;
+    font-size: 16px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    color: black;
+  }
+  /* line 24, ../vendor/bundle/ruby/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/typography/links/_link-colors.scss */
+  #forkme_banner:hover {
+    color: #444;
+  }
+  /* line 237, ../sass/style.scss */
+  #forkme_banner i {
+    position: relative;
+    top: 18px;
+    margin-right: 10px;
+  }
+
+  /* line 244, ../sass/style.scss */
+  #play_ground {
+    position: relative;
+    margin-top: 20px;
+    width: 80%;
+  }
+  /* line 248, ../sass/style.scss */
+  #play_ground h3, #play_ground h4 {
+    left: 5px;
+  }
+
+  /* line 253, ../sass/style.scss */
+  #marker {
+    display: none;
+  }
+
+  /* line 257, ../sass/style.scss */
+  #editor_pane {
+    position: relative;
+    left: 30px;
+  }
+  /* line 260, ../sass/style.scss */
+  #editor_pane input {
+    margin: 5px;
+    margin-bottom: 10px;
+  }
+
+  /* line 266, ../sass/style.scss */
+  #ace_editor {
+    height: 300px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+  }
+
+  /* line 271, ../sass/style.scss */
+  #output_pane {
+    position: relative;
+    top: 25px;
+    left: -30px;
+    height: 300px;
+    background-color: black;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+    opacity: 0.7;
+  }
+
+  /* line 280, ../sass/style.scss */
+  .token {
+    position: relative;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    min-width: 30px;
+    background-color: white;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+  }
+
+  /* line 290, ../sass/style.scss */
+  #synopsis {
+    position: relative;
+    margin-top: 20px;
+    left: 5px;
+    width: 80%;
+  }
+  /* line 295, ../sass/style.scss */
+  #synopsis #synopsis_code {
+    width: 80%;
+    height: 200px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+  }
+
+  /* line 302, ../sass/style.scss */
+  #how_to_install {
+    position: relative;
+    margin-top: 20px;
+    width: 80%;
+    margin-bottom: 100px;
+  }
+  /* line 306, ../sass/style.scss */
+  #how_to_install h3 {
+    left: 5px;
+  }
+  /* line 310, ../sass/style.scss */
+  #how_to_install #how_to_install_code {
+    position: relative;
+    left: 5px;
+    width: 80%;
+    height: 70px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+    opacity: 0.7;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+  }
+
+  /* line 321, ../sass/style.scss */
+  html {
+    position: relative;
+    min-height: 100%;
+  }
+
+  /* line 326, ../sass/style.scss */
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #212121;
+    color: white;
+    text-align: center;
+  }
+  /* line 334, ../sass/style.scss */
+  footer p {
+    position: relative;
+    top: 20px;
+  }
 }

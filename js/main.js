@@ -46,7 +46,6 @@ app.controller('ngController', [ '$scope', function($scope) {
             showGutter: false
         });
         editor.setFontSize(16);
-        editor.getSession().setMode("ace/mode/shell");
         editor.setTheme("ace/theme/terminal");
     };
 

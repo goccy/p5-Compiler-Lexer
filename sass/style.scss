@@ -2,7 +2,7 @@
 
 body {
   font-family: 'Khula', sans-serif;
-  min-width: 800px;
+  background-image: url('../images/white_wall_hash.png');
 }
 
 h1 {
@@ -11,21 +11,22 @@ h1 {
   font-size: 80px;
   text-align: center;
 }
+
 h2 {
   position: relative;
   top: 70px;
   font-size: 40px;
   text-align: center;
 }
+
 h3 {
   position: relative;
-  left: 50px;
   font-size: 40px;
   vertical-align: bottom;
 }
+
 h4 {
   position: relative;
-  left: 50px;
   vertical-align: bottom;
 }
 
@@ -44,10 +45,26 @@ header {
   text-align: center;
   color: white;
   @include single-text-shadow(rgba(0, 0, 0, 1.0), 1px, 1px, 2px);
+  /*background-image: url('../images/6.jpg');*/
+  background-image: url('../images/wg_water_drops1.jpg');
+}
+
+#features {
+  position: relative;
+  margin-top: 60px;
+  width: 80%;
+  h3 {
+    left: 50px;
+  }
 }
 
 #play_ground {
-
+  position: relative;
+  margin-top: 60px;
+  width: 80%;
+  h3,h4 {
+    left: 50px;
+  }
 }
 
 #marker {
@@ -94,22 +111,51 @@ header {
 
 #synopsis {
   position: relative;
-  margin-top: 80px;
+  margin-top: 60px;
+  left: 50px;
+  width: 80%;
   #synopsis_code {
-    left: 50px;
+    width: 700px;
     height: 200px;
+    @include border-radius(3px);
+  }
+}
+
+#forkme_banner {
+  position: relative;
+  text-color: black;
+  top: 70px;
+  left: 100px;
+  width: 300px;
+  height: 70px;
+  text-align: center;
+  border-color: black;
+  font-size: 20px;
+  @include border-radius(5px);
+  @include link-colors(black, #444);
+  
+  i {
+    position: relative;
+    top: 18px;
+    margin-right: 10px;
   }
 }
 
 #how_to_install {
   position: relative;
-  
+  margin-top: 60px;
+  width: 80%;
+  h3 {
+    left: 50px;
+  }
+
   #how_to_install_code {
     position: relative;
     left: 50px;
-    width: 50%;
+    width: 700px;
     height: 70px;
     @include opacity(0.7);
+    @include border-radius(3px);
   }
   margin-bottom: 100px;
 }
@@ -119,20 +165,175 @@ html {
   min-height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
-}
-
 footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 60px;
-  background-color: black;
+  background-color: #212121;
   color: white;
   text-align: center;
   p {
     position: relative;
     top: 20px;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  h1 {
+    position: relative;
+    top: 90px;
+    font-size: 50px;
+    text-align: center;
+  }
+
+  h2 {
+    position: relative;
+    top: 90px;
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  h3 {
+    position: relative;
+    font-size: 30px;
+    vertical-align: bottom;
+  }
+
+  h4 {
+    position: relative;
+    vertical-align: bottom;
+  }
+
+  li {
+    position: relative;
+    left: 5px;
+    font-size: 16px;
+  }
+
+  #features {
+    position: relative;
+    margin-top: 20px;
+    width: 80%;
+    h3 {
+      left: 5px;
+    }
+  }
+
+  #forkme_banner {
+    position: relative;
+    text-color: black;
+    top: 70px;
+    left: 5px;
+    width: 170px;
+    height: 70px;
+    text-align: center;
+    border-color: black;
+    font-size: 16px;
+    @include border-radius(5px);
+    @include link-colors(black, #444);
+    
+    i {
+      position: relative;
+      top: 18px;
+      margin-right: 10px;
+    }
+  }
+
+  #play_ground {
+    position: relative;
+    margin-top: 20px;
+    width: 80%;
+    h3,h4 {
+      left: 5px;
+    }
+  }
+
+  #marker {
+    display: none;
+  }
+
+  #editor_pane {
+    position: relative;
+    left: 30px;
+    input {
+      margin: 5px;
+      margin-bottom: 10px;
+    }
+  }
+
+  #ace_editor {
+    height: 300px;
+    @include border-radius(2px);
+  }
+
+  #output_pane {
+    position: relative;
+    top: 25px;
+    left: -30px;
+    height: 300px;
+    background-color: black;
+    @include opacity(0.7);
+  }
+
+  .token {
+    position: relative;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    min-width: 30px;
+    background-color: white;
+    @include border-radius(3px);
+  }
+
+  #synopsis {
+    position: relative;
+    margin-top: 20px;
+    left: 5px;
+    width: 80%;
+    #synopsis_code {
+      width: 80%;
+      height: 200px;
+      @include border-radius(3px);
+    }
+  }
+
+  #how_to_install {
+    position: relative;
+    margin-top: 20px;
+    width: 80%;
+    h3 {
+      left: 5px;
+    }
+
+    #how_to_install_code {
+      position: relative;
+      left: 5px;
+      width: 80%;
+      height: 70px;
+      @include opacity(0.7);
+      @include border-radius(3px);
+    }
+    margin-bottom: 100px;
+  }
+
+  html {
+    position: relative;
+    min-height: 100%;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #212121;
+    color: white;
+    text-align: center;
+    p {
+      position: relative;
+      top: 20px;
+    }
   }
 }

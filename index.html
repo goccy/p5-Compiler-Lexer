@@ -1,7 +1,10 @@
 <html>
   <head>
     <link   type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"></link>
-    <link href='http://fonts.googleapis.com/css?family=Khula' rel='stylesheet' type='text/css'>
+    <link   type="text/css" href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet"></link>
+    <link   type="text/css" href="bower_components/bootstrap-social/bootstrap-social.css" rel="stylesheet"></link>
+
+    <link   href='http://fonts.googleapis.com/css?family=Khula' rel='stylesheet' type='text/css'>
     <link   type="text/css" href="css/style.css" rel="stylesheet"></link>
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -18,15 +21,24 @@
       <h2>- Fast Lexical Analyzer for Perl5 -</h2>
     </header>
     <div ng-controller="ngController">
-      <div>
-        <h3>Features</h3>
-        <ul>
-          <li>Written by C++ [XS]</li>
-          <li>Perfect hashing for reserved keywords</li>
-          <li>Using memory pool for token objects</li>
-          <li>Readable Code (without yacc/bison)</li>
-        </ul>
-      </div>
+      <section id="features" class="container-fluid">
+        <div class="row">
+          <h3>Features</h3>
+        </div>
+        <div class="row">
+          <div class="col-xs-7">
+            <ul class="list-group">
+              <li class="list-group-item">Written by C++ [XS]</li>
+              <li class="list-group-item">Perfect hashing for reserved keywords</li>
+              <li class="list-group-item">Using memory pool for token objects</li>
+              <li class="list-group-item">Readable Code (without yacc/bison)</li>
+            </ul>
+          </div>
+          <div class="col-xs-5">
+            <a id="forkme_banner" class="btn btn-block" href="https://github.com/goccy/p5-Compiler-Lexer"><i class="fa fa-github"> View on GitHub</i></a>
+          </div>
+        </div>
+      </section>
       <div id="play_ground" class="container-fluid">
         <div class="row">
           <h3>PLAY GROUND</h3>
@@ -50,18 +62,27 @@
           </div>
         </div>
       </div>
-      <div id="synopsis">
-        <h3>SYNOPSIS</h3>
-        <div id="synopsis_code" ui-ace="{ onLoad: synopsisLoaded }" readonly="true">use Compiler::Lexer;
-my $tokens = Compiler::Lexer->new->tokenize('print "hello world\n"');
-print $tokens->[0]->data; #=> 'print'
-print $tokens->[1]->data; #=> 'hello world\n'
-            </div>
+      <div id="synopsis" class="container-fluid">
+        <div class="row">
+          <h3>SYNOPSIS</h3>
+        </div>
+        <div class="row">
+          <div id="synopsis_code" class="col-xs-12" ui-ace="{ onLoad: synopsisLoaded }" readonly="true">
+ use Compiler::Lexer;
+ my $tokens = Compiler::Lexer->new->tokenize('print "hello world\n"');
+ print $tokens->[0]->data; #=> 'print'
+ print $tokens->[1]->data; #=> 'hello world\n'
+          </div>
+        </div>
       </div>
-      <div id="how_to_install">
-        <h3>INSTALL</h3>
-        <div id="how_to_install_code" ui-ace="{ onLoad: howToInstallLoaded }" readonly="true">
+      <div id="how_to_install" class="container-fluid">
+        <div class="row">
+          <h3>INSTALL</h3>
+        </div>
+        <div class="row">
+          <div id="how_to_install_code" ui-ace="{ onLoad: howToInstallLoaded }" readonly="true">
  cpanm Compiler::Lexer
+          </div>
         </div>
       </div>
     </div>
