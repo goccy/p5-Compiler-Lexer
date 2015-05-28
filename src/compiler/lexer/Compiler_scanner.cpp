@@ -203,7 +203,7 @@ bool Scanner::isRegexEndDelim(LexContext *ctx)
 	Token *token = ctx->tmgr->lastToken();
 	TokenType::Type type = (token) ? token->info.type : TokenType::Undefined;
 	if (isRegexStarted) return true;
-	if (type == TokenType::RegExp) return true;
+	if (type == TokenType::RegExp && string(token->_data) != "//") return true;
 	if (type == TokenType::RegReplaceTo) return true;
 	return false;
 }
@@ -387,7 +387,7 @@ Token *Scanner::scanCurSymbol(LexContext *ctx, char symbol)
 	string prev_before = (idx >= 0) ? string(ctx->tmgr->beforeLastToken()->_data) : "";
 	if ((prev_before != "sub" && !isRegexOptionPrevToken(ctx) &&
 		 isRegexDelim(prev_tk, symbol)) ||
-		(prev_data   == "{"   && symbol == '/')) {
+		(prev_data == "{" && symbol == '/')) {
 		if (!isRegexEndDelim(ctx)) {
 			regex_delim = getRegexDelim(ctx);
 			isRegexStarted = true;
