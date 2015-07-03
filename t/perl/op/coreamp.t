@@ -27366,12 +27366,12 @@ The problem is that I cannot solve it.
                    'line' => 618
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Stmt,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'IfStmt',
+                   'name' => 'UsedName',
                    'data' => 'if',
-                   'type' => Compiler::Lexer::TokenType::T_IfStmt,
+                   'type' => Compiler::Lexer::TokenType::T_UsedName,
                    'line' => 618
                  }, 'Compiler::Lexer::Token' ),
           bless( {
@@ -27492,12 +27492,12 @@ The problem is that I cannot solve it.
                    'line' => 619
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'kind' => Compiler::Lexer::Kind::T_Stmt,
+                   'kind' => Compiler::Lexer::Kind::T_Module,
                    'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'name' => 'IfStmt',
+                   'name' => 'UsedName',
                    'data' => 'if',
-                   'type' => Compiler::Lexer::TokenType::T_IfStmt,
+                   'type' => Compiler::Lexer::TokenType::T_UsedName,
                    'line' => 619
                  }, 'Compiler::Lexer::Token' ),
           bless( {

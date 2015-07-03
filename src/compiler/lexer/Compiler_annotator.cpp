@@ -169,6 +169,18 @@ void Annotator::annotateHandleDelimiter(LexContext *ctx, const string &, Token *
 void Annotator::annotateReservedKeyword(LexContext *ctx, const string &, Token *tk, TokenInfo *info)
 {
 	TokenInfo reserved_info = ctx->tmgr->getTokenInfo(tk->_data);
+
+	TokenManager *tmgr = ctx->tmgr;
+	Token *prev_tk = tmgr->previousToken(tk);
+	if (reserved_info.type == IfStmt && prev_tk->info.type == UseDecl) {
+		// For `if` statement which is used at `use` declaration.
+		// It should be treated as a `UsedName` instead of `IfStmt`.
+		// e.g.
+		//     use if $] < 5.009_005, 'MRO::Compat';
+		*info = tmgr->getTokenInfo(UsedName);
+		return;
+	}
+
 	if (reserved_info.type != TokenType::Undefined && ctx->prev_type != FunctionDecl) {
 		*info = reserved_info;
 	}
