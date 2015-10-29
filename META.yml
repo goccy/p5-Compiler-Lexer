@@ -1,0 +1,56 @@
+---
+abstract: 'Lexical Analyzer for Perl5'
+author:
+  - 'Masaaki Goshima (goccy) <goccy(at)cpan.org>'
+build_requires:
+  Devel::PPPort: '3.19'
+  ExtUtils::MakeMaker: '6.59'
+  ExtUtils::ParseXS: '2.21'
+  Test::More: '0.95'
+configure_requires:
+  Module::Build: '0.38'
+  Module::Build::XSUtil: '0.02'
+dynamic_config: 0
+generated_by: 'Minilla/v2.3.0, CPAN::Meta::Converter version 2.143240'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: '1.4'
+name: Compiler-Lexer
+no_index:
+  directory:
+    - t
+    - examples
+    - builder
+    - experiments
+provides:
+  Compiler::Lexer:
+    file: lib/Compiler/Lexer.pm
+    version: '0.22'
+  Compiler::Lexer::Kind:
+    file: lib/Compiler/Lexer/Constants.pm
+  Compiler::Lexer::SyntaxType:
+    file: lib/Compiler/Lexer/Constants.pm
+  Compiler::Lexer::Token:
+    file: lib/Compiler/Lexer/Token.pm
+  Compiler::Lexer::TokenType:
+    file: lib/Compiler/Lexer/Constants.pm
+requires:
+  XSLoader: '0.02'
+  perl: '5.008001'
+resources:
+  bugtracker: https://github.com/goccy/p5-Compiler-Lexer/issues
+  homepage: https://github.com/goccy/p5-Compiler-Lexer
+  repository: git://github.com/goccy/p5-Compiler-Lexer.git
+version: '0.22'
+x_authority: cpan:GOCCY
+x_contributors:
+  - 'tokuhirom <tokuhirom@gmail.com>'
+  - 'Reini Urban <rurban@cpanel.net>'
+  - 'Fumihiro Itoh <fmhrit@gmail.com>'
+  - 'Masaaki Goshima <masaaki.goshima@mixi.co.jp>'
+  - 'Olivier Mengué <dolmen@cpan.org>'
+  - 'Syohei YOSHIDA <syohex@gmail.com>'
+  - 'brian d foy <brian.d.foy@gmail.com>'
+  - 'moznion <moznion@gmail.com>'
+  - 'Masaaki Goshima <goccy54@gmail.com>'

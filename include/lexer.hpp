@@ -1,5 +1,6 @@
 #include <common.hpp>
 #include <keyword.hpp>
+#include <algorithm>
 
 typedef Token TokenPool;
 
@@ -130,6 +131,10 @@ public:
 
 class LexContext {
 public:
+    enum Constants {
+        kBufferGrowBy = 16
+    };
+
 	ScriptManager *smgr;
 	TokenManager  *tmgr;
 	FileInfo finfo;
@@ -138,17 +143,20 @@ public:
 	char *token_buffer;
 	size_t buffer_idx;
 	size_t script_size;
+    size_t buffer_size;
 	TokenPos itr;
 	Enum::Token::Type::Type prev_type;
 
 	LexContext(const char *filename, char *script);
 	LexContext(Tokens *tokens);
+    ~LexContext(void);
 
 	inline char *buffer(void) {
 		return token_buffer;
 	}
 
 	inline void clearBuffer(void) {
+        // debugContext();
 		token_buffer += buffer_idx;
 		token_buffer[0] = EOL;
 		buffer_idx = 0;
@@ -157,11 +165,15 @@ public:
 	}
 
 	inline void writeBuffer(char ch) {
+        // debugContext();
+        checkBuffers( 1 );
 		token_buffer[buffer_idx++] = ch;
 		token_buffer[buffer_idx] = EOL;
 	}
 
 	inline void writeBuffer(const char *str) {
+        // debugContext();
+        checkBuffers(kBufferGrowBy);
 		for (size_t i = 0; str[i] != EOL; i++) {
 			token_buffer[buffer_idx++] = str[i];
 		}
@@ -172,10 +184,36 @@ public:
 		return token_buffer[0] != EOL;
 	}
 
-	Token *tk(void);
-	Token *nextToken(void);
-	void next(void);
-	bool end(void);
+    inline void debugContext(void) {
+        std::cerr << 
+            "Context info: buffer_size: [" << buffer_size << 
+            "], progress: [" << progress << 
+            "], buff_idx: [" << buffer_idx << 
+            "], script_size: [" << script_size << 
+            "], rel_pos: [" << static_cast<int>(token_buffer - buffer_head) << 
+            "], idx_pos: [" << static_cast<int>(token_buffer - buffer_head + buffer_idx) << 
+            "]" << std::endl;
+    }
+
+    // y3i12- Undefined functions?
+	// Token *tk(void);
+	// Token *nextToken(void);
+	// void next(void);
+	// bool end(void);
+
+    inline void checkBuffers(size_t needed_space) {
+        size_t relative_position = token_buffer - buffer_head;
+        if ((relative_position + buffer_idx + needed_space) >= buffer_size) {
+            
+            needed_space = std::max< size_t >(needed_space, kBufferGrowBy);
+            buffer_head = reinterpret_cast<char*>(realloc(buffer_head, buffer_size + needed_space));
+
+            memset(buffer_head + buffer_size, 0, needed_space);
+            
+            token_buffer = buffer_head + relative_position;
+            buffer_size += needed_space;
+        }
+    }
 };
 
 class Module {
