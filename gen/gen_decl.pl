@@ -239,10 +239,12 @@ Function            BuiltinFunc             endpwent
 Function            BuiltinFunc             endservent
 Function            BuiltinFunc             eof
 Function            BuiltinFunc             eval
+Function            BuiltinFunc             evalbytes
 Function            BuiltinFunc             exec
 Function            BuiltinFunc             exists
 Function            BuiltinFunc             exit
 Function            BuiltinFunc             exp
+Function            BuiltinFunc             fc
 Function            BuiltinFunc             fcntl
 Function            BuiltinFunc             fileno
 Function            BuiltinFunc             flock
@@ -291,6 +293,7 @@ Function            BuiltinFunc             length
 Function            BuiltinFunc             link
 Function            BuiltinFunc             listen
 Function            BuiltinFunc             localtime
+Function            BuiltinFunc             lock
 Function            BuiltinFunc             log
 Function            BuiltinFunc             lstat
 Function            BuiltinFunc             map
@@ -310,12 +313,15 @@ Function            BuiltinFunc             pop
 Function            BuiltinFunc             pos
 Function            BuiltinFunc             print
 Function            BuiltinFunc             printf
+Function            BuiltinFunc             prototype
 Function            BuiltinFunc             push
 Function            BuiltinFunc             quotemeta
 Function            BuiltinFunc             rand
 Function            BuiltinFunc             read
 Function            BuiltinFunc             readdir
+Function            BuiltinFunc             readline
 Function            BuiltinFunc             readlink
+Function            BuiltinFunc             readpipe
 Function            BuiltinFunc             recv
 Function            BuiltinFunc             ref
 Function            BuiltinFunc             rename
@@ -363,6 +369,7 @@ Function            BuiltinFunc             study
 Function            BuiltinFunc             substr
 Function            BuiltinFunc             symlink
 Function            BuiltinFunc             syscall
+Function            BuiltinFunc             sysopen
 Function            BuiltinFunc             sysread
 Function            BuiltinFunc             sysseek
 Function            BuiltinFunc             system
