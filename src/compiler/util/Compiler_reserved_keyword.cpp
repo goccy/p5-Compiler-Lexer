@@ -1082,7 +1082,7 @@ ReservedKeywordMap::in_word_set (register const char *str, register unsigned int
       {"->", {Enum::Token::Type::Pointer, Enum::Token::Kind::Operator, "Pointer", "->"}},
       {""}, {""}, {""}, {""},
 #line 70 "gen/reserved_keywords.gperf"
-      {"//", {Enum::Token::Type::DefaultOperator, Enum::Token::Kind::Operator, "DefaultOperator", "//"}},
+      {"//", {Enum::Token::Type::RegExp, Enum::Token::Kind::Term, "RegExp", "//"}},
       {""}, {""}, {""}, {""},
 #line 304 "gen/reserved_keywords.gperf"
       {"-x", {Enum::Token::Type::Handle, Enum::Token::Kind::Handle, "Handle", "-x"}},
