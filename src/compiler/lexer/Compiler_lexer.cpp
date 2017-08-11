@@ -332,11 +332,13 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 	TokenKind::Kind prev_kind = TokenKind::Undefined;
 	TokenPos end_pos = tokens->end();
 	Tokens *new_tokens = new Tokens();
+	TokenPos start_pos = pos;
 	TokenPos intermediate_pos = pos;
 	Token *prev_syntax = NULL;
 	if (start_token) {
 		new_tokens->push_back(start_token);
 		intermediate_pos--;
+		start_pos = intermediate_pos;
 	}
 	while (pos != end_pos) {
 		Token *t = ITER_CAST(Token *, pos);
@@ -354,7 +356,7 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 			break;
 		}
 		case LeftBrace: {
-			Token *prev = ITER_CAST(Token *, pos-1);
+			Token *prev = pos != start_pos ? ITER_CAST(Token *, pos-1) : NULL;
 			if (prev) prev_type = prev->info.type;
 			pos++;
 			Token *syntax = parseSyntax(t, tokens);
