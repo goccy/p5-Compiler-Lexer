@@ -95,7 +95,7 @@ public:
 	}
 
 	inline char currentChar(void) {
-		return raw_script[idx];
+		return idx < script_size ? raw_script[idx] : EOL;
 	}
 
 	inline char nextChar(void) {
