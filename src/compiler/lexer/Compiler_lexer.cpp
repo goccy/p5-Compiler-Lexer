@@ -44,9 +44,7 @@ Tokens *Lexer::tokenize(char *script)
 	Token *tk = NULL;
 	TokenManager *tmgr = ctx->tmgr;
 	ScriptManager *smgr = ctx->smgr;
-	char ch = smgr->currentChar();
-	for (; ch != EOL; smgr->idx++) {
-		ch = smgr->currentChar();
+	for (char ch; (ch = smgr->currentChar()) != EOL; smgr->idx++) {
 		if (smgr->end()) break;
 		if (ch == '\n') ctx->finfo.start_line_num++;
 		if (scanner.isSkip(ctx)) {
@@ -55,6 +53,9 @@ Tokens *Lexer::tokenize(char *script)
 			smgr->idx += ctx->progress;
 			ctx->progress = 0;
 			if (smgr->end()) break;
+			// We should refetch after refresh the index.
+			ch = smgr->currentChar();
+			if (ch == '\n') ctx->finfo.start_line_num++;
 		}
 		switch (ch) {
 		case '"': case '\'': case '`':
@@ -312,10 +313,13 @@ bool Lexer::isExpr(Token *tk, Token *prev_tk, TokenType::Type type, TokenKind::K
 {
 	using namespace TokenType;
 	assert(tk->tks[0]->info.type == LeftBrace);
-	if (tk->token_num > 3 &&
-		(tk->tks[1]->info.type == Key   || tk->tks[1]->info.type == String) &&
+	if (tk->token_num > 1 && tk->tks[1]->info.type == RightBrace) {
+		return true;
+	} else if (tk->token_num > 3 && (
+		tk->tks[1]->info.type == Key    || tk->tks[1]->info.type == String ||
+		tk->tks[1]->info.type == Int    || tk->tks[1]->info.type == Double) &&
 		(tk->tks[2]->info.type == Arrow || tk->tks[2]->info.type == Comma)) {
-		/* { [key|"key"] [,|=>] value ... */
+		/* { [key|"key"|int|double] [,|=>] value ... */
 		return true;
 	} else if (type == Pointer || (type == Mul || type == Glob) || kind == TokenKind::Term || kind == TokenKind::Function ||/* type == FunctionDecl ||*/
 			((prev_tk && prev_tk->stype == SyntaxType::Expr) && (type == RightBrace || type == RightBracket))) {
@@ -332,13 +336,11 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 	TokenKind::Kind prev_kind = TokenKind::Undefined;
 	TokenPos end_pos = tokens->end();
 	Tokens *new_tokens = new Tokens();
-	TokenPos start_pos = pos;
 	TokenPos intermediate_pos = pos;
 	Token *prev_syntax = NULL;
 	if (start_token) {
 		new_tokens->push_back(start_token);
 		intermediate_pos--;
-		start_pos = intermediate_pos;
 	}
 	while (pos != end_pos) {
 		Token *t = ITER_CAST(Token *, pos);
@@ -348,6 +350,14 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 		case LeftBracket: case LeftParenthesis:
 		case ArrayDereference: case HashDereference: case ScalarDereference:
 		case ArraySizeDereference: {
+			// Syntax error, It didn't close the brackets.
+			if (pos+1 == tokens->end()) {
+				fprintf(stderr, 
+					"ERROR!!: It didn't close the brackets. near %s:%lu\n",
+					t->finfo.filename, t->finfo.start_line_num
+				);
+				exit(EXIT_FAILURE);
+			}
 			pos++;
 			Token *syntax = parseSyntax(t, tokens);
 			syntax->stype = SyntaxType::Expr;
@@ -356,7 +366,15 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 			break;
 		}
 		case LeftBrace: {
-			Token *prev = pos != start_pos ? ITER_CAST(Token *, pos-1) : NULL;
+			// Syntax error, It didn't close the brackets.
+			if (pos+1 == tokens->end()) {
+				fprintf(stderr, 
+					"ERROR!!: It didn't close the brackets. near %s:%lu\n",
+					t->finfo.filename, t->finfo.start_line_num
+				);
+				exit(EXIT_FAILURE);
+			}
+			Token *prev = ITER_CAST(Token *, pos-1);
 			if (prev) prev_type = prev->info.type;
 			pos++;
 			Token *syntax = parseSyntax(t, tokens);

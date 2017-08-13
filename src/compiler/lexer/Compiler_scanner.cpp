@@ -1024,9 +1024,8 @@ bool Scanner::isSkip(LexContext *ctx)
 		if (smgr->previousChar() == '\n' && idx + len < ctx->script_size) {
 			size_t i;
 			for (i = 0; i < len && script[idx + i] == here_document_tag.at(i); i++);
-
-			char last_char = script[idx + i];
-			if (i == len && (last_char == '\n' || last_char == '\0')) {
+			char tag_after_char = script[idx + i];
+			if (i == len && (tag_after_char == '\n' || tag_after_char == EOL)) {
 				ctx->progress = len;
 				if (verbose) ctx->finfo.start_line_num++;
 				Token *tk = ctx->tmgr->new_Token(ctx->buffer(), ctx->finfo);
