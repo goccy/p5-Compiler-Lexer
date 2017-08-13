@@ -273,7 +273,7 @@ bool Scanner::isRegexDelim(Token *prev_token, char symbol)
 	/* [^0-9] && !"0" && !CONST && !{hash} && ![array] && !func() && !$var */
 	string prev_tk = string(prev_data);
 	if (regex_delim == 0 && prev_token && prev_token->info.type == TokenType::Undefined &&
-		(symbol != '-' && symbol != '=' && symbol != ',' && symbol != ')') &&
+		(symbol != '-' && symbol != '=' && symbol != ',' && symbol != ')' && symbol != '}') &&
 		regex_prefix_map.find(prev_tk) != regex_prefix_map.end()) {
 		return true;
 	} else if (regex_delim == 0 && prev_token &&
@@ -800,34 +800,27 @@ Token *Scanner::scanWhiteSpace(LexContext *ctx)
 	Token *prev_tk = tmgr->lastToken();
 	TokenType::Type prev_type = (prev_tk) ? prev_tk->info.type : TokenType::Undefined;
 
-	if (prev_type == TokenType::Comment || prev_type == TokenType::Pod) {
-		// Add WhiteSpace token (data: '\n') for Comment or Pod token
-		// Because the newline character is not on the trailing of those tokens
-		ctx->writeBuffer('\n');
-		ctx->finfo.start_line_num = prev_tk->finfo.start_line_num;
-	} else {
-		bool does_ws_continue = false;
-		ScriptManager *smgr = ctx->smgr;
-		for (; !smgr->end(); smgr->next()) {
-			char ch = smgr->currentChar();
-			if (ch == ' ' || ch == '\t') {
-				// For normal whitespace.
-				// It collects into one token when a whitespace continues.
-				ctx->writeBuffer(ch);
-				does_ws_continue = true;
-				continue;
-			} else if (!does_ws_continue && ch == '\n') {
-				// For newline character.
-				// It should be on the same line to before token.
-				ctx->writeBuffer(ch);
-				if (verbose && prev_type != TokenType::HereDocumentEnd) {
-					ctx->finfo.start_line_num = prev_tk->finfo.start_line_num;
-				}
-				break;
+	bool does_ws_continue = false;
+	ScriptManager *smgr = ctx->smgr;
+	for (; !smgr->end(); smgr->next()) {
+		char ch = smgr->currentChar();
+		if (ch == ' ' || ch == '\t') {
+			// For normal whitespace.
+			// It collects into one token when a whitespace continues.
+			ctx->writeBuffer(ch);
+			does_ws_continue = true;
+			continue;
+		} else if (!does_ws_continue && ch == '\n') {
+			// For newline character.
+			// It should be on the same line to before token.
+			ctx->writeBuffer(ch);
+			if (verbose) {
+				ctx->finfo.start_line_num = prev_tk->finfo.start_line_num;
 			}
-			smgr->back();
 			break;
 		}
+		smgr->back();
+		break;
 	}
 
 	if (!verbose) {
@@ -835,10 +828,14 @@ Token *Scanner::scanWhiteSpace(LexContext *ctx)
 		return NULL;
 	}
 
-	Token *token = tmgr->new_Token(ctx->buffer(), ctx->finfo);
-	token->info = tmgr->getTokenInfo(TokenType::WhiteSpace);
-	ctx->clearBuffer();
-	return token;
+	if (ctx->existsBuffer()) {
+		Token *token = tmgr->new_Token(ctx->buffer(), ctx->finfo);
+		token->info = tmgr->getTokenInfo(TokenType::WhiteSpace);
+		ctx->clearBuffer();
+		return token;
+	}
+
+	return NULL;
 }
 
 #undef NEXT
@@ -860,7 +857,7 @@ bool Scanner::isSkip(LexContext *ctx)
 		isalnum(smgr->nextChar())) {
 		if (smgr->compare(1, 3, "cut")) {
 			DBG_PL("commentFlag => OFF");
-			ctx->progress = 4;
+			smgr->idx += 4;
 			commentFlag = false;
 			ret = false;
 			if (verbose) {

@@ -50,12 +50,13 @@ Tokens *Lexer::tokenize(char *script)
 		if (scanner.isSkip(ctx)) {
 			continue;
 		} else {
-			smgr->idx += ctx->progress;
-			ctx->progress = 0;
-			if (smgr->end()) break;
-			// We should refetch after refresh the index.
-			ch = smgr->currentChar();
-			if (ch == '\n') ctx->finfo.start_line_num++;
+			if (ctx->progress > 0) {
+				smgr->idx += ctx->progress - 1;
+				ctx->progress = 0;
+				if (smgr->end()) break;
+				// We should refetch after refresh the index.
+				continue;
+			}
 		}
 		switch (ch) {
 		case '"': case '\'': case '`':

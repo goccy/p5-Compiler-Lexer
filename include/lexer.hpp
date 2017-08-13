@@ -71,6 +71,7 @@ public:
 	char *_script;
 	char *raw_script;
 	size_t script_size;
+	size_t raw_script_size;
 	size_t idx;
 
 	ScriptManager(char *script);
@@ -95,7 +96,7 @@ public:
 	}
 
 	inline char currentChar(void) {
-		return idx < script_size ? raw_script[idx] : EOL;
+		return idx < raw_script_size ? raw_script[idx] : EOL;
 	}
 
 	inline char nextChar(void) {
