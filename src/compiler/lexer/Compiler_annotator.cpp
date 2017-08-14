@@ -152,6 +152,10 @@ void Annotator::annotateHandleDelimiter(LexContext *ctx, const string &, Token *
 {
 	if (tk->_data[0] != '<') return;
 	Token *prev_tk = ctx->tmgr->previousToken(tk);
+	/* refetch is necessary when verbose mode */
+	while (prev_tk != NULL && prev_tk->info.type == TokenType::WhiteSpace) {
+		prev_tk	= ctx->tmgr->previousToken(prev_tk);
+	}
 	TokenKind::Kind prev_kind = (prev_tk) ? prev_tk->info.kind : TokenKind::Undefined;
 	TokenType::Type prev_type = (prev_tk) ? prev_tk->info.type : TokenType::Undefined;
 	if (prev_type == SemiColon || prev_type == LeftParenthesis || prev_type == Comma ||
@@ -182,7 +186,34 @@ void Annotator::annotateReservedKeyword(LexContext *ctx, const string &, Token *
 	}
 
 	if (reserved_info.type != TokenType::Undefined && ctx->prev_type != FunctionDecl) {
-		*info = reserved_info;
+		switch (ctx->prev_type) {
+		/* ${m} or @{m} or %{m} or &{m} or $#{m} */
+		case ArrayDereference:
+		case HashDereference:
+		case ScalarDereference:
+		case CodeDereference:
+		case ArraySizeDereference:
+			*info = tmgr->getTokenInfo(Key);
+			break;
+		case HandleDelim: {
+			/* <m> or <tr> */
+			Token *next_tk = tk;
+			/* refetch is necessary when verbose mode */
+			do {
+				next_tk	= ctx->tmgr->nextToken(next_tk);
+			} while (next_tk != NULL && next_tk->info.type == TokenType::WhiteSpace);
+
+			if (next_tk && next_tk->info.type == HandleDelim &&
+				(reserved_info.type == RegMatch || reserved_info.type == RegAllReplace)) {
+				*info = tmgr->getTokenInfo(Key);
+				break;
+			}
+			/* fallthrough */
+		}
+		default:
+			*info = reserved_info;
+			break;
+		}
 	}
 }
 

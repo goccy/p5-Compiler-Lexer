@@ -207,6 +207,7 @@ public:
 	StringMap regex_prefix_map;
 	StringMap regex_replace_map;
 	StringMap enable_regex_argument_func_map;
+	StringMap dereference_prefix_map;
 	DoubleCharactorOperatorMap double_operator_map;
 	TripleCharactorOperatorMap triple_operator_map;
 	StringMap operator_map;
@@ -215,7 +216,7 @@ public:
 	Scanner(void);
 	bool isRegexStartDelim(LexContext *ctx, const StringMap &list);
 	bool isRegexEndDelim(LexContext *ctx);
-	bool isRegexDelim(Token *prev_token, char symbol);
+	bool isRegexDelim(LexContext *ctx, Token *prev_token, char symbol);
 	bool isHereDocument(LexContext *ctx, Token *prev_token);
 	bool isPostDeref(LexContext *ctx);
 	bool isFormat(LexContext *ctx, Token *tk);

@@ -37,17 +37,21 @@ Scanner::Scanner() :
 		/*"$$",*/  "$<",  "$>",  "$(",  "$)",  "$[",  "$]",
 		NULL
 	};
+	const char *dereference_prefixes[] = {
+		"@{", "%{", "${", "&{", "$#{", NULL
+	};
 	for (size_t i = 0; regex_prefixes[i] != NULL; i++) {
 		regex_prefix_map.insert(StringMap::value_type(regex_prefixes[i], ""));
 	}
 	for (size_t i = 0; regex_replaces[i] != NULL; i++) {
 		enable_regex_argument_func_map.insert(StringMap::value_type(enable_regex_argument_funcs[i], ""));
-	}
-	for (size_t i = 0; regex_replaces[i] != NULL; i++) {
 		regex_replace_map.insert(StringMap::value_type(regex_replaces[i], ""));
 	}
 	for (size_t i = 0; operators[i] != NULL; i++) {
 		operator_map.insert(StringMap::value_type(operators[i], ""));
+	}
+	for (size_t i = 0; dereference_prefixes[i] != NULL; i++) {
+		dereference_prefix_map.insert(StringMap::value_type(dereference_prefixes[i], ""));
 	}
 }
 
@@ -193,7 +197,12 @@ bool Scanner::isRegexStartDelim(LexContext *ctx, const StringMap &map)
 	if (before_prev_data == "*") return false;  /* glob */
 	if (before_prev_data == "&") return false;  /* function call */
 	if (before_prev_data == "::") return false; /* method call */
-	if (symbol == '}' || symbol == '=' || symbol == ')') return false;
+	/* ${m} or @{m} or %{m} or &{m} or $#{m} */
+	if (symbol == '}') {
+		/* it will return true if before_prev_data is not dereference */
+		return dereference_prefix_map.find(before_prev_data) == dereference_prefix_map.end();
+	}
+	if (symbol == '=' || symbol == ')' || symbol == '>') return false;
 	if (before_prev_kind == TokenKind::Modifier) return false; /* dereference */
 	return true;
 }
@@ -267,14 +276,28 @@ bool Scanner::isFormat(LexContext *, Token *tk)
 	return (string(tk->_data) == "format") ? true : false;
 }
 
-bool Scanner::isRegexDelim(Token *prev_token, char symbol)
+bool Scanner::isRegexDelim(LexContext *ctx, Token *prev_token, char symbol)
 {
+	/* refetch is necessary when verbose mode */
+	while (prev_token != NULL && prev_token->info.type == TokenType::WhiteSpace) {
+		prev_token = ctx->tmgr->previousToken(prev_token);
+	}
 	const char *prev_data = (prev_token) ? prev_token->_data : "";
 	/* [^0-9] && !"0" && !CONST && !{hash} && ![array] && !func() && !$var */
 	string prev_tk = string(prev_data);
 	if (regex_delim == 0 && prev_token && prev_token->info.type == TokenType::Undefined &&
-		(symbol != '-' && symbol != '=' && symbol != ',' && symbol != ')' && symbol != '}') &&
+		(symbol != '-' && symbol != '=' && symbol != ',' && symbol != ')') &&
 		regex_prefix_map.find(prev_tk) != regex_prefix_map.end()) {
+		/* ${m} or @{m} or %{m} or &{m} or $#{m} */
+		if (symbol == '}') {
+			/* more back */
+			do {
+				prev_token = ctx->tmgr->previousToken(prev_token);
+			} while (prev_token != NULL && prev_token->info.type == TokenType::WhiteSpace);
+			prev_tk = string((prev_token) ? prev_token->_data : "");
+			/* it will return true if before_prev_data is not dereference */
+			return dereference_prefix_map.find(prev_tk) == dereference_prefix_map.end();
+		}
 		return true;
 	} else if (regex_delim == 0 && prev_token &&
 			   (prev_token->info.kind == TokenKind::RegPrefix || prev_token->info.kind == TokenKind::RegReplacePrefix)) {
@@ -386,7 +409,7 @@ Token *Scanner::scanCurSymbol(LexContext *ctx, char symbol)
 	int idx = ctx->tmgr->size() - 2;
 	string prev_before = (idx >= 0) ? string(ctx->tmgr->beforeLastToken()->_data) : "";
 	if ((prev_before != "sub" && !isRegexOptionPrevToken(ctx) &&
-		 isRegexDelim(prev_tk, symbol)) ||
+		 isRegexDelim(ctx, prev_tk, symbol)) ||
 		(prev_data   == "{"   && symbol == '/')) {
 		if (!isRegexEndDelim(ctx)) {
 			regex_delim = getRegexDelim(ctx);
@@ -815,7 +838,7 @@ Token *Scanner::scanWhiteSpace(LexContext *ctx)
 			// It should be on the same line to before token.
 			ctx->writeBuffer(ch);
 			if (verbose) {
-				ctx->finfo.start_line_num = prev_tk->finfo.start_line_num;
+				ctx->finfo.start_line_num = (prev_tk != NULL) ? prev_tk->finfo.start_line_num : 1;
 			}
 			break;
 		}
@@ -918,15 +941,21 @@ bool Scanner::isSkip(LexContext *ctx)
 			switch (cur_ch) {
 			case '{': brace_count_inner_regex++;
 				break;
-			case '}': brace_count_inner_regex--;
+			case '}':
+				if (brace_count_inner_regex > 0)
+					brace_count_inner_regex--;
 				break;
 			case '[': bracket_count_inner_regex++;
 				break;
-			case ']': bracket_count_inner_regex--;
+			case ']':
+				if (bracket_count_inner_regex > 0)
+					bracket_count_inner_regex--;
 				break;
 			case '(': cury_brace_count_inner_regex++;
 				break;
-			case ')': cury_brace_count_inner_regex--;
+			case ')':
+				if (cury_brace_count_inner_regex > 0)
+					cury_brace_count_inner_regex--;
 				break;
 			default:
 				break;

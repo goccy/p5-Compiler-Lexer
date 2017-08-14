@@ -343,6 +343,8 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 		new_tokens->push_back(start_token);
 		intermediate_pos--;
 	}
+	TokenPos start_pos = pos;
+	
 	while (pos != end_pos) {
 		Token *t = ITER_CAST(Token *, pos);
 		Type type = t->info.type;
@@ -375,7 +377,7 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 				);
 				exit(EXIT_FAILURE);
 			}
-			Token *prev = ITER_CAST(Token *, pos-1);
+			Token *prev = pos != start_pos ? ITER_CAST(Token *, pos-1) : NULL;
 			if (prev) prev_type = prev->info.type;
 			pos++;
 			Token *syntax = parseSyntax(t, tokens);
@@ -388,7 +390,7 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 				syntax->stype = SyntaxType::BlockStmt;
 			} else {
 				syntax->stype = SyntaxType::BlockStmt;
-				if (pos+1 != tokens->end()) {
+				if (ITER_CAST(Token *, pos+1) && pos+1 != tokens->end()) {
 					Token *next_tk = ITER_CAST(Token *, pos+1);
 					if (next_tk && next_tk->info.type != SemiColon) {
 						intermediate_pos = pos;
