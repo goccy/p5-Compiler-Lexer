@@ -223,7 +223,14 @@ void Annotator::annotateGlobOrMul(LexContext *ctx, const string &, Token *tk, To
 	Token *prev_tk = ctx->tmgr->previousToken(tk);
 	TokenType::Type prev_type = (prev_tk) ? prev_tk->info.type : TokenType::Undefined;
 	TokenKind::Kind prev_kind = (prev_tk) ? prev_tk->info.kind : TokenKind::Undefined;
-	if (prev_type == SemiColon || prev_type == LeftParenthesis ||
+	Token *next_tk = tk;
+	/* refetch is necessary when verbose mode */
+	do {
+		next_tk	= ctx->tmgr->nextToken(next_tk);
+	} while (next_tk != NULL && next_tk->info.type == TokenType::WhiteSpace);
+
+	if ((next_tk && next_tk->_data[0] == '=') ||
+		prev_type == SemiColon || prev_type == LeftParenthesis ||
 		prev_type == LeftBrace || prev_type == Comma ||
 		prev_type == ScalarDereference ||
 		prev_kind == TokenKind::Assign ||

@@ -427,6 +427,24 @@ Token *Scanner::scanCurSymbol(LexContext *ctx, char symbol)
 		ret = ctx->tmgr->new_Token(ctx->buffer(), ctx->finfo);
 		ret->info = tmgr->getTokenInfo(TokenType::RegDelim);
 		ctx->clearBuffer();
+	} else if (symbol == '*') {
+		char ch = symbol;
+		size_t progressing = 0;
+		ScriptManager *smgr = ctx->smgr;
+		ctx->writeBuffer(ch);
+		/* skip whitespaces */
+		do {
+			smgr->idx++;
+			progressing++;
+			if (smgr->end()) break;
+			ch = smgr->currentChar();
+		} while (ch == ' ' || ch == '\n');
+		/* rollback */
+		smgr->idx -= progressing;
+		/* if syntax is like *[a-zA-Z_] */
+		if (isalpha(ch) || ch == '_') return ret;
+		ret = ctx->tmgr->new_Token(ctx->buffer(), ctx->finfo);
+		ctx->clearBuffer();
 	} else if (symbol == '@' || symbol == '$' || symbol == '%') { //|| symbol == '&')
 		ctx->writeBuffer(symbol);
 	} else if (symbol == ';') {
