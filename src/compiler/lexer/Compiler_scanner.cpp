@@ -184,7 +184,7 @@ bool Scanner::isRegexStartDelim(LexContext *ctx, const StringMap &map)
 {
 	/* exclude { m } or { m => ... } or { m, ... } or *m or //m */
 	string prev_data = string(ctx->buffer());
-	//... [before_prev_token] [prev_token] [symbol] ...
+	//... [more_before_prev_token] [before_prev_token] [prev_token] [symbol] ...
 	if (map.find(prev_data) == map.end()) return false;
 	Token *before_prev_token = ctx->tmgr->lastToken();
 	string before_prev_data = (before_prev_token) ? string(before_prev_token->_data) : "";
@@ -197,8 +197,12 @@ bool Scanner::isRegexStartDelim(LexContext *ctx, const StringMap &map)
 	if (before_prev_data == "*") return false;  /* glob */
 	if (before_prev_data == "&") return false;  /* function call */
 	if (before_prev_data == "::") return false; /* method call */
-	/* ${m} or @{m} or %{m} or &{m} or $#{m} */
+	/* ${m} or @{m} or %{m} or &{m} or $#{m} or $Var{m} */
 	if (symbol == '}') {
+		Token *more_before_prev_token = ctx->tmgr->beforeLastToken();
+		if (more_before_prev_token && more_before_prev_token->_data[0] == '$') {
+			return false;
+		}
 		/* it will return true if before_prev_data is not dereference */
 		return dereference_prefix_map.find(before_prev_data) == dereference_prefix_map.end();
 	}
@@ -288,13 +292,18 @@ bool Scanner::isRegexDelim(LexContext *ctx, Token *prev_token, char symbol)
 	if (regex_delim == 0 && prev_token && prev_token->info.type == TokenType::Undefined &&
 		(symbol != '-' && symbol != '=' && symbol != ',' && symbol != ')') &&
 		regex_prefix_map.find(prev_tk) != regex_prefix_map.end()) {
-		/* ${m} or @{m} or %{m} or &{m} or $#{m} */
+		/* ${m} or @{m} or %{m} or &{m} or $#{m} or $Var{m} */
 		if (symbol == '}') {
 			/* more back */
 			do {
 				prev_token = ctx->tmgr->previousToken(prev_token);
 			} while (prev_token != NULL && prev_token->info.type == TokenType::WhiteSpace);
 			prev_tk = string((prev_token) ? prev_token->_data : "");
+			
+			Token *more_prev_tk = ctx->tmgr->previousToken(prev_token);
+			if (more_prev_tk && more_prev_tk->_data[0] == '$') {
+				return false;
+			}
 			/* it will return true if before_prev_data is not dereference */
 			return dereference_prefix_map.find(prev_tk) == dereference_prefix_map.end();
 		}
