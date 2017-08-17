@@ -143,8 +143,7 @@ Token *TokenManager::back(void)
 ScriptManager::ScriptManager(char *script) :
 	_script(script), raw_script(script), idx(0)
 {
-	raw_script_size = strlen(script);
-	script_size = raw_script_size + 1;
+	script_size = strlen(script) + 1;
 }
 
 bool ScriptManager::compare(int start, int len, std::string target)

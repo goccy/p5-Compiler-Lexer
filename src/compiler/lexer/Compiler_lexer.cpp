@@ -344,7 +344,7 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 		intermediate_pos--;
 	}
 	TokenPos start_pos = pos;
-	
+
 	while (pos != end_pos) {
 		Token *t = ITER_CAST(Token *, pos);
 		Type type = t->info.type;
@@ -354,7 +354,8 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 		case ArrayDereference: case HashDereference: case ScalarDereference:
 		case ArraySizeDereference: {
 			// Syntax error, It didn't close the brackets.
-			if (pos+1 == tokens->end()) {
+			if (pos+1 == end_pos) {
+				/* Maybe we should use croak? */
 				fprintf(stderr, 
 					"ERROR!!: It didn't close the brackets. near %s:%lu\n",
 					t->finfo.filename, t->finfo.start_line_num
@@ -370,9 +371,10 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 		}
 		case LeftBrace: {
 			// Syntax error, It didn't close the brackets.
-			if (pos+1 == tokens->end()) {
+			if (pos+1 == end_pos) {
+				/* Maybe we should use croak? */
 				fprintf(stderr, 
-					"ERROR!!: It didn't close the brackets. near %s:%lu\n",
+					"ERROR!!: It didn't close the brace. near %s:%lu\n",
 					t->finfo.filename, t->finfo.start_line_num
 				);
 				exit(EXIT_FAILURE);
@@ -390,7 +392,7 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 				syntax->stype = SyntaxType::BlockStmt;
 			} else {
 				syntax->stype = SyntaxType::BlockStmt;
-				if (ITER_CAST(Token *, pos+1) && pos+1 != tokens->end()) {
+				if (pos+1 != end_pos) {
 					Token *next_tk = ITER_CAST(Token *, pos+1);
 					if (next_tk && next_tk->info.type != SemiColon) {
 						intermediate_pos = pos;
@@ -433,7 +435,8 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 		}
 		prev_kind = kind;
 		prev_type = type;
-		pos++;
+		// We should prevent to increment pos over the end_pos
+		if (pos != end_pos) pos++; 
 	}
 	return new Token(new_tokens);
 }
