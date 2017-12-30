@@ -152,10 +152,6 @@ void Annotator::annotateHandleDelimiter(LexContext *ctx, const string &, Token *
 {
 	if (tk->_data[0] != '<') return;
 	Token *prev_tk = ctx->tmgr->previousToken(tk);
-	/* refetch is necessary when verbose mode */
-	while (prev_tk != NULL && prev_tk->info.type == TokenType::WhiteSpace) {
-		prev_tk	= ctx->tmgr->previousToken(prev_tk);
-	}
 	TokenKind::Kind prev_kind = (prev_tk) ? prev_tk->info.kind : TokenKind::Undefined;
 	TokenType::Type prev_type = (prev_tk) ? prev_tk->info.type : TokenType::Undefined;
 	if (prev_type == SemiColon || prev_type == LeftParenthesis || prev_type == Comma ||
@@ -197,12 +193,7 @@ void Annotator::annotateReservedKeyword(LexContext *ctx, const string &, Token *
 			break;
 		case HandleDelim: {
 			/* <m> or <tr> */
-			Token *next_tk = tk;
-			/* refetch is necessary when verbose mode */
-			do {
-				next_tk	= ctx->tmgr->nextToken(next_tk);
-			} while (next_tk != NULL && next_tk->info.type == TokenType::WhiteSpace);
-
+			Token *next_tk = ctx->tmgr->nextToken(tk);
 			if (next_tk && next_tk->info.type == HandleDelim &&
 				(reserved_info.type == RegMatch || reserved_info.type == RegAllReplace)) {
 				*info = tmgr->getTokenInfo(Key);
@@ -223,11 +214,7 @@ void Annotator::annotateGlobOrMul(LexContext *ctx, const string &, Token *tk, To
 	Token *prev_tk = ctx->tmgr->previousToken(tk);
 	TokenType::Type prev_type = (prev_tk) ? prev_tk->info.type : TokenType::Undefined;
 	TokenKind::Kind prev_kind = (prev_tk) ? prev_tk->info.kind : TokenKind::Undefined;
-	Token *next_tk = tk;
-	/* refetch is necessary when verbose mode */
-	do {
-		next_tk	= ctx->tmgr->nextToken(next_tk);
-	} while (next_tk != NULL && next_tk->info.type == TokenType::WhiteSpace);
+	Token *next_tk = ctx->tmgr->nextToken(tk);
 
 	if ((next_tk && next_tk->_data[0] == '=') ||
 		prev_type == SemiColon || prev_type == LeftParenthesis ||

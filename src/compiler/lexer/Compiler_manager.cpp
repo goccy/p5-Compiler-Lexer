@@ -2,13 +2,14 @@
 
 namespace TokenType = Enum::Token::Type;
 
-TokenManager::TokenManager(size_t script_size) : max_token_size(0), idx(0)
+TokenManager::TokenManager(size_t script_size, bool verbose) : max_token_size(0), idx(0)
 {
 	size_t token_size = sizeof(Token);
 	tokens = new Tokens();
 	pool = (TokenPool *)calloc(script_size, token_size);
 	head = pool;
 	undefined_info = getTokenInfo(TokenType::Undefined);
+	this->verbose = verbose;
 }
 
 Token *TokenManager::at(size_t i)
@@ -18,17 +19,44 @@ Token *TokenManager::at(size_t i)
 
 Token *TokenManager::nextToken(Token *tk)
 {
-	return (tk + 1 < pool) ? tk + 1 : NULL;
+	if (!verbose) {
+		return (tk + 1 < pool) ? tk + 1 : NULL;
+	}
+	Token *next_tk = (tk + 1 < pool) ? tk + 1 : NULL;
+	/* refetch is necessary when verbose mode */
+	while (next_tk != NULL && next_tk->info.type == TokenType::WhiteSpace) {
+		next_tk = (next_tk + 1 < pool) ? next_tk + 1 : NULL;
+	}
+	return next_tk;
 }
 
 Token *TokenManager::previousToken(Token *tk)
 {
-	return (tk != head) ? tk - 1 : NULL;
+	if (!verbose) {
+		return (tk != head) ? tk - 1 : NULL;
+	}
+	Token *prev_tk = (tk != head) ? tk - 1 : NULL;
+	/* refetch is necessary when verbose mode */
+	while (prev_tk != NULL && prev_tk->info.type == TokenType::WhiteSpace) {
+		prev_tk = (prev_tk != head) ? prev_tk - 1 : NULL;
+	}
+	return prev_tk;
 }
 
 Token *TokenManager::beforePreviousToken(Token *tk)
 {
-	return (tk != head && (tk-1) != head) ? tk - 2 : NULL;
+	if (!verbose) {
+		 return (tk != head && (tk-1) != head) ? tk - 2 : NULL;
+	}
+	Token *prev_tk = (tk != head) ? tk - 1 : NULL;
+	while (prev_tk != NULL && prev_tk->info.type == TokenType::WhiteSpace) {
+		prev_tk = (prev_tk != head) ? prev_tk - 1 : NULL;
+	}
+	Token *before_prev_tk = (prev_tk != head) ? prev_tk - 1 : NULL;
+	while (before_prev_tk != NULL && before_prev_tk->info.type == TokenType::WhiteSpace) {
+		before_prev_tk = (before_prev_tk != head) ? before_prev_tk - 1 : NULL;
+	}
+	return before_prev_tk;
 }
 
 Token *TokenManager::lastToken(void)
@@ -81,7 +109,7 @@ Token *TokenManager::beforePreviousToken(void)
 	size_t size = tokens->size();
 	int wanted_idx = current_idx - 2;
 	return (0 <= wanted_idx && (size_t)wanted_idx < size) ?
-		tokens->at(wanted_idx) : NULL;
+		this->beforePreviousToken(tokens->at(current_idx)) : NULL;
 }
 
 Token *TokenManager::previousToken(void)
@@ -90,7 +118,7 @@ Token *TokenManager::previousToken(void)
 	size_t size = tokens->size();
 	int wanted_idx = current_idx - 1;
 	return (0 <= wanted_idx && (size_t)wanted_idx < size) ?
-		tokens->at(wanted_idx) : NULL;
+		this->previousToken(tokens->at(current_idx)) : NULL;
 }
 
 Token *TokenManager::currentToken(void)
@@ -106,16 +134,7 @@ Token *TokenManager::nextToken(void)
 	size_t size = tokens->size();
 	int wanted_idx = current_idx + 1;
 	return (0 <= wanted_idx && (size_t)wanted_idx < size) ?
-		tokens->at(wanted_idx) : NULL;
-}
-
-Token *TokenManager::afterNextToken(void)
-{
-	size_t current_idx = this->idx;
-	size_t size = tokens->size();
-	int wanted_idx = current_idx + 2;
-	return (0 <= wanted_idx && (size_t)wanted_idx < size) ?
-		tokens->at(wanted_idx) : NULL;
+		this->nextToken(tokens->at(current_idx)) : NULL;
 }
 
 Token *TokenManager::next(void)

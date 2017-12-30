@@ -11,7 +11,7 @@ namespace TokenKind = Enum::Token::Kind;
 Module::Module(const char *name_, const char *args_)
 	: name(name_), args(args_) {}
 
-LexContext::LexContext(const char *filename, char *script)
+LexContext::LexContext(const char *filename, char *script, bool verbose)
 	: progress(0), buffer_idx(0)
 {
 	script_size = strlen(script) + 1;
@@ -20,7 +20,7 @@ LexContext::LexContext(const char *filename, char *script)
 	token_buffer[0] = EOL;
 	prev_type = TokenType::Undefined;
 	smgr = new ScriptManager(script);
-	tmgr = new TokenManager(script_size + EXTEND_BUFFER_SIZE);
+	tmgr = new TokenManager(script_size + EXTEND_BUFFER_SIZE, verbose);
 	finfo.start_line_num = 1;
 	finfo.filename = filename;
 }
@@ -40,7 +40,7 @@ Tokens *Lexer::tokenize(char *script)
 {
 	Scanner scanner;
 	scanner.verbose = verbose;
-	ctx = new LexContext(filename, script);
+	ctx = new LexContext(filename, script, verbose);
 	Token *tk = NULL;
 	TokenManager *tmgr = ctx->tmgr;
 	ScriptManager *smgr = ctx->smgr;

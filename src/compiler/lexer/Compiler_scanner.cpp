@@ -155,6 +155,31 @@ Token *Scanner::scanQuote(LexContext *ctx, char quote)
 	return ret;
 }
 
+Token *Scanner::scanRegQuote(LexContext *ctx, char delim)
+{
+	TokenManager *tmgr = ctx->tmgr;
+	ScriptManager *smgr = ctx->smgr;
+	for (; !smgr->end(); smgr->next()) {
+		char ch = smgr->currentChar();
+		if (ch == '\n') {
+			ctx->writeBuffer(ch);
+			ctx->finfo.start_line_num++;
+		} else if (ch == delim) {
+			break;
+		} else {
+			ctx->writeBuffer(ch);
+		}
+	}
+	if (smgr->end()) smgr->back();
+
+	char *token = ctx->buffer();
+	Token *ret = tmgr->new_Token(token, ctx->finfo);
+	ret->info = tmgr->getTokenInfo(TokenType::RegExp);
+	ctx->clearBuffer();
+
+	return ret;
+}
+
 bool Scanner::scanNegativeNumber(LexContext *ctx, char number)
 {
 	char num_buffer[2] = {0};
@@ -282,10 +307,6 @@ bool Scanner::isFormat(LexContext *, Token *tk)
 
 bool Scanner::isRegexDelim(LexContext *ctx, Token *prev_token, char symbol)
 {
-	/* refetch is necessary when verbose mode */
-	while (prev_token != NULL && prev_token->info.type == TokenType::WhiteSpace) {
-		prev_token = ctx->tmgr->previousToken(prev_token);
-	}
 	const char *prev_data = (prev_token) ? prev_token->_data : "";
 	/* [^0-9] && !"0" && !CONST && !{hash} && ![array] && !func() && !$var */
 	string prev_tk = string(prev_data);
@@ -295,9 +316,7 @@ bool Scanner::isRegexDelim(LexContext *ctx, Token *prev_token, char symbol)
 		/* ${m} or @{m} or %{m} or &{m} or $#{m} or $Var{m} */
 		if (symbol == '}') {
 			/* more back */
-			do {
-				prev_token = ctx->tmgr->previousToken(prev_token);
-			} while (prev_token != NULL && prev_token->info.type == TokenType::WhiteSpace);
+			prev_token = ctx->tmgr->previousToken(prev_token);
 			prev_tk = string((prev_token) ? prev_token->_data : "");
 			
 			Token *more_prev_tk = ctx->tmgr->previousToken(prev_token);
@@ -965,6 +984,37 @@ bool Scanner::isSkip(LexContext *ctx)
     } else if (isRegexStarted) {
 		char before_prev_ch = smgr->beforePreviousChar();
 		if (prev_ch != '\\' || (prev_ch == '\\' && before_prev_ch == '\\')) {
+			Token *last_tk = tmgr->lastToken();
+			Token *before_last_tk = tmgr->beforeLastToken();
+			TokenType::Type prefixType = before_last_tk ? before_last_tk->info.type : TokenType::Undefined;
+			if (last_tk && (prefixType == TokenType::RegQuote
+			|| prefixType == TokenType::RegDoubleQuote
+			|| prefixType == TokenType::RegExec
+			|| prefixType == TokenType::RegList)) {
+				char end_delim;
+				char last_ch = last_tk->_data[0];
+				switch (last_ch) {
+				case '{': end_delim = '}'; break;
+				case '[': end_delim = ']'; break;
+				case '(': end_delim = ')'; break;
+				default: end_delim = last_ch; break;
+				}
+				
+				tmgr->add(this->scanRegQuote(ctx, end_delim));
+				ctx->writeBuffer(smgr->currentChar());
+				Token *end_delim_tk = tmgr->new_Token(ctx->buffer(), ctx->finfo);
+				end_delim_tk->info = tmgr->getTokenInfo(TokenType::RegDelim);
+				tmgr->add(end_delim_tk);
+				ctx->clearBuffer();
+				isRegexStarted = false;
+				skipFlag = false;
+				regex_delim = 0;
+				brace_count_inner_regex = 0;
+				cury_brace_count_inner_regex = 0;
+				bracket_count_inner_regex = 0;
+				return true;
+			}
+
 			switch (cur_ch) {
 			case '{': brace_count_inner_regex++;
 				break;

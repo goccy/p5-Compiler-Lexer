@@ -16,9 +16,10 @@ public:
 	TokenInfo undefined_info;
 	Token *head;
 	TokenPool *pool;
+	bool verbose;
 
 	TokenManager(void);
-	TokenManager(size_t script_size);
+	TokenManager(size_t script_size, bool verbose);
 	inline Token *new_Token(char *data, FileInfo finfo) {
 		Token *ret = pool++;
 		ret->stype = Enum::Parser::Syntax::Value;
@@ -45,7 +46,6 @@ public:
 	Token *nextToken(Token *tk);
 	Token *beforeLastToken(void);
 	Token *lastToken(void);
-	Token *afterNextToken(void);
 	void remove(size_t idx);
 	inline TokenInfo getTokenInfo(Enum::Token::Type::Type type) {
 		return type_to_info[type];
@@ -141,7 +141,7 @@ public:
 	TokenPos itr;
 	Enum::Token::Type::Type prev_type;
 
-	LexContext(const char *filename, char *script);
+	LexContext(const char *filename, char *script, bool verbose);
 	LexContext(Tokens *tokens);
 
 	inline char *buffer(void) {
@@ -226,6 +226,7 @@ public:
 	bool isRegexOption(const char *opt);
 	char getRegexDelim(LexContext *ctx);
 	Token *scanQuote(LexContext *ctx, char quote);
+	Token *scanRegQuote(LexContext *ctx, char delim);
 	Token *scanNewLineKeyword(LexContext *ctx);
 	Token *scanTabKeyword(LexContext *ctx);
 	Token *scanPrevSymbol(LexContext *ctx, char symbol);
