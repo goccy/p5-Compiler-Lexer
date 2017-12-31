@@ -495,6 +495,29 @@ Token *Scanner::scanCurSymbol(LexContext *ctx, char symbol)
 		isPrototypeStarted = true;
 		skipFlag = true;
 	} else if (symbol != '\n') {
+		if (prev_tk && symbol == '^') {
+			ScriptManager *smgr = ctx->smgr;
+			switch (prev_tk->info.type) {
+			/* ${m} or @{m} or %{m} or &{m} or $#{m} */
+			case TokenType::ArrayDereference:
+			case TokenType::HashDereference:
+			case TokenType::ScalarDereference:
+			case TokenType::CodeDereference:
+			case TokenType::ArraySizeDereference:
+				for (; !smgr->end(); smgr->next()) {
+					char ch = smgr->currentChar();
+					if (ch == '}') {
+						break;
+					}
+					ctx->writeBuffer(ch);
+				}
+				ret = ctx->tmgr->new_Token(ctx->buffer(), ctx->finfo);
+				ret->info = ctx->tmgr->getTokenInfo(TokenType::Key);
+				ctx->clearBuffer();
+				return ret;
+			default: break;
+			}
+		}
 		ctx->writeBuffer(symbol);
 		ret = ctx->tmgr->new_Token(ctx->buffer(), ctx->finfo);
 		ctx->clearBuffer();
@@ -876,7 +899,7 @@ Token *Scanner::scanWhiteSpace(LexContext *ctx)
 	TokenManager *tmgr = ctx->tmgr;
 	Token *prev_tk = tmgr->lastToken();
 	TokenType::Type prev_type = (prev_tk) ? prev_tk->info.type : TokenType::Undefined;
-
+	
 	bool does_ws_continue = false;
 	ScriptManager *smgr = ctx->smgr;
 	for (; !smgr->end(); smgr->next()) {
@@ -1008,7 +1031,7 @@ bool Scanner::isSkip(LexContext *ctx)
 				case '<': end_delim = '>'; break;
 				default: end_delim = last_ch; break;
 				}
-				
+
 				tmgr->add(this->scanRegQuote(ctx, end_delim));
 				ctx->writeBuffer(smgr->currentChar());
 				Token *end_delim_tk = tmgr->new_Token(ctx->buffer(), ctx->finfo);
@@ -1140,7 +1163,6 @@ bool Scanner::isSkip(LexContext *ctx)
 			char tag_after_char = script[idx + i];
 			if (i == len && (tag_after_char == '\n' || tag_after_char == EOL)) {
 				ctx->progress = len;
-				if (verbose) ctx->finfo.start_line_num++;
 				Token *tk = ctx->tmgr->new_Token(ctx->buffer(), ctx->finfo);
 				tk->info = tmgr->getTokenInfo(TokenType::HereDocument);
 				ctx->clearBuffer();
@@ -1149,10 +1171,7 @@ bool Scanner::isSkip(LexContext *ctx)
 				tk = ctx->tmgr->new_Token((char *)here_document_tag_tk->_data, ctx->finfo);
 				tk->info = tmgr->getTokenInfo(TokenType::HereDocumentEnd);
 				tmgr->add(tk);
-				if (!verbose) ctx->finfo.start_line_num++;
-				// here_document_tag = "";
 				here_document_tags.pop();
-				// hereDocumentFlag = false;
 				skipFlag = false;
 				ret = false;
 			} else {
