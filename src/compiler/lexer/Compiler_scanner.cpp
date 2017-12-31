@@ -6,7 +6,7 @@ namespace TokenKind = Enum::Token::Kind;
 
 Scanner::Scanner() :
 	isStringStarted(false), isRegexStarted(false), isPrototypeStarted(false), isFormatStarted(false),
-	formatDeclaredToken(NULL), commentFlag(false), hereDocumentFlag(false), skipFlag(false),
+	formatDeclaredToken(NULL), commentFlag(false), skipFlag(false),
 	regex_delim(0), regex_middle_delim(0),
 	brace_count_inner_regex(0), bracket_count_inner_regex(0), cury_brace_count_inner_regex(0)
 {
@@ -132,12 +132,13 @@ Token *Scanner::scanQuote(LexContext *ctx, char quote)
 
 	if (prev_data == "<<" || (before_prev_data == "<<" && prev_data == "\\")) {
 		/* String is HereDocument */
-		here_document_tag = string(ret->_data);
+		std::string here_document_tag = string(ret->_data);
 		here_document_tag_tk = ret;
 		if (here_document_tag == "") {
 			here_document_tag = "\n";
 			here_document_tag_tk->_data = "\n";
 		}
+		here_document_tags.push(here_document_tag);
 		switch (quote) {
 		case '\'':
 			ret->info = tmgr->getTokenInfo(TokenType::HereDocumentRawTag);
@@ -294,7 +295,7 @@ bool Scanner::isHereDocument(LexContext *ctx, Token *tk)
 	char *token = ctx->buffer();
 	if ((tk_data == "<<" || (prev_tk_data == "<<" && tk_data == "\\")) &&
 		strtod(token, NULL) == 0 && string(token) != "0" &&
-		(isupper(token[0]) || token[0] == '_')) {
+		(isupper(token[0]) || islower(token[0]) || token[0] == '_')) {
 		return true;
 	}
 	return false;
@@ -383,7 +384,7 @@ Token *Scanner::scanPrevSymbol(LexContext *ctx, char )
 		if (isHereDocument(ctx, prev_before_tk)) {
 			/* Key is HereDocument */
 			ret = ctx->tmgr->new_Token(token, ctx->finfo);
-			here_document_tag = string(token);
+			here_document_tags.push(string(token));
 			here_document_tag_tk = ret;
 			ret->info = tmgr->getTokenInfo(TokenType::HereDocumentBareTag);
 		} else {
@@ -686,7 +687,7 @@ Token *Scanner::scanWordDelimiter(LexContext *ctx)
 		if (isHereDocument(ctx, ctx->tmgr->lastToken())) {
 			ret = ctx->tmgr->new_Token(token, ctx->finfo);
 			/* Key is HereDocument */
-			here_document_tag = string(token);
+			here_document_tags.push(string(token));
 			here_document_tag_tk = ret;
 			ret->info = tmgr->getTokenInfo(TokenType::HereDocumentBareTag);
 		} else if (string(token) == "format") {
@@ -772,8 +773,7 @@ Token *Scanner::scanLineDelimiter(LexContext *ctx)
 			skipFlag = true;
 		}
 		formatDeclaredToken = NULL;
-	} else if (here_document_tag != "") {
-		hereDocumentFlag = true;
+	} else if (hereDocumentFlag()) {
 		skipFlag = true;
 	}
 	ctx->clearBuffer();
@@ -949,12 +949,12 @@ bool Scanner::isSkip(LexContext *ctx)
 		if (verbose) ctx->writeBuffer(cur_ch);
 		return ret;
 	}
-	if (prev_ch == '\n' && cur_ch == '_' && !hereDocumentFlag &&
+	if (prev_ch == '\n' && cur_ch == '_' && !hereDocumentFlag() &&
 			   smgr->compare(0, 7, "__END__")) {
 		int progress_to_end = ctx->script_size - idx - 1;
 		ctx->progress = progress_to_end;
 		ret = false;
-	} else if (prev_ch == '\n' && cur_ch == '_' && !hereDocumentFlag &&
+	} else if (prev_ch == '\n' && cur_ch == '_' && !hereDocumentFlag() &&
 			   smgr->compare(0, 8, "__DATA__")) {
 		int progress_to_end = ctx->script_size - idx - 1;
 		ctx->progress = progress_to_end;
@@ -1122,7 +1122,8 @@ bool Scanner::isSkip(LexContext *ctx)
 			ctx->writeBuffer(script[idx]);
 			ret = true;
 		}
-	} else if (hereDocumentFlag) {
+	} else if (hereDocumentFlag()) {
+		std::string here_document_tag = here_document_tags.front();
 		size_t len = here_document_tag.size();
 		if (smgr->previousChar() == '\n' && idx + len < ctx->script_size) {
 			size_t i;
@@ -1140,8 +1141,9 @@ bool Scanner::isSkip(LexContext *ctx)
 				tk->info = tmgr->getTokenInfo(TokenType::HereDocumentEnd);
 				tmgr->add(tk);
 				if (!verbose) ctx->finfo.start_line_num++;
-				here_document_tag = "";
-				hereDocumentFlag = false;
+				// here_document_tag = "";
+				here_document_tags.pop();
+				// hereDocumentFlag = false;
 				skipFlag = false;
 				ret = false;
 			} else {

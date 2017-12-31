@@ -193,7 +193,6 @@ public:
 	bool isFormatStarted;
 	Token *formatDeclaredToken;
 	bool commentFlag;
-	bool hereDocumentFlag;
 	bool skipFlag;
 	char start_string_ch;
 	char regex_delim;
@@ -202,7 +201,7 @@ public:
 	int bracket_count_inner_regex;
 	int cury_brace_count_inner_regex;
 	Token *here_document_tag_tk;
-	std::string here_document_tag;
+	StringsQueue here_document_tags;
 	StringMap regex_prefix_map;
 	StringMap regex_replace_map;
 	StringMap enable_regex_argument_func_map;
@@ -243,6 +242,10 @@ public:
 	Token *scanVersionString(LexContext *ctx);
 	Token *scanWhiteSpace(LexContext *ctx);
 	bool scanNegativeNumber(LexContext *ctx, char num);
+
+	inline bool hereDocumentFlag(void) {
+		return here_document_tags.size() > 0;
+	}
 };
 
 class Lexer {
