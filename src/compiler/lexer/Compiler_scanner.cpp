@@ -1163,6 +1163,7 @@ bool Scanner::isSkip(LexContext *ctx)
 			char tag_after_char = script[idx + i];
 			if (i == len && (tag_after_char == '\n' || tag_after_char == EOL)) {
 				ctx->progress = len;
+				if (verbose) ctx->finfo.start_line_num++;
 				Token *tk = ctx->tmgr->new_Token(ctx->buffer(), ctx->finfo);
 				tk->info = tmgr->getTokenInfo(TokenType::HereDocument);
 				ctx->clearBuffer();
