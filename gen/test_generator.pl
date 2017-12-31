@@ -9,14 +9,16 @@ use Cwd qw/getcwd/;
 
 use constant CURRENT_DIR => getcwd;
 use constant YAML_PATH => CURRENT_DIR . '/gen/gen_constants.yaml';
-use constant PERL_DIR => '/path/to/perl-5.16.0';
+use constant PERL_DIR => '/path/to/perl-5.24.1';
 
 my $template = template();
 
 sub slurp {
     my ($filename) = @_;
     open(my $fh, '<', $filename);
-    return do { local $/; <$fh> };
+    my $script = do { local $/; <$fh> };
+    close $fh;
+    return $script;
 }
 
 sub template {
@@ -29,10 +31,11 @@ sub get_constants_map {
 
 sub generate {
     my $filename = shift;
-    my $script = slurp $filename;
-    my $lexer = Compiler::Lexer->new($filename);
+    my $script = slurp($filename);
+    my $lexer = Compiler::Lexer->new('');
     my ($tokens, $stmts, $modules);
     eval {
+        print "$filename: \n";
         $tokens = $lexer->tokenize($script);
         $stmts = $lexer->get_groups_by_syntax_level($tokens, Compiler::Lexer::SyntaxType::T_Stmt);
         $modules = Compiler::Lexer->new($filename)->get_used_modules($script);
@@ -44,7 +47,8 @@ sub generate {
     my $dirname = dirname $filename;
     my $basename = basename $filename;
     $dirname =~ s|(.*)/||;
-    open my $fh, '>', CURRENT_DIR . "/t/perl/$dirname/$basename";
+    mkdir CURRENT_DIR . "/t/perl/$dirname" unless -d "/t/perl/$dirname";
+    open my $fh, '>', CURRENT_DIR . "/t/perl/$dirname/$basename" or die $!;
     my $constans_map = get_constants_map;
     my $type = $constans_map->{token_type};
     my $kind = $constans_map->{token_kind};
@@ -76,6 +80,7 @@ sub generate {
     my @filtered = map { $_ =~ s/\$VAR1 = //; $_ =~ s/;$//; $_; } ($tmp1, $tmp2, $tmp3);
     print $fh sprintf($template, $script, @filtered);
     print "generated ", CURRENT_DIR . "/t/perl/$dirname/$basename\n";
+    close $fh;
 }
 
 if (@ARGV) {
