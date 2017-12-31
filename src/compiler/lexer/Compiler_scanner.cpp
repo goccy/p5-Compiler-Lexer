@@ -160,14 +160,22 @@ Token *Scanner::scanRegQuote(LexContext *ctx, char delim)
 {
 	TokenManager *tmgr = ctx->tmgr;
 	ScriptManager *smgr = ctx->smgr;
+
+	bool will_expand = delim == '}';
+	int brace_count_inner_quote = 0;
+
 	for (; !smgr->end(); smgr->next()) {
 		char ch = smgr->currentChar();
 		if (ch == '\n') {
 			ctx->writeBuffer(ch);
 			ctx->finfo.start_line_num++;
-		} else if (ch == delim) {
+		} else if (brace_count_inner_quote == 0 && ch == delim) {
 			break;
 		} else {
+			if (will_expand) {
+				if (ch == '{') brace_count_inner_quote++;
+				else if (ch == '}') brace_count_inner_quote--;
+			}
 			ctx->writeBuffer(ch);
 		}
 	}
