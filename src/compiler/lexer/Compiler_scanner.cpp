@@ -997,6 +997,7 @@ bool Scanner::isSkip(LexContext *ctx)
 				case '{': end_delim = '}'; break;
 				case '[': end_delim = ']'; break;
 				case '(': end_delim = ')'; break;
+				case '<': end_delim = '>'; break;
 				default: end_delim = last_ch; break;
 				}
 				
