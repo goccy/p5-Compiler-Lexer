@@ -16,84 +16,84 @@ subtest 'tokenize' => sub {
     is_deeply($tokens, [
           bless( {
                    'name' => 'BuiltinFunc',
-                   'line' => 2,
-                   'has_warnings' => 0,
+                   'data' => 'chdir',
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'type' => Compiler::Lexer::TokenType::T_BuiltinFunc,
-                   'data' => 'chdir',
-                   'kind' => Compiler::Lexer::Kind::T_Function
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
                    'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'data' => 't',
-                   'type' => Compiler::Lexer::TokenType::T_RawString,
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'name' => 'RawString',
+                   'kind' => Compiler::Lexer::Kind::T_Function,
                    'line' => 2
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'name' => 'IfStmt',
                    'line' => 2,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
+                   'has_warnings' => 0,
+                   'type' => Compiler::Lexer::TokenType::T_RawString,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'name' => 'RawString',
+                   'data' => 't'
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'name' => 'IfStmt',
+                   'data' => 'if',
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'has_warnings' => 0,
                    'type' => Compiler::Lexer::TokenType::T_IfStmt,
-                   'data' => 'if',
-                   'kind' => Compiler::Lexer::Kind::T_Stmt
+                   'kind' => Compiler::Lexer::Kind::T_Stmt,
+                   'line' => 2
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'line' => 2,
-                   'name' => 'Handle',
-                   'kind' => Compiler::Lexer::Kind::T_Handle,
-                   'data' => '-d',
-                   'type' => Compiler::Lexer::TokenType::T_Handle,
                    'has_warnings' => 0,
+                   'kind' => Compiler::Lexer::Kind::T_Handle,
+                   'type' => Compiler::Lexer::TokenType::T_Handle,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'line' => 2,
+                   'data' => '-d',
+                   'name' => 'Handle'
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'name' => 'RawString',
+                   'data' => 't',
+                   'line' => 2,
+                   'has_warnings' => 0,
+                   'type' => Compiler::Lexer::TokenType::T_RawString,
+                   'kind' => Compiler::Lexer::Kind::T_Term,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'data' => ';',
+                   'name' => 'SemiColon',
+                   'line' => 2,
+                   'kind' => Compiler::Lexer::Kind::T_StmtEnd,
+                   'has_warnings' => 0,
+                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value
+                 }, 'Compiler::Lexer::Token' ),
+          bless( {
+                   'line' => 3,
+                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
+                   'has_warnings' => 0,
+                   'type' => Compiler::Lexer::TokenType::T_RequireDecl,
+                   'kind' => Compiler::Lexer::Kind::T_Decl,
+                   'data' => 'require',
+                   'name' => 'RequireDecl'
                  }, 'Compiler::Lexer::Token' ),
           bless( {
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'has_warnings' => 0,
                    'kind' => Compiler::Lexer::Kind::T_Term,
-                   'data' => 't',
                    'type' => Compiler::Lexer::TokenType::T_RawString,
-                   'line' => 2,
+                   'line' => 3,
+                   'data' => './thread_it.pl',
                    'name' => 'RawString'
                  }, 'Compiler::Lexer::Token' ),
           bless( {
-                   'line' => 2,
-                   'name' => 'SemiColon',
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
-                   'data' => ';',
                    'type' => Compiler::Lexer::TokenType::T_SemiColon,
-                   'kind' => Compiler::Lexer::Kind::T_StmtEnd
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'line' => 3,
-                   'name' => 'RequireDecl',
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'has_warnings' => 0,
-                   'data' => 'require',
-                   'type' => Compiler::Lexer::TokenType::T_RequireDecl,
-                   'kind' => Compiler::Lexer::Kind::T_Decl
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'line' => 3,
-                   'name' => 'RawString',
-                   'type' => Compiler::Lexer::TokenType::T_RawString,
-                   'data' => './thread_it.pl',
-                   'kind' => Compiler::Lexer::Kind::T_Term,
-                   'has_warnings' => 0,
-                   'stype' => Compiler::Lexer::SyntaxType::T_Value
-                 }, 'Compiler::Lexer::Token' ),
-          bless( {
-                   'data' => ';',
                    'kind' => Compiler::Lexer::Kind::T_StmtEnd,
-                   'type' => Compiler::Lexer::TokenType::T_SemiColon,
-                   'has_warnings' => 0,
                    'stype' => Compiler::Lexer::SyntaxType::T_Value,
                    'line' => 3,
-                   'name' => 'SemiColon'
+                   'name' => 'SemiColon',
+                   'data' => ';'
                  }, 'Compiler::Lexer::Token' )
         ]
 , 'Compiler::Lexer::tokenize');
@@ -105,22 +105,22 @@ subtest 'get_groups_by_syntax_level' => sub {
     my $stmts = $lexer->get_groups_by_syntax_level($tokens, Compiler::Lexer::SyntaxType::T_Stmt);
     is_deeply($stmts, [
           {
-            'has_warnings' => 0,
             'end_line' => 2,
-            'src' => ' chdir \'t\' if -d \'t\' ;',
-            'token_num' => 6,
+            'has_warnings' => 0,
             'block_id' => 0,
+            'token_num' => 6,
             'start_line' => 2,
+            'src' => ' chdir \'t\' if -d \'t\' ;',
             'indent' => 0
           },
           {
-            'start_line' => 3,
-            'indent' => 0,
             'block_id' => 0,
-            'src' => ' require \'./thread_it.pl\' ;',
             'token_num' => 3,
             'end_line' => 3,
-            'has_warnings' => 0
+            'has_warnings' => 0,
+            'indent' => 0,
+            'src' => ' require \'./thread_it.pl\' ;',
+            'start_line' => 3
           }
         ]
 , 'Compiler::Lexer::get_groups_by_syntax_level');
