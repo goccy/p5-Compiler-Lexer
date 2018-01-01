@@ -250,8 +250,9 @@ public:
 
 class Lexer {
 public:
-	TokenPos start_pos;
-	TokenPos pos;
+	TokenPos head;
+	size_t start_pos;
+	size_t pos;
 	FileInfo finfo;
 	const char *filename;
 	bool verbose;

@@ -514,6 +514,7 @@ Token *Scanner::scanCurSymbol(LexContext *ctx, char symbol)
 				ret = ctx->tmgr->new_Token(ctx->buffer(), ctx->finfo);
 				ret->info = ctx->tmgr->getTokenInfo(TokenType::Key);
 				ctx->clearBuffer();
+				smgr->back(); // }
 				return ret;
 			default: break;
 			}

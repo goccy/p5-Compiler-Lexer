@@ -251,10 +251,12 @@ void Lexer::grouping(Tokens *tokens)
 
 void Lexer::prepare(Tokens *tokens)
 {
-	pos = tokens->begin();
+	head = tokens->begin();
+	pos = 0;
 	start_pos = pos;
+	TokenPos start_tk_pos = tokens->begin();
 	TokenPos it = tokens->begin();
-	TokenPos tag_pos = start_pos;
+	TokenPos tag_pos = head + start_pos;
 	while (it != tokens->end()) {
 		Token *t = ITER_CAST(Token *, it);
 		switch (t->info.type) {
@@ -263,7 +265,7 @@ void Lexer::prepare(Tokens *tokens)
 			tag_pos = it;
 			break;
 		case TokenType::HereDocument: {
-			assert(tag_pos != start_pos && "ERROR!: nothing use HereDocumentTag");
+			assert(tag_pos != start_tk_pos && "ERROR!: nothing use HereDocumentTag");
 			Token *tag = ITER_CAST(Token *, tag_pos);
 			switch (tag->info.type) {
 				case TokenType::HereDocumentTag: case TokenType::HereDocumentBareTag:
@@ -335,18 +337,18 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 	using namespace TokenType;
 	Type prev_type = Undefined;
 	TokenKind::Kind prev_kind = TokenKind::Undefined;
-	TokenPos end_pos = tokens->end();
+	size_t end_pos = tokens->size();
 	Tokens *new_tokens = new Tokens();
-	TokenPos intermediate_pos = pos;
+	size_t intermediate_pos = pos;
 	Token *prev_syntax = NULL;
 	if (start_token) {
 		new_tokens->push_back(start_token);
 		intermediate_pos--;
 	}
-	TokenPos start_pos = pos;
+	start_pos = pos;
 
-	while (pos != end_pos) {
-		Token *t = ITER_CAST(Token *, pos);
+	for (; pos < end_pos; pos++) {
+		Token *t = ITER_CAST(Token *, head + pos);
 		Type type = t->info.type;
 		TokenKind::Kind kind = t->info.kind;
 		switch (type) {
@@ -354,7 +356,7 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 		case ArrayDereference: case HashDereference: case ScalarDereference:
 		case ArraySizeDereference: {
 			// Syntax error, It didn't close the brackets.
-			if (pos+1 == end_pos) {
+			if (pos + 1 >= end_pos) {
 				/* Maybe we should use croak? */
 				fprintf(stderr, 
 					"ERROR!!: It didn't close the brackets. near %s:%lu\n",
@@ -371,7 +373,7 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 		}
 		case LeftBrace: {
 			// Syntax error, It didn't close the brackets.
-			if (pos+1 == end_pos) {
+			if (pos + 1 >= end_pos) {
 				/* Maybe we should use croak? */
 				fprintf(stderr, 
 					"ERROR!!: It didn't close the brace. near %s:%lu\n",
@@ -379,8 +381,8 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 				);
 				exit(EXIT_FAILURE);
 			}
-			Token *prev = pos != start_pos ? ITER_CAST(Token *, pos-1) : NULL;
-			if (prev) prev_type = prev->info.type;
+			Token *prev = pos > 0 ? ITER_CAST(Token *, head + (pos - 1)) : NULL;
+			prev_type = (prev) ? prev->info.type : Undefined;
 			pos++;
 			Token *syntax = parseSyntax(t, tokens);
 			if (isExpr(syntax, prev_syntax, prev_type, prev_kind)) {
@@ -392,8 +394,8 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 				syntax->stype = SyntaxType::BlockStmt;
 			} else {
 				syntax->stype = SyntaxType::BlockStmt;
-				if (pos+1 != end_pos) {
-					Token *next_tk = ITER_CAST(Token *, pos+1);
+				if (pos + 1 < end_pos) {
+					Token *next_tk = ITER_CAST(Token *, head + (pos + 1));
 					if (next_tk && next_tk->info.type != SemiColon) {
 						intermediate_pos = pos;
 					}
@@ -409,7 +411,7 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 			break; /* not reached this stmt */
 		case SemiColon: {
 			size_t k = pos - intermediate_pos;
-			Token *intermediate_tk = ITER_CAST(Token *, intermediate_pos);
+			Token *intermediate_tk = ITER_CAST(Token *, head + intermediate_pos);
 			if (start_pos == intermediate_pos && intermediate_tk->info.type != LeftBrace) {
 				k++;
 			}
@@ -436,7 +438,6 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 		prev_kind = kind;
 		prev_type = type;
 		// We should prevent to increment pos over the end_pos
-		if (pos != end_pos) pos++; 
 	}
 	return new Token(new_tokens);
 }
@@ -535,7 +536,7 @@ void Lexer::parseSpecificStmt(Token *syntax)
 			break;
 		case FunctionDecl:
 			if (tk_n > i+1 &&
-				tks[i+1]->info.type == SyntaxType::BlockStmt) {
+				tks[i+1]->stype == SyntaxType::BlockStmt) {
 				/* sub BlockStmt */
 				insertStmt(syntax, i, 2);
 				tk_n -= 1;
