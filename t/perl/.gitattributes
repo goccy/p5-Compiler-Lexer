@@ -1,1 +1,2 @@
 *.t -diff -text
+*.t linguist-generated
