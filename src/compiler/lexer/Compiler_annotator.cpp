@@ -172,7 +172,7 @@ void Annotator::annotateReservedKeyword(LexContext *ctx, const string &, Token *
 
 	TokenManager *tmgr = ctx->tmgr;
 	Token *prev_tk = tmgr->previousToken(tk);
-	if (reserved_info.type == IfStmt && prev_tk->info.type == UseDecl) {
+	if (reserved_info.type == IfStmt && prev_tk && prev_tk->info.type == UseDecl) {
 		// For `if` statement which is used at `use` declaration.
 		// It should be treated as a `UsedName` instead of `IfStmt`.
 		// e.g.

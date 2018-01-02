@@ -700,11 +700,11 @@ Token *Scanner::scanSymbol(LexContext *ctx)
 	char next_ch = smgr->nextChar();
 	char after_next_ch = smgr->afterNextChar();
 	if (ctx->existsBuffer()) ctx->tmgr->add(scanPrevSymbol(ctx, symbol));
-
+	
 	if (!isRegexStarted) {
 		ret = scanPostDeref(ctx);
 		if (!ret) ret = scanTripleCharacterOperator(ctx, symbol, next_ch, after_next_ch);
-		if (!ret) ret = scanDoubleCharacterOperator(ctx, symbol, next_ch);
+		if (!ret && !isRegex(ctx)) ret = scanDoubleCharacterOperator(ctx, symbol, next_ch);
 	}
 	if (!ret) ret = scanCurSymbol(ctx, symbol);
 	return ret;
@@ -941,6 +941,14 @@ Token *Scanner::scanWhiteSpace(LexContext *ctx)
 
 #undef NEXT
 #undef PREDICT
+
+bool Scanner::isRegex(LexContext *ctx) {
+	Token *prev_tk = ctx->tmgr->lastToken();
+	string prev_data = string(prev_tk ? prev_tk->_data : "");
+	TokenType::Type prev_type = prev_tk ? prev_tk->info.type : TokenType::Undefined;
+	bool isRegexArg = enable_regex_argument_func_map.find(prev_data) != enable_regex_argument_func_map.end();
+	return isRegexArg || prev_type == TokenType::RegOK;
+}
 
 bool Scanner::isSkip(LexContext *ctx)
 {

@@ -219,6 +219,7 @@ public:
 	bool isPostDeref(LexContext *ctx);
 	bool isFormat(LexContext *ctx, Token *tk);
 	bool isVersionString(LexContext *ctx);
+	bool isRegex(LexContext *ctx);
 	bool isSkip(LexContext *ctx);
 	bool isPrototype(LexContext *ctx);
 	bool isRegexOptionPrevToken(LexContext *ctx);
