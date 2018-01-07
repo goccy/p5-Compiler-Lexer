@@ -6,7 +6,7 @@ namespace TokenKind = Enum::Token::Kind;
 
 Scanner::Scanner() :
 	isStringStarted(false), isRegexStarted(false), isPrototypeStarted(false), isFormatStarted(false),
-	formatDeclaredToken(NULL), commentFlag(false), skipFlag(false),
+	formatDeclaredTokenIdx(0), formatDeclaredTokenFlag(false), commentFlag(false), skipFlag(false),
 	regex_delim(0), regex_middle_delim(0),
 	brace_count_inner_regex(0), bracket_count_inner_regex(0), cury_brace_count_inner_regex(0)
 {
@@ -325,10 +325,10 @@ bool Scanner::isRegexDelim(LexContext *ctx, Token *prev_token, char symbol)
 		/* ${m} or @{m} or %{m} or &{m} or $#{m} or $Var{m} */
 		if (symbol == '}') {
 			/* more back */
-			prev_token = ctx->tmgr->previousToken(prev_token);
+			prev_token = ctx->tmgr->previousToken();
 			prev_tk = string((prev_token) ? prev_token->_data : "");
 			
-			Token *more_prev_tk = ctx->tmgr->previousToken(prev_token);
+			Token *more_prev_tk = ctx->tmgr->beforePreviousToken();
 			if (more_prev_tk && more_prev_tk->_data[0] == '$') {
 				return false;
 			}
@@ -727,9 +727,10 @@ Token *Scanner::scanWordDelimiter(LexContext *ctx)
 
 			// if it has been declared `format` (means it has been in format context),
 			// this token should not be FormatDecl. Check here.
-			if (formatDeclaredToken == NULL) { // when it has not been in format context
+			if (formatDeclaredTokenIdx == 0) { // when it has not been in format context
 				ret->info = tmgr->getTokenInfo(TokenType::FormatDecl);
-				formatDeclaredToken = ret;
+				formatDeclaredTokenIdx = tmgr->currentIdx() + 1;
+				formatDeclaredTokenFlag = true;
 			}
 		} else if (token[0] != '\n' || token[1] != EOL) {
 			ret = ctx->tmgr->new_Token(token, ctx->finfo);
@@ -787,24 +788,25 @@ Token *Scanner::scanLineDelimiter(LexContext *ctx)
 	Token *last_tk = ctx->tmgr->lastToken();
 	string data = (ret) ? string(ret->_data) :
 		(last_tk) ? string(last_tk->_data) : "";
-	if (formatDeclaredToken != NULL && data == "=") {
+	if (formatDeclaredTokenFlag && data == "=") {
 		TokenManager *tmgr = ctx->tmgr;
-		Token *currentToken = tmgr->lastToken();
-		Token *prev_token = tmgr->previousToken(currentToken);
-		Token *before_prev_token = tmgr->beforePreviousToken(currentToken);
+		Token *prev_token = tmgr->previousToken();
+		Token *before_prev_token = tmgr->beforePreviousToken();
 		if (
 				(prev_token != NULL && prev_token->info.type != Enum::Token::Type::FormatDecl) &&
 				(before_prev_token != NULL && before_prev_token->info.type != Enum::Token::Type::FormatDecl)
 		   ) {
 			// When reach here, maybe `FormatDecl` which was declared previous is invalid.
 			// So downgrade a doubtful token to `Undefined` and don't deal as format context.
-			formatDeclaredToken->info.type = Enum::Token::Type::Undefined;
+			Token *t = ctx->tmgr->at(formatDeclaredTokenIdx);
+			t->info.type = Enum::Token::Type::Undefined;
 		} else {
 			// format context.
 			isFormatStarted = true;
 			skipFlag = true;
 		}
-		formatDeclaredToken = NULL;
+		formatDeclaredTokenFlag = false;
+		formatDeclaredTokenIdx = 0;
 	} else if (hereDocumentFlag()) {
 		skipFlag = true;
 	}
@@ -899,7 +901,6 @@ Token *Scanner::scanWhiteSpace(LexContext *ctx)
 {
 	TokenManager *tmgr = ctx->tmgr;
 	Token *prev_tk = tmgr->lastToken();
-	TokenType::Type prev_type = (prev_tk) ? prev_tk->info.type : TokenType::Undefined;
 	
 	bool does_ws_continue = false;
 	ScriptManager *smgr = ctx->smgr;

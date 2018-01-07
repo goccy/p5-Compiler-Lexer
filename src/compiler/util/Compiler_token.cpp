@@ -42,7 +42,7 @@ Token::Token(Tokens *tokens) :
 	size_t end_line_num = 0;
 	finfo.indent = 0;
 	for (; i < size; i++) {
-		Token *t = (Token *)*pos;
+		Token *t = pos->get();
 		tks[i] = t;
 		if (t->info.has_warnings) {
 			info.has_warnings = true;

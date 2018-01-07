@@ -11,6 +11,7 @@
 #include <unistd.h>
 #include <algorithm>
 #include <assert.h>
+#include <memory>
 
 #define EOL '\0'
 #define MAX_TOKEN_SIZE 4096
@@ -41,7 +42,7 @@ class AnnotateMethods;
 class AnnotateMethodIterator;
 typedef std::vector<Module *> Modules;
 typedef std::map<std::string, std::string> StringMap;
-typedef std::vector<Token *>::iterator TokenPos;
+typedef std::vector< std::unique_ptr<Token> >::iterator TokenPos;
 extern void *safe_malloc(size_t size);
 extern void safe_free(void *ptr, size_t size);
 
