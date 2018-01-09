@@ -36,7 +36,7 @@ Token::Token(RawTokens *tokens) :
 	_data = "";
 	size_t size = tokens->size();
 	TokenPos pos = tokens->begin();
-	tks = (Token **)safe_malloc(size * PTR_SIZE);
+	tks = (Token **)new Token[size];
 	token_num = size;
 	size_t i = 0;
 	size_t end_line_num = 0;
@@ -48,8 +48,8 @@ Token::Token(RawTokens *tokens) :
 			info.has_warnings = true;
 		}
 		if (i == 0) {
-			finfo.start_line_num = tks[i]->finfo.start_line_num;
-			finfo.filename = tks[i]->finfo.filename;
+			finfo.start_line_num = t->finfo.start_line_num;
+			finfo.filename = t->finfo.filename;
 		}
 		if (t->total_token_num > 1) {
 			total_token_num += t->total_token_num;

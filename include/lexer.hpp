@@ -41,12 +41,10 @@ public:
 	Token *beforePreviousToken(size_t i);
 	Token *previousToken(void);
 	Token *previousToken(size_t i);
-	//Token *currentToken(void);
 	Token *nextToken(void);
 	Token *nextToken(size_t i);
 	Token *beforeLastToken(void);
 	Token *lastToken(void);
-	// void remove(size_t idx);
 	inline TokenInfo getTokenInfo(Enum::Token::Type::Type type) {
 		return type_to_info[type];
 	}
@@ -60,11 +58,6 @@ public:
 	inline void add(Token *tk) {
 		if (tk) tokens->add(tk);
 	}
-/*
-	bool end(void);
-	Token *next(void);
-	Token *back(void);
-*/
 };
 
 class ScriptManager {
@@ -192,7 +185,6 @@ public:
 	bool isRegexStarted;
 	bool isPrototypeStarted;
 	bool isFormatStarted;
-//	Token *formatDeclaredToken;
 	size_t formatDeclaredTokenIdx;
 	bool formatDeclaredTokenFlag;
 	bool commentFlag;

@@ -58,7 +58,7 @@ CODE:
 	Tokens *tokens = self->tokenize((char *)script);
 	AV* ret  = new_Array();
 	size_t size = tokens->size();
-	HV *stash = (HV *)gv_stashpv("Compiler::Lexer::Token", sizeof("Compiler::Lexer::Token"));
+	HV *stash = (HV *)gv_stashpv("Compiler::Lexer::Token", TRUE);
 	for (size_t i = 0; i < size; i++) {
 		Token *token = tokens->get(i);
 		HV *hash = (HV*)new_Hash();
