@@ -167,13 +167,12 @@ void Lexer::clearContext(void)
 	ctx = NULL;
 }
 
-void Lexer::dump(Tokens *tokens)
+void Lexer::dump(RawTokens *tokens)
 {
-	TokenPos it = tokens->begin();
-	while (it != tokens->end()) {
-		Token *t = it->get();
+	size_t size = tokens->size();
+	for (size_t i = 0; i < size; i++) {
+		Token *t = tokens->at(i);
 		fprintf(stdout, "[%-12s] : %12s \n", t->_data, t->info.name);
-		it++;
 	}
 }
 
@@ -188,14 +187,14 @@ void Lexer::annotateTokens(LexContext *ctx, Tokens *tokens)
 	}
 }
 
-void Lexer::grouping(Tokens *tokens)
+void Lexer::grouping(RawTokens *tokens)
 {
 	using namespace TokenType;
 	TokenPos pos = tokens->begin();
 	string ns = "";
 	Token *next_tk = NULL;
 	while (pos != tokens->end()) {
-		Token *tk = pos->get();
+		Token *tk = ITER_CAST(Token *, pos);
 		if (!tk) break;
 		switch (tk->info.type) {
 		case Var: case GlobalVar: case GlobalHashVar:
@@ -204,13 +203,13 @@ void Lexer::grouping(Tokens *tokens)
 			TokenPos start_pos = pos+1;
 			size_t move_count = 0;
 			do {
-				tk = pos->get();
+				tk = ITER_CAST(Token *, pos);
 				if (tk) ns += string(tk->_data);
 				else break;
 				pos++;
 				move_count++;
 				if (pos == tokens->end()) break;
-				next_tk = pos->get();
+				next_tk = ITER_CAST(Token *, pos);
 			} while ((tk->info.type == NamespaceResolver &&
 					 (next_tk && next_tk->info.kind != TokenKind::Symbol &&
 					  next_tk->info.kind != TokenKind::StmtEnd)) ||
@@ -226,7 +225,7 @@ void Lexer::grouping(Tokens *tokens)
 		}
 		case ArraySize: {
 			Token *as_token = tk;
-			Token *next_tk = (pos + 1)->get();
+			Token *next_tk = ITER_CAST(Token *, pos+1);
 			TokenType::Type type = next_tk->info.type;
 			if (type == Key || type == Var || type == GlobalVar) {
 				string new_str = string(as_token->_data) + string(next_tk->_data);
@@ -237,7 +236,7 @@ void Lexer::grouping(Tokens *tokens)
 		}
 		case ShortScalarDereference: case ShortArrayDereference:
 		case ShortHashDereference:   case ShortCodeDereference: {
-			Token *next_tk = (pos + 1)->get();
+			Token *next_tk = ITER_CAST(Token *, pos+1);
 			if (!next_tk) break;
 			Token *sp_token = tk;
 			string new_str = string(sp_token->_data) + string(next_tk->_data);
@@ -252,7 +251,7 @@ void Lexer::grouping(Tokens *tokens)
 	}
 }
 
-void Lexer::prepare(Tokens *tokens)
+void Lexer::prepare(RawTokens *tokens)
 {
 	head = tokens->begin();
 	pos = 0;
@@ -261,7 +260,7 @@ void Lexer::prepare(Tokens *tokens)
 	TokenPos it = tokens->begin();
 	TokenPos tag_pos = head + start_pos;
 	while (it != tokens->end()) {
-		Token *t = it->get();
+		Token *t = ITER_CAST(Token *, it);
 		switch (t->info.type) {
 		case TokenType::HereDocumentTag: case TokenType::HereDocumentRawTag:
 		case TokenType::HereDocumentExecTag: case TokenType::HereDocumentBareTag:
@@ -269,7 +268,7 @@ void Lexer::prepare(Tokens *tokens)
 			break;
 		case TokenType::HereDocument: {
 			assert(tag_pos != start_tk_pos && "ERROR!: nothing use HereDocumentTag");
-			Token *tag = tag_pos->get();
+			Token *tag = ITER_CAST(Token *, tag_pos);
 			switch (tag->info.type) {
 				case TokenType::HereDocumentTag: case TokenType::HereDocumentBareTag:
 				tag->info.type = Enum::Token::Type::RegDoubleQuote;
@@ -335,23 +334,23 @@ bool Lexer::isExpr(Token *tk, Token *prev_tk, TokenType::Type type, TokenKind::K
 	return false;
 }
 
-Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
+Token *Lexer::parseSyntax(Token *start_token, RawTokens *tokens)
 {
 	using namespace TokenType;
 	Type prev_type = Undefined;
 	TokenKind::Kind prev_kind = TokenKind::Undefined;
 	size_t end_pos = tokens->size();
-	Tokens *new_tokens = new Tokens();
+	RawTokens *new_tokens = new RawTokens();
 	size_t intermediate_pos = pos;
 	Token *prev_syntax = NULL;
 	if (start_token) {
-		new_tokens->add(start_token);
+		new_tokens->push_back(start_token);
 		intermediate_pos--;
 	}
 	start_pos = pos;
 
 	for (; pos < end_pos; pos++) {
-		Token *t = (head + pos)->get();
+		Token *t = ITER_CAST(Token *, head + pos);
 		Type type = t->info.type;
 		TokenKind::Kind kind = t->info.kind;
 		switch (type) {
@@ -370,7 +369,7 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 			pos++;
 			Token *syntax = parseSyntax(t, tokens);
 			syntax->stype = SyntaxType::Expr;
-			new_tokens->add(syntax);
+			new_tokens->push_back(syntax);
 			prev_syntax = syntax;
 			break;
 		}
@@ -384,7 +383,7 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 				);
 				exit(EXIT_FAILURE);
 			}
-			Token *prev = pos > 0 ? (head + (pos - 1))->get() : NULL;
+			Token *prev = pos > 0 ? ITER_CAST(Token *, head + (pos - 1)) : NULL;
 			prev_type = (prev) ? prev->info.type : Undefined;
 			pos++;
 			Token *syntax = parseSyntax(t, tokens);
@@ -398,44 +397,43 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 			} else {
 				syntax->stype = SyntaxType::BlockStmt;
 				if (pos + 1 < end_pos) {
-					Token *next_tk = (head + (pos + 1))->get();
+					Token *next_tk = ITER_CAST(Token *, head + (pos + 1));
 					if (next_tk && next_tk->info.type != SemiColon) {
 						intermediate_pos = pos;
 					}
 				}
 			}
-			new_tokens->add(syntax);
+			new_tokens->push_back(syntax);
 			prev_syntax = syntax;
 			break;
 		}
 		case RightBrace: case RightBracket: case RightParenthesis:
-			new_tokens->add(t);
+			new_tokens->push_back(t);
 			return new Token(new_tokens);
 			break; /* not reached this stmt */
 		case SemiColon: {
 			size_t k = pos - intermediate_pos;
-			Token *intermediate_tk = (head + intermediate_pos)->get();
+			Token *intermediate_tk = ITER_CAST(Token *, head + intermediate_pos);
 			if (start_pos == intermediate_pos && intermediate_tk->info.type != LeftBrace) {
 				k++;
 			}
-			Tokens *stmt = new Tokens();
+			RawTokens *stmt = new RawTokens();
 			for (size_t j = 0; j < k - 1; j++) {
-				Token *tk = new_tokens->back().get();
+				Token *tk = new_tokens->back();
 				j += (tk->total_token_num > 0) ? tk->total_token_num - 1 : 0;
-				std::unique_ptr<Token> ptr = std::unique_ptr<Token>(tk);
-				stmt->insert(stmt->begin(), std::move(ptr));
+				stmt->insert(stmt->begin(), tk);
 				new_tokens->pop_back();
 			}
-			stmt->add(t);
+			stmt->push_back(t);
 			Token *stmt_ = new Token(stmt);
 			stmt_->stype = SyntaxType::Stmt;
-			new_tokens->add(stmt_);
+			new_tokens->push_back(stmt_);
 			intermediate_pos = pos;
 			prev_syntax = stmt_;
 			break;
 		}
 		default:
-			new_tokens->add(t);
+			new_tokens->push_back(t);
 			prev_syntax = NULL;
 			break;
 		}
@@ -452,10 +450,10 @@ void Lexer::insertStmt(Token *syntax, int idx, size_t grouping_num)
 	size_t tk_n = syntax->token_num;
 	Token **tks = syntax->tks;
 	Token *tk = tks[idx];
-	Tokens *stmt = new Tokens();
-	stmt->add(tk);
+	RawTokens *stmt = new RawTokens();
+	stmt->push_back(tk);
 	for (size_t i = 1; i < grouping_num; i++) {
-		stmt->add(tks[idx+i]);
+		stmt->push_back(tks[idx+i]);
 	}
 	Token *stmt_ = new Token(stmt);
 	stmt_->stype = SyntaxType::Stmt;
@@ -695,20 +693,17 @@ void Lexer::dumpSyntax(Token *syntax, int indent)
 	}
 }
 
-Tokens *Lexer::getTokensBySyntaxLevel(Token *root, SyntaxType::Type type)
+RawTokens *Lexer::getTokensBySyntaxLevel(Token *root, SyntaxType::Type type)
 {
-	Tokens *ret = new Tokens();
+	RawTokens *ret = new RawTokens();
 	for (size_t i = 0; i < root->token_num; i++) {
 		Token **tks = root->tks;
 		if (tks[i]->stype == type) {
-			ret->add(tks[i]);
+			ret->push_back(tks[i]);
 		}
 		if (tks[i]->token_num > 0) {
-			Tokens *new_tks = getTokensBySyntaxLevel(tks[i], type);
-			for (auto &it : *new_tks) {
-				ret->add(it.get());
-			}
-			//ret->insert(ret->end(), new_tks->begin(), new_tks->end());
+			RawTokens *new_tks = getTokensBySyntaxLevel(tks[i], type);
+			ret->insert(ret->end(), new_tks->begin(), new_tks->end());
 		}
 	}
 	return ret;

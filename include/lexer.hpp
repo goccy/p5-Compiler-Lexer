@@ -266,16 +266,16 @@ public:
 	~Lexer(void);
 	Tokens *tokenize(char *script);
 	void clearContext(void);
-	void grouping(Tokens *tokens);
-	void prepare(Tokens *tokens);
-	Token *parseSyntax(Token *start_token, Tokens *tokens);
+	void grouping(RawTokens *tokens);
+	void prepare(RawTokens *tokens);
+	Token *parseSyntax(Token *start_token, RawTokens *tokens);
 	void parseSpecificStmt(Token *root);
 	void setIndent(Token *tk, int indent);
 	void setBlockIDWithBreadthFirst(Token *tk, size_t base_id);
 	void setBlockIDWithDepthFirst(Token *tk, size_t *block_id);
-	void dump(Tokens *tokens);
+	void dump(RawTokens *tokens);
 	void dumpSyntax(Token *tk, int indent);
-	Tokens *getTokensBySyntaxLevel(Token *root, Enum::Parser::Syntax::Type type);
+	RawTokens *getTokensBySyntaxLevel(Token *root, Enum::Parser::Syntax::Type type);
 	Modules *getUsedModules(Token *root);
 private:
 	void annotateTokens(LexContext *ctx, Tokens *tokens);

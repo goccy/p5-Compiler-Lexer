@@ -22,7 +22,7 @@ Token::Token(string data_, FileInfo finfo_) :
 	finfo.indent = 0;
 }
 
-Token::Token(Tokens *tokens) :
+Token::Token(RawTokens *tokens) :
 	deparsed_data(""), isDeparsed(false), isDeleted(false)
 {
 	total_token_num = 0;
@@ -42,7 +42,7 @@ Token::Token(Tokens *tokens) :
 	size_t end_line_num = 0;
 	finfo.indent = 0;
 	for (; i < size; i++) {
-		Token *t = pos->get();
+		Token *t = (Token *)*pos;
 		tks[i] = t;
 		if (t->info.has_warnings) {
 			info.has_warnings = true;
@@ -113,4 +113,14 @@ const char *Token::deparse(void)
 	}
 	deparsed_data = (new string(data))->c_str();//cstr(deparsed_data);
 	return deparsed_data;
+}
+
+// destructive method 
+RawTokens *Tokens::raws() {
+	RawTokens *tks = new RawTokens(size());
+	for (auto &obj : *this) {
+		std::unique_ptr<Token> ptr = std::move(obj);
+		tks->emplace_back(ptr.release());
+	}
+	return tks;
 }

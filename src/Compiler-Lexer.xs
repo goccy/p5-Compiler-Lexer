@@ -58,8 +58,9 @@ CODE:
 	Tokens *tokens = self->tokenize((char *)script);
 	AV* ret  = new_Array();
 	size_t size = tokens->size();
+	HV *stash = (HV *)gv_stashpv("Compiler::Lexer::Token", sizeof("Compiler::Lexer::Token"));
 	for (size_t i = 0; i < size; i++) {
-		Token *token = tokens->at(i);
+		Token *token = tokens->get(i);
 		HV *hash = (HV*)new_Hash();
 		(void)hv_stores(hash, "stype", set(new_Int(token->stype)));
 		(void)hv_stores(hash, "type", set(new_Int(token->info.type)));
@@ -68,7 +69,6 @@ CODE:
 		(void)hv_stores(hash, "has_warnings", set(new_Int(token->info.has_warnings)));
 		(void)hv_stores(hash, "name", set(new_String(token->info.name, strlen(token->info.name))));
 		(void)hv_stores(hash, "data", set(new_String(token->_data, strlen(token->_data))));
-		HV *stash = (HV *)gv_stashpv("Compiler::Lexer::Token", sizeof("Compiler::Lexer::Token"));
 		av_push(ret, set(sv_bless(new_Ref(hash), stash)));
 	}
 	self->clearContext();
@@ -89,7 +89,7 @@ CODE:
 		RETVAL = NULL;
 		return;
 	}
-	Tokens tks;
+	RawTokens *tks = new RawTokens((size_t)tokens_size);
 	for (int i = 0; i <= tokens_size; i++) {
 		SV *token_ = (SV *)*av_fetch(tokens_, i, FALSE);
 		if (sv_isa(token_, "Compiler::Lexer::Token")) {
@@ -116,19 +116,19 @@ CODE:
 		tk->info = info;
 		tk->type = type;
 		tk->_data = data;
-		tks.push_back(tk);
+		tks->push_back(tk);
 	}
-	self->grouping(&tks);
-	self->prepare(&tks);
+	self->grouping(tks);
+	self->prepare(tks);
 	//self->dump(&tks);
-	Token *root = self->parseSyntax(NULL, &tks);
+	Token *root = self->parseSyntax(NULL, tks);
 	//self->dumpSyntax(root, 0);
 	self->parseSpecificStmt(root);
 	//self->dumpSyntax(root, 0);
 	self->setIndent(root, 0);
 	size_t block_id = 0;
 	self->setBlockIDWithDepthFirst(root, &block_id);
-	Tokens *stmts = self->getTokensBySyntaxLevel(root, (Enum::Parser::Syntax::Type)syntax_level);
+	RawTokens *stmts = self->getTokensBySyntaxLevel(root, (Enum::Parser::Syntax::Type)syntax_level);
 	AV* ret  = new_Array();
 	for (size_t i = 0; i < stmts->size(); i++) {
 		Token *stmt = stmts->at(i);
@@ -155,7 +155,8 @@ get_used_modules(self, script)
    const char *script
 CODE:
 {
-	Tokens *tokens = self->tokenize((char *)script);
+	Tokens *_tokens = self->tokenize((char *)script);
+	RawTokens *tokens = _tokens->raws();
 	self->grouping(tokens);
 	self->prepare(tokens);
 	Token *root = self->parseSyntax(NULL, tokens);
@@ -185,7 +186,8 @@ deparse(filename, script)
 CODE:
 {
 	Lexer lexer(filename, false);
-	Tokens *tokens = lexer.tokenize((char *)script);
+	Tokens *_tokens = lexer.tokenize((char *)script);
+	RawTokens *tokens = _tokens->raws();
 	lexer.grouping(tokens);
 	lexer.prepare(tokens);
 	Token *root = lexer.parseSyntax(NULL, tokens);

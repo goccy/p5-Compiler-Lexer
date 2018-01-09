@@ -36,13 +36,14 @@
 class TokenInfo;
 class Token;
 class Tokens;
+class RawTokens;
 class Module;
 class Annotator;
 class AnnotateMethods;
 class AnnotateMethodIterator;
 typedef std::vector<Module *> Modules;
 typedef std::map<std::string, std::string> StringMap;
-typedef std::vector< std::unique_ptr<Token> >::iterator TokenPos;
+typedef std::vector<Token *>::iterator TokenPos;
 extern void *safe_malloc(size_t size);
 extern void safe_free(void *ptr, size_t size);
 
