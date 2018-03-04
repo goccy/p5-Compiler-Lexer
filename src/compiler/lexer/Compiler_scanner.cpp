@@ -6,7 +6,7 @@ namespace TokenKind = Enum::Token::Kind;
 
 Scanner::Scanner() :
 	isStringStarted(false), isRegexStarted(false), isPrototypeStarted(false), isFormatStarted(false),
-	formatDeclaredToken(NULL), commentFlag(false), hereDocumentFlag(false), skipFlag(false),
+	formatDeclaredToken(NULL), commentFlag(false), skipFlag(false),
 	regex_delim(0), regex_middle_delim(0),
 	brace_count_inner_regex(0), bracket_count_inner_regex(0), cury_brace_count_inner_regex(0)
 {
@@ -37,17 +37,21 @@ Scanner::Scanner() :
 		/*"$$",*/  "$<",  "$>",  "$(",  "$)",  "$[",  "$]",
 		NULL
 	};
+	const char *dereference_prefixes[] = {
+		"@{", "%{", "${", "&{", "$#{", NULL
+	};
 	for (size_t i = 0; regex_prefixes[i] != NULL; i++) {
 		regex_prefix_map.insert(StringMap::value_type(regex_prefixes[i], ""));
 	}
 	for (size_t i = 0; regex_replaces[i] != NULL; i++) {
 		enable_regex_argument_func_map.insert(StringMap::value_type(enable_regex_argument_funcs[i], ""));
-	}
-	for (size_t i = 0; regex_replaces[i] != NULL; i++) {
 		regex_replace_map.insert(StringMap::value_type(regex_replaces[i], ""));
 	}
 	for (size_t i = 0; operators[i] != NULL; i++) {
 		operator_map.insert(StringMap::value_type(operators[i], ""));
+	}
+	for (size_t i = 0; dereference_prefixes[i] != NULL; i++) {
+		dereference_prefix_map.insert(StringMap::value_type(dereference_prefixes[i], ""));
 	}
 }
 
@@ -128,12 +132,13 @@ Token *Scanner::scanQuote(LexContext *ctx, char quote)
 
 	if (prev_data == "<<" || (before_prev_data == "<<" && prev_data == "\\")) {
 		/* String is HereDocument */
-		here_document_tag = string(ret->_data);
+		std::string here_document_tag = string(ret->_data);
 		here_document_tag_tk = ret;
 		if (here_document_tag == "") {
 			here_document_tag = "\n";
 			here_document_tag_tk->_data = "\n";
 		}
+		here_document_tags.push(here_document_tag);
 		switch (quote) {
 		case '\'':
 			ret->info = tmgr->getTokenInfo(TokenType::HereDocumentRawTag);
@@ -148,6 +153,39 @@ Token *Scanner::scanQuote(LexContext *ctx, char quote)
 			break;
 		}
 	}
+	return ret;
+}
+
+Token *Scanner::scanRegQuote(LexContext *ctx, char delim)
+{
+	TokenManager *tmgr = ctx->tmgr;
+	ScriptManager *smgr = ctx->smgr;
+
+	bool will_expand = delim == '}';
+	int brace_count_inner_quote = 0;
+
+	for (; !smgr->end(); smgr->next()) {
+		char ch = smgr->currentChar();
+		if (ch == '\n') {
+			ctx->writeBuffer(ch);
+			ctx->finfo.start_line_num++;
+		} else if (brace_count_inner_quote == 0 && ch == delim) {
+			break;
+		} else {
+			if (will_expand) {
+				if (ch == '{') brace_count_inner_quote++;
+				else if (ch == '}') brace_count_inner_quote--;
+			}
+			ctx->writeBuffer(ch);
+		}
+	}
+	if (smgr->end()) smgr->back();
+
+	char *token = ctx->buffer();
+	Token *ret = tmgr->new_Token(token, ctx->finfo);
+	ret->info = tmgr->getTokenInfo(TokenType::RegExp);
+	ctx->clearBuffer();
+
 	return ret;
 }
 
@@ -180,7 +218,7 @@ bool Scanner::isRegexStartDelim(LexContext *ctx, const StringMap &map)
 {
 	/* exclude { m } or { m => ... } or { m, ... } or *m or //m */
 	string prev_data = string(ctx->buffer());
-	//... [before_prev_token] [prev_token] [symbol] ...
+	//... [more_before_prev_token] [before_prev_token] [prev_token] [symbol] ...
 	if (map.find(prev_data) == map.end()) return false;
 	Token *before_prev_token = ctx->tmgr->lastToken();
 	string before_prev_data = (before_prev_token) ? string(before_prev_token->_data) : "";
@@ -193,7 +231,16 @@ bool Scanner::isRegexStartDelim(LexContext *ctx, const StringMap &map)
 	if (before_prev_data == "*") return false;  /* glob */
 	if (before_prev_data == "&") return false;  /* function call */
 	if (before_prev_data == "::") return false; /* method call */
-	if (symbol == '}' || symbol == '=' || symbol == ')') return false;
+	/* ${m} or @{m} or %{m} or &{m} or $#{m} or $Var{m} */
+	if (symbol == '}') {
+		Token *more_before_prev_token = ctx->tmgr->beforeLastToken();
+		if (more_before_prev_token && more_before_prev_token->_data[0] == '$') {
+			return false;
+		}
+		/* it will return true if before_prev_data is not dereference */
+		return dereference_prefix_map.find(before_prev_data) == dereference_prefix_map.end();
+	}
+	if (symbol == '=' || symbol == ')' || symbol == '>') return false;
 	if (before_prev_kind == TokenKind::Modifier) return false; /* dereference */
 	return true;
 }
@@ -256,7 +303,7 @@ bool Scanner::isHereDocument(LexContext *ctx, Token *tk)
 	char *token = ctx->buffer();
 	if ((tk_data == "<<" || (prev_tk_data == "<<" && tk_data == "\\")) &&
 		strtod(token, NULL) == 0 && string(token) != "0" &&
-		(isupper(token[0]) || token[0] == '_')) {
+		(isupper(token[0]) || islower(token[0]) || token[0] == '_')) {
 		return true;
 	}
 	return false;
@@ -267,7 +314,7 @@ bool Scanner::isFormat(LexContext *, Token *tk)
 	return (string(tk->_data) == "format") ? true : false;
 }
 
-bool Scanner::isRegexDelim(Token *prev_token, char symbol)
+bool Scanner::isRegexDelim(LexContext *ctx, Token *prev_token, char symbol)
 {
 	const char *prev_data = (prev_token) ? prev_token->_data : "";
 	/* [^0-9] && !"0" && !CONST && !{hash} && ![array] && !func() && !$var */
@@ -275,6 +322,19 @@ bool Scanner::isRegexDelim(Token *prev_token, char symbol)
 	if (regex_delim == 0 && prev_token && prev_token->info.type == TokenType::Undefined &&
 		(symbol != '-' && symbol != '=' && symbol != ',' && symbol != ')') &&
 		regex_prefix_map.find(prev_tk) != regex_prefix_map.end()) {
+		/* ${m} or @{m} or %{m} or &{m} or $#{m} or $Var{m} */
+		if (symbol == '}') {
+			/* more back */
+			prev_token = ctx->tmgr->previousToken(prev_token);
+			prev_tk = string((prev_token) ? prev_token->_data : "");
+			
+			Token *more_prev_tk = ctx->tmgr->previousToken(prev_token);
+			if (more_prev_tk && more_prev_tk->_data[0] == '$') {
+				return false;
+			}
+			/* it will return true if before_prev_data is not dereference */
+			return dereference_prefix_map.find(prev_tk) == dereference_prefix_map.end();
+		}
 		return true;
 	} else if (regex_delim == 0 && prev_token &&
 			   (prev_token->info.kind == TokenKind::RegPrefix || prev_token->info.kind == TokenKind::RegReplacePrefix)) {
@@ -332,7 +392,7 @@ Token *Scanner::scanPrevSymbol(LexContext *ctx, char )
 		if (isHereDocument(ctx, prev_before_tk)) {
 			/* Key is HereDocument */
 			ret = ctx->tmgr->new_Token(token, ctx->finfo);
-			here_document_tag = string(token);
+			here_document_tags.push(string(token));
 			here_document_tag_tk = ret;
 			ret->info = tmgr->getTokenInfo(TokenType::HereDocumentBareTag);
 		} else {
@@ -386,7 +446,7 @@ Token *Scanner::scanCurSymbol(LexContext *ctx, char symbol)
 	int idx = ctx->tmgr->size() - 2;
 	string prev_before = (idx >= 0) ? string(ctx->tmgr->beforeLastToken()->_data) : "";
 	if ((prev_before != "sub" && !isRegexOptionPrevToken(ctx) &&
-		 isRegexDelim(prev_tk, symbol)) ||
+		 isRegexDelim(ctx, prev_tk, symbol)) ||
 		(prev_data   == "{"   && symbol == '/')) {
 		if (!isRegexEndDelim(ctx)) {
 			regex_delim = getRegexDelim(ctx);
@@ -404,6 +464,24 @@ Token *Scanner::scanCurSymbol(LexContext *ctx, char symbol)
 		ret = ctx->tmgr->new_Token(ctx->buffer(), ctx->finfo);
 		ret->info = tmgr->getTokenInfo(TokenType::RegDelim);
 		ctx->clearBuffer();
+	} else if (symbol == '*') {
+		char ch = symbol;
+		size_t progressing = 0;
+		ScriptManager *smgr = ctx->smgr;
+		ctx->writeBuffer(ch);
+		/* skip whitespaces */
+		do {
+			smgr->idx++;
+			progressing++;
+			if (smgr->end()) break;
+			ch = smgr->currentChar();
+		} while (ch == ' ' || ch == '\n');
+		/* rollback */
+		smgr->idx -= progressing;
+		/* if syntax is like *[a-zA-Z_] */
+		if (isalpha(ch) || ch == '_') return ret;
+		ret = ctx->tmgr->new_Token(ctx->buffer(), ctx->finfo);
+		ctx->clearBuffer();
 	} else if (symbol == '@' || symbol == '$' || symbol == '%') { //|| symbol == '&')
 		ctx->writeBuffer(symbol);
 	} else if (symbol == ';') {
@@ -417,6 +495,30 @@ Token *Scanner::scanCurSymbol(LexContext *ctx, char symbol)
 		isPrototypeStarted = true;
 		skipFlag = true;
 	} else if (symbol != '\n') {
+		if (prev_tk && symbol == '^') {
+			ScriptManager *smgr = ctx->smgr;
+			switch (prev_tk->info.type) {
+			/* ${m} or @{m} or %{m} or &{m} or $#{m} */
+			case TokenType::ArrayDereference:
+			case TokenType::HashDereference:
+			case TokenType::ScalarDereference:
+			case TokenType::CodeDereference:
+			case TokenType::ArraySizeDereference:
+				for (; !smgr->end(); smgr->next()) {
+					char ch = smgr->currentChar();
+					if (ch == '}') {
+						break;
+					}
+					ctx->writeBuffer(ch);
+				}
+				ret = ctx->tmgr->new_Token(ctx->buffer(), ctx->finfo);
+				ret->info = ctx->tmgr->getTokenInfo(TokenType::Key);
+				ctx->clearBuffer();
+				smgr->back(); // }
+				return ret;
+			default: break;
+			}
+		}
 		ctx->writeBuffer(symbol);
 		ret = ctx->tmgr->new_Token(ctx->buffer(), ctx->finfo);
 		ctx->clearBuffer();
@@ -598,11 +700,11 @@ Token *Scanner::scanSymbol(LexContext *ctx)
 	char next_ch = smgr->nextChar();
 	char after_next_ch = smgr->afterNextChar();
 	if (ctx->existsBuffer()) ctx->tmgr->add(scanPrevSymbol(ctx, symbol));
-
+	
 	if (!isRegexStarted) {
 		ret = scanPostDeref(ctx);
 		if (!ret) ret = scanTripleCharacterOperator(ctx, symbol, next_ch, after_next_ch);
-		if (!ret) ret = scanDoubleCharacterOperator(ctx, symbol, next_ch);
+		if (!ret && !isRegex(ctx)) ret = scanDoubleCharacterOperator(ctx, symbol, next_ch);
 	}
 	if (!ret) ret = scanCurSymbol(ctx, symbol);
 	return ret;
@@ -617,7 +719,7 @@ Token *Scanner::scanWordDelimiter(LexContext *ctx)
 		if (isHereDocument(ctx, ctx->tmgr->lastToken())) {
 			ret = ctx->tmgr->new_Token(token, ctx->finfo);
 			/* Key is HereDocument */
-			here_document_tag = string(token);
+			here_document_tags.push(string(token));
 			here_document_tag_tk = ret;
 			ret->info = tmgr->getTokenInfo(TokenType::HereDocumentBareTag);
 		} else if (string(token) == "format") {
@@ -703,8 +805,7 @@ Token *Scanner::scanLineDelimiter(LexContext *ctx)
 			skipFlag = true;
 		}
 		formatDeclaredToken = NULL;
-	} else if (here_document_tag != "") {
-		hereDocumentFlag = true;
+	} else if (hereDocumentFlag()) {
 		skipFlag = true;
 	}
 	ctx->clearBuffer();
@@ -799,35 +900,28 @@ Token *Scanner::scanWhiteSpace(LexContext *ctx)
 	TokenManager *tmgr = ctx->tmgr;
 	Token *prev_tk = tmgr->lastToken();
 	TokenType::Type prev_type = (prev_tk) ? prev_tk->info.type : TokenType::Undefined;
-
-	if (prev_type == TokenType::Comment || prev_type == TokenType::Pod) {
-		// Add WhiteSpace token (data: '\n') for Comment or Pod token
-		// Because the newline character is not on the trailing of those tokens
-		ctx->writeBuffer('\n');
-		ctx->finfo.start_line_num = prev_tk->finfo.start_line_num;
-	} else {
-		bool does_ws_continue = false;
-		ScriptManager *smgr = ctx->smgr;
-		for (; !smgr->end(); smgr->next()) {
-			char ch = smgr->currentChar();
-			if (ch == ' ' || ch == '\t') {
-				// For normal whitespace.
-				// It collects into one token when a whitespace continues.
-				ctx->writeBuffer(ch);
-				does_ws_continue = true;
-				continue;
-			} else if (!does_ws_continue && ch == '\n') {
-				// For newline character.
-				// It should be on the same line to before token.
-				ctx->writeBuffer(ch);
-				if (verbose && prev_type != TokenType::HereDocumentEnd) {
-					ctx->finfo.start_line_num = prev_tk->finfo.start_line_num;
-				}
-				break;
+	
+	bool does_ws_continue = false;
+	ScriptManager *smgr = ctx->smgr;
+	for (; !smgr->end(); smgr->next()) {
+		char ch = smgr->currentChar();
+		if (ch == ' ' || ch == '\t') {
+			// For normal whitespace.
+			// It collects into one token when a whitespace continues.
+			ctx->writeBuffer(ch);
+			does_ws_continue = true;
+			continue;
+		} else if (!does_ws_continue && ch == '\n') {
+			// For newline character.
+			// It should be on the same line to before token.
+			ctx->writeBuffer(ch);
+			if (verbose) {
+				ctx->finfo.start_line_num = (prev_tk != NULL) ? prev_tk->finfo.start_line_num : 1;
 			}
-			smgr->back();
 			break;
 		}
+		smgr->back();
+		break;
 	}
 
 	if (!verbose) {
@@ -835,14 +929,26 @@ Token *Scanner::scanWhiteSpace(LexContext *ctx)
 		return NULL;
 	}
 
-	Token *token = tmgr->new_Token(ctx->buffer(), ctx->finfo);
-	token->info = tmgr->getTokenInfo(TokenType::WhiteSpace);
-	ctx->clearBuffer();
-	return token;
+	if (ctx->existsBuffer()) {
+		Token *token = tmgr->new_Token(ctx->buffer(), ctx->finfo);
+		token->info = tmgr->getTokenInfo(TokenType::WhiteSpace);
+		ctx->clearBuffer();
+		return token;
+	}
+
+	return NULL;
 }
 
 #undef NEXT
 #undef PREDICT
+
+bool Scanner::isRegex(LexContext *ctx) {
+	Token *prev_tk = ctx->tmgr->lastToken();
+	string prev_data = string(prev_tk ? prev_tk->_data : "");
+	TokenType::Type prev_type = prev_tk ? prev_tk->info.type : TokenType::Undefined;
+	bool isRegexArg = enable_regex_argument_func_map.find(prev_data) != enable_regex_argument_func_map.end();
+	return isRegexArg || prev_type == TokenType::RegOK;
+}
 
 bool Scanner::isSkip(LexContext *ctx)
 {
@@ -860,7 +966,7 @@ bool Scanner::isSkip(LexContext *ctx)
 		isalnum(smgr->nextChar())) {
 		if (smgr->compare(1, 3, "cut")) {
 			DBG_PL("commentFlag => OFF");
-			ctx->progress = 4;
+			smgr->idx += 4;
 			commentFlag = false;
 			ret = false;
 			if (verbose) {
@@ -883,12 +989,12 @@ bool Scanner::isSkip(LexContext *ctx)
 		if (verbose) ctx->writeBuffer(cur_ch);
 		return ret;
 	}
-	if (prev_ch == '\n' && cur_ch == '_' && !hereDocumentFlag &&
+	if (prev_ch == '\n' && cur_ch == '_' && !hereDocumentFlag() &&
 			   smgr->compare(0, 7, "__END__")) {
 		int progress_to_end = ctx->script_size - idx - 1;
 		ctx->progress = progress_to_end;
 		ret = false;
-	} else if (prev_ch == '\n' && cur_ch == '_' && !hereDocumentFlag &&
+	} else if (prev_ch == '\n' && cur_ch == '_' && !hereDocumentFlag() &&
 			   smgr->compare(0, 8, "__DATA__")) {
 		int progress_to_end = ctx->script_size - idx - 1;
 		ctx->progress = progress_to_end;
@@ -918,18 +1024,56 @@ bool Scanner::isSkip(LexContext *ctx)
     } else if (isRegexStarted) {
 		char before_prev_ch = smgr->beforePreviousChar();
 		if (prev_ch != '\\' || (prev_ch == '\\' && before_prev_ch == '\\')) {
+			Token *last_tk = tmgr->lastToken();
+			Token *before_last_tk = tmgr->beforeLastToken();
+			TokenType::Type prefixType = before_last_tk ? before_last_tk->info.type : TokenType::Undefined;
+			if (last_tk && (prefixType == TokenType::RegQuote
+			|| prefixType == TokenType::RegDoubleQuote
+			|| prefixType == TokenType::RegExec
+			|| prefixType == TokenType::RegList)) {
+				char end_delim;
+				char last_ch = last_tk->_data[0];
+				switch (last_ch) {
+				case '{': end_delim = '}'; break;
+				case '[': end_delim = ']'; break;
+				case '(': end_delim = ')'; break;
+				case '<': end_delim = '>'; break;
+				default: end_delim = last_ch; break;
+				}
+
+				tmgr->add(this->scanRegQuote(ctx, end_delim));
+				ctx->writeBuffer(smgr->currentChar());
+				Token *end_delim_tk = tmgr->new_Token(ctx->buffer(), ctx->finfo);
+				end_delim_tk->info = tmgr->getTokenInfo(TokenType::RegDelim);
+				tmgr->add(end_delim_tk);
+				ctx->clearBuffer();
+				isRegexStarted = false;
+				skipFlag = false;
+				regex_delim = 0;
+				brace_count_inner_regex = 0;
+				cury_brace_count_inner_regex = 0;
+				bracket_count_inner_regex = 0;
+				return true;
+			}
+
 			switch (cur_ch) {
 			case '{': brace_count_inner_regex++;
 				break;
-			case '}': brace_count_inner_regex--;
+			case '}':
+				if (brace_count_inner_regex > 0)
+					brace_count_inner_regex--;
 				break;
 			case '[': bracket_count_inner_regex++;
 				break;
-			case ']': bracket_count_inner_regex--;
+			case ']':
+				if (bracket_count_inner_regex > 0)
+					bracket_count_inner_regex--;
 				break;
 			case '(': cury_brace_count_inner_regex++;
 				break;
-			case ')': cury_brace_count_inner_regex--;
+			case ')':
+				if (cury_brace_count_inner_regex > 0)
+					cury_brace_count_inner_regex--;
 				break;
 			default:
 				break;
@@ -1019,12 +1163,14 @@ bool Scanner::isSkip(LexContext *ctx)
 			ctx->writeBuffer(script[idx]);
 			ret = true;
 		}
-	} else if (hereDocumentFlag) {
+	} else if (hereDocumentFlag()) {
+		std::string here_document_tag = here_document_tags.front();
 		size_t len = here_document_tag.size();
 		if (smgr->previousChar() == '\n' && idx + len < ctx->script_size) {
 			size_t i;
-			for (i = 0; i < len && script[idx + i] == here_document_tag.at(i); i++) {}
-			if (i == len) {
+			for (i = 0; i < len && script[idx + i] == here_document_tag.at(i); i++);
+			char tag_after_char = script[idx + i];
+			if (i == len && (tag_after_char == '\n' || tag_after_char == EOL)) {
 				ctx->progress = len;
 				if (verbose) ctx->finfo.start_line_num++;
 				Token *tk = ctx->tmgr->new_Token(ctx->buffer(), ctx->finfo);
@@ -1035,9 +1181,7 @@ bool Scanner::isSkip(LexContext *ctx)
 				tk = ctx->tmgr->new_Token((char *)here_document_tag_tk->_data, ctx->finfo);
 				tk->info = tmgr->getTokenInfo(TokenType::HereDocumentEnd);
 				tmgr->add(tk);
-				if (!verbose) ctx->finfo.start_line_num++;
-				here_document_tag = "";
-				hereDocumentFlag = false;
+				here_document_tags.pop();
 				skipFlag = false;
 				ret = false;
 			} else {

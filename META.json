@@ -4,7 +4,7 @@
       "Masaaki Goshima (goccy) <goccy(at)cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v2.3.0, CPAN::Meta::Converter version 2.143240",
+   "generated_by" : "Minilla/v3.0.11, CPAN::Meta::Converter version 2.150005",
    "license" : [
       "perl_5"
    ],
@@ -32,7 +32,7 @@
       },
       "configure" : {
          "requires" : {
-            "Module::Build" : "0.38",
+            "Module::Build" : "0.4005",
             "Module::Build::XSUtil" : "0.02"
          }
       },
@@ -80,6 +80,8 @@
       "Syohei YOSHIDA <syohex@gmail.com>",
       "brian d foy <brian.d.foy@gmail.com>",
       "moznion <moznion@gmail.com>",
-      "Masaaki Goshima <goccy54@gmail.com>"
-   ]
+      "Masaaki Goshima <goccy54@gmail.com>",
+      "K <x00.x7f@gmail.com>"
+   ],
+   "x_serialization_backend" : "JSON::PP version 2.27300_01"
 }

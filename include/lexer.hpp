@@ -16,9 +16,10 @@ public:
 	TokenInfo undefined_info;
 	Token *head;
 	TokenPool *pool;
+	bool verbose;
 
 	TokenManager(void);
-	TokenManager(size_t script_size);
+	TokenManager(size_t script_size, bool verbose);
 	inline Token *new_Token(char *data, FileInfo finfo) {
 		Token *ret = pool++;
 		ret->stype = Enum::Parser::Syntax::Value;
@@ -45,7 +46,6 @@ public:
 	Token *nextToken(Token *tk);
 	Token *beforeLastToken(void);
 	Token *lastToken(void);
-	Token *afterNextToken(void);
 	void remove(size_t idx);
 	inline TokenInfo getTokenInfo(Enum::Token::Type::Type type) {
 		return type_to_info[type];
@@ -95,7 +95,7 @@ public:
 	}
 
 	inline char currentChar(void) {
-		return raw_script[idx];
+		return idx < script_size ? raw_script[idx] : EOL;
 	}
 
 	inline char nextChar(void) {
@@ -119,7 +119,7 @@ public:
 	}
 
 	inline bool end(void) {
-		return raw_script[idx] == EOL;
+		return idx >= script_size;
 	}
 
 	inline char forward(size_t progress) {
@@ -141,7 +141,7 @@ public:
 	TokenPos itr;
 	Enum::Token::Type::Type prev_type;
 
-	LexContext(const char *filename, char *script);
+	LexContext(const char *filename, char *script, bool verbose);
 	LexContext(Tokens *tokens);
 
 	inline char *buffer(void) {
@@ -193,7 +193,6 @@ public:
 	bool isFormatStarted;
 	Token *formatDeclaredToken;
 	bool commentFlag;
-	bool hereDocumentFlag;
 	bool skipFlag;
 	char start_string_ch;
 	char regex_delim;
@@ -202,10 +201,11 @@ public:
 	int bracket_count_inner_regex;
 	int cury_brace_count_inner_regex;
 	Token *here_document_tag_tk;
-	std::string here_document_tag;
+	StringsQueue here_document_tags;
 	StringMap regex_prefix_map;
 	StringMap regex_replace_map;
 	StringMap enable_regex_argument_func_map;
+	StringMap dereference_prefix_map;
 	DoubleCharactorOperatorMap double_operator_map;
 	TripleCharactorOperatorMap triple_operator_map;
 	StringMap operator_map;
@@ -214,17 +214,19 @@ public:
 	Scanner(void);
 	bool isRegexStartDelim(LexContext *ctx, const StringMap &list);
 	bool isRegexEndDelim(LexContext *ctx);
-	bool isRegexDelim(Token *prev_token, char symbol);
+	bool isRegexDelim(LexContext *ctx, Token *prev_token, char symbol);
 	bool isHereDocument(LexContext *ctx, Token *prev_token);
 	bool isPostDeref(LexContext *ctx);
 	bool isFormat(LexContext *ctx, Token *tk);
 	bool isVersionString(LexContext *ctx);
+	bool isRegex(LexContext *ctx);
 	bool isSkip(LexContext *ctx);
 	bool isPrototype(LexContext *ctx);
 	bool isRegexOptionPrevToken(LexContext *ctx);
 	bool isRegexOption(const char *opt);
 	char getRegexDelim(LexContext *ctx);
 	Token *scanQuote(LexContext *ctx, char quote);
+	Token *scanRegQuote(LexContext *ctx, char delim);
 	Token *scanNewLineKeyword(LexContext *ctx);
 	Token *scanTabKeyword(LexContext *ctx);
 	Token *scanPrevSymbol(LexContext *ctx, char symbol);
@@ -241,12 +243,17 @@ public:
 	Token *scanVersionString(LexContext *ctx);
 	Token *scanWhiteSpace(LexContext *ctx);
 	bool scanNegativeNumber(LexContext *ctx, char num);
+
+	inline bool hereDocumentFlag(void) {
+		return here_document_tags.size() > 0;
+	}
 };
 
 class Lexer {
 public:
-	TokenPos start_pos;
-	TokenPos pos;
+	TokenPos head;
+	size_t start_pos;
+	size_t pos;
 	FileInfo finfo;
 	const char *filename;
 	bool verbose;

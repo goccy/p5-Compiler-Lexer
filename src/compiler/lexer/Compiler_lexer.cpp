@@ -11,7 +11,7 @@ namespace TokenKind = Enum::Token::Kind;
 Module::Module(const char *name_, const char *args_)
 	: name(name_), args(args_) {}
 
-LexContext::LexContext(const char *filename, char *script)
+LexContext::LexContext(const char *filename, char *script, bool verbose)
 	: progress(0), buffer_idx(0)
 {
 	script_size = strlen(script) + 1;
@@ -20,7 +20,7 @@ LexContext::LexContext(const char *filename, char *script)
 	token_buffer[0] = EOL;
 	prev_type = TokenType::Undefined;
 	smgr = new ScriptManager(script);
-	tmgr = new TokenManager(script_size + EXTEND_BUFFER_SIZE);
+	tmgr = new TokenManager(script_size + EXTEND_BUFFER_SIZE, verbose);
 	finfo.start_line_num = 1;
 	finfo.filename = filename;
 }
@@ -40,21 +40,23 @@ Tokens *Lexer::tokenize(char *script)
 {
 	Scanner scanner;
 	scanner.verbose = verbose;
-	ctx = new LexContext(filename, script);
+	ctx = new LexContext(filename, script, verbose);
 	Token *tk = NULL;
 	TokenManager *tmgr = ctx->tmgr;
 	ScriptManager *smgr = ctx->smgr;
-	char ch = smgr->currentChar();
-	for (; ch != EOL; smgr->idx++) {
-		ch = smgr->currentChar();
+	for (char ch; (ch = smgr->currentChar()) != EOL; smgr->idx++) {
 		if (smgr->end()) break;
 		if (ch == '\n') ctx->finfo.start_line_num++;
 		if (scanner.isSkip(ctx)) {
 			continue;
 		} else {
-			smgr->idx += ctx->progress;
-			ctx->progress = 0;
-			if (smgr->end()) break;
+			if (ctx->progress > 0) {
+				smgr->idx += ctx->progress - 1;
+				ctx->progress = 0;
+				if (smgr->end()) break;
+				// We should refetch after refresh the index.
+				continue;
+			}
 		}
 		switch (ch) {
 		case '"': case '\'': case '`':
@@ -249,10 +251,12 @@ void Lexer::grouping(Tokens *tokens)
 
 void Lexer::prepare(Tokens *tokens)
 {
-	pos = tokens->begin();
+	head = tokens->begin();
+	pos = 0;
 	start_pos = pos;
+	TokenPos start_tk_pos = tokens->begin();
 	TokenPos it = tokens->begin();
-	TokenPos tag_pos = start_pos;
+	TokenPos tag_pos = head + start_pos;
 	while (it != tokens->end()) {
 		Token *t = ITER_CAST(Token *, it);
 		switch (t->info.type) {
@@ -261,7 +265,7 @@ void Lexer::prepare(Tokens *tokens)
 			tag_pos = it;
 			break;
 		case TokenType::HereDocument: {
-			assert(tag_pos != start_pos && "ERROR!: nothing use HereDocumentTag");
+			assert(tag_pos != start_tk_pos && "ERROR!: nothing use HereDocumentTag");
 			Token *tag = ITER_CAST(Token *, tag_pos);
 			switch (tag->info.type) {
 				case TokenType::HereDocumentTag: case TokenType::HereDocumentBareTag:
@@ -312,10 +316,13 @@ bool Lexer::isExpr(Token *tk, Token *prev_tk, TokenType::Type type, TokenKind::K
 {
 	using namespace TokenType;
 	assert(tk->tks[0]->info.type == LeftBrace);
-	if (tk->token_num > 3 &&
-		(tk->tks[1]->info.type == Key   || tk->tks[1]->info.type == String) &&
+	if (tk->token_num > 1 && tk->tks[1]->info.type == RightBrace) {
+		return true;
+	} else if (tk->token_num > 3 && (
+		tk->tks[1]->info.type == Key    || tk->tks[1]->info.type == String ||
+		tk->tks[1]->info.type == Int    || tk->tks[1]->info.type == Double) &&
 		(tk->tks[2]->info.type == Arrow || tk->tks[2]->info.type == Comma)) {
-		/* { [key|"key"] [,|=>] value ... */
+		/* { [key|"key"|int|double] [,|=>] value ... */
 		return true;
 	} else if (type == Pointer || (type == Mul || type == Glob) || kind == TokenKind::Term || kind == TokenKind::Function ||/* type == FunctionDecl ||*/
 			((prev_tk && prev_tk->stype == SyntaxType::Expr) && (type == RightBrace || type == RightBracket))) {
@@ -330,22 +337,33 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 	using namespace TokenType;
 	Type prev_type = Undefined;
 	TokenKind::Kind prev_kind = TokenKind::Undefined;
-	TokenPos end_pos = tokens->end();
+	size_t end_pos = tokens->size();
 	Tokens *new_tokens = new Tokens();
-	TokenPos intermediate_pos = pos;
+	size_t intermediate_pos = pos;
 	Token *prev_syntax = NULL;
 	if (start_token) {
 		new_tokens->push_back(start_token);
 		intermediate_pos--;
 	}
-	while (pos != end_pos) {
-		Token *t = ITER_CAST(Token *, pos);
+	start_pos = pos;
+
+	for (; pos < end_pos; pos++) {
+		Token *t = ITER_CAST(Token *, head + pos);
 		Type type = t->info.type;
 		TokenKind::Kind kind = t->info.kind;
 		switch (type) {
 		case LeftBracket: case LeftParenthesis:
 		case ArrayDereference: case HashDereference: case ScalarDereference:
 		case ArraySizeDereference: {
+			// Syntax error, It didn't close the brackets.
+			if (pos + 1 >= end_pos) {
+				/* Maybe we should use croak? */
+				fprintf(stderr, 
+					"ERROR!!: It didn't close the brackets. near %s:%lu\n",
+					t->finfo.filename, t->finfo.start_line_num
+				);
+				exit(EXIT_FAILURE);
+			}
 			pos++;
 			Token *syntax = parseSyntax(t, tokens);
 			syntax->stype = SyntaxType::Expr;
@@ -354,8 +372,17 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 			break;
 		}
 		case LeftBrace: {
-			Token *prev = ITER_CAST(Token *, pos-1);
-			if (prev) prev_type = prev->info.type;
+			// Syntax error, It didn't close the brackets.
+			if (pos + 1 >= end_pos) {
+				/* Maybe we should use croak? */
+				fprintf(stderr, 
+					"ERROR!!: It didn't close the brace. near %s:%lu\n",
+					t->finfo.filename, t->finfo.start_line_num
+				);
+				exit(EXIT_FAILURE);
+			}
+			Token *prev = pos > 0 ? ITER_CAST(Token *, head + (pos - 1)) : NULL;
+			prev_type = (prev) ? prev->info.type : Undefined;
 			pos++;
 			Token *syntax = parseSyntax(t, tokens);
 			if (isExpr(syntax, prev_syntax, prev_type, prev_kind)) {
@@ -367,8 +394,8 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 				syntax->stype = SyntaxType::BlockStmt;
 			} else {
 				syntax->stype = SyntaxType::BlockStmt;
-				if (pos+1 != tokens->end()) {
-					Token *next_tk = ITER_CAST(Token *, pos+1);
+				if (pos + 1 < end_pos) {
+					Token *next_tk = ITER_CAST(Token *, head + (pos + 1));
 					if (next_tk && next_tk->info.type != SemiColon) {
 						intermediate_pos = pos;
 					}
@@ -384,7 +411,7 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 			break; /* not reached this stmt */
 		case SemiColon: {
 			size_t k = pos - intermediate_pos;
-			Token *intermediate_tk = ITER_CAST(Token *, intermediate_pos);
+			Token *intermediate_tk = ITER_CAST(Token *, head + intermediate_pos);
 			if (start_pos == intermediate_pos && intermediate_tk->info.type != LeftBrace) {
 				k++;
 			}
@@ -410,7 +437,7 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 		}
 		prev_kind = kind;
 		prev_type = type;
-		pos++;
+		// We should prevent to increment pos over the end_pos
 	}
 	return new Token(new_tokens);
 }
@@ -509,7 +536,7 @@ void Lexer::parseSpecificStmt(Token *syntax)
 			break;
 		case FunctionDecl:
 			if (tk_n > i+1 &&
-				tks[i+1]->info.type == SyntaxType::BlockStmt) {
+				tks[i+1]->stype == SyntaxType::BlockStmt) {
 				/* sub BlockStmt */
 				insertStmt(syntax, i, 2);
 				tk_n -= 1;

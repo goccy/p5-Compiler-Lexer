@@ -172,7 +172,7 @@ void Annotator::annotateReservedKeyword(LexContext *ctx, const string &, Token *
 
 	TokenManager *tmgr = ctx->tmgr;
 	Token *prev_tk = tmgr->previousToken(tk);
-	if (reserved_info.type == IfStmt && prev_tk->info.type == UseDecl) {
+	if (reserved_info.type == IfStmt && prev_tk && prev_tk->info.type == UseDecl) {
 		// For `if` statement which is used at `use` declaration.
 		// It should be treated as a `UsedName` instead of `IfStmt`.
 		// e.g.
@@ -182,7 +182,29 @@ void Annotator::annotateReservedKeyword(LexContext *ctx, const string &, Token *
 	}
 
 	if (reserved_info.type != TokenType::Undefined && ctx->prev_type != FunctionDecl) {
-		*info = reserved_info;
+		switch (ctx->prev_type) {
+		/* ${m} or @{m} or %{m} or &{m} or $#{m} */
+		case ArrayDereference:
+		case HashDereference:
+		case ScalarDereference:
+		case CodeDereference:
+		case ArraySizeDereference:
+			*info = tmgr->getTokenInfo(Key);
+			break;
+		case HandleDelim: {
+			/* <m> or <tr> */
+			Token *next_tk = ctx->tmgr->nextToken(tk);
+			if (next_tk && next_tk->info.type == HandleDelim &&
+				(reserved_info.type == RegMatch || reserved_info.type == RegAllReplace)) {
+				*info = tmgr->getTokenInfo(Key);
+				break;
+			}
+			/* fallthrough */
+		}
+		default:
+			*info = reserved_info;
+			break;
+		}
 	}
 }
 
@@ -192,7 +214,10 @@ void Annotator::annotateGlobOrMul(LexContext *ctx, const string &, Token *tk, To
 	Token *prev_tk = ctx->tmgr->previousToken(tk);
 	TokenType::Type prev_type = (prev_tk) ? prev_tk->info.type : TokenType::Undefined;
 	TokenKind::Kind prev_kind = (prev_tk) ? prev_tk->info.kind : TokenKind::Undefined;
-	if (prev_type == SemiColon || prev_type == LeftParenthesis ||
+	Token *next_tk = ctx->tmgr->nextToken(tk);
+
+	if ((next_tk && next_tk->_data[0] == '=') ||
+		prev_type == SemiColon || prev_type == LeftParenthesis ||
 		prev_type == LeftBrace || prev_type == Comma ||
 		prev_type == ScalarDereference ||
 		prev_kind == TokenKind::Assign ||

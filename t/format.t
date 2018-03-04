@@ -68,7 +68,7 @@ $test
             'name' => 'VarDecl',
             'data' => 'my',
             'type' => Compiler::Lexer::TokenType::T_VarDecl,
-            'line' => 4
+            'line' => 5
         }, 'Compiler::Lexer::Token' ),
         bless( {
             'kind' => Compiler::Lexer::Kind::T_Term,
@@ -77,7 +77,7 @@ $test
             'name' => 'LocalVar',
             'data' => '$hoge',
             'type' => Compiler::Lexer::TokenType::T_LocalVar,
-            'line' => 4
+            'line' => 5
         }, 'Compiler::Lexer::Token' ),
         bless( {
             'kind' => Compiler::Lexer::Kind::T_StmtEnd,
@@ -86,7 +86,7 @@ $test
             'name' => 'SemiColon',
             'data' => ';',
             'type' => Compiler::Lexer::TokenType::T_SemiColon,
-            'line' => 4
+            'line' => 5
         }, 'Compiler::Lexer::Token' )
     ]);
 };
@@ -146,7 +146,7 @@ $test
             'name' => 'VarDecl',
             'data' => 'my',
             'type' => Compiler::Lexer::TokenType::T_VarDecl,
-            'line' => 4
+            'line' => 5
         }, 'Compiler::Lexer::Token' ),
         bless( {
             'kind' => Compiler::Lexer::Kind::T_Term,
@@ -155,7 +155,7 @@ $test
             'name' => 'LocalVar',
             'data' => '$hoge',
             'type' => Compiler::Lexer::TokenType::T_LocalVar,
-            'line' => 4
+            'line' => 5
         }, 'Compiler::Lexer::Token' ),
         bless( {
             'kind' => Compiler::Lexer::Kind::T_StmtEnd,
@@ -164,7 +164,7 @@ $test
             'name' => 'SemiColon',
             'data' => ';',
             'type' => Compiler::Lexer::TokenType::T_SemiColon,
-            'line' => 4
+            'line' => 5
         }, 'Compiler::Lexer::Token' )
     ]);
 };

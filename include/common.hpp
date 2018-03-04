@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <queue>
 #include <map>
 #include <new>
 #include <unistd.h>
@@ -49,3 +50,4 @@ extern void safe_free(void *ptr, size_t size);
 
 typedef std::map<Enum::Token::Type::Type, TokenInfo> TypeMap;
 typedef std::map<std::string, TokenInfo> TypeDataMap;
+typedef std::queue<std::string> StringsQueue;
