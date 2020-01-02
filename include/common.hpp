@@ -11,6 +11,7 @@
 #include <unistd.h>
 #include <algorithm>
 #include <assert.h>
+#include <memory>
 
 #define EOL '\0'
 #define MAX_TOKEN_SIZE 4096
@@ -35,6 +36,7 @@
 class TokenInfo;
 class Token;
 class Tokens;
+class RawTokens;
 class Module;
 class Annotator;
 class AnnotateMethods;

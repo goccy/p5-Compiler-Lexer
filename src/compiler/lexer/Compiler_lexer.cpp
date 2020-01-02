@@ -15,7 +15,7 @@ LexContext::LexContext(const char *filename, char *script, bool verbose)
 	: progress(0), buffer_idx(0)
 {
 	script_size = strlen(script) + 1;
-	token_buffer = (char *)malloc((script_size + EXTEND_BUFFER_SIZE) * 2);
+	token_buffer = new char[(script_size + EXTEND_BUFFER_SIZE) * 2];
 	buffer_head = token_buffer;
 	token_buffer[0] = EOL;
 	prev_type = TokenType::Undefined;
@@ -156,8 +156,6 @@ Tokens *Lexer::tokenize(char *script)
 
 void Lexer::clearContext(void)
 {
-	free(ctx->tmgr->head);
-	free(ctx->buffer_head);
 	delete ctx->tmgr->tokens;
 	delete ctx->tmgr;
 	delete ctx->smgr;
@@ -165,13 +163,12 @@ void Lexer::clearContext(void)
 	ctx = NULL;
 }
 
-void Lexer::dump(Tokens *tokens)
+void Lexer::dump(RawTokens *tokens)
 {
-	TokenPos it = tokens->begin();
-	while (it != tokens->end()) {
-		Token *t = ITER_CAST(Token *, it);
+	size_t size = tokens->size();
+	for (size_t i = 0; i < size; i++) {
+		Token *t = tokens->at(i);
 		fprintf(stdout, "[%-12s] : %12s \n", t->_data, t->info.name);
-		it++;
 	}
 }
 
@@ -180,12 +177,11 @@ void Lexer::annotateTokens(LexContext *ctx, Tokens *tokens)
 	Annotator annotator;
 	size_t size = tokens->size();
 	for (size_t i = 0; i < size; i++) {
-		Token *tk = tokens->at(i);
-		annotator.annotate(ctx, tk);
+		annotator.annotate(ctx, i);
 	}
 }
 
-void Lexer::grouping(Tokens *tokens)
+void Lexer::grouping(RawTokens *tokens)
 {
 	using namespace TokenType;
 	TokenPos pos = tokens->begin();
@@ -249,7 +245,7 @@ void Lexer::grouping(Tokens *tokens)
 	}
 }
 
-void Lexer::prepare(Tokens *tokens)
+void Lexer::prepare(RawTokens *tokens)
 {
 	head = tokens->begin();
 	pos = 0;
@@ -332,17 +328,17 @@ bool Lexer::isExpr(Token *tk, Token *prev_tk, TokenType::Type type, TokenKind::K
 	return false;
 }
 
-Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
+Token *Lexer::parseSyntax(Token *start_token, RawTokens *tokens)
 {
 	using namespace TokenType;
 	Type prev_type = Undefined;
 	TokenKind::Kind prev_kind = TokenKind::Undefined;
 	size_t end_pos = tokens->size();
-	Tokens *new_tokens = new Tokens();
+	RawTokens *new_tokens = new RawTokens();
 	size_t intermediate_pos = pos;
 	Token *prev_syntax = NULL;
 	if (start_token) {
-		new_tokens->push_back(start_token);
+		new_tokens->emplace_back(start_token);
 		intermediate_pos--;
 	}
 	start_pos = pos;
@@ -367,7 +363,7 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 			pos++;
 			Token *syntax = parseSyntax(t, tokens);
 			syntax->stype = SyntaxType::Expr;
-			new_tokens->push_back(syntax);
+			new_tokens->emplace_back(syntax);
 			prev_syntax = syntax;
 			break;
 		}
@@ -401,12 +397,12 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 					}
 				}
 			}
-			new_tokens->push_back(syntax);
+			new_tokens->emplace_back(syntax);
 			prev_syntax = syntax;
 			break;
 		}
 		case RightBrace: case RightBracket: case RightParenthesis:
-			new_tokens->push_back(t);
+			new_tokens->emplace_back(t);
 			return new Token(new_tokens);
 			break; /* not reached this stmt */
 		case SemiColon: {
@@ -415,23 +411,23 @@ Token *Lexer::parseSyntax(Token *start_token, Tokens *tokens)
 			if (start_pos == intermediate_pos && intermediate_tk->info.type != LeftBrace) {
 				k++;
 			}
-			Tokens *stmt = new Tokens();
+			RawTokens *stmt = new RawTokens();
 			for (size_t j = 0; j < k - 1; j++) {
 				Token *tk = new_tokens->back();
 				j += (tk->total_token_num > 0) ? tk->total_token_num - 1 : 0;
 				stmt->insert(stmt->begin(), tk);
 				new_tokens->pop_back();
 			}
-			stmt->push_back(t);
+			stmt->emplace_back(t);
 			Token *stmt_ = new Token(stmt);
 			stmt_->stype = SyntaxType::Stmt;
-			new_tokens->push_back(stmt_);
+			new_tokens->emplace_back(stmt_);
 			intermediate_pos = pos;
 			prev_syntax = stmt_;
 			break;
 		}
 		default:
-			new_tokens->push_back(t);
+			new_tokens->emplace_back(t);
 			prev_syntax = NULL;
 			break;
 		}
@@ -448,10 +444,10 @@ void Lexer::insertStmt(Token *syntax, int idx, size_t grouping_num)
 	size_t tk_n = syntax->token_num;
 	Token **tks = syntax->tks;
 	Token *tk = tks[idx];
-	Tokens *stmt = new Tokens();
-	stmt->push_back(tk);
+	RawTokens *stmt = new RawTokens();
+	stmt->emplace_back(tk);
 	for (size_t i = 1; i < grouping_num; i++) {
-		stmt->push_back(tks[idx+i]);
+		stmt->emplace_back(tks[idx+i]);
 	}
 	Token *stmt_ = new Token(stmt);
 	stmt_->stype = SyntaxType::Stmt;
@@ -691,16 +687,16 @@ void Lexer::dumpSyntax(Token *syntax, int indent)
 	}
 }
 
-Tokens *Lexer::getTokensBySyntaxLevel(Token *root, SyntaxType::Type type)
+RawTokens *Lexer::getTokensBySyntaxLevel(Token *root, SyntaxType::Type type)
 {
-	Tokens *ret = new Tokens();
+	RawTokens *ret = new RawTokens();
 	for (size_t i = 0; i < root->token_num; i++) {
 		Token **tks = root->tks;
 		if (tks[i]->stype == type) {
-			ret->push_back(tks[i]);
+			ret->emplace_back(tks[i]);
 		}
 		if (tks[i]->token_num > 0) {
-			Tokens *new_tks = getTokensBySyntaxLevel(tks[i], type);
+			RawTokens *new_tks = getTokensBySyntaxLevel(tks[i], type);
 			ret->insert(ret->end(), new_tks->begin(), new_tks->end());
 		}
 	}
@@ -719,7 +715,7 @@ Modules *Lexer::getUsedModules(Token *root)
 			for (i += 2; i < root->token_num && tks[i]->info.type != SemiColon; i++) {
 				args += " " + string(tks[i]->deparse());
 			}
-			ret->push_back(new Module(module_name, (new string(args))->c_str()));
+			ret->emplace_back(new Module(module_name, (new string(args))->c_str()));
 		}
 		if (i < root->token_num && tks[i]->token_num > 0) {
 			Modules *new_mds = getUsedModules(tks[i]);

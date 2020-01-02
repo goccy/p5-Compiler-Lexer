@@ -22,7 +22,7 @@ Token::Token(string data_, FileInfo finfo_) :
 	finfo.indent = 0;
 }
 
-Token::Token(Tokens *tokens) :
+Token::Token(RawTokens *tokens) :
 	deparsed_data(""), isDeparsed(false), isDeleted(false)
 {
 	total_token_num = 0;
@@ -36,7 +36,7 @@ Token::Token(Tokens *tokens) :
 	_data = "";
 	size_t size = tokens->size();
 	TokenPos pos = tokens->begin();
-	tks = (Token **)safe_malloc(size * PTR_SIZE);
+	tks = (Token **)new Token[size];
 	token_num = size;
 	size_t i = 0;
 	size_t end_line_num = 0;
@@ -48,8 +48,8 @@ Token::Token(Tokens *tokens) :
 			info.has_warnings = true;
 		}
 		if (i == 0) {
-			finfo.start_line_num = tks[i]->finfo.start_line_num;
-			finfo.filename = tks[i]->finfo.filename;
+			finfo.start_line_num = t->finfo.start_line_num;
+			finfo.filename = t->finfo.filename;
 		}
 		if (t->total_token_num > 1) {
 			total_token_num += t->total_token_num;
@@ -113,4 +113,14 @@ const char *Token::deparse(void)
 	}
 	deparsed_data = (new string(data))->c_str();//cstr(deparsed_data);
 	return deparsed_data;
+}
+
+// destructive method 
+RawTokens *Tokens::raws() {
+	RawTokens *tks = new RawTokens(size());
+	for (auto &obj : *this) {
+		std::unique_ptr<Token> ptr = std::move(obj);
+		tks->emplace_back(ptr.release());
+	}
+	return tks;
 }

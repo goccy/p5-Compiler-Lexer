@@ -15,7 +15,7 @@ sub new {
         c_source => [qw/src/],
         xs_files => { 'src/Compiler-Lexer.xs' => 'lib/Compiler/Lexer.xs' },
         cc_warnings => 0, # TODO
-        extra_compiler_flags => ['-Iinclude', @ignore_warnings_options, '-g3'],
+        extra_compiler_flags => ['-std=c++14', '-Iinclude', @ignore_warnings_options, '-g3'],
         add_to_cleanup => [
             'lib/Compiler/Lexer/*.o', 'lib/Compiler/Lexer/*.c',
             'lib/Compiler/Lexer/*.xs',

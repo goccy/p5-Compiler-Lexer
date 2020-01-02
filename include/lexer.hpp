@@ -7,7 +7,6 @@ class TokenManager {
 public:
 	Tokens *tokens;
 	size_t max_token_size;
-	size_t idx;
 	TypeMap type_to_info_map;
 	TypeDataMap data_to_info_map;
 	TypeMap::iterator type_to_info_map_end;
@@ -35,18 +34,17 @@ public:
 	Token *at(size_t i);
 	size_t size(void);
 	void dump(void);
-	Token *getTokenByBase(Token *base, int offset);
+	size_t currentIdx();
+	Token *getTokenByBase(size_t base, int offset);
 	Token *getTokenByIdx(size_t idx);
 	Token *beforePreviousToken(void);
-	Token *beforePreviousToken(Token *tk);
+	Token *beforePreviousToken(size_t i);
 	Token *previousToken(void);
-	Token *previousToken(Token *tk);
-	Token *currentToken(void);
+	Token *previousToken(size_t i);
 	Token *nextToken(void);
-	Token *nextToken(Token *tk);
+	Token *nextToken(size_t i);
 	Token *beforeLastToken(void);
 	Token *lastToken(void);
-	void remove(size_t idx);
 	inline TokenInfo getTokenInfo(Enum::Token::Type::Type type) {
 		return type_to_info[type];
 	}
@@ -60,10 +58,6 @@ public:
 	inline void add(Token *tk) {
 		if (tk) tokens->add(tk);
 	}
-
-	bool end(void);
-	Token *next(void);
-	Token *back(void);
 };
 
 class ScriptManager {
@@ -191,7 +185,8 @@ public:
 	bool isRegexStarted;
 	bool isPrototypeStarted;
 	bool isFormatStarted;
-	Token *formatDeclaredToken;
+	size_t formatDeclaredTokenIdx;
+	bool formatDeclaredTokenFlag;
 	bool commentFlag;
 	bool skipFlag;
 	char start_string_ch;
@@ -263,16 +258,16 @@ public:
 	~Lexer(void);
 	Tokens *tokenize(char *script);
 	void clearContext(void);
-	void grouping(Tokens *tokens);
-	void prepare(Tokens *tokens);
-	Token *parseSyntax(Token *start_token, Tokens *tokens);
+	void grouping(RawTokens *tokens);
+	void prepare(RawTokens *tokens);
+	Token *parseSyntax(Token *start_token, RawTokens *tokens);
 	void parseSpecificStmt(Token *root);
 	void setIndent(Token *tk, int indent);
 	void setBlockIDWithBreadthFirst(Token *tk, size_t base_id);
 	void setBlockIDWithDepthFirst(Token *tk, size_t *block_id);
-	void dump(Tokens *tokens);
+	void dump(RawTokens *tokens);
 	void dumpSyntax(Token *tk, int indent);
-	Tokens *getTokensBySyntaxLevel(Token *root, Enum::Parser::Syntax::Type type);
+	RawTokens *getTokensBySyntaxLevel(Token *root, Enum::Parser::Syntax::Type type);
 	Modules *getUsedModules(Token *root);
 private:
 	void annotateTokens(LexContext *ctx, Tokens *tokens);
@@ -287,27 +282,27 @@ public:
 	StringMap funcdecl_map;
 	StringMap pkgdecl_map;
 	Annotator(void);
-	void annotate(LexContext *ctx, Token *tk);
+	void annotate(LexContext *ctx, size_t idx);
 private:
 	bool isRegexOption(const char *opt);
-	void annotateRegOpt(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
-	void annotateNamespace(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
-	void annotateMethod(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
-	void annotateKey(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
-	void annotateShortScalarDereference(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
-	void annotateCallDecl(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
-	void annotateHandleDelimiter(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
-	void annotateReservedKeyword(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
-	void annotateGlobOrMul(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
-	void annotateNamelessFunction(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
-	void annotateLocalVariable(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
-	void annotateVariable(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
-	void annotateGlobalVariable(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
-	void annotateFunction(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
-	void annotateCall(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
-	void annotateClass(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
-	void annotateModuleName(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
-	void annotateBareWord(LexContext *ctx, const std::string &data, Token *tk, TokenInfo *info);
+	void annotateRegOpt(LexContext *ctx, const std::string &data, Token *tk, size_t idx, TokenInfo *info);
+	void annotateNamespace(LexContext *ctx, const std::string &data, Token *tk, size_t idx, TokenInfo *info);
+	void annotateMethod(LexContext *ctx, const std::string &data, Token *tk, size_t idx, TokenInfo *info);
+	void annotateKey(LexContext *ctx, const std::string &data, Token *tk, size_t idx, TokenInfo *info);
+	void annotateShortScalarDereference(LexContext *ctx, const std::string &data, Token *tk, size_t idx, TokenInfo *info);
+	void annotateCallDecl(LexContext *ctx, const std::string &data, Token *tk, size_t idx, TokenInfo *info);
+	void annotateHandleDelimiter(LexContext *ctx, const std::string &data, Token *tk, size_t idx, TokenInfo *info);
+	void annotateReservedKeyword(LexContext *ctx, const std::string &data, Token *tk, size_t idx, TokenInfo *info);
+	void annotateGlobOrMul(LexContext *ctx, const std::string &data, Token *tk, size_t idx, TokenInfo *info);
+	void annotateNamelessFunction(LexContext *ctx, const std::string &data, Token *tk, size_t idx, TokenInfo *info);
+	void annotateLocalVariable(LexContext *ctx, const std::string &data, Token *tk, size_t idx, TokenInfo *info);
+	void annotateVariable(LexContext *ctx, const std::string &data, Token *tk, size_t idx, TokenInfo *info);
+	void annotateGlobalVariable(LexContext *ctx, const std::string &data, Token *tk, size_t idx, TokenInfo *info);
+	void annotateFunction(LexContext *ctx, const std::string &data, Token *tk, size_t idx, TokenInfo *info);
+	void annotateCall(LexContext *ctx, const std::string &data, Token *tk, size_t idx, TokenInfo *info);
+	void annotateClass(LexContext *ctx, const std::string &data, Token *tk, size_t idx, TokenInfo *info);
+	void annotateModuleName(LexContext *ctx, const std::string &data, Token *tk, size_t idx, TokenInfo *info);
+	void annotateBareWord(LexContext *ctx, const std::string &data, Token *tk, size_t idx, TokenInfo *info);
 };
 
 #define isSKIP() commentFlag
