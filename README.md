@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/goccy/p5-Compiler-Lexer.svg?branch=master)](https://travis-ci.org/goccy/p5-Compiler-Lexer) [![Coverage Status](https://img.shields.io/coveralls/goccy/p5-Compiler-Lexer/master.svg)](https://coveralls.io/r/goccy/p5-Compiler-Lexer?branch=master)
+[![Build Status](https://travis-ci.org/goccy/p5-Compiler-Lexer.svg?branch=master)](https://travis-ci.org/goccy/p5-Compiler-Lexer) [![Coverage Status](https://img.shields.io/coveralls/goccy/p5-Compiler-Lexer/master.svg?style=flat)](https://coveralls.io/r/goccy/p5-Compiler-Lexer?branch=master)
 # NAME
 
 Compiler::Lexer - Lexical Analyzer for Perl5
@@ -52,7 +52,7 @@ Compiler::Lexer - Lexical Analyzer for Perl5
 
 # AUTHOR
 
-Masaaki Goshima (goccy) <goccy(at)cpan.org>
+Masaaki Goshima (goccy) &lt;goccy(at)cpan.org>
 
 # CONTRIBUTORS
 
